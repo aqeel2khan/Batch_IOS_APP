@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIr-RB-Qqb" customClass="CustomNavigationBar" customModule="Batch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                <color key="backgroundColor" name="AppThemeBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="50R-q6-yYh"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nno-ZH-tvr">
+                                <rect key="frame" x="0.0" y="110" width="393" height="659"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nno-ZH-tvr" secondAttribute="bottom" id="1Um-jI-Y8N"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="SIr-RB-Qqb" secondAttribute="trailing" id="EIN-cg-wM5"/>
+                            <constraint firstItem="SIr-RB-Qqb" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="FPw-43-Cbf"/>
+                            <constraint firstAttribute="trailing" secondItem="nno-ZH-tvr" secondAttribute="trailing" id="o1s-th-NuJ"/>
+                            <constraint firstItem="nno-ZH-tvr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="o54-qI-aSu"/>
+                            <constraint firstItem="SIr-RB-Qqb" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="quQ-uJ-M6V"/>
+                            <constraint firstItem="nno-ZH-tvr" firstAttribute="top" secondItem="SIr-RB-Qqb" secondAttribute="bottom" constant="-90" id="uNf-c7-KGz"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="shopping" selectedImage="shoppingfill" id="jGq-Gm-sVJ"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="48" y="-23"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="shopping" width="42.333332061767578" height="42"/>
+        <image name="shoppingfill" width="42.333332061767578" height="42"/>
+        <namedColor name="AppThemeBackgroundColor">
+            <color red="0.80000000000000004" green="0.87058823529411766" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

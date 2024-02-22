@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Workout Batches"; ObjectID = "4Vp-Hf-47c"; */
+"4Vp-Hf-47c.text" = "Workout Batches";
+
+/* Class = "UILabel"; text = "Goal"; ObjectID = "I6A-5x-oxa"; */
+"I6A-5x-oxa.text" = "Goal";
+
+/* Class = "UILabel"; text = "Workout Type\n"; ObjectID = "Jxf-9L-c9L"; */
+"Jxf-9L-c9L.text" = "Workout Type\n";
+
+/* Class = "UILabel"; text = "Filter"; ObjectID = "huv-5A-hq0"; */
+"huv-5A-hq0.text" = "Filter";
+
+/* Class = "UILabel"; text = "Level"; ObjectID = "oo2-tI-dLO"; */
+"oo2-tI-dLO.text" = "Level";
+
+/* Class = "UISegmentedControl"; sZV-Ek-dle.segmentTitles[0] = "Batches"; ObjectID = "sZV-Ek-dle"; */
+"sZV-Ek-dle.segmentTitles[0]" = "Batches";
+
+/* Class = "UISegmentedControl"; sZV-Ek-dle.segmentTitles[1] = "Motivators"; ObjectID = "sZV-Ek-dle"; */
+"sZV-Ek-dle.segmentTitles[1]" = "Motivators";

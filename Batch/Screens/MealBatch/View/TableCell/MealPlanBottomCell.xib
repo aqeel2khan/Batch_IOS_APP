@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="264" id="KGk-i7-Jjw" customClass="MealPlanBottomCell" customModule="Batch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="264"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="264"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ncb-H2-HB8">
+                        <rect key="frame" x="5" y="5" width="290" height="254"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="W58-Sq-fjh">
+                                <rect key="frame" x="15" y="15" width="260" height="109"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need help choosing the right Meal Batch?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPJ-Nt-B4w" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="33.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer a few questions or talk to our nutritionist and you'll find the best batch for you based on your needs and calories" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZ3-GD-lGM" customClass="BatchRegularLabel">
+                                        <rect key="frame" x="0.0" y="43.666666666666664" width="260" height="65.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uP5-cd-Jzx">
+                                <rect key="frame" x="20" y="139" width="250" height="95"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKk-No-Xt3" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="40"/>
+                                        <color key="backgroundColor" name="AppThemeButtonColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="P3U-G1-lvH"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Calculate">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFb-Ki-PaN" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55" width="250" height="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Talk to nutritionist  ">
+                                            <color key="titleColor" name="AppThemeButtonColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="AppThemeButtonColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="AppThemeBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uP5-cd-Jzx" firstAttribute="leading" secondItem="Ncb-H2-HB8" secondAttribute="leading" constant="20" id="1kE-Ot-M8u"/>
+                            <constraint firstItem="W58-Sq-fjh" firstAttribute="leading" secondItem="Ncb-H2-HB8" secondAttribute="leading" constant="15" id="4tB-5U-fRr"/>
+                            <constraint firstAttribute="trailing" secondItem="W58-Sq-fjh" secondAttribute="trailing" constant="15" id="90s-t8-SnV"/>
+                            <constraint firstItem="uP5-cd-Jzx" firstAttribute="top" secondItem="W58-Sq-fjh" secondAttribute="bottom" constant="15" id="Gpr-IL-DEQ"/>
+                            <constraint firstAttribute="trailing" secondItem="uP5-cd-Jzx" secondAttribute="trailing" constant="20" id="NgH-sw-EHg"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uP5-cd-Jzx" secondAttribute="bottom" constant="20" id="QOb-Jy-eT2"/>
+                            <constraint firstItem="W58-Sq-fjh" firstAttribute="top" secondItem="Ncb-H2-HB8" secondAttribute="top" constant="15" id="j7t-oF-BVQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Ncb-H2-HB8" secondAttribute="bottom" constant="5" id="7OF-sD-JaR"/>
+                    <constraint firstAttribute="trailing" secondItem="Ncb-H2-HB8" secondAttribute="trailing" constant="5" id="Bw5-Ks-jcd"/>
+                    <constraint firstItem="Ncb-H2-HB8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Jl2-7L-7Ii"/>
+                    <constraint firstItem="Ncb-H2-HB8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="VHo-jA-s0X"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="calculateBtn" destination="AKk-No-Xt3" id="gYU-mP-v7U"/>
+                <outlet property="titleView" destination="Ncb-H2-HB8" id="nzY-3Q-GcN"/>
+            </connections>
+            <point key="canvasLocation" x="122.13740458015266" y="76.056338028169023"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="AKk-No-Xt3">
+            <size key="intrinsicContentSize" width="91" height="34.333333333333336"/>
+        </designable>
+        <designable name="fFb-Ki-PaN">
+            <size key="intrinsicContentSize" width="134" height="33"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="AppThemeBackgroundColor">
+            <color red="0.80000000000000004" green="0.87058823529411766" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppThemeButtonColor">
+            <color red="0.31764705882352939" green="0.40000000000000002" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
