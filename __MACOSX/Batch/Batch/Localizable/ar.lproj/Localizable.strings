@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  Batch
+
+  Created by shashivendra sengar on 21/12/23.
+  
+*/
+
+
+"Lorem ipsum dolor sit" = "لوريم إيبسوم دولور الجلوس";
+"Lorem ipsum dolor sit amet consectetur." = "لوريم إيبسوم دولور يجلس أميت كونسيكتور.";
+"I want to look around" = "أريد أن أنظر حولي";
+"Login" = "تسجيل الدخول";
+"Sign In to your account" = "";
+"Or continue with" = "";
+"Welcome Back!" = "";
+"I agree to the company Terms & Conditions" = "";
+"Sign In" = "";
+"Sign in with Facebook" = "";
+"Sign in with Apple" = "";
+"Sign in with Google" = "";
+"Sign in with Outlook" = "";
+"Enter verification code" = "";
+"We have sent the code verification to your mobile number " = "";
+"Continue" = "";
+"Before we start, we need to know your gender" = "";
+"Welcome to Batch!" = "";
+"Already have an account?  Sign In" = "";
+"Continue" = "";
+"Female" = "";
+"Male" = "";
+ 

@@ -1,0 +1,6 @@
+framework module Pods_BatchTests {
+  umbrella header "Pods-BatchTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

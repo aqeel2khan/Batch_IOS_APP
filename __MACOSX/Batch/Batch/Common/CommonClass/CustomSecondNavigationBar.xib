@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomSecondNavigationBar" customModule="Batch" customModuleProvider="target">
+            <connections>
+                <outlet property="leftBarBtnItem" destination="GNg-SS-odA" id="NPd-yp-ZmG"/>
+                <outlet property="rightBarBtnItem1" destination="uE1-9e-Gat" id="Gge-DK-YsF"/>
+                <outlet property="rightBarBtnItem2" destination="JVe-Kl-4Mr" id="2RD-BB-5J3"/>
+                <outlet property="titleLbl" destination="0Hc-ba-tq0" id="xWb-p7-aua"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNg-SS-odA">
+                    <rect key="frame" x="0.0" y="55" width="60" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Npp-kc-LgE"/>
+                        <constraint firstAttribute="width" constant="60" id="usO-mj-HuI"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="back"/>
+                    <connections>
+                        <action selector="leftBarBtnTapped:" destination="-1" eventType="touchUpInside" id="agH-ws-WMr"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6zp-Ab-frX">
+                    <rect key="frame" x="50" y="50" width="333" height="50"/>
+                    <subviews>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hc-ba-tq0">
+                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="50"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                            <color key="textColor" name="AppLabelBlackColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button hidden="YES" opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVe-Kl-4Mr">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="eaq-5H-ZBY"/>
+                                <constraint firstAttribute="width" constant="40" id="nNV-Zx-BzL"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="calendarblack"/>
+                        </button>
+                        <button hidden="YES" opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uE1-9e-Gat">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="LgH-b9-mgT"/>
+                                <constraint firstAttribute="width" constant="40" id="Vej-0s-E4Z"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="calendar-delete"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="mNA-W3-CKD"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="6zp-Ab-frX" firstAttribute="leading" secondItem="GNg-SS-odA" secondAttribute="trailing" constant="-10" id="5BG-pV-Nn8"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6zp-Ab-frX" secondAttribute="trailing" constant="10" id="EjI-pO-bV2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GNg-SS-odA" secondAttribute="bottom" constant="5" id="Pgv-hb-PgS"/>
+                <constraint firstItem="GNg-SS-odA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Wqx-ad-Idz"/>
+                <constraint firstItem="6zp-Ab-frX" firstAttribute="centerY" secondItem="GNg-SS-odA" secondAttribute="centerY" id="coz-tB-fQf"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="26.717557251908396" y="0.0"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="32" height="32"/>
+        <image name="calendar-delete" width="24" height="24"/>
+        <image name="calendarblack" width="24" height="24"/>
+        <namedColor name="AppLabelBlackColor">
+            <color red="0.062745098039215685" green="0.070588235294117646" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

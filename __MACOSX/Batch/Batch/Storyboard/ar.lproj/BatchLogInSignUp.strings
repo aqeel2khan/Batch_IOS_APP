@@ -1,0 +1,51 @@
+
+/* Class = "UILabel"; text = "Male"; ObjectID = "0Yi-r2-fGU"; */
+"0Yi-r2-fGU.text" = "Male";
+
+/* Class = "UILabel"; text = "We have sent the code verification to your mobile number "; ObjectID = "2rI-Z8-q3c"; */
+"2rI-Z8-q3c.text" = "We have sent the code verification to your mobile number ";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "5Sp-H2-kGd"; */
+"5Sp-H2-kGd.normalTitle" = "Continue";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "7Di-QX-Hz3"; */
+"7Di-QX-Hz3.placeholder" = "Email";
+
+/* Class = "UIButton"; normalTitle = "Sign in with Google"; ObjectID = "8Ad-zg-q7B"; */
+"8Ad-zg-q7B.normalTitle" = "Sign in with Google";
+
+/* Class = "UILabel"; text = "Female"; ObjectID = "AF9-T9-PrX"; */
+"AF9-T9-PrX.text" = "Female";
+
+/* Class = "UILabel"; text = "Sign In to your account"; ObjectID = "DIo-LJ-Sjw"; */
+"DIo-LJ-Sjw.text" = "Sign In to your account";
+
+/* Class = "UIButton"; normalTitle = "Sign in with Outlook"; ObjectID = "FXb-5W-R8W"; */
+"FXb-5W-R8W.normalTitle" = "Sign in with Outlook";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "JQD-2q-6oe"; */
+"JQD-2q-6oe.normalTitle" = "Continue";
+
+/* Class = "UIButton"; normalTitle = "Sign in with Facebook"; ObjectID = "KQD-go-G9W"; */
+"KQD-go-G9W.normalTitle" = "Sign in with Facebook";
+
+/* Class = "UILabel"; text = "Before we start, we need to know your gender"; ObjectID = "QNQ-oH-bvA"; */
+"QNQ-oH-bvA.text" = "Before we start, we need to know your gender";
+
+/* Class = "UIButton"; normalTitle = "Sign in with Apple"; ObjectID = "Qg1-9a-SxT"; */
+"Qg1-9a-SxT.normalTitle" = "Sign in with Apple";
+
+/* Class = "UILabel"; text = "Enter verification code"; ObjectID = "QqQ-pp-Flc"; */
+"QqQ-pp-Flc.text" = "Enter verification code";
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "XdZ-cl-Dus"; */
+"XdZ-cl-Dus.normalTitle" = "Sign In";
+
+/* Class = "UILabel"; text = "Or continue with"; ObjectID = "YD2-8c-8X1"; */
+"YD2-8c-8X1.text" = "Or continue with";
+
+/* Class = "UILabel"; text = "Welcome Back!"; ObjectID = "ZOZ-1O-kXX"; */
+"ZOZ-1O-kXX.text" = "Welcome Back!";
+
+/* Class = "UILabel"; text = "Welcome to Batch!"; ObjectID = "hLt-Vu-FD9"; */
+"hLt-Vu-FD9.text" = "Welcome to Batch!";
