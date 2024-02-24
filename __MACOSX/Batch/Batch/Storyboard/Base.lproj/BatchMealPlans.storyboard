@@ -113,13 +113,13 @@
                                         <rect key="frame" x="0.0" y="86" width="393" height="563"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPY-o9-nsR" userLabel="ContainerView">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="563"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="517"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hvl-yZ-w3j">
-                                                        <rect key="frame" x="20" y="10" width="353" height="550"/>
+                                                        <rect key="frame" x="20" y="10" width="353" height="504"/>
                                                         <subviews>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" bounces="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fk0-EM-nRb">
-                                                                <rect key="frame" x="0.0" y="0.0" width="353" height="300"/>
+                                                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" bounces="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fk0-EM-nRb">
+                                                                <rect key="frame" x="0.0" y="-300" width="353" height="300"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="300" id="R0S-j7-fjy"/>
@@ -131,13 +131,73 @@
                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells/>
-                                                                <connections>
-                                                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="ZPO-vQ-Qui"/>
-                                                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="VbF-5m-8bD"/>
-                                                                </connections>
                                                             </collectionView>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tn4-et-8UK">
+                                                                <rect key="frame" x="0.0" y="0.0" width="353" height="254"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Oj8-dz-nvN">
+                                                                        <rect key="frame" x="15" y="5" width="323" height="244"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need help choosing the right Meal Batch?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shV-b1-Oit" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="323" height="68"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer a few questions or talk to our nutritionist and you'll find the best batch for you based on your needs and calories" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9S-1i-YpG" customClass="BatchRegularLabel">
+                                                                                <rect key="frame" x="0.0" y="78" width="323" height="69"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSj-am-V8l" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="157" width="323" height="40"/>
+                                                                                <color key="backgroundColor" name="AppThemeButtonColor"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="40" id="2Po-DP-8Ga"/>
+                                                                                </constraints>
+                                                                                <state key="normal" title="Button"/>
+                                                                                <buttonConfiguration key="configuration" style="plain" title="Calculate">
+                                                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                </buttonConfiguration>
+                                                                                <connections>
+                                                                                    <action selector="calculateBtnTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="B3g-Cg-QY0"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATf-Bq-8n9" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="207" width="323" height="37"/>
+                                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                                <state key="normal" title="Talk to nutritionist  ">
+                                                                                    <color key="titleColor" name="AppThemeButtonColor"/>
+                                                                                </state>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                        <color key="value" name="AppThemeButtonColor"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                        <real key="value" value="2"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" red="0.88627450980392153" green="0.89411764705882346" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="Oj8-dz-nvN" secondAttribute="trailing" constant="15" id="1ku-no-eNz"/>
+                                                                    <constraint firstItem="Oj8-dz-nvN" firstAttribute="top" secondItem="tn4-et-8UK" secondAttribute="top" constant="5" id="3Hh-pG-0BN"/>
+                                                                    <constraint firstAttribute="height" constant="254" id="HNO-ER-Jhg"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="Oj8-dz-nvN" secondAttribute="bottom" constant="5" id="g5g-hz-AFr"/>
+                                                                    <constraint firstItem="Oj8-dz-nvN" firstAttribute="leading" secondItem="tn4-et-8UK" secondAttribute="leading" constant="15" id="uPC-DV-zcQ"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Vh-qA-bV3">
-                                                                <rect key="frame" x="0.0" y="300" width="353" height="50"/>
+                                                                <rect key="frame" x="0.0" y="254" width="353" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Batches" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2m-t4-Ygl" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
@@ -155,8 +215,8 @@
                                                                     <constraint firstAttribute="bottom" secondItem="A2m-t4-Ygl" secondAttribute="bottom" id="aPK-De-3Bc"/>
                                                                 </constraints>
                                                             </view>
-                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sn8-6a-cya">
-                                                                <rect key="frame" x="0.0" y="350" width="353" height="200"/>
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" pagingEnabled="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sn8-6a-cya">
+                                                                <rect key="frame" x="0.0" y="304" width="353" height="200"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="200" id="su5-K9-62w"/>
@@ -223,7 +283,6 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="customNavigationBar" destination="N4l-sV-Fsi" id="hdI-zO-duR"/>
-                        <outlet property="mealPlanCollView" destination="fk0-EM-nRb" id="pOt-jW-EAQ"/>
                         <outlet property="mealPlanTblView" destination="sn8-6a-cya" id="Py1-MN-pjM"/>
                         <outlet property="mealPlanTblViewHeightConstraint" destination="su5-K9-62w" id="EXr-Mm-Jw4"/>
                     </connections>
@@ -1816,11 +1875,17 @@
         <designable name="79b-xc-eJc">
             <size key="intrinsicContentSize" width="126" height="32"/>
         </designable>
+        <designable name="ATf-Bq-8n9">
+            <size key="intrinsicContentSize" width="131" height="30"/>
+        </designable>
         <designable name="Efb-WV-FSH">
             <size key="intrinsicContentSize" width="170" height="32"/>
         </designable>
         <designable name="GjJ-N7-TgT">
             <size key="intrinsicContentSize" width="43" height="32"/>
+        </designable>
+        <designable name="qSj-am-V8l">
+            <size key="intrinsicContentSize" width="95" height="34.333333333333336"/>
         </designable>
         <designable name="zHO-SI-P4f">
             <size key="intrinsicContentSize" width="35" height="32"/>
@@ -1830,7 +1895,7 @@
         <image name="IconDown" width="36" height="36"/>
         <image name="Meal" width="125" height="96.333335876464844"/>
         <image name="blueWhiteCalender" width="36" height="36"/>
-        <image name="downArrow" width="24" height="24"/>
+        <image name="downArrow" width="11" height="5.3333334922790527"/>
         <image name="filter" width="36" height="36"/>
         <image name="leftArrow" width="32" height="32"/>
         <image name="meal" width="42.333332061767578" height="42"/>

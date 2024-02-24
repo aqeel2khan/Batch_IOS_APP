@@ -71,10 +71,8 @@
 		3176093E2B66AC54005D4395 /* BMealCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3176093C2B66AC54005D4395 /* BMealCollCell.xib */; };
 		317609412B66ACA5005D4395 /* BMealCategoryCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176093F2B66ACA5005D4395 /* BMealCategoryCollCell.swift */; };
 		317609422B66ACA5005D4395 /* BMealCategoryCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317609402B66ACA5005D4395 /* BMealCategoryCollCell.xib */; };
-		3186CBA52B55B8FF007213C3 /* MealPlanBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3186CBA12B55B8FE007213C3 /* MealPlanBottomCell.swift */; };
 		3186CBA62B55B8FF007213C3 /* MealPlanTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3186CBA22B55B8FE007213C3 /* MealPlanTVC.xib */; };
 		3186CBA72B55B8FF007213C3 /* MealPlanTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3186CBA32B55B8FF007213C3 /* MealPlanTVC.swift */; };
-		3186CBA82B55B8FF007213C3 /* MealPlanBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3186CBA42B55B8FF007213C3 /* MealPlanBottomCell.xib */; };
 		3186CBAB2B55B92C007213C3 /* MealPlanCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3186CBA92B55B92C007213C3 /* MealPlanCollectionCell.xib */; };
 		3186CBAC2B55B92C007213C3 /* MealPlanCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3186CBAA2B55B92C007213C3 /* MealPlanCollectionCell.swift */; };
 		3186CBB02B55B979007213C3 /* MealHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3186CBAE2B55B979007213C3 /* MealHeaderView.swift */; };
@@ -230,6 +228,9 @@
 		570D90012B84B2D600EB643A /* BatchDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570D90002B84B2D600EB643A /* BatchDashboard.storyboard */; };
 		570D90032B84C54A00EB643A /* MotivatorFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570D90022B84C54A00EB643A /* MotivatorFilterVC.swift */; };
 		570D90052B84C69C00EB643A /* Extension+MotivationFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570D90042B84C69C00EB643A /* Extension+MotivationFilterVC.swift */; };
+		570EA5272B89FC5500D801AE /* BMealResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570EA5252B89FC5400D801AE /* BMealResource.swift */; };
+		570EA5282B89FC5500D801AE /* BMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570EA5262B89FC5400D801AE /* BMealViewModel.swift */; };
+		570EA52B2B89FDED00D801AE /* MealsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570EA52A2B89FDED00D801AE /* MealsModel.swift */; };
 		68337D4F2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68337D4E2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift */; };
 		685680392B64B165002AF31C /* MealPlanAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685680382B64B165002AF31C /* MealPlanAddressVC.swift */; };
 		6856803B2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856803A2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift */; };
@@ -331,10 +332,8 @@
 		3176093C2B66AC54005D4395 /* BMealCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMealCollCell.xib; sourceTree = "<group>"; };
 		3176093F2B66ACA5005D4395 /* BMealCategoryCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMealCategoryCollCell.swift; sourceTree = "<group>"; };
 		317609402B66ACA5005D4395 /* BMealCategoryCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMealCategoryCollCell.xib; sourceTree = "<group>"; };
-		3186CBA12B55B8FE007213C3 /* MealPlanBottomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealPlanBottomCell.swift; sourceTree = "<group>"; };
 		3186CBA22B55B8FE007213C3 /* MealPlanTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealPlanTVC.xib; sourceTree = "<group>"; };
 		3186CBA32B55B8FF007213C3 /* MealPlanTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealPlanTVC.swift; sourceTree = "<group>"; };
-		3186CBA42B55B8FF007213C3 /* MealPlanBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealPlanBottomCell.xib; sourceTree = "<group>"; };
 		3186CBA92B55B92C007213C3 /* MealPlanCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealPlanCollectionCell.xib; sourceTree = "<group>"; };
 		3186CBAA2B55B92C007213C3 /* MealPlanCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealPlanCollectionCell.swift; sourceTree = "<group>"; };
 		3186CBAE2B55B979007213C3 /* MealHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealHeaderView.swift; sourceTree = "<group>"; };
@@ -493,6 +492,9 @@
 		570D90002B84B2D600EB643A /* BatchDashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BatchDashboard.storyboard; sourceTree = "<group>"; };
 		570D90022B84C54A00EB643A /* MotivatorFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotivatorFilterVC.swift; sourceTree = "<group>"; };
 		570D90042B84C69C00EB643A /* Extension+MotivationFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+MotivationFilterVC.swift"; sourceTree = "<group>"; };
+		570EA5252B89FC5400D801AE /* BMealResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMealResource.swift; sourceTree = "<group>"; };
+		570EA5262B89FC5400D801AE /* BMealViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMealViewModel.swift; sourceTree = "<group>"; };
+		570EA52A2B89FDED00D801AE /* MealsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsModel.swift; sourceTree = "<group>"; };
 		68337D4E2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTotalBurnerCaloryVC.swift; sourceTree = "<group>"; };
 		685680382B64B165002AF31C /* MealPlanAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanAddressVC.swift; sourceTree = "<group>"; };
 		6856803A2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDilevaryArrivingVC.swift; sourceTree = "<group>"; };
@@ -1467,25 +1469,11 @@
 		31AE2D972B36BB10000FEB41 /* MealBatch */ = {
 			isa = PBXGroup;
 			children = (
-				31AE2D982B36BB10000FEB41 /* ViewModel */,
-				31AE2D992B36BB10000FEB41 /* Model */,
+				570EA5242B89FC5400D801AE /* ViewModel */,
+				570EA5292B89FDED00D801AE /* Model */,
 				31AE2D9A2B36BB10000FEB41 /* View */,
 			);
 			path = MealBatch;
-			sourceTree = "<group>";
-		};
-		31AE2D982B36BB10000FEB41 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		31AE2D992B36BB10000FEB41 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		31AE2D9A2B36BB10000FEB41 /* View */ = {
@@ -1523,8 +1511,6 @@
 		31AE2D9C2B36BB10000FEB41 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
-				3186CBA12B55B8FE007213C3 /* MealPlanBottomCell.swift */,
-				3186CBA42B55B8FF007213C3 /* MealPlanBottomCell.xib */,
 				3186CBA32B55B8FF007213C3 /* MealPlanTVC.swift */,
 				3186CBA22B55B8FE007213C3 /* MealPlanTVC.xib */,
 				68C14B692B6396A20085AAD4 /* MealPlanCheckoutCell.swift */,
@@ -1800,6 +1786,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		570EA5242B89FC5400D801AE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				570EA5262B89FC5400D801AE /* BMealViewModel.swift */,
+				570EA5252B89FC5400D801AE /* BMealResource.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		570EA5292B89FDED00D801AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				570EA52A2B89FDED00D801AE /* MealsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		68C14B662B63950A0085AAD4 /* MealPlanCheckout */ = {
 			isa = PBXGroup;
 			children = (
@@ -1969,7 +1972,6 @@
 				570D8FF52B84B28300EB643A /* NotificationSettingsListTableCell.xib in Resources */,
 				317609362B6683D0005D4395 /* weekCalenderCollCell.xib in Resources */,
 				319076072B35EDFE001FE5CF /* BWOMotivatorsListCollCell.xib in Resources */,
-				3186CBA82B55B8FF007213C3 /* MealPlanBottomCell.xib in Resources */,
 				570D8FF72B84B28300EB643A /* FollowingListTableCell.xib in Resources */,
 				68C14B6C2B6396A20085AAD4 /* MealPlanCheckoutCell.xib in Resources */,
 				3188B3CD2B299B6A00E19945 /* LaunchScreen.storyboard in Resources */,
@@ -2170,12 +2172,14 @@
 				31934C7D2B88DCD200AD7185 /* BSignUpVC.swift in Sources */,
 				3187D6352B5E884E00C82515 /* BThankyouPurchaseVC.swift in Sources */,
 				318BA5532B67F63200508167 /* Extension+MealBatchUnSubscribeDetailVC.swift in Sources */,
+				570EA52B2B89FDED00D801AE /* MealsModel.swift in Sources */,
 				314714542B68EB3A002EED87 /* MealPlanProtienCollectionViewCell.swift in Sources */,
 				570D8FF42B84B28300EB643A /* NotificationSettingsListTableCell.swift in Sources */,
 				570D8FFC2B84B28300EB643A /* BUserDeliveryDetailVC.swift in Sources */,
 				3147145C2B68EB8F002EED87 /* MealplanRatingVC.swift in Sources */,
 				319BAD762B2A37820081A8F2 /* Colors.swift in Sources */,
 				3186CBA72B55B8FF007213C3 /* MealPlanTVC.swift in Sources */,
+				570EA5282B89FC5500D801AE /* BMealViewModel.swift in Sources */,
 				3188B41A2B29CBC600E19945 /* HUMethod.swift in Sources */,
 				318E1BC12B2F62D70062B8A1 /* BWOBatchesListCollCell.swift in Sources */,
 				6869A4A02B6EA791004F9A7C /* CircularProgressView.swift in Sources */,
@@ -2203,6 +2207,7 @@
 				31D424982B6B84C300E988C7 /* QuestionWeightVC.swift in Sources */,
 				319BAD6A2B2A31A00081A8F2 /* SelfSizedTableView.swift in Sources */,
 				311B1BBC2B2E1D3C00E37E47 /* UICollectioView.swift in Sources */,
+				570EA5272B89FC5500D801AE /* BMealResource.swift in Sources */,
 				319BAD632B2A31A00081A8F2 /* UITableViewCell.swift in Sources */,
 				313894142B68302000F687B1 /* BRegistrationVC.swift in Sources */,
 				318F434F2B59088900D0E650 /* BStartWorkOutDetailVC.swift in Sources */,
@@ -2226,7 +2231,6 @@
 				31AE2DAC2B370101000FEB41 /* BatchSegmentedControl.swift in Sources */,
 				570D8FF92B84B28300EB643A /* BUserProfileVC.swift in Sources */,
 				31D4249A2B6B84C300E988C7 /* QuestionDietVC.swift in Sources */,
-				3186CBA52B55B8FF007213C3 /* MealPlanBottomCell.swift in Sources */,
 				319BAD682B2A31A00081A8F2 /* UIStoryboard.swift in Sources */,
 				317609412B66ACA5005D4395 /* BMealCategoryCollCell.swift in Sources */,
 				31B841972B5D742E00923C3D /* BPromoCodeSucessfulPopUpVC.swift in Sources */,

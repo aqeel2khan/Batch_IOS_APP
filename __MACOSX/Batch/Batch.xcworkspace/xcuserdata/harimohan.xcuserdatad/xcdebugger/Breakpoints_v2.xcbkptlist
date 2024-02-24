@@ -16,7 +16,23 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "249"
             endingLineNumber = "249"
-            landmarkName = "getCourseDetails(courseId:)"
+            landmarkName = "setUpViewData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "982D042D-45E1-44C6-872B-53616F44265F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/MealBatch/View/Controller/MealBatchVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "getMealList()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

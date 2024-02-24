@@ -81,5 +81,6 @@ struct API {
     static let logIn = baseUrl + "/auth/signin"// post
     static let signUp = baseUrl + "/auth/signup"// post
     
-
+    //Meal Module
+    static let mealList  = baseUrl + "/meal/list"// post
 }
