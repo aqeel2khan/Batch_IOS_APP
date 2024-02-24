@@ -13,13 +13,13 @@ struct UserDefaultUtility
     {
         UserDefaults.standard.set(userId, forKey: "userId")
     }
-    static func saveToken(token: String)
-    {
-        UserDefaults.standard.set(token, forKey: "token")
-    }
-    static func getToken() -> String?{
-        UserDefaults.standard.string(forKey: "token")
-    }
+//    static func saveToken(token: String)
+//    {
+//        UserDefaults.standard.set(token, forKey: "token")
+//    }
+//    static func getToken() -> String?{
+//        UserDefaults.standard.string(forKey: "token")
+//    }
     static func setUserLoggedIn(_ bool: Bool){
         UserDefaults.standard.set(bool, forKey: "LOGGED_IN")
     }
@@ -28,7 +28,14 @@ struct UserDefaultUtility
         return UserDefaults.standard.bool(forKey: "LOGGED_IN")
     }
     
-    
+    func saveCountryName(nameStr: String)
+    {
+        UserDefaults.standard.set(nameStr, forKey: "country")
+    }
+    static func isSelectCountry() -> Bool{
+        return UserDefaults.standard.bool(forKey: "country")
+    }
+
     /*
      func getUserId() -> Int
      {

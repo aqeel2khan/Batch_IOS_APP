@@ -73,8 +73,6 @@ extension MotivatorFilterVC: UICollectionViewDelegate,UICollectionViewDataSource
                 self.selectedExperience.removeAll()
                 self.selectedExperience.append(self.experienceArray[indexPath.item].id)
                 self.collectionView2.reloadData()
-                
-                
             }
         }
     }

@@ -6,19 +6,11 @@
 //
 
 import UIKit
-//import SVGKit
-//struct CountryListValue: Codable {
-//    let name, emoji, unicode: String
-//    let image: String
-//}
-
 
 class Country {
     var name, countryCode, currencyCode, currencySymbol, extensionCode: String?
     var flag: String?
 }
-
-//typealias Country = [String: CountryListValue]
 
 class BatchCountryLanguageVC: UIViewController {
     
@@ -34,16 +26,21 @@ class BatchCountryLanguageVC: UIViewController {
     
     @IBOutlet weak var bottomBackView: UIView!
     
+    //    var selectedCountry : [Int] = []
+    var selectedCountry : [String] = []
+    //var selectedCountryName: String?
+    var selectedCountryName = ""
     
-//    var countryListData = [String:CountryListValue]()
+    
+    //    var countryListData = [String:CountryListValue]()
     
     var list = [Country]()
     var dupList = [Country]()
-
     
-//    var countryName = [String]()
-//    var countryImage = [String]()
-//    var callApiService = HttpUtility1.shared
+    
+    //    var countryName = [String]()
+    //    var countryImage = [String]()
+    //    var callApiService = HttpUtility1.shared
     
     // MARK: - Properties
     private let cornerRadius: CGFloat = 24
@@ -62,36 +59,36 @@ class BatchCountryLanguageVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       // checkNetwork ()
+        // checkNetwork ()
     }
     
     //MARK:-  check internet Connection
     
-//    func checkNetwork () {
-//
-//        Task{
-//            do{
-//                let response = try await self.callApiService.getOperation(requestUrl:"https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/by-code.json", response: Country.self)
-//
-//                countryListData = response
-//                //                    print(countryListData.count)
-//                //                    print(countryListData)
-//
-//                for (key,value) in countryListData{
-//                    countryName.append(value.name)
-//                    countryImage.append(value.image)
-//                }
-//
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.010) {
-//                    self.countryTblView.reloadData()
-//                }
-//            }
-//            catch{
-//                //                        self.ShowAlert(message: error.localizedDescription)
-//            }
-//        }
-//
-//    }
+    //    func checkNetwork () {
+    //
+    //        Task{
+    //            do{
+    //                let response = try await self.callApiService.getOperation(requestUrl:"https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/by-code.json", response: Country.self)
+    //
+    //                countryListData = response
+    //                //                    print(countryListData.count)
+    //                //                    print(countryListData)
+    //
+    //                for (key,value) in countryListData{
+    //                    countryName.append(value.name)
+    //                    countryImage.append(value.image)
+    //                }
+    //
+    //                DispatchQueue.main.asyncAfter(deadline: .now() + 0.010) {
+    //                    self.countryTblView.reloadData()
+    //                }
+    //            }
+    //            catch{
+    //                //                        self.ShowAlert(message: error.localizedDescription)
+    //            }
+    //        }
+    //
+    //    }
     
     
     
@@ -116,53 +113,74 @@ class BatchCountryLanguageVC: UIViewController {
     
     @IBAction func onTapNextBtn(_ sender: Any) {
         
-        let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
-        tabbarVC.modalPresentationStyle = .fullScreen
-        present(tabbarVC, animated: true, completion: nil)
+        if selectedCountryName != ""
+        {
+            UserDefaults.standard.set(selectedCountryName, forKey: "isCountrySelected")
+            // Synchronize UserDefaults to make sure the value is saved immediately
+            UserDefaults.standard.synchronize()
+            
+            let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
+            tabbarVC.modalPresentationStyle = .fullScreen
+            present(tabbarVC, animated: true, completion: nil)
+        }
+        else
+        {
+            showAlert(message: "Please select country")
+        }
         
     }
     
-    
-    
     @IBAction func onTapBackBtn(_ sender: Any) {
-       dismiss(animated: true)
+        dismiss(animated: true)
     }
     
+    @IBAction func onTapEnglishLBtn(_ sender: UIButton) {
+        
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected
+        {
+            self.englishL.backgroundColor = Colors.appViewPinkBackgroundColor
+        }
+        else
+        {
+            self.englishL.backgroundColor = Colors.appViewBackgroundColor
+        }
+    }
     
     
     
     
     func configuration() {
-         for code in NSLocale.isoCountryCodes  {
-             let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
-             let name = NSLocale(localeIdentifier: "en_US").displayName(forKey: NSLocale.Key.identifier, value: id)
-             
-             let locale = NSLocale.init(localeIdentifier: id)
-             
-             let countryCode = locale.object(forKey: NSLocale.Key.countryCode)
-             let currencyCode = locale.object(forKey: NSLocale.Key.currencyCode)
-             let currencySymbol = locale.object(forKey: NSLocale.Key.currencySymbol)
-             
-             if name != nil {
-                 let model = Country()
-                 model.name = name
-                 model.countryCode = countryCode as? String
-                 model.currencyCode = currencyCode as? String
-                 model.currencySymbol = currencySymbol as? String
-                 model.flag = String.flag(for: code)
-                 model.extensionCode = NSLocale().extensionCode(countryCode: model.countryCode)
-                 list.append(model)
-             }
-         }
+        for code in NSLocale.isoCountryCodes  {
+            let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
+            let name = NSLocale(localeIdentifier: "en_US").displayName(forKey: NSLocale.Key.identifier, value: id)
+            
+            let locale = NSLocale.init(localeIdentifier: id)
+            
+            let countryCode = locale.object(forKey: NSLocale.Key.countryCode)
+            let currencyCode = locale.object(forKey: NSLocale.Key.currencyCode)
+            let currencySymbol = locale.object(forKey: NSLocale.Key.currencySymbol)
+            
+            if name != nil {
+                let model = Country()
+                model.name = name
+                model.countryCode = countryCode as? String
+                model.currencyCode = currencyCode as? String
+                model.currencySymbol = currencySymbol as? String
+                model.flag = String.flag(for: code)
+                model.extensionCode = NSLocale().extensionCode(countryCode: model.countryCode)
+                list.append(model)
+            }
+        }
         self.dupList = self.list
-         self.countryTblView.reloadData()
-     }
+        self.countryTblView.reloadData()
+    }
     
     
 }
 
 extension BatchCountryLanguageVC : UISearchBarDelegate {
-    
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text =  ""
@@ -192,22 +210,41 @@ extension BatchCountryLanguageVC : UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryListTableCell", for: indexPath) as! CountryListTableCell
         
         let info = dupList[indexPath.row]
+        if info.name != "Israel"
+        {
+            cell.lblCountryName.text = "\(info.flag!) \(info.name!)"
+        }
         
-        cell.lblCountryName.text = "\(info.flag!) \(info.name!)"
-
-//        let mySVGImage: SVGKImage = SVGKImage(contentsOf: URL(string: countryImage[indexPath.row]))
-//
-//        DispatchQueue.main.async {
-//            cell.imgImage.image = mySVGImage.uiImage
-//            cell.lblCountryName.text = self.countryName[indexPath.row]
-//        }
+        cell.backGroundUIView.backgroundColor = Colors.appViewBackgroundColor
+        if info.name != ""
+        {
+            if self.selectedCountry.contains(info.name!) {
+                cell.backGroundUIView.backgroundColor = Colors.appViewPinkBackgroundColor
+                
+                selectedCountryName = info.name!
+                //1
+                UserDefaults.standard.set(selectedCountryName, forKey: "country")
+                // Synchronize UserDefaults to make sure the value is saved immediately
+                UserDefaults.standard.synchronize()
+                
+            }
+        }
         
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50//UIScreen.main.bounds.height
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.selectedCountry.count == 0 {
+            self.selectedCountry.append(self.list[indexPath.row].name ?? "")
+        } else {
+            self.selectedCountry.removeAll()
+            self.selectedCountry.append(self.list[indexPath.row].name ?? "")
+        }
+        // Reload table here
+        self.countryTblView.reloadData()
+
+    }
+    
 }
-
-
-

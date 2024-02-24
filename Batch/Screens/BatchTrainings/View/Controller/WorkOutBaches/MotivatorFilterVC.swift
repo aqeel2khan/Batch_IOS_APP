@@ -15,7 +15,6 @@ import UIKit
 class MotivatorFilterVC: UIViewController {
     var completion: (()->Void)? = nil
 
-
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var workOutCollectionView: UICollectionView!

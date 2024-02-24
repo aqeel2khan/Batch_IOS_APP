@@ -54,8 +54,10 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
 //        {
 //            return self.woMotivatorInfo?.
 //        }
-        
-        return self.totalCourseArr.count
+        else
+        {
+            return self.totalCourseArr.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

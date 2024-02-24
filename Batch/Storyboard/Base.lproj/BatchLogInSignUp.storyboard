@@ -82,26 +82,55 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXf-cc-L3X">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WD9-qa-qOx">
                                                         <rect key="frame" x="0.0" y="66" width="353" height="56"/>
-                                                        <color key="backgroundColor" name="AppViewBackgroundColor"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXf-cc-L3X">
+                                                                <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
+                                                                <color key="backgroundColor" name="AppViewBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="56" id="5C7-Rv-vHv"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingRightCustom">
+                                                                        <real key="value" value="50"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvG-fW-zcA">
+                                                                <rect key="frame" x="303" y="0.0" width="40" height="56"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="edx-1f-8yS"/>
+                                                                </constraints>
+                                                                <color key="tintColor" name="AppThemeButtonColor"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" image="eyeclose"/>
+                                                                <state key="selected" image="eyeopen"/>
+                                                                <connections>
+                                                                    <action selector="onTapPassowrdEyeBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="k6J-hd-PfQ"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="56" id="5C7-Rv-vHv"/>
+                                                            <constraint firstAttribute="height" constant="56" id="CP1-5x-kCb"/>
+                                                            <constraint firstAttribute="trailing" secondItem="tvG-fW-zcA" secondAttribute="trailing" constant="10" id="Ltc-TY-sd0"/>
+                                                            <constraint firstAttribute="trailing" secondItem="NXf-cc-L3X" secondAttribute="trailing" id="P13-jG-h8V"/>
+                                                            <constraint firstAttribute="bottom" secondItem="tvG-fW-zcA" secondAttribute="bottom" id="Rbv-sz-SLo"/>
+                                                            <constraint firstItem="NXf-cc-L3X" firstAttribute="top" secondItem="WD9-qa-qOx" secondAttribute="top" id="jb7-na-9Vk"/>
+                                                            <constraint firstItem="NXf-cc-L3X" firstAttribute="leading" secondItem="WD9-qa-qOx" secondAttribute="leading" id="pdJ-X9-ykN"/>
+                                                            <constraint firstAttribute="bottom" secondItem="NXf-cc-L3X" secondAttribute="bottom" id="q9r-Lw-XHl"/>
+                                                            <constraint firstItem="tvG-fW-zcA" firstAttribute="top" secondItem="WD9-qa-qOx" secondAttribute="top" id="t51-l3-jEp"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
-                                                                <real key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingRightCustom">
-                                                                <real key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
+                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57b-07-hyL">
                                                         <rect key="frame" x="0.0" y="132" width="353" height="40"/>
                                                         <subviews>
@@ -753,6 +782,8 @@
         <image name="back" width="32" height="32"/>
         <image name="checkbox" width="21.666666030883789" height="21.666666030883789"/>
         <image name="checkbox_fill" width="20" height="20"/>
+        <image name="eyeclose" width="16" height="16"/>
+        <image name="eyeopen" width="16" height="16"/>
         <image name="female" width="40.333332061767578" height="40"/>
         <image name="male" width="40.333332061767578" height="40"/>
         <namedColor name="AppBorderLightColor">

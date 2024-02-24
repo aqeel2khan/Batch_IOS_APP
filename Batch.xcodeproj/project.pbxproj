@@ -58,6 +58,7 @@
 		3147145F2B692DB3002EED87 /* BatchMealPlanQuestionnaire.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3147145E2B692DB2002EED87 /* BatchMealPlanQuestionnaire.storyboard */; };
 		314B7AD72B6506A2006012DB /* MealBatchDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B7AD62B6506A2006012DB /* MealBatchDetailVC.swift */; };
 		314B7ADD2B654BFB006012DB /* MealBatchPlanningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B7ADC2B654BFB006012DB /* MealBatchPlanningVC.swift */; };
+		31673C252B87D202006E3547 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31673C242B87D202006E3547 /* Connection.swift */; };
 		316DBEF02B5E640D0037C24A /* BWOPackageTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316DBEEE2B5E640D0037C24A /* BWOPackageTblCell.swift */; };
 		316DBEF12B5E640D0037C24A /* BWOPackageTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316DBEEF2B5E640D0037C24A /* BWOPackageTblCell.xib */; };
 		317609302B6676D3005D4395 /* Extension+MealBatchDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176092F2B6676D3005D4395 /* Extension+MealBatchDetailVC.swift */; };
@@ -144,6 +145,11 @@
 		319076072B35EDFE001FE5CF /* BWOMotivatorsListCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319076062B35EDFE001FE5CF /* BWOMotivatorsListCollCell.xib */; };
 		3190760A2B35EE8E001FE5CF /* TrainingFilterCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319076082B35EE8D001FE5CF /* TrainingFilterCollectionCell.xib */; };
 		3190760B2B35EE8E001FE5CF /* TrainingFilterCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319076092B35EE8E001FE5CF /* TrainingFilterCollectionCell.swift */; };
+		31934C7B2B88C73C00AD7185 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31934C7A2B88C73B00AD7185 /* LaunchScreenVC.swift */; };
+		31934C7D2B88DCD200AD7185 /* BSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31934C7C2B88DCD200AD7185 /* BSignUpVC.swift */; };
+		31934C7F2B88DF7300AD7185 /* BRegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31934C7E2B88DF7200AD7185 /* BRegistrationRequest.swift */; };
+		31934C812B88DF8200AD7185 /* BRegistrationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31934C802B88DF8200AD7185 /* BRegistrationResponse.swift */; };
+		31934C832B88E16200AD7185 /* BRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31934C822B88E16200AD7185 /* BRegistrationViewModel.swift */; };
 		319BAD602B2A31A00081A8F2 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BAD512B2A319F0081A8F2 /* UIViewController.swift */; };
 		319BAD612B2A31A00081A8F2 /* NetworkPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BAD522B2A319F0081A8F2 /* NetworkPopUp.swift */; };
 		319BAD622B2A31A00081A8F2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BAD532B2A319F0081A8F2 /* UIView.swift */; };
@@ -312,6 +318,7 @@
 		3147145E2B692DB2002EED87 /* BatchMealPlanQuestionnaire.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BatchMealPlanQuestionnaire.storyboard; sourceTree = "<group>"; };
 		314B7AD62B6506A2006012DB /* MealBatchDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealBatchDetailVC.swift; sourceTree = "<group>"; };
 		314B7ADC2B654BFB006012DB /* MealBatchPlanningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealBatchPlanningVC.swift; sourceTree = "<group>"; };
+		31673C242B87D202006E3547 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		316DBEEE2B5E640D0037C24A /* BWOPackageTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BWOPackageTblCell.swift; sourceTree = "<group>"; };
 		316DBEEF2B5E640D0037C24A /* BWOPackageTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BWOPackageTblCell.xib; sourceTree = "<group>"; };
 		3176092F2B6676D3005D4395 /* Extension+MealBatchDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MealBatchDetailVC.swift"; sourceTree = "<group>"; };
@@ -402,6 +409,11 @@
 		319076062B35EDFE001FE5CF /* BWOMotivatorsListCollCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BWOMotivatorsListCollCell.xib; sourceTree = "<group>"; };
 		319076082B35EE8D001FE5CF /* TrainingFilterCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainingFilterCollectionCell.xib; sourceTree = "<group>"; };
 		319076092B35EE8E001FE5CF /* TrainingFilterCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingFilterCollectionCell.swift; sourceTree = "<group>"; };
+		31934C7A2B88C73B00AD7185 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
+		31934C7C2B88DCD200AD7185 /* BSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSignUpVC.swift; sourceTree = "<group>"; };
+		31934C7E2B88DF7200AD7185 /* BRegistrationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRegistrationRequest.swift; sourceTree = "<group>"; };
+		31934C802B88DF8200AD7185 /* BRegistrationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRegistrationResponse.swift; sourceTree = "<group>"; };
+		31934C822B88E16200AD7185 /* BRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRegistrationViewModel.swift; sourceTree = "<group>"; };
 		319BAD512B2A319F0081A8F2 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		319BAD522B2A319F0081A8F2 /* NetworkPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPopUp.swift; sourceTree = "<group>"; };
 		319BAD532B2A319F0081A8F2 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -561,6 +573,14 @@
 			path = CommonClass;
 			sourceTree = "<group>";
 		};
+		31673C232B87D1DD006E3547 /* NetworkConnection */ = {
+			isa = PBXGroup;
+			children = (
+				31673C242B87D202006E3547 /* Connection.swift */,
+			);
+			path = NetworkConnection;
+			sourceTree = "<group>";
+		};
 		3186CBAD2B55B979007213C3 /* HeaderFooterCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +639,7 @@
 				3188B4002B299FB800E19945 /* Common */,
 				3188B4012B29A02B00E19945 /* DataResources */,
 				3188B4022B29A06400E19945 /* Validation */,
+				31673C232B87D1DD006E3547 /* NetworkConnection */,
 				3188B3F42B299C7800E19945 /* Helper */,
 				3188B3F52B299C8C00E19945 /* Screens */,
 				3188B3F62B299CB400E19945 /* Storyboard */,
@@ -716,6 +737,7 @@
 		3188B3F52B299C8C00E19945 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				31934C792B88C71F00AD7185 /* LaunchScreen */,
 				570D8FC32B84B28300EB643A /* BatchDashboard */,
 				570D8FD62B84B28300EB643A /* BatchProfile */,
 				318C82BD2B2F0095008E1AA6 /* BatchOnboarding */,
@@ -1028,6 +1050,7 @@
 				31B841962B5D742E00923C3D /* BPromoCodeSucessfulPopUpVC.swift */,
 				31B8418E2B5D143900923C3D /* BCheckoutVC.swift */,
 				31B841902B5D721300923C3D /* BSignInVC.swift */,
+				31934C7C2B88DCD200AD7185 /* BSignUpVC.swift */,
 				313894132B68302000F687B1 /* BRegistrationVC.swift */,
 				3187D6342B5E884E00C82515 /* BThankyouPurchaseVC.swift */,
 			);
@@ -1042,18 +1065,6 @@
 				318B9AE62B848BD10022BBAC /* ASVideoContainer.swift */,
 			);
 			path = VideoPlayLibrary;
-			sourceTree = "<group>";
-		};
-		318BA9B02B7F43DF002205F5 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				318BA9AE2B7F3F62002205F5 /* BWorkOutViewModel.swift */,
-				318BA9B42B7F56C2002205F5 /* TrainingFilterViewModel.swift */,
-				318ECCD12B7F1FB2006C3F17 /* BWorkOutMotivatorDetailViewModel.swift */,
-				318BA9B62B7F6338002205F5 /* BWorkOutDetailViewModel.swift */,
-				318D574E2B87901700A8FA5D /* BWorkOutMotivatorDetailModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		318BA9B12B7F43F7002205F5 /* Resourse */ = {
@@ -1151,7 +1162,6 @@
 			children = (
 				318C82C72B2F0229008E1AA6 /* Model */,
 				318C82C82B2F0229008E1AA6 /* View */,
-				318BA9B02B7F43DF002205F5 /* ViewModel */,
 				318C82C62B2F0229008E1AA6 /* ViewModel */,
 			);
 			path = BatchTrainings;
@@ -1160,12 +1170,13 @@
 		318C82C62B2F0229008E1AA6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				31E8A99C2B83E4CB00A1F9EC /* CourseDetaolWSModel.swift */,
-				318BA9BA2B7F6ED3002205F5 /* BWorkOutRequestModel.swift */,
-				AF867D4B2B7BE92600045771 /* BWorkOutModel.swift */,
-				318ECCCF2B7F08CA006C3F17 /* BWorkOutDetailModel.swift */,
-				318BA9B12B7F43F7002205F5 /* Resourse */,
+				318BA9AE2B7F3F62002205F5 /* BWorkOutViewModel.swift */,
+				318BA9B42B7F56C2002205F5 /* TrainingFilterViewModel.swift */,
+				318ECCD12B7F1FB2006C3F17 /* BWorkOutMotivatorDetailViewModel.swift */,
+				318BA9B62B7F6338002205F5 /* BWorkOutDetailViewModel.swift */,
 				318BA9B82B7F6C51002205F5 /* BPromoCodePopUpViewModel.swift */,
+				31934C822B88E16200AD7185 /* BRegistrationViewModel.swift */,
+				318BA9B12B7F43F7002205F5 /* Resourse */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1173,6 +1184,13 @@
 		318C82C72B2F0229008E1AA6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				31E8A99C2B83E4CB00A1F9EC /* CourseDetaolWSModel.swift */,
+				318BA9BA2B7F6ED3002205F5 /* BWorkOutRequestModel.swift */,
+				AF867D4B2B7BE92600045771 /* BWorkOutModel.swift */,
+				318ECCCF2B7F08CA006C3F17 /* BWorkOutDetailModel.swift */,
+				318D574E2B87901700A8FA5D /* BWorkOutMotivatorDetailModel.swift */,
+				31934C7E2B88DF7200AD7185 /* BRegistrationRequest.swift */,
+				31934C802B88DF8200AD7185 /* BRegistrationResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1240,6 +1258,14 @@
 				318F43572B59420200D0E650 /* BWOMotivatorsReProductCollCell.xib */,
 			);
 			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		31934C792B88C71F00AD7185 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				31934C7A2B88C73B00AD7185 /* LaunchScreenVC.swift */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		31AE2D7B2B36B9D6000FEB41 /* BatchBoardHome */ = {
@@ -2141,6 +2167,7 @@
 				311C2AB72B3B545C00AACA49 /* BatchTabBarController.swift in Sources */,
 				318BA9B52B7F56C2002205F5 /* TrainingFilterViewModel.swift in Sources */,
 				3188B4162B29CB9400E19945 /* HttpUtility.swift in Sources */,
+				31934C7D2B88DCD200AD7185 /* BSignUpVC.swift in Sources */,
 				3187D6352B5E884E00C82515 /* BThankyouPurchaseVC.swift in Sources */,
 				318BA5532B67F63200508167 /* Extension+MealBatchUnSubscribeDetailVC.swift in Sources */,
 				314714542B68EB3A002EED87 /* MealPlanProtienCollectionViewCell.swift in Sources */,
@@ -2159,6 +2186,7 @@
 				68C14B722B63BFE10085AAD4 /* Extension+StartPlanCheckoutVC.swift in Sources */,
 				31AE2DA62B36BD10000FEB41 /* Extension+ShoppingBatchVC.swift in Sources */,
 				319BAD662B2A31A00081A8F2 /* UITextField.swift in Sources */,
+				31934C7B2B88C73C00AD7185 /* LaunchScreenVC.swift in Sources */,
 				570D8FEB2B84B28300EB643A /* DashboardResource.swift in Sources */,
 				31199CFB2B35F13600BF74E9 /* TrainingListTableCell.swift in Sources */,
 				31B8418B2B5D117A00923C3D /* BWorkOutCompleteVC.swift in Sources */,
@@ -2187,6 +2215,7 @@
 				68C14B682B6395450085AAD4 /* MealPlanCheckout.swift in Sources */,
 				3176093D2B66AC54005D4395 /* BMealCollCell.swift in Sources */,
 				3147144D2B68EAF6002EED87 /* Extension+MealPlanIngridentEditableView.swift in Sources */,
+				31934C7F2B88DF7300AD7185 /* BRegistrationRequest.swift in Sources */,
 				3190760B2B35EE8E001FE5CF /* TrainingFilterCollectionCell.swift in Sources */,
 				318F43532B59155300D0E650 /* BChangeCoursePopUpVC.swift in Sources */,
 				319BAD652B2A31A00081A8F2 /* Protocols.swift in Sources */,
@@ -2201,6 +2230,7 @@
 				319BAD682B2A31A00081A8F2 /* UIStoryboard.swift in Sources */,
 				317609412B66ACA5005D4395 /* BMealCategoryCollCell.swift in Sources */,
 				31B841972B5D742E00923C3D /* BPromoCodeSucessfulPopUpVC.swift in Sources */,
+				31673C252B87D202006E3547 /* Connection.swift in Sources */,
 				318A2B3D2B30CAE3004845AB /* BLogInVC.swift in Sources */,
 				31AE2DA82B36BDDB000FEB41 /* BBarcodeScannerVC.swift in Sources */,
 				319BAD612B2A31A00081A8F2 /* NetworkPopUp.swift in Sources */,
@@ -2264,6 +2294,7 @@
 				314B7AD72B6506A2006012DB /* MealBatchDetailVC.swift in Sources */,
 				319BAD6D2B2A31A00081A8F2 /* UITableView.swift in Sources */,
 				318ECCD22B7F1FB2006C3F17 /* BWorkOutMotivatorDetailViewModel.swift in Sources */,
+				31934C812B88DF8200AD7185 /* BRegistrationResponse.swift in Sources */,
 				319BAD6E2B2A31A00081A8F2 /* CustomSegmentedControl.swift in Sources */,
 				3188B41C2B29CBD700E19945 /* HURequest.swift in Sources */,
 				31199CFD2B35F15F00BF74E9 /* Extension+BWorkOutDetailVC.swift in Sources */,
@@ -2306,6 +2337,7 @@
 				AF867D4C2B7BE92600045771 /* BWorkOutModel.swift in Sources */,
 				318B9AE82B848BD10022BBAC /* ASVideoPlayerController.swift in Sources */,
 				31B8418F2B5D143900923C3D /* BCheckoutVC.swift in Sources */,
+				31934C832B88E16200AD7185 /* BRegistrationViewModel.swift in Sources */,
 				3186CBB02B55B979007213C3 /* MealHeaderView.swift in Sources */,
 				318ECCD02B7F08CA006C3F17 /* BWorkOutDetailModel.swift in Sources */,
 				318A2B412B30CBFF004845AB /* BUserGenderVC.swift in Sources */,

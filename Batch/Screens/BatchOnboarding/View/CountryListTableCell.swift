@@ -9,8 +9,10 @@ import UIKit
 
 class CountryListTableCell: UITableViewCell {
 
+    @IBOutlet weak var backGroundUIView: UIView!
+
     @IBOutlet weak var lblCountryName: UILabel!
-    @IBOutlet weak var imgImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

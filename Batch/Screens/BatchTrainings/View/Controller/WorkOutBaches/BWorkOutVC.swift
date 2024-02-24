@@ -48,16 +48,27 @@ class BWorkOutVC: UIViewController {
         self.woSearchTextField.delegate = self
         setupNavigationBar()
         setupViews()
-        // Call Api func here
-        self.getCourses()
         
-        self.getAllBatchesLevel()
-        self.getAllWOTypes()
-        self.getAllBatchGoals()
-        
-        self.getAllCoachFilterList()
+        //        // Call Api func here
+        //        self.getCourses()
+        //        self.getAllBatchesLevel()
+        //        self.getAllWOTypes()
+        //        self.getAllBatchGoals()
+        //        self.getAllCoachFilterList()
     }
     override func viewWillAppear(_ animated: Bool) {
+        if internetConnection.isConnectedToNetwork() == true {
+            // Call Api here
+            self.getCourses()
+            self.getAllBatchesLevel()
+            self.getAllWOTypes()
+            self.getAllBatchGoals()
+            self.getAllCoachFilterList()
+        }
+        else
+        {
+            self.showAlert(message: "Please check your internet", title: "Network issue")
+        }
         
     }
     
@@ -98,8 +109,15 @@ class BWorkOutVC: UIViewController {
             self.woBatchesBackView.isHidden = true
             self.woMotivatorBackView.isHidden = false
             // Call Api Here
-            self.getMotivators()
-            self.getSearchedMotivators()
+            if internetConnection.isConnectedToNetwork() == true {
+                // Call Api here
+                self.getMotivators()
+                self.getSearchedMotivators()
+            }
+            else
+            {
+                self.showAlert(message: "Please check your internet", title: "Network issue")
+            }
         }
         DispatchQueue.main.async {
             // self.checkNetwork()

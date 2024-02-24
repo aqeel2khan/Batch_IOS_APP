@@ -135,7 +135,8 @@ struct HttpUtility1 {
 struct HttpUtility {
     
     static let shared = HttpUtility()
-    public var appToken = "Bearer Bearer 33|eMN7Fd0Z4oBOSC7GjSCxGsYMha54iYtG8YuhL4qfdf5d10e4"
+    //public var appToken = "Bearer Bearer 33|eMN7Fd0Z4oBOSC7GjSCxGsYMha54iYtG8YuhL4qfdf5d10e4"
+    let appToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN) as! String
     public var apiKey: String = ""
     private init(){}
     

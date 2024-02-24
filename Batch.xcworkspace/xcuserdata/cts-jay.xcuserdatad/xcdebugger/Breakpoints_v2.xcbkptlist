@@ -7,95 +7,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5F412D0A-FFA4-4069-9117-D7848E1286B5"
+            uuid = "29DA4AC9-10F8-44BF-A814-C353FA25EA16"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchLogin/View/Controller/BLogInVC.swift"
+            filePath = "Batch/Screens/LaunchScreen/LaunchScreenVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "logInApi()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8CB91070-209B-4134-834A-62C682F5F537"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchLogin/View/Controller/BLogInVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "logInApi()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1D8901BB-6302-4F59-ADAF-008109FD34A9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchLogin/ViewModel/BLogInResource.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "logInApiCall(request:onSuccess:onError:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1D704668-D2E1-4705-A314-FE36E0D2D5A3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchLogin/ViewModel/BLogInResource.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "logInApiCall(request:onSuccess:onError:)"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "1D704668-D2E1-4705-A314-FE36E0D2D5A3 - 83ae5a6f95b6db7d"
+                  uuid = "29DA4AC9-10F8-44BF-A814-C353FA25EA16 - 55932af477652252"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Batch.BLogInResource.logInApiCall(request: Batch.BatchLoginRequest, onSuccess: (Batch.BatchLoginResponse) -&gt; (), onError: (Batch.BatchError) -&gt; ()) -&gt; ()"
+                  symbolName = "Batch.LaunchScreenVC.viewDidLoad() -&gt; ()"
                   moduleName = "Batch"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cts-jay/Desktop/ios-project/Batch/Batch/Screens/BatchLogin/ViewModel/BLogInResource.swift"
+                  urlString = "file:///Users/cts-jay/Desktop/ios-project/Batch/Batch/Screens/LaunchScreen/LaunchScreenVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "692">
+               </Location>
+               <Location
+                  uuid = "29DA4AC9-10F8-44BF-A814-C353FA25EA16 - a89951af373017a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in Batch.LaunchScreenVC.viewDidLoad() -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cts-jay/Desktop/ios-project/Batch/Batch/Screens/LaunchScreen/LaunchScreenVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
                   endingLineNumber = "18"
-                  offsetFromSymbolStart = "812">
-               </Location>
-               <Location
-                  uuid = "1D704668-D2E1-4705-A314-FE36E0D2D5A3 - 6d58f552e061bf19"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Batch.BatchLoginResponse&gt;, Batch.HUNetworkError&gt;) -&gt; () in Batch.BLogInResource.logInApiCall(request: Batch.BatchLoginRequest, onSuccess: (Batch.BatchLoginResponse) -&gt; (), onError: (Batch.BatchError) -&gt; ()) -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cts-jay/Desktop/ios-project/Batch/Batch/Screens/BatchLogin/ViewModel/BLogInResource.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "332">
+                  offsetFromSymbolStart = "40">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -103,81 +55,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "570EB3BB-3060-4F11-9D1D-942645AB391B"
+            uuid = "528A77C3-982D-40E2-86DF-950C22FBB34F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchTrainings/View/Controller/BatchTrainingsCheckout/BTrainingsSubscriptionVC.swift"
+            filePath = "Batch/Screens/LaunchScreen/LaunchScreenVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "onTapCheckOutBtn(_:)"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1C296353-1953-43E7-B774-62505D13AE95"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchTrainings/View/Controller/BatchTrainingsCheckout/BTrainingsSubscriptionVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "onTapCheckOutBtn(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DA40F7D0-A054-4DC9-B62E-48911910D3F5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchLogin/View/Controller/BLogInVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "logInApi()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8E56ED72-8C2F-45CF-9AD0-32ED8B7B5818"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchOnboarding/View/Controller/BatchCountryLanguageVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "BatchCountryLanguageVC"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "71D7A3AC-0A68-4A67-97CE-39EB2288E012"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchOnboarding/View/Controller/BatchCountryLanguageVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "Country"
-            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "528A77C3-982D-40E2-86DF-950C22FBB34F - 55932af477653ca5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Batch.LaunchScreenVC.viewDidLoad() -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cts-jay/Desktop/ios-project/Batch/Batch/Screens/LaunchScreen/LaunchScreenVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "984">
+               </Location>
+               <Location
+                  uuid = "528A77C3-982D-40E2-86DF-950C22FBB34F - 801431fa53a0c71f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Swift.MainActor () -&gt; () in Batch.LaunchScreenVC.viewDidLoad() -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cts-jay/Desktop/ios-project/Batch/Batch/Screens/LaunchScreen/LaunchScreenVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "192">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

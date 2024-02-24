@@ -56,7 +56,16 @@ class BWorkOutMotivatorDetailVC: UIViewController {
             //            guard info.id != nil else { return }
             //            self.getCoachDetailsCourseList (courseId:"\(info.id ?? 0)")
             guard info.id != nil else { return }
-            self.getMotivatorCourseList(coachId: "\(info.id ?? 0)")
+            
+            if internetConnection.isConnectedToNetwork() == true {
+                // Call Api here
+                self.getMotivatorCourseList(coachId: "\(info.id ?? 0)")
+            }
+            else
+            {
+                self.showAlert(message: "Please check your internet", title: "Network issue")
+            }
+            
             
             // self.getCoachDetails(coachId: "\(info.id ?? 0)")
             
@@ -211,7 +220,6 @@ class BWorkOutMotivatorDetailVC: UIViewController {
         }
         
     }
-    
     
     private func getMotivatorCourseList(coachId:String){
         

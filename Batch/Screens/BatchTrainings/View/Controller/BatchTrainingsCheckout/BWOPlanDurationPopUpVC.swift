@@ -22,14 +22,14 @@ class BWOPlanDurationPopUpVC: UIViewController {
     var isCommingFrom = ""
     //Drop Down
     lazy var planDurationDropDown = DropDown()
-    var planDurationArray = ["2 weeks ($35)","1month($60)"]
+    var planDurationArray = ["30 days"]
     
     var selectedPlanDurationStr = ""
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.popUpDDTextField.text = "2 weeks ($35)"
+        self.popUpDDTextField.text = "30 days"
         
         // Do any additional setup after loading the view.
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))

@@ -59,7 +59,7 @@ class BWorkOutDetailVC: UIViewController {
     //var totalCourseDashboardArr = [WOSCourseDuration]()
     var totalCourseDashboardArr = [CourseDuration]()
     var videoArr = [String]()
-
+    
     // var originalCenter: CGPoint!
     
     override func viewDidLoad() {
@@ -87,7 +87,16 @@ class BWorkOutDetailVC: UIViewController {
             {
                 let info = woDetailInfo[0]
                 guard info.courseID != nil else { return }
-                self.getCourseDetails(courseId:"\(info.courseID ?? 0)")
+                
+                if internetConnection.isConnectedToNetwork() == true {
+                    // Call Api here
+                    self.getCourseDetails(courseId:"\(info.courseID ?? 0)")
+                }
+                else
+                {
+                    self.showAlert(message: "Please check your internet", title: "Network issue")
+                }
+                
             }
         } else if isCommingFrom == "dashboard" {
             let info = courseDetailsInfo
@@ -96,17 +105,34 @@ class BWorkOutDetailVC: UIViewController {
             self.totalCourseDashboardArr = info?.courseDuration ?? []
             
             if info?.courseDuration?.count != 0 {
-
-//                for i in 0..<(info?.courseDuration?.count)!
-//                              {
-//                    self.courseDurationExerciseArr = info?.courseDuration?[i].courseDurationExercise ?? []
-//                }
-                                
-                for i in 0..<(info?.courseDuration!.count)! {
-                    let videoId = info?.courseDuration?[i].courseDurationExercise?[i].videoDetail?.videoID ?? ""
-                    print(info?.courseDuration?[i].courseDurationExercise?[i].videoDetail?.videoID ?? "")
-                    self.videoArr.append(videoId)
+                
+                for i in 0..<(info?.courseDuration?.count)!
+                {
+                    //                    self.courseDurationExerciseArr = info?.courseDuration?[i].courseDurationExercise ?? []
+                    
+                    self.courseDurationExerciseArr = info?.courseDuration?[0].courseDurationExercise ?? []
+                    
+                    
+                    for i in 0..<self.courseDurationExerciseArr.count {
+                        
+                        let idArray = self.courseDurationExerciseArr
+                        let videoId = idArray[i].videoDetail?.videoID ?? ""
+                        print(idArray[i].videoDetail?.videoID ?? "")
+                        self.videoArr.append(videoId)
+                        
+                        //                    let videoId = info?.courseDuration?[i].courseDurationExercise?[i].videoDetail?.videoID ?? ""
+                        //                    print(info?.courseDuration?[i].courseDurationExercise?[i].videoDetail?.videoID ?? "")
+                        //                    self.videoArr.append(videoId)
+                        //                }
+                    }
                 }
+                
+                
+                //                for i in 0..<(info?.courseDuration!.count)! {
+                //                    let videoId = info?.courseDuration?[i].courseDurationExercise?[i].videoDetail?.videoID ?? ""
+                //                    print(info?.courseDuration?[i].courseDurationExercise?[i].videoDetail?.videoID ?? "")
+                //                    self.videoArr.append(videoId)
+                //                }
             }
             self.videoListTableView.reloadData()
         }
@@ -114,8 +140,8 @@ class BWorkOutDetailVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         // jay comment latest
-        //vimoVideoSetUp()
-
+        vimoVideoSetUp()
+        
     }
     
     func setUpViewData()
@@ -184,6 +210,9 @@ class BWorkOutDetailVC: UIViewController {
             self.coachPicImgView.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
             
             self.grandTotalPriceLbl.text = info.coursePrice ?? ""
+            
+            self.coursePromotionVideoId = info.coursePromoVideo ?? ""
+            self.videoPlayBtn.isHidden = false
         }
         else if isCommingFrom == "dashboard" {
             self.grandTotalPriceBackView.isHidden = true
@@ -338,21 +367,29 @@ class BWorkOutDetailVC: UIViewController {
     
     @IBAction func onTapStartWorkOutBtn(_ sender: UIButton) {
         
-//        let vc = BStartWorkOutDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
+        //        let vc = BStartWorkOutDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
         
-        /*
-        let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
-        vc.viemoVideoArr = vimoVideoURL
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .coverVertical
-        vc.completion = {
-                    print("Coming back Motivator filter Id")
-            print(self.vimoVideoURL)
-            self.callApiServices()
-
-                }
-        self.present(vc, animated: true)
-         */
+        // /*
+        let vimeoVideoArr = videoArr.filter {$0 != ""}
+        if vimeoVideoArr.count != 0
+        {
+            let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
+            vc.viemoVideoArr = vimoVideoURL
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            vc.completion = {
+                print("Coming back Motivator filter Id")
+                print(self.vimoVideoURL)
+                self.callApiServices()
+                
+            }
+            self.present(vc, animated: true)
+            // */
+        }
+        else
+        {
+            showAlert(message: "No exercise video availble")
+        }
     }
     @IBAction func onTapChangeCourseBtn(_ sender: UIButton) {
         let vc = BChangeCoursePopUpVC.instantiate(fromAppStoryboard: .batchTrainings)
@@ -385,6 +422,7 @@ class BWorkOutDetailVC: UIViewController {
             if response.status == true, response.data?.courseDuration?.count != 0 {
                 
                 print(response.data)
+                
                 self.totalCourseArr = response.data?.courseDuration ?? []
                 // self.blogsArray = response.data!
                 
@@ -416,7 +454,10 @@ extension BWorkOutDetailVC {
     //MARK:- func play vimo video
     
     func vimoVideoSetUp() {
-  
+        
+        //        // Using filter to remove blank strings
+        //        let filteredArray = videoArr.filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }
+        
         let farray = videoArr.filter {$0 != ""}
         if farray.count != 0 {
             
@@ -479,7 +520,7 @@ extension BWorkOutDetailVC {
                                 self.dismiss(animated: true)
                             }else {
                                 self.vimoVideoURL.append(self.videoURL!.absoluteString)
-//                                self.vimoVideoURL.append(self.videoURL!.absoluteString)
+                                //                                self.vimoVideoURL.append(self.videoURL!.absoluteString)
                                 //                                self.setupVideo(videoPath: self.videoURL!)
                                 
                             }

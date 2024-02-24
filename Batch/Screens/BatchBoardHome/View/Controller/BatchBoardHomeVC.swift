@@ -35,7 +35,21 @@ class BatchBoardHomeVC: UIViewController {
         self.setupNavigationBar()
         self.registerCollView()
         self.setUpUI()
-     
+        
+        var token =  Batch_UserDefaults.string(forKey: UserDefaultKey.TOKEN)
+        if token == nil{
+            Batch_UserDefaults.set(UserDefaultKey.tokenValue, forKey: UserDefaultKey.TOKEN)
+        }
+        else{
+            let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN) as! String
+            print(getToken)
+            if getToken == UserDefaultKey.tokenValue {
+                Batch_UserDefaults.set(UserDefaultKey.tokenValue, forKey: UserDefaultKey.TOKEN)
+            }else{
+                Batch_UserDefaults.set(getToken, forKey: UserDefaultKey.TOKEN)
+            }
+        }
+        
     }
     
     // MARK: - UI
@@ -52,7 +66,7 @@ class BatchBoardHomeVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Stop the timer when the view controller is about to disappear
-       // stopAutomaticScrolling()
+        // stopAutomaticScrolling()
     }
     
     private func startAutomaticScrolling() {
@@ -60,7 +74,7 @@ class BatchBoardHomeVC: UIViewController {
         /*
          timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(scrollToNextPage), userInfo: nil, repeats: true)
          */
-//        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
+        //        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
         
         pageControl.numberOfPages = imgArr.count
         pageControl.currentPage = 0

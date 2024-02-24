@@ -60,7 +60,7 @@ class BLogInVC: UIViewController {
     @IBAction func onTapPassowrdEyeBtn(_ sender: UIButton)
     {
         sender.isSelected = !sender.isSelected
-        self.userEmailTextField.isSecureTextEntry = !self.userEmailTextField.isSecureTextEntry
+        self.passwordTextField.isSecureTextEntry = !self.passwordTextField.isSecureTextEntry
 
     }
     
@@ -86,7 +86,11 @@ class BLogInVC: UIViewController {
         {
             if isCheckBoxSelected == true
             {
-                self.logInApi()
+                if internetConnection.isConnectedToNetwork() == true {
+                    self.logInApi()
+                }else{
+                    self.showAlert(message: "Please check your internet", title: "Network issue")
+                }
             }
             else
             {
@@ -119,10 +123,11 @@ class BLogInVC: UIViewController {
                 DispatchQueue.main.async {
                     hideLoading()
                     
-                    UserDefaultUtility.saveToken(token: response.token ?? "")
-                    
+//                    UserDefaultUtility.saveToken(token: response.token ?? "")
+                    Batch_UserDefaults.set(response.token ?? "" , forKey: UserDefaultKey.TOKEN)
+                    let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN)
+                    print(getToken)
                     UserDefaultUtility.setUserLoggedIn(true)
-
                     
                     let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
                     vc.modalPresentationStyle = .overFullScreen
@@ -205,6 +210,7 @@ class BLogInVC: UIViewController {
     //
     //        }
     //    }
+    
     
     @IBAction func googleSignInBtn(_ sender: Any) {
         //        GIDSignIn.sharedInstance.signIn(withPresenting: self)

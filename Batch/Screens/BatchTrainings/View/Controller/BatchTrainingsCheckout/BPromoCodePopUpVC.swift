@@ -30,7 +30,14 @@ class BPromoCodePopUpVC: UIViewController {
         // Do any additional setup after loading the view.
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         mainView.addGestureRecognizer(tap)
-        getPromoCodes()
+        if internetConnection.isConnectedToNetwork() == true {
+            // Call Api here
+            getPromoCodes()
+        }
+        else
+        {
+            self.showAlert(message: "Please check your internet", title: "Network issue")
+        }
     }
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         self.dismiss(animated: true)
@@ -66,7 +73,15 @@ class BPromoCodePopUpVC: UIViewController {
 //        let promoCodeStr = self.addPromoCodeTextField.text ?? ""
 //        if promoCodeStr != ""
 //        {
-//            self.addPromoCodes(courseId: "28", promoCode: promoCodeStr)
+//        if internetConnection.isConnectedToNetwork() == true {
+//            // Call Api here
+//            //            self.addPromoCodes(courseId: "28", promoCode: promoCodeStr)
+//        }
+//        else
+//        {
+//            self.showAlert(message: "Please check your internet", title: "Network issue")
+//        }
+        
 //        }
         
         //        let vc = BPromoCodeSucessfulPopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)

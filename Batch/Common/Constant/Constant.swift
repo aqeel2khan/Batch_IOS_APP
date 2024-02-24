@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 let Batch_AppDelegate = UIApplication.shared.delegate as! AppDelegate
+
+let Batch_UserDefaults = UserDefaults.standard
+
 //enum CustomNavTitle : String {
 //
 //    case batchWorkOutVC = "Workout Batches" // OnBoarding Screens
@@ -76,5 +79,7 @@ struct API {
     static let courseSubscribeList  = baseUrl + "/course/order/list"// post
     
     static let logIn = baseUrl + "/auth/signin"// post
+    static let signUp = baseUrl + "/auth/signup"// post
+    
 
 }

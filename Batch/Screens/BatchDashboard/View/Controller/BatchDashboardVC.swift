@@ -28,7 +28,14 @@ class BatchDashboardVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.courseList.removeAll()
-        self.getSubscribedCourseList()
+        if internetConnection.isConnectedToNetwork() == true {
+            // Call Api here
+            self.getSubscribedCourseList()
+        }
+        else
+        {
+            self.showAlert(message: "Please check your internet", title: "Network issue")
+        }
     }
     
     private func setupNavigationBar() {

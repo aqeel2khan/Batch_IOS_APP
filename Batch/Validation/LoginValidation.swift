@@ -15,6 +15,10 @@ struct LoginValidation {
         if emptyResult.isEmpty{
             return ValidationResult(success: false, error: emptyResult.error)
         }
+        let validationResult = checkForValidData(request: request)
+        if validationResult.isValid == false{
+            return ValidationResult(success: false, error: validationResult.error)
+        }
         
         return ValidationResult(success: true, error: nil)
     }
@@ -32,6 +36,15 @@ struct LoginValidation {
         return (false, nil)
     }
     
-    
-    
+    private func checkForValidData(request: BatchLoginRequest) -> (isValid: Bool, error: RegistrationError?) {
+        
+        if !request.email.isValidEmail(){
+            return (false, RegistrationError.invalidEmail)
+        }
+        
+        if !request.password.isValidPassword(){
+            return (false, RegistrationError.invalidPassword)
+        }
+        return (true, nil)
+    }
 }
