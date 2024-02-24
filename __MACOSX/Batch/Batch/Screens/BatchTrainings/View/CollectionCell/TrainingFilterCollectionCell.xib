@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TrainingFilterCollectionCell" customModule="Batch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="79" height="58"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="79" height="58"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIu-Fw-bCj">
+                        <rect key="frame" x="5" y="5" width="69" height="48"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7K-3l-FCc">
+                                <rect key="frame" x="10" y="13.666666666666668" width="49" height="21.000000000000004"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                        <constraints>
+                            <constraint firstItem="a7K-3l-FCc" firstAttribute="leading" secondItem="VIu-Fw-bCj" secondAttribute="leading" constant="10" id="Q4z-Hz-Tum"/>
+                            <constraint firstItem="a7K-3l-FCc" firstAttribute="centerY" secondItem="VIu-Fw-bCj" secondAttribute="centerY" id="X3y-ge-1Vz"/>
+                            <constraint firstItem="a7K-3l-FCc" firstAttribute="centerX" secondItem="VIu-Fw-bCj" secondAttribute="centerX" id="Zyb-JR-g3p"/>
+                            <constraint firstAttribute="trailing" secondItem="a7K-3l-FCc" secondAttribute="trailing" constant="10" id="fTc-ax-Aad"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="VIu-Fw-bCj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="KmQ-aq-kYh"/>
+                <constraint firstAttribute="bottom" secondItem="VIu-Fw-bCj" secondAttribute="bottom" constant="5" id="QH4-gD-Omu"/>
+                <constraint firstAttribute="trailing" secondItem="VIu-Fw-bCj" secondAttribute="trailing" constant="5" id="ihy-5B-miW"/>
+                <constraint firstItem="VIu-Fw-bCj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="rjl-TI-r6L"/>
+            </constraints>
+            <size key="customSize" width="79" height="58"/>
+            <connections>
+                <outlet property="backGroundUIView" destination="VIu-Fw-bCj" id="hRS-5x-OWN"/>
+                <outlet property="lblWorkoutName" destination="a7K-3l-FCc" id="Acw-GL-bbe"/>
+            </connections>
+            <point key="canvasLocation" x="154.96183206106869" y="23.239436619718312"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
