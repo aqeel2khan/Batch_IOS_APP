@@ -13,8 +13,11 @@ class MealBatchVC: UIViewController {
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
 //    @IBOutlet weak var mealPlanCollView: UICollectionView!
     @IBOutlet weak var mealPlanTblView: UITableView!
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var mealPlanTblViewHeightConstraint: NSLayoutConstraint!
-    var mealListData = [Meals]()
+    var mealListData : [Meals] = []
+    var searchmealListData : [Meals] = []
+    var timer: Timer? = nil
 
     // MARK: - Lifecycle
     
@@ -98,4 +101,6 @@ class MealBatchVC: UIViewController {
         }
         
     }
+    
+    
 }

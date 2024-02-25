@@ -8,12 +8,15 @@
 import UIKit
 
 class MealBatchUnSubscribeDetailVC: UIViewController {
-    
     // MARK: - IBOutlets
-    
     @IBOutlet weak var customSecondNavigationBar: CustomSecondNavigationBar!
-    @IBOutlet weak var mealPriceLbl: UILabel!
-    
+
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var priceLbl: UILabel!
+    @IBOutlet weak var descLbl: UILabel!
+    @IBOutlet weak var durationLbl: UILabel!
+
     @IBOutlet weak var tagCollView: UICollectionView! //701
     @IBOutlet weak var tagCollViewHeightConstraint: NSLayoutConstraint!
     
@@ -22,10 +25,11 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
     @IBOutlet weak var mealCollViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var bottomBackView: UIView!
-    
+    var mealData : Meals!
+
     // MARK: - Properties
     var isCommingFrom = ""
-    var tagTitleArray = ["1700-1800 kcal","3-4 meals","Vegan"]
+    var tagTitleArray : [String] = []
     var tagIconArray = [#imageLiteral(resourceName: "flash-black"), #imageLiteral(resourceName: "meal_Black"), #imageLiteral(resourceName: "Filled")]    
     var mealCategoryTitleArr = ["Breakfast","Lunch & Dinner", "Snack", "Desserts"]
 
@@ -33,6 +37,18 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tagTitleArray.append((mealData.avgCalPerDay ?? "") + " kcal")
+        tagTitleArray.append((mealData.avgCalPerDay ?? "") + " meals")
+        tagTitleArray.append((mealData.avgCalPerDay ?? "") + " Vegan")
+        
+        tagCollView.reloadData()
+
+        titleLbl.text = mealData.name
+        priceLbl.text = "from $ \(mealData.price ?? "")" 
+        descLbl.text = mealData.description
+        durationLbl.text = (mealData.duration ?? "") + " weeks"
+        
         self.setUpTagCollView()
         self.setupNavigationBar()
     }
@@ -49,8 +65,8 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
         super.viewDidLayoutSubviews()
         // Update height constraint
         self.tagCollViewHeightConstraint.constant = self.tagCollView.collectionViewLayout.collectionViewContentSize.height
-        tagCollView.reloadData()
     }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == BatchConstant.contentSize
         {

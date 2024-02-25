@@ -10,23 +10,46 @@ import UIKit
 
 extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.mealListData.count
+        if searchTextField.text == "" {
+            return self.mealListData.count
+        } else {
+            return self.searchmealListData.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
-        cell.titleLbl.text = self.mealListData[indexPath.row].name
-        cell.priceLbl.text = "from $\(self.mealListData[indexPath.row].price ?? "")"
-        cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") kcal"
-        cell.mealsLbl.text = "\(self.mealListData[indexPath.row].name ?? "") meals"
-        return cell
+        if searchTextField.text == "" {
+            let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
+            cell.titleLbl.text = self.mealListData[indexPath.row].name
+            cell.priceLbl.text = "from $\(self.mealListData[indexPath.row].price ?? "")"
+            cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") kcal"
+            cell.mealsLbl.text = "\(self.mealListData[indexPath.row].name ?? "") meals"
+            return cell
+        } else {
+            let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
+            cell.titleLbl.text = self.searchmealListData[indexPath.row].name
+            cell.priceLbl.text = "from $\(self.searchmealListData[indexPath.row].price ?? "")"
+            cell.kclLbl.text = "\(self.searchmealListData[indexPath.row].avgCalPerDay ?? "") kcal"
+            cell.mealsLbl.text = "\(self.searchmealListData[indexPath.row].name ?? "") meals"
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = MealBatchUnSubscribeDetailVC.instantiate(fromAppStoryboard: .batchMealPlans)
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .coverVertical
-        self.present(vc, animated: true)
+        if searchTextField.text == "" {
+            let vc = MealBatchUnSubscribeDetailVC.instantiate(fromAppStoryboard: .batchMealPlans)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            vc.mealData = self.mealListData[indexPath.item]
+            self.present(vc, animated: true)
+        } else {
+            let vc = MealBatchUnSubscribeDetailVC.instantiate(fromAppStoryboard: .batchMealPlans)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            vc.mealData = self.searchmealListData[indexPath.item]
+            self.present(vc, animated: true)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -86,3 +109,27 @@ extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
 //        //        self.present(vc, animated: true)
 //    }
 //}
+
+extension MealBatchVC : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        if textField == searchTextField {
+            let placeTextFieldStr = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(
+                timeInterval: 0.5,
+                target: self,
+                selector: #selector(getHints),
+                userInfo: placeTextFieldStr,
+                repeats: false)
+        }
+        return true
+    }
+    
+    @objc func getHints(timer: Timer) {
+            let userInfo = timer.userInfo as! String
+        self.searchmealListData = self.mealListData.filter{ $0.name!.lowercased().contains(userInfo.lowercased()) }
+
+            self.mealPlanTblView.reloadData()
+    }
+}
