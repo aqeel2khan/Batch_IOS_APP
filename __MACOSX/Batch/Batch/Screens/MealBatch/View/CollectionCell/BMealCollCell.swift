@@ -10,7 +10,8 @@ import UIKit
 class BMealCollCell: UICollectionViewCell {
 
     @IBOutlet weak var bottomBackView: UIView!
-    
+    @IBOutlet weak var radioBtn: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

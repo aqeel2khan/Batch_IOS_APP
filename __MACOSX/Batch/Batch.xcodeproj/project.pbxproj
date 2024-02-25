@@ -231,6 +231,10 @@
 		570EA5272B89FC5500D801AE /* BMealResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570EA5252B89FC5400D801AE /* BMealResource.swift */; };
 		570EA5282B89FC5500D801AE /* BMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570EA5262B89FC5400D801AE /* BMealViewModel.swift */; };
 		570EA52B2B89FDED00D801AE /* MealsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570EA52A2B89FDED00D801AE /* MealsModel.swift */; };
+		575A20092B8B466900FFCD56 /* MealsDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A20082B8B466900FFCD56 /* MealsDetailModel.swift */; };
+		575A200C2B8B541600FFCD56 /* MealPlanBannerViewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A200A2B8B541500FFCD56 /* MealPlanBannerViewTVC.swift */; };
+		575A200D2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 575A200B2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib */; };
+		575A200F2B8B784900FFCD56 /* DishesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A200E2B8B784900FFCD56 /* DishesModel.swift */; };
 		68337D4F2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68337D4E2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift */; };
 		685680392B64B165002AF31C /* MealPlanAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685680382B64B165002AF31C /* MealPlanAddressVC.swift */; };
 		6856803B2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856803A2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift */; };
@@ -495,6 +499,10 @@
 		570EA5252B89FC5400D801AE /* BMealResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMealResource.swift; sourceTree = "<group>"; };
 		570EA5262B89FC5400D801AE /* BMealViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMealViewModel.swift; sourceTree = "<group>"; };
 		570EA52A2B89FDED00D801AE /* MealsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsModel.swift; sourceTree = "<group>"; };
+		575A20082B8B466900FFCD56 /* MealsDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsDetailModel.swift; sourceTree = "<group>"; };
+		575A200A2B8B541500FFCD56 /* MealPlanBannerViewTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealPlanBannerViewTVC.swift; sourceTree = "<group>"; };
+		575A200B2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealPlanBannerViewTVC.xib; sourceTree = "<group>"; };
+		575A200E2B8B784900FFCD56 /* DishesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesModel.swift; sourceTree = "<group>"; };
 		68337D4E2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTotalBurnerCaloryVC.swift; sourceTree = "<group>"; };
 		685680382B64B165002AF31C /* MealPlanAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanAddressVC.swift; sourceTree = "<group>"; };
 		6856803A2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDilevaryArrivingVC.swift; sourceTree = "<group>"; };
@@ -1511,6 +1519,8 @@
 		31AE2D9C2B36BB10000FEB41 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				575A200A2B8B541500FFCD56 /* MealPlanBannerViewTVC.swift */,
+				575A200B2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib */,
 				3186CBA32B55B8FF007213C3 /* MealPlanTVC.swift */,
 				3186CBA22B55B8FE007213C3 /* MealPlanTVC.xib */,
 				68C14B692B6396A20085AAD4 /* MealPlanCheckoutCell.swift */,
@@ -1799,6 +1809,8 @@
 			isa = PBXGroup;
 			children = (
 				570EA52A2B89FDED00D801AE /* MealsModel.swift */,
+				575A20082B8B466900FFCD56 /* MealsDetailModel.swift */,
+				575A200E2B8B784900FFCD56 /* DishesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1994,6 +2006,7 @@
 				570D8FF02B84B28300EB643A /* MealBatchDashboardCollectionCell.xib in Resources */,
 				3176093E2B66AC54005D4395 /* BMealCollCell.xib in Resources */,
 				31199CF62B35F12800BF74E9 /* BatchTrainingDetailCollCell.xib in Resources */,
+				575A200D2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib in Resources */,
 				314714552B68EB3A002EED87 /* MealPlanProtienCollectionViewCell.xib in Resources */,
 				311B1BA22B2E0E3500E37E47 /* BatchShopping.storyboard in Resources */,
 				314714582B68EB4B002EED87 /* ReviewIngridentCollectionViewCell.xib in Resources */,
@@ -2255,6 +2268,7 @@
 				318BA5512B67F1C300508167 /* MealBatchUnSubscribeDetailVC.swift in Sources */,
 				68C14B702B63B3440085AAD4 /* StartDatePlanVC.swift in Sources */,
 				319BAD692B2A31A00081A8F2 /* ShadowView.swift in Sources */,
+				575A200C2B8B541600FFCD56 /* MealPlanBannerViewTVC.swift in Sources */,
 				318BA9AF2B7F3F62002205F5 /* BWorkOutViewModel.swift in Sources */,
 				31B20F512B5DB84400BB5604 /* BWorkOutAllowNotificationVC.swift in Sources */,
 				3147145D2B68EB8F002EED87 /* MealPlanIngridentEditableView.swift in Sources */,
@@ -2278,6 +2292,7 @@
 				31AE2DA42B36BCF1000FEB41 /* ShoppingBatchVC.swift in Sources */,
 				313645B22B30BAB5007D0E18 /* Extension+OnBoardingScreenVC.swift in Sources */,
 				319BAD6C2B2A31A00081A8F2 /* String.swift in Sources */,
+				575A200F2B8B784900FFCD56 /* DishesModel.swift in Sources */,
 				31199CF72B35F12800BF74E9 /* BatchTrainingDetailCollCell.swift in Sources */,
 				68337D4F2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift in Sources */,
 				313894102B68167300F687B1 /* CustomSecondNavigationBar.swift in Sources */,
@@ -2317,6 +2332,7 @@
 				31B2765D2B82416D00846FEB /* VimoPlayerCell.swift in Sources */,
 				311B1BBA2B2E167800E37E47 /* GlobalMethods.swift in Sources */,
 				317609352B6683D0005D4395 /* weekCalenderCollCell.swift in Sources */,
+				575A20092B8B466900FFCD56 /* MealsDetailModel.swift in Sources */,
 				318E71C42B7D3DF700050049 /* VideoThunbListTblCell.swift in Sources */,
 				3188B4182B29CBB400E19945 /* HUNetworkError.swift in Sources */,
 				318BA9B92B7F6C52002205F5 /* BPromoCodePopUpViewModel.swift in Sources */,

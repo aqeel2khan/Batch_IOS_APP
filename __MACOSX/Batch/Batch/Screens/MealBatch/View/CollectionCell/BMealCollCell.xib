@@ -117,6 +117,7 @@
             </constraints>
             <connections>
                 <outlet property="bottomBackView" destination="zHe-4e-oAh" id="8zs-O4-SQY"/>
+                <outlet property="radioBtn" destination="im5-Fo-gJ5" id="8CV-in-Ha7"/>
             </connections>
             <point key="canvasLocation" x="-3.0534351145038165" y="0.0"/>
         </collectionViewCell>

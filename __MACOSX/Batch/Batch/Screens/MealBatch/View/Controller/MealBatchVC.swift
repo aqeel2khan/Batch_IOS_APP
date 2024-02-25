@@ -11,7 +11,6 @@ class MealBatchVC: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
-//    @IBOutlet weak var mealPlanCollView: UICollectionView!
     @IBOutlet weak var mealPlanTblView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var mealPlanTblViewHeightConstraint: NSLayoutConstraint!
@@ -56,12 +55,9 @@ class MealBatchVC: UIViewController {
     }
     
     private func registerTblView(){
-//        self.mealPlanCollView.register(BWOBatchesListCollCell.self)
-//        self.mealPlanTblView.register(BWOMotivatorsListCollCell.self)
-        
         mealPlanTblView.register(UINib(nibName: "MealPlanTVC", bundle: .main), forCellReuseIdentifier: "MealPlanTVC")
-//        mealPlanCollView.register(UINib(nibName: "MealPlanCollectionCell", bundle: .main), forCellWithReuseIdentifier: "MealPlanCollectionCell")
-    }
+        mealPlanTblView.register(UINib(nibName: "MealPlanBannerViewTVC", bundle: .main), forCellReuseIdentifier: "MealPlanBannerViewTVC")
+      }
     
     @IBAction func calculateBtnTap(_ sender: Any) {
         let vc = QuestionGoalVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)

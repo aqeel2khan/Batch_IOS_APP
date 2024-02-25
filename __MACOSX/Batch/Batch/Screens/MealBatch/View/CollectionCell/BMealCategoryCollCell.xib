@@ -23,6 +23,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmK-k8-RnR" customClass="BatchLabelSubTitleBlack" customModule="Batch" customModuleProvider="target">
                                 <rect key="frame" x="20" y="5" width="98" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="zQ7-Cb-yB0"/>
                                 </constraints>
@@ -61,6 +62,7 @@
             </constraints>
             <size key="customSize" width="138" height="50"/>
             <connections>
+                <outlet property="bgView" destination="nrz-2q-xLk" id="ezq-7P-kY9"/>
                 <outlet property="categoryTitleLbl" destination="lmK-k8-RnR" id="9E4-j1-Npi"/>
             </connections>
             <point key="canvasLocation" x="98" y="-28"/>

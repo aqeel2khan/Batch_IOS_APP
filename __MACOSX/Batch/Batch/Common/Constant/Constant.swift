@@ -83,4 +83,7 @@ struct API {
     
     //Meal Module
     static let mealList  = baseUrl + "/meal/list"// post
+    static let mealDetail  = baseUrl + "/meal/details/"// get
+    static let dishesList  = baseUrl + "/meal/dishes/"// get
+
 }

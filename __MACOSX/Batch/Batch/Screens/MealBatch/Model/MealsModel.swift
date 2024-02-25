@@ -24,6 +24,7 @@ struct Meals: Codable {
     let status: Int?
     let createdAt, updatedAt: String?
     let avgCalPerDay: String?
+    let mealCount: Int?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -38,5 +39,6 @@ struct Meals: Codable {
         case createdAt = "created_at"
         case updatedAt = "updated_at"
         case avgCalPerDay = "avg_cal_per_day"
+        case mealCount = "meal_count"
     }
 }
