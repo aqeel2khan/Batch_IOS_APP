@@ -11,10 +11,13 @@ class MealBatchVC: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
-    @IBOutlet weak var mealPlanCollView: UICollectionView!
     @IBOutlet weak var mealPlanTblView: UITableView!
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var mealPlanTblViewHeightConstraint: NSLayoutConstraint!
-        
+    var mealListData : [Meals] = []
+    var searchmealListData : [Meals] = []
+    var timer: Timer? = nil
+
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -24,10 +27,13 @@ class MealBatchVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.mealPlanCollView.reloadData()
-        self.mealPlanTblView.reloadData()
+        
+//        self.mealPlanCollView.reloadData()
         self.mealPlanTblView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        
+        getMealList()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.mealPlanTblView.removeObserver(self, forKeyPath: "contentSize")
     }
@@ -45,20 +51,52 @@ class MealBatchVC: UIViewController {
     
     private func setupNavigationBar() {
         customNavigationBar.titleFirstLbl.text = CustomNavTitle.mealBatchVCNavTitle
-        self.registerCollTblView()
+        self.registerTblView()
     }
     
-    private func registerCollTblView(){
-//        self.mealPlanCollView.register(BWOBatchesListCollCell.self)
-//        self.mealPlanTblView.register(BWOMotivatorsListCollCell.self)
-        
+    private func registerTblView(){
         mealPlanTblView.register(UINib(nibName: "MealPlanTVC", bundle: .main), forCellReuseIdentifier: "MealPlanTVC")
-        mealPlanCollView.register(UINib(nibName: "MealPlanCollectionCell", bundle: .main), forCellWithReuseIdentifier: "MealPlanCollectionCell")
-        
-        mealPlanTblView.register(UINib(nibName: "MealPlanBottomCell", bundle: .main), forCellReuseIdentifier: "MealPlanBottomCell")
-
-
-        
-
+        mealPlanTblView.register(UINib(nibName: "MealPlanBannerViewTVC", bundle: .main), forCellReuseIdentifier: "MealPlanBannerViewTVC")
+      }
+    
+    @IBAction func calculateBtnTap(_ sender: Any) {
+        let vc = QuestionGoalVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true)
     }
+    
+    
+    // MARK: - API Call
+    
+    //Get Meal List
+    private func getMealList(){
+        
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealViewModel = BMealViewModel()
+        let urlStr = API.mealList
+        bMealViewModel.mealList(requestUrl: urlStr)  { (response) in
+            if response.status == true, response.data?.data?.count != 0 {
+                self.mealListData = response.data?.data ?? []
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.mealPlanTblView.reloadData()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+            
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
+        }
+        
+    }
+    
+    
 }

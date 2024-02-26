@@ -99,6 +99,11 @@
                             <constraint firstItem="n4n-2E-gJo" firstAttribute="leading" secondItem="ew8-fU-cBA" secondAttribute="leading" id="h6J-3i-r5f"/>
                             <constraint firstItem="ew8-fU-cBA" firstAttribute="leading" secondItem="dpz-1J-keE" secondAttribute="leading" constant="5" id="sOf-Bw-bWL"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>

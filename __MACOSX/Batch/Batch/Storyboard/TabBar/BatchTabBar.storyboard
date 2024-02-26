@@ -52,10 +52,10 @@
         <!--Navigation Controller-->
         <scene sceneID="FzM-LR-hyf">
             <objects>
-                <navigationController storyboardIdentifier="BatchTabBarNavigation" automaticallyAdjustsScrollViewInsets="NO" id="dt0-Oj-lHh" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BatchTabBarNavigation" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="dt0-Oj-lHh" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9YK-OP-zha">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

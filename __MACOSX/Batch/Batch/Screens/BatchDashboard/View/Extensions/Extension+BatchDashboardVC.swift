@@ -30,7 +30,8 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
             let fileUrl = URL(string: BaseUrl.imageBaseUrl + (course?.courseImage ?? ""))
             cell.bgImageView.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Image"))
             cell.titleLbl.text = course?.courseName
-            cell.daysLbl.text = (course?.courseValidity ?? "") + " days"
+            //cell.daysLbl.text = (course?.courseValidity ?? "") + " days"
+            cell.daysLbl.text = (course?.duration ?? "")
             cell.kclLbl.text = (course?.perDayWorkout ?? "") + " kcl"
             cell.minLbl.text = (course?.duration ?? "") + " min"
             return cell
@@ -39,7 +40,7 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = mealBatchCollView.frame.width - 10
-        return CGSize(width: screenWidth, height: 300)
+        return CGSize(width: screenWidth, height: 220)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

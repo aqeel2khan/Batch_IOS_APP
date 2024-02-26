@@ -60,3 +60,50 @@ struct motivatorCoachListDataList: Codable {
         case coachDetail = "coach_detail"
     }
 }
+
+
+
+
+
+
+// Follow API
+
+// MARK: - Welcome
+struct MotivatorFollowUnFollowResponse: Codable {
+    let status: Bool
+    let message: String?
+    let data: MotivatorFollowUnFollowData?
+}
+
+// MARK: - DataClass
+struct MotivatorFollowUnFollowData: Codable {
+    let id, userType: Int?
+    let name, email: String?
+    let profilePhotoPath, fname, lname: String?
+    let phone: String?
+    let dob, gender: String?
+    let userStatus: Int?
+    let deviceToken, verificationCode, website, currency: String?
+    let experience: String?
+    let emailVerifiedAt, avatar: String?
+    let createdAt, updatedAt: String?
+    let lastLoginAt, lastLoginIP: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case userType = "user_type"
+        case name, email
+        case profilePhotoPath = "profile_photo_path"
+        case fname, lname, phone, dob, gender
+        case userStatus = "user_status"
+        case deviceToken = "device_token"
+        case verificationCode = "verification_code"
+        case website, currency, experience
+        case emailVerifiedAt = "email_verified_at"
+        case avatar
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case lastLoginAt = "last_login_at"
+        case lastLoginIP = "last_login_ip"
+    }
+}

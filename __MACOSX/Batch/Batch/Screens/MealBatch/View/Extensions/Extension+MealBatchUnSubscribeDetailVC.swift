@@ -8,21 +8,18 @@
 import Foundation
 import UIKit
 
-extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout {
+extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if collectionView.tag == 701
-        {
+        if collectionView.tag == 701 {
             return self.tagTitleArray.count
         }
-        else if collectionView.tag == 702
-        {
-            return self.mealCategoryTitleArr.count
+        else if collectionView.tag == 702 {
+            return self.mealCategoryArr.count
         }
-        else if collectionView.tag == 703
-        {
-            return 8
+        else if collectionView.tag == 703 {
+            return self.dishesList.count
         }
         else
         {
@@ -32,59 +29,34 @@ extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView.tag == 701
-        {
+        if collectionView.tag == 701 {
             let cell = collectionView.dequeue(BatchTrainingDetailCollCell.self, indexPath)
             cell.imgWorkOut.image = tagIconArray[indexPath.row]
             cell.lblWorkoutName.text = tagTitleArray[indexPath.row]
             return cell
         }
-        else if collectionView.tag == 702
-        {
+        else if collectionView.tag == 702 {
             let cell = collectionView.dequeue(BMealCategoryCollCell.self, indexPath)
-            cell.categoryTitleLbl.text = mealCategoryTitleArr[indexPath.item]
+            cell.categoryTitleLbl.text = mealCategoryArr[indexPath.item].categoryName
             return cell
         }
-        else if collectionView.tag == 703
-        {
-            let cell = collectionView.dequeue(BMealCollCell.self, indexPath)
+        else if collectionView.tag == 703 {
+            let cell = collectionView.dequeue(BMealDishCollCell.self, indexPath)
+            cell.radioBtn.isHidden = true
+            cell.nameLbl.text = self.dishesList[indexPath.item].name
+            cell.kclLbl.text = (self.dishesList[indexPath.item].avgPreparationTime ?? "0") + " kcal"
             return cell
         }
-        else
-        {
-            return UICollectionViewCell()
-        }
-        
-        /*
-         switch collectionView.tag {
-         case 301:
-         case 302:
-         case 303:
-         default:
-         return UICollectionViewCell()
-         }
-         */
+        return UICollectionViewCell()
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        
-//        let screenWidth = mealCollView.frame.width
-//        let screenHeight = tagCollView.frame.height
-//
-//        if collectionView.tag == 702
-//        {
-//            return CGSize(width: screenWidth/3 - 10 , height: 80)
+//        if collectionView == dishesCollView {
+//            return CGSize(width: self.view.frame.width/2 - 10, height: 80)
 //        }
-//        else if collectionView.tag == 703
-//        {
-//            return CGSize(width: screenWidth/2 - 10, height: 80)
-//        }
-//        else
-//        {
-//            return CGSize(width: screenWidth, height: screenHeight)
-//        }
+//        return CGSize(width: 200, height: 60)
 //    }
-    
+//
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
         UIView.animate(
@@ -97,12 +69,25 @@ extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        /*
-         let vc = MealBatchDetailVC.instantiate(fromAppStoryboard: .batchMealPlans)
-         vc.modalPresentationStyle = .overFullScreen
-         vc.modalTransitionStyle = .coverVertical
-         self.present(vc, animated: true)
-         */
+        if collectionView == mealCategoryCollView {
+            let cell : BMealCategoryCollCell = mealCategoryCollView.cellForItem(at: indexPath) as! BMealCategoryCollCell
+            cell.bgView.backgroundColor = Colors.appViewPinkBackgroundColor
+            
+            self.getDishesListApi(mealCateogryId: self.mealCategoryArr[indexPath.item].categoryID!)
+        }
+        else if collectionView == dishesCollView {
+            let vc = MealPlanIngridentEditableView.instantiate(fromAppStoryboard: .batchMealPlans)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if collectionView == mealCategoryCollView {
+            let cell : BMealCategoryCollCell = mealCategoryCollView.cellForItem(at: indexPath) as! BMealCategoryCollCell
+            cell.bgView.backgroundColor = Colors.appViewBackgroundColor
+        }
     }
     
 }

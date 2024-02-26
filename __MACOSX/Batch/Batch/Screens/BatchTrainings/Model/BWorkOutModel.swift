@@ -7,43 +7,43 @@
 
 import Foundation
 
-//MARK: - Coach List Response
-struct CoachListResponse: Codable {
-    let status: Bool?
-    let message: String?
-    let data: [CoachListData]?
-}
-struct CoachListData: Codable {
-    let id, userType: Int?
-    let name, email: String?
-    let profilePhotoPath: String?
-    let fname, lname, phone: String?
-    let dob, gender, userStatus, deviceToken: String?
-    let verificationCode: String?
-    let website: String?
-    let currency: String?
-    let emailVerifiedAt, avatar, createdAt: String?
-    let updatedAt: String?
-    let lastLoginAt, lastLoginIP: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case userType = "user_type"
-        case name, email
-        case profilePhotoPath = "profile_photo_path"
-        case fname, lname, phone, dob, gender
-        case userStatus = "user_status"
-        case deviceToken = "device_token"
-        case verificationCode = "verification_code"
-        case website, currency
-        case emailVerifiedAt = "email_verified_at"
-        case avatar
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-        case lastLoginAt = "last_login_at"
-        case lastLoginIP = "last_login_ip"
-    }
-}
+////MARK: - Coach List Response
+//struct CoachListResponse: Codable {
+//    let status: Bool?
+//    let message: String?
+//    let data: [CoachListData]?
+//}
+//struct CoachListData: Codable {
+//    let id, userType: Int?
+//    let name, email: String?
+//    let profilePhotoPath: String?
+//    let fname, lname, phone: String?
+//    let dob, gender, userStatus, deviceToken: String?
+//    let verificationCode: String?
+//    let website: String?
+//    let currency: String?
+//    let emailVerifiedAt, avatar, createdAt: String?
+//    let updatedAt: String?
+//    let lastLoginAt, lastLoginIP: String?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id
+//        case userType = "user_type"
+//        case name, email
+//        case profilePhotoPath = "profile_photo_path"
+//        case fname, lname, phone, dob, gender
+//        case userStatus = "user_status"
+//        case deviceToken = "device_token"
+//        case verificationCode = "verification_code"
+//        case website, currency
+//        case emailVerifiedAt = "email_verified_at"
+//        case avatar
+//        case createdAt = "created_at"
+//        case updatedAt = "updated_at"
+//        case lastLoginAt = "last_login_at"
+//        case lastLoginIP = "last_login_ip"
+//    }
+//}
 
 // MARK: - Course List
 
@@ -795,5 +795,119 @@ struct CourseModel: Codable {
 //        case discountType = "discount_type"
 //        case createdAt = "created_at"
 //        case updatedAt = "updated_at"
+//    }
+//}
+
+//MARK: - Coach List Response
+//struct CoachListResponse: Codable {
+//    let status: Bool?
+//    let message: String?
+//    let data: [CoachListData]?
+//}
+//struct CoachListData: Codable {
+//    let id, userType: Int?
+//    let name, email: String?
+//    let profilePhotoPath: String?
+//    let fname, lname, phone: String?
+//    let dob, gender, userStatus, deviceToken: String?
+//    let verificationCode: String?
+//    let website: String?
+//    let currency: String?
+//    let emailVerifiedAt, avatar, createdAt: String?
+//    let updatedAt: String?
+//    let lastLoginAt, lastLoginIP: String?
+//    
+//    enum CodingKeys: String, CodingKey {
+//        case id
+//        case userType = "user_type"
+//        case name, email
+//        case profilePhotoPath = "profile_photo_path"
+//        case fname, lname, phone, dob, gender
+//        case userStatus = "user_status"
+//        case deviceToken = "device_token"
+//        case verificationCode = "verification_code"
+//        case website, currency
+//        case emailVerifiedAt = "email_verified_at"
+//        case avatar
+//        case createdAt = "created_at"
+//        case updatedAt = "updated_at"
+//        case lastLoginAt = "last_login_at"
+//        case lastLoginIP = "last_login_ip"
+//    }
+//}
+
+
+
+
+// MARK: - Welcome
+struct CoachListResponse: Codable {
+    let status: Bool
+    let message: String?
+    let data: [CoachListData]?
+}
+
+// MARK: - Datum
+struct CoachListData: Codable {
+    let id, userType: Int?
+    let name, email: String?
+    let profilePhotoPath: String?
+    let fname, lname, phone: String?
+    let dob, gender, userStatus, deviceToken: String?
+    let verificationCode: String?
+    let website: String?
+    let currency: String?
+    let experience: Int?
+    let emailVerifiedAt, avatar, createdAt: String?
+    let updatedAt: String?
+    let lastLoginAt, lastLoginIP: String?
+    let followersCount, youFollowedCount: Int
+    let workoutType: [WorkoutType]?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case userType = "user_type"
+        case name, email
+        case profilePhotoPath = "profile_photo_path"
+        case fname, lname, phone, dob, gender
+        case userStatus = "user_status"
+        case deviceToken = "device_token"
+        case verificationCode = "verification_code"
+        case website, currency, experience
+        case emailVerifiedAt = "email_verified_at"
+        case avatar
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case lastLoginAt = "last_login_at"
+        case lastLoginIP = "last_login_ip"
+        case followersCount = "followers_count"
+        case youFollowedCount = "you_followed_count"
+        case workoutType = "workout_type"
+    }
+}
+
+//// MARK: - WorkoutType
+//struct WorkoutType: Codable {
+//    let id, userID, workoutType: Int
+//    let createdAt, updatedAt: JSONNull?
+//    let workoutdetail: Workoutdetail
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id
+//        case userID = "user_id"
+//        case workoutType = "workout_type"
+//        case createdAt = "created_at"
+//        case updatedAt = "updated_at"
+//        case workoutdetail
+//    }
+//}
+//
+//// MARK: - Workoutdetail
+//struct Workoutdetail: Codable {
+//    let id: Int
+//    let workoutType: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id
+//        case workoutType = "workout_type"
 //    }
 //}

@@ -58,6 +58,11 @@
                             <constraint firstItem="vzv-61-qx7" firstAttribute="leading" secondItem="8DZ-28-HiH" secondAttribute="leading" id="yi7-xC-TEx"/>
                             <constraint firstAttribute="trailing" secondItem="8DZ-28-HiH" secondAttribute="trailing" constant="10" id="z9h-4X-oTy"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>

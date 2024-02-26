@@ -47,19 +47,19 @@ extension BWorkOutMotivatorDetailVC: UITableViewDelegate,UITableViewDataSource {
         vc.modalTransitionStyle = .coverVertical
         self.present(vc, animated: true)
         
-//        // Do any additional setup after loading the view.
-//        let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
-//        vc.modalPresentationStyle = .overFullScreen
-//        vc.modalTransitionStyle = .crossDissolve
-//        self.present(vc, animated: true)
-////
+        //        // Do any additional setup after loading the view.
+        //        let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
+        //        vc.modalPresentationStyle = .overFullScreen
+        //        vc.modalTransitionStyle = .crossDissolve
+        //        self.present(vc, animated: true)
+        ////
         
         
         
-//        let vc = VideoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
-//        vc.modalPresentationStyle = .overFullScreen
-//        vc.modalTransitionStyle = .coverVertical
-//        self.present(vc, animated: true)
+        //        let vc = VideoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
+        //        vc.modalPresentationStyle = .overFullScreen
+        //        vc.modalTransitionStyle = .coverVertical
+        //        self.present(vc, animated: true)
         
     }
     
@@ -95,7 +95,7 @@ extension BWorkOutMotivatorDetailVC: UICollectionViewDelegate,UICollectionViewDa
         
         if (collectionView.tag == 701)
         {
-            return 0//newArray.count//workOutArray.count
+            return newArray.count //workOutArray.count
         }
         else
         {
@@ -107,8 +107,11 @@ extension BWorkOutMotivatorDetailVC: UICollectionViewDelegate,UICollectionViewDa
         if (collectionView.tag == 701)
         {
             let cell = collectionView.dequeue(BatchTrainingDetailCollCell.self, indexPath)
-//            cell.imgWorkOut.image = workOutIconArray[indexPath.row]
-//            cell.lblWorkoutName.text = workOutArray[indexPath.row]
+            //            cell.imgWorkOut.image = workOutIconArray[indexPath.row]
+            //            cell.lblWorkoutName.text = workOutArray[indexPath.row]
+            
+            cell.imgWorkOut.image = newImage[indexPath.row]
+            cell.lblWorkoutName.text = newArray[indexPath.row]
             return cell
         }
         else

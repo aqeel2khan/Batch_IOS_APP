@@ -22,19 +22,29 @@ class BatchDashboardVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.setupNavigationBar()
+        
+        var isLogin = UserDefaultUtility.isUserLoggedIn()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.courseList.removeAll()
-        if internetConnection.isConnectedToNetwork() == true {
-            // Call Api here
-            self.getSubscribedCourseList()
+        if UserDefaultUtility.isUserLoggedIn() {
+            if internetConnection.isConnectedToNetwork() == true {
+                //self.workoutBatchCollView.isHidden = false
+                // Call Api here
+                self.getSubscribedCourseList()
+            }
+            else
+            {
+                self.showAlert(message: "Please check your internet", title: "Network issue")
+            }
         }
         else
         {
-            self.showAlert(message: "Please check your internet", title: "Network issue")
+            self.workoutBatchCollView.isHidden = true
         }
     }
     

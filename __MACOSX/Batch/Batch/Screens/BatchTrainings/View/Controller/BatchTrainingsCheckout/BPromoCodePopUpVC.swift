@@ -68,21 +68,21 @@ class BPromoCodePopUpVC: UIViewController {
     }
     @IBAction func onTapSaveBtn(_ sender: Any) {
         
-        self.dismiss(animated: true)
+        //self.dismiss(animated: true)
         
-//        let promoCodeStr = self.addPromoCodeTextField.text ?? ""
-//        if promoCodeStr != ""
-//        {
-//        if internetConnection.isConnectedToNetwork() == true {
-//            // Call Api here
-//            //            self.addPromoCodes(courseId: "28", promoCode: promoCodeStr)
-//        }
-//        else
-//        {
-//            self.showAlert(message: "Please check your internet", title: "Network issue")
-//        }
+        let promoCodeStr = self.addPromoCodeTextField.text ?? ""
+        if promoCodeStr != ""
+        {
+        if internetConnection.isConnectedToNetwork() == true {
+            // Call Api here
+            self.addPromoCodes(courseId: "28", promoCode: promoCodeStr)
+        }
+        else
+        {
+            self.showAlert(message: "Please check your internet", title: "Network issue")
+        }
         
-//        }
+        }
         
         //        let vc = BPromoCodeSucessfulPopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
         //        vc.modalPresentationStyle = .overFullScreen
@@ -149,10 +149,12 @@ class BPromoCodePopUpVC: UIViewController {
                 // self.blogsArray = response.data!
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.dismiss(animated: true)
                 }
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.showAlert(message: response.message!)
                     //makeToast(response.message!)
                 }
             }

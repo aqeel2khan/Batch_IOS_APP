@@ -59,7 +59,7 @@ extension MealBatchPlanningVC: UICollectionViewDelegate,UICollectionViewDataSour
         }
         else if collectionView.tag == 603
         {
-            let cell = collectionView.dequeue(BMealCollCell.self, indexPath)
+            let cell = collectionView.dequeue(BMealDishCollCell.self, indexPath)
             return cell
         }
         else

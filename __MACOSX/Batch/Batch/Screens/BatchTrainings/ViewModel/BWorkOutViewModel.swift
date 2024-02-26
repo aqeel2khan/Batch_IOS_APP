@@ -46,4 +46,29 @@ struct BWorkOutViewModel {
         
     }
     
+    
+    
+    func applyCourseFilter(request: CourseFilterRequest, onSuccess:@escaping(CourseResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+            let bWorkOutResource = BWorkOutResource()
+        bWorkOutResource.applyCourseFilterApiCall(request: request) { (response) in
+                onSuccess(response)
+            } onError: { (error) in
+                onError(error)
+            }
+    }
+    
+    
+    func applyCoachFilter(request: MotivatorFilterRequest, onSuccess:@escaping(CoachListResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+            let bWorkOutResource = BWorkOutResource()
+        bWorkOutResource.applyCoachFilterApiCall(request: request) { (response) in
+                onSuccess(response)
+            } onError: { (error) in
+                onError(error)
+            }
+    }
+    
+    
+    
 }
