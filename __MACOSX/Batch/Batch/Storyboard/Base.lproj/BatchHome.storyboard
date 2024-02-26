@@ -20,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXf-7S-w5k" customClass="CustomNavigationBar" customModule="Batch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
                                 <color key="backgroundColor" name="AppThemeBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="6DS-tq-J21"/>
+                                    <constraint firstAttribute="height" constant="200" id="6DS-tq-J21"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzp-so-WM4">
@@ -506,7 +506,7 @@
                         <constraints>
                             <constraint firstItem="tzp-so-WM4" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="EZg-76-pvq"/>
                             <constraint firstItem="tzp-so-WM4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="GUs-6l-DGP"/>
-                            <constraint firstItem="tzp-so-WM4" firstAttribute="top" secondItem="qXf-7S-w5k" secondAttribute="bottom" constant="10" id="SvU-wc-jMZ"/>
+                            <constraint firstItem="tzp-so-WM4" firstAttribute="top" secondItem="qXf-7S-w5k" secondAttribute="bottom" constant="-90" id="SvU-wc-jMZ"/>
                             <constraint firstItem="qXf-7S-w5k" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="Z0Z-iT-gNi"/>
                             <constraint firstAttribute="trailing" secondItem="qXf-7S-w5k" secondAttribute="trailing" id="nYT-MB-RlH"/>
                             <constraint firstItem="tzp-so-WM4" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="pNO-bu-6LC"/>
