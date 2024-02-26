@@ -86,7 +86,7 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
     private func registerCollTblView(){
         self.tagCollView.register(BatchTrainingDetailCollCell.self)
         self.mealCategoryCollView.register(BMealCategoryCollCell.self)
-        self.dishesCollView.register(BMealCollCell.self)
+        self.dishesCollView.register(BMealDishCollCell.self)
     }
     
     private func setUpTagCollView(){
@@ -140,10 +140,7 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
                 
                 self.mealCategoryArr = response.data?.data?.categoryList ?? []
 
-                if self.mealCategoryArr.count > 0 {
-                    self.getDishesListApi(mealCateogryId: self.mealCategoryArr[0].categoryID!)
-                }
-
+              
                 DispatchQueue.main.async {
                     hideLoading()
                     let duration : Double = Double(response.data?.data?.duration ?? "0")!
@@ -151,6 +148,10 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
                     self.grandTotalLbl.text = "$" + "\(duration * price)"
                     self.tagCollView.reloadData()
                     self.mealCategoryCollView.reloadData()
+                    
+                    if self.mealCategoryArr.count > 0 {
+                        self.getDishesListApi(mealCateogryId: self.mealCategoryArr[0].categoryID!)
+                    }
                 }
             }else{
                 DispatchQueue.main.async {
@@ -185,6 +186,8 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
                     
                     let cell : BMealCategoryCollCell = self.mealCategoryCollView.cellForItem(at: IndexPath(item: 0, section: 0)) as! BMealCategoryCollCell
                     cell.bgView.backgroundColor = Colors.appViewPinkBackgroundColor
+
+                    self.mealCategoryCollView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredVertically)
                     
                     self.dishesCollView.reloadData()
 

@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BMealCollCell" id="gTV-IL-0wX" customClass="BMealCollCell" customModule="Batch" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BMealDishCollCell" id="gTV-IL-0wX" customClass="BMealDishCollCell" customModule="Batch" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -117,6 +117,9 @@
             </constraints>
             <connections>
                 <outlet property="bottomBackView" destination="zHe-4e-oAh" id="8zs-O4-SQY"/>
+                <outlet property="imgView" destination="P92-kj-hgx" id="3R7-Gk-LuF"/>
+                <outlet property="kclLbl" destination="PIY-4s-iQ2" id="H1K-MS-03T"/>
+                <outlet property="nameLbl" destination="6Kz-4v-7oz" id="8CM-S2-1C4"/>
                 <outlet property="radioBtn" destination="im5-Fo-gJ5" id="8CV-in-Ha7"/>
             </connections>
             <point key="canvasLocation" x="-3.0534351145038165" y="0.0"/>

@@ -41,8 +41,10 @@ extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionVie
             return cell
         }
         else if collectionView.tag == 703 {
-            let cell = collectionView.dequeue(BMealCollCell.self, indexPath)
+            let cell = collectionView.dequeue(BMealDishCollCell.self, indexPath)
             cell.radioBtn.isHidden = true
+            cell.nameLbl.text = self.dishesList[indexPath.item].name
+            cell.kclLbl.text = (self.dishesList[indexPath.item].avgPreparationTime ?? "0") + " kcal"
             return cell
         }
         return UICollectionViewCell()
@@ -52,7 +54,7 @@ extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionVie
         if collectionView == dishesCollView {
             return CGSize(width: dishesCollView.frame.width/2 - 10, height: 80)
         }
-        return CGSize()
+        return CGSize(width: 200, height: 60)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

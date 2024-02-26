@@ -67,8 +67,8 @@
 		317609362B6683D0005D4395 /* weekCalenderCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317609342B6683D0005D4395 /* weekCalenderCollCell.xib */; };
 		317609392B668545005D4395 /* BMealTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317609372B668545005D4395 /* BMealTblCell.swift */; };
 		3176093A2B668545005D4395 /* BMealTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317609382B668545005D4395 /* BMealTblCell.xib */; };
-		3176093D2B66AC54005D4395 /* BMealCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176093B2B66AC54005D4395 /* BMealCollCell.swift */; };
-		3176093E2B66AC54005D4395 /* BMealCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3176093C2B66AC54005D4395 /* BMealCollCell.xib */; };
+		3176093D2B66AC54005D4395 /* BMealDishCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176093B2B66AC54005D4395 /* BMealDishCollCell.swift */; };
+		3176093E2B66AC54005D4395 /* BMealDishCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3176093C2B66AC54005D4395 /* BMealDishCollCell.xib */; };
 		317609412B66ACA5005D4395 /* BMealCategoryCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176093F2B66ACA5005D4395 /* BMealCategoryCollCell.swift */; };
 		317609422B66ACA5005D4395 /* BMealCategoryCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317609402B66ACA5005D4395 /* BMealCategoryCollCell.xib */; };
 		3186CBA62B55B8FF007213C3 /* MealPlanTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3186CBA22B55B8FE007213C3 /* MealPlanTVC.xib */; };
@@ -332,8 +332,8 @@
 		317609342B6683D0005D4395 /* weekCalenderCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = weekCalenderCollCell.xib; sourceTree = "<group>"; };
 		317609372B668545005D4395 /* BMealTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMealTblCell.swift; sourceTree = "<group>"; };
 		317609382B668545005D4395 /* BMealTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMealTblCell.xib; sourceTree = "<group>"; };
-		3176093B2B66AC54005D4395 /* BMealCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMealCollCell.swift; sourceTree = "<group>"; };
-		3176093C2B66AC54005D4395 /* BMealCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMealCollCell.xib; sourceTree = "<group>"; };
+		3176093B2B66AC54005D4395 /* BMealDishCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMealDishCollCell.swift; sourceTree = "<group>"; };
+		3176093C2B66AC54005D4395 /* BMealDishCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMealDishCollCell.xib; sourceTree = "<group>"; };
 		3176093F2B66ACA5005D4395 /* BMealCategoryCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMealCategoryCollCell.swift; sourceTree = "<group>"; };
 		317609402B66ACA5005D4395 /* BMealCategoryCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMealCategoryCollCell.xib; sourceTree = "<group>"; };
 		3186CBA22B55B8FE007213C3 /* MealPlanTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealPlanTVC.xib; sourceTree = "<group>"; };
@@ -1506,8 +1506,8 @@
 				317609342B6683D0005D4395 /* weekCalenderCollCell.xib */,
 				3176093F2B66ACA5005D4395 /* BMealCategoryCollCell.swift */,
 				317609402B66ACA5005D4395 /* BMealCategoryCollCell.xib */,
-				3176093B2B66AC54005D4395 /* BMealCollCell.swift */,
-				3176093C2B66AC54005D4395 /* BMealCollCell.xib */,
+				3176093B2B66AC54005D4395 /* BMealDishCollCell.swift */,
+				3176093C2B66AC54005D4395 /* BMealDishCollCell.xib */,
 				314714522B68EB3A002EED87 /* MealPlanProtienCollectionViewCell.swift */,
 				314714532B68EB3A002EED87 /* MealPlanProtienCollectionViewCell.xib */,
 				314714572B68EB4B002EED87 /* ReviewIngridentCollectionViewCell.swift */,
@@ -2004,7 +2004,7 @@
 				3186CBAB2B55B92C007213C3 /* MealPlanCollectionCell.xib in Resources */,
 				311576C12B86906C00224EDE /* CountryListTableCell.xib in Resources */,
 				570D8FF02B84B28300EB643A /* MealBatchDashboardCollectionCell.xib in Resources */,
-				3176093E2B66AC54005D4395 /* BMealCollCell.xib in Resources */,
+				3176093E2B66AC54005D4395 /* BMealDishCollCell.xib in Resources */,
 				31199CF62B35F12800BF74E9 /* BatchTrainingDetailCollCell.xib in Resources */,
 				575A200D2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib in Resources */,
 				314714552B68EB3A002EED87 /* MealPlanProtienCollectionViewCell.xib in Resources */,
@@ -2231,7 +2231,7 @@
 				3188B41F2B29D22E00E19945 /* RegistrationError.swift in Sources */,
 				AF1955072B3B423900E3BB90 /* BatchLabel.swift in Sources */,
 				68C14B682B6395450085AAD4 /* MealPlanCheckout.swift in Sources */,
-				3176093D2B66AC54005D4395 /* BMealCollCell.swift in Sources */,
+				3176093D2B66AC54005D4395 /* BMealDishCollCell.swift in Sources */,
 				3147144D2B68EAF6002EED87 /* Extension+MealPlanIngridentEditableView.swift in Sources */,
 				31934C7F2B88DF7300AD7185 /* BRegistrationRequest.swift in Sources */,
 				3190760B2B35EE8E001FE5CF /* TrainingFilterCollectionCell.swift in Sources */,

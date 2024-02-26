@@ -1813,32 +1813,32 @@
     </scenes>
     <designables>
         <designable name="1gZ-JN-vjf">
-            <size key="intrinsicContentSize" width="140" height="33"/>
+            <size key="intrinsicContentSize" width="153" height="33"/>
         </designable>
         <designable name="4fi-Q0-aNy">
-            <size key="intrinsicContentSize" width="141" height="33"/>
+            <size key="intrinsicContentSize" width="152" height="33"/>
         </designable>
         <designable name="79b-xc-eJc">
-            <size key="intrinsicContentSize" width="122" height="33"/>
+            <size key="intrinsicContentSize" width="130" height="33"/>
         </designable>
         <designable name="Efb-WV-FSH">
-            <size key="intrinsicContentSize" width="160" height="33"/>
+            <size key="intrinsicContentSize" width="175" height="33"/>
         </designable>
         <designable name="GjJ-N7-TgT">
-            <size key="intrinsicContentSize" width="42" height="33"/>
+            <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
         <designable name="T8y-Pw-KYw">
             <size key="intrinsicContentSize" width="224" height="44"/>
         </designable>
         <designable name="zHO-SI-P4f">
-            <size key="intrinsicContentSize" width="34" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="33"/>
         </designable>
     </designables>
     <resources>
         <image name="IconDown" width="36" height="36"/>
         <image name="Meal" width="125" height="96.333335876464844"/>
         <image name="blueWhiteCalender" width="36" height="36"/>
-        <image name="downArrow" width="24" height="24"/>
+        <image name="downArrow" width="11" height="5.3333334922790527"/>
         <image name="filter" width="36" height="36"/>
         <image name="leftArrow" width="32" height="32"/>
         <image name="meal" width="42.333332061767578" height="42"/>

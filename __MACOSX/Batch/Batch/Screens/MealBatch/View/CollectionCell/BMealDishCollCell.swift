@@ -7,10 +7,13 @@
 
 import UIKit
 
-class BMealCollCell: UICollectionViewCell {
+class BMealDishCollCell: UICollectionViewCell {
 
     @IBOutlet weak var bottomBackView: UIView!
     @IBOutlet weak var radioBtn: UIButton!
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var kclLbl: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

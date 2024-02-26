@@ -68,7 +68,7 @@ class MealBatchPlanningVC: UIViewController {
     private func registerCollTblView(){
         self.weekCalenderCollView.register(weekCalenderCollCell.self)
         self.mealCategoryCollView.register(BMealCategoryCollCell.self)
-        self.mealCollView.register(BMealCollCell.self)
+        self.mealCollView.register(BMealDishCollCell.self)
     }
     
     // MARK: - IBActions
