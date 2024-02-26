@@ -180,7 +180,7 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
                 
                 self.dishesList.removeAll()
                 self.dishesList = response.data?.data ?? []
-               
+                self.dishesList.append( contentsOf: response.data?.data ?? [])
                 DispatchQueue.main.async {
                     hideLoading()
                     

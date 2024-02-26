@@ -50,13 +50,13 @@ extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionVie
         return UICollectionViewCell()
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == dishesCollView {
-            return CGSize(width: dishesCollView.frame.width/2 - 10, height: 80)
-        }
-        return CGSize(width: 200, height: 60)
-    }
-    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        if collectionView == dishesCollView {
+//            return CGSize(width: self.view.frame.width/2 - 10, height: 80)
+//        }
+//        return CGSize(width: 200, height: 60)
+//    }
+//
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
         UIView.animate(
@@ -74,6 +74,12 @@ extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionVie
             cell.bgView.backgroundColor = Colors.appViewPinkBackgroundColor
             
             self.getDishesListApi(mealCateogryId: self.mealCategoryArr[indexPath.item].categoryID!)
+        }
+        else if collectionView == dishesCollView {
+            let vc = MealPlanIngridentEditableView.instantiate(fromAppStoryboard: .batchMealPlans)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)
         }
     }
     

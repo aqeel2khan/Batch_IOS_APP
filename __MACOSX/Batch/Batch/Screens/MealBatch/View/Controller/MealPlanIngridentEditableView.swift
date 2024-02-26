@@ -14,11 +14,11 @@ class MealPlanIngridentEditableView: UIViewController {
     
     @IBOutlet weak var customSecondNavigationBar: CustomSecondNavigationBar!
   
+    @IBOutlet weak var showProtinListCollView: UICollectionView!
     @IBOutlet weak var planReviewCollView: UICollectionView!
     @IBOutlet weak var mealTblView: UITableView!
     @IBOutlet weak var mealTblViewHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var showProtinListCollView: UICollectionView!
 
     // MARK: - Properties
     var isCommingFrom = ""
@@ -48,7 +48,7 @@ class MealPlanIngridentEditableView: UIViewController {
         
         mealTblView.delegate = self
         mealTblView.dataSource = self
-        
+                
         self.showProtinListCollView.register(MealPlanProtienCollectionViewCell.self)
         self.planReviewCollView.register(ReviewIngridentCollectionViewCell.self)
         self.mealTblView.registerCell(MealPlanIngridentTableCell.self)

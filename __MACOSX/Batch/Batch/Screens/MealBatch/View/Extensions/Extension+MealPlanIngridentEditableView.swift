@@ -30,32 +30,37 @@ extension MealPlanIngridentEditableView : UITableViewDelegate,UITableViewDataSou
 
 //  MARK:- Extension CollectionView
 
-extension MealPlanIngridentEditableView : UICollectionViewDelegate,UICollectionViewDataSource {
+extension MealPlanIngridentEditableView : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == planReviewCollView {
-            return 5
+            return 4
         }else if collectionView == showProtinListCollView{
-            return 5
+            return 4
         }
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView == planReviewCollView {
-            let cell = collectionView.dequeue(ReviewIngridentCollectionViewCell.self, indexPath)
-            return cell
-            
-        }else if collectionView == showProtinListCollView{
+        if collectionView == showProtinListCollView{
             let cell1 = collectionView.dequeue(MealPlanProtienCollectionViewCell.self, indexPath)
             return cell1
+        } else if collectionView == planReviewCollView {
+            let cell = collectionView.dequeue(ReviewIngridentCollectionViewCell.self, indexPath)
+            return cell
         }
         return UICollectionViewCell()
         
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == showProtinListCollView {
+            return CGSize(width: self.view.frame.size.width/4 - 20, height: 108)
+        } else {
+            return CGSize(width: self.view.frame.size.width - 20, height: 120)
+        }
+    }
     
 }

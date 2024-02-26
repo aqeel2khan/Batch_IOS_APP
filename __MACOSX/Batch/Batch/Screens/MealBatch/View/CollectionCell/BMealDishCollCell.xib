@@ -68,8 +68,18 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="PIY-4s-iQ2" firstAttribute="leading" secondItem="5jC-cG-8fX" secondAttribute="trailing" constant="8" symbolic="YES" id="HJK-LB-XUZ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="PIY-4s-iQ2" secondAttribute="trailing" id="PdM-be-676"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="OMf-td-Oad" firstAttribute="leading" secondItem="r9a-Qm-pEU" secondAttribute="leading" id="2X8-cb-VIn"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Kz-4v-7oz" secondAttribute="trailing" id="8em-rk-xLY"/>
+                                            <constraint firstAttribute="trailing" secondItem="OMf-td-Oad" secondAttribute="trailing" id="kIh-aZ-VDz"/>
+                                            <constraint firstItem="6Kz-4v-7oz" firstAttribute="leading" secondItem="r9a-Qm-pEU" secondAttribute="leading" id="yWZ-4U-lJU"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" name="AppLabelLightGrayColor"/>
@@ -90,7 +100,6 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="P92-kj-hgx" secondAttribute="trailing" id="CJm-EN-d5d"/>
                             <constraint firstAttribute="bottom" secondItem="zHe-4e-oAh" secondAttribute="bottom" id="CRQ-xv-pOW"/>
-                            <constraint firstItem="zHe-4e-oAh" firstAttribute="centerX" secondItem="qpY-Z3-tw5" secondAttribute="centerX" id="GJt-ZV-GMP"/>
                             <constraint firstItem="im5-Fo-gJ5" firstAttribute="leading" secondItem="qpY-Z3-tw5" secondAttribute="leading" constant="10" id="IA5-4P-hDV"/>
                             <constraint firstAttribute="height" constant="200" id="P9S-0K-Xb5"/>
                             <constraint firstItem="im5-Fo-gJ5" firstAttribute="top" secondItem="qpY-Z3-tw5" secondAttribute="top" constant="10" id="bYH-Er-JAE"/>

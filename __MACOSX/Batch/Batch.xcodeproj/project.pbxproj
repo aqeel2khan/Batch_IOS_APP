@@ -1540,9 +1540,9 @@
 				68C14B662B63950A0085AAD4 /* MealPlanCheckout */,
 				31AE2D9F2B36BC48000FEB41 /* MealBatchVC.swift */,
 				318BA5502B67F1C300508167 /* MealBatchUnSubscribeDetailVC.swift */,
+				3147145B2B68EB8F002EED87 /* MealPlanIngridentEditableView.swift */,
 				314B7AD62B6506A2006012DB /* MealBatchDetailVC.swift */,
 				314B7ADC2B654BFB006012DB /* MealBatchPlanningVC.swift */,
-				3147145B2B68EB8F002EED87 /* MealPlanIngridentEditableView.swift */,
 				3147145A2B68EB8F002EED87 /* MealplanRatingVC.swift */,
 			);
 			path = Controller;
@@ -1553,11 +1553,11 @@
 			children = (
 				31AE2DA12B36BC72000FEB41 /* Extension+MealBatchVC.swift */,
 				318BA5522B67F63200508167 /* Extension+MealBatchUnSubscribeDetailVC.swift */,
+				3147144C2B68EAF6002EED87 /* Extension+MealPlanIngridentEditableView.swift */,
 				68C14B6D2B6399F70085AAD4 /* Extension+MealPlanCheckOut.swift */,
 				68C14B712B63BFE10085AAD4 /* Extension+StartPlanCheckoutVC.swift */,
 				3176092F2B6676D3005D4395 /* Extension+MealBatchDetailVC.swift */,
 				317609312B6676EE005D4395 /* Extension+MealBatchPlanningVC.swift */,
-				3147144C2B68EAF6002EED87 /* Extension+MealPlanIngridentEditableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

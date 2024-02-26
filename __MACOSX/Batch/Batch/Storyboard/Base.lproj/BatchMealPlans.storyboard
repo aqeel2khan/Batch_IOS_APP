@@ -549,7 +549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUL-Ph-0Bw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1430" y="-23"/>
+            <point key="canvasLocation" x="2115" y="-23"/>
         </scene>
         <!--Meal Batch PlanningVC-->
         <scene sceneID="GiD-Ym-Lgj">
@@ -967,7 +967,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5wu-X1-4hk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2073" y="-23"/>
+            <point key="canvasLocation" x="2764" y="-23"/>
         </scene>
         <!--Meal Batch Un Subscribe DetailVC-->
         <scene sceneID="iAB-8q-BCZ">
@@ -1445,7 +1445,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="bvR-vR-8BT"/>
                                                                 </constraints>
-                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pw5-Pf-FqV">
+                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pw5-Pf-FqV">
                                                                     <size key="itemSize" width="128" height="128"/>
                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1520,7 +1520,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="KRD-iJ-VdY"/>
                                                                 </constraints>
-                                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U7G-Cc-fis">
+                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U7G-Cc-fis">
                                                                     <size key="itemSize" width="128" height="128"/>
                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1586,7 +1586,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aog-Pt-aUB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2732" y="-23"/>
+            <point key="canvasLocation" x="1398" y="-23"/>
         </scene>
         <!--Mealplan RatingVC-->
         <scene sceneID="Q1e-CM-59O">
@@ -1813,25 +1813,22 @@
     </scenes>
     <designables>
         <designable name="1gZ-JN-vjf">
-            <size key="intrinsicContentSize" width="153" height="33"/>
+            <size key="intrinsicContentSize" width="149" height="32"/>
         </designable>
         <designable name="4fi-Q0-aNy">
-            <size key="intrinsicContentSize" width="152" height="33"/>
+            <size key="intrinsicContentSize" width="149" height="32"/>
         </designable>
         <designable name="79b-xc-eJc">
-            <size key="intrinsicContentSize" width="130" height="33"/>
+            <size key="intrinsicContentSize" width="126" height="32"/>
         </designable>
         <designable name="Efb-WV-FSH">
-            <size key="intrinsicContentSize" width="175" height="33"/>
+            <size key="intrinsicContentSize" width="170" height="32"/>
         </designable>
         <designable name="GjJ-N7-TgT">
-            <size key="intrinsicContentSize" width="44" height="33"/>
-        </designable>
-        <designable name="T8y-Pw-KYw">
-            <size key="intrinsicContentSize" width="224" height="44"/>
+            <size key="intrinsicContentSize" width="43" height="32"/>
         </designable>
         <designable name="zHO-SI-P4f">
-            <size key="intrinsicContentSize" width="36" height="33"/>
+            <size key="intrinsicContentSize" width="35" height="32"/>
         </designable>
     </designables>
     <resources>

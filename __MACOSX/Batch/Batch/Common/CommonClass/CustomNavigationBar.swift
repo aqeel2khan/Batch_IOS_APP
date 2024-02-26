@@ -73,6 +73,14 @@ class CustomNavigationBar: UIView {
     }
     
     @IBAction func rightBarBtnItem(_ sender: UIButton) {
+        if sender == rightThirdBarBtnItem {
+            let vc = BUserProfileVC.instantiate(fromAppStoryboard: .batchAccount)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            let controller = (self.superview)?.next as! UIViewController
+            controller.present(vc, animated: true)
+        }
+        
     }
     
 }
