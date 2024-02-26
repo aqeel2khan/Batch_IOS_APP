@@ -9,6 +9,7 @@ import UIKit
 
 class BWorkOutMotivatorDetailVC: UIViewController {
     
+    @IBOutlet weak var followUnfollowBtn: UIButton!
     @IBOutlet weak var coachPicImgView: UIImageView!
     @IBOutlet weak var coachNameLbl: UILabel!
     @IBOutlet weak var followerCountLbl: UILabel!
@@ -35,8 +36,11 @@ class BWorkOutMotivatorDetailVC: UIViewController {
     var newImage = [UIImage]()
     
     var woCoachDetailInfo = [CoachListData]()
+    
     var coachDetailCourseArr = [CourseWorkoutList]()
-    var motivatorCourseArr = [motivatorCoachListDataList]()
+//    var motivatorCourseArr = [motivatorCoachListDataList]()
+    var motivatorCourseArr = [CourseDataList]()
+
     
     
     override func viewDidLoad() {
@@ -77,19 +81,43 @@ class BWorkOutMotivatorDetailVC: UIViewController {
         
         // Update height constraint
         self.trainingCollectionHeight.constant = self.trainingCollectionView.collectionViewLayout.collectionViewContentSize.height
-        traningPackageTblView.reloadData()
+        //self.traningPackageTblView.reloadData()
         // recomProductCollView.reloadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.traningPackageTblView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        
+//        self.trainingCollectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.traningPackageTblView.removeObserver(self, forKeyPath: "contentSize")
+        
+//        self.trainingCollectionView.removeObserver(self, forKeyPath: "contentSize")
+
+        
+    }
+    
+    
+    
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentSize"
         {
             if let newValue = change?[.newKey] {
                 let newsize = newValue as! CGSize
-                self.trainingCollectionHeight.constant = newsize.height
+//                self.trainingCollectionHeight.constant = newsize.height
+                
                 self.traningPackageTblViewHeight.constant = newsize.height
+
+               // self.traningPackageTblViewHeight.constant = newsize.height
                 // self.recomProductCollViewHeight.constant = newsize.height
             }
         }
+
     }
     
     // MARK: - UI
@@ -107,12 +135,38 @@ class BWorkOutMotivatorDetailVC: UIViewController {
     
     func setUpViewData()
     {
+        if UserDefaultUtility.isUserLoggedIn()
+        {
+            self.followBtn.isHidden = true
+            self.unFollowBtn.isHidden = false
+            self.followUnfollowBtn.isHidden = false
+        }
+        else
+        {
+            self.followBtn.isHidden = true
+            self.unFollowBtn.isHidden = true
+            self.followUnfollowBtn.isHidden = true
+        }
+        
         let info = woCoachDetailInfo[0]
         let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (info.profilePhotoPath ?? ""))
         self.coachPicImgView.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
         self.coachNameLbl.text = "\(info.name ?? "")"
         self.followerCountLbl.text = "0"
         self.desLbl.text = ""
+                
+        if info.workoutType?.count != 0 {
+            let workOutType = info.workoutType?.count
+            
+            for i in 0..<(info.workoutType!.count ?? 0) {
+                print(info.workoutType?[i].workoutdetail?.workoutType)
+                
+                newArray.append("\(info.workoutType?[i].workoutdetail?.workoutType ?? "" )")
+                newImage.append(UIImage(named: "accessibility_Black")!)
+                
+            }
+        }
+        
         
     }
     
@@ -124,17 +178,39 @@ class BWorkOutMotivatorDetailVC: UIViewController {
         
         sender.isSelected = !sender.isSelected
         
-        if sender.isSelected
+        var fullUrlStr = ""
+        if woCoachDetailInfo.count != 0
         {
-            self.followBtn.isHidden   = true
-            self.unFollowBtn.isHidden = false
-        }
-        else
-        {
-            self.followBtn.isHidden   = false
-            self.unFollowBtn.isHidden = true
+            let info = woCoachDetailInfo[0]
+            guard info.id != nil else { return }
             
+            if internetConnection.isConnectedToNetwork() == true {
+                // Call Api here
+                
+                if sender.isSelected
+                {
+                    self.followBtn.isHidden   = false
+                    self.unFollowBtn.isHidden = true
+                    fullUrlStr = API.motivatorUnfollow + "\(info.id ?? 0)"
+
+                }
+                else
+                {
+                    self.followBtn.isHidden   = true
+                    self.unFollowBtn.isHidden = false
+                    fullUrlStr = API.motivatorFollow + "\(info.id ?? 0)"
+
+                }
+                self.getfollowUnfollow(urlStr: fullUrlStr)
+            }
+            else
+            {
+                self.showAlert(message: "Please check your internet", title: "Network issue")
+            }
         }
+        
+        
+        
         
     }
     
@@ -222,43 +298,114 @@ class BWorkOutMotivatorDetailVC: UIViewController {
     }
     
     private func getMotivatorCourseList(coachId:String){
-        
+
         let request = motivatorCoachListRequest(coachID: coachId)
-        
+
         DispatchQueue.main.async {
             showLoading()
         }
         let bWOMotivatorDetailViewModel = BWorkOutMotivatorDetailViewModel()
-        
-        let urlStr = API.motivatorCourseList
-        bWOMotivatorDetailViewModel.motivatorCourseList(requestUrl: urlStr)  { (response) in
-            
+
+        bWOMotivatorDetailViewModel.motivatorCourseList(request: request) { (response) in
+
             if response.status == true, response.data?.list?.count != 0 {
-                
+
                 print(response.data)
-                self.motivatorCourseArr = response.data?.list ?? []
-                
+               self.motivatorCourseArr = response.data?.list ?? []
+
                 DispatchQueue.main.async {
                     hideLoading()
                     self.traningPackageTblView.reloadData()
                 }
-                
+
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
                     //makeToast(response.message!)
                 }
             }
-            
+
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
                 // makeToast(error.localizedDescription)
             }
         }
-        
     }
     
+    
+//    private func getMotivatorCourseList(coachId:String){
+//
+//
+//    DispatchQueue.main.async {
+//        showLoading()
+//    }
+//    let bWorkOutViewModel = BWorkOutViewModel()
+//    let urlStr = API.courseList
+//    bWorkOutViewModel.courseList(requestUrl: urlStr)  { (response) in
+//
+//        if response.status == true, response.data?.list?.count != 0
+//        {
+//            // print(response.data)
+//            // self.blogsArray = response.data!
+//            self.courseListDataArr = response.data?.list ?? []
+//            DispatchQueue.main.async {
+//                hideLoading()
+//                self.batchesMotivatorCollView.reloadData()
+//            }
+//        }else{
+//            DispatchQueue.main.async {
+//                hideLoading()
+//                //makeToast(response.message!)
+//            }
+//        }
+//
+//    } onError: { (error) in
+//        DispatchQueue.main.async {
+//            hideLoading()
+//            // makeToast(error.localizedDescription)
+//        }
+//    }
+//
+//}
+    
+    
+    
+    
+    private func getfollowUnfollow(urlStr: String){
+        //coachId:String,urlStr: String
+        //let fullUrlStr = API.motivatorFollow + courseId
+        
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bWOMotivatorDetailViewModel = BWorkOutMotivatorDetailViewModel()
+        
+        bWOMotivatorDetailViewModel.coachDetailCourseList(requestUrl: urlStr)  {
+            (response) in
+            
+            if response.status == true, response.data?.list?.count != 0 {
+                
+                print(response.data as Any)
+                ///self.motivatorCourseArr = response.data?.list ?? []
+                
+                DispatchQueue.main.async {
+                    hideLoading()
+                    //                    self.traningPackageTblView.reloadData()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                    //makeToast(response.message!)
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+                // makeToast(error.localizedDescription)
+            }
+        }
+    }
 }
 
 

@@ -140,6 +140,7 @@ class VideoPlayerVC: UIViewController {
                 }
             })
         }
+        
     }
     
     deinit {

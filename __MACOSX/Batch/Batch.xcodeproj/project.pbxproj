@@ -148,6 +148,10 @@
 		31934C7F2B88DF7300AD7185 /* BRegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31934C7E2B88DF7200AD7185 /* BRegistrationRequest.swift */; };
 		31934C812B88DF8200AD7185 /* BRegistrationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31934C802B88DF8200AD7185 /* BRegistrationResponse.swift */; };
 		31934C832B88E16200AD7185 /* BRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31934C822B88E16200AD7185 /* BRegistrationViewModel.swift */; };
+		319B361B2B8A2F4200C84631 /* BWorkOutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B361A2B8A2F4200C84631 /* BWorkOutRequest.swift */; };
+		319B361D2B8A495000C84631 /* CheckOutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B361C2B8A495000C84631 /* CheckOutRequest.swift */; };
+		319B361F2B8A496F00C84631 /* CheckOutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B361E2B8A496F00C84631 /* CheckOutResponse.swift */; };
+		319B36212B8A4AF400C84631 /* BCheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B36202B8A4AF400C84631 /* BCheckoutViewModel.swift */; };
 		319BAD602B2A31A00081A8F2 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BAD512B2A319F0081A8F2 /* UIViewController.swift */; };
 		319BAD612B2A31A00081A8F2 /* NetworkPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BAD522B2A319F0081A8F2 /* NetworkPopUp.swift */; };
 		319BAD622B2A31A00081A8F2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BAD532B2A319F0081A8F2 /* UIView.swift */; };
@@ -417,6 +421,10 @@
 		31934C7E2B88DF7200AD7185 /* BRegistrationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRegistrationRequest.swift; sourceTree = "<group>"; };
 		31934C802B88DF8200AD7185 /* BRegistrationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRegistrationResponse.swift; sourceTree = "<group>"; };
 		31934C822B88E16200AD7185 /* BRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRegistrationViewModel.swift; sourceTree = "<group>"; };
+		319B361A2B8A2F4200C84631 /* BWorkOutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BWorkOutRequest.swift; sourceTree = "<group>"; };
+		319B361C2B8A495000C84631 /* CheckOutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutRequest.swift; sourceTree = "<group>"; };
+		319B361E2B8A496F00C84631 /* CheckOutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutResponse.swift; sourceTree = "<group>"; };
+		319B36202B8A4AF400C84631 /* BCheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCheckoutViewModel.swift; sourceTree = "<group>"; };
 		319BAD512B2A319F0081A8F2 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		319BAD522B2A319F0081A8F2 /* NetworkPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPopUp.swift; sourceTree = "<group>"; };
 		319BAD532B2A319F0081A8F2 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -1186,6 +1194,7 @@
 				318BA9B62B7F6338002205F5 /* BWorkOutDetailViewModel.swift */,
 				318BA9B82B7F6C51002205F5 /* BPromoCodePopUpViewModel.swift */,
 				31934C822B88E16200AD7185 /* BRegistrationViewModel.swift */,
+				319B36202B8A4AF400C84631 /* BCheckoutViewModel.swift */,
 				318BA9B12B7F43F7002205F5 /* Resourse */,
 			);
 			path = ViewModel;
@@ -1197,10 +1206,13 @@
 				31E8A99C2B83E4CB00A1F9EC /* CourseDetaolWSModel.swift */,
 				318BA9BA2B7F6ED3002205F5 /* BWorkOutRequestModel.swift */,
 				AF867D4B2B7BE92600045771 /* BWorkOutModel.swift */,
+				319B361A2B8A2F4200C84631 /* BWorkOutRequest.swift */,
 				318ECCCF2B7F08CA006C3F17 /* BWorkOutDetailModel.swift */,
 				318D574E2B87901700A8FA5D /* BWorkOutMotivatorDetailModel.swift */,
 				31934C7E2B88DF7200AD7185 /* BRegistrationRequest.swift */,
 				31934C802B88DF8200AD7185 /* BRegistrationResponse.swift */,
+				319B361C2B8A495000C84631 /* CheckOutRequest.swift */,
+				319B361E2B8A496F00C84631 /* CheckOutResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2180,6 +2192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				311C2AB72B3B545C00AACA49 /* BatchTabBarController.swift in Sources */,
+				319B361D2B8A495000C84631 /* CheckOutRequest.swift in Sources */,
 				318BA9B52B7F56C2002205F5 /* TrainingFilterViewModel.swift in Sources */,
 				3188B4162B29CB9400E19945 /* HttpUtility.swift in Sources */,
 				31934C7D2B88DCD200AD7185 /* BSignUpVC.swift in Sources */,
@@ -2226,6 +2239,7 @@
 				318F434F2B59088900D0E650 /* BStartWorkOutDetailVC.swift in Sources */,
 				31D424992B6B84C300E988C7 /* QuestionHeightVC.swift in Sources */,
 				3188B4262B29D3E500E19945 /* SignUpValidation.swift in Sources */,
+				319B361B2B8A2F4200C84631 /* BWorkOutRequest.swift in Sources */,
 				685680392B64B165002AF31C /* MealPlanAddressVC.swift in Sources */,
 				311B1BBF2B2E24DA00E37E47 /* CustomNavigationBar.swift in Sources */,
 				3188B41F2B29D22E00E19945 /* RegistrationError.swift in Sources */,
@@ -2244,6 +2258,8 @@
 				31AE2DAC2B370101000FEB41 /* BatchSegmentedControl.swift in Sources */,
 				570D8FF92B84B28300EB643A /* BUserProfileVC.swift in Sources */,
 				31D4249A2B6B84C300E988C7 /* QuestionDietVC.swift in Sources */,
+				3186CBA52B55B8FF007213C3 /* MealPlanBottomCell.swift in Sources */,
+				319B36212B8A4AF400C84631 /* BCheckoutViewModel.swift in Sources */,
 				319BAD682B2A31A00081A8F2 /* UIStoryboard.swift in Sources */,
 				317609412B66ACA5005D4395 /* BMealCategoryCollCell.swift in Sources */,
 				31B841972B5D742E00923C3D /* BPromoCodeSucessfulPopUpVC.swift in Sources */,
@@ -2261,6 +2277,7 @@
 				31D4249E2B6B84C300E988C7 /* QuestionAllergyVC.swift in Sources */,
 				570D8FEF2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.swift in Sources */,
 				316DBEF02B5E640D0037C24A /* BWOPackageTblCell.swift in Sources */,
+				319B361F2B8A496F00C84631 /* CheckOutResponse.swift in Sources */,
 				319BAD702B2A32E00081A8F2 /* BatchButton.swift in Sources */,
 				313645B82B30BAED007D0E18 /* TrainingFilterVC.swift in Sources */,
 				318E71C72B7D40B200050049 /* Extension+VideoPlayerVC.swift in Sources */,

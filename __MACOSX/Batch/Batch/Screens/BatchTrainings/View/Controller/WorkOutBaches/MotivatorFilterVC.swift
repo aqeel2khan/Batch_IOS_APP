@@ -13,7 +13,7 @@
 import UIKit
 
 class MotivatorFilterVC: UIViewController {
-    var completion: (()->Void)? = nil
+    var completion: ((String, String)->Void)? = nil
 
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var backButton: UIButton!
@@ -86,8 +86,12 @@ class MotivatorFilterVC: UIViewController {
     @IBAction func applyBtnTap(_ sender: UIButton) {        
         print(selectedWorkOut)
         print(selectedExperience)
+        
+        let commaSeparatedWorkOutStr = selectedWorkOut.map{String($0)}.joined(separator: ",")
+        let commaSeparatedExpStr = selectedExperience.map{String($0)}.joined(separator: ",")
+        
         self.dismiss(animated: true)
-        completion?()
+        completion?(commaSeparatedWorkOutStr, commaSeparatedExpStr)
     }
     
 }

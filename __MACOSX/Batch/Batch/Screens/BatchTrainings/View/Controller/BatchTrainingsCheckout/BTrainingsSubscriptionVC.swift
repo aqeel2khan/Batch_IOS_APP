@@ -25,7 +25,9 @@ class BTrainingsSubscriptionVC: UIViewController {
     @IBOutlet weak var addPromoBtn: BatchButton!
     
     var selectedSubscriptionInfo = [CourseDataList]()
-    var selectedMotivatorSubscriptionInfo : motivatorCoachListDataList?
+//    var selectedMotivatorSubscriptionInfo : motivatorCoachListDataList?
+    var selectedMotivatorSubscriptionInfo : CourseDataList?
+
     var isCommingFrom = ""
     
     override func viewDidLoad() {
@@ -62,6 +64,7 @@ class BTrainingsSubscriptionVC: UIViewController {
     
     func setUpViewData()
     {
+
         if isCommingFrom == "dashboard"
         {
             let info = selectedMotivatorSubscriptionInfo
@@ -93,6 +96,30 @@ class BTrainingsSubscriptionVC: UIViewController {
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info.coachDetail?.profilePhotoPath ?? ""))
             self.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
         }
+        else if isCommingFrom == "MotivatorDetailVC"
+        {
+            let info = selectedMotivatorSubscriptionInfo
+            self.lblTitle.text = "\(info?.courseName ?? "")"
+            self.woPriceLbl.text = "\(info?.coursePrice ?? "")"
+            self.coachNameLbl.text = "\(info?.coachDetail?.name ?? "")"
+            self.grandTotalPriceLbl.text = "\(info?.coursePrice ?? "")"
+            self.courseLevelTypeLbl.setTitle("\(info?.courseLevel?.levelName ?? "")", for: .normal)
+            let workType = info?.workoutType?[0].workoutdetail?.workoutType
+            self.workOutTypeBtn.setTitle("\(workType ?? "")", for: .normal)
+            let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (info?.courseImage ?? ""))
+            self.imgCourse.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
+            let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info?.coachDetail?.profilePhotoPath ?? ""))
+            self.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
+        }
+        
+        if UserDefaultUtility.isUserLoggedIn()
+        {
+            self.addPromoBtn.isHidden = false
+        }
+        else
+        {
+            self.addPromoBtn.isHidden = true
+        }
     }
     
     
@@ -120,6 +147,10 @@ class BTrainingsSubscriptionVC: UIViewController {
                if isCommingFrom == "workoutbatches"
                {
                    vc.selectedSubscriptionInfo = [selectedSubscriptionInfo[0]]
+               }
+               else if isCommingFrom == "MotivatorDetailVC"
+               {
+                   vc.selectedMotivatorSubscriptionInfo = selectedMotivatorSubscriptionInfo
                }
                vc.isCommingFrom = isCommingFrom
                self.present(vc, animated: true)

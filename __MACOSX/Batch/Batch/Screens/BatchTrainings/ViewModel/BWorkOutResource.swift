@@ -244,6 +244,7 @@ struct BWorkOutResource {
     
     
     // Get Promo Code list
+    /*
     func getMotivatorCourseList(urlStr:String, onSuccess:@escaping(motivatorCoachListResponse) -> Void, onError:@escaping(BatchError) -> Void){
         
         let coachDetailContentUrl = URL(string: urlStr)!
@@ -260,15 +261,14 @@ struct BWorkOutResource {
                 }
             }
     }
-    
-    
-    func registrationResourse(request: BRegistrationRequest, onSuccess:@escaping(BRegistrationResponse) -> Void, onError:@escaping(BatchError) -> Void){
+     */
+    func getMotivatorCourseList(request: motivatorCoachListRequest, onSuccess:@escaping(CourseResponse) -> Void, onError:@escaping(BatchError) -> Void){
         
         do {
             let requestBody = try JSONEncoder().encode(request)
-            let huRequest = HURequest(url: URL(string: API.addPromoCode)!, method: .post, requestBody: requestBody)
+            let huRequest = HURequest(url: URL(string: API.motivatorCourseList)!, method: .post, requestBody: requestBody)
             
-            HttpUtility.shared.request(huRequest: huRequest, isAuthorization: true, resultType: BRegistrationResponse.self) { (result) in
+            HttpUtility.shared.request(huRequest: huRequest, isAuthorization: false, resultType: CourseResponse.self) { (result) in
                 switch result{
                     
                 case .success(let response):
@@ -281,5 +281,112 @@ struct BWorkOutResource {
             onError(error as! BatchError)
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    func registrationResourse(request: BRegistrationRequest, onSuccess:@escaping(BRegistrationResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        do {
+            let requestBody = try JSONEncoder().encode(request)
+            let huRequest = HURequest(url: URL(string: API.signUp)!, method: .post, requestBody: requestBody)
+            
+            HttpUtility.shared.request(huRequest: huRequest, isAuthorization: false, resultType: BRegistrationResponse.self) { (result) in
+                switch result{
+                    
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+        } catch let error {
+            onError(error as! BatchError)
+        }
+    }
+    
+    
+    func applyCourseFilterApiCall(request: CourseFilterRequest, onSuccess:@escaping(CourseResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        do {
+            let requestBody = try JSONEncoder().encode(request)
+            let huRequest = HURequest(url: URL(string: API.courseList)!, method: .post, requestBody: requestBody)
+            
+            HttpUtility.shared.request(huRequest: huRequest, isAuthorization: false, resultType: CourseResponse.self) { (result) in
+                switch result{
+                    
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+        } catch let error {
+            onError(error as! BatchError)
+        }
+    }
+    
+    func applyCoachFilterApiCall(request: MotivatorFilterRequest, onSuccess:@escaping(CoachListResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        do {
+            let requestBody = try JSONEncoder().encode(request)
+            let huRequest = HURequest(url: URL(string: API.coachList)!, method: .post, requestBody: requestBody)
+            
+            HttpUtility.shared.request(huRequest: huRequest, isAuthorization: false, resultType: CoachListResponse.self) { (result) in
+                switch result{
+                    
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+        } catch let error {
+            onError(error as! BatchError)
+        }
+    }
+    
+    func createOrderCheckOutApiCall(request: CreateCourseOrderRequest, onSuccess:@escaping(CreateCourseOrderResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        do {
+            let requestBody = try JSONEncoder().encode(request)
+            let huRequest = HURequest(url: URL(string: API.createCourseOrder)!, method: .post, requestBody: requestBody)
+            
+            HttpUtility.shared.request(huRequest: huRequest, isAuthorization: true, resultType: CreateCourseOrderResponse.self) { (result) in
+                switch result{
+                    
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+        } catch let error {
+            onError(error as! BatchError)
+        }
+    }
+    
+
+    // Get Coach Follow UnFollow Api //2
+    func followUnfollowApiCall(urlStr:String, onSuccess:@escaping(MotivatorFollowUnFollowResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let courseContentUrl = URL(string: urlStr)!
+        let urlRequest = HURequest(url: courseContentUrl, method: .get)
+        
+        HttpUtility.shared.request(huRequest: urlRequest, isAuthorization: false, resultType: MotivatorFollowUnFollowResponse
+            .self) { (result) in
+                
+                switch result{
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+    }
+    
     
 }

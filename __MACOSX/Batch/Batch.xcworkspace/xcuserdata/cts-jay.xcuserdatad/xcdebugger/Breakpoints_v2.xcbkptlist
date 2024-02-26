@@ -7,97 +7,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "29DA4AC9-10F8-44BF-A814-C353FA25EA16"
-            shouldBeEnabled = "Yes"
+            uuid = "94D12EF8-419C-4E9C-A717-04589C19CF76"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/LaunchScreen/LaunchScreenVC.swift"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VimoPlayerCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "configureCell(videoUrl:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "29DA4AC9-10F8-44BF-A814-C353FA25EA16 - 55932af477652252"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Batch.LaunchScreenVC.viewDidLoad() -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cts-jay/Desktop/ios-project/Batch/Batch/Screens/LaunchScreen/LaunchScreenVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "692">
-               </Location>
-               <Location
-                  uuid = "29DA4AC9-10F8-44BF-A814-C353FA25EA16 - a89951af373017a9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in Batch.LaunchScreenVC.viewDidLoad() -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cts-jay/Desktop/ios-project/Batch/Batch/Screens/LaunchScreen/LaunchScreenVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "40">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "528A77C3-982D-40E2-86DF-950C22FBB34F"
+            uuid = "53B7E658-F1F6-4883-96AA-3532B2C7B9F1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/LaunchScreen/LaunchScreenVC.swift"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/BWorkOutDetailVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
+            landmarkName = "onTapVideoPlayBtn(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "528A77C3-982D-40E2-86DF-950C22FBB34F - 55932af477653ca5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Batch.LaunchScreenVC.viewDidLoad() -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cts-jay/Desktop/ios-project/Batch/Batch/Screens/LaunchScreen/LaunchScreenVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "984">
-               </Location>
-               <Location
-                  uuid = "528A77C3-982D-40E2-86DF-950C22FBB34F - 801431fa53a0c71f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Swift.MainActor () -&gt; () in Batch.LaunchScreenVC.viewDidLoad() -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cts-jay/Desktop/ios-project/Batch/Batch/Screens/LaunchScreen/LaunchScreenVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "192">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4131B823-2ED3-4110-9970-FE185BD9F6DF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VideoPlayerVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "vimoVideoSetUp(stingUrl:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "934B747C-2CA4-4C41-8C2D-E456394F5514"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VideoPlayerVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "vimoVideoSetUp(stingUrl:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

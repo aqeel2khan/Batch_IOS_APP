@@ -9,8 +9,7 @@ import Foundation
 
 struct SignUpValidation {
     
-    /*
-     func validate(request: SignUpRequest) -> ValidationResult{
+     func validate(request: BRegistrationRequest) -> ValidationResult{
      
      let result = checkForEmpty(request: request)
      if result.isEmpty{
@@ -20,33 +19,25 @@ struct SignUpValidation {
      return ValidationResult(success: true, error: nil)
      }
      
-     private func checkForEmpty(request: SignUpRequest) -> (isEmpty: Bool, error: RegistrationError?){
+     private func checkForEmpty(request: BRegistrationRequest) -> (isEmpty: Bool, error: RegistrationError?){
      
-     if request.name!.isEmpty{
+     if request.name.isEmpty{
      return (true, .emptyName)
      }
      
-     if request.email!.isEmpty{
+     if request.email.isEmpty{
      return (true, .emptyEmail)
      }
      
-     if request.phone!.isEmpty{
+     if request.mobile.isEmpty{
      return (true, .emptyPhoneNumber)
      }
      
-     if request.address!.isEmpty{
-     return (true, .emptyAddress)
-     }
-     
-     if request.password!.isEmpty{
+     if request.password.isEmpty{
      return (true, .emptyPassword)
-     }
-     
-     if request.confirmPassword!.isEmpty{
-     return (true, .emptyConfirmPassword)
      }
      
      return (false, nil)
      }
-     */
+    
 }

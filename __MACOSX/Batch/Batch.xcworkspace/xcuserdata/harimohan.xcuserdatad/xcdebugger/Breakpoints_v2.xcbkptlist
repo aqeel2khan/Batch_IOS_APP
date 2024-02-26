@@ -34,38 +34,6 @@
             endingLineNumber = "179"
             landmarkName = "onTapFollowUnfollowBtn(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EFAC2611-37D9-41AA-8A3E-A5DB7F910A8B - aff3a96b642f0564"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Batch.BatchError) -&gt; () in Batch.BWorkOutMotivatorDetailVC.getCoachDetails(coachId: Swift.String) -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/harimohan/Documents/Faheem_iOS/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/BWorkOutMotivators/BWorkOutMotivatorDetailVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "179"
-                  endingLineNumber = "179"
-                  offsetFromSymbolStart = "152">
-               </Location>
-               <Location
-                  uuid = "EFAC2611-37D9-41AA-8A3E-A5DB7F910A8B - 3d933a8e8ccb79b7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #3 (Batch.BatchError) -&gt; () in Batch.BWorkOutMotivatorDetailVC.getCoachDetails(coachId: Swift.String) -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/harimohan/Documents/Faheem_iOS/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/BWorkOutMotivators/BWorkOutMotivatorDetailVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "180"
-                  endingLineNumber = "180"
-                  offsetFromSymbolStart = "8">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -167,16 +135,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EB353E08-E353-4976-A2EC-FBA60DB275D3"
+            uuid = "215A4DDA-3B00-4047-88F4-AB3D069344AB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Batch/Common/CommonClass/CustomNavigationBar.swift"
+            filePath = "Batch/Common/CommonClass/CommonNavBar/CommonNavBar.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "rightBarBtnItem(_:)"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "rightBarBtnTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

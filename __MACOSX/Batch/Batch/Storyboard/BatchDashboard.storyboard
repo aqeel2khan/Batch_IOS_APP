@@ -91,7 +91,7 @@
                                                                                         <rect key="frame" x="5" y="5" width="148" height="20"/>
                                                                                     </imageView>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="75% protein" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYQ-OS-3yt" customClass="BatchLabelMedium12Black" customModule="Batch" customModuleProvider="target">
-                                                                                        <rect key="frame" x="158" y="9.6666666666666288" width="80" height="15.333333333333336"/>
+                                                                                        <rect key="frame" x="158" y="11" width="80" height="14"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="80" id="G8G-pC-RWw"/>
                                                                                         </constraints>
@@ -118,7 +118,7 @@
                                                                                         <rect key="frame" x="5" y="5" width="148" height="20"/>
                                                                                     </imageView>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20% Carbs" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRb-QS-YKc" customClass="BatchLabelMedium12Black" customModule="Batch" customModuleProvider="target">
-                                                                                        <rect key="frame" x="158" y="9.6666666666666288" width="80" height="15.333333333333336"/>
+                                                                                        <rect key="frame" x="158" y="11" width="80" height="14"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="80" id="3rK-fq-ya0"/>
                                                                                         </constraints>
@@ -145,7 +145,7 @@
                                                                                         <rect key="frame" x="5" y="5" width="148" height="20"/>
                                                                                     </imageView>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5% Fat" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGz-IW-Oxz" customClass="BatchLabelMedium12Black" customModule="Batch" customModuleProvider="target">
-                                                                                        <rect key="frame" x="158" y="9.6666666666666288" width="80" height="15.333333333333336"/>
+                                                                                        <rect key="frame" x="158" y="11" width="80" height="14"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="80" id="qGZ-6g-j0T"/>
                                                                                         </constraints>
@@ -321,7 +321,7 @@
     </scenes>
     <designables>
         <designable name="7JZ-Tc-LyG">
-            <size key="intrinsicContentSize" width="60" height="33"/>
+            <size key="intrinsicContentSize" width="65" height="33"/>
         </designable>
     </designables>
     <resources>
