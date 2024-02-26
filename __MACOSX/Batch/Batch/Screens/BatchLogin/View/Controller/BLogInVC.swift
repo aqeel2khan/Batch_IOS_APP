@@ -20,9 +20,9 @@ class BLogInVC: UIViewController {
     
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-
+    
     @IBOutlet weak var checkBoxBtn: UIButton!
-        
+    
     var promotionPriceValue = 0.0
     var selectedSubscriptionInfo = [CourseDataList]()
     
@@ -39,15 +39,11 @@ class BLogInVC: UIViewController {
     func setUpLocalization() {
         
         self.lblTermCondition.text = "I agree to the company Terms & Conditions".localized()
-        
         self.btnSignIn.setTitle("Sign In".localized(), for: .normal)
         self.btnFbLogin.setTitle("Sign in with Facebook".localized(), for: .normal)
         self.btnAppleLogin.setTitle("Sign in with Apple".localized(), for: .normal)
         self.btnGoogleLogin.setTitle("Sign in with Google".localized(), for: .normal)
         self.btnOutlookLogin.setTitle("Sign in with Outlook".localized(), for: .normal)
-        
-        
-        
     }
     
     @IBAction func onTapCheckBoxBtn(_ sender: UIButton)
@@ -55,48 +51,60 @@ class BLogInVC: UIViewController {
         
         sender.isSelected = !sender.isSelected
         isCheckBoxSelected = sender.isSelected
-       // self.userEmailTextField.isSecureTextEntry = !self.userEmailTextField.isSecureTextEntry
+        // self.userEmailTextField.isSecureTextEntry = !self.userEmailTextField.isSecureTextEntry
     }
     @IBAction func onTapPassowrdEyeBtn(_ sender: UIButton)
     {
         sender.isSelected = !sender.isSelected
         self.passwordTextField.isSecureTextEntry = !self.passwordTextField.isSecureTextEntry
-
+        
     }
     
     
     @IBAction func onTapSignInBtn(_ sender: Any) {
-//        //        GIDSignIn.sharedInstance.signOut()
-//
-//        let vc = BVerifyOTPVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
-//        vc.modalPresentationStyle = .overFullScreen
-//        vc.modalTransitionStyle = .crossDissolve
-//        self.present(vc, animated: true)
-    
-        
-        if (self.userEmailTextField.text?.isEmpty) == true
+        //        //        GIDSignIn.sharedInstance.signOut()
+        //
+        //        let vc = BVerifyOTPVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
+        //        vc.modalPresentationStyle = .overFullScreen
+        //        vc.modalTransitionStyle = .crossDissolve
+        //        self.present(vc, animated: true)
+        if isCheckBoxSelected == true
         {
-            showAlert(message: "Please enter email")
-        }
-        else if (self.passwordTextField.text?.isEmpty) == true
-        {
-            showAlert(message: "Please enter password")
+            if internetConnection.isConnectedToNetwork() == true {
+                self.logInApi()
+            }else{
+                self.showAlert(message: "Please check your internet", title: "Network issue")
+            }
         }
         else
         {
-            if isCheckBoxSelected == true
-            {
-                if internetConnection.isConnectedToNetwork() == true {
-                    self.logInApi()
-                }else{
-                    self.showAlert(message: "Please check your internet", title: "Network issue")
-                }
-            }
-            else
-            {
-                showAlert(message: "Please select terms and conditions checkbox")
-            }
+            showAlert(message: "Please select terms and conditions checkbox")
         }
+        
+        
+        //        if (self.userEmailTextField.text?.isEmpty) == true
+        //        {
+        //            showAlert(message: "Please enter email")
+        //        }
+        //        else if (self.passwordTextField.text?.isEmpty) == true
+        //        {
+        //            showAlert(message: "Please enter password")
+        //        }
+        //        else
+        //        {
+        //            if isCheckBoxSelected == true
+        //            {
+        //                if internetConnection.isConnectedToNetwork() == true {
+        //                    self.logInApi()
+        //                }else{
+        //                    self.showAlert(message: "Please check your internet", title: "Network issue")
+        //                }
+        //            }
+        //            else
+        //            {
+        //                showAlert(message: "Please select terms and conditions checkbox")
+        //            }
+        //        }
         
     }
     
@@ -105,12 +113,12 @@ class BLogInVC: UIViewController {
         let email = (userEmailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
         let password = (passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
         
-        let request = BatchLoginRequest(email: email, password: password, deviceToken: "AGhdsdadad")
+        let request = BatchLoginRequest(email: email, password: password, deviceToken: "ABCDE")
         
         DispatchQueue.main.async {
             showLoading()
         }
-      
+        
         let bLogInViewModel = BLogInViewModel()
         let urlStr = API.logIn
         bLogInViewModel.loginApi(request: request) { (response) in
@@ -118,12 +126,12 @@ class BLogInVC: UIViewController {
             if response.status == true,response.token != nil {
                 print(response.data)
                 // self.blogsArray = response.data!
-  
+                
                 
                 DispatchQueue.main.async {
                     hideLoading()
                     
-//                    UserDefaultUtility.saveToken(token: response.token ?? "")
+                    //                    UserDefaultUtility.saveToken(token: response.token ?? "")
                     Batch_UserDefaults.set(response.token ?? "" , forKey: UserDefaultKey.TOKEN)
                     let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN)
                     print(getToken)
@@ -152,11 +160,26 @@ class BLogInVC: UIViewController {
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
+                self.showAlert(message: "\(error.localizedDescription)")
                 // makeToast(error.localizedDescription)
             }
         }
     }
     
+    @IBAction func onTapSignUpBtn(_ sender: Any) {
+        
+        let vc = BRegistrationVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+        vc.promotionPriceValue = 0
+        if isCommingFrom == "workoutbatches"
+        {
+            vc.selectedSubscriptionInfo = [selectedSubscriptionInfo[0]]
+        }
+        vc.isCommingFrom = isCommingFrom
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true)
+        
+    }
     
     
     
@@ -164,9 +187,11 @@ class BLogInVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    
     @IBAction func appleLoginAction(_ sender: UIButton) {
         //handleAuthorizationAppleIDButtonPress()
     }
+    
     
     //  MARK:-  Apple Login Delegate func
     

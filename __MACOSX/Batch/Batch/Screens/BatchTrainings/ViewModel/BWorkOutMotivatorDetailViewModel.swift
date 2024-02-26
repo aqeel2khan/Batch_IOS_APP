@@ -28,6 +28,7 @@ struct BWorkOutMotivatorDetailViewModel {
         }
     }
     
+    /*
     func motivatorCourseList(requestUrl: String, onSuccess:@escaping(motivatorCoachListResponse) -> Void, onError:@escaping(BatchError) -> Void){
         let bWOResource = BWorkOutResource()
         
@@ -37,5 +38,29 @@ struct BWorkOutMotivatorDetailViewModel {
             onError(error)
         }
     }
+    */
+    func motivatorCourseList(request: motivatorCoachListRequest, onSuccess:@escaping(CourseResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let bWOResource = BWorkOutResource()
+
+        bWOResource.getMotivatorCourseList(request: request) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
+    
+    
+    
+    func followUnfollowApi(requestUrl: String, onSuccess:@escaping(MotivatorFollowUnFollowResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        let bWOResource = BWorkOutResource()
+        
+        bWOResource.followUnfollowApiCall(urlStr: requestUrl) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
+    
 
 }

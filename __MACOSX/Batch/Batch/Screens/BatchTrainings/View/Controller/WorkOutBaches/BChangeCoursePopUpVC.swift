@@ -25,10 +25,24 @@ class BChangeCoursePopUpVC: UIViewController {
     //MARK: Button Action Btn
     
     @IBAction func onTapCourseSelectionBtn(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        //self.dismiss(animated: true)
+        
+        self.switchToDashBoardVC()
+        
     }
+    
     @IBAction func onTapCancelBtn(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
-    
+    func switchToDashBoardVC() {
+            
+            let vc = BatchTabBarController.instantiate(fromAppStoryboard: .batchTabBar)
+            tabBarController?.selectedIndex = 4
+            if #available(iOS 13.0, *) {
+                UIApplication.shared.windows.first?.rootViewController = vc
+                UIApplication.shared.windows.first?.makeKeyAndVisible()
+            } else {
+                Batch_AppDelegate.window?.rootViewController = vc
+            }
+        }
 }

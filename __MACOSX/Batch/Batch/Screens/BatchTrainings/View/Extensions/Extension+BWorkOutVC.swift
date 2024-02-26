@@ -46,7 +46,7 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             
             cell.coachNameLbl.text = info.coachDetail?.name ?? ""
             
-//            cell.goalLblBtn.setTitle("\(info.duration ?? "")", for: .normal)
+            //            cell.goalLblBtn.setTitle("\(info.duration ?? "")", for: .normal)
             
             return cell
         }
@@ -100,6 +100,7 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             vc.modalTransitionStyle = .coverVertical
             vc.woCoachDetailInfo = [self.coachListDataArr[indexPath.item]]
             // vc.isCommingFrom = "motivtors"
+            
             
             self.present(vc, animated: true)
         }

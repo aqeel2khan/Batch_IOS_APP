@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // set up your My Fatoorah Merchant details
 //        MFSettings.shared.configure(token: <#Put your token here#>, country: <# Country of your account #>, environment: <# Test or Live #>)
         
-        MFSettings.shared.configure(token: "", country: .kuwait, environment: .test)
+        MFSettings.shared.configure(token: MF_Token, country: .kuwait, environment: .test)
 
 
         // you can change color and title of nvgigation bar

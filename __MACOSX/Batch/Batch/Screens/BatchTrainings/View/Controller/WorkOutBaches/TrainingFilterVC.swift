@@ -14,7 +14,7 @@ import UIKit
 
 class TrainingFilterVC: UIViewController {
     
-    var completion: (()->Void)? = nil
+    var completion: ((String, String, String) ->Void)? = nil
     
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var lblTitleGoal: UILabel!
@@ -95,6 +95,9 @@ class TrainingFilterVC: UIViewController {
     
     func setUpCollectionView(){
         
+        collectionView.allowsSelection = true
+        rightTagCollView.allowsSelection = true
+        
         collectionView.register(UINib(nibName: "TrainingFilterCollectionCell", bundle: .main), forCellWithReuseIdentifier: "TrainingFilterCollectionCell")
         
         collectionView2.register(UINib(nibName: "TrainingFilterCollectionCell", bundle: .main), forCellWithReuseIdentifier: "TrainingFilterCollectionCell")
@@ -117,8 +120,20 @@ class TrainingFilterVC: UIViewController {
         print(selectedWorkOut)
         print(selectedLevel)
         print(selectedGoal)
+        
+//        let workOutStrArray = selectedWorkOut.map{String($0)}
+//        let commaSeparatedWorkOutStr = workOutStrArray.joined(separator: ",")
+//        let levelStrArray = selectedLevel.map{String($0)}
+//        let commaSeparatedLevelStr = levelStrArray.joined(separator: ",")
+//        let goalStrArray = selectedGoal.map{String($0)}
+//        let commaSeparatedGoalStr = goalStrArray.joined(separator: ",")
+        
+        let commaSeparatedWorkOutStr = selectedWorkOut.map{String($0)}.joined(separator: ",")
+        let commaSeparatedLevelStr = selectedLevel.map{String($0)}.joined(separator: ",")
+        let commaSeparatedGoalStr = selectedGoal.map{String($0)}.joined(separator: ",")
+        
         self.dismiss(animated: true)
-        completion?()
+        completion?(commaSeparatedWorkOutStr, commaSeparatedLevelStr, commaSeparatedGoalStr)
     }
     
 }

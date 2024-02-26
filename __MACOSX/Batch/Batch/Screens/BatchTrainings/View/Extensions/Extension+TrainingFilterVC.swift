@@ -79,8 +79,20 @@ extension TrainingFilterVC: UICollectionViewDelegate,UICollectionViewDataSource 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.collectionView {
-            self.selectedWorkOut.append(self.workOutArray[indexPath.item].id ?? 0)
-            self.collectionView.reloadData()
+//            self.selectedWorkOut.append(self.workOutArray[indexPath.item].id ?? 0)
+//            self.collectionView.reloadData()
+            
+                if self.selectedWorkOut.contains(self.workOutArray[indexPath.item].id ?? 0) {
+                    if let selectedIndex = selectedWorkOut.firstIndex(where: {$0 == self.workOutArray[indexPath.item].id}) {
+                        self.selectedWorkOut.remove(at: selectedIndex)
+                    }
+                }
+                else {
+                    self.selectedWorkOut.append(self.workOutArray[indexPath.item].id ?? 0)
+                }
+                self.collectionView.reloadData()
+            
+                        
         } else if collectionView == collectionView2 {
             if self.selectedLevel.count == 0 {
                 self.selectedLevel.append(self.levelArray[indexPath.item].id ?? 0)
@@ -92,8 +104,19 @@ extension TrainingFilterVC: UICollectionViewDelegate,UICollectionViewDataSource 
             }
         }
         else if collectionView == rightTagCollView {
-            self.selectedGoal.append(self.goalArray[indexPath.item].id ?? 0)
+//            self.selectedGoal.append(self.goalArray[indexPath.item].id ?? 0)
+//            self.rightTagCollView.reloadData()
+            
+            if self.selectedGoal.contains(self.goalArray[indexPath.item].id ?? 0) {
+                if let selectedIndex = selectedGoal.firstIndex(where: {$0 == self.goalArray[indexPath.item].id}) {
+                    self.selectedGoal.remove(at: selectedIndex)
+                }
+            }
+            else {
+                self.selectedGoal.append(self.goalArray[indexPath.item].id ?? 0)
+            }
             self.rightTagCollView.reloadData()
+            
         }
     }
     

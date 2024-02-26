@@ -60,6 +60,7 @@ class BWorkOutVC: UIViewController {
         if internetConnection.isConnectedToNetwork() == true {
             // Call Api here
             self.getCourses()
+            self.getMotivators()
             self.getAllBatchesLevel()
             self.getAllWOTypes()
             self.getAllBatchGoals()
@@ -112,7 +113,7 @@ class BWorkOutVC: UIViewController {
             if internetConnection.isConnectedToNetwork() == true {
                 // Call Api here
                 self.getMotivators()
-                self.getSearchedMotivators()
+                //self.getSearchedMotivators()
             }
             else
             {
@@ -132,9 +133,9 @@ class BWorkOutVC: UIViewController {
         vc.workOutArray = self.workOutFilterArray
         vc.levelArray = self.levelFilterArray
         vc.goalArray = self.goalFilterArray
-        vc.completion = {
+        vc.completion = { (wo,level,goal) in
             print("Coming back Course Filter Id")
-            
+            self.applyCourseFilterApi(woFStr: wo, levelFStr: level, goalFStr: goal)
         }
         self.present(vc, animated: true)
     }
@@ -145,13 +146,11 @@ class BWorkOutVC: UIViewController {
         vc.modalTransitionStyle = .coverVertical
         vc.workOutArray = self.coachFilterArray?.workouttypes ?? []
         vc.experienceArray = self.coachFilterArray.experiences
-        vc.completion = {
+        vc.completion = { (a,b) in
             print("Coming back Motivator filter Id")
-            
+            self.applyMotivatorFilterApi(keywordStr: "", experienceStr: a, workoutStr: b)
         }
         self.present(vc, animated: true)
-        
-        
     }
     
     // MARK: - API Call
@@ -390,4 +389,85 @@ class BWorkOutVC: UIViewController {
             }
         }
     }
+}
+
+extension BWorkOutVC
+{
+    // Course Filter API CAll
+    
+    private func applyCourseFilterApi(woFStr:String, levelFStr:String, goalFStr:String){
+        
+        let request = CourseFilterRequest(courseLevel: levelFStr, workoutTypeID: woFStr, goalID: goalFStr)
+        
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        
+        let bWorkOutViewModel = BWorkOutViewModel()
+        bWorkOutViewModel.applyCourseFilter(request: request)  { (response) in
+            
+            if response.status == true, response.data?.list?.count != 0
+            {
+                 print(response.data)
+                // self.blogsArray = response.data!
+                self.courseListDataArr = response.data?.list ?? []
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.batchesMotivatorCollView.reloadData()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                    //makeToast(response.message!)
+                }
+            }
+            
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.showAlert(message: "\(error.localizedDescription)")
+                // makeToast(error.localizedDescription)
+            }
+        }
+    }
+    
+    // Course Filter API CAll
+    
+    private func applyMotivatorFilterApi(keywordStr:String, experienceStr:String, workoutStr:String){
+        
+        let request =  MotivatorFilterRequest(keyword: keywordStr, experience: experienceStr, workoutType: workoutStr)
+                
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        
+        let bWorkOutViewModel = BWorkOutViewModel()
+        bWorkOutViewModel.applyCoachFilter(request: request)  { (response) in
+            //response.data?.list?.count != 0
+            if response.status == true
+            {
+                print(response.data)
+                
+                self.coachListDataArr = response.data ?? []
+                
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.batchesMotivatorCollView.reloadData()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                    //makeToast(response.message!)
+                }
+            }
+            
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.showAlert(message: "\(error.localizedDescription)")
+                // makeToast(error.localizedDescription)
+            }
+        }
+    }
+
 }

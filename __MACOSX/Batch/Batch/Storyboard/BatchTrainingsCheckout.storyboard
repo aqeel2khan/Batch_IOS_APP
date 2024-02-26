@@ -866,6 +866,9 @@
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="checkbox"/>
                                                                 <state key="selected" image="checkbox_fill"/>
+                                                                <connections>
+                                                                    <action selector="onTapCheckBoxBtn:" destination="Xh1-s8-0em" eventType="touchUpInside" id="q1w-2W-0wz"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AB-Nt-Nvk">
                                                                 <rect key="frame" x="35" y="11.666666666666686" width="308" height="17"/>
@@ -1136,10 +1139,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailLbl" destination="pwP-VA-WOy" id="AJd-b5-uHn"/>
-                        <outlet property="fullNameLbl" destination="RDg-3A-Cm1" id="7cB-Vy-IO3"/>
+                        <outlet property="checkBoxBtn" destination="1s7-Qr-mhq" id="fI5-8k-vHl"/>
+                        <outlet property="emailTextField" destination="pwP-VA-WOy" id="Qdd-vs-ndW"/>
+                        <outlet property="fullNameTextField" destination="RDg-3A-Cm1" id="xMr-qe-52s"/>
                         <outlet property="passwordTextField" destination="6QH-d3-hcB" id="rST-yX-mhw"/>
-                        <outlet property="phoneLbl" destination="7vT-Qm-aD3" id="nZd-e7-GIj"/>
+                        <outlet property="phoneTextField" destination="7vT-Qm-aD3" id="gj8-t8-Ygm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ilS-Ro-51I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1736,7 +1740,7 @@
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.83137254901960778" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRv-sl-NZ9">
-                                <rect key="frame" x="0.0" y="301" width="393" height="551"/>
+                                <rect key="frame" x="0.0" y="271" width="393" height="581"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tick" translatesAutoresizingMaskIntoConstraints="NO" id="Iln-xJ-K1w">
                                         <rect key="frame" x="171.66666666666666" y="20" width="50" height="50"/>
@@ -1746,7 +1750,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tkz-J1-u76">
-                                        <rect key="frame" x="20" y="90" width="353" height="441"/>
+                                        <rect key="frame" x="20" y="220" width="353" height="135"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for your purchase!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umC-hC-A1E" customClass="BatchMedium32Black" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="76.666666666666671"/>
@@ -1755,13 +1759,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your course is already available in the Training section" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvA-BV-UKb" customClass="BatchLabelSubTitleBlack">
-                                                <rect key="frame" x="0.0" y="96.666666666666686" width="353" height="38.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="96.666666666666629" width="353" height="38.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" name="AppLabelDarkGrayColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You might also like:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxg-8Y-aGy" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="155" width="353" height="40"/>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You might also like:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxg-8Y-aGy" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="135" width="353" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="BDq-9N-2uz"/>
                                                 </constraints>
@@ -1769,8 +1773,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPk-jI-wTi">
-                                                <rect key="frame" x="0.0" y="215" width="353" height="150"/>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPk-jI-wTi">
+                                                <rect key="frame" x="0.0" y="135" width="353" height="150"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thankuFrame" translatesAutoresizingMaskIntoConstraints="NO" id="bjc-IQ-g2P">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="150"/>
@@ -1785,38 +1789,41 @@
                                                     <constraint firstAttribute="trailing" secondItem="bjc-IQ-g2P" secondAttribute="trailing" id="xVD-Hl-tMo"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TzP-7l-f81" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="385" width="353" height="56"/>
-                                                <color key="backgroundColor" name="AppThemeButtonColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="56" id="Fjj-1O-vj2"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Go to Homepage">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
-                                                        <real key="value" value="20"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="20"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onTapGoHomeBtn:" destination="SNE-IN-LW1" eventType="touchUpInside" id="hCW-rg-B3Z"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TzP-7l-f81" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="505" width="353" height="56"/>
+                                        <color key="backgroundColor" name="AppThemeButtonColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="Fjj-1O-vj2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Go to Homepage">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onTapGoHomeBtn:" destination="SNE-IN-LW1" eventType="touchUpInside" id="hCW-rg-B3Z"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="TzP-7l-f81" firstAttribute="leading" secondItem="DRv-sl-NZ9" secondAttribute="leading" constant="20" id="0Rq-Q0-KI2"/>
                                     <constraint firstItem="tkz-J1-u76" firstAttribute="leading" secondItem="DRv-sl-NZ9" secondAttribute="leading" constant="20" id="8aR-YS-UbB"/>
                                     <constraint firstAttribute="trailing" secondItem="tkz-J1-u76" secondAttribute="trailing" constant="20" id="GGA-ci-ge1"/>
-                                    <constraint firstAttribute="bottom" secondItem="tkz-J1-u76" secondAttribute="bottom" constant="20" id="RoO-Xk-C2H"/>
-                                    <constraint firstItem="tkz-J1-u76" firstAttribute="top" secondItem="Iln-xJ-K1w" secondAttribute="bottom" constant="20" id="cbX-Ja-Ulz"/>
+                                    <constraint firstAttribute="bottom" secondItem="TzP-7l-f81" secondAttribute="bottom" constant="20" id="Vnc-PU-3wR"/>
+                                    <constraint firstItem="TzP-7l-f81" firstAttribute="top" secondItem="tkz-J1-u76" secondAttribute="bottom" constant="150" id="arm-3i-Nma"/>
+                                    <constraint firstItem="tkz-J1-u76" firstAttribute="top" secondItem="Iln-xJ-K1w" secondAttribute="bottom" constant="150" id="cbX-Ja-Ulz"/>
+                                    <constraint firstAttribute="trailing" secondItem="TzP-7l-f81" secondAttribute="trailing" constant="20" id="l9W-EW-wPI"/>
                                     <constraint firstItem="Iln-xJ-K1w" firstAttribute="centerX" secondItem="DRv-sl-NZ9" secondAttribute="centerX" id="tQd-da-qUL"/>
                                     <constraint firstItem="Iln-xJ-K1w" firstAttribute="top" secondItem="DRv-sl-NZ9" secondAttribute="top" constant="20" id="tn8-a5-cyk"/>
                                 </constraints>
@@ -2099,43 +2106,43 @@
     </scenes>
     <designables>
         <designable name="Ewz-78-z3b">
-            <size key="intrinsicContentSize" width="67" height="33"/>
+            <size key="intrinsicContentSize" width="72" height="32"/>
         </designable>
         <designable name="Ij2-zT-bAj">
-            <size key="intrinsicContentSize" width="160.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="180.33333333333334" height="22"/>
         </designable>
         <designable name="MbH-cQ-u5X">
-            <size key="intrinsicContentSize" width="110" height="33"/>
+            <size key="intrinsicContentSize" width="116" height="32"/>
         </designable>
         <designable name="MpW-pI-3Vg">
-            <size key="intrinsicContentSize" width="67" height="33"/>
+            <size key="intrinsicContentSize" width="72" height="32"/>
         </designable>
         <designable name="SRS-5M-TWR">
-            <size key="intrinsicContentSize" width="155.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="175.33333333333334" height="22"/>
         </designable>
         <designable name="TzP-7l-f81">
-            <size key="intrinsicContentSize" width="122" height="33"/>
+            <size key="intrinsicContentSize" width="126" height="32"/>
         </designable>
         <designable name="UUX-vX-ObF">
-            <size key="intrinsicContentSize" width="173.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="195.33333333333334" height="22"/>
         </designable>
         <designable name="YDr-Nf-cTp">
-            <size key="intrinsicContentSize" width="47" height="33"/>
+            <size key="intrinsicContentSize" width="51" height="32"/>
         </designable>
         <designable name="ZAw-YT-9gp">
-            <size key="intrinsicContentSize" width="35" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="32"/>
         </designable>
         <designable name="fjh-re-LRo">
-            <size key="intrinsicContentSize" width="122" height="33"/>
+            <size key="intrinsicContentSize" width="126" height="32"/>
         </designable>
         <designable name="kJL-VZ-Fnd">
-            <size key="intrinsicContentSize" width="30" height="33"/>
+            <size key="intrinsicContentSize" width="30" height="32"/>
         </designable>
         <designable name="oYr-lq-7tO">
-            <size key="intrinsicContentSize" width="35" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="32"/>
         </designable>
         <designable name="w2p-qS-raC">
-            <size key="intrinsicContentSize" width="142.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="161.33333333333334" height="22"/>
         </designable>
     </designables>
     <resources>

@@ -63,10 +63,18 @@ extension MotivatorFilterVC: UICollectionViewDelegate,UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == workOutCollectionView {
-            self.selectedWorkOut.append(self.workOutArray[indexPath.item].id)
+            if self.selectedWorkOut.contains(self.workOutArray[indexPath.item].id) {
+                if let selectedIndex = selectedWorkOut.firstIndex(where: {$0 == self.workOutArray[indexPath.item].id}) {
+                    self.selectedWorkOut.remove(at: selectedIndex)
+                }
+            }
+            else {
+                self.selectedWorkOut.append(self.workOutArray[indexPath.item].id)
+            }
             self.workOutCollectionView.reloadData()
-        } else if collectionView == collectionView2 {
-            if self.selectedExperience.count == 0 {
+        }
+        else if collectionView == collectionView2 {
+                if self.selectedExperience.count == 0 {
                 self.selectedExperience.append(self.experienceArray[indexPath.item].id)
                 self.collectionView2.reloadData()
             } else {

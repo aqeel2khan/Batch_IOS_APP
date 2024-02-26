@@ -23,7 +23,10 @@ struct BLogInViewModel {
                 onError(error)
             }
         }
-        
+        else
+        {
+            onError(result.error!)
+        }
         
     }
     

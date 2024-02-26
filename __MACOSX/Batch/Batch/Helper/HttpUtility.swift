@@ -136,6 +136,7 @@ struct HttpUtility {
     
     static let shared = HttpUtility()
     //public var appToken = "Bearer Bearer 33|eMN7Fd0Z4oBOSC7GjSCxGsYMha54iYtG8YuhL4qfdf5d10e4"
+    
     let appToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN) as! String
     public var apiKey: String = ""
     private init(){}
@@ -215,7 +216,9 @@ struct HttpUtility {
         var urlRequest = URLRequest(url: requestUrl)
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         if isAuthorization {
-            urlRequest.setValue(appToken, forHTTPHeaderField: "Authorization")
+             let token = "Bearer \(appToken)"
+            
+            urlRequest.setValue(token, forHTTPHeaderField: "Authorization")
         }
         //urlRequest.setValue(apiKey, forHTTPHeaderField: "XAPIKEY")
         return urlRequest
