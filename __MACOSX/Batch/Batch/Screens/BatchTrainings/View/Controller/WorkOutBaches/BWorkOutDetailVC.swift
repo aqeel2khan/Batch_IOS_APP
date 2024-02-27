@@ -8,7 +8,6 @@
 import UIKit
 import HCVimeoVideoExtractor
 
-
 class BWorkOutDetailVC: UIViewController {
     
     @IBOutlet weak var courseImgView: UIImageView!

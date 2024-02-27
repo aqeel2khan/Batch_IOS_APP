@@ -82,10 +82,23 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource
         //        {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VimoPlayerCell", for: indexPath) as! VimoPlayerCell
         cell.configureCell(videoUrl: self.viemoVideoArr[indexPath.row])
+        if indexPath.row == (self.viemoVideoArr.count - 1)
+        {
+            cell.bottomView.isHidden = false
+        }
+        else
+        {
+            cell.bottomView.isHidden = true
+        }
+        cell.finishWorkOutBtn.tag = indexPath.row
+        cell.finishWorkOutBtn.addTarget(self, action: #selector(finishWorkOutBtnAction(_:)), for: .touchUpInside)
+
         return cell
         //  }
     }
-    
+    @objc func finishWorkOutBtnAction(_ sender:UIButton) {
+        dismiss(animated: true)
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         //        if tableView == self.selectedVideoViewTbl
         //        {

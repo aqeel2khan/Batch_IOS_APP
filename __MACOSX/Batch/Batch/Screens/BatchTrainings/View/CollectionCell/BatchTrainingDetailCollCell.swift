@@ -18,7 +18,9 @@ class BatchTrainingDetailCollCell: UICollectionViewCell {
         lblWorkoutName.font = FontSize.regularSize16
         lblWorkoutName.textColor = Colors.appLabelDarkGrayColor
         backGroundUIView.cornerRadius = 10
-        backGroundUIView.backgroundColor = Colors.appViewBackgroundColor
+//        backGroundUIView.backgroundColor = Colors.appViewBackgroundColor
+        backGroundUIView.backgroundColor = Colors.appViewPinkBackgroundColor
+
 
     }
 

@@ -27,6 +27,9 @@ class BPromoCodePopUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.addPromoCodeTextField.font = FontSize.regularSize14
+
+        
         // Do any additional setup after loading the view.
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         mainView.addGestureRecognizer(tap)
