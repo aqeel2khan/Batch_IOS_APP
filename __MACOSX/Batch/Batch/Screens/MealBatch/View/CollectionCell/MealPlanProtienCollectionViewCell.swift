@@ -10,7 +10,9 @@ import UIKit
 class MealPlanProtienCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var claoryview: UIView!
     @IBOutlet weak var mainView: UIView!
-    
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var valueLbl: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         claoryview.layer.cornerRadius = 20

@@ -39,4 +39,24 @@ struct BMealViewModel {
         }
     }
     
+    
+    func dishesDetail(requestUrl: String, onSuccess:@escaping(DishesDetailsResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let bMealResource = BMealResource()
+        bMealResource.dishesDetail(urlStr: requestUrl) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
+    
+    func filterOption(requestUrl: String, onSuccess:@escaping(FilterOptionResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let bMealResource = BMealResource()
+        bMealResource.filterOption(urlStr: requestUrl) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
 }

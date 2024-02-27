@@ -77,6 +77,8 @@
             <connections>
                 <outlet property="claoryview" destination="8DZ-28-HiH" id="VXq-YY-nQd"/>
                 <outlet property="mainView" destination="dCE-Lq-y4j" id="lZE-Uo-Bsi"/>
+                <outlet property="nameLbl" destination="vzv-61-qx7" id="fO9-cG-dWf"/>
+                <outlet property="valueLbl" destination="qHe-Eo-9A8" id="MZI-jr-P41"/>
             </connections>
             <point key="canvasLocation" x="-532.82442748091603" y="13.028169014084508"/>
         </collectionViewCell>

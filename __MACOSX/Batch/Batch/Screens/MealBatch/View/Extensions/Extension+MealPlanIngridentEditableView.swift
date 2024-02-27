@@ -37,7 +37,7 @@ extension MealPlanIngridentEditableView : UICollectionViewDelegate,UICollectionV
         if collectionView == planReviewCollView {
             return 4
         }else if collectionView == showProtinListCollView{
-            return 4
+            return self.nutritionList.count
         }
         return 0
     }
@@ -46,6 +46,8 @@ extension MealPlanIngridentEditableView : UICollectionViewDelegate,UICollectionV
         
         if collectionView == showProtinListCollView{
             let cell1 = collectionView.dequeue(MealPlanProtienCollectionViewCell.self, indexPath)
+            cell1.nameLbl.text = self.nutritionList[indexPath.item].nutrientName
+            cell1.valueLbl.text = self.nutritionList[indexPath.item].value
             return cell1
         } else if collectionView == planReviewCollView {
             let cell = collectionView.dequeue(ReviewIngridentCollectionViewCell.self, indexPath)

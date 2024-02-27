@@ -16,6 +16,7 @@ class MealBatchVC: UIViewController {
     @IBOutlet weak var mealPlanTblViewHeightConstraint: NSLayoutConstraint!
     var mealListData : [Meals] = []
     var searchmealListData : [Meals] = []
+    var filterOptionData : FilterData!
     var timer: Timer? = nil
 
     // MARK: - Lifecycle
@@ -32,6 +33,7 @@ class MealBatchVC: UIViewController {
         self.mealPlanTblView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         
         getMealList()
+        getFilterOptionList()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -66,6 +68,17 @@ class MealBatchVC: UIViewController {
         self.present(vc, animated: true)
     }
     
+    @IBAction func filterBtnTap(_ sender: Any) {
+        let vc = MealFilterVC.instantiate(fromAppStoryboard: .batchMealPlans)
+        vc.firstArray = filterOptionData.mealCalories ?? []
+        vc.secondArray = filterOptionData.batchGoals ?? []
+        vc.thirdArray = filterOptionData.mealTags ?? []
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true)
+    }
+    
+    
     
     // MARK: - API Call
     
@@ -98,5 +111,31 @@ class MealBatchVC: UIViewController {
         
     }
     
-    
+    //Get Meal List
+    private func getFilterOptionList(){
+        
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealViewModel = BMealViewModel()
+        let urlStr = API.filterOption
+        bMealViewModel.filterOption(requestUrl: urlStr)  { (response) in
+            if response.status == true, response.data?.data != nil {
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.filterOptionData = response.data?.data
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+            
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
+        }
+        
+    }
 }

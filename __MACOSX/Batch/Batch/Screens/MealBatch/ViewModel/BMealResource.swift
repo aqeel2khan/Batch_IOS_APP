@@ -61,5 +61,41 @@ struct BMealResource {
                 }
             }
     }
+    
+    // Get Dishes Details Api  //1
+    func dishesDetail(urlStr:String, onSuccess:@escaping(DishesDetailsResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let courseContentUrl = URL(string: urlStr)!
+        let urlRequest = HURequest(url: courseContentUrl, method: .postWORequest)
+        
+        HttpUtility.shared.request(huRequest: urlRequest, isAuthorization: false, resultType: DishesDetailsResponse
+            .self) { (result) in
+                
+                switch result{
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+    }
+    
+    // Get Filter Option  //1
+    func filterOption(urlStr:String, onSuccess:@escaping(FilterOptionResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let courseContentUrl = URL(string: urlStr)!
+        let urlRequest = HURequest(url: courseContentUrl, method: .postWORequest)
+        
+        HttpUtility.shared.request(huRequest: urlRequest, isAuthorization: false, resultType: FilterOptionResponse
+            .self) { (result) in
+                
+                switch result{
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+    }
 }
 

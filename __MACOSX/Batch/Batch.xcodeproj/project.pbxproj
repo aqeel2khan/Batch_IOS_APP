@@ -235,6 +235,10 @@
 		570EA5272B89FC5500D801AE /* BMealResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570EA5252B89FC5400D801AE /* BMealResource.swift */; };
 		570EA5282B89FC5500D801AE /* BMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570EA5262B89FC5400D801AE /* BMealViewModel.swift */; };
 		570EA52B2B89FDED00D801AE /* MealsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570EA52A2B89FDED00D801AE /* MealsModel.swift */; };
+		574FA5AF2B8E51B900F6D3BA /* DishesDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FA5AE2B8E51B900F6D3BA /* DishesDetailModel.swift */; };
+		574FA5B12B8E56DC00F6D3BA /* MealFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FA5B02B8E56DC00F6D3BA /* MealFilterVC.swift */; };
+		574FA5B32B8E570300F6D3BA /* Extension+MealFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FA5B22B8E570300F6D3BA /* Extension+MealFilterVC.swift */; };
+		574FA5B52B8E599000F6D3BA /* FilterOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FA5B42B8E599000F6D3BA /* FilterOptionModel.swift */; };
 		575A20092B8B466900FFCD56 /* MealsDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A20082B8B466900FFCD56 /* MealsDetailModel.swift */; };
 		575A200C2B8B541600FFCD56 /* MealPlanBannerViewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A200A2B8B541500FFCD56 /* MealPlanBannerViewTVC.swift */; };
 		575A200D2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 575A200B2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib */; };
@@ -507,6 +511,10 @@
 		570EA5252B89FC5400D801AE /* BMealResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMealResource.swift; sourceTree = "<group>"; };
 		570EA5262B89FC5400D801AE /* BMealViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMealViewModel.swift; sourceTree = "<group>"; };
 		570EA52A2B89FDED00D801AE /* MealsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsModel.swift; sourceTree = "<group>"; };
+		574FA5AE2B8E51B900F6D3BA /* DishesDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesDetailModel.swift; sourceTree = "<group>"; };
+		574FA5B02B8E56DC00F6D3BA /* MealFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealFilterVC.swift; sourceTree = "<group>"; };
+		574FA5B22B8E570300F6D3BA /* Extension+MealFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+MealFilterVC.swift"; sourceTree = "<group>"; };
+		574FA5B42B8E599000F6D3BA /* FilterOptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterOptionModel.swift; sourceTree = "<group>"; };
 		575A20082B8B466900FFCD56 /* MealsDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsDetailModel.swift; sourceTree = "<group>"; };
 		575A200A2B8B541500FFCD56 /* MealPlanBannerViewTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealPlanBannerViewTVC.swift; sourceTree = "<group>"; };
 		575A200B2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealPlanBannerViewTVC.xib; sourceTree = "<group>"; };
@@ -1551,6 +1559,7 @@
 				31D424902B6B84C300E988C7 /* QuestionsVC */,
 				68C14B662B63950A0085AAD4 /* MealPlanCheckout */,
 				31AE2D9F2B36BC48000FEB41 /* MealBatchVC.swift */,
+				574FA5B02B8E56DC00F6D3BA /* MealFilterVC.swift */,
 				318BA5502B67F1C300508167 /* MealBatchUnSubscribeDetailVC.swift */,
 				3147145B2B68EB8F002EED87 /* MealPlanIngridentEditableView.swift */,
 				314B7AD62B6506A2006012DB /* MealBatchDetailVC.swift */,
@@ -1564,6 +1573,7 @@
 			isa = PBXGroup;
 			children = (
 				31AE2DA12B36BC72000FEB41 /* Extension+MealBatchVC.swift */,
+				574FA5B22B8E570300F6D3BA /* Extension+MealFilterVC.swift */,
 				318BA5522B67F63200508167 /* Extension+MealBatchUnSubscribeDetailVC.swift */,
 				3147144C2B68EAF6002EED87 /* Extension+MealPlanIngridentEditableView.swift */,
 				68C14B6D2B6399F70085AAD4 /* Extension+MealPlanCheckOut.swift */,
@@ -1823,6 +1833,8 @@
 				570EA52A2B89FDED00D801AE /* MealsModel.swift */,
 				575A20082B8B466900FFCD56 /* MealsDetailModel.swift */,
 				575A200E2B8B784900FFCD56 /* DishesModel.swift */,
+				574FA5AE2B8E51B900F6D3BA /* DishesDetailModel.swift */,
+				574FA5B42B8E599000F6D3BA /* FilterOptionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2192,6 +2204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				311C2AB72B3B545C00AACA49 /* BatchTabBarController.swift in Sources */,
+				574FA5AF2B8E51B900F6D3BA /* DishesDetailModel.swift in Sources */,
 				319B361D2B8A495000C84631 /* CheckOutRequest.swift in Sources */,
 				318BA9B52B7F56C2002205F5 /* TrainingFilterViewModel.swift in Sources */,
 				3188B4162B29CB9400E19945 /* HttpUtility.swift in Sources */,
@@ -2232,6 +2245,7 @@
 				3188B3C32B299B6600E19945 /* SceneDelegate.swift in Sources */,
 				31D424982B6B84C300E988C7 /* QuestionWeightVC.swift in Sources */,
 				319BAD6A2B2A31A00081A8F2 /* SelfSizedTableView.swift in Sources */,
+				574FA5B32B8E570300F6D3BA /* Extension+MealFilterVC.swift in Sources */,
 				311B1BBC2B2E1D3C00E37E47 /* UICollectioView.swift in Sources */,
 				570EA5272B89FC5500D801AE /* BMealResource.swift in Sources */,
 				319BAD632B2A31A00081A8F2 /* UITableViewCell.swift in Sources */,
@@ -2258,7 +2272,6 @@
 				31AE2DAC2B370101000FEB41 /* BatchSegmentedControl.swift in Sources */,
 				570D8FF92B84B28300EB643A /* BUserProfileVC.swift in Sources */,
 				31D4249A2B6B84C300E988C7 /* QuestionDietVC.swift in Sources */,
-				3186CBA52B55B8FF007213C3 /* MealPlanBottomCell.swift in Sources */,
 				319B36212B8A4AF400C84631 /* BCheckoutViewModel.swift in Sources */,
 				319BAD682B2A31A00081A8F2 /* UIStoryboard.swift in Sources */,
 				317609412B66ACA5005D4395 /* BMealCategoryCollCell.swift in Sources */,
@@ -2294,6 +2307,7 @@
 				3186CBAC2B55B92C007213C3 /* MealPlanCollectionCell.swift in Sources */,
 				570D8FF62B84B28300EB643A /* FollowingListTableCell.swift in Sources */,
 				570D8FF32B84B28300EB643A /* Extension+BatchDashboardVC.swift in Sources */,
+				574FA5B12B8E56DC00F6D3BA /* MealFilterVC.swift in Sources */,
 				570D8FF22B84B28300EB643A /* BatchDashboardVC.swift in Sources */,
 				31B841892B5D0CE800923C3D /* VideoPlayerVC.swift in Sources */,
 				570D90032B84C54A00EB643A /* MotivatorFilterVC.swift in Sources */,
@@ -2337,6 +2351,7 @@
 				319BAD722B2A333D0081A8F2 /* BatchTextField.swift in Sources */,
 				317609302B6676D3005D4395 /* Extension+MealBatchDetailVC.swift in Sources */,
 				318A3AB32B5BDB5C003FCD07 /* BTrainingsSubscriptionVC.swift in Sources */,
+				574FA5B52B8E599000F6D3BA /* FilterOptionModel.swift in Sources */,
 				31AE2D842B36BA82000FEB41 /* BatchBoardHomeVC.swift in Sources */,
 				570D8FED2B84B28300EB643A /* DashboardWorkoutModel.swift in Sources */,
 				318E1BC52B2F63060062B8A1 /* BWOMotivatorsListCollCell.swift in Sources */,

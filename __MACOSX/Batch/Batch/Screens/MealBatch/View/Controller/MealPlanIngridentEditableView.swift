@@ -18,7 +18,11 @@ class MealPlanIngridentEditableView: UIViewController {
     @IBOutlet weak var planReviewCollView: UICollectionView!
     @IBOutlet weak var mealTblView: UITableView!
     @IBOutlet weak var mealTblViewHeightConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var nameLbl: UILabel!
+
+    var selectedMealData : Meals!
+    var dishData : Dishes!
+    var nutritionList : [NutritionDetail] = []
 
     // MARK: - Properties
     var isCommingFrom = ""
@@ -28,6 +32,9 @@ class MealPlanIngridentEditableView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavigationBar()
+        
+        nameLbl.text = dishData.name
+        self.getDishesDetailsApi()
     }
 
 
@@ -54,4 +61,37 @@ class MealPlanIngridentEditableView: UIViewController {
         self.mealTblView.registerCell(MealPlanIngridentTableCell.self)
     }
 
+    //Get Dishes Details
+    public func getDishesDetailsApi(){
+
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealViewModel = BMealViewModel()
+        let urlStr = API.dishesDetail + "?dish_id=\(dishData.dishID ?? 0)&meal_id=\(selectedMealData.id ?? 0)&goal_id=\(selectedMealData.goalID ?? 0)"
+        bMealViewModel.dishesDetail(requestUrl: urlStr)  { (response) in
+            if response.status == true, response.data?.data != nil {
+                
+                self.nutritionList.removeAll()
+                self.nutritionList = response.data?.data?.nutritionDetails ?? []
+
+                DispatchQueue.main.async {
+                    hideLoading()
+
+                    self.showProtinListCollView.reloadData()
+
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
+        }
+
+    }
 }
