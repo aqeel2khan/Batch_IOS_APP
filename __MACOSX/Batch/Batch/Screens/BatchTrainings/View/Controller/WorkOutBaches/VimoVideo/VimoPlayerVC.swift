@@ -18,6 +18,8 @@ class VimoPlayerVC: UIViewController {
     var completion: (()->Void)? = nil
     var viemoVideoArr = [String]()
     
+    var selectedIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +28,8 @@ class VimoPlayerVC: UIViewController {
         
         self.vimoVideoTbl.register(UINib(nibName: "VimoPlayerCell", bundle: .main), forCellReuseIdentifier: "VimoPlayerCell")
         
-        //        self.selectedVideoViewTbl.register(UINib(nibName: "VideoThunbListTblCell", bundle: .main), forCellReuseIdentifier: "VideoThunbListTblCell")
+        //5
+        self.selectedVideoViewTbl.register(UINib(nibName: "VideoThunbListTblCell", bundle: .main), forCellReuseIdentifier: "VideoThunbListTblCell")
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.appEnteredFromBackground), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
     }
@@ -36,22 +39,26 @@ class VimoPlayerVC: UIViewController {
         pausePlayeVideos()
     }
     
-    
-    //    func changeSecondTableViewCellColor(index:Int) {
-    //        for i in 0..<5 {
-    //            let indexPath = IndexPath(row: i, section: 0)
-    //            let cell2 = selectedVideoViewTbl.cellForRow(at: indexPath) as? VideoThunbListTblCell
-    //
-    //            if i == index {
-    //                // Change the color of the selected index
-    //                cell2?.selectedView.backgroundColor = Colors.appThemeButtonColor
-    //            } else {
-    //                // Keep the color white for other cells
-    //                cell2?.selectedView.backgroundColor = Colors.appViewBackgroundColor
-    //            }
-    //        }
-    //
-    //    }
+    //1
+    func changeSecondTableViewCellColor(index:Int) {
+        for i in 0..<self.viemoVideoArr.count {
+            let indexPath = IndexPath(row: i, section: 0)
+            let cell2 = selectedVideoViewTbl.cellForRow(at: indexPath) as? VideoThunbListTblCell
+            
+            if i == index
+            {
+                // Change the color of the selected index
+                cell2?.selectedView.backgroundColor = Colors.appThemeButtonColor
+            }
+            else
+            {
+                // Keep the color white for other cells
+                cell2?.selectedView.backgroundColor = Colors.appViewBackgroundColor
+            }
+            
+        }
+        
+    }
     
     @IBAction func OnTapBackBtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -72,14 +79,15 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //
-        //        if tableView == self.selectedVideoViewTbl
-        //        {
-        //            let cell = tableView.dequeueCell(VideoThunbListTblCell.self,for: indexPath)
-        //            return cell
-        //        }
-        //        else
-        //        {
+        
+        //3
+        if tableView == self.selectedVideoViewTbl
+        {
+            let cell = tableView.dequeueCell(VideoThunbListTblCell.self,for: indexPath)
+            return cell
+        }
+        else
+        {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VimoPlayerCell", for: indexPath) as! VimoPlayerCell
         cell.configureCell(videoUrl: self.viemoVideoArr[indexPath.row])
         if indexPath.row == (self.viemoVideoArr.count - 1)
@@ -94,32 +102,37 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource
         cell.finishWorkOutBtn.addTarget(self, action: #selector(finishWorkOutBtnAction(_:)), for: .touchUpInside)
 
         return cell
-        //  }
+          }
     }
     @objc func finishWorkOutBtnAction(_ sender:UIButton) {
         dismiss(animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //        if tableView == self.selectedVideoViewTbl
-        //        {
-        //            return 50 //UITableView.automaticDimension
-        //        }
-        //        else
-        //        {
+        
+        //4
+        if tableView == self.selectedVideoViewTbl
+        {
+            return 50 //UITableView.automaticDimension
+        }
+        else
+        {
         return tableView.frame.height
-        //   }
+        }
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        //        if tableView == vimoVideoTbl
-        //        {
-        if let videoCell = cell as? ASAutoPlayVideoLayerContainer, let _ = videoCell.videoURL {
-            ASVideoPlayerController.sharedVideoPlayer.removeLayerFor(cell: videoCell)
-            //            }
+        //5
+        if tableView == vimoVideoTbl
+        {
+            if let videoCell = cell as? ASAutoPlayVideoLayerContainer, let _ = videoCell.videoURL {
+                ASVideoPlayerController.sharedVideoPlayer.removeLayerFor(cell: videoCell)
+            }
         }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        changeSecondTableViewCellColor(index:selectedIndex)
+        
         pausePlayeVideos()
     }
     
@@ -136,13 +149,27 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource
         ASVideoPlayerController.sharedVideoPlayer.pausePlayeVideosFor(tableView: vimoVideoTbl, appEnteredFromBackground: true)
     }
     
-    //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    //        if tableView == vimoVideoTbl
-    //        {
-    //            print("play video \(indexPath.row)")
-    //           // changeSecondTableViewCellColor(index:indexPath.row)
-    //        }
-    //    }
+    //2
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        print("play video \(indexPath.row)")
+
+        if tableView == selectedVideoViewTbl
+        {
+            print("play video \(indexPath.row)")
+            
+            //changeSecondTableViewCellColor(index:indexPath.row)
+            if self.viemoVideoArr.count != 0
+            {
+                let cell2 = selectedVideoViewTbl.cellForRow(at: indexPath) as? VideoThunbListTblCell
+                
+                
+                cell2?.selectedView.backgroundColor = Colors.appThemeButtonColor
+            }
+
+            
+        }
+    }
 }
 
 /*

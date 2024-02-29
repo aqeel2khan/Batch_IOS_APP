@@ -10,6 +10,9 @@ import UIKit
 class BWorkOutCompleteVC: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
+   
+    
+    
     override func viewDidLoad() {
         scrollView.makeSpecificCornerRound(corners: .topTwo, radius: 30)
         

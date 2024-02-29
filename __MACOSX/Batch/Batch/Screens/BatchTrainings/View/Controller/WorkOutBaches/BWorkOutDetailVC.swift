@@ -113,24 +113,24 @@ class BWorkOutDetailVC: UIViewController {
             if info?.courseDuration?.count != 0 {
                 
                 self.videoArr.removeAll()
-//                for i in 0..<(info?.courseDuration?.count)!
-//                {
-                    //                    self.courseDurationExerciseArr = info?.courseDuration?[i].courseDurationExercise ?? []
+                //                for i in 0..<(info?.courseDuration?.count)!
+                //                {
+                //                    self.courseDurationExerciseArr = info?.courseDuration?[i].courseDurationExercise ?? []
+                
+                self.courseDurationExerciseArr = info?.courseDuration?[0].courseDurationExercise ?? []
+                
+                for i in 0..<self.courseDurationExerciseArr.count {
                     
-                    self.courseDurationExerciseArr = info?.courseDuration?[0].courseDurationExercise ?? []
+                    let idArray = self.courseDurationExerciseArr
+                    let videoId = idArray[i].videoDetail?.videoID ?? ""
+                    print(idArray[i].videoDetail?.videoID ?? "")
+                    self.videoArr.append(videoId)
                     
-                    for i in 0..<self.courseDurationExerciseArr.count {
-                        
-                        let idArray = self.courseDurationExerciseArr
-                        let videoId = idArray[i].videoDetail?.videoID ?? ""
-                        print(idArray[i].videoDetail?.videoID ?? "")
-                        self.videoArr.append(videoId)
-                        
-                        //                    let videoId = info?.courseDuration?[i].courseDurationExercise?[i].videoDetail?.videoID ?? ""
-                        //                    print(info?.courseDuration?[i].courseDurationExercise?[i].videoDetail?.videoID ?? "")
-                        //                    self.videoArr.append(videoId)
-                        //                }
-                    }
+                    //                    let videoId = info?.courseDuration?[i].courseDurationExercise?[i].videoDetail?.videoID ?? ""
+                    //                    print(info?.courseDuration?[i].courseDurationExercise?[i].videoDetail?.videoID ?? "")
+                    //                    self.videoArr.append(videoId)
+                    //                }
+                }
                 //}
                 
                 
@@ -581,86 +581,86 @@ extension BWorkOutDetailVC {
             print(self.vimoVideoURL.count)
             
             print(self.vimoVideoURL.count)
-
+            
         }
     }
     
     /*
      func vimoVideoSetUp() {
-         
-         //        // Using filter to remove blank strings
-         //        let filteredArray = videoArr.filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }
-         
-         let farray = videoArr.filter {$0 != ""}
-         if farray.count != 0 {
-             
-             for i in 0..<(farray.count) {
-                 if let url = URL(string: vimoBaseUrl + farray[i]) {
-                     //                if let url = URL(string: stingUrl) {
-                     HCVimeoVideoExtractor.fetchVideoURLFrom(url: url, completion: { ( video:HCVimeoVideo?, error:Error?) -> Void in
-                         
-                         if let err = error {
-                             
-                             DispatchQueue.main.async() {
-                                 self.videoURL = nil
-                                 
-                                 let alert = UIAlertController(title: "InCorrect VideoId", message: err.localizedDescription, preferredStyle: .alert)
-                                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                                 self.present(alert, animated: true, completion: nil)
-                             }
-                             return
-                         }
-                         
-                         guard let vid = video else {
-                             print("Invalid video object")
-                             return
-                         }
-                         
-                         //                        print("Title = \(vid.title), url = \(vid.videoURL), thumbnail = \(vid.thumbnailURL)")
-                         
-                         
-                         
-                         DispatchQueue.main.async() {
-                             /*
-                              if let url = vid.thumbnailURL[.qualityBase] {
-                              self.vimoImageView.contentMode = .scaleAspectFill
-                              self.vimoImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "Image"))
-                              }
-                              */
-                             
-                             
-                             if let videoUrl = vid.videoURL[.quality1080p] {
-                                 self.videoURL = videoUrl
-                             } else if let videoUrl = vid.videoURL[.quality960p] {
-                                 self.videoURL = videoUrl
-                             } else if let videoUrl = vid.videoURL[.quality720p] {
-                                 self.videoURL = videoUrl
-                             } else if let videoUrl = vid.videoURL[.quality640p] {
-                                 self.videoURL = videoUrl
-                             } else if let videoUrl = vid.videoURL[.quality540p] {
-                                 self.videoURL = videoUrl
-                             } else if let videoUrl = vid.videoURL[.quality360p] {
-                                 self.videoURL = videoUrl
-                             } else if let videoUrl = vid.videoURL[.qualityUnknown] {
-                                 self.videoURL = videoUrl
-                             }
-                             
-                             guard let videoURL = self.videoURL else { return }
-                             
-                             self.videoURL = videoURL
-                             if self.videoURL == nil {
-                                 self.showAlert(message: "Invalid Id")
-                                 self.dismiss(animated: true)
-                             }else {
-                                 self.vimoVideoURL.append(self.videoURL!.absoluteString)
-                                 //                                self.vimoVideoURL.append(self.videoURL!.absoluteString)
-                                 //                                self.setupVideo(videoPath: self.videoURL!)
-                             }
-                         }
-                     })
-                 }
-             }
-         }
+     
+     //        // Using filter to remove blank strings
+     //        let filteredArray = videoArr.filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }
+     
+     let farray = videoArr.filter {$0 != ""}
+     if farray.count != 0 {
+     
+     for i in 0..<(farray.count) {
+     if let url = URL(string: vimoBaseUrl + farray[i]) {
+     //                if let url = URL(string: stingUrl) {
+     HCVimeoVideoExtractor.fetchVideoURLFrom(url: url, completion: { ( video:HCVimeoVideo?, error:Error?) -> Void in
+     
+     if let err = error {
+     
+     DispatchQueue.main.async() {
+     self.videoURL = nil
+     
+     let alert = UIAlertController(title: "InCorrect VideoId", message: err.localizedDescription, preferredStyle: .alert)
+     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+     self.present(alert, animated: true, completion: nil)
+     }
+     return
+     }
+     
+     guard let vid = video else {
+     print("Invalid video object")
+     return
+     }
+     
+     //                        print("Title = \(vid.title), url = \(vid.videoURL), thumbnail = \(vid.thumbnailURL)")
+     
+     
+     
+     DispatchQueue.main.async() {
+     /*
+      if let url = vid.thumbnailURL[.qualityBase] {
+      self.vimoImageView.contentMode = .scaleAspectFill
+      self.vimoImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "Image"))
+      }
+      */
+     
+     
+     if let videoUrl = vid.videoURL[.quality1080p] {
+     self.videoURL = videoUrl
+     } else if let videoUrl = vid.videoURL[.quality960p] {
+     self.videoURL = videoUrl
+     } else if let videoUrl = vid.videoURL[.quality720p] {
+     self.videoURL = videoUrl
+     } else if let videoUrl = vid.videoURL[.quality640p] {
+     self.videoURL = videoUrl
+     } else if let videoUrl = vid.videoURL[.quality540p] {
+     self.videoURL = videoUrl
+     } else if let videoUrl = vid.videoURL[.quality360p] {
+     self.videoURL = videoUrl
+     } else if let videoUrl = vid.videoURL[.qualityUnknown] {
+     self.videoURL = videoUrl
+     }
+     
+     guard let videoURL = self.videoURL else { return }
+     
+     self.videoURL = videoURL
+     if self.videoURL == nil {
+     self.showAlert(message: "Invalid Id")
+     self.dismiss(animated: true)
+     }else {
+     self.vimoVideoURL.append(self.videoURL!.absoluteString)
+     //                                self.vimoVideoURL.append(self.videoURL!.absoluteString)
+     //                                self.setupVideo(videoPath: self.videoURL!)
+     }
+     }
+     })
+     }
+     }
+     }
      }
      */
     

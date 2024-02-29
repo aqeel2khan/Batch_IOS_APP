@@ -140,6 +140,13 @@ class BTrainingsSubscriptionVC: UIViewController {
         {
            if UserDefaultUtility.isUserLoggedIn()
             {
+               let vc = BPaymentGatewayPopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+               vc.modalPresentationStyle = .pageSheet
+               vc.modalTransitionStyle = .coverVertical
+               self.present(vc, animated: true)
+
+               
+               /*
                let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
                vc.modalPresentationStyle = .overFullScreen
                vc.modalTransitionStyle = .coverVertical
@@ -154,6 +161,8 @@ class BTrainingsSubscriptionVC: UIViewController {
                }
                vc.isCommingFrom = isCommingFrom
                self.present(vc, animated: true)
+               */
+               
            }
             else {
                let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)

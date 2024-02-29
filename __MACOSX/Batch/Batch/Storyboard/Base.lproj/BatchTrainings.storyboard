@@ -1969,7 +1969,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5QO-LS-Amg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5189" y="-27"/>
+            <point key="canvasLocation" x="5184" y="-27"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="CsH-C7-OqE">
@@ -2855,12 +2855,16 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zme-MS-oMj">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zme-MS-oMj">
                                 <rect key="frame" x="10" y="109" width="5" height="659"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="ZAm-bM-jFl"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="idS-LC-KRc" id="MB0-YR-HWZ"/>
+                                    <outlet property="delegate" destination="idS-LC-KRc" id="ImN-3o-HbN"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YbQ-3Y-Sad"/>
@@ -2885,7 +2889,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I60-3d-dJo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4428" y="-37"/>
+            <point key="canvasLocation" x="4426.7175572519081" y="-37.323943661971832"/>
         </scene>
         <!--Motivator FilterVC-->
         <scene sceneID="APm-Os-kW8">
@@ -3082,40 +3086,40 @@
     </scenes>
     <designables>
         <designable name="DJA-bJ-AFD">
-            <size key="intrinsicContentSize" width="139" height="33"/>
+            <size key="intrinsicContentSize" width="129" height="33"/>
         </designable>
         <designable name="GFe-hQ-Sad">
-            <size key="intrinsicContentSize" width="134" height="32"/>
+            <size key="intrinsicContentSize" width="128" height="33"/>
         </designable>
         <designable name="LTw-wC-I7b">
-            <size key="intrinsicContentSize" width="43" height="32"/>
+            <size key="intrinsicContentSize" width="42" height="33"/>
         </designable>
         <designable name="Pwf-aV-rtb">
             <size key="intrinsicContentSize" width="161" height="33"/>
         </designable>
         <designable name="SgW-pb-ZK2">
-            <size key="intrinsicContentSize" width="41" height="32"/>
+            <size key="intrinsicContentSize" width="40" height="33"/>
         </designable>
         <designable name="Uf5-jF-pLk">
             <size key="intrinsicContentSize" width="64" height="33"/>
         </designable>
         <designable name="bO6-Up-lR6">
-            <size key="intrinsicContentSize" width="134" height="32"/>
+            <size key="intrinsicContentSize" width="128" height="33"/>
         </designable>
         <designable name="h0O-Bc-Ua0">
-            <size key="intrinsicContentSize" width="149" height="32"/>
+            <size key="intrinsicContentSize" width="140" height="33"/>
         </designable>
         <designable name="hLT-G8-eqH">
-            <size key="intrinsicContentSize" width="170" height="32"/>
+            <size key="intrinsicContentSize" width="160" height="33"/>
         </designable>
         <designable name="rDA-Xe-ypL">
             <size key="intrinsicContentSize" width="46" height="33"/>
         </designable>
         <designable name="rRC-Vk-tFJ">
-            <size key="intrinsicContentSize" width="43" height="32"/>
+            <size key="intrinsicContentSize" width="42" height="33"/>
         </designable>
         <designable name="ttp-kr-zeh">
-            <size key="intrinsicContentSize" width="68" height="32"/>
+            <size key="intrinsicContentSize" width="64" height="33"/>
         </designable>
         <designable name="uA6-xl-yIK">
             <size key="intrinsicContentSize" width="49" height="33"/>
@@ -3139,7 +3143,7 @@
         <image name="Star-fill" width="20" height="19"/>
         <image name="Tick" width="48.333332061767578" height="48"/>
         <image name="detail" width="375" height="308"/>
-        <image name="downArrow" width="11" height="5.3333334922790527"/>
+        <image name="downArrow" width="24" height="24"/>
         <image name="filter" width="36" height="36"/>
         <image name="mdetailDummyImg" width="125" height="102.66666412353516"/>
         <image name="pause" width="17.666666030883789" height="17.666666030883789"/>

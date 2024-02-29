@@ -215,11 +215,21 @@ struct HttpUtility {
     private func createUrlRequest(requestUrl: URL, isAuthorization:Bool) -> URLRequest{
         var urlRequest = URLRequest(url: requestUrl)
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        if isAuthorization {
-             let token = "Bearer \(appToken)"
-            
-            urlRequest.setValue(token, forHTTPHeaderField: "Authorization")
+        /*
+         if isAuthorization {
+         let token = "Bearer Bearer \(appToken)"
+         
+         urlRequest.setValue(token, forHTTPHeaderField: "Authorization")
+         }
+         */
+        var token = ""
+        if appToken != ""
+        {
+            token = "Bearer Bearer \(appToken)"
         }
+        urlRequest.setValue(token, forHTTPHeaderField: "Authorization")
+
+        
         //urlRequest.setValue(apiKey, forHTTPHeaderField: "XAPIKEY")
         return urlRequest
         
