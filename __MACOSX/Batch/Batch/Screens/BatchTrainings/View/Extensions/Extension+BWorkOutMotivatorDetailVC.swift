@@ -38,29 +38,13 @@ extension BWorkOutMotivatorDetailVC: UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     
-    @objc func cellBtnClicked(sender:UIButton)
-    {
+    @objc func cellBtnClicked(sender:UIButton) {
         let vc = BWorkOutDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
         vc.isCommingFrom = "MotivatorDetailVC"
         vc.woMotivatorInfo = self.motivatorCourseArr[sender.tag]
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical
         self.present(vc, animated: true)
-        
-        //        // Do any additional setup after loading the view.
-        //        let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
-        //        vc.modalPresentationStyle = .overFullScreen
-        //        vc.modalTransitionStyle = .crossDissolve
-        //        self.present(vc, animated: true)
-        ////
-        
-        
-        
-        //        let vc = VideoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
-        //        vc.modalPresentationStyle = .overFullScreen
-        //        vc.modalTransitionStyle = .coverVertical
-        //        self.present(vc, animated: true)
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -90,22 +74,17 @@ extension BWorkOutMotivatorDetailVC: UITableViewDelegate,UITableViewDataSource {
 }
 
 extension BWorkOutMotivatorDetailVC: UICollectionViewDelegate,UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if (collectionView.tag == 701)
-        {
+        if (collectionView.tag == 701) {
             return newArray.count //workOutArray.count
         }
-        else
-        {
+        else {
             return 0//recomProductArr.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if (collectionView.tag == 701)
-        {
+        if (collectionView.tag == 701) {
             let cell = collectionView.dequeue(BatchTrainingDetailCollCell.self, indexPath)
             //            cell.imgWorkOut.image = workOutIconArray[indexPath.row]
             //            cell.lblWorkoutName.text = workOutArray[indexPath.row]
@@ -114,8 +93,7 @@ extension BWorkOutMotivatorDetailVC: UICollectionViewDelegate,UICollectionViewDa
             cell.lblWorkoutName.text = newArray[indexPath.row]
             return cell
         }
-        else
-        {
+        else {
             let cell = collectionView.dequeue(BWOMotivatorsReProductCollCell.self, indexPath)
             //cell.backgroundProductImgView.image = recomProductArr[indexPath.item]
             return cell
@@ -134,13 +112,11 @@ extension BWorkOutMotivatorDetailVC: UICollectionViewDelegate,UICollectionViewDa
     
 }
 
-extension BWorkOutMotivatorDetailVC : UICollectionViewDelegateFlowLayout
-{
+extension BWorkOutMotivatorDetailVC : UICollectionViewDelegateFlowLayout {
     @objc(collectionView:layout:sizeForItemAtIndexPath:)
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize
-    {
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize              = collectionView.frame.size //UIScreen.main.bounds
         let screenWidth             = screenSize.width
         let cellSquareSize: CGFloat = screenWidth

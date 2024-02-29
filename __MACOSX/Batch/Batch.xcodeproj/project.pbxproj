@@ -145,7 +145,6 @@
 		51925B3ADAC759E79F2D7C9E /* Pods_BatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27F2AE9FB3B750C1554C80F /* Pods_BatchTests.framework */; };
 		570D8FEB2B84B28300EB643A /* DashboardResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570D8FC52B84B28300EB643A /* DashboardResource.swift */; };
 		570D8FEC2B84B28300EB643A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570D8FC62B84B28300EB643A /* DashboardViewModel.swift */; };
-		570D8FED2B84B28300EB643A /* DashboardWorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570D8FC82B84B28300EB643A /* DashboardWorkoutModel.swift */; };
 		570D8FEE2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570D8FCC2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.xib */; };
 		570D8FEF2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570D8FCD2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.swift */; };
 		570D8FF02B84B28300EB643A /* MealBatchDashboardCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570D8FCF2B84B28300EB643A /* MealBatchDashboardCollectionCell.xib */; };
@@ -250,6 +249,7 @@
 		5759E7F82B9048AB00352B24 /* Extension+MotivationFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7AA2B9048AB00352B24 /* Extension+MotivationFilterVC.swift */; };
 		5759E7F92B9048AB00352B24 /* Extension+BStartWorkOutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7AB2B9048AB00352B24 /* Extension+BStartWorkOutDetailVC.swift */; };
 		5759E7FA2B9048AB00352B24 /* Extension+BWorkOutMotivatorDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7AC2B9048AB00352B24 /* Extension+BWorkOutMotivatorDetailVC.swift */; };
+		5759E7FC2B9060C100352B24 /* DashboardWorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7FB2B9060C100352B24 /* DashboardWorkoutModel.swift */; };
 		575A20092B8B466900FFCD56 /* MealsDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A20082B8B466900FFCD56 /* MealsDetailModel.swift */; };
 		575A200C2B8B541600FFCD56 /* MealPlanBannerViewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A200A2B8B541500FFCD56 /* MealPlanBannerViewTVC.swift */; };
 		575A200D2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 575A200B2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib */; };
@@ -431,7 +431,6 @@
 		51C16B892CE43BF275E3C909 /* Pods_Batch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Batch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570D8FC52B84B28300EB643A /* DashboardResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardResource.swift; sourceTree = "<group>"; };
 		570D8FC62B84B28300EB643A /* DashboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
-		570D8FC82B84B28300EB643A /* DashboardWorkoutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardWorkoutModel.swift; sourceTree = "<group>"; };
 		570D8FCC2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutBatchDashboardCollectionCell.xib; sourceTree = "<group>"; };
 		570D8FCD2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutBatchDashboardCollectionCell.swift; sourceTree = "<group>"; };
 		570D8FCF2B84B28300EB643A /* MealBatchDashboardCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealBatchDashboardCollectionCell.xib; sourceTree = "<group>"; };
@@ -536,6 +535,7 @@
 		5759E7AA2B9048AB00352B24 /* Extension+MotivationFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+MotivationFilterVC.swift"; sourceTree = "<group>"; };
 		5759E7AB2B9048AB00352B24 /* Extension+BStartWorkOutDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+BStartWorkOutDetailVC.swift"; sourceTree = "<group>"; };
 		5759E7AC2B9048AB00352B24 /* Extension+BWorkOutMotivatorDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+BWorkOutMotivatorDetailVC.swift"; sourceTree = "<group>"; };
+		5759E7FB2B9060C100352B24 /* DashboardWorkoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWorkoutModel.swift; sourceTree = "<group>"; };
 		575A20082B8B466900FFCD56 /* MealsDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsDetailModel.swift; sourceTree = "<group>"; };
 		575A200A2B8B541500FFCD56 /* MealPlanBannerViewTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealPlanBannerViewTVC.swift; sourceTree = "<group>"; };
 		575A200B2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealPlanBannerViewTVC.xib; sourceTree = "<group>"; };
@@ -1510,7 +1510,7 @@
 		570D8FC72B84B28300EB643A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				570D8FC82B84B28300EB643A /* DashboardWorkoutModel.swift */,
+				5759E7FB2B9060C100352B24 /* DashboardWorkoutModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1766,9 +1766,9 @@
 			isa = PBXGroup;
 			children = (
 				5759E7782B9048AB00352B24 /* VideoThunbListTblCell.swift */,
+				5759E77B2B9048AB00352B24 /* VideoThunbListTblCell.xib */,
 				5759E7792B9048AB00352B24 /* TrainingListTableCell.swift */,
 				5759E77A2B9048AB00352B24 /* TrainingListTableCell.xib */,
-				5759E77B2B9048AB00352B24 /* VideoThunbListTblCell.xib */,
 				5759E77C2B9048AB00352B24 /* BWOPackageTblCell.swift */,
 				5759E77D2B9048AB00352B24 /* BWOPackageTblCell.xib */,
 			);
@@ -2400,7 +2400,6 @@
 				317609302B6676D3005D4395 /* Extension+MealBatchDetailVC.swift in Sources */,
 				574FA5B52B8E599000F6D3BA /* FilterOptionModel.swift in Sources */,
 				31AE2D842B36BA82000FEB41 /* BatchBoardHomeVC.swift in Sources */,
-				570D8FED2B84B28300EB643A /* DashboardWorkoutModel.swift in Sources */,
 				5759E7B62B9048AB00352B24 /* BRegistrationRequest.swift in Sources */,
 				5759E7D32B9048AB00352B24 /* BWorkOutMotivatorDetailVC.swift in Sources */,
 				319BAD6B2B2A31A00081A8F2 /* UIColor.swift in Sources */,
@@ -2423,6 +2422,7 @@
 				5759E7F92B9048AB00352B24 /* Extension+BStartWorkOutDetailVC.swift in Sources */,
 				319BAD622B2A31A00081A8F2 /* UIView.swift in Sources */,
 				313894162B683F8300F687B1 /* MealDilevaryDropOffVC.swift in Sources */,
+				5759E7FC2B9060C100352B24 /* DashboardWorkoutModel.swift in Sources */,
 				31D4248E2B6B84AC00E988C7 /* QuestionAllergyCollectionCell.swift in Sources */,
 				5759E7DD2B9048AB00352B24 /* Extension+BPaymentGatewayPopUpVC.swift in Sources */,
 				31AE2DAA2B36E564000FEB41 /* BatchTabBar.swift in Sources */,
@@ -2678,10 +2678,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Batch/Batch.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development: Jamal Alajmi (RSVLK3BL7Y)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 47HD6SMK73;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Batch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2715,10 +2715,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Batch/Batch.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development: Jamal Alajmi (RSVLK3BL7Y)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 47HD6SMK73;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Batch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -92,6 +92,47 @@ struct CourseDataList: Codable {
         case coachDetail = "coach_detail"
     }
 }
+// MARK: - CourseDetail
+struct CourseDetail: Codable {
+    let courseID, userID: Int?
+    let courseName, courseImage, coursePromoVideo, courseRepetition: String?
+    let courseValidity, description, perDayWorkout, weightRequired: String?
+    let coursePrice: String?
+    let discountPrice: String?
+    let duration: String?
+    let courseLevel: CourseLevel?
+    let status: Int?
+    let createdAt, updatedAt: String?
+    let coachDetail: CoachDetail?
+    let courseDuration: [CourseDuration]?
+    let goals: [Goal]?
+    let workoutType: [WorkoutType]?
+
+    enum CodingKeys: String, CodingKey {
+        case courseID = "course_id"
+        case userID = "user_id"
+        case courseName = "course_name"
+        case courseImage = "course_image"
+        case coursePromoVideo = "course_promo_video"
+        case courseRepetition = "course_repetition"
+        case courseValidity = "course_validity"
+        case description
+        case perDayWorkout = "per_day_workout"
+        case weightRequired = "weight_required"
+        case coursePrice = "course_price"
+        case discountPrice = "discount_price"
+        case duration
+        case courseLevel = "course_level"
+        case status
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case coachDetail = "coach_detail"
+        case courseDuration = "course_duration"
+        case goals
+        case workoutType = "workout_type"
+    }
+}
+
 struct CoachDetail: Codable {
     let id: Int?
     let name: String?

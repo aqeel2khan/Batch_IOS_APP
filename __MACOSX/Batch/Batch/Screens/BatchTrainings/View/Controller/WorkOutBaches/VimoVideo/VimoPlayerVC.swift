@@ -9,20 +9,23 @@ import UIKit
 import HCVimeoVideoExtractor
 
 class VimoPlayerVC: UIViewController {
-    
+
     @IBOutlet weak var vimoVideoTbl: UITableView!
+    @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var selectedVideoViewTbl: UITableView!
     var videoIdInfo: CourseDurationExercise?
     
     var refreshControl: UIRefreshControl!
     var completion: (()->Void)? = nil
     var viemoVideoArr = [String]()
-    
+    var titleText = "Lower-Body Burn"
+
     var selectedIndex = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        titleLbl.text = titleText
         self.vimoVideoTbl.delegate = self
         self.vimoVideoTbl.dataSource = self
         

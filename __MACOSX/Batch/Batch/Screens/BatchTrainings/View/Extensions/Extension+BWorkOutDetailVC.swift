@@ -7,22 +7,14 @@
 
 import Foundation
 import UIKit
-//import QuartzCore
 
 extension BWorkOutDetailVC: UICollectionViewDelegate,UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return newArray.count//workOutArray.count
+        return newArray.count
     }
 
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeue(BatchTrainingDetailCollCell.self, indexPath)
-//        cell.imgWorkOut.image = workOutIconArray[indexPath.row]
-//        cell.lblWorkoutName.text = workOutArray[indexPath.row]
-        
         cell.imgWorkOut.image = newImage[indexPath.row]
         cell.lblWorkoutName.text = newArray[indexPath.row]
         return cell
@@ -37,57 +29,50 @@ extension BWorkOutDetailVC: UICollectionViewDelegate,UICollectionViewDataSource 
 //                cell.transform = CGAffineTransform(translationX: 0, y: 0)
 //        })
     }
-    
 }
 
 //MARK:- Tableview func
-
 extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isCommingFrom == "workoutbatches" {
             return self.totalCourseArr.count
-
         } else if isCommingFrom == "dashboard" {
             return self.totalCourseDashboardArr.count
         }
-//        else if isCommingFrom == "MotivatorDetailVC"
-//        {
+//        else if isCommingFrom == "MotivatorDetailVC" {
 //            return self.woMotivatorInfo?.
 //        }
-        else
-        {
+        else {
             return self.totalCourseArr.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueCell(TrainingListTableCell.self,for: indexPath)
         if isCommingFrom == "workoutbatches" {
             let info = totalCourseArr[indexPath.row]
             cell.lblTitle.text  = "Lower-Body Burn"
             cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
             cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
-
         } else if isCommingFrom == "dashboard" {
             let info = self.totalCourseDashboardArr[indexPath.row]
-            cell.lblTitle.text  = "Lower-Body Burn"
+            cell.lblTitle.text  = info.dayName
             cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
             cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
-        }
-        else {
+            cell.dayLbl.text = "\(indexPath.row + 1)"
+        } else {
             let info = totalCourseArr[indexPath.row]
             cell.lblTitle.text  = "Lower-Body Burn"
             cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
             cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
         }
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension //1300//
+        return UITableView.automaticDimension 
     }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //            cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
 //            UIView.animate(
@@ -100,21 +85,36 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        for i in 0..<self.totalCourseDashboardArr[indexPath.row].courseDurationExercise!.count {
+            let idArray = self.totalCourseDashboardArr[indexPath.row].courseDurationExercise
+            let videoId = idArray?[i].videoDetail?.videoID ?? ""
+            self.videoArr.append(videoId)
+        }
+        showLoading()
+        vimoVideoURLList.removeAll()
+        DispatchQueue.main.async {
+            self.vimoVideoSetUp {
+                hideLoading()
+                print(self.vimoVideoURLList)
+                if self.vimoVideoURLList.count != 0 {
+                    let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
+                    vc.viemoVideoArr = self.vimoVideoURLList
+                    vc.titleText = self.self.totalCourseDashboardArr[indexPath.row].dayName ?? ""
+                    vc.modalPresentationStyle = .overFullScreen
+                    vc.modalTransitionStyle = .coverVertical
+                    vc.completion = {
+                        print("Coming back Motivator filter Id")
+                        print(self.vimoVideoURLList)
+                        self.callApiServices()
+                        
+                    }
+                    self.present(vc, animated: true)
+                }
+            }
+
+            
+        }
         
-//        let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
-//        vc.viemoVideoArr = vimoVideoURL
-//        vc.videoIdInfo   = courseDurationExerciseArr[indexPath.row]
-//        vc.modalPresentationStyle = .overFullScreen
-//        vc.modalTransitionStyle = .coverVertical
-////        vc.completion = {
-////                    print("Coming back Motivator filter Id")
-////            print(self.vimoVideoURL)
-////            self.callApiServices()
-////
-////                }
-//        self.present(vc, animated: true)
         
     }
-
-    
 }

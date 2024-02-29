@@ -16,7 +16,6 @@ class VideoPlayerVC: UIViewController {
     var tblIconArray = [#imageLiteral(resourceName: "Image"), #imageLiteral(resourceName: "image2"), #imageLiteral(resourceName: "image2"), #imageLiteral(resourceName: "Image"), #imageLiteral(resourceName: "image2"), #imageLiteral(resourceName: "image2")]
     
     @IBOutlet private weak var videoContainerView: UIView!
-    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subTitleLabel: UILabel!
     
     @IBOutlet weak var vimoImageView: UIImageView!

@@ -16,7 +16,7 @@ class TrainingListTableCell: UITableViewCell {
     @IBOutlet weak var backgrounView: UIView!
     
     @IBOutlet weak var imgTime: UIImageView!
-    @IBOutlet weak var imgTraining: UIImageView!
+    @IBOutlet weak var dayLbl: UILabel!
     @IBOutlet weak var imgKaloriImage: UIImageView!
     
     override func awakeFromNib() {

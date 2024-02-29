@@ -18,7 +18,7 @@ class BWorkOutDetailVC: UIViewController {
     var vimoVideoIDArr = [String]()
     var vimoBaseUrl = "https://vimeo.com/"
     var videoURL: URL?
-    var vimoVideoURL = [String]()
+    var vimoVideoURLList = [String]()
     
     var newArray = [String]()
     var newImage = [UIImage]()
@@ -54,13 +54,19 @@ class BWorkOutDetailVC: UIViewController {
     var woMotivatorInfo:CourseDataList?
     
     
-    //var courseDetailsInfo : WOSCourseDetail!
     var courseDetailsInfo : CourseDetail!
     //var totalCourseDashboardArr = [WOSCourseDuration]()
     var totalCourseDashboardArr = [CourseDuration]()
     var videoArr = [String]()
     
+    //    var wosCourseDetailsInfo : WOSCourseDetail!
+    //    var wostodayWorkoutsUnion : TodayWorkoutsUnion!
+    
     // var originalCenter: CGPoint!
+    
+    
+    //    var dashboardCourseDetailsInfo : DashboardCourseDetail!
+    //    var totalCourseDashboardArr = [DashboardCourseDuration]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,14 +119,9 @@ class BWorkOutDetailVC: UIViewController {
             if info?.courseDuration?.count != 0 {
                 
                 self.videoArr.removeAll()
-                //                for i in 0..<(info?.courseDuration?.count)!
-                //                {
-                //                    self.courseDurationExerciseArr = info?.courseDuration?[i].courseDurationExercise ?? []
-                
                 self.courseDurationExerciseArr = info?.courseDuration?[0].courseDurationExercise ?? []
                 
                 for i in 0..<self.courseDurationExerciseArr.count {
-                    
                     let idArray = self.courseDurationExerciseArr
                     let videoId = idArray[i].videoDetail?.videoID ?? ""
                     print(idArray[i].videoDetail?.videoID ?? "")
@@ -147,7 +148,9 @@ class BWorkOutDetailVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         // jay comment latest
         print(self.videoArr.count)
-        vimoVideoSetUp()
+        vimoVideoSetUp {
+            print("all video setup done")
+        }
         
     }
     
@@ -163,7 +166,7 @@ class BWorkOutDetailVC: UIViewController {
             
             let info = woMotivatorInfo
             self.woTitleLbl.text = info?.courseName
-            self.workOutPriceLbl.text = info?.coursePrice ?? ""
+            self.workOutPriceLbl.text = "from $" + (info?.coursePrice ?? "")
             self.woDesLbl.text = info?.description ?? ""
             self.coachNameLbl.text = info?.coachDetail?.name ?? ""
             self.durationLbl.text = info?.duration ?? ""
@@ -193,10 +196,6 @@ class BWorkOutDetailVC: UIViewController {
             }
             
             
-            
-            
-            
-            
         }
         else if isCommingFrom == "workoutbatches" // without subscription
         {
@@ -207,7 +206,7 @@ class BWorkOutDetailVC: UIViewController {
             
             let info = woDetailInfo[0]
             self.woTitleLbl.text = info.courseName
-            self.workOutPriceLbl.text = info.coursePrice ?? ""
+            self.workOutPriceLbl.text = "from $" + (info.coursePrice ?? "")
             self.woDesLbl.text = info.description ?? ""
             self.coachNameLbl.text = info.coachDetail?.name ?? ""
             self.durationLbl.text = info.duration ?? ""
@@ -230,7 +229,7 @@ class BWorkOutDetailVC: UIViewController {
             let info = courseDetailsInfo
             self.coursePromotionVideoId = info?.coursePromoVideo ?? ""
             self.woTitleLbl.text = info?.courseName
-            self.workOutPriceLbl.text = info?.coursePrice ?? ""
+            self.workOutPriceLbl.text = "from $" + (info?.coursePrice ?? "")
             self.woDesLbl.text = info?.description ?? ""
             self.coachNameLbl.text = info?.coachDetail?.name ?? ""
             self.durationLbl.text = info?.duration ?? ""
@@ -329,8 +328,6 @@ class BWorkOutDetailVC: UIViewController {
         {
             if let newValue = change?[.newKey] {
                 let newsize = newValue as! CGSize
-                //                self.trainingCollectionHeight.constant = newsize.height
-                //self.videoListTableHeight.constant = newsize.height
                 self.videoListTableHeight.constant = newsize.height
             }
         }
@@ -390,20 +387,20 @@ class BWorkOutDetailVC: UIViewController {
         if vimeoVideoArr.count != 0
         {
             let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
-            vc.viemoVideoArr = vimoVideoURL
+            vc.viemoVideoArr = vimoVideoURLList
+            vc.titleText = self.woTitleLbl.text ?? ""
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
             vc.completion = {
                 print("Coming back Motivator filter Id")
-                print(self.vimoVideoURL)
+                print(self.vimoVideoURLList)
                 self.callApiServices()
                 
             }
             self.present(vc, animated: true)
             // */
         }
-        else
-        {
+        else {
             showAlert(message: "No exercise video availble")
         }
     }
@@ -512,8 +509,7 @@ class BWorkOutDetailVC: UIViewController {
 extension BWorkOutDetailVC {
     //MARK:- func play vimo video
     
-    func vimoVideoSetUp() {
-        
+    func vimoVideoSetUp(completion: @escaping ()->()) {
         let farray = videoArr.filter {$0 != ""}
         if farray.count != 0 {
             
@@ -522,7 +518,8 @@ extension BWorkOutDetailVC {
                     HCVimeoVideoExtractor.fetchVideoURLFrom(url: url, completion: { ( video:HCVimeoVideo?, error:Error?) -> Void in
                         
                         if let err = error {
-                            
+                            completion()
+
                             DispatchQueue.main.async() {
                                 self.videoURL = nil
                                 let alert = UIAlertController(title: "InCorrect VideoId", message: err.localizedDescription, preferredStyle: .alert)
@@ -533,6 +530,7 @@ extension BWorkOutDetailVC {
                         }
                         guard let vid = video else {
                             print("Invalid video object")
+                            completion()
                             return
                         }
                         
@@ -565,23 +563,22 @@ extension BWorkOutDetailVC {
                             guard let videoURL = self.videoURL else { return }
                             
                             self.videoURL = videoURL
-                            if self.videoURL == nil
-                            {
+                            if self.videoURL == nil {
+                                completion()
                                 self.showAlert(message: "Invalid Id")
                                 self.dismiss(animated: true)
                             }
-                            else
-                            {
-                                self.vimoVideoURL.append(self.videoURL!.absoluteString)
+                            else {
+                                self.vimoVideoURLList.append(self.videoURL!.absoluteString)
+                                if self.vimoVideoURLList.count == farray.count {
+                                    completion()
+                                }
                             }
                         }
                     })
                 }
+                
             }
-            print(self.vimoVideoURL.count)
-            
-            print(self.vimoVideoURL.count)
-            
         }
     }
     
