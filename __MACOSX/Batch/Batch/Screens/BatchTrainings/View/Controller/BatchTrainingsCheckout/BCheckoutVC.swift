@@ -105,6 +105,7 @@ class BCheckoutVC: UIViewController {
     
     @IBAction func onTapPaymentMethodBtn(_ sender: Any) {
     }
+    
     @IBAction func onTapCheckOutBtn(_ sender: Any) {
         
         
