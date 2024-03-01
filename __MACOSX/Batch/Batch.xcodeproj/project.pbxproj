@@ -230,12 +230,10 @@
 		5759E7E52B9048AB00352B24 /* BStartWorkOutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7942B9048AB00352B24 /* BStartWorkOutDetailVC.swift */; };
 		5759E7E62B9048AB00352B24 /* BNextWorkOutTimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7952B9048AB00352B24 /* BNextWorkOutTimerVC.swift */; };
 		5759E7E72B9048AB00352B24 /* BWorkOutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7962B9048AB00352B24 /* BWorkOutDetailVC.swift */; };
-		5759E7E82B9048AB00352B24 /* VimoPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5759E7982B9048AB00352B24 /* VimoPlayerCell.xib */; };
 		5759E7E92B9048AB00352B24 /* ASVideoLayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E79A2B9048AB00352B24 /* ASVideoLayerObject.swift */; };
 		5759E7EA2B9048AB00352B24 /* ASVideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E79B2B9048AB00352B24 /* ASVideoPlayerController.swift */; };
 		5759E7EB2B9048AB00352B24 /* ASVideoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E79C2B9048AB00352B24 /* ASVideoContainer.swift */; };
 		5759E7EC2B9048AB00352B24 /* VimoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E79D2B9048AB00352B24 /* VimoPlayerVC.swift */; };
-		5759E7ED2B9048AB00352B24 /* VimoPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E79E2B9048AB00352B24 /* VimoPlayerCell.swift */; };
 		5759E7EE2B9048AB00352B24 /* BWorkOutCompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E79F2B9048AB00352B24 /* BWorkOutCompleteVC.swift */; };
 		5759E7EF2B9048AB00352B24 /* MotivatorFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7A02B9048AB00352B24 /* MotivatorFilterVC.swift */; };
 		5759E7F02B9048AB00352B24 /* BWorkOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7A12B9048AB00352B24 /* BWorkOutVC.swift */; };
@@ -254,6 +252,9 @@
 		575A200C2B8B541600FFCD56 /* MealPlanBannerViewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A200A2B8B541500FFCD56 /* MealPlanBannerViewTVC.swift */; };
 		575A200D2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 575A200B2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib */; };
 		575A200F2B8B784900FFCD56 /* DishesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A200E2B8B784900FFCD56 /* DishesModel.swift */; };
+		5797812A2B92278C00057943 /* VimoPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579781282B92278C00057943 /* VimoPlayerCell.xib */; };
+		5797812B2B92278C00057943 /* VimoPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579781292B92278C00057943 /* VimoPlayerCell.swift */; };
+		5797812D2B92476B00057943 /* BWorkOutVideoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797812C2B92476B00057943 /* BWorkOutVideoDetails.swift */; };
 		68337D4F2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68337D4E2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift */; };
 		685680392B64B165002AF31C /* MealPlanAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685680382B64B165002AF31C /* MealPlanAddressVC.swift */; };
 		6856803B2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856803A2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift */; };
@@ -516,12 +517,10 @@
 		5759E7942B9048AB00352B24 /* BStartWorkOutDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BStartWorkOutDetailVC.swift; sourceTree = "<group>"; };
 		5759E7952B9048AB00352B24 /* BNextWorkOutTimerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNextWorkOutTimerVC.swift; sourceTree = "<group>"; };
 		5759E7962B9048AB00352B24 /* BWorkOutDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutDetailVC.swift; sourceTree = "<group>"; };
-		5759E7982B9048AB00352B24 /* VimoPlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VimoPlayerCell.xib; sourceTree = "<group>"; };
 		5759E79A2B9048AB00352B24 /* ASVideoLayerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoLayerObject.swift; sourceTree = "<group>"; };
 		5759E79B2B9048AB00352B24 /* ASVideoPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoPlayerController.swift; sourceTree = "<group>"; };
 		5759E79C2B9048AB00352B24 /* ASVideoContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoContainer.swift; sourceTree = "<group>"; };
 		5759E79D2B9048AB00352B24 /* VimoPlayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimoPlayerVC.swift; sourceTree = "<group>"; };
-		5759E79E2B9048AB00352B24 /* VimoPlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimoPlayerCell.swift; sourceTree = "<group>"; };
 		5759E79F2B9048AB00352B24 /* BWorkOutCompleteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutCompleteVC.swift; sourceTree = "<group>"; };
 		5759E7A02B9048AB00352B24 /* MotivatorFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotivatorFilterVC.swift; sourceTree = "<group>"; };
 		5759E7A12B9048AB00352B24 /* BWorkOutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutVC.swift; sourceTree = "<group>"; };
@@ -540,6 +539,9 @@
 		575A200A2B8B541500FFCD56 /* MealPlanBannerViewTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealPlanBannerViewTVC.swift; sourceTree = "<group>"; };
 		575A200B2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealPlanBannerViewTVC.xib; sourceTree = "<group>"; };
 		575A200E2B8B784900FFCD56 /* DishesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesModel.swift; sourceTree = "<group>"; };
+		579781282B92278C00057943 /* VimoPlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VimoPlayerCell.xib; sourceTree = "<group>"; };
+		579781292B92278C00057943 /* VimoPlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimoPlayerCell.swift; sourceTree = "<group>"; };
+		5797812C2B92476B00057943 /* BWorkOutVideoDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutVideoDetails.swift; sourceTree = "<group>"; };
 		68337D4E2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTotalBurnerCaloryVC.swift; sourceTree = "<group>"; };
 		685680382B64B165002AF31C /* MealPlanAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanAddressVC.swift; sourceTree = "<group>"; };
 		6856803A2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDilevaryArrivingVC.swift; sourceTree = "<group>"; };
@@ -1818,6 +1820,7 @@
 		5759E7912B9048AB00352B24 /* WorkOutBaches */ = {
 			isa = PBXGroup;
 			children = (
+				5797812C2B92476B00057943 /* BWorkOutVideoDetails.swift */,
 				5759E7922B9048AB00352B24 /* BChangeCoursePopUpVC.swift */,
 				5759E7932B9048AB00352B24 /* VideoPlayerVC.swift */,
 				5759E7942B9048AB00352B24 /* BStartWorkOutDetailVC.swift */,
@@ -1837,10 +1840,9 @@
 		5759E7972B9048AB00352B24 /* VimoVideo */ = {
 			isa = PBXGroup;
 			children = (
-				5759E7982B9048AB00352B24 /* VimoPlayerCell.xib */,
+				579781272B92278C00057943 /* VimoPlayerCell */,
 				5759E7992B9048AB00352B24 /* VideoPlayLibrary */,
 				5759E79D2B9048AB00352B24 /* VimoPlayerVC.swift */,
-				5759E79E2B9048AB00352B24 /* VimoPlayerCell.swift */,
 			);
 			path = VimoVideo;
 			sourceTree = "<group>";
@@ -1867,6 +1869,15 @@
 				5759E7AC2B9048AB00352B24 /* Extension+BWorkOutMotivatorDetailVC.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		579781272B92278C00057943 /* VimoPlayerCell */ = {
+			isa = PBXGroup;
+			children = (
+				579781282B92278C00057943 /* VimoPlayerCell.xib */,
+				579781292B92278C00057943 /* VimoPlayerCell.swift */,
+			);
+			path = VimoPlayerCell;
 			sourceTree = "<group>";
 		};
 		68C14B662B63950A0085AAD4 /* MealPlanCheckout */ = {
@@ -2053,7 +2064,7 @@
 				5759E7C02B9048AB00352B24 /* Batch.ipa in Resources */,
 				317609422B66ACA5005D4395 /* BMealCategoryCollCell.xib in Resources */,
 				319BAD742B2A35AB0081A8F2 /* Colors.xcassets in Resources */,
-				5759E7E82B9048AB00352B24 /* VimoPlayerCell.xib in Resources */,
+				5797812A2B92278C00057943 /* VimoPlayerCell.xib in Resources */,
 				311B1BB22B2E0E6A00E37E47 /* BatchAccount.storyboard in Resources */,
 				314714502B68EB14002EED87 /* MealPlanIngridentTableCell.xib in Resources */,
 				31D4248F2B6B84AC00E988C7 /* QuestionAllergyCollectionCell.xib in Resources */,
@@ -2267,7 +2278,6 @@
 				3188B3C52B299B6600E19945 /* ViewController.swift in Sources */,
 				68C14B722B63BFE10085AAD4 /* Extension+StartPlanCheckoutVC.swift in Sources */,
 				31AE2DA62B36BD10000FEB41 /* Extension+ShoppingBatchVC.swift in Sources */,
-				5759E7ED2B9048AB00352B24 /* VimoPlayerCell.swift in Sources */,
 				319BAD662B2A31A00081A8F2 /* UITextField.swift in Sources */,
 				5759E7E72B9048AB00352B24 /* BWorkOutDetailVC.swift in Sources */,
 				5759E7EF2B9048AB00352B24 /* MotivatorFilterVC.swift in Sources */,
@@ -2386,6 +2396,7 @@
 				317609322B6676EE005D4395 /* Extension+MealBatchPlanningVC.swift in Sources */,
 				3188B42A2B29D4AC00E19945 /* UserDefaultKey.swift in Sources */,
 				31D4249D2B6B84C300E988C7 /* QuestionAgeVC.swift in Sources */,
+				5797812D2B92476B00057943 /* BWorkOutVideoDetails.swift in Sources */,
 				318C03E92B3372F900C4281F /* UIFont.swift in Sources */,
 				313645B02B30BA9B007D0E18 /* OnBoardingScreenVC.swift in Sources */,
 				5759E7E22B9048AB00352B24 /* BRegistrationVC.swift in Sources */,
@@ -2422,6 +2433,7 @@
 				5759E7F92B9048AB00352B24 /* Extension+BStartWorkOutDetailVC.swift in Sources */,
 				319BAD622B2A31A00081A8F2 /* UIView.swift in Sources */,
 				313894162B683F8300F687B1 /* MealDilevaryDropOffVC.swift in Sources */,
+				5797812B2B92278C00057943 /* VimoPlayerCell.swift in Sources */,
 				5759E7FC2B9060C100352B24 /* DashboardWorkoutModel.swift in Sources */,
 				31D4248E2B6B84AC00E988C7 /* QuestionAllergyCollectionCell.swift in Sources */,
 				5759E7DD2B9048AB00352B24 /* Extension+BPaymentGatewayPopUpVC.swift in Sources */,

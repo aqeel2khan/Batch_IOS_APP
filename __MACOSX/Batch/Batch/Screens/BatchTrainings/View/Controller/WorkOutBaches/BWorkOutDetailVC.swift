@@ -50,34 +50,20 @@ class BWorkOutDetailVC: UIViewController {
     
     var woDetailInfo = [CourseDataList]()
     var totalCourseArr = [CourseDurationWS]()
-    //    var woMotivatorInfo:motivatorCoachListDataList?
     var woMotivatorInfo:CourseDataList?
     
     
     var courseDetailsInfo : CourseDetail!
-    //var totalCourseDashboardArr = [WOSCourseDuration]()
     var totalCourseDashboardArr = [CourseDuration]()
     var videoArr = [String]()
     
-    //    var wosCourseDetailsInfo : WOSCourseDetail!
-    //    var wostodayWorkoutsUnion : TodayWorkoutsUnion!
-    
-    // var originalCenter: CGPoint!
-    
-    
-    //    var dashboardCourseDetailsInfo : DashboardCourseDetail!
-    //    var totalCourseDashboardArr = [DashboardCourseDuration]()
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(isCommingFrom)
-        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        
         self.videoListTableView.reloadData()
         self.videoListTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         
@@ -92,10 +78,8 @@ class BWorkOutDetailVC: UIViewController {
         
         self.setUpViewData()
         
-        if isCommingFrom == "workoutbatches"
-        {
-            if woDetailInfo.count != 0
-            {
+        if isCommingFrom == "workoutbatches"  {
+            if woDetailInfo.count != 0 {
                 let info = woDetailInfo[0]
                 guard info.courseID != nil else { return }
                 
@@ -104,8 +88,7 @@ class BWorkOutDetailVC: UIViewController {
                     self.getCourseDetails(courseId:"\(info.courseID ?? 0)")
                     //self.getCourseAllDurationList(courseId:"\(info.courseID ?? 0)")
                 }
-                else
-                {
+                else {
                     self.showAlert(message: "Please check your internet", title: "Network issue")
                 }
                 
@@ -146,18 +129,16 @@ class BWorkOutDetailVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // jay comment latest
         print(self.videoArr.count)
+        showLoading()
         vimoVideoSetUp {
+            hideLoading()
             print("all video setup done")
         }
-        
     }
     
-    func setUpViewData()
-    {
-        if isCommingFrom == "MotivatorDetailVC"
-        {
+    func setUpViewData()  {
+        if isCommingFrom == "MotivatorDetailVC"  {
             //self.workOutPriceLbl.isHidden = false
             self.grandTotalPriceBackView.isHidden = false
             self.subscribeCourseBtn.isHidden = false
@@ -177,7 +158,6 @@ class BWorkOutDetailVC: UIViewController {
             
             self.grandTotalPriceLbl.text = info?.coursePrice ?? ""
             
-            
             newArray.append("\(String(describing: info?.duration ?? "" )) min")
             newImage.append(UIImage(named: "clock-circle-black")!)
             newArray.append("\(String(describing: info?.courseLevel?.levelName ?? "" ))")
@@ -187,18 +167,12 @@ class BWorkOutDetailVC: UIViewController {
                 let workOutType = info?.workoutType?.count
                 
                 for i in 0..<(info?.workoutType!.count ?? 0) {
-                    print(info?.workoutType?[i].workoutdetail?.workoutType)
-                    
                     newArray.append("\(info?.workoutType?[i].workoutdetail?.workoutType ?? "" )")
                     newImage.append(UIImage(named: "accessibility_Black")!)
-                    
                 }
             }
-            
-            
         }
-        else if isCommingFrom == "workoutbatches" // without subscription
-        {
+        else if isCommingFrom == "workoutbatches" { // without subscription
             self.grandTotalPriceBackView.isHidden = false
             self.subscribeCourseBtn.isHidden = false
             self.startWorkOutBtn.isHidden = true
@@ -377,15 +351,8 @@ class BWorkOutDetailVC: UIViewController {
     
     
     @IBAction func onTapStartWorkOutBtn(_ sender: UIButton) {
-        
-        //        let vc = BStartWorkOutDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
-        
-        // /*
         let vimeoVideoArr = videoArr.filter {$0 != ""}
-        print(vimeoVideoArr.count)
-        
-        if vimeoVideoArr.count != 0
-        {
+        if vimeoVideoArr.count != 0 {
             let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
             vc.viemoVideoArr = vimoVideoURLList
             vc.titleText = self.woTitleLbl.text ?? ""
@@ -398,12 +365,12 @@ class BWorkOutDetailVC: UIViewController {
                 
             }
             self.present(vc, animated: true)
-            // */
         }
         else {
             showAlert(message: "No exercise video availble")
         }
     }
+    
     @IBAction func onTapChangeCourseBtn(_ sender: UIButton) {
         let vc = BChangeCoursePopUpVC.instantiate(fromAppStoryboard: .batchTrainings)
         vc.modalPresentationStyle = .overFullScreen
@@ -412,18 +379,15 @@ class BWorkOutDetailVC: UIViewController {
     }
     
     @IBAction func onTapSusbscribeCourseBtn(_ sender: Any) {
-        
         let vc = BTrainingsSubscriptionVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical
         vc.isCommingFrom = isCommingFrom
         
-        if isCommingFrom == "workoutbatches"
-        {
+        if isCommingFrom == "workoutbatches" {
             vc.selectedSubscriptionInfo = woDetailInfo
         }
-        else if isCommingFrom == "MotivatorDetailVC"
-        {
+        else if isCommingFrom == "MotivatorDetailVC" {
             vc.selectedMotivatorSubscriptionInfo = woMotivatorInfo
         }
         self.present(vc, animated: true)
@@ -434,38 +398,29 @@ class BWorkOutDetailVC: UIViewController {
             showLoading()
         }
         let bWorkOutDetailViewModel = BWorkOutDetailViewModel()
-        
         let urlStr = API.courseDetail + courseId
         bWorkOutDetailViewModel.courseDetail(requestUrl: urlStr)  { (response) in
             
             if response.status == true, response.data?.courseDuration?.count != 0 {
-                
-                print(response.data)
-                
                 self.totalCourseArr = response.data?.courseDuration ?? []
                 // self.blogsArray = response.data!
-                
                 DispatchQueue.main.async {
                     hideLoading()
                     self.videoListTableView.reloadData()
                 }
-                
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
-                    //makeToast(response.message!)
                 }
             }
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
-                // makeToast(error.localizedDescription)
             }
         }
     }
     
     private func getCourseAllDurationList(courseId:String){
-        
         DispatchQueue.main.async {
             showLoading()
         }
@@ -474,28 +429,20 @@ class BWorkOutDetailVC: UIViewController {
         let urlStr = API.courseWOList + courseId
         bWOMotivatorDetailViewModel.coachDetailCourseList(requestUrl: urlStr)  { (response) in
             
-            //            if response.status == true, response.data?.count != 0{
             if response.status == true, response.data?.list?.count != 0 {
-                
-                print(response.data)
-                //                self.coachDetailCourseArr = response.data?.list ?? []
-                
                 DispatchQueue.main.async {
                     hideLoading()
-                    //                    self.traningPackageTblView.reloadData()
                 }
                 
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
-                    //makeToast(response.message!)
                 }
             }
             
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
-                // makeToast(error.localizedDescription)
             }
         }
         

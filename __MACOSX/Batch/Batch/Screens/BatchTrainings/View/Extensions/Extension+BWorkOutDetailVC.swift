@@ -103,18 +103,12 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
                     vc.modalPresentationStyle = .overFullScreen
                     vc.modalTransitionStyle = .coverVertical
                     vc.completion = {
-                        print("Coming back Motivator filter Id")
                         print(self.vimoVideoURLList)
                         self.callApiServices()
-                        
                     }
                     self.present(vc, animated: true)
                 }
             }
-
-            
         }
-        
-        
     }
 }

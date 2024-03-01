@@ -24,7 +24,36 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ukr-RB-FUX">
                                 <rect key="frame" x="0.0" y="0.0" width="398" height="388"/>
                             </imageView>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hOn-S7-Y4I">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RzI-7g-zzG">
+                                <rect key="frame" x="119" y="134" width="160" height="120"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipe-up" translatesAutoresizingMaskIntoConstraints="NO" id="Wyg-T7-3WN">
+                                        <rect key="frame" x="57" y="0.0" width="46" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="Ijf-Px-i74"/>
+                                            <constraint firstAttribute="height" constant="46" id="boA-Us-etg"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to start new workout" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvd-dg-jsA" customClass="BatchLabelRegularWhite">
+                                        <rect key="frame" x="0.0" y="71.666666666666657" width="160" height="38.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Jvd-dg-jsA" firstAttribute="leading" secondItem="RzI-7g-zzG" secondAttribute="leading" id="CEC-Ri-KVD"/>
+                                    <constraint firstItem="Wyg-T7-3WN" firstAttribute="centerX" secondItem="RzI-7g-zzG" secondAttribute="centerX" id="Jgc-KL-sAp"/>
+                                    <constraint firstAttribute="height" constant="120" id="Kvy-k4-N2D"/>
+                                    <constraint firstItem="Jvd-dg-jsA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Wyg-T7-3WN" secondAttribute="bottom" constant="10" id="Zeq-aM-tag"/>
+                                    <constraint firstItem="Wyg-T7-3WN" firstAttribute="top" secondItem="RzI-7g-zzG" secondAttribute="top" id="ZyT-CW-Hd1"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jvd-dg-jsA" secondAttribute="trailing" id="h20-oE-Ezy"/>
+                                    <constraint firstAttribute="width" constant="160" id="rBX-ga-S5d"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jvd-dg-jsA" secondAttribute="bottom" constant="10" id="uVc-kb-A2z"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hOn-S7-Y4I">
                                 <rect key="frame" x="20" y="233.66666666666663" width="358" height="144.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin by standing up straight with your feet hip-width apart, toes pointing forward." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCE-V6-0Eb" customClass="BatchLabelRegularWhite">
@@ -69,6 +98,8 @@
                             <constraint firstAttribute="trailing" secondItem="hOn-S7-Y4I" secondAttribute="trailing" constant="20" id="UxZ-Up-PUx"/>
                             <constraint firstAttribute="trailing" secondItem="ukr-RB-FUX" secondAttribute="trailing" id="Xze-st-jVH"/>
                             <constraint firstAttribute="bottom" secondItem="ukr-RB-FUX" secondAttribute="bottom" id="YXY-Fr-jki"/>
+                            <constraint firstItem="RzI-7g-zzG" firstAttribute="centerY" secondItem="1EF-7R-ZzX" secondAttribute="centerY" id="ehw-7J-Lva"/>
+                            <constraint firstItem="RzI-7g-zzG" firstAttribute="centerX" secondItem="1EF-7R-ZzX" secondAttribute="centerX" id="nf7-pN-lLI"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -82,6 +113,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="bottomView" destination="hOn-S7-Y4I" id="rX1-7y-Ax5"/>
+                <outlet property="dragUpUIView" destination="RzI-7g-zzG" id="Lci-yT-5zu"/>
                 <outlet property="finishWorkOutBtn" destination="VrY-OY-DzM" id="Nyq-Kr-wyz"/>
                 <outlet property="shotImageView" destination="ukr-RB-FUX" id="Za3-4T-sy8"/>
                 <outlet property="startNextWoBtn" destination="w9n-f5-Hon" id="RZs-Ke-XZk"/>
@@ -96,6 +128,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="swipe-up" width="138" height="138"/>
         <namedColor name="AppLabelLightGrayColor">
             <color red="0.62352941176470589" green="0.61176470588235299" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
