@@ -9,6 +9,8 @@ import UIKit
 import MFSDK
 
 class BPaymentGatewayPopUpVC: UIViewController {
+    var completion: ((String)->Void)? = nil
+
     //MARK: Outlet
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var tblView: UITableView!
@@ -16,26 +18,34 @@ class BPaymentGatewayPopUpVC: UIViewController {
     //MARK: Variables
     var paymentMethods: [MFPaymentMethod]?
     var selectedPaymentMethodIndex: Int?
-    var amountStr: String?
     var errorCodeStr: String?
     var resultStr:String?
     //at list one product Required
     let productList = NSMutableArray()
     
+    var totalOrderAmount : String?
+    var isCommingFrom = ""
+    var selectedSubscriptionInfo = [CourseDataList]()
+    var selectedMotivatorSubscriptionInfo:CourseDataList?
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         payButton.isEnabled = false
         //Initiate Payment
-        initiatePayment()
+       
+        if let amount = Double(totalOrderAmount ?? "0.0") {
+            if amount > 0.0 {
+                initiatePayment()
+            }
+        }
+       
         // set delegate
         MFSettings.shared.delegate = self
         
         //Register Table cell
         tblView.register(UINib(nibName: "PaymentMethodTblViewCell", bundle: .main), forCellReuseIdentifier: "PaymentMethodTblViewCell")
-        
-        amountStr = "0.1"
-        
     }
+    
     @IBAction func payDidPressed(_ sender: Any) {
         if let paymentMethods = paymentMethods, !paymentMethods.isEmpty {
             if let selectedIndex = selectedPaymentMethodIndex {

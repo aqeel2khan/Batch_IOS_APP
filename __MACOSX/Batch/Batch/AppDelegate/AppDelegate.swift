@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         //*********** set up your My Fatoorah Merchant details
-        MFSettings.shared.configure(token: MF_Test_Token, country: .kuwait, environment: .test)
+        MFSettings.shared.configure(token: MF_Token, country: .kuwait, environment: .test)
         // you can change color and title of nvgigation bar
         let them = MFTheme(navigationTintColor: .white, navigationBarTintColor: .lightGray, navigationTitle: "Payment", cancelButtonTitle: "Cancel")
         MFSettings.shared.setTheme(theme: them)

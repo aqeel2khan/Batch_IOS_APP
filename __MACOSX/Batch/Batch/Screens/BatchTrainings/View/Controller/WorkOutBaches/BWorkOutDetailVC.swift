@@ -32,7 +32,8 @@ class BWorkOutDetailVC: UIViewController {
     @IBOutlet weak var coachPicImgView: UIImageView!
     @IBOutlet weak var coachNameLbl: UILabel!
     @IBOutlet weak var durationLbl: UILabel!
-    
+    @IBOutlet weak var durationTitleLbl: UILabel!
+
     @IBOutlet weak var videoListTableHeight: NSLayoutConstraint!
     @IBOutlet weak var videoListTableView: UITableView!
     @IBOutlet weak var trainingCollectionView: UICollectionView!
@@ -130,7 +131,6 @@ class BWorkOutDetailVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         print(self.videoArr.count)
-        showLoading()
         vimoVideoSetUp {
             hideLoading()
             print("all video setup done")
@@ -138,6 +138,7 @@ class BWorkOutDetailVC: UIViewController {
     }
     
     func setUpViewData()  {
+        
         if isCommingFrom == "MotivatorDetailVC"  {
             //self.workOutPriceLbl.isHidden = false
             self.grandTotalPriceBackView.isHidden = false
@@ -171,6 +172,8 @@ class BWorkOutDetailVC: UIViewController {
                     newImage.append(UIImage(named: "accessibility_Black")!)
                 }
             }
+            
+            durationTitleLbl.text = "Duration"
         }
         else if isCommingFrom == "workoutbatches" { // without subscription
             self.grandTotalPriceBackView.isHidden = false
@@ -193,6 +196,8 @@ class BWorkOutDetailVC: UIViewController {
             
             self.coursePromotionVideoId = info.coursePromoVideo ?? ""
             self.videoPlayBtn.isHidden = false
+            
+            durationTitleLbl.text = "Duration"
         }
         else if isCommingFrom == "dashboard" {
             self.grandTotalPriceBackView.isHidden = true
@@ -215,6 +220,8 @@ class BWorkOutDetailVC: UIViewController {
             self.grandTotalPriceLbl.text = info?.coursePrice ?? ""
             
             self.videoPlayBtn.isHidden = false
+            
+            durationTitleLbl.text = "Todays Exercise"
             
             // Enable user interaction for the UIImageView
             //            courseImgView.isUserInteractionEnabled = true
@@ -457,6 +464,7 @@ extension BWorkOutDetailVC {
     //MARK:- func play vimo video
     
     func vimoVideoSetUp(completion: @escaping ()->()) {
+        showLoading()
         let farray = videoArr.filter {$0 != ""}
         if farray.count != 0 {
             
@@ -526,6 +534,8 @@ extension BWorkOutDetailVC {
                 }
                 
             }
+        } else {
+            completion()
         }
     }
     

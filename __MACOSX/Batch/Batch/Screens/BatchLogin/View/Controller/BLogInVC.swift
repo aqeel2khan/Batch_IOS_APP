@@ -134,7 +134,6 @@ class BLogInVC: UIViewController {
                     //                    UserDefaultUtility.saveToken(token: response.token ?? "")
                     Batch_UserDefaults.set(response.token ?? "" , forKey: UserDefaultKey.TOKEN)
                     let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN)
-                    print(getToken)
                     UserDefaultUtility.setUserLoggedIn(true)
                     
                     let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
@@ -142,10 +141,12 @@ class BLogInVC: UIViewController {
                     vc.modalTransitionStyle = .coverVertical
                     vc.promotionPriceValue = 0
                     
-                    if self.isCommingFrom == "workoutbatches"
-                    {
+                    if self.isCommingFrom == "workoutbatches" {
                         vc.selectedSubscriptionInfo = [self.selectedSubscriptionInfo[0]]
                     }
+//                    else if self.isCommingFrom == "MotivatorDetailVC" {
+//                        vc.selectedMotivatorSubscriptionInfo = self.selectedSubscriptionInfo[0]
+//                    }
                     vc.isCommingFrom = self.isCommingFrom
                     self.present(vc, animated: true)
                     
@@ -154,6 +155,7 @@ class BLogInVC: UIViewController {
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.showAlert(message: response.message ?? "")
                     //makeToast(response.message!)
                 }
             }
@@ -167,22 +169,20 @@ class BLogInVC: UIViewController {
     }
     
     @IBAction func onTapSignUpBtn(_ sender: Any) {
-        
         let vc = BRegistrationVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
         vc.promotionPriceValue = 0
-        if isCommingFrom == "workoutbatches"
-        {
+        if isCommingFrom == "workoutbatches" {
             vc.selectedSubscriptionInfo = [selectedSubscriptionInfo[0]]
         }
+//        else if self.isCommingFrom == "MotivatorDetailVC" {
+//            vc.selectedSubscriptionInfo = [selectedSubscriptionInfo[0]]
+//        }
         vc.isCommingFrom = isCommingFrom
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         self.present(vc, animated: true)
-        
     }
-    
-    
-    
+        
     @IBAction func onTapBackBtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

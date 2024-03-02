@@ -816,6 +816,7 @@
                         <outlet property="coachPicImgView" destination="E0G-cS-bT2" id="Mfg-Yt-SIf"/>
                         <outlet property="courseImgView" destination="ub7-jj-btK" id="aZc-Pp-kLN"/>
                         <outlet property="durationLbl" destination="jGI-bm-PE9" id="nXV-Th-XeC"/>
+                        <outlet property="durationTitleLbl" destination="Pxe-6M-ymp" id="DaS-xC-Zkl"/>
                         <outlet property="grandTotalPriceBackView" destination="OZc-BL-0FY" id="7KO-G3-toO"/>
                         <outlet property="grandTotalPriceLbl" destination="jGS-S4-VEJ" id="RTg-ai-ccY"/>
                         <outlet property="startWorkOutBtn" destination="GFe-hQ-Sad" id="BNq-TF-Fe1"/>
@@ -3276,34 +3277,34 @@
     </scenes>
     <designables>
         <designable name="DJA-bJ-AFD">
-            <size key="intrinsicContentSize" width="129" height="33"/>
+            <size key="intrinsicContentSize" width="139" height="33"/>
         </designable>
         <designable name="GFe-hQ-Sad">
-            <size key="intrinsicContentSize" width="128" height="33"/>
+            <size key="intrinsicContentSize" width="136" height="33"/>
         </designable>
         <designable name="LTw-wC-I7b">
             <size key="intrinsicContentSize" width="42" height="33"/>
         </designable>
         <designable name="Pwf-aV-rtb">
-            <size key="intrinsicContentSize" width="161" height="33"/>
+            <size key="intrinsicContentSize" width="176" height="33"/>
         </designable>
         <designable name="SgW-pb-ZK2">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="41" height="33"/>
         </designable>
         <designable name="Uf5-jF-pLk">
-            <size key="intrinsicContentSize" width="64" height="33"/>
+            <size key="intrinsicContentSize" width="69" height="33"/>
         </designable>
         <designable name="bO6-Up-lR6">
             <size key="intrinsicContentSize" width="128" height="33"/>
         </designable>
         <designable name="h0O-Bc-Ua0">
-            <size key="intrinsicContentSize" width="140" height="33"/>
+            <size key="intrinsicContentSize" width="153" height="33"/>
         </designable>
         <designable name="hLT-G8-eqH">
-            <size key="intrinsicContentSize" width="160" height="33"/>
+            <size key="intrinsicContentSize" width="175" height="33"/>
         </designable>
         <designable name="rDA-Xe-ypL">
-            <size key="intrinsicContentSize" width="46" height="33"/>
+            <size key="intrinsicContentSize" width="49" height="33"/>
         </designable>
         <designable name="rRC-Vk-tFJ">
             <size key="intrinsicContentSize" width="42" height="33"/>
@@ -3312,13 +3313,13 @@
             <size key="intrinsicContentSize" width="64" height="33"/>
         </designable>
         <designable name="uA6-xl-yIK">
-            <size key="intrinsicContentSize" width="49" height="33"/>
+            <size key="intrinsicContentSize" width="53" height="33"/>
         </designable>
         <designable name="wXf-0l-VvT">
-            <size key="intrinsicContentSize" width="68" height="33"/>
+            <size key="intrinsicContentSize" width="72" height="33"/>
         </designable>
         <designable name="zPv-oy-eFN">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="41" height="33"/>
         </designable>
     </designables>
     <resources>
