@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -264,17 +264,17 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="24"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Batch Vegan Meal Plan" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYH-Ft-uKa">
-                                                                <rect key="frame" x="0.0" y="0.0" width="243" height="24"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="223" height="24"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from $35" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvA-BJ-ele">
-                                                                <rect key="frame" x="253" y="0.0" width="100" height="24"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from $35" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvA-BJ-ele">
+                                                                <rect key="frame" x="233" y="0.0" width="120" height="24"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="100" id="tWz-oh-brS"/>
+                                                                    <constraint firstAttribute="width" constant="120" id="tWz-oh-brS"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -542,9 +542,13 @@
                     <size key="freeformSize" width="393" height="1200"/>
                     <connections>
                         <outlet property="customSecondNavigationBar" destination="g6f-Ts-kcP" id="zHK-tG-Yii"/>
+                        <outlet property="durationLbl" destination="I27-62-dnS" id="zVz-Ej-pdr"/>
+                        <outlet property="mealDescriptionLbl" destination="FM9-UH-Jzt" id="45c-8i-JN0"/>
                         <outlet property="mealMsgBackView" destination="eVt-Y3-y8e" id="oP0-er-7Ih"/>
+                        <outlet property="mealPriceLbl" destination="fvA-BJ-ele" id="58N-ta-Ooo"/>
                         <outlet property="mealTblView" destination="AOn-fy-U8g" id="cle-jv-2es"/>
                         <outlet property="mealTblViewHeightConstraint" destination="tCA-G6-n42" id="s59-gC-je4"/>
+                        <outlet property="mealTitleLbl" destination="tYH-Ft-uKa" id="sD0-oc-h95"/>
                         <outlet property="tagCollView" destination="O45-CI-2IK" id="uvP-84-JQz"/>
                         <outlet property="tagCollViewHeightConstraint" destination="5Ef-Hh-jle" id="DC1-gj-RkR"/>
                         <outlet property="weekCalenderCollView" destination="VEF-r7-mKu" id="HEj-NF-7cG"/>
@@ -2038,35 +2042,32 @@
     </scenes>
     <designables>
         <designable name="1gZ-JN-vjf">
-            <size key="intrinsicContentSize" width="153" height="33"/>
+            <size key="intrinsicContentSize" width="149" height="32"/>
         </designable>
         <designable name="4fi-Q0-aNy">
-            <size key="intrinsicContentSize" width="152" height="33"/>
+            <size key="intrinsicContentSize" width="149" height="32"/>
         </designable>
         <designable name="79b-xc-eJc">
-            <size key="intrinsicContentSize" width="130" height="33"/>
+            <size key="intrinsicContentSize" width="126" height="32"/>
         </designable>
         <designable name="Efb-WV-FSH">
-            <size key="intrinsicContentSize" width="175" height="33"/>
+            <size key="intrinsicContentSize" width="170" height="32"/>
         </designable>
         <designable name="GjJ-N7-TgT">
-            <size key="intrinsicContentSize" width="44" height="33"/>
-        </designable>
-        <designable name="T8y-Pw-KYw">
-            <size key="intrinsicContentSize" width="224" height="44"/>
+            <size key="intrinsicContentSize" width="43" height="32"/>
         </designable>
         <designable name="pNO-ro-W95">
-            <size key="intrinsicContentSize" width="44" height="33"/>
+            <size key="intrinsicContentSize" width="43" height="32"/>
         </designable>
         <designable name="zHO-SI-P4f">
-            <size key="intrinsicContentSize" width="36" height="33"/>
+            <size key="intrinsicContentSize" width="35" height="32"/>
         </designable>
     </designables>
     <resources>
         <image name="IconDown" width="36" height="36"/>
         <image name="Meal" width="125" height="96.333335876464844"/>
         <image name="blueWhiteCalender" width="36" height="36"/>
-        <image name="downArrow" width="24" height="24"/>
+        <image name="downArrow" width="11" height="5.3333334922790527"/>
         <image name="filter" width="36" height="36"/>
         <image name="leftArrow" width="32" height="32"/>
         <image name="meal" width="42.333332061767578" height="42"/>

@@ -1,53 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "D58B8CB4-7B54-4318-B5D2-094A30DBE6B5"
+   uuid = "99496637-C7F8-45D0-AE32-4E07D7CE55E4"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "30B9B12E-113C-4AAF-8A78-12962F33A4DD"
+            uuid = "CD1218F2-5B28-4991-93DE-52DEE1F47693"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/MealBatch/View/Controller/MealBatchVC.swift"
+            filePath = "Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "getMealList()"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "30B9B12E-113C-4AAF-8A78-12962F33A4DD - c9298c87453f59ca"
+                  uuid = "CD1218F2-5B28-4991-93DE-52DEE1F47693 - d96a3b9869c7d689"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Batch.MealsListResponse) -&gt; () in Batch.MealBatchVC.applyFiltersToMealList(request: Batch.MealFilterRequest) -&gt; ()"
+                  symbolName = "Batch.MealBatchDetailVC.viewWillAppear(Swift.Bool) -&gt; ()"
                   moduleName = "Batch"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchVC.swift"
+                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "228">
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "800">
                </Location>
                <Location
-                  uuid = "30B9B12E-113C-4AAF-8A78-12962F33A4DD - 68e4d3392b04e7fc"
+                  uuid = "CD1218F2-5B28-4991-93DE-52DEE1F47693 - d96a3b9869c7d5f0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Swift.MainActor () -&gt; () in closure #2 (Batch.MealsListResponse) -&gt; () in Batch.MealBatchVC.getMealList() -&gt; ()"
+                  symbolName = "Batch.MealBatchDetailVC.viewWillAppear(Swift.Bool) -&gt; ()"
                   moduleName = "Batch"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchVC.swift"
+                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "24">
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "2228">
+               </Location>
+               <Location
+                  uuid = "CD1218F2-5B28-4991-93DE-52DEE1F47693 - df4945feb4f71050"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Batch.MealBatchDetailVC.viewWillDisappear(Swift.Bool) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "CD1218F2-5B28-4991-93DE-52DEE1F47693 - d96a3b9869c7d515"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Batch.MealBatchDetailVC.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "3140">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -55,62 +85,62 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "591B20F4-4A84-4404-965D-1D5C2BF02DEA"
+            uuid = "6B1C482F-8A87-4791-AB3A-6DF00508C8B7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/MealBatch/View/Controller/MealBatchVC.swift"
+            filePath = "Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "getFilterOptionList()"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "getSubscribedMealDetails()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "591B20F4-4A84-4404-965D-1D5C2BF02DEA - 3be440fcfaea2900"
+                  uuid = "6B1C482F-8A87-4791-AB3A-6DF00508C8B7 - 608fdd0a0e934af6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Batch.BatchError) -&gt; () in Batch.MealBatchVC.applyFiltersToMealList(request: Batch.MealFilterRequest) -&gt; ()"
+                  symbolName = "Batch.MealBatchDetailVC.getMealDetails() -&gt; ()"
                   moduleName = "Batch"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchVC.swift"
+                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "115"
-                  endingLineNumber = "115"
-                  offsetFromSymbolStart = "184">
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "416">
                </Location>
                <Location
-                  uuid = "591B20F4-4A84-4404-965D-1D5C2BF02DEA - 51fa7e57ec56426f"
+                  uuid = "6B1C482F-8A87-4791-AB3A-6DF00508C8B7 - 608fdd0a0e934ded"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #3 (Batch.BatchError) -&gt; () in Batch.MealBatchVC.applyFiltersToMealList(request: Batch.MealFilterRequest) -&gt; ()"
+                  symbolName = "Batch.MealBatchDetailVC.getMealDetails() -&gt; ()"
                   moduleName = "Batch"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchVC.swift"
+                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "115"
-                  endingLineNumber = "115"
-                  offsetFromSymbolStart = "72">
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "416">
                </Location>
                <Location
-                  uuid = "591B20F4-4A84-4404-965D-1D5C2BF02DEA - 9685f1de99c507ce"
+                  uuid = "6B1C482F-8A87-4791-AB3A-6DF00508C8B7 - 9996c402bdaba468"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Batch.MealBatchVC.getFilterOptionList() -&gt; ()"
+                  symbolName = "Batch.MealBatchDetailVC.getSubscribedMealDetails() -&gt; ()"
                   moduleName = "Batch"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchVC.swift"
+                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "160">
+                  startingLineNumber = "189"
+                  endingLineNumber = "189"
+                  offsetFromSymbolStart = "1860">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -118,285 +148,94 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "43BB217C-B0C8-4983-88C4-9450FF60EEAC"
+            uuid = "561A9EDA-58D8-434C-AC04-3E97AB177838"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/MealBatch/ViewModel/BMealResource.swift"
+            filePath = "Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "mealDetail(urlStr:onSuccess:onError:)"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "datesBetween(startDate:endDate:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "43BB217C-B0C8-4983-88C4-9450FF60EEAC - 10f4f3ac95de991"
+                  uuid = "561A9EDA-58D8-434C-AC04-3E97AB177838 - e76f341c166e13e9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Batch.MealsListResponse&gt;, Batch.HUNetworkError&gt;) -&gt; () in Batch.BMealResource.applyFilterToMealList(urlStr: Swift.String, request: Batch.MealFilterRequest, onSuccess: (Batch.MealsListResponse) -&gt; (), onError: (Batch.BatchError) -&gt; ()) -&gt; ()"
+                  symbolName = "Batch.MealBatchDetailVC.datesBetween(startDate: Foundation.Date, endDate: Foundation.Date) -&gt; Swift.Array&lt;Batch.MealBatchDetailVC.DateEntry&gt;"
                   moduleName = "Batch"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/ViewModel/BMealResource.swift"
+                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "1384">
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "2460">
                </Location>
                <Location
-                  uuid = "43BB217C-B0C8-4983-88C4-9450FF60EEAC - 2c2cb966d522e8f5"
+                  uuid = "561A9EDA-58D8-434C-AC04-3E97AB177838 - e76f341c166e13af"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Batch.BMealResource.applyFilterToMealList(urlStr: Swift.String, request: Batch.MealFilterRequest, onSuccess: (Batch.MealsListResponse) -&gt; (), onError: (Batch.BatchError) -&gt; ()) -&gt; ()"
+                  symbolName = "Batch.MealBatchDetailVC.datesBetween(startDate: Foundation.Date, endDate: Foundation.Date) -&gt; Swift.Array&lt;Batch.MealBatchDetailVC.DateEntry&gt;"
                   moduleName = "Batch"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/ViewModel/BMealResource.swift"
+                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "1204">
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "1668">
                </Location>
                <Location
-                  uuid = "43BB217C-B0C8-4983-88C4-9450FF60EEAC - 10f4f3ac95de9b0"
+                  uuid = "561A9EDA-58D8-434C-AC04-3E97AB177838 - e76f341c166e13af"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Batch.MealsListResponse&gt;, Batch.HUNetworkError&gt;) -&gt; () in Batch.BMealResource.applyFilterToMealList(urlStr: Swift.String, request: Batch.MealFilterRequest, onSuccess: (Batch.MealsListResponse) -&gt; (), onError: (Batch.BatchError) -&gt; ()) -&gt; ()"
+                  symbolName = "Batch.MealBatchDetailVC.datesBetween(startDate: Foundation.Date, endDate: Foundation.Date) -&gt; Swift.Array&lt;Batch.MealBatchDetailVC.DateEntry&gt;"
                   moduleName = "Batch"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/ViewModel/BMealResource.swift"
+                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "360">
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "2032">
                </Location>
                <Location
-                  uuid = "43BB217C-B0C8-4983-88C4-9450FF60EEAC - 9f3302ead591d7b2"
+                  uuid = "561A9EDA-58D8-434C-AC04-3E97AB177838 - e76f341c166e13af"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Batch.BMealResource.mealDetail(urlStr: Swift.String, onSuccess: (Batch.MealsDetailResponse) -&gt; (), onError: (Batch.BatchError) -&gt; ()) -&gt; ()"
+                  symbolName = "Batch.MealBatchDetailVC.datesBetween(startDate: Foundation.Date, endDate: Foundation.Date) -&gt; Swift.Array&lt;Batch.MealBatchDetailVC.DateEntry&gt;"
                   moduleName = "Batch"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/ViewModel/BMealResource.swift"
+                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "572">
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "1632">
+               </Location>
+               <Location
+                  uuid = "561A9EDA-58D8-434C-AC04-3E97AB177838 - e76f341c166e13af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Batch.MealBatchDetailVC.datesBetween(startDate: Foundation.Date, endDate: Foundation.Date) -&gt; Swift.Array&lt;Batch.MealBatchDetailVC.DateEntry&gt;"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchDetailVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "1992">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6E1ABF1F-2C35-4A16-8B55-B4FDDD9603F9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/MealBatch/ViewModel/BMealResource.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "mealDetail(urlStr:onSuccess:onError:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6E1ABF1F-2C35-4A16-8B55-B4FDDD9603F9 - 10f4f3ac95de953"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Batch.MealsListResponse&gt;, Batch.HUNetworkError&gt;) -&gt; () in Batch.BMealResource.applyFilterToMealList(urlStr: Swift.String, request: Batch.MealFilterRequest, onSuccess: (Batch.MealsListResponse) -&gt; (), onError: (Batch.BatchError) -&gt; ()) -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/ViewModel/BMealResource.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "1252">
-               </Location>
-               <Location
-                  uuid = "6E1ABF1F-2C35-4A16-8B55-B4FDDD9603F9 - 2c2cb966d522e816"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Batch.BMealResource.applyFilterToMealList(urlStr: Swift.String, request: Batch.MealFilterRequest, onSuccess: (Batch.MealsListResponse) -&gt; (), onError: (Batch.BatchError) -&gt; ()) -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/ViewModel/BMealResource.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "1032">
-               </Location>
-               <Location
-                  uuid = "6E1ABF1F-2C35-4A16-8B55-B4FDDD9603F9 - 9f3302ead591d7b2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Batch.BMealResource.mealDetail(urlStr: Swift.String, onSuccess: (Batch.MealsDetailResponse) -&gt; (), onError: (Batch.BatchError) -&gt; ()) -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/ViewModel/BMealResource.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "572">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6F62DB51-C021-446C-AFFA-D11F1629A7F1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/MealBatch/View/Controller/MealBatchVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "filterBtnTap(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6F62DB51-C021-446C-AFFA-D11F1629A7F1 - 8d36982354b9b27e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String, Swift.String, Swift.String, Swift.String) -&gt; () in Batch.MealBatchVC.filterBtnTap(Any) -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "216">
-               </Location>
-               <Location
-                  uuid = "6F62DB51-C021-446C-AFFA-D11F1629A7F1 - 8d36982354b9b27e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String, Swift.String, Swift.String, Swift.String) -&gt; () in Batch.MealBatchVC.filterBtnTap(Any) -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "184">
-               </Location>
-               <Location
-                  uuid = "6F62DB51-C021-446C-AFFA-D11F1629A7F1 - 17833cabb9fa02a2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Batch.MealBatchVC.filterBtnTap(Any) -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/MealBatch/View/Controller/MealBatchVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "1528">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2CFFD366-F54C-4F06-86EB-1D8AA0C513D2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchLogin/View/Controller/BLogInVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "onTapSignUpBtn(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "884BBF24-F897-4CB3-955E-727D8D53AEAE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchTrainings/View/Controller/BatchTrainingsCheckout/BRegistrationVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "signUpApi()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "884BBF24-F897-4CB3-955E-727D8D53AEAE - 53a52f9d6400d397"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #2 (Batch.BRegistrationResponse) -&gt; () in Batch.BRegistrationVC.signUpApi() -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/BatchTrainingsCheckout/BRegistrationVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "124"
-                  endingLineNumber = "124"
-                  offsetFromSymbolStart = "1392">
-               </Location>
-               <Location
-                  uuid = "884BBF24-F897-4CB3-955E-727D8D53AEAE - 53a52f9d6400d397"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #2 (Batch.BRegistrationResponse) -&gt; () in Batch.BRegistrationVC.signUpApi() -&gt; ()"
-                  moduleName = "Batch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/BatchTrainingsCheckout/BRegistrationVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "124"
-                  endingLineNumber = "124"
-                  offsetFromSymbolStart = "1344">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0854752E-77D0-4F4D-9FDB-CA4FD3648233"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchTrainings/View/Controller/BatchTrainingsCheckout/BRegistrationVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "onTapGoToCheckOutBtn(_:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

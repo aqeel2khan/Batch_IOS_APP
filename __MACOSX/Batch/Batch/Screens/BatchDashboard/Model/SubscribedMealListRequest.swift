@@ -13,3 +13,12 @@ struct SubscribedMealListRequest: Codable {
         case userId = "user_id"
     }
 }
+
+struct SubscribedMealDetailRequest: Codable {
+    var userId, subscribedId, mealId: String?
+    enum CodingKeys: String, CodingKey {
+        case userId = "user_id"
+        case subscribedId = "subscribed_id"
+        case mealId = "meal_id"
+    }
+}
