@@ -238,5 +238,69 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A125C7F-C21B-4C05-ADEB-318D10B782FD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/ViewModel/BWorkOutResource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
+            landmarkName = "createMealSubscriptionApiCall(request:onSuccess:onError:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3A125C7F-C21B-4C05-ADEB-318D10B782FD - 94db87d98ee247b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Batch.CreateMealSubscriptionResponse&gt;, Batch.HUNetworkError&gt;) -&gt; () in Batch.BWorkOutResource.createMealSubscriptionApiCall(request: Batch.CreateMealSubscriptionRequest, onSuccess: (Batch.CreateMealSubscriptionResponse) -&gt; (), onError: (Batch.BatchError) -&gt; ()) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/ViewModel/BWorkOutResource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "378"
+                  endingLineNumber = "378"
+                  offsetFromSymbolStart = "340">
+               </Location>
+               <Location
+                  uuid = "3A125C7F-C21B-4C05-ADEB-318D10B782FD - 94db87d98ee247b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Batch.CreateMealSubscriptionResponse&gt;, Batch.HUNetworkError&gt;) -&gt; () in Batch.BWorkOutResource.createMealSubscriptionApiCall(request: Batch.CreateMealSubscriptionRequest, onSuccess: (Batch.CreateMealSubscriptionResponse) -&gt; (), onError: (Batch.BatchError) -&gt; ()) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/krupanshusharma/Documents/GitHub/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/ViewModel/BWorkOutResource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "378"
+                  endingLineNumber = "378"
+                  offsetFromSymbolStart = "372">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "24E3A3D1-151D-46C3-A025-468A7DAB3B3F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/ViewModel/BWorkOutResource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
+            landmarkName = "createMealSubscriptionApiCall(request:onSuccess:onError:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

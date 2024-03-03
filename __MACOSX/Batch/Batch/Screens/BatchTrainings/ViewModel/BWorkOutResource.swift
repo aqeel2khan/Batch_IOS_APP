@@ -369,6 +369,22 @@ struct BWorkOutResource {
         }
     }
     
+    func createMealSubscriptionApiCall(request: CreateMealSubscriptionRequest, onSuccess:@escaping(CreateMealSubscriptionResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        do {
+            let requestBody = try JSONEncoder().encode(request)
+            let huRequest = HURequest(url: URL(string: API.createSubscriptionMeal)!, method: .post, requestBody: requestBody)
+            HttpUtility.shared.request(huRequest: huRequest, isAuthorization: true, resultType: CreateMealSubscriptionResponse.self) { (result) in
+                switch result{
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+        } catch let error {
+            onError(error as! BatchError)
+        }
+    }
 
     // Get Coach Follow UnFollow Api //2
     func followUnfollowApiCall(urlStr:String, onSuccess:@escaping(MotivatorFollowUnFollowResponse) -> Void, onError:@escaping(BatchError) -> Void){
