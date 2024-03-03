@@ -9,14 +9,10 @@ import Foundation
 import UIKit
 
 extension MealBatchDetailVC: UITableViewDelegate,UITableViewDataSource {
-    /*
-     func numberOfSections(in tableView: UITableView) -> Int {
-     3
-     }
-     */
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.sectionTitleArr.count
+        // self.sectionTitleArr.count
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,7 +50,7 @@ extension MealBatchDetailVC: UICollectionViewDelegate,UICollectionViewDataSource
         }
         else if collectionView.tag == 202
         {
-            return 7
+            return self.weekDays.count
         }
         else
         {
@@ -63,26 +59,23 @@ extension MealBatchDetailVC: UICollectionViewDelegate,UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if collectionView.tag == 201
-        {
+        if collectionView.tag == 201 {
             let cell = collectionView.dequeue(BatchTrainingDetailCollCell.self, indexPath)
             cell.imgWorkOut.image = tagIconArray[indexPath.row]
             cell.lblWorkoutName.text = tagTitleArray[indexPath.row]
             return cell
-        }
-        else if collectionView.tag == 202
-        {
+        } else if collectionView.tag == 202 {
             let cell = collectionView.dequeue(weekCalenderCollCell.self, indexPath)
-            cell.weekDayNameLbl.text = self.weekDayNameArr[indexPath.row]
-            cell.weekDateLbl.text    = self.weekDateArr[indexPath.row]
+            cell.weekDayNameLbl.text = self.weekDays[indexPath.row].dayName
+            cell.weekDateLbl.text = self.weekDays[indexPath.row].dayOfMonth
+            cell.greenDotImgView.isHidden = true
+            if let dishes = self.weekDays[indexPath.row].dishes, dishes.count > 0 {
+                cell.greenDotImgView.isHidden = false
+            }
             return cell
-        }
-        else
-        {
+        } else {
             return UICollectionViewCell()
         }
-        
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -110,11 +103,9 @@ extension MealBatchDetailVC: UICollectionViewDelegate,UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        /*
-         let vc = MealBatchDetailVC.instantiate(fromAppStoryboard: .batchMealPlans)
-         vc.modalPresentationStyle = .overFullScreen
-         vc.modalTransitionStyle = .coverVertical
-         self.present(vc, animated: true)
-         */
+        if collectionView.tag == 202 {
+            let weekday = self.weekDays[indexPath.item]
+            print(weekday.dishes)
+        }
     }
 }

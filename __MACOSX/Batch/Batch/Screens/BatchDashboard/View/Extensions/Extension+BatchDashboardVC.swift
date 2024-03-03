@@ -21,6 +21,9 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == mealBatchCollView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealBatchDashboardCollectionCell", for: indexPath)  as! MealBatchDashboardCollectionCell
+            cell.titleLbl.text = self.subscribedMealListData[indexPath.item].name
+            cell.descLbl.text = self.subscribedMealListData[indexPath.item].description
+            cell.daysLbl.text = self.subscribedMealListData[indexPath.item].duration
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WorkoutBatchDashboardCollectionCell", for: indexPath)  as! WorkoutBatchDashboardCollectionCell
@@ -55,7 +58,12 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == mealBatchCollView {
-            
+            let vc = MealBatchDetailVC.instantiate(fromAppStoryboard: .batchMealPlans)
+            vc.mealData = self.subscribedMealListData[indexPath.item]
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)
+
         } else {
             let vc = BWorkOutDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
             vc.modalPresentationStyle = .overFullScreen
