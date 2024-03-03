@@ -173,6 +173,8 @@
 		570EA5272B89FC5500D801AE /* BMealResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570EA5252B89FC5400D801AE /* BMealResource.swift */; };
 		570EA5282B89FC5500D801AE /* BMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570EA5262B89FC5400D801AE /* BMealViewModel.swift */; };
 		570EA52B2B89FDED00D801AE /* MealsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570EA52A2B89FDED00D801AE /* MealsModel.swift */; };
+		5711BE7A2B94D5A30069D0C7 /* BPaymentGatewayPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711BE782B94D5A30069D0C7 /* BPaymentGatewayPopUpVC.swift */; };
+		5711BE7B2B94D5A30069D0C7 /* Extesnion+BPaymentGatewayPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711BE792B94D5A30069D0C7 /* Extesnion+BPaymentGatewayPopUpVC.swift */; };
 		574FA5AF2B8E51B900F6D3BA /* DishesDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FA5AE2B8E51B900F6D3BA /* DishesDetailModel.swift */; };
 		574FA5B12B8E56DC00F6D3BA /* MealFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FA5B02B8E56DC00F6D3BA /* MealFilterVC.swift */; };
 		574FA5B32B8E570300F6D3BA /* Extension+MealFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FA5B22B8E570300F6D3BA /* Extension+MealFilterVC.swift */; };
@@ -215,9 +217,7 @@
 		5759E7D42B9048AB00352B24 /* BWOPlanDurationPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7822B9048AB00352B24 /* BWOPlanDurationPopUpVC.swift */; };
 		5759E7D52B9048AB00352B24 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7832B9048AB00352B24 /* Extension+UIImageView.swift */; };
 		5759E7D62B9048AB00352B24 /* BThankyouPurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7842B9048AB00352B24 /* BThankyouPurchaseVC.swift */; };
-		5759E7D72B9048AB00352B24 /* BPaymentGatewayPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7852B9048AB00352B24 /* BPaymentGatewayPopUpVC.swift */; };
 		5759E7D82B9048AB00352B24 /* BSignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7862B9048AB00352B24 /* BSignInVC.swift */; };
-		5759E7D92B9048AB00352B24 /* Extesnion+BPaymentGatewayPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7872B9048AB00352B24 /* Extesnion+BPaymentGatewayPopUpVC.swift */; };
 		5759E7DA2B9048AB00352B24 /* BTrainingsSubscriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7882B9048AB00352B24 /* BTrainingsSubscriptionVC.swift */; };
 		5759E7DB2B9048AB00352B24 /* BPromoCodePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7892B9048AB00352B24 /* BPromoCodePopUpVC.swift */; };
 		5759E7DC2B9048AB00352B24 /* BPromoCodeSucessfulPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E78A2B9048AB00352B24 /* BPromoCodeSucessfulPopUpVC.swift */; };
@@ -256,7 +256,7 @@
 		575A200F2B8B784900FFCD56 /* DishesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A200E2B8B784900FFCD56 /* DishesModel.swift */; };
 		5797812A2B92278C00057943 /* VimoPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579781282B92278C00057943 /* VimoPlayerCell.xib */; };
 		5797812B2B92278C00057943 /* VimoPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579781292B92278C00057943 /* VimoPlayerCell.swift */; };
-		5797812D2B92476B00057943 /* BWorkOutVideoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797812C2B92476B00057943 /* BWorkOutVideoDetails.swift */; };
+		5797812D2B92476B00057943 /* BWorkOutVideoInfoPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797812C2B92476B00057943 /* BWorkOutVideoInfoPopUp.swift */; };
 		68337D4F2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68337D4E2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift */; };
 		685680392B64B165002AF31C /* MealPlanAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685680382B64B165002AF31C /* MealPlanAddressVC.swift */; };
 		6856803B2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856803A2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift */; };
@@ -462,6 +462,8 @@
 		570EA5252B89FC5400D801AE /* BMealResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMealResource.swift; sourceTree = "<group>"; };
 		570EA5262B89FC5400D801AE /* BMealViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMealViewModel.swift; sourceTree = "<group>"; };
 		570EA52A2B89FDED00D801AE /* MealsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsModel.swift; sourceTree = "<group>"; };
+		5711BE782B94D5A30069D0C7 /* BPaymentGatewayPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BPaymentGatewayPopUpVC.swift; sourceTree = "<group>"; };
+		5711BE792B94D5A30069D0C7 /* Extesnion+BPaymentGatewayPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extesnion+BPaymentGatewayPopUpVC.swift"; sourceTree = "<group>"; };
 		574FA5AE2B8E51B900F6D3BA /* DishesDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesDetailModel.swift; sourceTree = "<group>"; };
 		574FA5B02B8E56DC00F6D3BA /* MealFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealFilterVC.swift; sourceTree = "<group>"; };
 		574FA5B22B8E570300F6D3BA /* Extension+MealFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+MealFilterVC.swift"; sourceTree = "<group>"; };
@@ -504,9 +506,7 @@
 		5759E7822B9048AB00352B24 /* BWOPlanDurationPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWOPlanDurationPopUpVC.swift; sourceTree = "<group>"; };
 		5759E7832B9048AB00352B24 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
 		5759E7842B9048AB00352B24 /* BThankyouPurchaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BThankyouPurchaseVC.swift; sourceTree = "<group>"; };
-		5759E7852B9048AB00352B24 /* BPaymentGatewayPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BPaymentGatewayPopUpVC.swift; sourceTree = "<group>"; };
 		5759E7862B9048AB00352B24 /* BSignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSignInVC.swift; sourceTree = "<group>"; };
-		5759E7872B9048AB00352B24 /* Extesnion+BPaymentGatewayPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extesnion+BPaymentGatewayPopUpVC.swift"; sourceTree = "<group>"; };
 		5759E7882B9048AB00352B24 /* BTrainingsSubscriptionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTrainingsSubscriptionVC.swift; sourceTree = "<group>"; };
 		5759E7892B9048AB00352B24 /* BPromoCodePopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BPromoCodePopUpVC.swift; sourceTree = "<group>"; };
 		5759E78A2B9048AB00352B24 /* BPromoCodeSucessfulPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BPromoCodeSucessfulPopUpVC.swift; sourceTree = "<group>"; };
@@ -545,7 +545,7 @@
 		575A200E2B8B784900FFCD56 /* DishesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesModel.swift; sourceTree = "<group>"; };
 		579781282B92278C00057943 /* VimoPlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VimoPlayerCell.xib; sourceTree = "<group>"; };
 		579781292B92278C00057943 /* VimoPlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimoPlayerCell.swift; sourceTree = "<group>"; };
-		5797812C2B92476B00057943 /* BWorkOutVideoDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutVideoDetails.swift; sourceTree = "<group>"; };
+		5797812C2B92476B00057943 /* BWorkOutVideoInfoPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutVideoInfoPopUp.swift; sourceTree = "<group>"; };
 		68337D4E2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTotalBurnerCaloryVC.swift; sourceTree = "<group>"; };
 		685680382B64B165002AF31C /* MealPlanAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanAddressVC.swift; sourceTree = "<group>"; };
 		6856803A2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDilevaryArrivingVC.swift; sourceTree = "<group>"; };
@@ -1668,6 +1668,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5711BE772B94D5A30069D0C7 /* PaymentGateway */ = {
+			isa = PBXGroup;
+			children = (
+				5711BE782B94D5A30069D0C7 /* BPaymentGatewayPopUpVC.swift */,
+				5711BE792B94D5A30069D0C7 /* Extesnion+BPaymentGatewayPopUpVC.swift */,
+			);
+			path = PaymentGateway;
+			sourceTree = "<group>";
+		};
 		5759E7512B9048AB00352B24 /* BatchTrainings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1778,8 +1787,7 @@
 				5759E7862B9048AB00352B24 /* BSignInVC.swift */,
 				5759E7882B9048AB00352B24 /* BTrainingsSubscriptionVC.swift */,
 				5759E78F2B9048AB00352B24 /* BCheckoutVC.swift */,
-				5759E7852B9048AB00352B24 /* BPaymentGatewayPopUpVC.swift */,
-				5759E7872B9048AB00352B24 /* Extesnion+BPaymentGatewayPopUpVC.swift */,
+				5711BE772B94D5A30069D0C7 /* PaymentGateway */,
 				5759E7892B9048AB00352B24 /* BPromoCodePopUpVC.swift */,
 				5759E78A2B9048AB00352B24 /* BPromoCodeSucessfulPopUpVC.swift */,
 				5759E78B2B9048AB00352B24 /* Extension+BPaymentGatewayPopUpVC.swift */,
@@ -1795,7 +1803,7 @@
 			isa = PBXGroup;
 			children = (
 				5759E7962B9048AB00352B24 /* BWorkOutDetailVC.swift */,
-				5797812C2B92476B00057943 /* BWorkOutVideoDetails.swift */,
+				5797812C2B92476B00057943 /* BWorkOutVideoInfoPopUp.swift */,
 				5759E7922B9048AB00352B24 /* BChangeCoursePopUpVC.swift */,
 				5759E7932B9048AB00352B24 /* VideoPlayerVC.swift */,
 				5759E7942B9048AB00352B24 /* BStartWorkOutDetailVC.swift */,
@@ -2270,6 +2278,7 @@
 				574FA5B32B8E570300F6D3BA /* Extension+MealFilterVC.swift in Sources */,
 				311B1BBC2B2E1D3C00E37E47 /* UICollectioView.swift in Sources */,
 				570EA5272B89FC5500D801AE /* BMealResource.swift in Sources */,
+				5711BE7B2B94D5A30069D0C7 /* Extesnion+BPaymentGatewayPopUpVC.swift in Sources */,
 				319BAD632B2A31A00081A8F2 /* UITableViewCell.swift in Sources */,
 				1A9B012E2B943BA200F17C42 /* SubscribedMealListRequest.swift in Sources */,
 				31D424992B6B84C300E988C7 /* QuestionHeightVC.swift in Sources */,
@@ -2298,7 +2307,6 @@
 				1A9B01322B94A00400F17C42 /* SubscribedMealDetailResponse.swift in Sources */,
 				31D4249A2B6B84C300E988C7 /* QuestionDietVC.swift in Sources */,
 				5759E7B22B9048AB00352B24 /* BCheckoutViewModel.swift in Sources */,
-				5759E7D72B9048AB00352B24 /* BPaymentGatewayPopUpVC.swift in Sources */,
 				319BAD682B2A31A00081A8F2 /* UIStoryboard.swift in Sources */,
 				317609412B66ACA5005D4395 /* BMealCategoryCollCell.swift in Sources */,
 				31673C252B87D202006E3547 /* Connection.swift in Sources */,
@@ -2356,6 +2364,7 @@
 				5759E7E52B9048AB00352B24 /* BStartWorkOutDetailVC.swift in Sources */,
 				5759E7B32B9048AB00352B24 /* BWorkOutDetailViewModel.swift in Sources */,
 				1A9B01262B93ABD300F17C42 /* MealFilterRequest.swift in Sources */,
+				5711BE7A2B94D5A30069D0C7 /* BPaymentGatewayPopUpVC.swift in Sources */,
 				5759E7F12B9048AB00352B24 /* BWorkOutAllowNotificationVC.swift in Sources */,
 				319BAD6C2B2A31A00081A8F2 /* String.swift in Sources */,
 				575A200F2B8B784900FFCD56 /* DishesModel.swift in Sources */,
@@ -2372,7 +2381,7 @@
 				317609322B6676EE005D4395 /* Extension+MealBatchPlanningVC.swift in Sources */,
 				3188B42A2B29D4AC00E19945 /* UserDefaultKey.swift in Sources */,
 				31D4249D2B6B84C300E988C7 /* QuestionAgeVC.swift in Sources */,
-				5797812D2B92476B00057943 /* BWorkOutVideoDetails.swift in Sources */,
+				5797812D2B92476B00057943 /* BWorkOutVideoInfoPopUp.swift in Sources */,
 				318C03E92B3372F900C4281F /* UIFont.swift in Sources */,
 				313645B02B30BA9B007D0E18 /* OnBoardingScreenVC.swift in Sources */,
 				5759E7E22B9048AB00352B24 /* BRegistrationVC.swift in Sources */,
@@ -2392,7 +2401,6 @@
 				319BAD6B2B2A31A00081A8F2 /* UIColor.swift in Sources */,
 				5759E7BD2B9048AB00352B24 /* CourseDetaolWSModel.swift in Sources */,
 				570D8FFE2B84B28300EB643A /* Extension+BUserNotificationVC.swift in Sources */,
-				5759E7D92B9048AB00352B24 /* Extesnion+BPaymentGatewayPopUpVC.swift in Sources */,
 				6869A49E2B6EA19E004F9A7C /* WelcomeVC.swift in Sources */,
 				6856803B2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift in Sources */,
 				31AE2DA02B36BC48000FEB41 /* MealBatchVC.swift in Sources */,

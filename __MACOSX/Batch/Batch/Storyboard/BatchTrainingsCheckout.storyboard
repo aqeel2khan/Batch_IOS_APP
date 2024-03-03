@@ -2229,37 +2229,37 @@
     </scenes>
     <designables>
         <designable name="Ewz-78-z3b">
-            <size key="intrinsicContentSize" width="67" height="33"/>
+            <size key="intrinsicContentSize" width="73" height="33"/>
         </designable>
         <designable name="Ij2-zT-bAj">
-            <size key="intrinsicContentSize" width="160.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="172.33333333333334" height="21"/>
         </designable>
         <designable name="Jix-Ik-UYZ">
             <size key="intrinsicContentSize" width="37" height="33"/>
         </designable>
         <designable name="MbH-cQ-u5X">
-            <size key="intrinsicContentSize" width="110" height="33"/>
+            <size key="intrinsicContentSize" width="119" height="33"/>
         </designable>
         <designable name="MpW-pI-3Vg">
             <size key="intrinsicContentSize" width="73" height="33"/>
         </designable>
         <designable name="SRS-5M-TWR">
-            <size key="intrinsicContentSize" width="155.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="167.33333333333334" height="21"/>
         </designable>
         <designable name="TzP-7l-f81">
             <size key="intrinsicContentSize" width="130" height="33"/>
         </designable>
         <designable name="UUX-vX-ObF">
-            <size key="intrinsicContentSize" width="173.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="186.33333333333334" height="21"/>
         </designable>
         <designable name="YDr-Nf-cTp">
-            <size key="intrinsicContentSize" width="47" height="33"/>
+            <size key="intrinsicContentSize" width="52" height="33"/>
         </designable>
         <designable name="ZAw-YT-9gp">
             <size key="intrinsicContentSize" width="37" height="33"/>
         </designable>
         <designable name="fjh-re-LRo">
-            <size key="intrinsicContentSize" width="122" height="33"/>
+            <size key="intrinsicContentSize" width="130" height="33"/>
         </designable>
         <designable name="kJL-VZ-Fnd">
             <size key="intrinsicContentSize" width="30" height="33"/>
@@ -2268,7 +2268,7 @@
             <size key="intrinsicContentSize" width="37" height="33"/>
         </designable>
         <designable name="w2p-qS-raC">
-            <size key="intrinsicContentSize" width="142.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="153.33333333333334" height="21"/>
         </designable>
     </designables>
     <resources>
@@ -2290,7 +2290,7 @@
         <image name="checkbox" width="21.666666030883789" height="21.666666030883789"/>
         <image name="checkbox_fill" width="20" height="20"/>
         <image name="direction-right" width="24" height="24"/>
-        <image name="downArrow" width="11" height="5.3333334922790527"/>
+        <image name="downArrow" width="24" height="24"/>
         <image name="dummyImg" width="371.33334350585938" height="457.66665649414062"/>
         <image name="eyeclose" width="16" height="16"/>
         <image name="eyeopen" width="16" height="16"/>

@@ -14,19 +14,23 @@ class VimoPlayerVC: UIViewController {
     @IBOutlet weak var dayCountLbl: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var selectedVideoViewTbl: UITableView!
-    var videoIdInfo: CourseDurationExercise?
-    
+    var courseDurationExerciseArr = [CourseDurationExercise]()
+
     var refreshControl: UIRefreshControl!
     var completion: (()->Void)? = nil
     var viemoVideoArr = [String]()
     var titleText = "Lower-Body Burn"
-    
+    var dayNumberText : String!
+
     var selectedIndex = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         titleLbl.text = titleText
+        dayCountLbl.text = dayNumberText
+        
         self.vimoVideoTbl.delegate = self
         self.vimoVideoTbl.dataSource = self
         
@@ -68,13 +72,20 @@ class VimoPlayerVC: UIViewController {
     }
     
     @IBAction func infoBtnTap(_ sender: Any) {
-        let vc = BWorkOutVideoDetails.instantiate(fromAppStoryboard: .batchTrainings)
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .coverVertical
-        self.present(vc, animated: true)
+        if let indexPaths = vimoVideoTbl.indexPathsForVisibleRows {
+            for indexPath in indexPaths {
+                if vimoVideoTbl.cellForRow(at: indexPath) != nil {
+                    let vc = BWorkOutVideoInfoPopUp.instantiate(fromAppStoryboard: .batchTrainings)
+                    vc.courseDurationExercise = self.courseDurationExerciseArr[indexPath.row]
+                    vc.dayNumberText = self.dayNumberText
+                    vc.modalPresentationStyle = .overFullScreen
+                    vc.modalTransitionStyle = .coverVertical
+                    self.present(vc, animated: true)
+                }
+            }
+        }
     }
 }
-
 
 extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -99,12 +110,20 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
             
             cell.bottomView.layer.zPosition = 1
             cell.dragUpUIView.layer.zPosition = 1
+            
+            cell.startNextWoBtn.tag = indexPath.row
+            cell.startNextWoBtn.addTarget(self, action: #selector(startNextWoBtnAction(_:)), for: .touchUpInside)
 
             cell.finishWorkOutBtn.tag = indexPath.row
             cell.finishWorkOutBtn.addTarget(self, action: #selector(finishWorkOutBtnAction(_:)), for: .touchUpInside)
             return cell
         }
     }
+    
+    @objc func startNextWoBtnAction(_ sender:UIButton) {
+        dismiss(animated: true)
+    }
+    
     @objc func finishWorkOutBtnAction(_ sender:UIButton) {
         dismiss(animated: true)
     }

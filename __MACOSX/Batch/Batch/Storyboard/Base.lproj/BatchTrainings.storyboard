@@ -3150,16 +3150,16 @@
             </objects>
             <point key="canvasLocation" x="1488" y="-27"/>
         </scene>
-        <!--Work Out Video Details-->
+        <!--Work Out Video Info Pop Up-->
         <scene sceneID="sXi-ko-Uu3">
             <objects>
-                <viewController storyboardIdentifier="BWorkOutVideoDetails" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cAd-0j-SAq" customClass="BWorkOutVideoDetails" customModule="Batch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BWorkOutVideoInfoPopUp" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cAd-0j-SAq" customClass="BWorkOutVideoInfoPopUp" customModule="Batch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KO1-mp-lCB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5B-jY-P0Z">
-                                <rect key="frame" x="0.0" y="396.66666666666674" width="393" height="455.33333333333326"/>
+                                <rect key="frame" x="0.0" y="376.66666666666674" width="393" height="475.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cWa-yS-xXY">
                                         <rect key="frame" x="10" y="20" width="373" height="415.33333333333331"/>
@@ -3192,7 +3192,7 @@
                                                             <constraint firstAttribute="height" constant="40" id="Zqc-VL-AbU"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="upArrow"/>
+                                                        <state key="normal" image="remove_black"/>
                                                         <connections>
                                                             <action selector="dismissNotificationView:" destination="cAd-0j-SAq" eventType="touchUpInside" id="p9B-6X-dri"/>
                                                         </connections>
@@ -3220,7 +3220,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QEC-ei-KnW">
                                                 <rect key="frame" x="0.0" y="247.66666666666669" width="367" height="167.66666666666669"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7au-6c-PW9" customClass="BatchRegularBlack" customModule="Batch" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7au-6c-PW9" customClass="BatchRegularBlack" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="367" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                         <color key="textColor" name="AppLabelBlackColor"/>
@@ -3245,7 +3245,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="cWa-yS-xXY" firstAttribute="leading" secondItem="X5B-jY-P0Z" secondAttribute="leading" constant="10" id="L9x-qJ-8Ej"/>
-                                    <constraint firstAttribute="bottom" secondItem="cWa-yS-xXY" secondAttribute="bottom" constant="20" id="Pj4-0n-K0q"/>
+                                    <constraint firstAttribute="bottom" secondItem="cWa-yS-xXY" secondAttribute="bottom" constant="40" id="Pj4-0n-K0q"/>
                                     <constraint firstAttribute="trailing" secondItem="cWa-yS-xXY" secondAttribute="trailing" constant="10" id="beu-O1-wkg"/>
                                     <constraint firstItem="cWa-yS-xXY" firstAttribute="top" secondItem="X5B-jY-P0Z" secondAttribute="top" constant="20" id="vhP-mU-P5B"/>
                                 </constraints>
@@ -3267,6 +3267,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dayLbl" destination="wde-EH-y3n" id="zn3-mm-fxc"/>
+                        <outlet property="descriptionDetailLbl" destination="S5v-qx-2XO" id="upo-52-YIe"/>
+                        <outlet property="instructionDetailLbl" destination="8Yl-0u-C47" id="nPp-Px-2wN"/>
                         <outlet property="mainView" destination="KO1-mp-lCB" id="iEU-dv-AEJ"/>
                     </connections>
                 </viewController>
@@ -3283,7 +3286,7 @@
             <size key="intrinsicContentSize" width="136" height="33"/>
         </designable>
         <designable name="LTw-wC-I7b">
-            <size key="intrinsicContentSize" width="42" height="33"/>
+            <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
         <designable name="Pwf-aV-rtb">
             <size key="intrinsicContentSize" width="176" height="33"/>
@@ -3295,7 +3298,7 @@
             <size key="intrinsicContentSize" width="69" height="33"/>
         </designable>
         <designable name="bO6-Up-lR6">
-            <size key="intrinsicContentSize" width="128" height="33"/>
+            <size key="intrinsicContentSize" width="136" height="33"/>
         </designable>
         <designable name="h0O-Bc-Ua0">
             <size key="intrinsicContentSize" width="153" height="33"/>
@@ -3307,10 +3310,10 @@
             <size key="intrinsicContentSize" width="49" height="33"/>
         </designable>
         <designable name="rRC-Vk-tFJ">
-            <size key="intrinsicContentSize" width="42" height="33"/>
+            <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
         <designable name="ttp-kr-zeh">
-            <size key="intrinsicContentSize" width="64" height="33"/>
+            <size key="intrinsicContentSize" width="69" height="33"/>
         </designable>
         <designable name="uA6-xl-yIK">
             <size key="intrinsicContentSize" width="53" height="33"/>
@@ -3334,7 +3337,7 @@
         <image name="Star-fill" width="20" height="19"/>
         <image name="Tick" width="48.333332061767578" height="48"/>
         <image name="detail" width="375" height="308"/>
-        <image name="downArrow" width="11" height="5.3333334922790527"/>
+        <image name="downArrow" width="24" height="24"/>
         <image name="filter" width="36" height="36"/>
         <image name="info.png" width="28" height="28"/>
         <image name="info_white" width="600" height="600"/>
@@ -3342,10 +3345,10 @@
         <image name="pause" width="17.666666030883789" height="17.666666030883789"/>
         <image name="play" width="17.666666030883789" height="17.666666030883789"/>
         <image name="remove" width="28" height="28"/>
+        <image name="remove_black" width="72" height="72"/>
         <image name="search" width="24" height="24"/>
         <image name="subtitle" width="24" height="24"/>
         <image name="timer" width="63" height="50"/>
-        <image name="upArrow" width="24" height="24"/>
         <image name="viewCenterRectangle" width="52" height="5"/>
         <image name="workout" width="42.333332061767578" height="42"/>
         <image name="workoutfill" width="42.333332061767578" height="42"/>
