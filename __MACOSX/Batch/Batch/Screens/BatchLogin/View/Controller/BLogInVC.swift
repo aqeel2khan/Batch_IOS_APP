@@ -28,7 +28,8 @@ class BLogInVC: UIViewController {
     
     var isCommingFrom = ""
     var isCheckBoxSelected = false
-    
+    var mealData : Meals!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLocalization()
@@ -136,21 +137,24 @@ class BLogInVC: UIViewController {
                     let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN)
                     UserDefaultUtility.setUserLoggedIn(true)
                     
-                    let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
-                    vc.modalPresentationStyle = .overFullScreen
-                    vc.modalTransitionStyle = .coverVertical
-                    vc.promotionPriceValue = 0
-                    
                     if self.isCommingFrom == "workoutbatches" {
+                        let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+                        vc.modalPresentationStyle = .overFullScreen
+                        vc.modalTransitionStyle = .coverVertical
+                        vc.promotionPriceValue = 0
                         vc.selectedSubscriptionInfo = [self.selectedSubscriptionInfo[0]]
+                        vc.isCommingFrom = self.isCommingFrom
+                        self.present(vc, animated: true)
                     }
-//                    else if self.isCommingFrom == "MotivatorDetailVC" {
-//                        vc.selectedMotivatorSubscriptionInfo = self.selectedSubscriptionInfo[0]
-//                    }
-                    vc.isCommingFrom = self.isCommingFrom
-                    self.present(vc, animated: true)
                     
-                    
+                    if self.isCommingFrom == "MealBatchSubscribe" {
+                        let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
+                        vc.isCommingFrom = "MealBatchSubscribe"
+                        vc.mealData = self.mealData
+                        vc.modalPresentationStyle = .overFullScreen
+                        vc.modalTransitionStyle = .coverVertical
+                        self.present(vc, animated: true)
+                    }
                 }
             }else{
                 DispatchQueue.main.async {
@@ -173,6 +177,9 @@ class BLogInVC: UIViewController {
         vc.promotionPriceValue = 0
         if isCommingFrom == "workoutbatches" {
             vc.selectedSubscriptionInfo = [selectedSubscriptionInfo[0]]
+        }
+        if self.isCommingFrom == "MealBatchSubscribe" {
+            vc.mealData = mealData
         }
 //        else if self.isCommingFrom == "MotivatorDetailVC" {
 //            vc.selectedSubscriptionInfo = [selectedSubscriptionInfo[0]]

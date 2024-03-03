@@ -12,6 +12,8 @@
 		1A9B012E2B943BA200F17C42 /* SubscribedMealListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B012D2B943BA200F17C42 /* SubscribedMealListRequest.swift */; };
 		1A9B01302B943C5F00F17C42 /* SubscribedMealListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B012F2B943C5F00F17C42 /* SubscribedMealListResponse.swift */; };
 		1A9B01322B94A00400F17C42 /* SubscribedMealDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01312B94A00400F17C42 /* SubscribedMealDetailResponse.swift */; };
+		1A9B01342B94E1CB00F17C42 /* CreateMealSubscriptionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01332B94E1CB00F17C42 /* CreateMealSubscriptionRequest.swift */; };
+		1A9B01362B94E39700F17C42 /* CreateMealSubscriptionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01352B94E39700F17C42 /* CreateMealSubscriptionResponse.swift */; };
 		311576B92B86660B00224EDE /* BatchCountryLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576B82B86660B00224EDE /* BatchCountryLanguageVC.swift */; };
 		311576BB2B8676FA00224EDE /* BLogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BA2B8676FA00224EDE /* BLogInViewModel.swift */; };
 		311576BD2B8678E400224EDE /* BLogInResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BC2B8678E400224EDE /* BLogInResource.swift */; };
@@ -296,6 +298,8 @@
 		1A9B012D2B943BA200F17C42 /* SubscribedMealListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedMealListRequest.swift; sourceTree = "<group>"; };
 		1A9B012F2B943C5F00F17C42 /* SubscribedMealListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedMealListResponse.swift; sourceTree = "<group>"; };
 		1A9B01312B94A00400F17C42 /* SubscribedMealDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedMealDetailResponse.swift; sourceTree = "<group>"; };
+		1A9B01332B94E1CB00F17C42 /* CreateMealSubscriptionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMealSubscriptionRequest.swift; sourceTree = "<group>"; };
+		1A9B01352B94E39700F17C42 /* CreateMealSubscriptionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMealSubscriptionResponse.swift; sourceTree = "<group>"; };
 		311576B82B86660B00224EDE /* BatchCountryLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchCountryLanguageVC.swift; sourceTree = "<group>"; };
 		311576BA2B8676FA00224EDE /* BLogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInViewModel.swift; sourceTree = "<group>"; };
 		311576BC2B8678E400224EDE /* BLogInResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInResource.swift; sourceTree = "<group>"; };
@@ -1658,6 +1662,8 @@
 				574FA5AE2B8E51B900F6D3BA /* DishesDetailModel.swift */,
 				574FA5B42B8E599000F6D3BA /* FilterOptionModel.swift */,
 				1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */,
+				1A9B01332B94E1CB00F17C42 /* CreateMealSubscriptionRequest.swift */,
+				1A9B01352B94E39700F17C42 /* CreateMealSubscriptionResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2337,6 +2343,7 @@
 				570D8FF62B84B28300EB643A /* FollowingListTableCell.swift in Sources */,
 				5759E7D82B9048AB00352B24 /* BSignInVC.swift in Sources */,
 				5759E7DB2B9048AB00352B24 /* BPromoCodePopUpVC.swift in Sources */,
+				1A9B01342B94E1CB00F17C42 /* CreateMealSubscriptionRequest.swift in Sources */,
 				5759E7C72B9048AB00352B24 /* BWOBatchesListCollCell.swift in Sources */,
 				570D8FF32B84B28300EB643A /* Extension+BatchDashboardVC.swift in Sources */,
 				574FA5B12B8E56DC00F6D3BA /* MealFilterVC.swift in Sources */,
@@ -2363,6 +2370,7 @@
 				575A200F2B8B784900FFCD56 /* DishesModel.swift in Sources */,
 				68337D4F2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift in Sources */,
 				313894102B68167300F687B1 /* CustomSecondNavigationBar.swift in Sources */,
+				1A9B01362B94E39700F17C42 /* CreateMealSubscriptionResponse.swift in Sources */,
 				311576BB2B8676FA00224EDE /* BLogInViewModel.swift in Sources */,
 				311576C02B86906C00224EDE /* CountryListTableCell.swift in Sources */,
 				3188B4242B29D39D00E19945 /* LoginValidation.swift in Sources */,

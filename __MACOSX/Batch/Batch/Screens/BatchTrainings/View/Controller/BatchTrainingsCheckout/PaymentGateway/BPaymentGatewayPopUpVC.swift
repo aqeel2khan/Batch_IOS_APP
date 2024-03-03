@@ -27,7 +27,8 @@ class BPaymentGatewayPopUpVC: UIViewController {
     var isCommingFrom = ""
     var selectedSubscriptionInfo = [CourseDataList]()
     var selectedMotivatorSubscriptionInfo:CourseDataList?
- 
+    var mealData : Meals!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         payButton.isEnabled = false

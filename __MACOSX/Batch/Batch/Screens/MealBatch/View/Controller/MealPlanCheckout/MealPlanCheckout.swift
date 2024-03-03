@@ -14,7 +14,9 @@ class MealPlanCheckout: UIViewController {
     
     @IBOutlet weak var tableViewHeightContant: NSLayoutConstraint!
     @IBOutlet weak var delivertTableView: UITableView!
-    
+    var mealData : Meals!
+    var isCommingFrom = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,10 +40,51 @@ class MealPlanCheckout: UIViewController {
     }
     
     @IBAction func onTapCheckOutBtn(_ sender: Any) {
-        let vc = BThankyouPurchaseVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
-        vc.isCommingFrom = "MealPlanCheckout"
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .fullScreen
+        let vc = BPaymentGatewayPopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+        vc.modalPresentationStyle = .pageSheet
+        vc.modalTransitionStyle = .coverVertical
+        vc.totalOrderAmount = mealData.price
+        if isCommingFrom == "MealBatchSubscribe" {
+            vc.mealData = mealData
+        }
+        vc.completion = { (transactionID) in
+            if let price = self.mealData.price {
+                self.createMealSubscriptionApi(mealId: self.mealData.id ?? 0, subtotal: price, discount: 0, total: price, paymentType: "card", transactionID: transactionID, paymentStatus: "true")
+            }
+        }
         self.present(vc, animated: true )
+    }
+    
+    private func createMealSubscriptionApi(mealId:Int, subtotal:String, discount:Int, total:String, paymentType:String, transactionID:String, paymentStatus:String) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-YYYY"
+        let request =  CreateMealSubscriptionRequest(userId: "3",mealId: "\(mealId)", subtotal: subtotal, discount: "\(discount)", tax: "", total: total, paymentType: paymentType, transactionId: transactionID, paymentStatus: paymentStatus, startDate: dateFormatter.string(from:Date()), duration: "1")
+                
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bCheckoutViewModel = BCheckoutViewModel()
+        bCheckoutViewModel.createMealSubscription(request: request)  { (response) in
+            if response.status == true {
+                DispatchQueue.main.async {
+                    hideLoading()
+                    let vc = BThankyouPurchaseVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+                    vc.isCommingFrom = "MealBatchSubscribe"
+                    vc.modalPresentationStyle = .overFullScreen
+                    vc.modalTransitionStyle = .coverVertical
+                    self.present(vc, animated: true)
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.showAlert(message: response.message ?? "Api issue")
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.showAlert(message: "\(error.localizedDescription)")
+            }
+        }
     }
 }

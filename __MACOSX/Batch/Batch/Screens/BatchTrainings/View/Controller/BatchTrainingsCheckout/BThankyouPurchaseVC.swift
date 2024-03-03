@@ -28,7 +28,18 @@ class BThankyouPurchaseVC: UIViewController {
     }
     
     func switchToHomeVC() {
-            
+        
+        if isCommingFrom == "MealBatchSubscribe" {
+            let vc = BatchTabBarController.instantiate(fromAppStoryboard: .batchTabBar)
+            vc.selectedIndex = 4
+            if #available(iOS 13.0, *) {
+                UIApplication.shared.windows.first?.rootViewController = vc
+                UIApplication.shared.windows.first?.makeKeyAndVisible()
+            } else {
+                Batch_AppDelegate.window?.rootViewController = vc
+            }
+
+        } else {
             let vc = BatchTabBarController.instantiate(fromAppStoryboard: .batchTabBar)
             tabBarController?.selectedIndex = 0
             if #available(iOS 13.0, *) {
@@ -39,4 +50,5 @@ class BThankyouPurchaseVC: UIViewController {
                 Batch_AppDelegate.window?.rootViewController = vc
             }
         }
+    }
 }

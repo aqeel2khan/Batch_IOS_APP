@@ -110,10 +110,22 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
     // MARK: - IBActions
     
     @IBAction func onTapSubscribePlanBtn(_ sender: UIButton) {
-        let vc = BRegistrationVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .coverVertical
-        self.present(vc, animated: true)
+        if UserDefaultUtility.isUserLoggedIn() {
+            let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
+            vc.isCommingFrom = "MealBatchSubscribe"
+            vc.mealData = self.mealData
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)
+        } else {
+            let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
+            // let vc = BRegistrationVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+            vc.isCommingFrom = "MealBatchSubscribe"
+            vc.mealData = mealData
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)
+        }
     }
     @IBAction func onTapAddPromoCodeBtn(_ sender: UIButton) {
         let vc = BPromoCodePopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)

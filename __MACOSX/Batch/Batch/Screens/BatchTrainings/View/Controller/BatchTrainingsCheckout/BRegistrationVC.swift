@@ -21,7 +21,8 @@ class BRegistrationVC: UIViewController {
 
     var isCommingFrom = ""
     var isCheckBoxSelected = false
-    
+    var mealData : Meals!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -111,29 +112,32 @@ class BRegistrationVC: UIViewController {
                     print(getToken)
                     UserDefaultUtility.setUserLoggedIn(true)
 
-                    let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
-                    vc.modalPresentationStyle = .overFullScreen
-                    vc.modalTransitionStyle = .coverVertical
-                    vc.promotionPriceValue = 0
-
                     if self.isCommingFrom == "workoutbatches"
                     {
+                        let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+                        vc.modalPresentationStyle = .overFullScreen
+                        vc.modalTransitionStyle = .coverVertical
+                        vc.promotionPriceValue = 0
                         vc.selectedSubscriptionInfo = [self.selectedSubscriptionInfo[0]]
+                        vc.isCommingFrom = self.isCommingFrom
+                        self.present(vc, animated: true)
                     }
-                    vc.isCommingFrom = self.isCommingFrom
-                    self.present(vc, animated: true)
+                    
+                    if self.isCommingFrom == "MealBatchSubscribe" {
+                        let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
+                        vc.modalPresentationStyle = .overFullScreen
+                        vc.modalTransitionStyle = .coverVertical
+                        self.present(vc, animated: true)
+                    }
                 }
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
-//                    self.showAlert(message: "\(response.message)")
-                    //makeToast(response.message!)
                 }
             }
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
-                // makeToast(error.localizedDescription)
             }
         }
     }
