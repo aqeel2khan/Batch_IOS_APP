@@ -130,7 +130,6 @@ class BWorkOutDetailVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print(self.videoArr.count)
         vimoVideoSetUp {
             hideLoading()
             print("all video setup done")
@@ -361,7 +360,9 @@ class BWorkOutDetailVC: UIViewController {
         let vimeoVideoArr = videoArr.filter {$0 != ""}
         if vimeoVideoArr.count != 0 {
             let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
+            vc.courseDurationExerciseArr = self.courseDurationExerciseArr
             vc.viemoVideoArr = vimoVideoURLList
+            vc.dayNumberText = "\(self.durationLbl.text ?? "") / \(self.totalCourseDashboardArr.count)"
             vc.titleText = self.woTitleLbl.text ?? ""
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical

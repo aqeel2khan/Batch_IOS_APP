@@ -95,10 +95,17 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
         DispatchQueue.main.async {
             self.vimoVideoSetUp {
                 hideLoading()
-                print(self.vimoVideoURLList)
                 if self.vimoVideoURLList.count != 0 {
                     let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
                     vc.viemoVideoArr = self.vimoVideoURLList
+                    
+                    if self.isCommingFrom == "dashboard" {
+                        vc.dayNumberText = "\(indexPath.row) / \(self.totalCourseDashboardArr.count)"
+                    } else {
+                        vc.dayNumberText = "\(indexPath.row) / \(self.totalCourseArr.count)"
+                    }
+           
+                    vc.courseDurationExerciseArr = self.totalCourseDashboardArr[indexPath.row].courseDurationExercise!
                     vc.titleText = self.self.totalCourseDashboardArr[indexPath.row].dayName ?? ""
                     vc.modalPresentationStyle = .overFullScreen
                     vc.modalTransitionStyle = .coverVertical
