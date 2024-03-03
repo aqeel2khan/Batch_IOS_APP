@@ -11,7 +11,10 @@ class MealBatchDashboardCollectionCell: UICollectionViewCell {
 
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var imageBackGrd: UIImageView!
-    
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var daysLbl: UILabel!
+    @IBOutlet weak var descLbl: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         /*

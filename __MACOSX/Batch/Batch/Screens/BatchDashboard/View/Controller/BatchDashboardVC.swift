@@ -15,7 +15,7 @@ class BatchDashboardVC: UIViewController {
     @IBOutlet weak var workoutBatchCollView: UICollectionView!
     //var courseList = [List]()
     var courseList = [DashboardWOList]()
-    var subscribedMealListData : [Meals] = []
+    var subscribedMealListData : [SubscribedMeals] = []
 
     // MARK: - Lifecycle
     override func viewDidLoad() {

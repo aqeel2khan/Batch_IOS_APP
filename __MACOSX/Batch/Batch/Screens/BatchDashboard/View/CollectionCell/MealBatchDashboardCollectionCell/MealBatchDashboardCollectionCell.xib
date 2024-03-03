@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -162,7 +162,10 @@
             </constraints>
             <size key="customSize" width="328" height="254"/>
             <connections>
+                <outlet property="daysLbl" destination="2Oq-a1-e4z" id="z3L-DR-2ac"/>
+                <outlet property="descLbl" destination="FeE-L5-hu6" id="LeO-t7-mJV"/>
                 <outlet property="imageBackGrd" destination="Sou-cl-SQl" id="TIq-B7-XJp"/>
+                <outlet property="titleLbl" destination="qEB-Wy-7cu" id="Q6p-Fo-5bP"/>
                 <outlet property="titleView" destination="2VT-ui-Wm6" id="8ht-sh-c4F"/>
             </connections>
             <point key="canvasLocation" x="306.87022900763355" y="52.112676056338032"/>

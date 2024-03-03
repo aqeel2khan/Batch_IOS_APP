@@ -11,6 +11,7 @@
 		1A9B01262B93ABD300F17C42 /* MealFilterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */; };
 		1A9B012E2B943BA200F17C42 /* SubscribedMealListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B012D2B943BA200F17C42 /* SubscribedMealListRequest.swift */; };
 		1A9B01302B943C5F00F17C42 /* SubscribedMealListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B012F2B943C5F00F17C42 /* SubscribedMealListResponse.swift */; };
+		1A9B01322B94A00400F17C42 /* SubscribedMealDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01312B94A00400F17C42 /* SubscribedMealDetailResponse.swift */; };
 		311576B92B86660B00224EDE /* BatchCountryLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576B82B86660B00224EDE /* BatchCountryLanguageVC.swift */; };
 		311576BB2B8676FA00224EDE /* BLogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BA2B8676FA00224EDE /* BLogInViewModel.swift */; };
 		311576BD2B8678E400224EDE /* BLogInResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BC2B8678E400224EDE /* BLogInResource.swift */; };
@@ -294,6 +295,7 @@
 		1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterRequest.swift; sourceTree = "<group>"; };
 		1A9B012D2B943BA200F17C42 /* SubscribedMealListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedMealListRequest.swift; sourceTree = "<group>"; };
 		1A9B012F2B943C5F00F17C42 /* SubscribedMealListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedMealListResponse.swift; sourceTree = "<group>"; };
+		1A9B01312B94A00400F17C42 /* SubscribedMealDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedMealDetailResponse.swift; sourceTree = "<group>"; };
 		311576B82B86660B00224EDE /* BatchCountryLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchCountryLanguageVC.swift; sourceTree = "<group>"; };
 		311576BA2B8676FA00224EDE /* BLogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInViewModel.swift; sourceTree = "<group>"; };
 		311576BC2B8678E400224EDE /* BLogInResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInResource.swift; sourceTree = "<group>"; };
@@ -1489,6 +1491,7 @@
 				1A9B012D2B943BA200F17C42 /* SubscribedMealListRequest.swift */,
 				1A9B012F2B943C5F00F17C42 /* SubscribedMealListResponse.swift */,
 				5759E7FB2B9060C100352B24 /* DashboardWorkoutModel.swift */,
+				1A9B01312B94A00400F17C42 /* SubscribedMealDetailResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2286,6 +2289,7 @@
 				31AE2DAC2B370101000FEB41 /* BatchSegmentedControl.swift in Sources */,
 				570D8FF92B84B28300EB643A /* BUserProfileVC.swift in Sources */,
 				5759E7E12B9048AB00352B24 /* BCheckoutVC.swift in Sources */,
+				1A9B01322B94A00400F17C42 /* SubscribedMealDetailResponse.swift in Sources */,
 				31D4249A2B6B84C300E988C7 /* QuestionDietVC.swift in Sources */,
 				5759E7B22B9048AB00352B24 /* BCheckoutViewModel.swift in Sources */,
 				5759E7D72B9048AB00352B24 /* BPaymentGatewayPopUpVC.swift in Sources */,
