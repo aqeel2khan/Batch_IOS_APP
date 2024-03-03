@@ -15,7 +15,7 @@ class BatchDashboardVC: UIViewController {
     @IBOutlet weak var workoutBatchCollView: UICollectionView!
     //var courseList = [List]()
     var courseList = [DashboardWOList]()
-
+    var subscribedMealListData : [Meals] = []
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -36,6 +36,7 @@ class BatchDashboardVC: UIViewController {
                 //self.workoutBatchCollView.isHidden = false
                 // Call Api here
                 self.getSubscribedCourseList()
+                self.getSubscribedMealList()
             }
             else
             {
@@ -89,6 +90,41 @@ class BatchDashboardVC: UIViewController {
                 hideLoading()
                 // makeToast(error.localizedDescription)
             }
+        }
+    }
+}
+
+extension BatchDashboardVC {
+    // Call API for getting subscribed meal list
+    private func getSubscribedMealList() {
+        showLoader()
+        let bHomeViewModel = DashboardViewModel()
+        let urlStr = API.subscriptionMealList
+        let request = SubscribedMealListRequest(userId: "1")
+        bHomeViewModel.getSubscribedMealList(urlStr: urlStr, request: request) { (response) in
+            if response.status == true, response.data?.data?.count != 0 {
+                self.subscribedMealListData = response.data?.data ?? []
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.mealBatchCollView.reloadData()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.mealBatchCollView.reloadData()
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.mealBatchCollView.reloadData()
+            }
+        }
+    }
+    
+    private func showLoader() {
+        DispatchQueue.main.async {
+            showLoading()
         }
     }
 }

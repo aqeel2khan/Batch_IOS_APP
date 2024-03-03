@@ -12,11 +12,10 @@ import SDWebImage
 extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == mealBatchCollView {
-            return 5
+            return self.subscribedMealListData.count
         } else {
             return self.courseList.count
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

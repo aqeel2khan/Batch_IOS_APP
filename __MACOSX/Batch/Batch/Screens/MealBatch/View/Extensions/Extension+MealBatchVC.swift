@@ -12,7 +12,7 @@ extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchTextField.text == "" {
             if self.mealListData.count > 0 {
-                return self.mealListData.count + 1
+                return self.mealListData.count
             }
         } else {
             if self.searchmealListData.count > 0 {

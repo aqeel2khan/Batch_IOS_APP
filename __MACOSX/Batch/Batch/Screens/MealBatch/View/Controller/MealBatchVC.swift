@@ -19,6 +19,10 @@ class MealBatchVC: UIViewController {
     var filterOptionData : FilterData!
     var timer: Timer? = nil
 
+    var storedSelectedWorkOut : [Int] = []
+    var storedSelectedLevel : [Int] = []
+    var storedSelectedGoal : [Int] = []
+
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -73,8 +77,15 @@ class MealBatchVC: UIViewController {
         vc.firstArray = filterOptionData.mealCalories ?? []
         vc.secondArray = filterOptionData.batchGoals ?? []
         vc.thirdArray = filterOptionData.mealTags ?? []
+        vc.selectedWorkOut = self.storedSelectedWorkOut
+        vc.selectedGoal = self.storedSelectedGoal
+        vc.selectedLevel = self.storedSelectedLevel
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical
+        vc.completionFilters = { (selectedWorkout, selectedLevel, selectedGoal) in
+            self.saveSelectedFiltersForLocalCache(selectedWorkout: selectedWorkout, selectedLevel: selectedLevel, selectedGoal: selectedGoal)
+            self.processFiltersAndMakeApiCall()
+        }
         self.present(vc, animated: true)
     }
     
@@ -138,4 +149,75 @@ class MealBatchVC: UIViewController {
         }
         
     }
+}
+
+extension MealBatchVC {
+    func saveSelectedFiltersForLocalCache(selectedWorkout: [Int], selectedLevel:[Int], selectedGoal:[Int]) {
+        self.storedSelectedWorkOut = selectedWorkout
+        self.storedSelectedLevel = selectedLevel
+        self.storedSelectedGoal = selectedGoal
+    }
+    
+    func processFiltersAndMakeApiCall() {
+        let commaSeparatedWorkOutStr = self.storedSelectedWorkOut.map{String($0)}.joined(separator: ",")
+        let commaSeparatedLevelStr = self.storedSelectedLevel.map{String($0)}.joined(separator: ",")
+        let commaSeparatedGoalStr = self.storedSelectedGoal.map{String($0)}.joined(separator: ",")
+        
+        let filteredSelectedWorkout = filterOptionData.mealCalories?.first { value in
+            value.id == Int(commaSeparatedWorkOutStr)
+        }
+        var request = MealFilterRequest(caloriesFrom: nil, caloriesTo: nil, goalID: nil, tagId: nil)
+        if filteredSelectedWorkout != nil {
+            if let fromValue = filteredSelectedWorkout?.fromValue {
+                request.caloriesFrom = "\(fromValue)"
+            }
+            if let toValue = filteredSelectedWorkout?.toValue {
+                request.caloriesFrom = "\(toValue)"
+            }
+        }
+        if !commaSeparatedLevelStr.isEmpty {
+            request.tagId = commaSeparatedLevelStr
+        }
+        if !commaSeparatedGoalStr.isEmpty {
+            request.goalID = commaSeparatedGoalStr
+        }
+        dump(request)
+        if request.caloriesFrom != nil || request.caloriesTo != nil || request.goalID != nil || request.tagId != nil {
+            self.applyFiltersToMealList(request: request)
+        } else {
+            print("No filters applied")
+            self.getMealList()
+        }
+    }
+    
+    // Apply Filters to Apply
+    private func applyFiltersToMealList(request: MealFilterRequest) {
+        self.mealListData.removeAll()
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        
+        let bMealViewModel = BMealViewModel()
+        let urlStr = API.mealList
+        bMealViewModel.applyFilterToMealList(urlStr: urlStr, request: request) { (response) in
+            if response.status == true, response.data?.data?.count != 0 {
+                self.mealListData = response.data?.data ?? []
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.mealPlanTblView.reloadData()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.mealPlanTblView.reloadData()
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.mealPlanTblView.reloadData()
+            }
+        }
+    }
+
 }
