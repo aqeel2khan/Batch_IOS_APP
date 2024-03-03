@@ -11,7 +11,7 @@ import Foundation
 struct CreateCourseOrderRequest: Codable {
     let courseID, subtotal, discount, total: Int
     let paymentType: String
-    let transactionID: Int
+    let transactionID: String
     let paymentStatus: String
 
     enum CodingKeys: String, CodingKey {

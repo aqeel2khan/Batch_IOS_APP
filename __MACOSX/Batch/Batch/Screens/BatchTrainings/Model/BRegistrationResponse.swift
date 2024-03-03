@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Welcome
 struct BRegistrationResponse: Codable {
-    let status: Bool
+    let status: Bool?
     let message: String?
     let data: BRegistrationData?
     let token: String?

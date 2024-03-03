@@ -9,8 +9,9 @@ import UIKit
 import HCVimeoVideoExtractor
 
 class VimoPlayerVC: UIViewController {
-
+    
     @IBOutlet weak var vimoVideoTbl: UITableView!
+    @IBOutlet weak var dayCountLbl: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var selectedVideoViewTbl: UITableView!
     var videoIdInfo: CourseDurationExercise?
@@ -19,7 +20,7 @@ class VimoPlayerVC: UIViewController {
     var completion: (()->Void)? = nil
     var viemoVideoArr = [String]()
     var titleText = "Lower-Body Burn"
-
+    
     var selectedIndex = 0
     
     
@@ -30,8 +31,6 @@ class VimoPlayerVC: UIViewController {
         self.vimoVideoTbl.dataSource = self
         
         self.vimoVideoTbl.register(UINib(nibName: "VimoPlayerCell", bundle: .main), forCellReuseIdentifier: "VimoPlayerCell")
-        
-        //5
         self.selectedVideoViewTbl.register(UINib(nibName: "VideoThunbListTblCell", bundle: .main), forCellReuseIdentifier: "VideoThunbListTblCell")
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.appEnteredFromBackground), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
@@ -66,13 +65,18 @@ class VimoPlayerVC: UIViewController {
     @IBAction func OnTapBackBtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         completion?()
-        
+    }
+    
+    @IBAction func infoBtnTap(_ sender: Any) {
+        let vc = BWorkOutVideoDetails.instantiate(fromAppStoryboard: .batchTrainings)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true)
     }
 }
 
 
-extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource
-{
+extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -82,51 +86,40 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        //3
-        if tableView == self.selectedVideoViewTbl
-        {
+        if tableView == self.selectedVideoViewTbl {
             let cell = tableView.dequeueCell(VideoThunbListTblCell.self,for: indexPath)
             return cell
         }
-        else
-        {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VimoPlayerCell", for: indexPath) as! VimoPlayerCell
-        cell.configureCell(videoUrl: self.viemoVideoArr[indexPath.row])
-        if indexPath.row == (self.viemoVideoArr.count - 1)
-        {
-            cell.bottomView.isHidden = false
-        }
-        else
-        {
-            cell.bottomView.isHidden = true
-        }
-        cell.finishWorkOutBtn.tag = indexPath.row
-        cell.finishWorkOutBtn.addTarget(self, action: #selector(finishWorkOutBtnAction(_:)), for: .touchUpInside)
+        else  {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "VimoPlayerCell", for: indexPath) as! VimoPlayerCell
+            cell.configureCell(videoUrl: self.viemoVideoArr[indexPath.row])
+           
+            cell.dragUpUIView.isHidden = indexPath.row == 0 ? false : true
+            cell.bottomView.isHidden = indexPath.row == (self.viemoVideoArr.count - 1) ? false : true
+            
+            cell.bottomView.layer.zPosition = 1
+            cell.dragUpUIView.layer.zPosition = 1
 
-        return cell
-          }
+            cell.finishWorkOutBtn.tag = indexPath.row
+            cell.finishWorkOutBtn.addTarget(self, action: #selector(finishWorkOutBtnAction(_:)), for: .touchUpInside)
+            return cell
+        }
     }
     @objc func finishWorkOutBtnAction(_ sender:UIButton) {
         dismiss(animated: true)
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        //4
-        if tableView == self.selectedVideoViewTbl
-        {
+        if tableView == self.selectedVideoViewTbl {
             return 50 //UITableView.automaticDimension
         }
-        else
-        {
-        return tableView.frame.height
+        else {
+            return tableView.frame.height
         }
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        //5
-        if tableView == vimoVideoTbl
-        {
+        if tableView == vimoVideoTbl {
             if let videoCell = cell as? ASAutoPlayVideoLayerContainer, let _ = videoCell.videoURL {
                 ASVideoPlayerController.sharedVideoPlayer.removeLayerFor(cell: videoCell)
             }
@@ -156,7 +149,7 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         print("play video \(indexPath.row)")
-
+        
         if tableView == selectedVideoViewTbl
         {
             print("play video \(indexPath.row)")
@@ -169,7 +162,7 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource
                 
                 cell2?.selectedView.backgroundColor = Colors.appThemeButtonColor
             }
-
+            
             
         }
     }

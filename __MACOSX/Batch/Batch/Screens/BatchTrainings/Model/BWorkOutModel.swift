@@ -378,7 +378,7 @@ struct Workouttype: Codable {
 
 // MARK: - CreateCourseOrder
 struct CreateCourseOrderResponse: Codable {
-    let status: Bool
+    let status: Bool?
     let message: String?
     let data: CreateCourseOrderData?
 }

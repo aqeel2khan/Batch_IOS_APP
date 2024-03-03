@@ -34,14 +34,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radio_empty" translatesAutoresizingMaskIntoConstraints="NO" id="np2-Z4-6mH">
+                                <rect key="frame" x="280" y="15" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="O4x-8v-7t6"/>
+                                    <constraint firstAttribute="width" constant="20" id="jXM-mN-2yW"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Ika-LU-1tM" secondAttribute="bottom" constant="5" id="6WV-n8-8GW"/>
                             <constraint firstItem="BDF-EI-heX" firstAttribute="leading" secondItem="Ika-LU-1tM" secondAttribute="trailing" constant="10" id="8te-Mh-XYQ"/>
                             <constraint firstItem="Ika-LU-1tM" firstAttribute="top" secondItem="3Pv-85-Rel" secondAttribute="top" constant="5" id="LcK-1y-QSF"/>
+                            <constraint firstAttribute="trailing" secondItem="np2-Z4-6mH" secondAttribute="trailing" constant="10" id="TCu-Tc-jjE"/>
                             <constraint firstItem="BDF-EI-heX" firstAttribute="top" secondItem="3Pv-85-Rel" secondAttribute="top" constant="5" id="WWd-gO-942"/>
                             <constraint firstAttribute="trailing" secondItem="BDF-EI-heX" secondAttribute="trailing" constant="10" id="eLv-xH-x0o"/>
+                            <constraint firstItem="np2-Z4-6mH" firstAttribute="centerY" secondItem="3Pv-85-Rel" secondAttribute="centerY" id="mL7-tE-mCM"/>
                             <constraint firstItem="Ika-LU-1tM" firstAttribute="leading" secondItem="3Pv-85-Rel" secondAttribute="leading" constant="5" id="oAk-vc-ipC"/>
                             <constraint firstAttribute="bottom" secondItem="BDF-EI-heX" secondAttribute="bottom" constant="5" id="qUz-ec-PcE"/>
                         </constraints>
@@ -58,11 +67,13 @@
             <connections>
                 <outlet property="paymentMethodImageView" destination="Ika-LU-1tM" id="N4b-Xd-pIX"/>
                 <outlet property="paymentMethodNameLabel" destination="BDF-EI-heX" id="9Yk-oV-xVu"/>
+                <outlet property="radioImageView" destination="np2-Z4-6mH" id="neV-dA-Vi4"/>
             </connections>
             <point key="canvasLocation" x="-58.015267175572518" y="0.0"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="radio_empty" width="77" height="77"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -8,7 +8,6 @@
 import UIKit
 
 class BCheckoutVC: UIViewController {
-    
     @IBOutlet weak var imgCourse: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var woPriceLbl: UILabel!
@@ -23,29 +22,31 @@ class BCheckoutVC: UIViewController {
     @IBOutlet weak var totalPriceLbl: BatchMediumBlack!
     @IBOutlet weak var checkOutBtn: BatchButton!
     
-    
     var promotionPriceValue = 0.0
     var selectedSubscriptionInfo = [CourseDataList]()
     var selectedMotivatorSubscriptionInfo:CourseDataList?
     
     var isCommingFrom = ""
     
+    var transactionID : String!
+    var courseID = 0
+    var subtotal = 0
+    var discount = 0
+    var total = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        if isCommingFrom == "workoutbatches"
-        {
+        if isCommingFrom == "workoutbatches" {
             self.setUpViewData()
         }
-        else  if isCommingFrom == "MotivatorDetailVC"
-        {
+        else  if isCommingFrom == "MotivatorDetailVC" {
             self.setUpViewMotivatorData()
         }
     }
     
-    func setUpViewData()
-    {
+    func setUpViewData() {
         let info = selectedSubscriptionInfo[0]
         self.lblTitle.text = "\(info.courseName ?? "")"
         self.woPriceLbl.text = "\(info.coursePrice ?? "")"
@@ -56,12 +57,11 @@ class BCheckoutVC: UIViewController {
         let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (info.courseImage ?? ""))
         self.imgCourse.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
         let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info.coachDetail?.profilePhotoPath ?? ""))
-        self.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
+        self.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ))
         
         let subTotalPrice = "\(info.coursePrice ?? "")"
         var subTotalPriceIntValue = 0.0
-        if subTotalPrice != ""
-        {
+        if subTotalPrice != "" {
             subTotalPriceIntValue = Double(subTotalPrice) ?? 0.0
         }
         let promotionPrice = promotionPriceValue
@@ -71,8 +71,8 @@ class BCheckoutVC: UIViewController {
         self.promotionPriceLbl.text = "-\(promotionPrice)"
         self.totalPriceLbl.text = "\(totalPrice)"
     }
-    func setUpViewMotivatorData()
-    {
+    
+    func setUpViewMotivatorData() {
         let info = selectedMotivatorSubscriptionInfo
         self.lblTitle.text = "\(info?.courseName ?? "")"
         self.woPriceLbl.text = "\(info?.coursePrice ?? "")"
@@ -87,8 +87,7 @@ class BCheckoutVC: UIViewController {
         
         let subTotalPrice = "\(info?.coursePrice ?? "")"
         var subTotalPriceIntValue = 0.0
-        if subTotalPrice != ""
-        {
+        if subTotalPrice != "" {
             subTotalPriceIntValue = Double(subTotalPrice) ?? 0.0
         }
         let promotionPrice = promotionPriceValue
@@ -99,29 +98,38 @@ class BCheckoutVC: UIViewController {
         self.totalPriceLbl.text = "\(totalPrice)"
     }
     
-    
-    
-    
-    
     @IBAction func onTapPaymentMethodBtn(_ sender: Any) {
+        
     }
     
     @IBAction func onTapCheckOutBtn(_ sender: Any) {
-        
-        
-        var courseID = 0
-        var subtotal = 0
-        var discount = 0
-        var total = 0
-        // Get the current date and time
-        let currentDate = Date()
+        if getTotalPrice() != nil {
+            let vc = BPaymentGatewayPopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+            vc.modalPresentationStyle = .pageSheet
+            vc.modalTransitionStyle = .coverVertical
+            //vc.promotionPriceValue = 0
+            vc.totalOrderAmount = getTotalPrice()
+            if isCommingFrom == "workoutbatches" {
+                vc.selectedSubscriptionInfo = [selectedSubscriptionInfo[0]]
+            }
+            else if isCommingFrom == "MotivatorDetailVC" {
+                vc.selectedMotivatorSubscriptionInfo = selectedMotivatorSubscriptionInfo
+            }
+            vc.isCommingFrom = isCommingFrom
+            vc.completion = { (transactionID) in
+                self.createOrderCheckOutApi(courseID: self.courseID, subtotal: self.subtotal, discount: 0, total: self.total, paymentType: "card", transactionID: transactionID, paymentStatus: "true")
+            }
+            self.present(vc, animated: true)
+        }
+    }
+    
+    @IBAction func onTapBackBtn(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    func getTotalPrice() -> String? {
         // Convert the date to a Unix timestamp
-        let timestamp = currentDate.timeIntervalSince1970
-        print("Unix Timestamp: \(timestamp)")
-        var transactionID = timestamp
-        
-        if isCommingFrom == "workoutbatches"
-        {
+        if isCommingFrom == "workoutbatches" {
             let info = selectedSubscriptionInfo[0]
             let courseIDStr = info.courseID
             courseID = Int(courseIDStr ?? 0)
@@ -130,14 +138,9 @@ class BCheckoutVC: UIViewController {
             subtotal = Int(subD)
             
             discount = Int(promotionPriceValue)
-            
             let totalPrice = subD - promotionPriceValue
             total = Int(totalPrice)
-            
-            
-        }
-        else if isCommingFrom == "MotivatorDetailVC"
-        {
+        } else if isCommingFrom == "MotivatorDetailVC" {
             let info = selectedMotivatorSubscriptionInfo
             courseID = Int(info?.courseID ?? 0)
             
@@ -148,20 +151,14 @@ class BCheckoutVC: UIViewController {
             
             let totalPrice = subD - promotionPriceValue
             total = Int(totalPrice)
-            
         }
-        if courseID == 0{
-            return
+        if courseID == 0 {
+            return nil
         }
-        self.createOrderCheckOutApi(courseID: courseID, subtotal: subtotal, discount: 0, total: total, paymentType: "card", transactionID: Int(transactionID), paymentStatus: "true")
+        return "\(total)"
     }
     
-    @IBAction func onTapBackBtn(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    
-    private func createOrderCheckOutApi(courseID:Int, subtotal:Int, discount:Int, total:Int, paymentType:String, transactionID:Int, paymentStatus:String){
-        
+    private func createOrderCheckOutApi(courseID:Int, subtotal:Int, discount:Int, total:Int, paymentType:String, transactionID:String, paymentStatus:String){
         let request =  CreateCourseOrderRequest(courseID: courseID, subtotal: subtotal, discount: discount, total: total, paymentType: paymentType, transactionID: transactionID, paymentStatus: paymentStatus)
         
         DispatchQueue.main.async {
@@ -170,14 +167,9 @@ class BCheckoutVC: UIViewController {
         
         let bCheckoutViewModel = BCheckoutViewModel()
         bCheckoutViewModel.createOrderCheckOut(request: request)  { (response) in
-            //response.data?.list?.count != 0
-            if response.status == true
-            {
-                print(response.data)
-                //                self.coachListDataArr = response.data ?? []
+            if response.status == true {
                 DispatchQueue.main.async {
                     hideLoading()
-                    //                    self.batchesMotivatorCollView.reloadData()
                     let vc = BThankyouPurchaseVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
                     vc.modalPresentationStyle = .overFullScreen
                     vc.modalTransitionStyle = .coverVertical
@@ -186,7 +178,6 @@ class BCheckoutVC: UIViewController {
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
-                    //makeToast(response.message!)
                     self.showAlert(message: response.message ?? "Api issue")
                 }
             }
@@ -194,7 +185,6 @@ class BCheckoutVC: UIViewController {
             DispatchQueue.main.async {
                 hideLoading()
                 self.showAlert(message: "\(error.localizedDescription)")
-                // makeToast(error.localizedDescription)
             }
         }
     }

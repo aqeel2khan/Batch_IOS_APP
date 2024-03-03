@@ -15,6 +15,7 @@ class PaymentMethodTblViewCell: UITableViewCell {
     //MARK: Outlets
     @IBOutlet weak var paymentMethodImageView: UIImageView!
     @IBOutlet weak var paymentMethodNameLabel: UILabel!
+    @IBOutlet weak var radioImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,9 +37,11 @@ class PaymentMethodTblViewCell: UITableViewCell {
             } else {
                 paymentMethodImageView.layer.borderColor = UIColor.black.cgColor
             }
-            paymentMethodImageView.layer.borderWidth = 3
+            radioImageView.image = UIImage.init(named: "radio_fill")
+//            paymentMethodImageView.layer.borderWidth = 3
         } else {
-            paymentMethodImageView.layer.borderWidth = 0
+            radioImageView.image = UIImage.init(named: "radio_empty")
+//            paymentMethodImageView.layer.borderWidth = 0
         }
         if let imageURL = paymentMethod.imageUrl {
             paymentMethodImageView.downloaded(from: imageURL)
