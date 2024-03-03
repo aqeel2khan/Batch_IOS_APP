@@ -16,6 +16,8 @@ class MealFilterVC: UIViewController {
     
     var completion: ((String, String, String) ->Void)? = nil
     
+    var completionFilters: (([Int], [Int], [Int]) ->Void)? = nil
+
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var collectionView1: UICollectionView!
@@ -108,26 +110,16 @@ class MealFilterVC: UIViewController {
         self.dismiss(animated: true)
     }
     
-    
     @IBAction func applyBtnTap(_ sender: UIButton) {
         print(selectedWorkOut)
         print(selectedLevel)
         print(selectedGoal)
-        
-//        let workOutStrArray = selectedWorkOut.map{String($0)}
-//        let commaSeparatedWorkOutStr = workOutStrArray.joined(separator: ",")
-//        let levelStrArray = selectedLevel.map{String($0)}
-//        let commaSeparatedLevelStr = levelStrArray.joined(separator: ",")
-//        let goalStrArray = selectedGoal.map{String($0)}
-//        let commaSeparatedGoalStr = goalStrArray.joined(separator: ",")
-        
+                
         let commaSeparatedWorkOutStr = selectedWorkOut.map{String($0)}.joined(separator: ",")
         let commaSeparatedLevelStr = selectedLevel.map{String($0)}.joined(separator: ",")
         let commaSeparatedGoalStr = selectedGoal.map{String($0)}.joined(separator: ",")
         
         self.dismiss(animated: true)
-        completion?(commaSeparatedWorkOutStr, commaSeparatedLevelStr, commaSeparatedGoalStr)
+        completionFilters?(selectedWorkOut, selectedLevel,selectedGoal)
     }
-    
-   
 }

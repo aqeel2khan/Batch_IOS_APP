@@ -99,4 +99,7 @@ struct API {
         static let dishesList  = baseUrl + "/meal/dishes/"// get
         static let dishesDetail  = baseUrl + "/dish/details"// post
         static let filterOption  = baseUrl + "/meal/filters"// post
+    
+    // BatchBoard Home Module
+    static let subscriptionMealList  = baseUrl + "/subscription/list" // post
 }

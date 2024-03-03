@@ -16,4 +16,14 @@ struct DashboardViewModel {
             onError(error)
         }
     }
+    
+    // Get subscribed meal list
+    func getSubscribedMealList(urlStr:String, request: SubscribedMealListRequest, onSuccess:@escaping(SubscribedMealListResponse) -> Void, onError:@escaping(BatchError) -> Void) {
+        let bHomeResource = DashboardResource()
+        bHomeResource.getSubscribedMealList(urlStr: urlStr, request: request) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
 }

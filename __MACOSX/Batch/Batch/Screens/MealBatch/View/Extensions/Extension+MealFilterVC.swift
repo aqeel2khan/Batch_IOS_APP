@@ -79,34 +79,37 @@ extension MealFilterVC: UICollectionViewDelegate,UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.collectionView1 {
-//            self.selectedWorkOut.append(self.firstArray[indexPath.item].id ?? 0)
-//            self.collectionView.reloadData()
-            
+            if self.selectedWorkOut.count == 0 {
+                self.selectedWorkOut.append(self.firstArray[indexPath.item].id ?? 0)
+                self.collectionView1.reloadData()
+            } else {
                 if self.selectedWorkOut.contains(self.firstArray[indexPath.item].id ?? 0) {
                     if let selectedIndex = selectedWorkOut.firstIndex(where: {$0 == self.firstArray[indexPath.item].id}) {
                         self.selectedWorkOut.remove(at: selectedIndex)
                     }
-                }
-                else {
+                } else {
+                    self.selectedWorkOut.removeAll()
                     self.selectedWorkOut.append(self.firstArray[indexPath.item].id ?? 0)
                 }
                 self.collectionView1.reloadData()
-            
-                        
+            }
         } else if collectionView == collectionView2 {
             if self.selectedLevel.count == 0 {
                 self.selectedLevel.append(self.secondArray[indexPath.item].id ?? 0)
                 self.collectionView2.reloadData()
             } else {
-                self.selectedLevel.removeAll()
-                self.selectedLevel.append(self.secondArray[indexPath.item].id ?? 0)
+                if self.selectedLevel.contains(self.secondArray[indexPath.item].id ?? 0) {
+                    if let selectedIndex = selectedLevel.firstIndex(where: {$0 == self.secondArray[indexPath.item].id}) {
+                        self.selectedLevel.remove(at: selectedIndex)
+                    }
+                } else {
+                    self.selectedLevel.removeAll()
+                    self.selectedLevel.append(self.secondArray[indexPath.item].id ?? 0)
+                }
                 self.collectionView2.reloadData()
             }
         }
         else if collectionView == collectionView3 {
-//            self.selectedGoal.append(self.thirdArray[indexPath.item].id ?? 0)
-//            self.rightTagCollView.reloadData()
-            
             if self.selectedGoal.contains(self.thirdArray[indexPath.item].id ?? 0) {
                 if let selectedIndex = selectedGoal.firstIndex(where: {$0 == self.thirdArray[indexPath.item].id}) {
                     self.selectedGoal.remove(at: selectedIndex)

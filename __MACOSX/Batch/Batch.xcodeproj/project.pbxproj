@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0AB608B9721647C3B01CF215 /* Pods_Batch_BatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECFA2040CBA32120CC5700F /* Pods_Batch_BatchUITests.framework */; };
+		1A9B01262B93ABD300F17C42 /* MealFilterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */; };
+		1A9B012E2B943BA200F17C42 /* SubscribedMealListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B012D2B943BA200F17C42 /* SubscribedMealListRequest.swift */; };
+		1A9B01302B943C5F00F17C42 /* SubscribedMealListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B012F2B943C5F00F17C42 /* SubscribedMealListResponse.swift */; };
 		311576B92B86660B00224EDE /* BatchCountryLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576B82B86660B00224EDE /* BatchCountryLanguageVC.swift */; };
 		311576BB2B8676FA00224EDE /* BLogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BA2B8676FA00224EDE /* BLogInViewModel.swift */; };
 		311576BD2B8678E400224EDE /* BLogInResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BC2B8678E400224EDE /* BLogInResource.swift */; };
@@ -288,6 +291,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterRequest.swift; sourceTree = "<group>"; };
+		1A9B012D2B943BA200F17C42 /* SubscribedMealListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedMealListRequest.swift; sourceTree = "<group>"; };
+		1A9B012F2B943C5F00F17C42 /* SubscribedMealListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedMealListResponse.swift; sourceTree = "<group>"; };
 		311576B82B86660B00224EDE /* BatchCountryLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchCountryLanguageVC.swift; sourceTree = "<group>"; };
 		311576BA2B8676FA00224EDE /* BLogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInViewModel.swift; sourceTree = "<group>"; };
 		311576BC2B8678E400224EDE /* BLogInResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInResource.swift; sourceTree = "<group>"; };
@@ -1174,32 +1180,15 @@
 		31AE2D7B2B36B9D6000FEB41 /* BatchBoardHome */ = {
 			isa = PBXGroup;
 			children = (
-				31AE2D7C2B36B9D6000FEB41 /* ViewModel */,
-				31AE2D7D2B36B9D6000FEB41 /* Model */,
 				31AE2D7E2B36B9D6000FEB41 /* View */,
 			);
 			path = BatchBoardHome;
-			sourceTree = "<group>";
-		};
-		31AE2D7C2B36B9D6000FEB41 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		31AE2D7D2B36B9D6000FEB41 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		31AE2D7E2B36B9D6000FEB41 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				31AE2D7F2B36B9D6000FEB41 /* CollectionCell */,
-				31AE2D802B36B9D6000FEB41 /* TableCell */,
 				31AE2D822B36B9D6000FEB41 /* Extensions */,
 				31AE2D812B36B9D6000FEB41 /* Controller */,
 			);
@@ -1213,13 +1202,6 @@
 				313F43EB2B72C1650005E65E /* BatchHomePageContCollViewCell.xib */,
 			);
 			path = CollectionCell;
-			sourceTree = "<group>";
-		};
-		31AE2D802B36B9D6000FEB41 /* TableCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TableCell;
 			sourceTree = "<group>";
 		};
 		31AE2D812B36B9D6000FEB41 /* Controller */ = {
@@ -1504,6 +1486,8 @@
 		570D8FC72B84B28300EB643A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1A9B012D2B943BA200F17C42 /* SubscribedMealListRequest.swift */,
+				1A9B012F2B943C5F00F17C42 /* SubscribedMealListResponse.swift */,
 				5759E7FB2B9060C100352B24 /* DashboardWorkoutModel.swift */,
 			);
 			path = Model;
@@ -1670,6 +1654,7 @@
 				575A200E2B8B784900FFCD56 /* DishesModel.swift */,
 				574FA5AE2B8E51B900F6D3BA /* DishesDetailModel.swift */,
 				574FA5B42B8E599000F6D3BA /* FilterOptionModel.swift */,
+				1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2254,6 +2239,7 @@
 				3188B3C52B299B6600E19945 /* ViewController.swift in Sources */,
 				68C14B722B63BFE10085AAD4 /* Extension+StartPlanCheckoutVC.swift in Sources */,
 				31AE2DA62B36BD10000FEB41 /* Extension+ShoppingBatchVC.swift in Sources */,
+				1A9B01302B943C5F00F17C42 /* SubscribedMealListResponse.swift in Sources */,
 				319BAD662B2A31A00081A8F2 /* UITextField.swift in Sources */,
 				5759E7E72B9048AB00352B24 /* BWorkOutDetailVC.swift in Sources */,
 				5759E7EF2B9048AB00352B24 /* MotivatorFilterVC.swift in Sources */,
@@ -2276,6 +2262,7 @@
 				311B1BBC2B2E1D3C00E37E47 /* UICollectioView.swift in Sources */,
 				570EA5272B89FC5500D801AE /* BMealResource.swift in Sources */,
 				319BAD632B2A31A00081A8F2 /* UITableViewCell.swift in Sources */,
+				1A9B012E2B943BA200F17C42 /* SubscribedMealListRequest.swift in Sources */,
 				31D424992B6B84C300E988C7 /* QuestionHeightVC.swift in Sources */,
 				5759E7BB2B9048AB00352B24 /* BWorkOutDetailModel.swift in Sources */,
 				5759E7F32B9048AB00352B24 /* TrainingFilterVC.swift in Sources */,
@@ -2357,6 +2344,7 @@
 				5759E7D12B9048AB00352B24 /* BWOPackageTblCell.swift in Sources */,
 				5759E7E52B9048AB00352B24 /* BStartWorkOutDetailVC.swift in Sources */,
 				5759E7B32B9048AB00352B24 /* BWorkOutDetailViewModel.swift in Sources */,
+				1A9B01262B93ABD300F17C42 /* MealFilterRequest.swift in Sources */,
 				5759E7F12B9048AB00352B24 /* BWorkOutAllowNotificationVC.swift in Sources */,
 				319BAD6C2B2A31A00081A8F2 /* String.swift in Sources */,
 				575A200F2B8B784900FFCD56 /* DishesModel.swift in Sources */,

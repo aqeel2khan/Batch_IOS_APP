@@ -9,6 +9,15 @@ import Foundation
 
 struct BMealViewModel {
     
+    func applyFilterToMealList(urlStr:String, request: MealFilterRequest, onSuccess:@escaping(MealsListResponse) -> Void, onError:@escaping(BatchError) -> Void) {
+        let bMealResource = BMealResource()
+        bMealResource.applyFilterToMealList(urlStr: urlStr, request: request) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
+
     func mealList(requestUrl: String, onSuccess:@escaping(MealsListResponse) -> Void, onError:@escaping(BatchError) -> Void){
         
         let bMealResource = BMealResource()
