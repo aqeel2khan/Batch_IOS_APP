@@ -110,12 +110,20 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
             
             cell.bottomView.layer.zPosition = 1
             cell.dragUpUIView.layer.zPosition = 1
+            
+            cell.startNextWoBtn.tag = indexPath.row
+            cell.startNextWoBtn.addTarget(self, action: #selector(startNextWoBtnAction(_:)), for: .touchUpInside)
 
             cell.finishWorkOutBtn.tag = indexPath.row
             cell.finishWorkOutBtn.addTarget(self, action: #selector(finishWorkOutBtnAction(_:)), for: .touchUpInside)
             return cell
         }
     }
+    
+    @objc func startNextWoBtnAction(_ sender:UIButton) {
+        dismiss(animated: true)
+    }
+    
     @objc func finishWorkOutBtnAction(_ sender:UIButton) {
         dismiss(animated: true)
     }

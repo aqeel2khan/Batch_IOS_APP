@@ -367,7 +367,6 @@ class BWorkOutDetailVC: UIViewController {
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
             vc.completion = {
-                print("Coming back Motivator filter Id")
                 print(self.vimoVideoURLList)
                 self.callApiServices()
                 
