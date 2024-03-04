@@ -26,8 +26,9 @@ class BatchBoardHomeVC: UIViewController {
     var timer : Timer?
     var counter = 0
     //Slider Img Array
-    let imgArr = ["image1","image2","image3"]
-    
+//    let imgArr = ["image1","image2","image3"]
+    let imgArr = ["banner1","banner2","banner3"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

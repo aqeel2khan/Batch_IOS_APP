@@ -104,10 +104,10 @@ extension BatchBoardHomeVC : UICollectionViewDelegateFlowLayout {
         let cellSquareSize: CGFloat = screenWidth
         
         if (collectionView.tag == 1501) {
-            return CGSize.init(width: cellSquareSize - 20 , height: 260)
+            return CGSize.init(width: cellSquareSize , height: 260)
         }
         else if (collectionView.tag == 1502) {
-            return CGSize.init(width: cellSquareSize, height: 260)
+            return CGSize.init(width: cellSquareSize, height: 240)
         }
         else if (collectionView.tag == 1503) {
             return CGSize.init(width: (cellSquareSize / 2) - 20, height: 220)

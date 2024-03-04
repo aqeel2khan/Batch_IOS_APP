@@ -1734,12 +1734,12 @@
 			isa = PBXGroup;
 			children = (
 				5759E76D2B9048AB00352B24 /* TrainingFilterCollectionCell.xib */,
+				5759E7732B9048AB00352B24 /* TrainingFilterCollectionCell.swift */,
 				5759E76E2B9048AB00352B24 /* BWOBatchesListCollCell.xib */,
 				5759E76F2B9048AB00352B24 /* BatchTrainingDetailCollCell.swift */,
 				5759E7702B9048AB00352B24 /* BWOMotivatorsListCollCell.swift */,
 				5759E7712B9048AB00352B24 /* BWOBatchesListCollCell.swift */,
 				5759E7722B9048AB00352B24 /* BWOMotivatorsListCollCell.xib */,
-				5759E7732B9048AB00352B24 /* TrainingFilterCollectionCell.swift */,
 				5759E7742B9048AB00352B24 /* BWOMotivatorsReProductCollCell.swift */,
 				5759E7752B9048AB00352B24 /* BWOMotivatorsReProductCollCell.xib */,
 				5759E7762B9048AB00352B24 /* BatchTrainingDetailCollCell.xib */,
