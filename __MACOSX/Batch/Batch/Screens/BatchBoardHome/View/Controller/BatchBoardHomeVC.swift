@@ -36,7 +36,7 @@ class BatchBoardHomeVC: UIViewController {
         self.registerCollView()
         self.setUpUI()
         
-        var token =  Batch_UserDefaults.string(forKey: UserDefaultKey.TOKEN)
+        let token =  Batch_UserDefaults.string(forKey: UserDefaultKey.TOKEN)
         if token == nil{
             Batch_UserDefaults.set(UserDefaultKey.tokenValue, forKey: UserDefaultKey.TOKEN)
         }
@@ -133,33 +133,14 @@ class BatchBoardHomeVC: UIViewController {
     @IBAction func onTapShowAllBtn(_ sender: UIButton) {
         switch sender.tag {
         case 152:
-            print("ndnd")
+            self.tabBarController?.selectedIndex = 1
         case 153:
-            print("ndnd")
+            self.tabBarController?.selectedIndex = 1
         case 154:
-            print("ndnd")
+            self.tabBarController?.selectedIndex = 1
         case 155:
-            print("ndnd")
-        default:
-            print("bfs")
+            self.tabBarController?.selectedIndex = 1
+        default: break
         }
     }
-    
-    /*
-     @IBAction func onTapBatchBtn(_ sender: UIButton) {
-     switch sender.tag {
-     case 100:
-     print("ndnd")
-     tabBarController?.selectedIndex = 1
-     case 101:
-     print("ndnd")
-     tabBarController?.selectedIndex = 2
-     case 102:
-     print("ndnd")
-     tabBarController?.selectedIndex = 3
-     default:
-     print("bfs")
-     }
-     }
-     */
 }

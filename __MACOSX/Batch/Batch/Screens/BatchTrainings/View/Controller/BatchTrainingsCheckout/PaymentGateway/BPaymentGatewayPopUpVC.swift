@@ -66,6 +66,10 @@ class BPaymentGatewayPopUpVC: UIViewController {
         }
     }
     
+    @IBAction func backBtnTap(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
 }
 
 extension BPaymentGatewayPopUpVC  {

@@ -19,8 +19,8 @@ class MealPlanCollectionCell: UICollectionViewCell {
          imageBackGrd.makeSpecificCornerRound(corners: .topTwo, radius: 20)
          */
 
-        titleView.cornerRadius = 20
-        imageBackGrd.cornerRadius = 20
+//        titleView.cornerRadius = 20
+//        imageBackGrd.cornerRadius = 20
     }
 
 }

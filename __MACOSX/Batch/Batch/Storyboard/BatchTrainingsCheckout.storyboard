@@ -43,6 +43,7 @@
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="IconDown"/>
                                                         <connections>
+                                                            <action selector="backBtnTap:" destination="J9M-s9-9Wk" eventType="touchUpInside" id="kVf-yP-mjB"/>
                                                             <action selector="onTapBackBtn:" destination="OdI-Li-nkd" eventType="touchUpInside" id="t3b-J7-8iO"/>
                                                         </connections>
                                                     </button>
@@ -2290,7 +2291,7 @@
         <image name="checkbox" width="21.666666030883789" height="21.666666030883789"/>
         <image name="checkbox_fill" width="20" height="20"/>
         <image name="direction-right" width="24" height="24"/>
-        <image name="downArrow" width="24" height="24"/>
+        <image name="downArrow" width="11" height="5.3333334922790527"/>
         <image name="dummyImg" width="371.33334350585938" height="457.66665649414062"/>
         <image name="eyeclose" width="16" height="16"/>
         <image name="eyeopen" width="16" height="16"/>

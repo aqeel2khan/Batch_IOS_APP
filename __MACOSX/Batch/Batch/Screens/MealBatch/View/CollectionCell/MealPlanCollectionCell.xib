@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="328" height="254"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QO8-XL-s4G">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QO8-XL-s4G">
                         <rect key="frame" x="5" y="5" width="318" height="244"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Meal" translatesAutoresizingMaskIntoConstraints="NO" id="Sou-cl-SQl">
@@ -167,6 +167,11 @@
                             <constraint firstAttribute="trailing" secondItem="2VT-ui-Wm6" secondAttribute="trailing" id="dXx-Pv-CYP"/>
                             <constraint firstAttribute="bottom" secondItem="2VT-ui-Wm6" secondAttribute="bottom" id="sLZ-g0-Dta"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
