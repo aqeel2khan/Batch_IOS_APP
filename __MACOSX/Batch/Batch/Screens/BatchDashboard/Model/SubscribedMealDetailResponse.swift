@@ -82,3 +82,9 @@ struct DaysDish: Codable {
         case month, day, selected
     }
 }
+
+struct DateEntry {
+    let dayName: String
+    let dayOfMonth: String
+    var dishes: [DaysDish]? = []
+    }
