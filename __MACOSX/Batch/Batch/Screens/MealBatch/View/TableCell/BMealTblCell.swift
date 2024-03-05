@@ -11,7 +11,9 @@ class BMealTblCell: UITableViewCell {
 
     
     @IBOutlet weak var sectionTitleLbl: BatchLabelSubTitleBlack!
-    
+    @IBOutlet weak var dishName: BatchLabelSubTitleBlack!
+    @IBOutlet weak var dishCalory: BatchMediumDarkGray!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

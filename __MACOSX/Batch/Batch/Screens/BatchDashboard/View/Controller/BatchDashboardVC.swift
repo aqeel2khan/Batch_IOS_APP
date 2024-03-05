@@ -57,7 +57,6 @@ class BatchDashboardVC: UIViewController {
     }
     
     private func getSubscribedCourseList(){
-        
         DispatchQueue.main.async {
             showLoading()
         }
@@ -65,12 +64,10 @@ class BatchDashboardVC: UIViewController {
         let urlStr = API.courseSubscribeList
         
         dashboardViewModel.allCourseSubscribeList(requestUrl: urlStr)  { (response) in
-            
             if response.status == true, response.data?.list?.count != 0 {
                 self.courseList.removeAll(
                 )
                 self.courseList = response.data?.list ?? []
-
                 DispatchQueue.main.async {
                     hideLoading()
                     self.workoutBatchCollView.reloadData()
@@ -81,7 +78,6 @@ class BatchDashboardVC: UIViewController {
                     //makeToast(response.message!)
                 }
             }
-            
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
