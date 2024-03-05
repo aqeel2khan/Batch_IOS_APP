@@ -191,8 +191,7 @@ extension BatchBoardHomeVC {
 
 extension BatchBoardHomeVC {
     func showImagesOnSrollView(array_Images : [String]){
-        //autoscroll collectionview
-        bannerSliderShow.slideshowInterval = 0.0
+        bannerSliderShow.slideshowInterval = 2.0
         bannerSliderShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .bottom)
         bannerSliderShow.contentScaleMode = .scaleAspectFill
         bannerSliderShow.circular = true
@@ -206,9 +205,9 @@ extension BatchBoardHomeVC {
         let pageControl = UIPageControl()
         pageControl.currentPageIndicatorTintColor = UIColor.white
         pageControl.pageIndicatorTintColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.6)
-        pageControl.isEnabled = false
+        pageControl.isEnabled = true
         bannerSliderShow.pageIndicator = pageControl
-        //prdouctImagesSliderSlideShow.pageIndicator = LabelPageIndicator()  ////it will show like 1/8,2/8,....
+//        bannerSliderShow.pageIndicator = LabelPageIndicator()  ////it will show like 1/8,2/8,....
         
 //        var arr = [KingfisherSource]()
 //        for indx in 0 ..< array_Images.count {

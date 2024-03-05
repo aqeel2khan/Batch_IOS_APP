@@ -107,7 +107,7 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        /*
+       // /*
          cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
          UIView.animate(
          withDuration: 0.5,
@@ -116,7 +116,7 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
          animations: {
          cell.transform = CGAffineTransform(translationX: 0, y: 0)
          })
-         */
+      //   */
     }
     
 }
