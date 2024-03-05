@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import ImageSlideshow
 
 class BatchBoardHomeVC: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
-    @IBOutlet weak var pageControllCollView: UICollectionView!
-    @IBOutlet weak var pageControl: UIPageControl!
+    
+    @IBOutlet weak var bannerSliderShow: ImageSlideshow!
+ 
     @IBOutlet weak var woBatchCollView: UICollectionView!
     @IBOutlet weak var motivatorsCollView: UICollectionView!
     @IBOutlet weak var mealBatchCollView: UICollectionView!
@@ -21,26 +23,16 @@ class BatchBoardHomeVC: UIViewController {
     var coachListDataArr = [CoachListData]()
     var mealListData : [Meals] = []
 
-    var currentPage = 0 {
-        didSet {
-            pageControl.currentPage = currentPage
-        }
-    }
-    var timer : Timer?
-    var counter = 0
-   
-    let imgArr = ["banner1","banner2","banner3"]
-
     override func viewDidLoad() {
         super.viewDidLoad()
+     
+        
+        self.showImagesOnSrollView(array_Images: ["banner1","banner2","banner3"])
         
         // Do any additional setup after loading the view.
         self.setupNavigationBar()
         self.registerCollView()
-        
-        self.pageControl.numberOfPages = self.imgArr.count
-        // Start automatic scrolling timer
-        startAutomaticScrolling()
+     
         
         let token =  Batch_UserDefaults.string(forKey: UserDefaultKey.TOKEN)
         if token == nil{
@@ -77,59 +69,7 @@ class BatchBoardHomeVC: UIViewController {
         // stopAutomaticScrolling()
     }
     
-    private func startAutomaticScrolling() {
-        // Set up a timer to scroll automatically
-        /*
-         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(scrollToNextPage), userInfo: nil, repeats: true)
-         */
-        //        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
-        
-        pageControl.numberOfPages = imgArr.count
-        pageControl.currentPage = 0
-        DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
-        }
-    }
-    
-    private func stopAutomaticScrolling() {
-        // Invalidate the timer to stop automatic scrolling
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    @objc func changeImage() {
-        
-        if counter < imgArr.count {
-            let index = IndexPath.init(item: counter, section: 0)
-            self.pageControllCollView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
-            pageControl.currentPage = counter
-            counter += 1
-        } else {
-            counter = 0
-            let index = IndexPath.init(item: counter, section: 0)
-            self.pageControllCollView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
-            pageControl.currentPage = counter
-            counter = 1
-        }
-        
-    }
-    
-    @objc func scrollToNextPage() {
-        /*
-         // Calculate the next page index
-         let nextPage = (pageControl.currentPage + 1) % self.imgArr.count
-         // Scroll to the next page
-         let indexPath = IndexPath(item: nextPage, section: 0)
-         pageControllCollView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-         
-         // Update the page control
-         pageControl.currentPage = nextPage
-         */
-    }
-    
     private func registerCollView(){
-        
-        self.pageControllCollView.register(BatchHomePageContCollViewCell.self)
         self.woBatchCollView.register(BWOBatchesListCollCell.self)
         self.motivatorsCollView.register(BWOMotivatorsListCollCell.self)
         self.mealBatchCollView.register(MealPlanCollectionCell.self)
@@ -198,7 +138,6 @@ extension BatchBoardHomeVC {
         let urlStr = API.coachList
         bWorkOutViewModel.coachList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data != nil{
-                print(response.data)
                 
                 self.coachListDataArr = response.data ?? []
                 
@@ -247,5 +186,46 @@ extension BatchBoardHomeVC {
                 hideLoading()
             }
         }
+    }
+}
+
+extension BatchBoardHomeVC {
+    func showImagesOnSrollView(array_Images : [String]){
+        //autoscroll collectionview
+        bannerSliderShow.slideshowInterval = 0.0
+        bannerSliderShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .bottom)
+        bannerSliderShow.contentScaleMode = .scaleAspectFill
+        bannerSliderShow.circular = true
+        bannerSliderShow.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
+        bannerSliderShow.scrollView.backgroundColor = UIColor(red: 225 / 255.0,green: 225 / 255.0,blue: 225 / 255.0,alpha: CGFloat(1.0))
+        bannerSliderShow.activityIndicator = DefaultActivityIndicator()
+       
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        bannerSliderShow.addGestureRecognizer(gestureRecognizer)
+        
+        let pageControl = UIPageControl()
+        pageControl.currentPageIndicatorTintColor = UIColor.white
+        pageControl.pageIndicatorTintColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.6)
+        pageControl.isEnabled = false
+        bannerSliderShow.pageIndicator = pageControl
+        //prdouctImagesSliderSlideShow.pageIndicator = LabelPageIndicator()  ////it will show like 1/8,2/8,....
+        
+//        var arr = [KingfisherSource]()
+//        for indx in 0 ..< array_Images.count {
+//            arr.append(KingfisherSource(urlString: array_Images[indx])!)
+//        }
+//        self.bannerSliderShow.setImageInputs(arr)
+        
+        
+        
+        bannerSliderShow.setImageInputs([
+            ImageSource(image: UIImage(named: array_Images[0]) ?? UIImage()),
+            ImageSource(image: UIImage(named: array_Images[1]) ?? UIImage()),
+            ImageSource(image: UIImage(named: array_Images[2]) ?? UIImage()),
+        ])
+    }
+    
+    @objc func didTap() {
+        bannerSliderShow.presentFullScreenController(from: self)
     }
 }

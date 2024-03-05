@@ -56,8 +56,6 @@
 		313894102B68167300F687B1 /* CustomSecondNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3138940F2B68167300F687B1 /* CustomSecondNavigationBar.swift */; };
 		313894122B68168500F687B1 /* CustomSecondNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313894112B68168500F687B1 /* CustomSecondNavigationBar.xib */; };
 		313894162B683F8300F687B1 /* MealDilevaryDropOffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313894152B683F8300F687B1 /* MealDilevaryDropOffVC.swift */; };
-		313F43EC2B72C1650005E65E /* BatchHomePageContCollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313F43EA2B72C1650005E65E /* BatchHomePageContCollViewCell.swift */; };
-		313F43ED2B72C1650005E65E /* BatchHomePageContCollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313F43EB2B72C1650005E65E /* BatchHomePageContCollViewCell.xib */; };
 		3145BBD92B827808001AC288 /* Video2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3145BBD52B8277D1001AC288 /* Video2.mp4 */; };
 		3145BBDA2B827812001AC288 /* Video3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3145BBD42B8277D0001AC288 /* Video3.mp4 */; };
 		3145BBDB2B82781B001AC288 /* Video4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3145BBD62B8277D1001AC288 /* Video4.mp4 */; };
@@ -361,8 +359,6 @@
 		3138940F2B68167300F687B1 /* CustomSecondNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecondNavigationBar.swift; sourceTree = "<group>"; };
 		313894112B68168500F687B1 /* CustomSecondNavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSecondNavigationBar.xib; sourceTree = "<group>"; };
 		313894152B683F8300F687B1 /* MealDilevaryDropOffVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDilevaryDropOffVC.swift; sourceTree = "<group>"; };
-		313F43EA2B72C1650005E65E /* BatchHomePageContCollViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchHomePageContCollViewCell.swift; sourceTree = "<group>"; };
-		313F43EB2B72C1650005E65E /* BatchHomePageContCollViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BatchHomePageContCollViewCell.xib; sourceTree = "<group>"; };
 		3145BBD42B8277D0001AC288 /* Video3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video3.mp4; sourceTree = "<group>"; };
 		3145BBD52B8277D1001AC288 /* Video2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video2.mp4; sourceTree = "<group>"; };
 		3145BBD62B8277D1001AC288 /* Video4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video4.mp4; sourceTree = "<group>"; };
@@ -1262,8 +1258,6 @@
 		31AE2D7F2B36B9D6000FEB41 /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				313F43EA2B72C1650005E65E /* BatchHomePageContCollViewCell.swift */,
-				313F43EB2B72C1650005E65E /* BatchHomePageContCollViewCell.xib */,
 			);
 			path = CollectionCell;
 			sourceTree = "<group>";
@@ -2124,7 +2118,6 @@
 				311B1BA22B2E0E3500E37E47 /* BatchShopping.storyboard in Resources */,
 				314714582B68EB4B002EED87 /* ReviewIngridentCollectionViewCell.xib in Resources */,
 				5759E7C42B9048AB00352B24 /* BWOBatchesListCollCell.xib in Resources */,
-				313F43ED2B72C1650005E65E /* BatchHomePageContCollViewCell.xib in Resources */,
 				3188B3C82B299B6600E19945 /* Main.storyboard in Resources */,
 				311B1B612B2DE00C00E37E47 /* BatchTabBar.storyboard in Resources */,
 				311B1BAB2B2E0E5B00E37E47 /* BatchBarcodeScanner.storyboard in Resources */,
@@ -2509,7 +2502,6 @@
 				570D8FF12B84B28300EB643A /* MealBatchDashboardCollectionCell.swift in Sources */,
 				5759E7E92B9048AB00352B24 /* ASVideoLayerObject.swift in Sources */,
 				570D8FFB2B84B28300EB643A /* BUserPersonalInfoVC.swift in Sources */,
-				313F43EC2B72C1650005E65E /* BatchHomePageContCollViewCell.swift in Sources */,
 				3188B4222B29D34E00E19945 /* ValidationResult.swift in Sources */,
 				3186CBB02B55B979007213C3 /* MealHeaderView.swift in Sources */,
 				318A2B412B30CBFF004845AB /* BUserGenderVC.swift in Sources */,
