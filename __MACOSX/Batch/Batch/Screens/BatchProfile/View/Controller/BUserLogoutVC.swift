@@ -26,10 +26,33 @@ class BUserLogoutVC: UIViewController {
     //MARK: Button Action Btn
     
     @IBAction func onTapYesBtn(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        self.logoutUser()
     }
     @IBAction func onTapCancelBtn(_ sender: UIButton) {
         self.dismiss(animated: true)
+    }
+    
+    func logoutUser(){
+        let bLogoutVM = BUserLogoutVM()
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        bLogoutVM.logout{ response in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.dismiss(animated: true) {
+                    self.showAlertViewWithOne(title: "Batch", message: response.message ?? "", option1: "Ok") {
+                        Batch_UserDefaults.removeObject(forKey:  UserDefaultKey.TOKEN)
+                    }
+                }
+            }
+            
+        } onError: { error in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.showAlert(message: error.localizedDescription)
+            }
+        }
     }
     
 }

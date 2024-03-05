@@ -20,7 +20,27 @@ extension BUserNotificationVC: UITableViewDelegate,UITableViewDataSource {
 //        cell.lblTitle.text  = "Lower-Body Burn"
 //        cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
 //        cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+        if notificationPrefrences?.data?.all ?? 0 == 1 && notificationList[indexPath.row] == "All notifications"{
+            cell.switchBtn.isOn = true
+        }
+        
+        if notificationPrefrences?.data?.training ?? 0 == 1 && notificationList[indexPath.row] == "Training notifications"{
+            cell.switchBtn.isOn = true
+        }
+        
+        if notificationPrefrences?.data?.live_stream ?? 0 == 1 && notificationList[indexPath.row] == "Live stream notifications"{
+            cell.switchBtn.isOn = true
+        }
+        
+        if notificationPrefrences?.data?.meal_plan ?? 0 == 1 && notificationList[indexPath.row] == "Meal plan notificatins"{
+            cell.switchBtn.isOn = true
+        }
+        
+        if notificationPrefrences?.data?.delivery ?? 0 == 1 && notificationList[indexPath.row] == "Delivery notifications"{
+            cell.switchBtn.isOn = true
+        }
         cell.lblTitle.text = notificationList[indexPath.row]
+        
         return cell
     }
     

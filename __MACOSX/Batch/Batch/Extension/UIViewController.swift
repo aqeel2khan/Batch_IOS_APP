@@ -122,6 +122,20 @@ extension UIViewController {
     alertController.addAction(OKAction)
     self.present(alertController, animated: true, completion: nil)
   }
+    
+    func showAlertViewWithOne(title: String, message: String, option1: String, completion: @escaping (() -> Void)) {
+        
+        DispatchQueue.main.async {
+            
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: option1, style: .default) {
+                UIAlertAction in
+                completion()
+            }
+            alert.addAction(action1)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }
 
 

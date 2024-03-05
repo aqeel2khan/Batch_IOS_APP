@@ -21,6 +21,8 @@ enum RegistrationError: BatchError, LocalizedError {
     case invalidEmail
     case invalidPassword
     case matchPasswords
+    case emptyDob
+    case emptyGender
 
     var errorDescription: String?{
         switch self {
@@ -42,6 +44,10 @@ enum RegistrationError: BatchError, LocalizedError {
             return NSLocalizedString("Password must be of minimum 6 characters", comment: "")
         case .matchPasswords:
             return NSLocalizedString("Passwords do not match", comment: "")
+        case .emptyDob:
+            return NSLocalizedString("Date of birth is empty", comment: "")
+        case .emptyGender:
+            return NSLocalizedString("Gender is empty", comment: "")
         }
     }
 }

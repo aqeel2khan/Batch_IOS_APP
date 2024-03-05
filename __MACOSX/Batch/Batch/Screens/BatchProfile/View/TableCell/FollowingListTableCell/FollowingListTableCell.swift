@@ -9,6 +9,7 @@ import UIKit
 
 class FollowingListTableCell: UITableViewCell {
     
+    @IBOutlet weak var followingprofileImage: UIImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDetails: UILabel!
    

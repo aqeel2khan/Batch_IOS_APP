@@ -153,6 +153,7 @@ struct HttpUtility {
             postDataWithOutRequest(requestUrl: huRequest.url, isAuthorization: isAuthorization, resultType: resultType) { completion($0)}
             break
         case .put:
+            putData(request: huRequest, isAuthorization: isAuthorization, resultType: resultType) { completion($0)}
             break
         case .delete:
             break
@@ -165,6 +166,17 @@ struct HttpUtility {
         urlRequest.httpMethod = HUMethod.get.rawValue
         
         performOperation(urlRequest: urlRequest, responseType: responseType) { (result) in
+            completion(result)
+        }
+    }
+    
+    private func putData<T: Decodable>(request: HURequest,isAuthorization:Bool, resultType: T.Type, completion:@escaping(Result<T?, HUNetworkError>) -> Void){
+        
+        var urlRequest = self.createUrlRequest(requestUrl: request.url, isAuthorization:isAuthorization)
+        urlRequest.httpMethod = HUMethod.put.rawValue
+        urlRequest.httpBody = request.requestBody
+        
+        performOperation(urlRequest: urlRequest, responseType: T.self) { (result) in
             completion(result)
         }
     }
@@ -197,7 +209,7 @@ struct HttpUtility {
             let statusCode = (response as? HTTPURLResponse)?.statusCode
             
             if error == nil && data != nil && data?.count != 0{
-                
+                debugPrint(String(data: data!, encoding: .utf8))
                 let response = decodeJsonResponse(data: data!, responseType: responseType)
                 if response != nil{
                     completion(.success(response))
@@ -216,7 +228,7 @@ struct HttpUtility {
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
        
         let appToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN) as? String ?? ""
-        
+        debugPrint("Token-- Bearer \(appToken)")
         if appToken != "" {
             urlRequest.setValue("Bearer \(appToken)", forHTTPHeaderField: "Authorization")
         } else {
