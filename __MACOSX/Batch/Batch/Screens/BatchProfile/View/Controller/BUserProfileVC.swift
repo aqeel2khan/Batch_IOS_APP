@@ -109,7 +109,7 @@ class BUserProfileVC: UIViewController {
 extension BUserProfileVC : barButtonTappedDelegate {
     func rightThirdBarBtnItem() {
         let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN)
-        if (getToken != nil) && (((getToken as? String) ?? "") != "") {
+        if (UserDefaultUtility.isUserLoggedIn()) {
             let vc = BUserProfileVC.instantiate(fromAppStoryboard: .batchAccount)
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
