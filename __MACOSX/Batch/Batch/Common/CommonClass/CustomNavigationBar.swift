@@ -74,8 +74,7 @@ class CustomNavigationBar: UIView {
     
     @IBAction func rightBarBtnItem(_ sender: UIButton) {
         if sender == rightThirdBarBtnItem {
-            let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN) as? String ?? ""
-            if (getToken != "") {
+            if (UserDefaultUtility.isUserLoggedIn()) {
                 let vc = BUserProfileVC.instantiate(fromAppStoryboard: .batchAccount)
                 vc.modalPresentationStyle = .overFullScreen
                 vc.modalTransitionStyle = .coverVertical

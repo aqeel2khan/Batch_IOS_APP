@@ -41,9 +41,8 @@ class BUserLogoutVC: UIViewController {
             DispatchQueue.main.async {
                 hideLoading()
                 self.dismiss(animated: true) {
-                    self.showAlertViewWithOne(title: "Batch", message: response.message ?? "", option1: "Ok") {
-                        Batch_UserDefaults.removeObject(forKey:  UserDefaultKey.TOKEN)
-                    }
+                    Batch_UserDefaults.removeObject(forKey: UserDefaultKey.TOKEN)
+                    UserDefaultUtility.setUserLoggedIn(false)
                 }
             }
             
