@@ -8,7 +8,6 @@
 import UIKit
 
 class BatchBoardHomeVC: UIViewController {
-    
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     @IBOutlet weak var pageControllCollView: UICollectionView!
@@ -18,6 +17,10 @@ class BatchBoardHomeVC: UIViewController {
     @IBOutlet weak var mealBatchCollView: UICollectionView!
     @IBOutlet weak var topRatedMealCollView: UICollectionView!
     
+    var courseListDataArr = [CourseDataList]()
+    var coachListDataArr = [CoachListData]()
+    var mealListData : [Meals] = []
+
     var currentPage = 0 {
         didSet {
             pageControl.currentPage = currentPage
@@ -25,8 +28,7 @@ class BatchBoardHomeVC: UIViewController {
     }
     var timer : Timer?
     var counter = 0
-    //Slider Img Array
-//    let imgArr = ["image1","image2","image3"]
+   
     let imgArr = ["banner1","banner2","banner3"]
 
     override func viewDidLoad() {
@@ -35,7 +37,10 @@ class BatchBoardHomeVC: UIViewController {
         // Do any additional setup after loading the view.
         self.setupNavigationBar()
         self.registerCollView()
-        self.setUpUI()
+        
+        self.pageControl.numberOfPages = self.imgArr.count
+        // Start automatic scrolling timer
+        startAutomaticScrolling()
         
         let token =  Batch_UserDefaults.string(forKey: UserDefaultKey.TOKEN)
         if token == nil{
@@ -50,7 +55,14 @@ class BatchBoardHomeVC: UIViewController {
                 Batch_UserDefaults.set(getToken, forKey: UserDefaultKey.TOKEN)
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
+        self.getCourses()
+        self.getMotivators()
+        self.getMealList()
     }
     
     // MARK: - UI
@@ -58,12 +70,7 @@ class BatchBoardHomeVC: UIViewController {
     private func setupNavigationBar() {
         customNavigationBar.titleFirstLbl.text = CustomNavTitle.batchBoardHomeVCNavTitle
     }
-    private func setUpUI()
-    {
-        self.pageControl.numberOfPages = self.imgArr.count
-        // Start automatic scrolling timer
-        startAutomaticScrolling()
-    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Stop the timer when the view controller is about to disappear
@@ -142,6 +149,103 @@ class BatchBoardHomeVC: UIViewController {
         case 155:
             self.tabBarController?.selectedIndex = 1
         default: break
+        }
+    }
+}
+
+extension BatchBoardHomeVC {
+    //Get Course List
+    private func getCourses(){
+        
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bWorkOutViewModel = BWorkOutViewModel()
+        let urlStr = API.courseList
+        bWorkOutViewModel.courseList(requestUrl: urlStr)  { (response) in
+            
+            if response.status == true, response.data?.list?.count != 0
+            {
+                // print(response.data)
+                // self.blogsArray = response.data!
+                self.courseListDataArr = response.data?.list ?? []
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.woBatchCollView.reloadData()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                    //makeToast(response.message!)
+                }
+            }
+            
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+                // makeToast(error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    //Get Coach List
+    private func getMotivators(){
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bWorkOutViewModel = BWorkOutViewModel()
+        let urlStr = API.coachList
+        bWorkOutViewModel.coachList(requestUrl: urlStr)  { (response) in
+            if response.status == true, response.data != nil{
+                print(response.data)
+                
+                self.coachListDataArr = response.data ?? []
+                
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.motivatorsCollView.reloadData()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                    //  makeToast(response.message!)
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+                // makeToast(error.localizedDescription)
+            }
+        }
+    }
+    
+    //Get Meal List
+    private func getMealList(){
+        
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealViewModel = BMealViewModel()
+        let urlStr = API.mealList
+        bMealViewModel.mealList(requestUrl: urlStr)  { (response) in
+            if response.status == true, response.data?.data?.count != 0 {
+                self.mealListData = response.data?.data ?? []
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.mealBatchCollView.reloadData()
+                    self.topRatedMealCollView.reloadData()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+            
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
         }
     }
 }

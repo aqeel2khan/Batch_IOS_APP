@@ -94,10 +94,10 @@
     </objects>
     <designables>
         <designable name="nix-xp-MFF">
-            <size key="intrinsicContentSize" width="134" height="33"/>
+            <size key="intrinsicContentSize" width="144" height="33"/>
         </designable>
         <designable name="wzD-NL-1Co">
-            <size key="intrinsicContentSize" width="91" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="95" height="34.333333333333336"/>
         </designable>
     </designables>
     <resources>

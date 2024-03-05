@@ -30,16 +30,16 @@
                                         <rect key="frame" x="10" y="10" width="298" height="83"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yo-HO-mWE">
-                                                <rect key="frame" x="0.0" y="0.0" width="223" height="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="298" height="25"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Batch Meal Plan" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEB-Wy-7cu" customClass="BatchLabelTitleWhite" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="156" height="25"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="208.66666666666666" height="25"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oq-a1-e4z" customClass="BatchLabelRegularWhite">
-                                                        <rect key="frame" x="116" y="0.0" width="107" height="25"/>
+                                                        <rect key="frame" x="168.66666666666663" y="0.0" width="129.33333333333337" height="25"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="from">
                                                                 <attributes>
@@ -137,6 +137,10 @@
                                                 <rect key="frame" x="0.0" y="75" width="298" height="8"/>
                                             </imageView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="0yo-HO-mWE" secondAttribute="trailing" id="7Dk-Nw-lDV"/>
+                                            <constraint firstItem="0yo-HO-mWE" firstAttribute="leading" secondItem="OW3-pX-Qza" secondAttribute="leading" id="gyV-wp-fkj"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.79116201399999997" green="0.78769642110000004" blue="0.78437703849999996" alpha="0.89681446310000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -185,8 +189,10 @@
             </constraints>
             <size key="customSize" width="328" height="254"/>
             <connections>
-                <outlet property="imageBackGrd" destination="Sou-cl-SQl" id="TIq-B7-XJp"/>
-                <outlet property="titleView" destination="2VT-ui-Wm6" id="8ht-sh-c4F"/>
+                <outlet property="kclLbl" destination="IP3-94-G1N" id="lt8-Ov-RPk"/>
+                <outlet property="mealsLbl" destination="qEB-Wy-7cu" id="s3H-D3-aMB"/>
+                <outlet property="priceLbl" destination="2Oq-a1-e4z" id="4G1-pg-Wqe"/>
+                <outlet property="titleLbl" destination="qEB-Wy-7cu" id="lsz-xX-EdN"/>
             </connections>
             <point key="canvasLocation" x="306.87022900763355" y="52.112676056338032"/>
         </collectionViewCell>

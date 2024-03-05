@@ -16,11 +16,15 @@ PODS:
     - GTMSessionFetcher/Core (< 4.0, >= 1.5)
   - GTMSessionFetcher/Core (3.3.1)
   - HCVimeoVideoExtractor (0.0.4)
+  - ImageSlideshow/Core (1.9.2)
+  - ImageSlideshow/SDWebImage (1.9.2):
+    - ImageSlideshow/Core
+    - SDWebImage (>= 3.7)
   - IQKeyboardManagerSwift (7.0.1)
   - MyFatoorah (2.0.143)
-  - SDWebImage (5.18.11):
-    - SDWebImage/Core (= 5.18.11)
-  - SDWebImage/Core (5.18.11)
+  - SDWebImage (5.19.0):
+    - SDWebImage/Core (= 5.19.0)
+  - SDWebImage/Core (5.19.0)
   - SGCodeTextField (0.1.4)
   - SVProgressHUD (2.3.1):
     - SVProgressHUD/Core (= 2.3.1)
@@ -32,6 +36,7 @@ DEPENDENCIES:
   - FSCalendar
   - GoogleSignIn
   - HCVimeoVideoExtractor
+  - ImageSlideshow/SDWebImage
   - IQKeyboardManagerSwift
   - MyFatoorah
   - SDWebImage
@@ -48,6 +53,7 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - HCVimeoVideoExtractor
+    - ImageSlideshow
     - IQKeyboardManagerSwift
     - MyFatoorah
     - SDWebImage
@@ -63,13 +69,14 @@ SPEC CHECKSUMS:
   GTMAppAuth: 99fb010047ba3973b7026e45393f51f27ab965ae
   GTMSessionFetcher: 8a1b34ad97ebe6f909fb8b9b77fba99943007556
   HCVimeoVideoExtractor: f29c70152171be0a3b18992df2a8c4a012c388d3
+  ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
   IQKeyboardManagerSwift: 7f6b1b1d1497855d2beea7f2f10ffcc6978525b1
   MyFatoorah: 9a568e19fde7fe59c9d581bc14c1f9596e2c3204
-  SDWebImage: a3ba0b8faac7228c3c8eadd1a55c9c9fe5e16457
+  SDWebImage: 981fd7e860af070920f249fd092420006014c3eb
   SGCodeTextField: 6b65291a52a092c24bd08cc32873e024223b2371
   SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
   SwiftyStarRatingView: a2b0057700e0adeb8e7442c55d99cb53b531d2f4
 
-PODFILE CHECKSUM: 5c3b47b68289fbcce9c63b89dfa5390820c05452
+PODFILE CHECKSUM: 53353b45c1b93cdf2920f162ff1999c6d6517b9a
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.12.1

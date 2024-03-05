@@ -1254,7 +1254,6 @@
 			isa = PBXGroup;
 			children = (
 				31AE2D7F2B36B9D6000FEB41 /* CollectionCell */,
-				31AE2D822B36B9D6000FEB41 /* Extensions */,
 				31AE2D812B36B9D6000FEB41 /* Controller */,
 			);
 			path = View;
@@ -1273,16 +1272,9 @@
 			isa = PBXGroup;
 			children = (
 				31AE2D832B36BA82000FEB41 /* BatchBoardHomeVC.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		31AE2D822B36B9D6000FEB41 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
 				31AE2D852B36BAC2000FEB41 /* Extension+BatchBoardHomeVC.swift */,
 			);
-			path = Extensions;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		31AE2D872B36BB0F000FEB41 /* BatchBarcodeScanner */ = {

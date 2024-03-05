@@ -13,47 +13,73 @@ import UIKit
 extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if (collectionView.tag == 1501) {
+        if collectionView == pageControllCollView {
             return self.imgArr.count
         }
-        else if (collectionView.tag == 1502) {
-            return 5
+        else if collectionView == woBatchCollView {
+            return self.courseListDataArr.count < 5 ? self.courseListDataArr.count : 5
         }
-        else if (collectionView.tag == 1503) {
-            return 5
+        else if collectionView == motivatorsCollView {
+            return self.coachListDataArr.count < 5 ? self.coachListDataArr.count : 5
         }
-        else if (collectionView.tag == 1504) {
-            return 5
+        else if collectionView == mealBatchCollView {
+            return self.mealListData.count < 5 ? self.mealListData.count : 5
         }
-        else if (collectionView.tag == 1505) {
-            return 5
+        else if collectionView == topRatedMealCollView {
+            return self.mealListData.count < 5 ? self.mealListData.count : 5
         }
-       return 0
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if (collectionView.tag == 1501) {
+        if collectionView == pageControllCollView {
             let cell = collectionView.dequeue(BatchHomePageContCollViewCell.self, indexPath)
             cell.pageControllImgView.image = UIImage(named: self.imgArr[indexPath.item])
             return cell
         }
-        else if (collectionView.tag == 1502) {
+        else if collectionView == woBatchCollView {
             let cell = collectionView.dequeue(BWOBatchesListCollCell.self, indexPath)
+            
+            let info = courseListDataArr[indexPath.item]
+            let fileUrl = URL(string: BaseUrl.imageBaseUrl + (info.courseImage ?? ""))
+            cell.imgCourse.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Image"))
+            
+            let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info.coachDetail?.profilePhotoPath ?? ""))
+            cell.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
+            
+            cell.lblTitle.text = info.courseName
+            cell.woDayCountLbl.text = "\(info.coursePrice ?? "")"
+            cell.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
+            cell.workOutTypeBtn.setTitle("\(info.workoutType?[0].workoutdetail?.workoutType ?? "")", for: .normal)
+            cell.coachNameLbl.text = info.coachDetail?.name ?? ""
             return cell
         }
-        else if (collectionView.tag == 1503) {
+        else if collectionView == motivatorsCollView {
             let cell = collectionView.dequeue(BWOMotivatorsListCollCell.self, indexPath)
-            return cell
+            let data = coachListDataArr[indexPath.item]
+            cell.typeLbl.text = data.website ?? ""
+            cell.nameLbl.text = data.name ?? ""
+            let fileUrl = URL(string: BaseUrl.imageBaseUrl + (data.profilePhotoPath ?? ""))
+            cell.imageMotivatorUser.cornerRadius = 75
+            cell.imageMotivatorUser.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Avatar2" ) )
         }
-        else if (collectionView.tag == 1504) {
+        else if collectionView == mealBatchCollView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealPlanCollectionCell", for: indexPath)  as! MealPlanCollectionCell
+            cell.titleLbl.text = self.mealListData[indexPath.row].name
+            cell.priceLbl.text = "from $\(self.mealListData[indexPath.row].price ?? "")"
+            cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") kcal"
+            cell.mealsLbl.text = "\(self.mealListData[indexPath.row].mealCount ?? 0) meals"
             return cell
         }
-        else if (collectionView.tag == 1505) {
+        else if collectionView == topRatedMealCollView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealPlanCollectionCell", for: indexPath)  as! MealPlanCollectionCell
+            cell.titleLbl.text = self.mealListData[indexPath.row].name
+            cell.priceLbl.text = "from $\(self.mealListData[indexPath.row].price ?? "")"
+            cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") kcal"
+            cell.mealsLbl.text = "\(self.mealListData[indexPath.row].mealCount ?? 0) meals"
             return cell
         }
-       return UICollectionViewCell()
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -63,12 +89,27 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
          vc.modalTransitionStyle = .coverVertical
          self.present(vc, animated: true)
          */
+        
+        if collectionView == mealBatchCollView {
+            let vc = MealBatchUnSubscribeDetailVC.instantiate(fromAppStoryboard: .batchMealPlans)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            vc.mealData = self.mealListData[indexPath.item]
+            self.present(vc, animated: true)
+        } else if collectionView == topRatedMealCollView {
+            let vc = MealBatchUnSubscribeDetailVC.instantiate(fromAppStoryboard: .batchMealPlans)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            vc.mealData = self.mealListData[indexPath.item]
+            self.present(vc, animated: true)
+        }
     }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         //        if (collectionView.tag == 1501)
         //        {
         //            pageControl.currentPage = indexPath.item
-        //             
+        //
         //             let indexValue = indexPath.item //Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
         //             pageControl?.currentPage = indexValue
         //        }

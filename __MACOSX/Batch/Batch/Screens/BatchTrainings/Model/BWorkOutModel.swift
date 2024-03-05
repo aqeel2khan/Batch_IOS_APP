@@ -882,7 +882,7 @@ struct CourseModel: Codable {
 
 // MARK: - Welcome
 struct CoachListResponse: Codable {
-    let status: Bool
+    let status: Bool?
     let message: String?
     let data: [CoachListData]?
 }
@@ -901,7 +901,7 @@ struct CoachListData: Codable {
     let emailVerifiedAt, avatar, createdAt: String?
     let updatedAt: String?
     let lastLoginAt, lastLoginIP: String?
-    let followersCount, youFollowedCount: Int
+    let followersCount, youFollowedCount: Int?
     let workoutType: [WorkoutType]?
 
     enum CodingKeys: String, CodingKey {

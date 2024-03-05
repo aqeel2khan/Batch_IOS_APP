@@ -17,6 +17,7 @@ target 'Batch' do
     pod 'DropDown'
     pod 'MyFatoorah'
     #pod 'SVGKit'
+    pod "ImageSlideshow/SDWebImage"
 
     target 'BatchTests' do
     inherit! :search_paths
