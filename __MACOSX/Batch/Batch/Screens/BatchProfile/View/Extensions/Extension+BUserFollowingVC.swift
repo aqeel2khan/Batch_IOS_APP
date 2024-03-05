@@ -11,7 +11,7 @@ import UIKit
 
 extension BUserFollowingVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return followingData?.data?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -20,8 +20,13 @@ extension BUserFollowingVC: UITableViewDelegate,UITableViewDataSource {
 //        cell.lblTitle.text  = "Lower-Body Burn"
 //        cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
 //        cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
-        cell.lblName.text = "Bessie Cooper"
-        cell.lblDetails.text = "Yoga Teacher"
+        cell.lblName.text = followingData?.data?[indexPath.row].motivator_detail?.name ?? ""
+        cell.lblDetails.text = followingData?.data?[indexPath.row].motivator_detail?.email ?? ""
+        if followingData?.data?[indexPath.row].motivator_detail?.profile_photo_path != nil{
+            cell.followingprofileImage.sd_setImage(with: URL(string: BaseUrl.imageBaseUrl + (followingData?.data?[indexPath.row].motivator_detail?.profile_photo_path ?? ""))!, placeholderImage: UIImage(named: "image2"))
+        }else{
+            cell.followingprofileImage.image = UIImage(named: "image2")
+        }
         return cell
     }
     

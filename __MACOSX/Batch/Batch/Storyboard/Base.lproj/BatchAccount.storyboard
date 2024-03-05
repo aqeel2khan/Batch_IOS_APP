@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jTK-kI-kEl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jTK-kI-kEl">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -393,6 +393,10 @@
                             <constraint firstItem="xwz-s3-wky" firstAttribute="centerY" secondItem="ORr-e3-u4L" secondAttribute="centerY" id="zjY-yv-QhF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="userImageView" destination="gzI-nt-MC3" id="WAX-G4-kXY"/>
+                        <outlet property="userNameLbl" destination="urg-EE-Cn0" id="YWb-6a-KKf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tfd-U3-Kqk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -630,7 +634,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dobTxt" destination="jtP-jI-ZWl" id="DPu-RV-Wiq"/>
+                        <outlet property="emailTxt" destination="RNf-x5-xYY" id="Gsq-YH-wdb"/>
+                        <outlet property="fNameTxt" destination="16d-0B-aPE" id="6x8-Fv-ged"/>
+                        <outlet property="genderTxt" destination="Xfs-Oc-5zo" id="7fv-bP-Xxd"/>
                         <outlet property="mainView" destination="jp1-OL-7Vw" id="haV-rB-9Ng"/>
+                        <outlet property="phnTxt" destination="GoE-z7-tKW" id="zbU-9W-I3h"/>
+                        <outlet property="saveBtn" destination="3vc-0K-mxM" id="YB3-r1-OV3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aB7-oh-FyS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1299,16 +1309,16 @@
     </scenes>
     <designables>
         <designable name="3vc-0K-mxM">
-            <size key="intrinsicContentSize" width="35" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="32"/>
         </designable>
         <designable name="jiJ-zQ-5Sp">
-            <size key="intrinsicContentSize" width="30" height="33"/>
+            <size key="intrinsicContentSize" width="30" height="32"/>
         </designable>
         <designable name="vLL-uO-UXk">
-            <size key="intrinsicContentSize" width="35" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="32"/>
         </designable>
         <designable name="w6v-ip-4fU">
-            <size key="intrinsicContentSize" width="49" height="33"/>
+            <size key="intrinsicContentSize" width="52" height="32"/>
         </designable>
     </designables>
     <resources>
@@ -1341,7 +1351,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

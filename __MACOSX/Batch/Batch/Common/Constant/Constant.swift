@@ -90,6 +90,7 @@ struct API {
     static let logIn = baseUrl + "/auth/signin"// post
     static let signUp = baseUrl + "/auth/signup"// post
     
+    
     static let motivatorFollow = baseUrl + "/coach/follow/"// get
     static let motivatorUnfollow = baseUrl + "/coach/unfollow/"// get
     
@@ -105,4 +106,11 @@ struct API {
 
     static let subscriptionMealList = baseUrl + "/subscription/list" // post
     static let subscriptionMealDetail = baseUrl + "/subscription/details" // post"
+    
+    //Account Module
+    static let getProfileDetail  = baseUrl + "/account/profile"// get
+    static let getFollowingDetail  = baseUrl + "/account/following"// get
+    static let getNotificationPrefrences  = baseUrl + "/account/notification"// get
+    static let updateProfileDetail  = baseUrl + "/account/profile"// post
+    static let logout = baseUrl + "/account/logout"// post
 }

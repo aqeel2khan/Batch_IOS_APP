@@ -8,6 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		0AB608B9721647C3B01CF215 /* Pods_Batch_BatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECFA2040CBA32120CC5700F /* Pods_Batch_BatchUITests.framework */; };
+		191184582B96A79F00343F4B /* GetProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191184572B96A79F00343F4B /* GetProfileResponse.swift */; };
+		1911845A2B96AA2800343F4B /* GetNotificationPrefrencesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191184592B96AA2800343F4B /* GetNotificationPrefrencesResponse.swift */; };
+		1911845C2B96AADF00343F4B /* GetFollowingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911845B2B96AADF00343F4B /* GetFollowingResponse.swift */; };
+		1911845E2B96AB9800343F4B /* UpdateProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911845D2B96AB9800343F4B /* UpdateProfileResponse.swift */; };
+		1911846D2B96B1EB00343F4B /* BUserFollowingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911846C2B96B1EB00343F4B /* BUserFollowingVM.swift */; };
+		191184722B96B2D700343F4B /* BUserFollowingResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191184712B96B2D700343F4B /* BUserFollowingResource.swift */; };
+		191184742B96B2EA00343F4B /* BUserProfileResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191184732B96B2EA00343F4B /* BUserProfileResource.swift */; };
+		191184762B96B2F800343F4B /* BUserNotificationResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191184752B96B2F800343F4B /* BUserNotificationResource.swift */; };
+		191184782B96B30800343F4B /* BUserPersonalInfoResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191184772B96B30800343F4B /* BUserPersonalInfoResource.swift */; };
+		1911847A2B96B31B00343F4B /* BUserDeliveryDetailResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191184792B96B31B00343F4B /* BUserDeliveryDetailResource.swift */; };
+		1911847C2B96B33100343F4B /* BUserLogoutResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911847B2B96B33100343F4B /* BUserLogoutResource.swift */; };
+		1911847E2B97181700343F4B /* BUserProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911847D2B97181700343F4B /* BUserProfileVM.swift */; };
+		191184802B97182100343F4B /* BUserNotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911847F2B97182100343F4B /* BUserNotificationVM.swift */; };
+		191184822B97183700343F4B /* BUserPersonalInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191184812B97183700343F4B /* BUserPersonalInfoVM.swift */; };
+		191184842B97184400343F4B /* BUserDeliveryDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191184832B97184400343F4B /* BUserDeliveryDetailVM.swift */; };
+		191184862B97185100343F4B /* BUserLogoutVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191184852B97185100343F4B /* BUserLogoutVM.swift */; };
+		191184892B9719BA00343F4B /* UserProfileValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191184882B9719BA00343F4B /* UserProfileValidation.swift */; };
+		1911848B2B9735B500343F4B /* Extension+BUserPersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911848A2B9735B500343F4B /* Extension+BUserPersonalInfo.swift */; };
+		1911848D2B97457300343F4B /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911848C2B97457300343F4B /* LogoutResponse.swift */; };
 		1A9B01262B93ABD300F17C42 /* MealFilterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */; };
 		1A9B012E2B943BA200F17C42 /* SubscribedMealListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B012D2B943BA200F17C42 /* SubscribedMealListRequest.swift */; };
 		1A9B01302B943C5F00F17C42 /* SubscribedMealListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B012F2B943C5F00F17C42 /* SubscribedMealListResponse.swift */; };
@@ -294,6 +313,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		191184572B96A79F00343F4B /* GetProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileResponse.swift; sourceTree = "<group>"; };
+		191184592B96AA2800343F4B /* GetNotificationPrefrencesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNotificationPrefrencesResponse.swift; sourceTree = "<group>"; };
+		1911845B2B96AADF00343F4B /* GetFollowingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFollowingResponse.swift; sourceTree = "<group>"; };
+		1911845D2B96AB9800343F4B /* UpdateProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileResponse.swift; sourceTree = "<group>"; };
+		1911846C2B96B1EB00343F4B /* BUserFollowingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUserFollowingVM.swift; sourceTree = "<group>"; };
+		191184712B96B2D700343F4B /* BUserFollowingResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUserFollowingResource.swift; sourceTree = "<group>"; };
+		191184732B96B2EA00343F4B /* BUserProfileResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUserProfileResource.swift; sourceTree = "<group>"; };
+		191184752B96B2F800343F4B /* BUserNotificationResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUserNotificationResource.swift; sourceTree = "<group>"; };
+		191184772B96B30800343F4B /* BUserPersonalInfoResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUserPersonalInfoResource.swift; sourceTree = "<group>"; };
+		191184792B96B31B00343F4B /* BUserDeliveryDetailResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUserDeliveryDetailResource.swift; sourceTree = "<group>"; };
+		1911847B2B96B33100343F4B /* BUserLogoutResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUserLogoutResource.swift; sourceTree = "<group>"; };
+		1911847D2B97181700343F4B /* BUserProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUserProfileVM.swift; sourceTree = "<group>"; };
+		1911847F2B97182100343F4B /* BUserNotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUserNotificationVM.swift; sourceTree = "<group>"; };
+		191184812B97183700343F4B /* BUserPersonalInfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUserPersonalInfoVM.swift; sourceTree = "<group>"; };
+		191184832B97184400343F4B /* BUserDeliveryDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUserDeliveryDetailVM.swift; sourceTree = "<group>"; };
+		191184852B97185100343F4B /* BUserLogoutVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUserLogoutVM.swift; sourceTree = "<group>"; };
+		191184882B9719BA00343F4B /* UserProfileValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileValidation.swift; sourceTree = "<group>"; };
+		1911848A2B9735B500343F4B /* Extension+BUserPersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+BUserPersonalInfo.swift"; sourceTree = "<group>"; };
+		1911848C2B97457300343F4B /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
 		1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterRequest.swift; sourceTree = "<group>"; };
 		1A9B012D2B943BA200F17C42 /* SubscribedMealListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedMealListRequest.swift; sourceTree = "<group>"; };
 		1A9B012F2B943C5F00F17C42 /* SubscribedMealListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedMealListResponse.swift; sourceTree = "<group>"; };
@@ -611,6 +649,27 @@
 				D27F2AE9FB3B750C1554C80F /* Pods_BatchTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		191184702B96B2B100343F4B /* BAResources */ = {
+			isa = PBXGroup;
+			children = (
+				191184712B96B2D700343F4B /* BUserFollowingResource.swift */,
+				191184732B96B2EA00343F4B /* BUserProfileResource.swift */,
+				191184752B96B2F800343F4B /* BUserNotificationResource.swift */,
+				191184772B96B30800343F4B /* BUserPersonalInfoResource.swift */,
+				191184792B96B31B00343F4B /* BUserDeliveryDetailResource.swift */,
+				1911847B2B96B33100343F4B /* BUserLogoutResource.swift */,
+			);
+			path = BAResources;
+			sourceTree = "<group>";
+		};
+		191184872B97199900343F4B /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				191184882B9719BA00343F4B /* UserProfileValidation.swift */,
+			);
+			path = Validation;
 			sourceTree = "<group>";
 		};
 		311B1BBD2B2E211100E37E47 /* CommonClass */ = {
@@ -1564,8 +1623,10 @@
 		570D8FD62B84B28300EB643A /* BatchProfile */ = {
 			isa = PBXGroup;
 			children = (
-				570D8FD72B84B28300EB643A /* ViewModel */,
+				191184872B97199900343F4B /* Validation */,
 				570D8FD82B84B28300EB643A /* Model */,
+				191184702B96B2B100343F4B /* BAResources */,
+				570D8FD72B84B28300EB643A /* ViewModel */,
 				570D8FD92B84B28300EB643A /* View */,
 			);
 			path = BatchProfile;
@@ -1574,6 +1635,12 @@
 		570D8FD72B84B28300EB643A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1911846C2B96B1EB00343F4B /* BUserFollowingVM.swift */,
+				1911847D2B97181700343F4B /* BUserProfileVM.swift */,
+				1911847F2B97182100343F4B /* BUserNotificationVM.swift */,
+				191184812B97183700343F4B /* BUserPersonalInfoVM.swift */,
+				191184832B97184400343F4B /* BUserDeliveryDetailVM.swift */,
+				191184852B97185100343F4B /* BUserLogoutVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1581,6 +1648,11 @@
 		570D8FD82B84B28300EB643A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				191184572B96A79F00343F4B /* GetProfileResponse.swift */,
+				191184592B96AA2800343F4B /* GetNotificationPrefrencesResponse.swift */,
+				1911845B2B96AADF00343F4B /* GetFollowingResponse.swift */,
+				1911845D2B96AB9800343F4B /* UpdateProfileResponse.swift */,
+				1911848C2B97457300343F4B /* LogoutResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1640,6 +1712,7 @@
 			children = (
 				570D8FE92B84B28300EB643A /* Extension+BUserNotificationVC.swift */,
 				570D8FEA2B84B28300EB643A /* Extension+BUserFollowingVC.swift */,
+				1911848A2B9735B500343F4B /* Extension+BUserPersonalInfo.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2231,15 +2304,18 @@
 				574FA5AF2B8E51B900F6D3BA /* DishesDetailModel.swift in Sources */,
 				3188B4162B29CB9400E19945 /* HttpUtility.swift in Sources */,
 				5759E7D62B9048AB00352B24 /* BThankyouPurchaseVC.swift in Sources */,
+				1911845C2B96AADF00343F4B /* GetFollowingResponse.swift in Sources */,
 				5759E7B02B9048AB00352B24 /* BWorkOutViewModel.swift in Sources */,
 				5759E7E42B9048AB00352B24 /* VideoPlayerVC.swift in Sources */,
 				318BA5532B67F63200508167 /* Extension+MealBatchUnSubscribeDetailVC.swift in Sources */,
 				5759E7C62B9048AB00352B24 /* BWOMotivatorsListCollCell.swift in Sources */,
+				191184742B96B2EA00343F4B /* BUserProfileResource.swift in Sources */,
 				570EA52B2B89FDED00D801AE /* MealsModel.swift in Sources */,
 				314714542B68EB3A002EED87 /* MealPlanProtienCollectionViewCell.swift in Sources */,
 				570D8FF42B84B28300EB643A /* NotificationSettingsListTableCell.swift in Sources */,
 				5759E7F82B9048AB00352B24 /* Extension+MotivationFilterVC.swift in Sources */,
 				570D8FFC2B84B28300EB643A /* BUserDeliveryDetailVC.swift in Sources */,
+				1911847C2B96B33100343F4B /* BUserLogoutResource.swift in Sources */,
 				3147145C2B68EB8F002EED87 /* MealplanRatingVC.swift in Sources */,
 				5759E7BC2B9048AB00352B24 /* CheckOutResponse.swift in Sources */,
 				319BAD762B2A37820081A8F2 /* Colors.swift in Sources */,
@@ -2248,12 +2324,14 @@
 				3186CBA72B55B8FF007213C3 /* MealPlanTVC.swift in Sources */,
 				570EA5282B89FC5500D801AE /* BMealViewModel.swift in Sources */,
 				3188B41A2B29CBC600E19945 /* HUMethod.swift in Sources */,
+				191184722B96B2D700343F4B /* BUserFollowingResource.swift in Sources */,
 				5759E7EB2B9048AB00352B24 /* ASVideoContainer.swift in Sources */,
 				6869A4A02B6EA791004F9A7C /* CircularProgressView.swift in Sources */,
 				318D574D2B87837600A8FA5D /* Extensions+BatchCountryLanguageVC.swift in Sources */,
 				570D8FFA2B84B28300EB643A /* BUserNotificationVC.swift in Sources */,
 				5759E7C92B9048AB00352B24 /* TrainingFilterCollectionCell.swift in Sources */,
 				3188B3C52B299B6600E19945 /* ViewController.swift in Sources */,
+				1911848B2B9735B500343F4B /* Extension+BUserPersonalInfo.swift in Sources */,
 				68C14B722B63BFE10085AAD4 /* Extension+StartPlanCheckoutVC.swift in Sources */,
 				31AE2DA62B36BD10000FEB41 /* Extension+ShoppingBatchVC.swift in Sources */,
 				1A9B01302B943C5F00F17C42 /* SubscribedMealListResponse.swift in Sources */,
@@ -2263,7 +2341,9 @@
 				31934C7B2B88C73C00AD7185 /* LaunchScreenVC.swift in Sources */,
 				5759E7EE2B9048AB00352B24 /* BWorkOutCompleteVC.swift in Sources */,
 				570D8FEB2B84B28300EB643A /* DashboardResource.swift in Sources */,
+				191184822B97183700343F4B /* BUserPersonalInfoVM.swift in Sources */,
 				68C14B6B2B6396A20085AAD4 /* MealPlanCheckoutCell.swift in Sources */,
+				1911848D2B97457300343F4B /* LogoutResponse.swift in Sources */,
 				319BAD642B2A31A00081A8F2 /* ButtonWithImage.swift in Sources */,
 				570D8FFD2B84B28300EB643A /* BUserLogoutVC.swift in Sources */,
 				68C14B6E2B6399F70085AAD4 /* Extension+MealPlanCheckOut.swift in Sources */,
@@ -2282,6 +2362,7 @@
 				319BAD632B2A31A00081A8F2 /* UITableViewCell.swift in Sources */,
 				1A9B012E2B943BA200F17C42 /* SubscribedMealListRequest.swift in Sources */,
 				31D424992B6B84C300E988C7 /* QuestionHeightVC.swift in Sources */,
+				1911847A2B96B31B00343F4B /* BUserDeliveryDetailResource.swift in Sources */,
 				5759E7BB2B9048AB00352B24 /* BWorkOutDetailModel.swift in Sources */,
 				5759E7F32B9048AB00352B24 /* TrainingFilterVC.swift in Sources */,
 				5759E7AD2B9048AB00352B24 /* BPromoCodePopUpViewModel.swift in Sources */,
@@ -2299,6 +2380,7 @@
 				319BAD652B2A31A00081A8F2 /* Protocols.swift in Sources */,
 				317609392B668545005D4395 /* BMealTblCell.swift in Sources */,
 				3188B4282B29D40F00E19945 /* ForgotPasswordValidation.swift in Sources */,
+				191184892B9719BA00343F4B /* UserProfileValidation.swift in Sources */,
 				313645B42B30BACC007D0E18 /* OnBoardingCollectionCell.swift in Sources */,
 				570D8FFF2B84B28300EB643A /* Extension+BUserFollowingVC.swift in Sources */,
 				31AE2DAC2B370101000FEB41 /* BatchSegmentedControl.swift in Sources */,
@@ -2325,10 +2407,12 @@
 				5759E7E02B9048AB00352B24 /* BSignUpVC.swift in Sources */,
 				31AE2DA22B36BC72000FEB41 /* Extension+MealBatchVC.swift in Sources */,
 				314714592B68EB4B002EED87 /* ReviewIngridentCollectionViewCell.swift in Sources */,
+				1911846D2B96B1EB00343F4B /* BUserFollowingVM.swift in Sources */,
 				31D4249E2B6B84C300E988C7 /* QuestionAllergyVC.swift in Sources */,
 				5759E7B42B9048AB00352B24 /* BWorkOutMotivatorDetailViewModel.swift in Sources */,
 				570D8FEF2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.swift in Sources */,
 				5759E7CE2B9048AB00352B24 /* TrainingListTableCell.swift in Sources */,
+				1911847E2B97181700343F4B /* BUserProfileVM.swift in Sources */,
 				319BAD702B2A32E00081A8F2 /* BatchButton.swift in Sources */,
 				314B7ADD2B654BFB006012DB /* MealBatchPlanningVC.swift in Sources */,
 				5759E7AF2B9048AB00352B24 /* BWorkOutResource.swift in Sources */,
@@ -2352,6 +2436,7 @@
 				5759E7E62B9048AB00352B24 /* BNextWorkOutTimerVC.swift in Sources */,
 				319BAD672B2A31A00081A8F2 /* UserDefaults.swift in Sources */,
 				5759E7FA2B9048AB00352B24 /* Extension+BWorkOutMotivatorDetailVC.swift in Sources */,
+				1911845A2B96AA2800343F4B /* GetNotificationPrefrencesResponse.swift in Sources */,
 				570D8FF82B84B28300EB643A /* BUserFollowingVC.swift in Sources */,
 				31C489F22B86164F0050702C /* BatchLoginRequest.swift in Sources */,
 				570D8FEC2B84B28300EB643A /* DashboardViewModel.swift in Sources */,
@@ -2368,6 +2453,7 @@
 				5759E7F12B9048AB00352B24 /* BWorkOutAllowNotificationVC.swift in Sources */,
 				319BAD6C2B2A31A00081A8F2 /* String.swift in Sources */,
 				575A200F2B8B784900FFCD56 /* DishesModel.swift in Sources */,
+				191184582B96A79F00343F4B /* GetProfileResponse.swift in Sources */,
 				68337D4F2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift in Sources */,
 				313894102B68167300F687B1 /* CustomSecondNavigationBar.swift in Sources */,
 				1A9B01362B94E39700F17C42 /* CreateMealSubscriptionResponse.swift in Sources */,
@@ -2375,11 +2461,13 @@
 				311576C02B86906C00224EDE /* CountryListTableCell.swift in Sources */,
 				3188B4242B29D39D00E19945 /* LoginValidation.swift in Sources */,
 				5759E7DE2B9048AB00352B24 /* PaymentMethodTblViewCell.swift in Sources */,
+				191184862B97185100343F4B /* BUserLogoutVM.swift in Sources */,
 				3188B4122B29BDC600E19945 /* Constant.swift in Sources */,
 				318A2B3F2B30CB68004845AB /* BVerifyOTPVC.swift in Sources */,
 				5759E7F22B9048AB00352B24 /* BStartWorkOutVideoVC.swift in Sources */,
 				317609322B6676EE005D4395 /* Extension+MealBatchPlanningVC.swift in Sources */,
 				3188B42A2B29D4AC00E19945 /* UserDefaultKey.swift in Sources */,
+				191184782B96B30800343F4B /* BUserPersonalInfoResource.swift in Sources */,
 				31D4249D2B6B84C300E988C7 /* QuestionAgeVC.swift in Sources */,
 				5797812D2B92476B00057943 /* BWorkOutVideoInfoPopUp.swift in Sources */,
 				318C03E92B3372F900C4281F /* UIFont.swift in Sources */,
@@ -2393,6 +2481,7 @@
 				5759E7B52B9048AB00352B24 /* BWorkOutMotivatorDetailModel.swift in Sources */,
 				3188B41C2B29CBD700E19945 /* HURequest.swift in Sources */,
 				319BAD722B2A333D0081A8F2 /* BatchTextField.swift in Sources */,
+				1911845E2B96AB9800343F4B /* UpdateProfileResponse.swift in Sources */,
 				317609302B6676D3005D4395 /* Extension+MealBatchDetailVC.swift in Sources */,
 				574FA5B52B8E599000F6D3BA /* FilterOptionModel.swift in Sources */,
 				31AE2D842B36BA82000FEB41 /* BatchBoardHomeVC.swift in Sources */,
@@ -2409,13 +2498,16 @@
 				575A20092B8B466900FFCD56 /* MealsDetailModel.swift in Sources */,
 				3188B4182B29CBB400E19945 /* HUNetworkError.swift in Sources */,
 				5759E7BE2B9048AB00352B24 /* CheckOutRequest.swift in Sources */,
+				191184802B97182100343F4B /* BUserNotificationVM.swift in Sources */,
 				319BAD602B2A31A00081A8F2 /* UIViewController.swift in Sources */,
 				31AE2D862B36BAC2000FEB41 /* Extension+BatchBoardHomeVC.swift in Sources */,
 				5759E7B72B9048AB00352B24 /* BWorkOutModel.swift in Sources */,
+				191184842B97184400343F4B /* BUserDeliveryDetailVM.swift in Sources */,
 				5759E7F02B9048AB00352B24 /* BWorkOutVC.swift in Sources */,
 				AF7CE9F72B34B9C500E545A4 /* SelectLanguage.swift in Sources */,
 				5759E7F92B9048AB00352B24 /* Extension+BStartWorkOutDetailVC.swift in Sources */,
 				319BAD622B2A31A00081A8F2 /* UIView.swift in Sources */,
+				191184762B96B2F800343F4B /* BUserNotificationResource.swift in Sources */,
 				313894162B683F8300F687B1 /* MealDilevaryDropOffVC.swift in Sources */,
 				5797812B2B92278C00057943 /* VimoPlayerCell.swift in Sources */,
 				5759E7FC2B9060C100352B24 /* DashboardWorkoutModel.swift in Sources */,
