@@ -124,6 +124,7 @@ class MealBatchDetailVC: UIViewController {
        let vc = MealBatchPlanningVC.instantiate(fromAppStoryboard: .batchMealPlans)
         vc.weekDays = self.weekDays
         vc.selectedWeekDay = self.selectedWeekDay
+        vc.mealData = mealData
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical
         self.present(vc, animated: true)
@@ -210,7 +211,10 @@ extension MealBatchDetailVC {
             if currentDate >= startDate && currentDate <= endDate {
                 let dayName = calendar.shortWeekdaySymbols[calendar.component(.weekday, from: currentDate) - 1]
                 let dayOfMonth = dateFormatter.string(from: currentDate)
-                var dateEntry = DateEntry(dayName: dayName, dayOfMonth: dayOfMonth)
+                let month = calendar.component(.month, from: currentDate)
+                let date = calendar.component(.day, from: currentDate)
+                var dateEntry = DateEntry(month: month, day: date,dayName: dayName, dayOfMonth: dayOfMonth)
+
                 if let dishes = self.mealSubscribeDetail.daysDishes[dayOfMonth] {
                     for dayDishes in dishes.values {
                         dateEntry.dishes?.append(dayDishes)

@@ -16,8 +16,11 @@ class MealBatchPlanningVC: UIViewController {
     @IBOutlet weak var mealCategoryCollView: UICollectionView! //602
     @IBOutlet weak var mealCollView: UICollectionView! //603
     @IBOutlet weak var mealCollViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var lblCountOfSelectedDishes: UILabel!
+    @IBOutlet weak var lblSelectedCategoryDishesCount: UILabel!
     // MARK: - Properties
     var isCommingFrom = ""
+    var mealData : SubscribedMeals!
     var weekDays : [DateEntry] = []
     var selectedWeekDay: DateEntry?    
     var mealCategoryArr : [CategoryList] = [
@@ -26,6 +29,7 @@ class MealBatchPlanningVC: UIViewController {
         CategoryList(categoryID: 3, categoryName: "Snack"),
         CategoryList(categoryID: 4, categoryName: "Desserts")
     ]
+    var selectedMealCategory: CategoryList?
     var dishesList : [Dishes] = []
 
     // MARK: - Lifecycle
@@ -36,7 +40,15 @@ class MealBatchPlanningVC: UIViewController {
         if let category = mealCategoryArr.first, let categoryID = category.categoryID {
             self.getDishesListApi(mealCateogryId: categoryID)
         }
+        updateSelectedDishCount()
     }
+    
+    func updateSelectedDishCount() {
+        self.lblCountOfSelectedDishes.text = "\(self.selectedWeekDay?.dishes?.count ?? 0)/\(self.mealCategoryArr.count)"
+        let selectedCategoryDishesCount = selectedWeekDay?.dishes?.filter { $0.dishCategory == selectedMealCategory?.categoryID }.count
+        self.lblSelectedCategoryDishesCount.text = "Selected \(selectedCategoryDishesCount ?? 0)/1"
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.weekCalenderCollView.reloadData()
@@ -74,9 +86,58 @@ class MealBatchPlanningVC: UIViewController {
         self.mealCollView.register(BMealDishCollCell.self)
     }
     
+    func reloadTheMealCollectionView() {
+        self.updateSelectedDishCount()
+        self.mealCollView.reloadData()
+    }
+    
+    func updateMealBatchRequest(dishesRecord: String) {
+        if let subscribedId = mealData.subscribedId, let mealId = mealData.id {
+            let updateMealBatchRequest = UpdateBatchMealPlanRequest(userId: "1", subscribedId: "\(subscribedId)", mealId: "\(mealId)", dayDishes: dishesRecord)
+            DispatchQueue.main.async {
+                showLoading()
+            }
+            let bMealViewModel = BMealBatchPlanningViewModel()
+            let urlStr = API.subscriptionMealUpdate
+            
+            bMealViewModel.updateBatchMealPlan(urlStr: urlStr, request: updateMealBatchRequest) { (response) in
+                if response.status == true {
+                    DispatchQueue.main.async {
+                        hideLoading()
+                        self.dismiss(animated: true)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        hideLoading()
+                        self.dismiss(animated: true)
+                    }
+                }
+            } onError: { (error) in
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.dismiss(animated: true)
+                }
+            }
+        }
+    }
+    
     // MARK: - IBActions
     @IBAction func onTapNextBtn(_ sender: Any) {
-        dismiss(animated: true)
+        
+        let encoder = JSONEncoder()
+        do {
+            // Encode the array into JSON data
+            let jsonData = try encoder.encode(selectedWeekDay?.dishes)
+            // Convert JSON data to a string
+            guard let jsonString = String(data: jsonData, encoding: .utf8) else {
+                return
+            }
+            
+            updateMealBatchRequest(dishesRecord: jsonString)
+        } catch {
+            print("Error encoding dishes array: \(error)")
+            dismiss(animated: true)
+        }
         
         //        let vc = MealBatchPlanningVC.instantiate(fromAppStoryboard: .batchMealPlans)
         //        vc.modalPresentationStyle = .overFullScreen
@@ -107,6 +168,8 @@ extension MealBatchPlanningVC {
                         print("Cell is not available")
                     }
                     self.mealCategoryCollView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+                    self.selectedMealCategory = self.mealCategoryArr[mealCateogryId - 1]
+                    self.updateSelectedDishCount()
                     self.mealCollView.reloadData()
                 }
             }else{
@@ -123,3 +186,11 @@ extension MealBatchPlanningVC {
         }
     }
 }
+
+extension UICollectionView {
+    func deselectAllItems(animated: Bool) {
+        guard let selectedItems = indexPathsForSelectedItems else { return }
+        for indexPath in selectedItems { deselectItem(at: indexPath, animated: animated) }
+    }
+}
+

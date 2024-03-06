@@ -966,6 +966,8 @@
                     </view>
                     <connections>
                         <outlet property="customSecondNavigationBar" destination="4Cs-iA-Xre" id="Ga8-N4-hKL"/>
+                        <outlet property="lblCountOfSelectedDishes" destination="WGD-HT-Srz" id="8ra-KE-dL2"/>
+                        <outlet property="lblSelectedCategoryDishesCount" destination="3ng-V2-1iV" id="dgb-bn-jOa"/>
                         <outlet property="mealCategoryCollView" destination="8xe-eb-jke" id="jw0-gO-ymj"/>
                         <outlet property="mealCollView" destination="Jot-YA-amd" id="oXl-xu-K8m"/>
                         <outlet property="mealCollViewHeightConstraint" destination="yrN-gc-S9i" id="kaW-4s-cxp"/>

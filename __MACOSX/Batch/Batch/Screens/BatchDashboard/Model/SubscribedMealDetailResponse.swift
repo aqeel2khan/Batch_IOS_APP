@@ -84,7 +84,9 @@ struct DaysDish: Codable {
 }
 
 struct DateEntry {
+    let month: Int
+    let day: Int
     let dayName: String
     let dayOfMonth: String
     var dishes: [DaysDish]? = []
-    }
+}
