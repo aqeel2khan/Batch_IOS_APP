@@ -95,15 +95,16 @@ struct API {
     static let motivatorUnfollow = baseUrl + "/coach/unfollow/"// get
     
     //Meal Module
-        static let mealList  = baseUrl + "/meal/list"// post
-        static let mealDetail  = baseUrl + "/meal/details/"// get
-        static let dishesList  = baseUrl + "/meal/dishes/"// get
-        static let dishesDetail  = baseUrl + "/dish/details"// post
-        static let filterOption  = baseUrl + "/meal/filters"// post
+    static let mealList  = baseUrl + "/meal/list"// post
+    static let mealDetail  = baseUrl + "/meal/details/"// get
+    static let dishesList  = baseUrl + "/meal/dishes/"// get
+    static let dishesDetail  = baseUrl + "/dish/details"// post
+    static let filterOption  = baseUrl + "/meal/filters"// post
+    static let topRatedMealList  = baseUrl + "/meal/list"// post
     
     // BatchBoard Home Module
     static let createSubscriptionMeal  = baseUrl + "/subscription/subscribe"// post
-
+    
     static let subscriptionMealList = baseUrl + "/subscription/list" // post
     static let subscriptionMealDetail = baseUrl + "/subscription/details" // post"
     static let subscriptionMealUpdate = baseUrl + "subscription/update" // post

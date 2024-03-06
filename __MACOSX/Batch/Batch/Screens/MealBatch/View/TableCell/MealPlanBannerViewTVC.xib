@@ -89,15 +89,19 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="calculateBtn" destination="wzD-NL-1Co" id="O74-ko-zlc"/>
+                <outlet property="chatBtn" destination="nix-xp-MFF" id="zwD-XR-NRb"/>
+            </connections>
             <point key="canvasLocation" x="145.80152671755724" y="91.901408450704224"/>
         </tableViewCell>
     </objects>
     <designables>
         <designable name="nix-xp-MFF">
-            <size key="intrinsicContentSize" width="144" height="33"/>
+            <size key="intrinsicContentSize" width="134" height="33"/>
         </designable>
         <designable name="wzD-NL-1Co">
-            <size key="intrinsicContentSize" width="95" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="91" height="34.333333333333336"/>
         </designable>
     </designables>
     <resources>

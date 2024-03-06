@@ -8,15 +8,10 @@
 import UIKit
 
 class MealPlanBannerViewTVC: UITableViewCell {
-   
+    @IBOutlet weak var calculateBtn: UIButton!
+    @IBOutlet weak var chatBtn: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        /*
-         titleView.makeSpecificCornerRound(corners: .topTwo, radius: 20)
-         backGroundImage.makeSpecificCornerRound(corners: .topTwo, radius: 20)
-         */
     }
-
-
-    
 }
