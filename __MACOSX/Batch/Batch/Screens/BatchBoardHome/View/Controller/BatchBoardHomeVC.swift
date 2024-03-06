@@ -13,7 +13,7 @@ class BatchBoardHomeVC: UIViewController {
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     
     @IBOutlet weak var bannerSliderShow: ImageSlideshow!
- 
+    
     @IBOutlet weak var woBatchCollView: UICollectionView!
     @IBOutlet weak var motivatorsCollView: UICollectionView!
     @IBOutlet weak var mealBatchCollView: UICollectionView!
@@ -22,17 +22,18 @@ class BatchBoardHomeVC: UIViewController {
     var courseListDataArr = [CourseDataList]()
     var coachListDataArr = [CoachListData]()
     var mealListData : [Meals] = []
-
+    var topRatedMealListData : [Meals] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
         
         self.showImagesOnSrollView(array_Images: ["banner1","banner2","banner3"])
         
         // Do any additional setup after loading the view.
         self.setupNavigationBar()
         self.registerCollView()
-     
+        
         
         let token =  Batch_UserDefaults.string(forKey: UserDefaultKey.TOKEN)
         if token == nil{
@@ -55,6 +56,7 @@ class BatchBoardHomeVC: UIViewController {
         self.getCourses()
         self.getMotivators()
         self.getMealList()
+        self.getTopRatedMealList()
     }
     
     // MARK: - UI
@@ -104,10 +106,8 @@ extension BatchBoardHomeVC {
         let urlStr = API.courseList
         bWorkOutViewModel.courseList(requestUrl: urlStr)  { (response) in
             
-            if response.status == true, response.data?.list?.count != 0
-            {
-                // print(response.data)
-                // self.blogsArray = response.data!
+            if response.status == true, response.data?.list?.count != 0 {
+                self.courseListDataArr.removeAll()
                 self.courseListDataArr = response.data?.list ?? []
                 DispatchQueue.main.async {
                     hideLoading()
@@ -116,17 +116,14 @@ extension BatchBoardHomeVC {
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
-                    //makeToast(response.message!)
                 }
             }
             
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
-                // makeToast(error.localizedDescription)
             }
         }
-        
     }
     
     //Get Coach List
@@ -138,7 +135,7 @@ extension BatchBoardHomeVC {
         let urlStr = API.coachList
         bWorkOutViewModel.coachList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data != nil{
-                
+                self.coachListDataArr.removeAll()
                 self.coachListDataArr = response.data ?? []
                 
                 DispatchQueue.main.async {
@@ -148,13 +145,11 @@ extension BatchBoardHomeVC {
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
-                    //  makeToast(response.message!)
                 }
             }
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
-                // makeToast(error.localizedDescription)
             }
         }
     }
@@ -169,6 +164,7 @@ extension BatchBoardHomeVC {
         let urlStr = API.mealList
         bMealViewModel.mealList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data?.data?.count != 0 {
+                self.mealListData.removeAll()
                 self.mealListData = response.data?.data ?? []
                 DispatchQueue.main.async {
                     hideLoading()
@@ -187,6 +183,33 @@ extension BatchBoardHomeVC {
             }
         }
     }
+    
+    func getTopRatedMealList() {
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealViewModel = BMealViewModel()
+        let urlStr = API.topRatedMealList
+        bMealViewModel.mealList(requestUrl: urlStr)  { (response) in
+            if response.status == true, response.data?.data?.count != 0 {
+                self.topRatedMealListData.removeAll()
+                self.topRatedMealListData = response.data?.data ?? []
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.mealBatchCollView.reloadData()
+                    self.topRatedMealCollView.reloadData()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
+        }
+    }
 }
 
 extension BatchBoardHomeVC {
@@ -198,7 +221,7 @@ extension BatchBoardHomeVC {
         bannerSliderShow.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
         bannerSliderShow.scrollView.backgroundColor = UIColor(red: 225 / 255.0,green: 225 / 255.0,blue: 225 / 255.0,alpha: CGFloat(1.0))
         bannerSliderShow.activityIndicator = DefaultActivityIndicator()
-       
+        
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
         bannerSliderShow.addGestureRecognizer(gestureRecognizer)
         
@@ -207,15 +230,13 @@ extension BatchBoardHomeVC {
         pageControl.pageIndicatorTintColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.6)
         pageControl.isEnabled = true
         bannerSliderShow.pageIndicator = pageControl
-//        bannerSliderShow.pageIndicator = LabelPageIndicator()  ////it will show like 1/8,2/8,....
+        //        bannerSliderShow.pageIndicator = LabelPageIndicator()  ////it will show like 1/8,2/8,....
         
-//        var arr = [KingfisherSource]()
-//        for indx in 0 ..< array_Images.count {
-//            arr.append(KingfisherSource(urlString: array_Images[indx])!)
-//        }
-//        self.bannerSliderShow.setImageInputs(arr)
-        
-        
+        //        var arr = [KingfisherSource]()
+        //        for indx in 0 ..< array_Images.count {
+        //            arr.append(KingfisherSource(urlString: array_Images[indx])!)
+        //        }
+        //        self.bannerSliderShow.setImageInputs(arr)
         
         bannerSliderShow.setImageInputs([
             ImageSource(image: UIImage(named: array_Images[0]) ?? UIImage()),

@@ -23,7 +23,7 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             return self.mealListData.count < 5 ? self.mealListData.count : 5
         }
         else if collectionView == topRatedMealCollView {
-            return self.mealListData.count < 5 ? self.mealListData.count : 5
+            return self.topRatedMealListData.count < 5 ? self.topRatedMealListData.count : 5
         }
         return 0
     }
@@ -66,10 +66,10 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
         }
         else if collectionView == topRatedMealCollView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealPlanCollectionCell", for: indexPath)  as! MealPlanCollectionCell
-            cell.titleLbl.text = self.mealListData[indexPath.row].name
-            cell.priceLbl.text = "from $\(self.mealListData[indexPath.row].price ?? "")"
-            cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") kcal"
-            cell.mealsLbl.text = "\(self.mealListData[indexPath.row].mealCount ?? 0) meals"
+            cell.titleLbl.text = self.topRatedMealListData[indexPath.row].name
+            cell.priceLbl.text = "from $\(self.topRatedMealListData[indexPath.row].price ?? "")"
+            cell.kclLbl.text = "\(self.topRatedMealListData[indexPath.row].avgCalPerDay ?? "") kcal"
+            cell.mealsLbl.text = "\(self.topRatedMealListData[indexPath.row].mealCount ?? 0) meals"
             return cell
         }
         return UICollectionViewCell()
@@ -115,7 +115,7 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             let vc = MealBatchUnSubscribeDetailVC.instantiate(fromAppStoryboard: .batchMealPlans)
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
-            vc.mealData = self.mealListData[indexPath.item]
+            vc.mealData = self.topRatedMealListData[indexPath.item]
             self.present(vc, animated: true)
         }
     }

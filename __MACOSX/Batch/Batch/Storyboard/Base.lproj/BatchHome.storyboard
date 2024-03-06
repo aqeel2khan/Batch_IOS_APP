@@ -595,13 +595,13 @@
     </scenes>
     <designables>
         <designable name="HVF-SB-S4B">
-            <size key="intrinsicContentSize" width="110" height="32"/>
+            <size key="intrinsicContentSize" width="106" height="33"/>
         </designable>
         <designable name="HyY-L2-xtO">
-            <size key="intrinsicContentSize" width="83" height="32"/>
+            <size key="intrinsicContentSize" width="80" height="33"/>
         </designable>
         <designable name="hZf-JQ-sai">
-            <size key="intrinsicContentSize" width="86" height="32"/>
+            <size key="intrinsicContentSize" width="81" height="33"/>
         </designable>
     </designables>
     <resources>
