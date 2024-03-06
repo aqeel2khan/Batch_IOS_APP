@@ -196,6 +196,7 @@
 		570EA52B2B89FDED00D801AE /* MealsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570EA52A2B89FDED00D801AE /* MealsModel.swift */; };
 		5711BE7A2B94D5A30069D0C7 /* BPaymentGatewayPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711BE782B94D5A30069D0C7 /* BPaymentGatewayPopUpVC.swift */; };
 		5711BE7B2B94D5A30069D0C7 /* Extesnion+BPaymentGatewayPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711BE792B94D5A30069D0C7 /* Extesnion+BPaymentGatewayPopUpVC.swift */; };
+		574050C42B98CDE000875E88 /* LKRulerPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574050C32B98CDE000875E88 /* LKRulerPicker.swift */; };
 		574FA5AF2B8E51B900F6D3BA /* DishesDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FA5AE2B8E51B900F6D3BA /* DishesDetailModel.swift */; };
 		574FA5B12B8E56DC00F6D3BA /* MealFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FA5B02B8E56DC00F6D3BA /* MealFilterVC.swift */; };
 		574FA5B32B8E570300F6D3BA /* Extension+MealFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FA5B22B8E570300F6D3BA /* Extension+MealFilterVC.swift */; };
@@ -506,6 +507,7 @@
 		570EA52A2B89FDED00D801AE /* MealsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsModel.swift; sourceTree = "<group>"; };
 		5711BE782B94D5A30069D0C7 /* BPaymentGatewayPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BPaymentGatewayPopUpVC.swift; sourceTree = "<group>"; };
 		5711BE792B94D5A30069D0C7 /* Extesnion+BPaymentGatewayPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extesnion+BPaymentGatewayPopUpVC.swift"; sourceTree = "<group>"; };
+		574050C32B98CDE000875E88 /* LKRulerPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKRulerPicker.swift; sourceTree = "<group>"; };
 		574FA5AE2B8E51B900F6D3BA /* DishesDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesDetailModel.swift; sourceTree = "<group>"; };
 		574FA5B02B8E56DC00F6D3BA /* MealFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealFilterVC.swift; sourceTree = "<group>"; };
 		574FA5B22B8E570300F6D3BA /* Extension+MealFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+MealFilterVC.swift"; sourceTree = "<group>"; };
@@ -747,6 +749,7 @@
 				3145BBD62B8277D1001AC288 /* Video4.mp4 */,
 				3145BBD82B8277D1001AC288 /* Video5.mp4 */,
 				3145BBD72B8277D1001AC288 /* Video6.mp4 */,
+				574050C12B98CDE000875E88 /* ThirdParty */,
 				AFEF32E12B34AFDD00D4BD74 /* Localizable */,
 				318C03DF2B33682900C4281F /* Fonts */,
 				3188B3F02B299BF100E19945 /* AppDelegate */,
@@ -1511,8 +1514,8 @@
 			isa = PBXGroup;
 			children = (
 				31D424942B6B84C300E988C7 /* QuestionGoalVC.swift */,
-				31D424912B6B84C300E988C7 /* QuestionWeightVC.swift */,
 				31D424922B6B84C300E988C7 /* QuestionHeightVC.swift */,
+				31D424912B6B84C300E988C7 /* QuestionWeightVC.swift */,
 				31D424932B6B84C300E988C7 /* QuestionDietVC.swift */,
 				31D424952B6B84C300E988C7 /* QuestionActivityVC.swift */,
 				31D424962B6B84C300E988C7 /* QuestionAgeVC.swift */,
@@ -1746,6 +1749,22 @@
 				5711BE792B94D5A30069D0C7 /* Extesnion+BPaymentGatewayPopUpVC.swift */,
 			);
 			path = PaymentGateway;
+			sourceTree = "<group>";
+		};
+		574050C12B98CDE000875E88 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				574050C22B98CDE000875E88 /* LKRulerPicker */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		574050C22B98CDE000875E88 /* LKRulerPicker */ = {
+			isa = PBXGroup;
+			children = (
+				574050C32B98CDE000875E88 /* LKRulerPicker.swift */,
+			);
+			path = LKRulerPicker;
 			sourceTree = "<group>";
 		};
 		5759E7512B9048AB00352B24 /* BatchTrainings */ = {
@@ -2326,6 +2345,7 @@
 				6869A4A02B6EA791004F9A7C /* CircularProgressView.swift in Sources */,
 				318D574D2B87837600A8FA5D /* Extensions+BatchCountryLanguageVC.swift in Sources */,
 				570D8FFA2B84B28300EB643A /* BUserNotificationVC.swift in Sources */,
+				574050C42B98CDE000875E88 /* LKRulerPicker.swift in Sources */,
 				5759E7C92B9048AB00352B24 /* TrainingFilterCollectionCell.swift in Sources */,
 				3188B3C52B299B6600E19945 /* ViewController.swift in Sources */,
 				1911848B2B9735B500343F4B /* Extension+BUserPersonalInfo.swift in Sources */,

@@ -65,13 +65,6 @@ class MealBatchVC: UIViewController {
         mealPlanTblView.register(UINib(nibName: "MealPlanBannerViewTVC", bundle: .main), forCellReuseIdentifier: "MealPlanBannerViewTVC")
       }
     
-    @IBAction func calculateBtnTap(_ sender: Any) {
-        let vc = QuestionGoalVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .coverVertical
-        self.present(vc, animated: true)
-    }
-    
     @IBAction func filterBtnTap(_ sender: Any) {
         let vc = MealFilterVC.instantiate(fromAppStoryboard: .batchMealPlans)
         vc.firstArray = filterOptionData.mealCalories ?? []
