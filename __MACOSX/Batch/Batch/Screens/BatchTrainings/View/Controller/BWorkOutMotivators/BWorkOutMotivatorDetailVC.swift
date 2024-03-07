@@ -15,7 +15,6 @@ class BWorkOutMotivatorDetailVC: UIViewController {
     @IBOutlet weak var followerCountLbl: UILabel!
     @IBOutlet weak var desLbl: UILabel!
     
-    
     @IBOutlet weak var followBtn: BatchButton!
     @IBOutlet weak var unFollowBtn: BatchButton!
     
@@ -40,8 +39,13 @@ class BWorkOutMotivatorDetailVC: UIViewController {
     var coachDetailCourseArr = [CourseWorkoutList]()
 //    var motivatorCourseArr = [motivatorCoachListDataList]()
     var motivatorCourseArr = [CourseDataList]()
-
     
+    var isFollowed = false
+    var followerCount = 0
+
+    // Set a time interval for debouncing (e.g., 1 second)
+    let debounceInterval: TimeInterval = 0.50
+    var isFollowButtonEnabled = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +56,20 @@ class BWorkOutMotivatorDetailVC: UIViewController {
         leftLayout.estimatedItemSize = CGSize(width: 140, height: 40)
         trainingCollectionView.collectionViewLayout = leftLayout
         
-        setUpViewData()
-        
         if woCoachDetailInfo.count != 0
         {
             let info = woCoachDetailInfo[0]
+            
+            let isYouFollow = info.youFollowedCount
+            if isYouFollow == 0
+            {
+                self.isFollowed = false
+            }
+            else
+            {
+                self.isFollowed = true
+            }
+            
             //            guard info.id != nil else { return }
             //            self.getCoachDetailsCourseList (courseId:"\(info.id ?? 0)")
             guard info.id != nil else { return }
@@ -69,11 +82,10 @@ class BWorkOutMotivatorDetailVC: UIViewController {
             {
                 self.showAlert(message: "Please check your internet", title: "Network issue")
             }
-            
-            
             // self.getCoachDetails(coachId: "\(info.id ?? 0)")
-            
         }
+        setUpViewData()
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -87,6 +99,7 @@ class BWorkOutMotivatorDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.traningPackageTblView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         
 //        self.trainingCollectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
@@ -137,9 +150,16 @@ class BWorkOutMotivatorDetailVC: UIViewController {
     {
         if UserDefaultUtility.isUserLoggedIn()
         {
-            self.followBtn.isHidden = true
-            self.unFollowBtn.isHidden = false
-            self.followUnfollowBtn.isHidden = false
+            if self.isFollowed == false {
+                self.followBtn.isHidden = true
+                self.unFollowBtn.isHidden = false
+                self.followUnfollowBtn.isHidden = false
+            }
+            else {
+                self.followBtn.isHidden = false
+                self.unFollowBtn.isHidden = true
+                self.followUnfollowBtn.isHidden = false
+            }
         }
         else
         {
@@ -152,7 +172,8 @@ class BWorkOutMotivatorDetailVC: UIViewController {
         let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (info.profilePhotoPath ?? ""))
         self.coachPicImgView.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
         self.coachNameLbl.text = "\(info.name ?? "")"
-        self.followerCountLbl.text = "0"
+        self.followerCountLbl.text = "\(info.followersCount ?? 0)" //"0"
+        self.followerCount = info.followersCount ?? 0
         self.desLbl.text = ""
                 
         if info.workoutType?.count != 0 {
@@ -171,13 +192,23 @@ class BWorkOutMotivatorDetailVC: UIViewController {
     }
     
     @IBAction func onTapBackBtn(_ sender: Any) {
+        // This post notification use for call api or perform any other things in previous screen
+        let notification = Notification(name: .myCustomNotification, object: nil, userInfo: nil)
+        NotificationCenter.default.post(notification)
         self.dismiss(animated: true)
     }
     
     @IBAction func onTapFollowUnfollowBtn(_ sender: UIButton) {
         
-        sender.isSelected = !sender.isSelected
+        // Check if the button is enabled
+          guard isFollowButtonEnabled else {
+              return
+          }
+        // Disable the button to prevent rapid clicks
+         isFollowButtonEnabled = false
         
+        sender.isSelected = self.isFollowed
+        sender.isSelected = !sender.isSelected
         var fullUrlStr = ""
         if woCoachDetailInfo.count != 0
         {
@@ -186,20 +217,21 @@ class BWorkOutMotivatorDetailVC: UIViewController {
             
             if internetConnection.isConnectedToNetwork() == true {
                 // Call Api here
-                
                 if sender.isSelected
                 {
                     self.followBtn.isHidden   = false
                     self.unFollowBtn.isHidden = true
-                    fullUrlStr = API.motivatorUnfollow + "\(info.id ?? 0)"
-
+                    self.followerCount += 1
+                    self.followerCountLbl.text = "\(self.followerCount)"
+                    fullUrlStr = API.motivatorFollow + "\(info.id ?? 0)"
                 }
                 else
                 {
                     self.followBtn.isHidden   = true
                     self.unFollowBtn.isHidden = false
-                    fullUrlStr = API.motivatorFollow + "\(info.id ?? 0)"
-
+                    self.followerCount -= 1
+                    self.followerCountLbl.text = "\(self.followerCount)"
+                    fullUrlStr = API.motivatorUnfollow + "\(info.id ?? 0)"
                 }
                 self.getfollowUnfollow(urlStr: fullUrlStr)
             }
@@ -209,9 +241,10 @@ class BWorkOutMotivatorDetailVC: UIViewController {
             }
         }
         
-        
-        
-        
+        // After the debounce interval, enable the button again
+        DispatchQueue.main.asyncAfter(deadline: .now() + debounceInterval) { [weak self] in
+            self?.isFollowButtonEnabled = true
+        }
     }
     
     //    @objc func cellBtnClicked(sender:UIButton)
@@ -377,7 +410,7 @@ class BWorkOutMotivatorDetailVC: UIViewController {
         //let fullUrlStr = API.motivatorFollow + courseId
         
         DispatchQueue.main.async {
-            showLoading()
+           // showLoading()
         }
         let bWOMotivatorDetailViewModel = BWorkOutMotivatorDetailViewModel()
         
@@ -390,6 +423,19 @@ class BWorkOutMotivatorDetailVC: UIViewController {
                 ///self.motivatorCourseArr = response.data?.list ?? []
                 
                 DispatchQueue.main.async {
+
+                    if self.followBtn.isHidden == false
+                    {
+                        self.isFollowed = true
+                        //self.followerCount += 1
+                    }
+                    else if self.unFollowBtn.isHidden == false
+                    {
+                        self.isFollowed = false
+                        //self.followerCount -= 1
+                    }
+                    //self.followerCountLbl.text = "\(self.followerCount)"
+
                     hideLoading()
                     //                    self.traningPackageTblView.reloadData()
                 }

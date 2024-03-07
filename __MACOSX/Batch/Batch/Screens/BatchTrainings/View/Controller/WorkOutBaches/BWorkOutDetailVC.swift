@@ -352,6 +352,9 @@ class BWorkOutDetailVC: UIViewController {
     }
     
     @IBAction func onTapBackBtn(_ sender: Any) {
+        // This post notification use for call api or perform any other things in previous screen
+        let notification = Notification(name: .myCustomNotification, object: nil, userInfo: nil)
+        NotificationCenter.default.post(notification)
         dismiss(animated: true, completion: nil)
     }
     

@@ -21,17 +21,17 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxb-23-J9x">
                         <rect key="frame" x="10" y="10" width="355" height="254"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Qu-GL-zEF">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9Qu-GL-zEF">
                                 <rect key="frame" x="15" y="5" width="325" height="244"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need help choosing the right Meal Batch?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyA-XQ-sLB" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="325" height="67"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer a few questions or talk to our nutritionist and you'll find the best batch for you based on your needs and calories" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxs-vK-QhP" customClass="BatchRegularLabel">
-                                        <rect key="frame" x="0.0" y="77" width="325" height="68.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="77" width="325" height="73.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nix-xp-MFF" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="205.33333333333334" width="325" height="38.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="200.33333333333334" width="325" height="43.666666666666657"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Talk to nutritionist  ">
                                             <color key="titleColor" name="AppThemeButtonColor"/>
