@@ -45,6 +45,13 @@ class VimoPlayerVC: UIViewController {
         pausePlayeVideos()
     }
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        ASVideoPlayerController.sharedVideoPlayer.pausePlayeVideosFor(tableView: vimoVideoTbl, appEnteredFromBackground: true)
+    }
+    
     //1
     func changeSecondTableViewCellColor(index:Int) {
         for i in 0..<self.viemoVideoArr.count {
@@ -160,6 +167,7 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
     func pausePlayeVideos(){
         ASVideoPlayerController.sharedVideoPlayer.pausePlayeVideosFor(tableView: vimoVideoTbl)
     }
+    
     @objc func appEnteredFromBackground() {
         ASVideoPlayerController.sharedVideoPlayer.pausePlayeVideosFor(tableView: vimoVideoTbl, appEnteredFromBackground: true)
     }
