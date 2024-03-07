@@ -158,10 +158,10 @@ extension BatchBoardHomeVC : UICollectionViewDelegateFlowLayout {
             return CGSize.init(width: (cellSquareSize / 2) - 20, height: 220)
         }
         else if collectionView == mealBatchCollView {
-            return CGSize.init(width: cellSquareSize, height: 260)
+            return CGSize.init(width: cellSquareSize, height: 220)
         }
         else if collectionView == topRatedMealCollView {
-            return CGSize.init(width: cellSquareSize, height: 260)
+            return CGSize.init(width: cellSquareSize, height: 220)
         }
         else {
             return CGSize.init(width: cellSquareSize, height: 120)
