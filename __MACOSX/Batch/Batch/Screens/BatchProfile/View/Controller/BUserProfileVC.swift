@@ -37,21 +37,26 @@ class BUserProfileVC: UIViewController {
     //    }
     
     func getProfileData(){
-        let bUserProfileVM = BUserProfileVM()
-        DispatchQueue.main.async {
-            showLoading()
-        }
-        bUserProfileVM.getProfileDetails { response in
+    
+        if internetConnection.isConnectedToNetwork() == true {
+            let bUserProfileVM = BUserProfileVM()
             DispatchQueue.main.async {
-                hideLoading()
-                self.updateUI(response: response)
+                showLoading()
             }
-            
-        } onError: { error in
-            DispatchQueue.main.async {
-                hideLoading()
-                self.showAlert(message: error.localizedDescription)
+            bUserProfileVM.getProfileDetails { response in
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.updateUI(response: response)
+                }
+                
+            } onError: { error in
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.showAlert(message: error.localizedDescription)
+                }
             }
+        }else{
+            self.showAlert(message: "Please check your internet", title: "Network issue")
         }
 
     }

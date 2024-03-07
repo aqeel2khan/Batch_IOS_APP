@@ -113,4 +113,5 @@ struct API {
     static let getNotificationPrefrences  = baseUrl + "/account/notification"// get
     static let updateProfileDetail  = baseUrl + "/account/profile"// post
     static let logout = baseUrl + "/account/logout"// post
+    static let updateNotifiationPrefrences = baseUrl + "/account/notification"// post
 }

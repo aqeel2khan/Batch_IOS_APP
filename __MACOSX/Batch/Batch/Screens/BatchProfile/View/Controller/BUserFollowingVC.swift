@@ -36,7 +36,34 @@ class BUserFollowingVC: UIViewController {
         self.dismiss(animated: true)
     }
     
+    func unfollowCoach(coachId: Int){
+        if internetConnection.isConnectedToNetwork(){
+            let urlString = API.motivatorUnfollow + "\(coachId)"
+            let bUserFollowingData = BUserFollowingVM()
+            DispatchQueue.main.async {
+                showLoading()
+            }
+            bUserFollowingData.followUnfollowApi(requestUrl: urlString) { response in
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.showAlertViewWithOne(title: "Batch", message: response.message ?? "", option1: "Ok") {
+                        self.getUserFollowingData()
+                    }
+                }
+            } onError: { err in
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.showAlert(message: err.localizedDescription)
+                }
+            }
+
+        }else{
+            self.showAlert(message: "Please check your internet", title: "Network issue")
+        }
+    }
+    
     func getUserFollowingData(){
+        if internetConnection.isConnectedToNetwork() == true {
         let bUserFollowingData = BUserFollowingVM()
         DispatchQueue.main.async {
             showLoading()
@@ -44,7 +71,14 @@ class BUserFollowingVC: UIViewController {
         bUserFollowingData.getFolowingDetails { response in
             DispatchQueue.main.async {
                 hideLoading()
-                self.followingData = response
+                if response.data?.count ?? 0 > 0{
+                    self.followingData = response
+                }else{
+                    self.showAlertViewWithOne(title: "Batch", message: "No Following records found", option1: "Ok") {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
+               
             }
             
         } onError: { error in
@@ -52,6 +86,9 @@ class BUserFollowingVC: UIViewController {
                 hideLoading()
                 self.showAlert(message: error.localizedDescription)
             }
+        }
+        }else{
+            self.showAlert(message: "Please check your internet", title: "Network issue")
         }
     }
     

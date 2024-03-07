@@ -13,6 +13,9 @@ class BUserNotificationVC: UIViewController {
     @IBOutlet weak var notificationListTableView: UITableView!
     let notificationList = ["All notifications","Training notifications","Live stream notifications", "Meal plan notificatins", "Delivery notifications"]
     
+    var notificaionPrefrenceList: [String : Int] = [:]
+    var isChanged = false
+    
     var notificationPrefrences : GetNotificationPrefrencesResponse?{
         didSet{
             DispatchQueue.main.async{
@@ -39,22 +42,43 @@ class BUserNotificationVC: UIViewController {
     }
     
     func getNotificationPrefrences(){
-        let bUserNotificationVM = BUserNotificationVM()
-        DispatchQueue.main.async {
-            showLoading()
-        }
-        bUserNotificationVM.getNotificationPrefrences { response in
+        if internetConnection.isConnectedToNetwork() == true {
+            let bUserNotificationVM = BUserNotificationVM()
             DispatchQueue.main.async {
-                hideLoading()
-                self.notificationPrefrences = response
+                showLoading()
             }
-            
-        } onError: { error in
-            DispatchQueue.main.async {
-                hideLoading()
-                self.showAlert(message: error.localizedDescription)
+            bUserNotificationVM.getNotificationPrefrences { response in
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.notificationPrefrences = response
+                    self.notificationList.forEach { data in
+                        switch data{
+                        case "All notifications":
+                            self.notificaionPrefrenceList[data] = response.data?.all ?? 0
+                        case "Training notifications":
+                            self.notificaionPrefrenceList[data] = response.data?.training ?? 0
+                        case "Live stream notifications":
+                            self.notificaionPrefrenceList[data] = response.data?.live_stream ?? 0
+                        case "Meal plan notificatins":
+                            self.notificaionPrefrenceList[data] = response.data?.meal_plan ?? 0
+                        case "Delivery notifications":
+                            self.notificaionPrefrenceList[data] = response.data?.delivery ?? 0
+                        default:
+                            self.notificaionPrefrenceList[data] = 0
+                        }
+                        
+                    }
+                }
+                
+            } onError: { error in
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.showAlert(message: error.localizedDescription)
+                }
             }
-        }
+        } else{
+                self.showAlert(message: "Please check your internet", title: "Network issue")
+            }
     }
    
     
@@ -63,6 +87,45 @@ class BUserNotificationVC: UIViewController {
     }
     
     @IBAction func onTapBackBtn(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        updateNotificationInfo()
+    }
+    
+    func updateNotificationInfo(){
+        var request = UpdateNotificationRequest()
+        for (key, value) in self.notificaionPrefrenceList{
+            if key == "All notifications" && value == 1{
+                request.all = 1
+            }else if key == "Training notifications" && value == 1{
+                request.training = 1
+            }else if key == "Live stream notifications" && value == 1{
+                request.live_stream = 1
+            }else if key == "Meal plan notificatins" && value == 1{
+                request.meal_plan = 1
+            }else if key == "Delivery notifications" && value == 1{
+                request.delivery = 1
+            }
+        }
+        if internetConnection.isConnectedToNetwork() == true {
+        let bUserNotificationInfoVM = BUserNotificationVM()
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        bUserNotificationInfoVM.updateNotificationInfo(request: request) { response in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.showAlertViewWithOne(title: "Batch", message: response.message ?? "", option1: "Ok") {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+            
+        } onError: { error in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.showAlert(message: error.localizedDescription)
+            }
+        }
+    }else{
+        self.showAlert(message: "Please check your internet", title: "Network issue")
+    }
     }
 }

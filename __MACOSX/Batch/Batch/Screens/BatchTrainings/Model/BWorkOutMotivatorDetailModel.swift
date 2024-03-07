@@ -73,6 +73,7 @@ struct MotivatorFollowUnFollowResponse: Codable {
     let status: Bool
     let message: String?
     let data: MotivatorFollowUnFollowData?
+    let error : MotivatorFollowResponseError?
 }
 
 // MARK: - DataClass
@@ -106,4 +107,12 @@ struct MotivatorFollowUnFollowData: Codable {
         case lastLoginAt = "last_login_at"
         case lastLoginIP = "last_login_ip"
     }
+}
+
+struct MotivatorFollowResponseError : Codable {
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+    }
+
 }

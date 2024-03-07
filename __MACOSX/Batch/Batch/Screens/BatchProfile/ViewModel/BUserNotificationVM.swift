@@ -17,4 +17,15 @@ struct BUserNotificationVM{
             onError(error)
         }
     }
+    
+    func updateNotificationInfo(request: UpdateNotificationRequest, onSuccess:@escaping(LogoutResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let bUserProfile = BUserNotificationResource()
+        bUserProfile.updateNotificationPrefrencesInfo(request: request){ (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+        
+    }
 }

@@ -20,12 +20,17 @@ extension BUserFollowingVC: UITableViewDelegate,UITableViewDataSource {
 //        cell.lblTitle.text  = "Lower-Body Burn"
 //        cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
 //        cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+        cell.unfollowBtn.tag = indexPath.row
         cell.lblName.text = followingData?.data?[indexPath.row].motivator_detail?.name ?? ""
         cell.lblDetails.text = followingData?.data?[indexPath.row].motivator_detail?.email ?? ""
         if followingData?.data?[indexPath.row].motivator_detail?.profile_photo_path != nil{
             cell.followingprofileImage.sd_setImage(with: URL(string: BaseUrl.imageBaseUrl + (followingData?.data?[indexPath.row].motivator_detail?.profile_photo_path ?? ""))!, placeholderImage: UIImage(named: "image2"))
         }else{
             cell.followingprofileImage.image = UIImage(named: "image2")
+        }
+        
+        cell.callBackTOUnfollow = { tag in
+            self.unfollowCoach(coachId: self.followingData?.data?[indexPath.row].coach_id ?? 0)
         }
         return cell
     }

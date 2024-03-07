@@ -34,6 +34,8 @@ class BUserPersonalInfoVC: UIViewController {
     
     
     func getUserPersonalInfo(){
+        
+        if internetConnection.isConnectedToNetwork(){
         let bUserPersonalInfoVM = BUserPersonalInfoVM()
         DispatchQueue.main.async {
             showLoading()
@@ -49,6 +51,9 @@ class BUserPersonalInfoVC: UIViewController {
                 hideLoading()
                 self.showAlert(message: error.localizedDescription)
             }
+        }
+        }else{
+            self.showAlert(message: "Please check your internet", title: "Network issue")
         }
     }
     
@@ -90,6 +95,7 @@ class BUserPersonalInfoVC: UIViewController {
     }
     
     func updateUserPersonalInfo(){
+        if internetConnection.isConnectedToNetwork(){
         let request = UpdateProfileRequest(mobile: phnTxt.text ?? "", name: fNameTxt.text ?? "", dob: dobTxt.text ?? "", gender: genderTxt.text ?? "")
         let bUserPersonalInfoVM = BUserPersonalInfoVM()
         DispatchQueue.main.async {
@@ -108,6 +114,9 @@ class BUserPersonalInfoVC: UIViewController {
                 self.showAlert(message: error.localizedDescription)
             }
         }
+    }else{
+        self.showAlert(message: "Please check your internet", title: "Network issue")
+    }
     }
     
 }

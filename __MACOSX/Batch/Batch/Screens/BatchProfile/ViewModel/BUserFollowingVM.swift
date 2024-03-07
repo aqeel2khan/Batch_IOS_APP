@@ -18,4 +18,14 @@ struct BUserFollowingVM{
             onError(error)
         }
     }
+    
+    func followUnfollowApi(requestUrl: String, onSuccess:@escaping(MotivatorFollowUnFollowResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        let bWOResource = BUserFollowingResource()
+        
+        bWOResource.followUnfollowApiCall(urlStr: requestUrl) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
 }

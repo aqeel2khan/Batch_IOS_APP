@@ -33,6 +33,7 @@ class BUserLogoutVC: UIViewController {
     }
     
     func logoutUser(){
+        if internetConnection.isConnectedToNetwork(){
         let bLogoutVM = BUserLogoutVM()
         DispatchQueue.main.async {
             showLoading()
@@ -52,6 +53,10 @@ class BUserLogoutVC: UIViewController {
                 self.showAlert(message: error.localizedDescription)
             }
         }
+        }else{
+            self.showAlert(message: "Please check your internet", title: "Network issue")
+        }
     }
+    
     
 }
