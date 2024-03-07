@@ -140,5 +140,23 @@ struct BMealResource {
                 }
             }
     }
+    
+    // Get Diet List Api  //1
+    func dietList(urlStr:String, onSuccess:@escaping(DietListResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let courseContentUrl = URL(string: urlStr)!
+        let urlRequest = HURequest(url: courseContentUrl, method: .get)
+        
+        HttpUtility.shared.request(huRequest: urlRequest, isAuthorization: false, resultType: DietListResponse
+            .self) { (result) in
+                
+                switch result{
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+    }
 }
 

@@ -163,13 +163,17 @@
 		31D4248F2B6B84AC00E988C7 /* QuestionAllergyCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D4248D2B6B84AC00E988C7 /* QuestionAllergyCollectionCell.xib */; };
 		31D424982B6B84C300E988C7 /* QuestionWeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D424912B6B84C300E988C7 /* QuestionWeightVC.swift */; };
 		31D424992B6B84C300E988C7 /* QuestionHeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D424922B6B84C300E988C7 /* QuestionHeightVC.swift */; };
-		31D4249A2B6B84C300E988C7 /* QuestionDietVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D424932B6B84C300E988C7 /* QuestionDietVC.swift */; };
 		31D4249B2B6B84C300E988C7 /* QuestionGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D424942B6B84C300E988C7 /* QuestionGoalVC.swift */; };
 		31D4249C2B6B84C300E988C7 /* QuestionActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D424952B6B84C300E988C7 /* QuestionActivityVC.swift */; };
 		31D4249D2B6B84C300E988C7 /* QuestionAgeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D424962B6B84C300E988C7 /* QuestionAgeVC.swift */; };
 		31D4249E2B6B84C300E988C7 /* QuestionAllergyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D424972B6B84C300E988C7 /* QuestionAllergyVC.swift */; };
 		398B6BCB565933C373E9D287 /* Pods_Batch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C16B892CE43BF275E3C909 /* Pods_Batch.framework */; };
 		51925B3ADAC759E79F2D7C9E /* Pods_BatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27F2AE9FB3B750C1554C80F /* Pods_BatchTests.framework */; };
+		570443C02B9A2C7500F630F6 /* DietModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570443BF2B9A2C7500F630F6 /* DietModel.swift */; };
+		570443C42B9A2EF000F630F6 /* QuestionDietVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570443C22B9A2EF000F630F6 /* QuestionDietVC.swift */; };
+		570443C52B9A2EF000F630F6 /* Extension+QuestionDietVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570443C32B9A2EF000F630F6 /* Extension+QuestionDietVC.swift */; };
+		570443C92B9A2FAA00F630F6 /* QuestionDietTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570443C72B9A2FAA00F630F6 /* QuestionDietTVC.xib */; };
+		570443CA2B9A2FAA00F630F6 /* QuestionDietTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570443C82B9A2FAA00F630F6 /* QuestionDietTVC.swift */; };
 		570D8FEB2B84B28300EB643A /* DashboardResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570D8FC52B84B28300EB643A /* DashboardResource.swift */; };
 		570D8FEC2B84B28300EB643A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570D8FC62B84B28300EB643A /* DashboardViewModel.swift */; };
 		570D8FEE2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570D8FCC2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.xib */; };
@@ -475,12 +479,16 @@
 		31D4248D2B6B84AC00E988C7 /* QuestionAllergyCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionAllergyCollectionCell.xib; sourceTree = "<group>"; };
 		31D424912B6B84C300E988C7 /* QuestionWeightVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionWeightVC.swift; sourceTree = "<group>"; };
 		31D424922B6B84C300E988C7 /* QuestionHeightVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionHeightVC.swift; sourceTree = "<group>"; };
-		31D424932B6B84C300E988C7 /* QuestionDietVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionDietVC.swift; sourceTree = "<group>"; };
 		31D424942B6B84C300E988C7 /* QuestionGoalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionGoalVC.swift; sourceTree = "<group>"; };
 		31D424952B6B84C300E988C7 /* QuestionActivityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionActivityVC.swift; sourceTree = "<group>"; };
 		31D424962B6B84C300E988C7 /* QuestionAgeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionAgeVC.swift; sourceTree = "<group>"; };
 		31D424972B6B84C300E988C7 /* QuestionAllergyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionAllergyVC.swift; sourceTree = "<group>"; };
 		51C16B892CE43BF275E3C909 /* Pods_Batch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Batch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		570443BF2B9A2C7500F630F6 /* DietModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DietModel.swift; sourceTree = "<group>"; };
+		570443C22B9A2EF000F630F6 /* QuestionDietVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionDietVC.swift; sourceTree = "<group>"; };
+		570443C32B9A2EF000F630F6 /* Extension+QuestionDietVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+QuestionDietVC.swift"; sourceTree = "<group>"; };
+		570443C72B9A2FAA00F630F6 /* QuestionDietTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionDietTVC.xib; sourceTree = "<group>"; };
+		570443C82B9A2FAA00F630F6 /* QuestionDietTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionDietTVC.swift; sourceTree = "<group>"; };
 		570D8FC52B84B28300EB643A /* DashboardResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardResource.swift; sourceTree = "<group>"; };
 		570D8FC62B84B28300EB643A /* DashboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		570D8FCC2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutBatchDashboardCollectionCell.xib; sourceTree = "<group>"; };
@@ -1456,6 +1464,7 @@
 		31AE2D9C2B36BB10000FEB41 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				570443C62B9A2FAA00F630F6 /* QuestionDietTVC */,
 				575A200A2B8B541500FFCD56 /* MealPlanBannerViewTVC.swift */,
 				575A200B2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib */,
 				3186CBA32B55B8FF007213C3 /* MealPlanTVC.swift */,
@@ -1516,7 +1525,7 @@
 				31D424942B6B84C300E988C7 /* QuestionGoalVC.swift */,
 				31D424922B6B84C300E988C7 /* QuestionHeightVC.swift */,
 				31D424912B6B84C300E988C7 /* QuestionWeightVC.swift */,
-				31D424932B6B84C300E988C7 /* QuestionDietVC.swift */,
+				570443C12B9A2EF000F630F6 /* QuestionDietVC */,
 				31D424952B6B84C300E988C7 /* QuestionActivityVC.swift */,
 				31D424962B6B84C300E988C7 /* QuestionAgeVC.swift */,
 				31D424972B6B84C300E988C7 /* QuestionAllergyVC.swift */,
@@ -1524,6 +1533,24 @@
 				68337D4E2B6D6AD70009D4B0 /* ShowTotalBurnerCaloryVC.swift */,
 			);
 			path = QuestionsVC;
+			sourceTree = "<group>";
+		};
+		570443C12B9A2EF000F630F6 /* QuestionDietVC */ = {
+			isa = PBXGroup;
+			children = (
+				570443C22B9A2EF000F630F6 /* QuestionDietVC.swift */,
+				570443C32B9A2EF000F630F6 /* Extension+QuestionDietVC.swift */,
+			);
+			path = QuestionDietVC;
+			sourceTree = "<group>";
+		};
+		570443C62B9A2FAA00F630F6 /* QuestionDietTVC */ = {
+			isa = PBXGroup;
+			children = (
+				570443C72B9A2FAA00F630F6 /* QuestionDietTVC.xib */,
+				570443C82B9A2FAA00F630F6 /* QuestionDietTVC.swift */,
+			);
+			path = QuestionDietTVC;
 			sourceTree = "<group>";
 		};
 		570D8FC32B84B28300EB643A /* BatchDashboard */ = {
@@ -1738,6 +1765,7 @@
 				1A9B01352B94E39700F17C42 /* CreateMealSubscriptionResponse.swift */,
 				1A9B013B2B985A8100F17C42 /* UpdateBatchMealPlanRequest.swift */,
 				1A9B013D2B985D8300F17C42 /* UpdateBatchMealPlanResponse.swift */,
+				570443BF2B9A2C7500F630F6 /* DietModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2125,6 +2153,7 @@
 				570D8FF72B84B28300EB643A /* FollowingListTableCell.xib in Resources */,
 				68C14B6C2B6396A20085AAD4 /* MealPlanCheckoutCell.xib in Resources */,
 				3188B3CD2B299B6A00E19945 /* LaunchScreen.storyboard in Resources */,
+				570443C92B9A2FAA00F630F6 /* QuestionDietTVC.xib in Resources */,
 				AFEF32FE2B34B2D100D4BD74 /* Localizable.strings in Resources */,
 				311B1BC12B2E24FE00E37E47 /* CustomNavigationBar.xib in Resources */,
 				311B1B8D2B2E0E0000E37E47 /* BatchHome.storyboard in Resources */,
@@ -2384,6 +2413,7 @@
 				5759E7F32B9048AB00352B24 /* TrainingFilterVC.swift in Sources */,
 				5759E7AD2B9048AB00352B24 /* BPromoCodePopUpViewModel.swift in Sources */,
 				3188B4262B29D3E500E19945 /* SignUpValidation.swift in Sources */,
+				570443C52B9A2EF000F630F6 /* Extension+QuestionDietVC.swift in Sources */,
 				5759E7B12B9048AB00352B24 /* TrainingFilterViewModel.swift in Sources */,
 				685680392B64B165002AF31C /* MealPlanAddressVC.swift in Sources */,
 				311B1BBF2B2E24DA00E37E47 /* CustomNavigationBar.swift in Sources */,
@@ -2398,6 +2428,7 @@
 				1A9B013E2B985D8300F17C42 /* UpdateBatchMealPlanResponse.swift in Sources */,
 				317609392B668545005D4395 /* BMealTblCell.swift in Sources */,
 				3188B4282B29D40F00E19945 /* ForgotPasswordValidation.swift in Sources */,
+				570443CA2B9A2FAA00F630F6 /* QuestionDietTVC.swift in Sources */,
 				191184892B9719BA00343F4B /* UserProfileValidation.swift in Sources */,
 				313645B42B30BACC007D0E18 /* OnBoardingCollectionCell.swift in Sources */,
 				570D8FFF2B84B28300EB643A /* Extension+BUserFollowingVC.swift in Sources */,
@@ -2405,7 +2436,6 @@
 				570D8FF92B84B28300EB643A /* BUserProfileVC.swift in Sources */,
 				5759E7E12B9048AB00352B24 /* BCheckoutVC.swift in Sources */,
 				1A9B01322B94A00400F17C42 /* SubscribedMealDetailResponse.swift in Sources */,
-				31D4249A2B6B84C300E988C7 /* QuestionDietVC.swift in Sources */,
 				5759E7B22B9048AB00352B24 /* BCheckoutViewModel.swift in Sources */,
 				319BAD682B2A31A00081A8F2 /* UIStoryboard.swift in Sources */,
 				317609412B66ACA5005D4395 /* BMealCategoryCollCell.swift in Sources */,
@@ -2485,6 +2515,7 @@
 				318A2B3F2B30CB68004845AB /* BVerifyOTPVC.swift in Sources */,
 				5759E7F22B9048AB00352B24 /* BStartWorkOutVideoVC.swift in Sources */,
 				317609322B6676EE005D4395 /* Extension+MealBatchPlanningVC.swift in Sources */,
+				570443C42B9A2EF000F630F6 /* QuestionDietVC.swift in Sources */,
 				3188B42A2B29D4AC00E19945 /* UserDefaultKey.swift in Sources */,
 				191184782B96B30800343F4B /* BUserPersonalInfoResource.swift in Sources */,
 				31D4249D2B6B84C300E988C7 /* QuestionAgeVC.swift in Sources */,
@@ -2515,6 +2546,7 @@
 				31AE2DA02B36BC48000FEB41 /* MealBatchVC.swift in Sources */,
 				311B1BBA2B2E167800E37E47 /* GlobalMethods.swift in Sources */,
 				317609352B6683D0005D4395 /* weekCalenderCollCell.swift in Sources */,
+				570443C02B9A2C7500F630F6 /* DietModel.swift in Sources */,
 				575A20092B8B466900FFCD56 /* MealsDetailModel.swift in Sources */,
 				3188B4182B29CBB400E19945 /* HUNetworkError.swift in Sources */,
 				5759E7BE2B9048AB00352B24 /* CheckOutRequest.swift in Sources */,
