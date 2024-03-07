@@ -725,12 +725,12 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEf-nv-5Rs">
                                                 <rect key="frame" x="0.0" y="70" width="353" height="56"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="01a-TF-ygh">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="01a-TF-ygh">
                                                         <rect key="frame" x="10" y="10" width="333" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku4-EE-2XA">
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku4-EE-2XA">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
                                                         <state key="normal" image="downArrow"/>
@@ -2230,25 +2230,25 @@
     </scenes>
     <designables>
         <designable name="Ewz-78-z3b">
-            <size key="intrinsicContentSize" width="73" height="33"/>
+            <size key="intrinsicContentSize" width="67" height="33"/>
         </designable>
         <designable name="Ij2-zT-bAj">
             <size key="intrinsicContentSize" width="172.33333333333334" height="21"/>
         </designable>
         <designable name="Jix-Ik-UYZ">
-            <size key="intrinsicContentSize" width="37" height="33"/>
+            <size key="intrinsicContentSize" width="35" height="33"/>
         </designable>
         <designable name="MbH-cQ-u5X">
             <size key="intrinsicContentSize" width="119" height="33"/>
         </designable>
         <designable name="MpW-pI-3Vg">
-            <size key="intrinsicContentSize" width="73" height="33"/>
+            <size key="intrinsicContentSize" width="67" height="33"/>
         </designable>
         <designable name="SRS-5M-TWR">
             <size key="intrinsicContentSize" width="167.33333333333334" height="21"/>
         </designable>
         <designable name="TzP-7l-f81">
-            <size key="intrinsicContentSize" width="130" height="33"/>
+            <size key="intrinsicContentSize" width="122" height="33"/>
         </designable>
         <designable name="UUX-vX-ObF">
             <size key="intrinsicContentSize" width="186.33333333333334" height="21"/>
@@ -2257,16 +2257,16 @@
             <size key="intrinsicContentSize" width="52" height="33"/>
         </designable>
         <designable name="ZAw-YT-9gp">
-            <size key="intrinsicContentSize" width="37" height="33"/>
+            <size key="intrinsicContentSize" width="35" height="33"/>
         </designable>
         <designable name="fjh-re-LRo">
-            <size key="intrinsicContentSize" width="130" height="33"/>
+            <size key="intrinsicContentSize" width="122" height="33"/>
         </designable>
         <designable name="kJL-VZ-Fnd">
             <size key="intrinsicContentSize" width="30" height="33"/>
         </designable>
         <designable name="oYr-lq-7tO">
-            <size key="intrinsicContentSize" width="37" height="33"/>
+            <size key="intrinsicContentSize" width="35" height="33"/>
         </designable>
         <designable name="w2p-qS-raC">
             <size key="intrinsicContentSize" width="153.33333333333334" height="21"/>
@@ -2291,7 +2291,7 @@
         <image name="checkbox" width="21.666666030883789" height="21.666666030883789"/>
         <image name="checkbox_fill" width="20" height="20"/>
         <image name="direction-right" width="24" height="24"/>
-        <image name="downArrow" width="11" height="5.3333334922790527"/>
+        <image name="downArrow" width="24" height="24"/>
         <image name="dummyImg" width="371.33334350585938" height="457.66665649414062"/>
         <image name="eyeclose" width="16" height="16"/>
         <image name="eyeopen" width="16" height="16"/>

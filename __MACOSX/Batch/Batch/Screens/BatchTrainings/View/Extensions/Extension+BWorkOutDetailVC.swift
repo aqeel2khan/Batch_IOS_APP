@@ -51,26 +51,53 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueCell(TrainingListTableCell.self,for: indexPath)
         if isCommingFrom == "workoutbatches" {
             let info = totalCourseArr[indexPath.row]
-            cell.lblTitle.text  = "Lower-Body Burn"
-            cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
-            cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+            if info.status == 0 {
+                cell.dayLbl.text = ""
+                cell.lblTitle.text  = "Day Off"
+                cell.bottomStackView.isHidden = true
+            } else {
+                cell.dayLbl.text = "\(indexPath.row + 1)"
+                cell.lblTitle.text  = "Lower-Body Burn"
+                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
+                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+                cell.bottomStackView.isHidden = false
+            }
+            
+            
         } else if isCommingFrom == "dashboard" {
             let info = self.totalCourseDashboardArr[indexPath.row]
-            cell.lblTitle.text  = info.dayName
-            cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
-            cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
-            cell.dayLbl.text = "\(indexPath.row + 1)"
+            if info.status == 0 {
+                cell.dayLbl.text = ""
+                cell.lblTitle.text  = "Day Off"
+                cell.bottomStackView.isHidden = true
+            } else {
+                cell.dayLbl.text = "\(indexPath.row + 1)"
+                cell.lblTitle.text  = info.dayName
+                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
+                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+                cell.bottomStackView.isHidden = false
+            }
         } else {
             let info = totalCourseArr[indexPath.row]
-            cell.lblTitle.text  = "Lower-Body Burn"
-            cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
-            cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+            if info.status == 0 {
+                cell.dayLbl.text = ""
+                cell.lblTitle.text  = "Day Off"
+                cell.bottomStackView.isHidden = true
+            } else {
+                cell.dayLbl.text = "\(indexPath.row + 1)"
+                cell.lblTitle.text  = "Lower-Body Burn"
+                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
+                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+                cell.bottomStackView.isHidden = false
+            }
         }
+        
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension 
+        return 120
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -85,6 +112,10 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.totalCourseDashboardArr[indexPath.row].status == 0 {
+            return
+        }
+        
         for i in 0..<self.totalCourseDashboardArr[indexPath.row].courseDurationExercise!.count {
             let idArray = self.totalCourseDashboardArr[indexPath.row].courseDurationExercise
             let videoId = idArray?[i].videoDetail?.videoID ?? ""
