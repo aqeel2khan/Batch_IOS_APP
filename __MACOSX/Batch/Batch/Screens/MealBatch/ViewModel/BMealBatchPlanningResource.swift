@@ -18,7 +18,7 @@ struct BMealBatchPlanningResource {
             } catch {
                 print("Error decoding request body: \(error)")
             }
-            let huRequest = HURequest(url: URL(string: urlStr)!, method: .post, requestBody: requestBody)
+            let huRequest = HURequest(url: URL(string: urlStr)!, method: .put, requestBody: requestBody)
             HttpUtility.shared.request(huRequest: huRequest, isAuthorization: false, resultType: UpdateBatchMealPlanResponse.self) { (result) in
                 switch result{
                 case .success(let response):

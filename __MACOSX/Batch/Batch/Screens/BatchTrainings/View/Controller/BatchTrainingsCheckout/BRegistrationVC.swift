@@ -107,6 +107,7 @@ class BRegistrationVC: UIViewController {
                 // self.blogsArray = response.data!
                 DispatchQueue.main.async {
                     hideLoading()
+                    Batch_UserDefaults.set(response.data?.id, forKey: UserDefaultKey.USER_ID)
                     Batch_UserDefaults.set(response.token ?? "" , forKey: UserDefaultKey.TOKEN)
                     let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN)
                     print(getToken)

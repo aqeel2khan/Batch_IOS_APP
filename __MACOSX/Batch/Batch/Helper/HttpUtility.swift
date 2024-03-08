@@ -217,7 +217,13 @@ struct HttpUtility {
                     completion(.failure(HUNetworkError(withServerResponse: data, forRequestUrl: urlRequest.url!, withHttpBody: urlRequest.httpBody, errorMessage: error.debugDescription, forStatusCode: statusCode!)))
                 }
             }else{
-                let networkError = HUNetworkError(withServerResponse: data, forRequestUrl: urlRequest.url!, withHttpBody: urlRequest.httpBody, errorMessage: error.debugDescription, forStatusCode: statusCode!)
+                let networkError = HUNetworkError(
+                    withServerResponse: data,
+                    forRequestUrl: (urlRequest.url ?? URL(string: "")) ?? URL(string: "")!,
+                    withHttpBody: urlRequest.httpBody,
+                    errorMessage: error.debugDescription,
+                    forStatusCode: statusCode ?? 0
+                )
                 completion(.failure(networkError))
             }
         }.resume()

@@ -93,3 +93,46 @@ extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionVie
     }
     
 }
+
+extension MealBatchUnSubscribeDetailVC {
+    @objc(collectionView:layout:sizeForItemAtIndexPath:)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        if collectionView.tag == 703 {
+            let screenSize              = collectionView.frame.size //UIScreen.main.bounds
+            let screenWidth             = screenSize.width
+            let cellSquareSize: CGFloat = screenWidth
+            return CGSize.init(width: cellSquareSize/2 - 20, height: 180) //250
+        } else {
+            let screenSize              = collectionView.frame.size //UIScreen.main.bounds
+            let screenWidth             = screenSize.width
+            return CGSize(width: screenWidth, height: 60)
+        }
+    }
+    
+    @objc(collectionView:layout:insetForSectionAtIndex:)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets
+    {
+        return UIEdgeInsets(top: 0, left: 0, bottom: CGFloat(), right: 0)
+    }
+    
+    @objc(collectionView:layout:minimumLineSpacingForSectionAtIndex:)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat
+    {
+        return 5
+    }
+    
+    @objc(collectionView:layout:minimumInteritemSpacingForSectionAtIndex:)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
+    {
+        return 5
+    }
+}
