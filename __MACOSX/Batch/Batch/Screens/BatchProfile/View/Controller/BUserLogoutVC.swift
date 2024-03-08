@@ -11,6 +11,8 @@ import UIKit
 class BUserLogoutVC: UIViewController {
     @IBOutlet var mainView: UIView!
     
+    var callBackToProfile:(()->())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,7 @@ class BUserLogoutVC: UIViewController {
     }
     
     func logoutUser(){
+        if internetConnection.isConnectedToNetwork(){
         let bLogoutVM = BUserLogoutVM()
         DispatchQueue.main.async {
             showLoading()
@@ -43,6 +46,7 @@ class BUserLogoutVC: UIViewController {
                 self.dismiss(animated: true) {
                     Batch_UserDefaults.removeObject(forKey: UserDefaultKey.TOKEN)
                     UserDefaultUtility.setUserLoggedIn(false)
+                    self.callBackToProfile?()
                 }
             }
             
@@ -52,6 +56,10 @@ class BUserLogoutVC: UIViewController {
                 self.showAlert(message: error.localizedDescription)
             }
         }
+        }else{
+            self.showAlert(message: "Please check your internet", title: "Network issue")
+        }
     }
+    
     
 }

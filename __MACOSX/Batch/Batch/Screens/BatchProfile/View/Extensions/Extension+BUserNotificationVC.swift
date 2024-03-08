@@ -20,6 +20,7 @@ extension BUserNotificationVC: UITableViewDelegate,UITableViewDataSource {
 //        cell.lblTitle.text  = "Lower-Body Burn"
 //        cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
 //        cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+        cell.switchBtn.tag = indexPath.row
         if notificationPrefrences?.data?.all ?? 0 == 1 && notificationList[indexPath.row] == "All notifications"{
             cell.switchBtn.isOn = true
         }
@@ -40,6 +41,14 @@ extension BUserNotificationVC: UITableViewDelegate,UITableViewDataSource {
             cell.switchBtn.isOn = true
         }
         cell.lblTitle.text = notificationList[indexPath.row]
+        
+        cell.callBack = {
+            if cell.switchBtn.isOn {
+                self.notificaionPrefrenceList[self.notificationList[indexPath.row]] = 1
+            }else{
+                self.notificaionPrefrenceList[self.notificationList[indexPath.row]] = 0
+            }
+        }
         
         return cell
     }

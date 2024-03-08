@@ -31,6 +31,9 @@
                                 <rect key="frame" x="281" y="34.666666666666664" width="51" height="30.999999999999993"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="onTintColor" name="AppThemeButtonColor"/>
+                                <connections>
+                                    <action selector="selectionBtnTapped:" destination="KGk-i7-Jjw" eventType="valueChanged" id="kKp-zh-PWD"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <constraints>

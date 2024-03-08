@@ -20,4 +20,21 @@ struct BUserFollowingResource {
             }
         }
     }
+    
+    func followUnfollowApiCall(urlStr:String, onSuccess:@escaping(MotivatorFollowUnFollowResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let courseContentUrl = URL(string: urlStr)!
+        let urlRequest = HURequest(url: courseContentUrl, method: .get)
+        
+        HttpUtility.shared.request(huRequest: urlRequest, isAuthorization: false, resultType: MotivatorFollowUnFollowResponse
+            .self) { (result) in
+                
+                switch result{
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+    }
 }

@@ -27,6 +27,7 @@
 		191184892B9719BA00343F4B /* UserProfileValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191184882B9719BA00343F4B /* UserProfileValidation.swift */; };
 		1911848B2B9735B500343F4B /* Extension+BUserPersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911848A2B9735B500343F4B /* Extension+BUserPersonalInfo.swift */; };
 		1911848D2B97457300343F4B /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911848C2B97457300343F4B /* LogoutResponse.swift */; };
+		196290672B99CFAA009D7820 /* UpdateNotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196290662B99CFA9009D7820 /* UpdateNotificationResponse.swift */; };
 		1A9B01262B93ABD300F17C42 /* MealFilterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */; };
 		1A9B012E2B943BA200F17C42 /* SubscribedMealListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B012D2B943BA200F17C42 /* SubscribedMealListRequest.swift */; };
 		1A9B01302B943C5F00F17C42 /* SubscribedMealListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B012F2B943C5F00F17C42 /* SubscribedMealListResponse.swift */; };
@@ -339,6 +340,7 @@
 		191184882B9719BA00343F4B /* UserProfileValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileValidation.swift; sourceTree = "<group>"; };
 		1911848A2B9735B500343F4B /* Extension+BUserPersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+BUserPersonalInfo.swift"; sourceTree = "<group>"; };
 		1911848C2B97457300343F4B /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
+		196290662B99CFA9009D7820 /* UpdateNotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNotificationResponse.swift; sourceTree = "<group>"; };
 		1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterRequest.swift; sourceTree = "<group>"; };
 		1A9B012D2B943BA200F17C42 /* SubscribedMealListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedMealListRequest.swift; sourceTree = "<group>"; };
 		1A9B012F2B943C5F00F17C42 /* SubscribedMealListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedMealListResponse.swift; sourceTree = "<group>"; };
@@ -1677,6 +1679,7 @@
 				1911845B2B96AADF00343F4B /* GetFollowingResponse.swift */,
 				1911845D2B96AB9800343F4B /* UpdateProfileResponse.swift */,
 				1911848C2B97457300343F4B /* LogoutResponse.swift */,
+				196290662B99CFA9009D7820 /* UpdateNotificationResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2386,6 +2389,7 @@
 				5759E7EF2B9048AB00352B24 /* MotivatorFilterVC.swift in Sources */,
 				31934C7B2B88C73C00AD7185 /* LaunchScreenVC.swift in Sources */,
 				5759E7EE2B9048AB00352B24 /* BWorkOutCompleteVC.swift in Sources */,
+				196290672B99CFAA009D7820 /* UpdateNotificationResponse.swift in Sources */,
 				570D8FEB2B84B28300EB643A /* DashboardResource.swift in Sources */,
 				191184822B97183700343F4B /* BUserPersonalInfoVM.swift in Sources */,
 				68C14B6B2B6396A20085AAD4 /* MealPlanCheckoutCell.swift in Sources */,
