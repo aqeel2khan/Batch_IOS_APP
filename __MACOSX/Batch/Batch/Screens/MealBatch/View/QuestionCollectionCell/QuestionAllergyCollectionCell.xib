@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="AppThemeBackgroundColor"/>
+                        <color key="backgroundColor" name="AppViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ja9-E3-qdF" firstAttribute="top" secondItem="Oq9-jz-gmv" secondAttribute="top" constant="10" id="MfQ-w6-wGb"/>
                             <constraint firstItem="sZ6-xh-5dB" firstAttribute="top" secondItem="Ja9-E3-qdF" secondAttribute="bottom" constant="10" id="Xgy-OO-pkv"/>
@@ -63,14 +63,15 @@
             <connections>
                 <outlet property="alergyImage" destination="Ja9-E3-qdF" id="iRo-ez-Qq1"/>
                 <outlet property="alergyName" destination="sZ6-xh-5dB" id="QKm-Md-nAM"/>
+                <outlet property="optionUIView" destination="Oq9-jz-gmv" id="0hv-ey-s22"/>
             </connections>
             <point key="canvasLocation" x="62.595419847328245" y="-24.295774647887324"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="mdetailDummyImg" width="125" height="102.66666412353516"/>
-        <namedColor name="AppThemeBackgroundColor">
-            <color red="0.80000000000000004" green="0.87058823529411766" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="AppViewBackgroundColor">
+            <color red="0.96078431372549022" green="0.96470588235294119" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

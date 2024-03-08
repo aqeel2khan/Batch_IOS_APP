@@ -158,5 +158,24 @@ struct BMealResource {
                 }
             }
     }
+    
+    // Get allergies List Api  //1
+    func allergiesList(urlStr:String, onSuccess:@escaping(AllergyListResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let courseContentUrl = URL(string: urlStr)!
+        let urlRequest = HURequest(url: courseContentUrl, method: .get)
+        
+        HttpUtility.shared.request(huRequest: urlRequest, isAuthorization: false, resultType: AllergyListResponse
+            .self) { (result) in
+                
+                switch result{
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+    }
+    
 }
 

@@ -246,9 +246,24 @@ struct HttpUtility {
         let jsonDecoder = JSONDecoder()
         do {
             return try jsonDecoder.decode(responseType, from: data)
-        } catch let error {
-            debugPrint("deocding error =>\(error.localizedDescription)")
         }
+//        catch let error {
+//            debugPrint("deocding error =>\(error.localizedDescription)")
+//        }
+        
+        catch DecodingError.keyNotFound(let key, let context) {
+            debugPrint("could not find key \(key) in JSON: \(context.debugDescription)")
+        } catch DecodingError.valueNotFound(let type, let context) {
+            debugPrint("could not find type \(type) in JSON: \(context.debugDescription)")
+        } catch DecodingError.typeMismatch(let type, let context) {
+            debugPrint("type mismatch for type \(type) in JSON: \(context.debugDescription)")
+        } catch DecodingError.dataCorrupted(let context) {
+            debugPrint("data found to be corrupted in JSON: \(context.debugDescription)")
+        } catch let error as NSError {
+            print("Error in read(from:ofType:) domain= \(error.domain), description= \(error.localizedDescription)")
+        }
+        
+        
         
         return nil
     }

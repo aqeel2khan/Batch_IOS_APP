@@ -30,8 +30,8 @@
             filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/BWorkOutDetailVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "501"
-            endingLineNumber = "501"
+            startingLineNumber = "497"
+            endingLineNumber = "497"
             landmarkName = "vimoVideoSetUp(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -80,22 +80,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
             endingLineNumber = "72"
-            landmarkName = "setUpViewData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "541A097A-8FAB-4BB7-948B-D9A172D3679F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/BWorkOutDetailVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
             landmarkName = "setUpViewData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -209,6 +193,278 @@
             startingLineNumber = "87"
             endingLineNumber = "87"
             landmarkName = "onTapShowAllBtn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "158BF08B-6618-495B-B74F-09317FA09A45"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Helper/HttpUtility.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
+            landmarkName = "decodeJsonResponse(data:responseType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB79B764-13A9-4BF4-A992-5802BCD951C5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Helper/HttpUtility.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "decodeJsonResponse(data:responseType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "69ECE988-5B8F-4E4E-83A2-057788AE4F72"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Helper/HttpUtility.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "decodeJsonResponse(data:responseType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "200AE0DE-FE63-4A60-858C-7A9AAA91D97D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Helper/HttpUtility.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "decodeJsonResponse(data:responseType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "989177C1-59BA-4363-9117-DA789209B49C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Helper/HttpUtility.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
+            landmarkName = "decodeJsonResponse(data:responseType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AF58924B-3C90-478C-8D3E-21410C953CB7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Helper/HttpUtility.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
+            landmarkName = "decodeJsonResponse(data:responseType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A5B0C6C3-3522-4916-82D8-C760B04EE86D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/BWorkOutDetailVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
+            landmarkName = "onTapStartWorkOutBtn(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A5B0C6C3-3522-4916-82D8-C760B04EE86D - cdbb993dfaf255dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Batch.BWorkOutDetailVC.onTapStartWorkOutBtn(__C.UIButton) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harimohan/Documents/Batch_faheem/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/BWorkOutDetailVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "351"
+                  endingLineNumber = "351"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "A5B0C6C3-3522-4916-82D8-C760B04EE86D - 4f570dc4563ed7a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Batch.BWorkOutDetailVC.onTapStartWorkOutBtn(__C.UIButton) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harimohan/Documents/Batch_faheem/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/BWorkOutDetailVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "352"
+                  endingLineNumber = "352"
+                  offsetFromSymbolStart = "152">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C0B119D6-5965-4110-A6A3-C0A79B585293"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/BWorkOutDetailVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "355"
+            endingLineNumber = "355"
+            landmarkName = "onTapStartWorkOutBtn(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C0B119D6-5965-4110-A6A3-C0A79B585293 - 4f570dc4563ed745"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Batch.BWorkOutDetailVC.onTapStartWorkOutBtn(__C.UIButton) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harimohan/Documents/Batch_faheem/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/BWorkOutDetailVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "355"
+                  endingLineNumber = "355"
+                  offsetFromSymbolStart = "324">
+               </Location>
+               <Location
+                  uuid = "C0B119D6-5965-4110-A6A3-C0A79B585293 - 1b5f1b144d309c4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; Swift.Bool in closure #1 () -&gt; () in Batch.BWorkOutDetailVC.onTapStartWorkOutBtn(__C.UIButton) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harimohan/Documents/Batch_faheem/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/BWorkOutDetailVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "355"
+                  endingLineNumber = "355"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3049B815-3472-4B54-935A-87012BA3EB49"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/BWorkOutDetailVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "466"
+            endingLineNumber = "466"
+            landmarkName = "vimoVideoSetUp(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3049B815-3472-4B54-935A-87012BA3EB49 - 9d3a2fd6f1cf5ac8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Batch.BWorkOutDetailVC.vimoVideoSetUp(completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harimohan/Documents/Batch_faheem/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/BWorkOutDetailVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "466"
+                  endingLineNumber = "466"
+                  offsetFromSymbolStart = "336">
+               </Location>
+               <Location
+                  uuid = "3049B815-3472-4B54-935A-87012BA3EB49 - 5ed6015c23f9c7ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; Swift.Bool in Batch.BWorkOutDetailVC.vimoVideoSetUp(completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harimohan/Documents/Batch_faheem/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/BWorkOutDetailVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "466"
+                  endingLineNumber = "466"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A62697C-0A61-4437-B2A0-2EC9AFF525B8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/Extension+BWorkOutDetailVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D97625E8-78D4-4C1B-8176-F750DDC323D3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/Extension+BWorkOutDetailVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -52,7 +52,7 @@ class QuestionDietVC: UIViewController {
         let urlStr = API.typeOfDiegtList
         bMealViewModel.dietList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data.data.count != 0 {
-                self.dietList = response.data.data ?? []
+                self.dietList = response.data.data 
                 DispatchQueue.main.async {
                     hideLoading()
                     self.tblView.reloadData()

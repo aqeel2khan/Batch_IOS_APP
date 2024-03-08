@@ -116,10 +116,11 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
             return
         }
         
+        self.videoIdArr.removeAll()
         for i in 0..<self.totalCourseDashboardArr[indexPath.row].courseDurationExercise!.count {
             let idArray = self.totalCourseDashboardArr[indexPath.row].courseDurationExercise
             let videoId = idArray?[i].videoDetail?.videoID ?? ""
-            self.videoArr.append(videoId)
+            self.videoIdArr.append(videoId)
         }
         showLoading()
         vimoVideoURLList.removeAll()
@@ -131,9 +132,9 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
                     vc.viemoVideoArr = self.vimoVideoURLList
                     
                     if self.isCommingFrom == "dashboard" {
-                        vc.dayNumberText = "\(indexPath.row) / \(self.totalCourseDashboardArr.count)"
+                        vc.dayNumberText = "\(indexPath.row + 1) / \(self.totalCourseDashboardArr.count)"
                     } else {
-                        vc.dayNumberText = "\(indexPath.row) / \(self.totalCourseArr.count)"
+                        vc.dayNumberText = "\(indexPath.row + 1) / \(self.totalCourseArr.count)"
                     }
            
                     vc.courseDurationExerciseArr = self.totalCourseDashboardArr[indexPath.row].courseDurationExercise!

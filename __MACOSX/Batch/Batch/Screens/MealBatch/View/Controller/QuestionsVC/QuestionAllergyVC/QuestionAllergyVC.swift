@@ -6,15 +6,13 @@
 //
 
 import UIKit
+import SDWebImage
 
 class QuestionAllergyVC: UIViewController {
     
     @IBOutlet weak var customNavigationBar: CustomSecondNavigationBar!
-    
-    var algeryNames = ["Honey","Milk","Cheese","Nuts","Seafood","Chocolate","Mushrooms","Coffee","Berries",]
-    var algeryImages = ["honey","milk-pack","cheese","hazelnut","fish","chocolate","mushrooms","coffee-cup","cherry",]
     @IBOutlet weak var allergyCollectionView: UICollectionView!
-    
+    var algeryList : [Allergy] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +20,13 @@ class QuestionAllergyVC: UIViewController {
         setupNavigationBar()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.getAllergyList()
+    }
+    
     private func setupNavigationBar() {
         customNavigationBar.titleLbl.isHidden = false
         customNavigationBar.titleLbl.text = CustomNavTitle.qustionVCTitle
@@ -44,29 +49,32 @@ class QuestionAllergyVC: UIViewController {
         self.present(vc, animated: true)
     }
     
-}
-
-extension QuestionAllergyVC:UICollectionViewDelegate,UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return algeryNames.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeue(QuestionAllergyCollectionCell.self, indexPath)
-        cell.alergyName.text = algeryNames[indexPath.row]
-        cell.alergyImage.image = UIImage(named: algeryImages[indexPath.row])
-        return cell
-    }
-    
-    
-}
-
-extension QuestionAllergyVC:UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let widthPerItem = allergyCollectionView.frame.width / 3 - 10
+    //Get Allerty List
+    private func getAllergyList(){
         
-        return CGSize(width:widthPerItem, height:100)
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealViewModel = BMealViewModel()
+        let urlStr = API.allergiesList
+        bMealViewModel.allergiesList(requestUrl: urlStr)  { (response) in
+            if response.status == true, response.data.data.count != 0 {
+                self.algeryList = response.data.data
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.allergyCollectionView.reloadData()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+            
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
+        }
+        
     }
-    
-    
 }
