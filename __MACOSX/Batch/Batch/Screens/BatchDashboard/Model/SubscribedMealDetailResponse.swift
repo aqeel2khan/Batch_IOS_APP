@@ -57,7 +57,7 @@ struct SubscribeDetail: Codable {
     let subscribedID: String
     let selectedDuration: Int
     let startDate, endDate: String
-    let daysDishes: [String: [String: DaysDish]]
+    let daysDishes: [String: [String: [String: DaysDish]]]
     
     enum CodingKeys: String, CodingKey {
         case subscribedID = "subscribed_id"
@@ -88,5 +88,6 @@ struct DateEntry {
     let day: Int
     let dayName: String
     let dayOfMonth: String
+    let date: Date
     var dishes: [DaysDish]? = []
 }

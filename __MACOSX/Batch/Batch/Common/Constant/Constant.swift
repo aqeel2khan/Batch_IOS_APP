@@ -107,7 +107,7 @@ struct API {
     
     static let subscriptionMealList = baseUrl + "/subscription/list" // post
     static let subscriptionMealDetail = baseUrl + "/subscription/details" // post"
-    static let subscriptionMealUpdate = baseUrl + "subscription/update" // post
+    static let subscriptionMealUpdate = baseUrl + "/subscription/update" // post
     
     //Account Module
     static let getProfileDetail  = baseUrl + "/account/profile"// get
