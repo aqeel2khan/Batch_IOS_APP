@@ -11,6 +11,8 @@ import UIKit
 class BUserLogoutVC: UIViewController {
     @IBOutlet var mainView: UIView!
     
+    var callBackToProfile:(()->())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +46,7 @@ class BUserLogoutVC: UIViewController {
                 self.dismiss(animated: true) {
                     Batch_UserDefaults.removeObject(forKey: UserDefaultKey.TOKEN)
                     UserDefaultUtility.setUserLoggedIn(false)
+                    self.callBackToProfile?()
                 }
             }
             

@@ -105,7 +105,9 @@ class BUserPersonalInfoVC: UIViewController {
             DispatchQueue.main.async {
                 hideLoading()
                 self.saveBtn.setTitle("Edit", for: .normal)
-                self.showAlert(message: response.message ?? "")
+                self.showAlertViewWithOne(title: "Batch", message: response.message ?? "", option1: "Ok") {
+                    self.dismiss(animated: true)
+                }
             }
             
         } onError: { error in

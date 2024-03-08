@@ -107,6 +107,9 @@ class BUserProfileVC: UIViewController {
         let vc = BUserLogoutVC.instantiate(fromAppStoryboard: .batchAccount)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical
+        vc.callBackToProfile = {
+            self.dismiss(animated: true)
+        }
         self.present(vc, animated: true)
     }
 }
