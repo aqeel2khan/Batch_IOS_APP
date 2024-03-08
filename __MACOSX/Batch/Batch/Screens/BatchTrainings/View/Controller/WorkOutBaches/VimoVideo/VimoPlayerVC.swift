@@ -31,6 +31,9 @@ class VimoPlayerVC: UIViewController {
         titleLbl.text = titleText
         dayCountLbl.text = dayNumberText
         
+        print("OUR FINAL VIDEO URL")
+        print(viemoVideoArr)
+        
         self.vimoVideoTbl.delegate = self
         self.vimoVideoTbl.dataSource = self
         

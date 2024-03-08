@@ -8,6 +8,7 @@
 import UIKit
 
 class QuestionAllergyCollectionCell: UICollectionViewCell {
+    @IBOutlet weak var optionUIView: UIView!
     @IBOutlet weak var alergyName: UILabel!
     
     @IBOutlet weak var alergyImage: UIImageView!

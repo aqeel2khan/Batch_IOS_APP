@@ -55,8 +55,10 @@ class BWorkOutDetailVC: UIViewController {
     
     
     var courseDetailsInfo : CourseDetail!
+    var todayWorkoutsInfo : TodayWorkoutsElement!
+    
     var totalCourseDashboardArr = [CourseDuration]()
-    var videoArr = [String]()
+    var videoIdArr = [String]()
     
    
     override func viewDidLoad() {
@@ -102,37 +104,21 @@ class BWorkOutDetailVC: UIViewController {
             
             if info?.courseDuration?.count != 0 {
                 
-                self.videoArr.removeAll()
-                self.courseDurationExerciseArr = info?.courseDuration?[0].courseDurationExercise ?? []
+                self.videoIdArr.removeAll()
                 
+                
+                self.courseDurationExerciseArr = todayWorkoutsInfo?.courseDurationExercise as? [CourseDurationExercise] ?? []
+
                 for i in 0..<self.courseDurationExerciseArr.count {
                     let idArray = self.courseDurationExerciseArr
                     let videoId = idArray[i].videoDetail?.videoID ?? ""
                     print(idArray[i].videoDetail?.videoID ?? "")
-                    self.videoArr.append(videoId)
-                    
-                    //                    let videoId = info?.courseDuration?[i].courseDurationExercise?[i].videoDetail?.videoID ?? ""
-                    //                    print(info?.courseDuration?[i].courseDurationExercise?[i].videoDetail?.videoID ?? "")
-                    //                    self.videoArr.append(videoId)
-                    //                }
+                    self.videoIdArr.append(videoId)
+                 
                 }
-                //}
-                
-                
-                //                for i in 0..<(info?.courseDuration!.count)! {
-                //                    let videoId = info?.courseDuration?[i].courseDurationExercise?[i].videoDetail?.videoID ?? ""
-                //                    print(info?.courseDuration?[i].courseDurationExercise?[i].videoDetail?.videoID ?? "")
-                //                    self.videoArr.append(videoId)
-                //                }
+              
             }
             self.videoListTableView.reloadData()
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        vimoVideoSetUp {
-            hideLoading()
-            print("all video setup done")
         }
     }
     
@@ -210,7 +196,9 @@ class BWorkOutDetailVC: UIViewController {
             self.workOutPriceLbl.text = "from $" + (info?.coursePrice ?? "")
             self.woDesLbl.text = info?.description ?? ""
             self.coachNameLbl.text = info?.coachDetail?.name ?? ""
-            self.durationLbl.text = info?.duration ?? ""
+           
+            self.durationLbl.text = "\(todayWorkoutsInfo.row ?? 0)"
+           
             let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (info?.courseImage ?? ""))
             self.courseImgView.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info?.coachDetail?.profilePhotoPath ?? ""))
@@ -360,24 +348,31 @@ class BWorkOutDetailVC: UIViewController {
     
     
     @IBAction func onTapStartWorkOutBtn(_ sender: UIButton) {
-        let vimeoVideoArr = videoArr.filter {$0 != ""}
-        if vimeoVideoArr.count != 0 {
-            let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
-            vc.courseDurationExerciseArr = self.courseDurationExerciseArr
-            vc.viemoVideoArr = vimoVideoURLList
-            vc.dayNumberText = "\(self.durationLbl.text ?? "") / \(self.totalCourseDashboardArr.count)"
-            vc.titleText = self.woTitleLbl.text ?? ""
-            vc.modalPresentationStyle = .overFullScreen
-            vc.modalTransitionStyle = .coverVertical
-            vc.completion = {
-                print(self.vimoVideoURLList)
-                self.callApiServices()
+        vimoVideoSetUp {
+            hideLoading()
+            print("all video setup done")
+            
+            let vimeoVideoArr = self.videoIdArr.filter {$0 != ""}
+            if vimeoVideoArr.count != 0 {
+                let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
+                vc.courseDurationExerciseArr = self.courseDurationExerciseArr
+                vc.viemoVideoArr = self.vimoVideoURLList
                 
+                vc.dayNumberText = "\(self.durationLbl.text ?? "") / \(self.totalCourseDashboardArr.count)"
+                
+                vc.titleText = self.woTitleLbl.text ?? ""
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .coverVertical
+                vc.completion = {
+                    print(self.vimoVideoURLList)
+                    self.callApiServices()
+                    
+                }
+                self.present(vc, animated: true)
             }
-            self.present(vc, animated: true)
-        }
-        else {
-            showAlert(message: "No exercise video availble")
+            else {
+                self.showAlert(message: "No exercise video availble")
+            }
         }
     }
     
@@ -468,8 +463,9 @@ extension BWorkOutDetailVC {
     
     func vimoVideoSetUp(completion: @escaping ()->()) {
         showLoading()
-        let farray = videoArr.filter {$0 != ""}
+        let farray = videoIdArr.filter {$0 != ""}
         if farray.count != 0 {
+        vimoVideoURLList.removeAll()
             
             for i in 0..<(farray.count) {
                 if let url = URL(string: vimoBaseUrl + farray[i]) {
@@ -494,7 +490,7 @@ extension BWorkOutDetailVC {
                         
                         //  print("Title = \(vid.title), url = \(vid.videoURL), thumbnail = \(vid.thumbnailURL)")
                         
-                        DispatchQueue.main.async() {
+                        DispatchQueue.main.sync() {
                             /*
                              if let url = vid.thumbnailURL[.qualityBase] {
                              self.vimoImageView.contentMode = .scaleAspectFill

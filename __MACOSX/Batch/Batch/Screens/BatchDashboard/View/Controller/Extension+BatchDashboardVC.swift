@@ -81,7 +81,7 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
             let info = self.courseList[indexPath.item]
             
             vc.courseDetailsInfo = info.courseDetail
-            //vc.todayWorkoutsUnion = info.todayWorkouts
+            vc.todayWorkoutsInfo = info.todayWorkouts
             vc.isCommingFrom = "dashboard"
             
             vc.newArray.append("\(String(describing: info.courseDetail?.duration ?? "" )) min")

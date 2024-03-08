@@ -89,4 +89,14 @@ struct BMealViewModel {
         }
     }
     
+    func allergiesList(requestUrl: String, onSuccess:@escaping(AllergyListResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let bMealResource = BMealResource()
+        bMealResource.allergiesList(urlStr: requestUrl) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
+    
 }

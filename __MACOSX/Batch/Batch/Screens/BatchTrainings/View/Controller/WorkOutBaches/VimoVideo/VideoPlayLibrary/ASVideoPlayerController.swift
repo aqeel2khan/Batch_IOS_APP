@@ -20,7 +20,7 @@ protocol ASAutoPlayVideoLayerContainer {
 }
 
 class ASVideoPlayerController: NSObject, NSCacheDelegate {
-    var minimumLayerHeightToPlay: CGFloat = 60
+    var minimumLayerHeightToPlay: CGFloat = 800
     // Mute unmute video
     var mute = false
     var preferredPeakBitRate: Double = 1000000
@@ -222,7 +222,10 @@ class ASVideoPlayerController: NSObject, NSCacheDelegate {
          Visible video layer height should be at least more than max of predefined minimum height and
          cell's videolayer's 50% height to play video.
          */
+        
+
         let minimumVideoLayerVisibleHeight = max(minCellLayerHeight, minimumLayerHeightToPlay)
+          
         if maxHeight > minimumVideoLayerVisibleHeight {
             if appEnteredFromBackground {
                 setupVideoFor(url: videoCellURL)

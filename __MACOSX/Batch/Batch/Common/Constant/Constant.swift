@@ -103,6 +103,7 @@ struct API {
     static let topRatedMealList  = baseUrl + "/meal/top-rated-meals"// post
     
     static let typeOfDiegtList  = baseUrl + "/meal/tags"// get
+    static let allergiesList  = baseUrl + "/meal/allergies"// get
 
     // BatchBoard Home Module
     static let createSubscriptionMeal  = baseUrl + "/subscription/subscribe"// post
