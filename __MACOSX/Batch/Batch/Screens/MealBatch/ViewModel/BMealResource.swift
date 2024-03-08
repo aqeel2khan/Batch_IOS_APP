@@ -32,7 +32,7 @@ struct BMealResource {
             onError(error as! BatchError)
         }
     }
-
+    
     // Get Meal List Api  //1
     func mealList(urlStr:String, onSuccess:@escaping(MealsListResponse) -> Void, onError:@escaping(BatchError) -> Void){
         
@@ -68,7 +68,7 @@ struct BMealResource {
                 }
             }
     }
-   
+    
     // Get Dishes list Api  //1
     func dishesList(urlStr:String, onSuccess:@escaping(DishesListResponse) -> Void, onError:@escaping(BatchError) -> Void){
         
@@ -112,6 +112,42 @@ struct BMealResource {
         let urlRequest = HURequest(url: courseContentUrl, method: .postWORequest)
         
         HttpUtility.shared.request(huRequest: urlRequest, isAuthorization: false, resultType: FilterOptionResponse
+            .self) { (result) in
+                
+                switch result{
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+    }
+    
+    // Get Meal List Api  //1
+    func topRatedMealList(urlStr:String, onSuccess:@escaping(MealsListResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let courseContentUrl = URL(string: urlStr)!
+        let urlRequest = HURequest(url: courseContentUrl, method: .postWORequest)
+        
+        HttpUtility.shared.request(huRequest: urlRequest, isAuthorization: false, resultType: MealsListResponse
+            .self) { (result) in
+                
+                switch result{
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+    }
+    
+    // Get Diet List Api  //1
+    func dietList(urlStr:String, onSuccess:@escaping(DietListResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let courseContentUrl = URL(string: urlStr)!
+        let urlRequest = HURequest(url: courseContentUrl, method: .get)
+        
+        HttpUtility.shared.request(huRequest: urlRequest, isAuthorization: false, resultType: DietListResponse
             .self) { (result) in
                 
                 switch result{

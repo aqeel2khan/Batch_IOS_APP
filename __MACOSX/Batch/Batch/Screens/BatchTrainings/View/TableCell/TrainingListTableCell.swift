@@ -19,6 +19,8 @@ class TrainingListTableCell: UITableViewCell {
     @IBOutlet weak var dayLbl: UILabel!
     @IBOutlet weak var imgKaloriImage: UIImageView!
     
+    @IBOutlet weak var bottomStackView: UIStackView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         

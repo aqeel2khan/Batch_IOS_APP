@@ -35,8 +35,7 @@ class MealBatchDetailVC: UIViewController {
     var mealCategoryArr : [CategoryList] = []
     var dishesList : [Dishes] = []
     var weekDays : [DateEntry] = []
-    var sectionTitleArr = ["Breakfast","Lunch","Dinner"]
-        
+    var selectedWeekDay: DateEntry?
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -123,8 +122,9 @@ class MealBatchDetailVC: UIViewController {
     
     @IBAction func onTapMealPlanningBtn(_ sender: Any) {
        let vc = MealBatchPlanningVC.instantiate(fromAppStoryboard: .batchMealPlans)
-       // let vc = QuestionGoalVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
-        // let vc = ShowTotalBurnerCaloryVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
+        vc.weekDays = self.weekDays
+        vc.selectedWeekDay = self.selectedWeekDay
+        vc.mealData = mealData
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical
         self.present(vc, animated: true)
@@ -165,6 +165,15 @@ extension MealBatchDetailVC {
                            let endDate = dateFormatter.date(from: response.data?.data?.subscribeDetail.endDate ?? "") {
                             let weekDays = self.datesBetween(startDate: startDate, endDate: endDate)
                             self.weekDays = weekDays
+                            if self.selectedWeekDay == nil && self.weekDays.count > 0 {
+                                self.selectedWeekDay = self.weekDays.first
+                                self.mealTblView.reloadData()
+                            }
+                            if let dish = self.selectedWeekDay?.dishes, dish.count > 0 {
+                                self.mealMsgBackView.isHidden = true
+                            } else {
+                                self.mealMsgBackView.isHidden = false
+                            }
                         }
                     }
                     self.setUpTagCollView()
@@ -190,12 +199,6 @@ extension MealBatchDetailVC {
 }
 
 extension MealBatchDetailVC {
-    struct DateEntry {
-        let dayName: String
-        let dayOfMonth: String
-        var dishes: [DaysDish]? = []
-    }
-    
     func datesBetween(startDate: Date, endDate: Date) -> [DateEntry] {
         var currentDate = startDate
         var datesArray = [DateEntry]()
@@ -208,7 +211,10 @@ extension MealBatchDetailVC {
             if currentDate >= startDate && currentDate <= endDate {
                 let dayName = calendar.shortWeekdaySymbols[calendar.component(.weekday, from: currentDate) - 1]
                 let dayOfMonth = dateFormatter.string(from: currentDate)
-                var dateEntry = DateEntry(dayName: dayName, dayOfMonth: dayOfMonth)
+                let month = calendar.component(.month, from: currentDate)
+                let date = calendar.component(.day, from: currentDate)
+                var dateEntry = DateEntry(month: month, day: date,dayName: dayName, dayOfMonth: dayOfMonth)
+
                 if let dishes = self.mealSubscribeDetail.daysDishes[dayOfMonth] {
                     for dayDishes in dishes.values {
                         dateEntry.dishes?.append(dayDishes)

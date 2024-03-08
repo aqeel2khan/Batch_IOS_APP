@@ -12,30 +12,40 @@ import SDWebImage
 extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == mealBatchCollView {
-            return self.subscribedMealListData.count
+            if self.subscribedMealListData.count > 0 {
+                return self.subscribedMealListData.count
+            }
         } else {
-            return self.courseList.count
+            if self.courseList.count > 0 {
+                return self.courseList.count
+            }
         }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == mealBatchCollView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealBatchDashboardCollectionCell", for: indexPath)  as! MealBatchDashboardCollectionCell
-            cell.titleLbl.text = self.subscribedMealListData[indexPath.item].name
-            cell.descLbl.text = self.subscribedMealListData[indexPath.item].description
-            cell.daysLbl.text = self.subscribedMealListData[indexPath.item].duration
+            if self.subscribedMealListData.count > 0 {
+                cell.titleLbl.text = self.subscribedMealListData[indexPath.item].name
+                cell.descLbl.text = self.subscribedMealListData[indexPath.item].description
+                cell.daysLbl.text = self.subscribedMealListData[indexPath.item].duration
+            }
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WorkoutBatchDashboardCollectionCell", for: indexPath)  as! WorkoutBatchDashboardCollectionCell
-            let course = self.courseList[indexPath.item].courseDetail
             
-            let fileUrl = URL(string: BaseUrl.imageBaseUrl + (course?.courseImage ?? ""))
-            cell.bgImageView.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Image"))
-            cell.titleLbl.text = course?.courseName
-            //cell.daysLbl.text = (course?.courseValidity ?? "") + " days"
-            cell.daysLbl.text = (course?.duration ?? "")
-            cell.kclLbl.text = (course?.perDayWorkout ?? "") + " kcl"
-            cell.minLbl.text = (course?.duration ?? "") + " min"
+            if self.courseList.count > 0 {
+                let course = self.courseList[indexPath.item].courseDetail
+                
+                let fileUrl = URL(string: BaseUrl.imageBaseUrl + (course?.courseImage ?? ""))
+                cell.bgImageView.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Image"))
+                cell.titleLbl.text = course?.courseName
+                //cell.daysLbl.text = (course?.courseValidity ?? "") + " days"
+                cell.daysLbl.text = (course?.duration ?? "")
+                cell.kclLbl.text = (course?.perDayWorkout ?? "") + " kcl"
+                cell.minLbl.text = (course?.duration ?? "") + " min"
+            }
             return cell
         }
     }

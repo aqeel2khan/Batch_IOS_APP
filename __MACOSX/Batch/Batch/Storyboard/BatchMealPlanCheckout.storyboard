@@ -1673,19 +1673,19 @@
     </scenes>
     <designables>
         <designable name="6Dg-HQ-ZK0">
-            <size key="intrinsicContentSize" width="42" height="33"/>
+            <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
         <designable name="6K0-lF-WRu">
-            <size key="intrinsicContentSize" width="67" height="33"/>
+            <size key="intrinsicContentSize" width="73" height="33"/>
         </designable>
         <designable name="Fdw-Pf-3d5">
-            <size key="intrinsicContentSize" width="42" height="33"/>
+            <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
         <designable name="J9f-y9-TjG">
-            <size key="intrinsicContentSize" width="42" height="33"/>
+            <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
         <designable name="Tv5-jO-9jw">
-            <size key="intrinsicContentSize" width="42" height="33"/>
+            <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
     </designables>
     <resources>

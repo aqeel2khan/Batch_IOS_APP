@@ -584,7 +584,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="LBU-Z4-cBP"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NWg-vr-puz">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NWg-vr-puz">
                                                     <size key="itemSize" width="101" height="79"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -592,7 +592,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ViB-T1-0U2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="101" height="79"/>
+                                                        <rect key="frame" x="0.0" y="0.66666666666666663" width="101" height="79"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7o0-pL-UTQ">
                                                             <rect key="frame" x="0.0" y="0.0" width="101" height="79"/>
@@ -966,6 +966,8 @@
                     </view>
                     <connections>
                         <outlet property="customSecondNavigationBar" destination="4Cs-iA-Xre" id="Ga8-N4-hKL"/>
+                        <outlet property="lblCountOfSelectedDishes" destination="WGD-HT-Srz" id="8ra-KE-dL2"/>
+                        <outlet property="lblSelectedCategoryDishesCount" destination="3ng-V2-1iV" id="dgb-bn-jOa"/>
                         <outlet property="mealCategoryCollView" destination="8xe-eb-jke" id="jw0-gO-ymj"/>
                         <outlet property="mealCollView" destination="Jot-YA-amd" id="oXl-xu-K8m"/>
                         <outlet property="mealCollViewHeightConstraint" destination="yrN-gc-S9i" id="kaW-4s-cxp"/>

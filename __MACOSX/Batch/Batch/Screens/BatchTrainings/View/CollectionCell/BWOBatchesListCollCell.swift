@@ -19,9 +19,12 @@ class BWOBatchesListCollCell: UICollectionViewCell {
     @IBOutlet weak var goalLblBtn: UIButton!
     
     
+    @IBOutlet weak var bottomBackView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        bottomBackView.makeSpecificCornerRound(corners: .bottomTwo, radius: 20)
+
     }
 
 }

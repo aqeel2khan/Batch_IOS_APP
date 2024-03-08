@@ -91,7 +91,7 @@
                                                                                         <rect key="frame" x="5" y="5" width="148" height="20"/>
                                                                                     </imageView>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="75% protein" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYQ-OS-3yt" customClass="BatchLabelMedium12Black" customModule="Batch" customModuleProvider="target">
-                                                                                        <rect key="frame" x="158" y="9.6666666666666288" width="80" height="15.333333333333336"/>
+                                                                                        <rect key="frame" x="158" y="11" width="80" height="14"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="80" id="G8G-pC-RWw"/>
                                                                                         </constraints>
@@ -118,7 +118,7 @@
                                                                                         <rect key="frame" x="5" y="5" width="148" height="20"/>
                                                                                     </imageView>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20% Carbs" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRb-QS-YKc" customClass="BatchLabelMedium12Black" customModule="Batch" customModuleProvider="target">
-                                                                                        <rect key="frame" x="158" y="9.6666666666666288" width="80" height="15.333333333333336"/>
+                                                                                        <rect key="frame" x="158" y="11" width="80" height="14"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="80" id="3rK-fq-ya0"/>
                                                                                         </constraints>
@@ -145,7 +145,7 @@
                                                                                         <rect key="frame" x="5" y="5" width="148" height="20"/>
                                                                                     </imageView>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5% Fat" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGz-IW-Oxz" customClass="BatchLabelMedium12Black" customModule="Batch" customModuleProvider="target">
-                                                                                        <rect key="frame" x="158" y="9.6666666666666288" width="80" height="15.333333333333336"/>
+                                                                                        <rect key="frame" x="158" y="11" width="80" height="14"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="80" id="qGZ-6g-j0T"/>
                                                                                         </constraints>
@@ -306,7 +306,7 @@
                             <constraint firstItem="hyq-KV-gfA" firstAttribute="bottom" secondItem="GxY-Fb-jN5" secondAttribute="bottom" id="xf7-k8-Bvx"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="meal" selectedImage="scannerfill" id="5x4-CT-yZF"/>
+                    <tabBarItem key="tabBarItem" title="" image="scanner" selectedImage="scannerfill" id="5x4-CT-yZF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="393" height="1200"/>
                     <connections>
@@ -322,13 +322,13 @@
     </scenes>
     <designables>
         <designable name="7JZ-Tc-LyG">
-            <size key="intrinsicContentSize" width="60" height="33"/>
+            <size key="intrinsicContentSize" width="65" height="33"/>
         </designable>
     </designables>
     <resources>
         <image name="Avatar3" width="130.33332824707031" height="130"/>
         <image name="Graph1" width="130" height="7.6666665077209473"/>
-        <image name="meal" width="42.333332061767578" height="42"/>
+        <image name="scanner" width="42" height="42"/>
         <image name="scannerfill" width="42" height="42"/>
         <namedColor name="AppThemeBackgroundColor">
             <color red="0.80000000000000004" green="0.87058823529411766" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

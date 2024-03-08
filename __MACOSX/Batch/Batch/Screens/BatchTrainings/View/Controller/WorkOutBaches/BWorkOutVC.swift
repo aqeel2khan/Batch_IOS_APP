@@ -55,8 +55,6 @@ class BWorkOutVC: UIViewController {
         //        self.getAllWOTypes()
         //        self.getAllBatchGoals()
         //        self.getAllCoachFilterList()
-    }
-    override func viewWillAppear(_ animated: Bool) {
         if internetConnection.isConnectedToNetwork() == true {
             // Call Api here
             self.getCourses()
@@ -71,8 +69,23 @@ class BWorkOutVC: UIViewController {
             self.showAlert(message: "Please check your internet", title: "Network issue")
         }
         
+        // Inside the class or part of the code where you want to observe the notification
+        NotificationCenter.default.addObserver(self, selector: #selector(handleCustomNotification(_:)), name: .myCustomNotification, object: nil)
     }
-    
+    @objc func handleCustomNotification(_ notification: Notification) {
+        if internetConnection.isConnectedToNetwork() == true {
+            if selectedIndex == 1 {
+                self.getMotivators()
+            }
+            else {
+                self.getCourses()
+            }
+        }
+        else
+        {
+            self.showAlert(message: "Please check your internet", title: "Network issue")
+        }
+    }
     // MARK: - UI
     
     private func setupNavigationBar() {
@@ -103,6 +116,9 @@ class BWorkOutVC: UIViewController {
             selectedIndex = 0
             self.woBatchesBackView.isHidden = false
             self.woMotivatorBackView.isHidden = true
+            if internetConnection.isConnectedToNetwork() == true {
+                self.getCourses()
+            }
         }
         else
         {
@@ -120,10 +136,10 @@ class BWorkOutVC: UIViewController {
                 self.showAlert(message: "Please check your internet", title: "Network issue")
             }
         }
-        DispatchQueue.main.async {
-            // self.checkNetwork()
-            self.batchesMotivatorCollView.reloadData()
-        }
+        //        DispatchQueue.main.async {
+        //            // self.checkNetwork()
+        //            //self.batchesMotivatorCollView.reloadData()
+        //        }
     }
     
     @IBAction func onTapFilterBtn(_ sender: Any) {
@@ -408,7 +424,7 @@ extension BWorkOutVC
             
             if response.status == true, response.data?.list?.count != 0
             {
-                 print(response.data)
+                print(response.data)
                 // self.blogsArray = response.data!
                 self.courseListDataArr = response.data?.list ?? []
                 DispatchQueue.main.async {
@@ -436,7 +452,7 @@ extension BWorkOutVC
     private func applyMotivatorFilterApi(keywordStr:String, experienceStr:String, workoutStr:String){
         
         let request =  MotivatorFilterRequest(keyword: keywordStr, experience: experienceStr, workoutType: workoutStr)
-                
+        
         DispatchQueue.main.async {
             showLoading()
         }
@@ -469,5 +485,5 @@ extension BWorkOutVC
             }
         }
     }
-
+    
 }

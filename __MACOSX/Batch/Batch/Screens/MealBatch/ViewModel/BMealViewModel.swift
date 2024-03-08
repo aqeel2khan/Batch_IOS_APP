@@ -68,4 +68,25 @@ struct BMealViewModel {
             onError(error)
         }
     }
+    
+    func topRatedMealList(requestUrl: String, onSuccess:@escaping(MealsListResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let bMealResource = BMealResource()
+        bMealResource.topRatedMealList(urlStr: requestUrl) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
+    
+    func dietList(requestUrl: String, onSuccess:@escaping(DietListResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let bMealResource = BMealResource()
+        bMealResource.dietList(urlStr: requestUrl) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
+    
 }

@@ -6,37 +6,36 @@
 //
 
 import UIKit
+import ImageSlideshow
 
 class BatchBoardHomeVC: UIViewController {
-    
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
-    @IBOutlet weak var pageControllCollView: UICollectionView!
-    @IBOutlet weak var pageControl: UIPageControl!
+    
+    @IBOutlet weak var bannerSliderShow: ImageSlideshow!
+    
     @IBOutlet weak var woBatchCollView: UICollectionView!
     @IBOutlet weak var motivatorsCollView: UICollectionView!
     @IBOutlet weak var mealBatchCollView: UICollectionView!
     @IBOutlet weak var topRatedMealCollView: UICollectionView!
     
-    var currentPage = 0 {
-        didSet {
-            pageControl.currentPage = currentPage
-        }
-    }
-    var timer : Timer?
-    var counter = 0
-    //Slider Img Array
-    let imgArr = ["image1","image2","image3"]
+    var courseListDataArr = [CourseDataList]()
+    var coachListDataArr = [CoachListData]()
+    var mealListData : [Meals] = []
+    var topRatedMealListData : [Meals] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        self.showImagesOnSrollView(array_Images: ["banner1","banner2","banner3"])
+        
         // Do any additional setup after loading the view.
         self.setupNavigationBar()
         self.registerCollView()
-        self.setUpUI()
         
-        var token =  Batch_UserDefaults.string(forKey: UserDefaultKey.TOKEN)
+        
+        let token =  Batch_UserDefaults.string(forKey: UserDefaultKey.TOKEN)
         if token == nil{
             Batch_UserDefaults.set(UserDefaultKey.tokenValue, forKey: UserDefaultKey.TOKEN)
         }
@@ -49,7 +48,15 @@ class BatchBoardHomeVC: UIViewController {
                 Batch_UserDefaults.set(getToken, forKey: UserDefaultKey.TOKEN)
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
+        self.getCourses()
+        self.getMotivators()
+        self.getMealList()
+        self.getTopRatedMealList()
     }
     
     // MARK: - UI
@@ -57,71 +64,14 @@ class BatchBoardHomeVC: UIViewController {
     private func setupNavigationBar() {
         customNavigationBar.titleFirstLbl.text = CustomNavTitle.batchBoardHomeVCNavTitle
     }
-    private func setUpUI()
-    {
-        self.pageControl.numberOfPages = self.imgArr.count
-        // Start automatic scrolling timer
-        startAutomaticScrolling()
-    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Stop the timer when the view controller is about to disappear
         // stopAutomaticScrolling()
     }
     
-    private func startAutomaticScrolling() {
-        // Set up a timer to scroll automatically
-        /*
-         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(scrollToNextPage), userInfo: nil, repeats: true)
-         */
-        //        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
-        
-        pageControl.numberOfPages = imgArr.count
-        pageControl.currentPage = 0
-        DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
-        }
-    }
-    
-    private func stopAutomaticScrolling() {
-        // Invalidate the timer to stop automatic scrolling
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    @objc func changeImage() {
-        
-        if counter < imgArr.count {
-            let index = IndexPath.init(item: counter, section: 0)
-            self.pageControllCollView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
-            pageControl.currentPage = counter
-            counter += 1
-        } else {
-            counter = 0
-            let index = IndexPath.init(item: counter, section: 0)
-            self.pageControllCollView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
-            pageControl.currentPage = counter
-            counter = 1
-        }
-        
-    }
-    
-    @objc func scrollToNextPage() {
-        /*
-         // Calculate the next page index
-         let nextPage = (pageControl.currentPage + 1) % self.imgArr.count
-         // Scroll to the next page
-         let indexPath = IndexPath(item: nextPage, section: 0)
-         pageControllCollView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-         
-         // Update the page control
-         pageControl.currentPage = nextPage
-         */
-    }
-    
     private func registerCollView(){
-        
-        self.pageControllCollView.register(BatchHomePageContCollViewCell.self)
         self.woBatchCollView.register(BWOBatchesListCollCell.self)
         self.motivatorsCollView.register(BWOMotivatorsListCollCell.self)
         self.mealBatchCollView.register(MealPlanCollectionCell.self)
@@ -133,33 +83,169 @@ class BatchBoardHomeVC: UIViewController {
     @IBAction func onTapShowAllBtn(_ sender: UIButton) {
         switch sender.tag {
         case 152:
-            print("ndnd")
+            self.tabBarController?.selectedIndex = 1
         case 153:
-            print("ndnd")
+            self.tabBarController?.selectedIndex = 1
         case 154:
-            print("ndnd")
+            self.tabBarController?.selectedIndex = 1
         case 155:
-            print("ndnd")
-        default:
-            print("bfs")
+            self.tabBarController?.selectedIndex = 1
+        default: break
+        }
+    }
+}
+
+extension BatchBoardHomeVC {
+    //Get Course List
+    private func getCourses(){
+        
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bWorkOutViewModel = BWorkOutViewModel()
+        let urlStr = API.courseList
+        bWorkOutViewModel.courseList(requestUrl: urlStr)  { (response) in
+            
+            if response.status == true, response.data?.list?.count != 0 {
+                self.courseListDataArr.removeAll()
+                self.courseListDataArr = response.data?.list ?? []
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.woBatchCollView.reloadData()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+            
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
         }
     }
     
-    /*
-     @IBAction func onTapBatchBtn(_ sender: UIButton) {
-     switch sender.tag {
-     case 100:
-     print("ndnd")
-     tabBarController?.selectedIndex = 1
-     case 101:
-     print("ndnd")
-     tabBarController?.selectedIndex = 2
-     case 102:
-     print("ndnd")
-     tabBarController?.selectedIndex = 3
-     default:
-     print("bfs")
-     }
-     }
-     */
+    //Get Coach List
+    private func getMotivators(){
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bWorkOutViewModel = BWorkOutViewModel()
+        let urlStr = API.coachList
+        bWorkOutViewModel.coachList(requestUrl: urlStr)  { (response) in
+            if response.status == true, response.data != nil{
+                self.coachListDataArr.removeAll()
+                self.coachListDataArr = response.data ?? []
+                
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.motivatorsCollView.reloadData()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
+        }
+    }
+    
+    //Get Meal List
+    private func getMealList(){
+        
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealViewModel = BMealViewModel()
+        let urlStr = API.mealList
+        bMealViewModel.mealList(requestUrl: urlStr)  { (response) in
+            if response.status == true, response.data?.data?.count != 0 {
+                self.mealListData.removeAll()
+                self.mealListData = response.data?.data ?? []
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.mealBatchCollView.reloadData()
+                    self.topRatedMealCollView.reloadData()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+            
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
+        }
+    }
+    
+    func getTopRatedMealList() {
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealViewModel = BMealViewModel()
+        let urlStr = API.topRatedMealList
+        bMealViewModel.mealList(requestUrl: urlStr)  { (response) in
+            if response.status == true, response.data?.data?.count != 0 {
+                self.topRatedMealListData.removeAll()
+                self.topRatedMealListData = response.data?.data ?? []
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.mealBatchCollView.reloadData()
+                    self.topRatedMealCollView.reloadData()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
+        }
+    }
+}
+
+extension BatchBoardHomeVC {
+    func showImagesOnSrollView(array_Images : [String]){
+        bannerSliderShow.slideshowInterval = 2.0
+        bannerSliderShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .bottom)
+        bannerSliderShow.contentScaleMode = .scaleAspectFill
+        bannerSliderShow.circular = true
+        bannerSliderShow.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
+        bannerSliderShow.scrollView.backgroundColor = UIColor(red: 225 / 255.0,green: 225 / 255.0,blue: 225 / 255.0,alpha: CGFloat(1.0))
+        bannerSliderShow.activityIndicator = DefaultActivityIndicator()
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        bannerSliderShow.addGestureRecognizer(gestureRecognizer)
+        
+        let pageControl = UIPageControl()
+        pageControl.currentPageIndicatorTintColor = UIColor.white
+        pageControl.pageIndicatorTintColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.6)
+        pageControl.isEnabled = true
+        bannerSliderShow.pageIndicator = pageControl
+        //        bannerSliderShow.pageIndicator = LabelPageIndicator()  ////it will show like 1/8,2/8,....
+        
+        //        var arr = [KingfisherSource]()
+        //        for indx in 0 ..< array_Images.count {
+        //            arr.append(KingfisherSource(urlString: array_Images[indx])!)
+        //        }
+        //        self.bannerSliderShow.setImageInputs(arr)
+        
+        bannerSliderShow.setImageInputs([
+            ImageSource(image: UIImage(named: array_Images[0]) ?? UIImage()),
+            ImageSource(image: UIImage(named: array_Images[1]) ?? UIImage()),
+            ImageSource(image: UIImage(named: array_Images[2]) ?? UIImage()),
+        ])
+    }
+    
+    @objc func didTap() {
+        bannerSliderShow.presentFullScreenController(from: self)
+    }
 }

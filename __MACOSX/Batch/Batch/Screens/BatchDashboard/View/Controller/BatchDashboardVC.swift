@@ -22,15 +22,11 @@ class BatchDashboardVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.setupNavigationBar()
-        
-        var isLogin = UserDefaultUtility.isUserLoggedIn()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.courseList.removeAll()
         if UserDefaultUtility.isUserLoggedIn() {
             if internetConnection.isConnectedToNetwork() == true {
                 //self.workoutBatchCollView.isHidden = false
@@ -61,7 +57,6 @@ class BatchDashboardVC: UIViewController {
     }
     
     private func getSubscribedCourseList(){
-        
         DispatchQueue.main.async {
             showLoading()
         }
@@ -69,11 +64,10 @@ class BatchDashboardVC: UIViewController {
         let urlStr = API.courseSubscribeList
         
         dashboardViewModel.allCourseSubscribeList(requestUrl: urlStr)  { (response) in
-            
             if response.status == true, response.data?.list?.count != 0 {
+                self.courseList.removeAll(
+                )
                 self.courseList = response.data?.list ?? []
-                print(self.courseList)
-
                 DispatchQueue.main.async {
                     hideLoading()
                     self.workoutBatchCollView.reloadData()
@@ -84,7 +78,6 @@ class BatchDashboardVC: UIViewController {
                     //makeToast(response.message!)
                 }
             }
-            
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
