@@ -42,7 +42,7 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
         super.viewDidLoad()
 
         titleLbl.text = mealData.name
-        priceLbl.text = "from $ \(mealData.price ?? "")" 
+        priceLbl.text = "from \(CURRENCY)" + " \(mealData.price ?? "")" 
         descLbl.text = mealData.description
         durationLbl.text = (mealData.duration ?? "") + " weeks"
         
