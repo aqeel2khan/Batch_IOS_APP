@@ -137,7 +137,7 @@ class BWorkOutDetailVC: UIViewController {
             
             let info = woMotivatorInfo
             self.woTitleLbl.text = info?.courseName
-            self.workOutPriceLbl.text = "from $" + (info?.coursePrice ?? "")
+            self.workOutPriceLbl.text = "from \(CURRENCY)" + (info?.coursePrice ?? "")
             self.woDesLbl.text = info?.description ?? ""
             self.coachNameLbl.text = info?.coachDetail?.name ?? ""
             self.durationLbl.text = info?.duration ?? ""
@@ -172,7 +172,7 @@ class BWorkOutDetailVC: UIViewController {
             
             let info = woDetailInfo[0]
             self.woTitleLbl.text = info.courseName
-            self.workOutPriceLbl.text = "from $" + (info.coursePrice ?? "")
+            self.workOutPriceLbl.text = "from \(CURRENCY)" + (info.coursePrice ?? "")
             self.woDesLbl.text = info.description ?? ""
             self.coachNameLbl.text = info.coachDetail?.name ?? ""
             self.durationLbl.text = info.duration ?? ""
@@ -197,7 +197,7 @@ class BWorkOutDetailVC: UIViewController {
             let info = courseDetailsInfo
             self.coursePromotionVideoId = info?.coursePromoVideo ?? ""
             self.woTitleLbl.text = info?.courseName
-            self.workOutPriceLbl.text = "from $" + (info?.coursePrice ?? "")
+            self.workOutPriceLbl.text = "from \(CURRENCY)" + (info?.coursePrice ?? "")
             self.woDesLbl.text = info?.description ?? ""
             self.coachNameLbl.text = info?.coachDetail?.name ?? ""
            
@@ -529,7 +529,7 @@ extension BWorkOutDetailVC {
                                     }
                                     // Signals that the 'current' API request has completed
                                     self.semaphore.signal()
-                                }  
+                                }
                             }
                         })
                     }

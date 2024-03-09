@@ -33,14 +33,14 @@ extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
                     if searchTextField.text == "" {
                         let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
                         cell.titleLbl.text = self.mealListData[indexPath.row].name
-                        cell.priceLbl.text = "from $\(self.mealListData[indexPath.row].price ?? "")"
+                        cell.priceLbl.text = "from \(CURRENCY)" + "\(self.mealListData[indexPath.row].price ?? "")"
                         cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") kcal"
                         cell.mealsLbl.text = "\(self.mealListData[indexPath.row].mealCount ?? 0) meals"
                         return cell
                     } else {
                         let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
                         cell.titleLbl.text = self.searchmealListData[indexPath.row].name
-                        cell.priceLbl.text = "from $\(self.searchmealListData[indexPath.row].price ?? "")"
+                        cell.priceLbl.text = "from \(CURRENCY)" + "\(self.searchmealListData[indexPath.row].price ?? "")"
                         cell.kclLbl.text = "\(self.searchmealListData[indexPath.row].avgCalPerDay ?? "") kcal"
                         cell.mealsLbl.text = "\(self.searchmealListData[indexPath.row].mealCount ?? 0) meals"
                         return cell
@@ -49,14 +49,14 @@ extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
                     if searchTextField.text == "" {
                         let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
                         cell.titleLbl.text = self.mealListData[indexPath.row - 1].name
-                        cell.priceLbl.text = "from $\(self.mealListData[indexPath.row - 1].price ?? "")"
+                        cell.priceLbl.text = "from \(CURRENCY)" + "\(self.mealListData[indexPath.row - 1].price ?? "")"
                         cell.kclLbl.text = "\(self.mealListData[indexPath.row - 1].avgCalPerDay ?? "") kcal"
                         cell.mealsLbl.text = "\(self.mealListData[indexPath.row - 1].mealCount ?? 0) meals"
                         return cell
                     } else {
                         let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
                         cell.titleLbl.text = self.searchmealListData[indexPath.row].name
-                        cell.priceLbl.text = "from $\(self.searchmealListData[indexPath.row].price ?? "")"
+                        cell.priceLbl.text = "from \(CURRENCY)" + "\(self.searchmealListData[indexPath.row].price ?? "")"
                         cell.kclLbl.text = "\(self.searchmealListData[indexPath.row].avgCalPerDay ?? "") kcal"
                         cell.mealsLbl.text = "\(self.searchmealListData[indexPath.row].mealCount ?? 0) meals"
                         return cell
