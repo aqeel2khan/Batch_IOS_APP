@@ -286,6 +286,7 @@
 		57719F0A2B9C2F8A00F7A599 /* GoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57719F092B9C2F8A00F7A599 /* GoalModel.swift */; };
 		57719F0E2B9C3F0400F7A599 /* Extension+QuestionActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57719F0C2B9C3F0400F7A599 /* Extension+QuestionActivityVC.swift */; };
 		57719F0F2B9C3F0400F7A599 /* QuestionActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57719F0D2B9C3F0400F7A599 /* QuestionActivityVC.swift */; };
+		57719F112B9C5D7200F7A599 /* AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57719F102B9C5D7200F7A599 /* AnswerModel.swift */; };
 		5797812A2B92278C00057943 /* VimoPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579781282B92278C00057943 /* VimoPlayerCell.xib */; };
 		5797812B2B92278C00057943 /* VimoPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579781292B92278C00057943 /* VimoPlayerCell.swift */; };
 		5797812D2B92476B00057943 /* BWorkOutVideoInfoPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797812C2B92476B00057943 /* BWorkOutVideoInfoPopUp.swift */; };
@@ -607,6 +608,7 @@
 		57719F092B9C2F8A00F7A599 /* GoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModel.swift; sourceTree = "<group>"; };
 		57719F0C2B9C3F0400F7A599 /* Extension+QuestionActivityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+QuestionActivityVC.swift"; sourceTree = "<group>"; };
 		57719F0D2B9C3F0400F7A599 /* QuestionActivityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionActivityVC.swift; sourceTree = "<group>"; };
+		57719F102B9C5D7200F7A599 /* AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerModel.swift; sourceTree = "<group>"; };
 		579781282B92278C00057943 /* VimoPlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VimoPlayerCell.xib; sourceTree = "<group>"; };
 		579781292B92278C00057943 /* VimoPlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimoPlayerCell.swift; sourceTree = "<group>"; };
 		5797812C2B92476B00057943 /* BWorkOutVideoInfoPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutVideoInfoPopUp.swift; sourceTree = "<group>"; };
@@ -1790,6 +1792,7 @@
 				57719F092B9C2F8A00F7A599 /* GoalModel.swift */,
 				570443BF2B9A2C7500F630F6 /* DietModel.swift */,
 				570E5D762B9B6D3F00F6BFC8 /* AllergyModel.swift */,
+				57719F102B9C5D7200F7A599 /* AnswerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2557,6 +2560,7 @@
 				191184862B97185100343F4B /* BUserLogoutVM.swift in Sources */,
 				3188B4122B29BDC600E19945 /* Constant.swift in Sources */,
 				318A2B3F2B30CB68004845AB /* BVerifyOTPVC.swift in Sources */,
+				57719F112B9C5D7200F7A599 /* AnswerModel.swift in Sources */,
 				5759E7F22B9048AB00352B24 /* BStartWorkOutVideoVC.swift in Sources */,
 				317609322B6676EE005D4395 /* Extension+MealBatchPlanningVC.swift in Sources */,
 				570443C42B9A2EF000F630F6 /* QuestionDietVC.swift in Sources */,

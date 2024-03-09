@@ -22,7 +22,7 @@ extension QuestionGoalVC: UITableViewDelegate,UITableViewDataSource {
         let cell : QuestionLabelTVC = tblView.cellForRow(at: indexPath) as! QuestionLabelTVC
         cell.questionUIView.backgroundColor = Colors.appThemeBackgroundColor
         
-        AnswerInputStruct.goal_id = self.goalList[indexPath.row].id
+        AnswerStruct.goal_id = self.goalList[indexPath.row].id
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

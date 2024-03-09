@@ -253,9 +253,6 @@ struct HttpUtility {
         do {
             return try jsonDecoder.decode(responseType, from: data)
         }
-//        catch let error {
-//            debugPrint("deocding error =>\(error.localizedDescription)")
-//        }
         
         catch DecodingError.keyNotFound(let key, let context) {
             debugPrint("could not find key \(key) in JSON: \(context.debugDescription)")

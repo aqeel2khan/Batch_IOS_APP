@@ -1272,21 +1272,21 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3od-hq-7zf">
                                                                         <rect key="frame" x="15" y="3" width="323" height="50"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1340" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hj1-ny-USB" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
-                                                                                <rect key="frame" x="122.33333333333336" y="14.999999999999998" width="38.666666666666671" height="20.333333333333329"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hj1-ny-USB" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
+                                                                                <rect key="frame" x="136.33333333333334" y="14.999999999999998" width="10.333333333333343" height="20.333333333333329"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flash-black" translatesAutoresizingMaskIntoConstraints="NO" id="EC9-0l-aNS">
-                                                                                <rect key="frame" x="87.333333333333329" y="12.666666666666657" width="25" height="25"/>
+                                                                                <rect key="frame" x="101.33333333333334" y="12.666666666666657" width="25" height="25"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="25" id="OWs-cx-7yq"/>
                                                                                     <constraint firstAttribute="width" constant="25" id="YDk-mf-QoV"/>
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kcal/day" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEj-G4-EnB" customClass="BatchRegularBlack" customModule="Batch" customModuleProvider="target">
-                                                                                <rect key="frame" x="166" y="19.666666666666657" width="100" height="20.333333333333329"/>
+                                                                                <rect key="frame" x="151.66666666666666" y="19.666666666666657" width="100" height="20.333333333333329"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="100" id="2Ga-v3-3Jj"/>
                                                                                 </constraints>
@@ -1570,6 +1570,9 @@
                             <constraint firstItem="10X-so-71T" firstAttribute="trailing" secondItem="6FR-3m-dI0" secondAttribute="trailing" id="f0e-MN-Sd2"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="averageCaloryPerDayLbl" destination="hj1-ny-USB" id="xBC-aj-Lhq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5n-uk-Y8j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

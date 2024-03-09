@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct AnswerInputStruct {
+struct AnswerStruct {
     static var goal_id : Int?
     static var age : Int?
     static var height : String = "0"
@@ -17,6 +17,7 @@ struct AnswerInputStruct {
     static var tag_id : String?
     static var allergic_id : String?
 }
+
 
 class QuestionGoalVC: UIViewController {
     @IBOutlet weak var customNavigationBar: CustomSecondNavigationBar!
@@ -43,7 +44,7 @@ class QuestionGoalVC: UIViewController {
     }
     
     @IBAction func nextActionBtn(_ sender: BatchButton) {
-        if AnswerInputStruct.goal_id == nil {
+        if AnswerStruct.goal_id == nil {
             showAlert(message: "Please select at least one goal")
         } else {
             let vc = QuestionAgeVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)

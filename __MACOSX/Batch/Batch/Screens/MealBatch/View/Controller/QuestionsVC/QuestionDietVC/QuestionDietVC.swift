@@ -45,7 +45,7 @@ class QuestionDietVC: UIViewController {
         if commaSeperatedString == "" {
             showAlert(message: "Please select at least one diet")
         } else {
-            AnswerInputStruct.tag_id = commaSeperatedString
+            AnswerStruct.tag_id = commaSeperatedString
             let vc = QuestionAllergyVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
