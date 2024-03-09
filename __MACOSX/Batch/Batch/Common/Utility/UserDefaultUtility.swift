@@ -36,11 +36,15 @@ struct UserDefaultUtility
         return UserDefaults.standard.bool(forKey: "country")
     }
 
+    func getUserId() -> Int {
+        return UserDefaults.standard.value(forKey: "userId") as! Int
+    }
+    
+    static func saveUserId(userId: Int){
+        UserDefaults.standard.setValue(userId, forKey: UserDefaultKey.USER_ID)
+    }
+
     /*
-     func getUserId() -> Int
-     {
-     return UserDefaults.standard.value(forKey: "userId") as! Int
-     }
      
      static func setUserLoggedIn(_ bool : Bool){
      UserDefaults.standard.setValue(bool, forKey: UserDefaultKey.IS_USER_LOGGED_IN)
@@ -50,9 +54,6 @@ struct UserDefaultUtility
      return UserDefaults.standard.bool(forKey: UserDefaultKey.IS_USER_LOGGED_IN)
      }
      
-     static func saveUserId(userId: Int){
-     UserDefaults.standard.setValue(userId, forKey: UserDefaultKey.USER_ID)
-     }
      
      static func deleteUserId(){
      UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_ID)

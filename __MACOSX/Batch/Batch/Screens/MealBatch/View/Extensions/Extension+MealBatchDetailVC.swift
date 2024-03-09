@@ -23,7 +23,7 @@ extension MealBatchDetailVC: UITableViewDelegate,UITableViewDataSource {
                 cell.sectionTitleLbl.text = ""
             }
             cell.dishName.text = dish.dishName
-            // cell.dishCalory.text = // Here show the dish calory
+            cell.dishCalory.text = "\(dish.calories) kcal"
         }
         return cell
     }
@@ -71,29 +71,13 @@ extension MealBatchDetailVC: UICollectionViewDelegate,UICollectionViewDataSource
             let cell = collectionView.dequeue(weekCalenderCollCell.self, indexPath)
             cell.weekDayNameLbl.text = self.weekDays[indexPath.row].dayName
             cell.weekDateLbl.text = self.weekDays[indexPath.row].dayOfMonth
-            cell.greenDotImgView.isHidden = true
-            if let dishes = self.weekDays[indexPath.row].dishes, dishes.count > 0 {
-                cell.greenDotImgView.isHidden = false
-            }
+            cell.greenDotImgView.isHidden = !DateHelper.isOldDate(self.weekDays[indexPath.row].date)
             return cell
         } else {
             return UICollectionViewCell()
         }
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let screenWidth = weekCalenderCollView.frame.width
-//        let screenHeight = tagCollView.frame.height
-//        if collectionView.tag == 202
-//        {
-//            return CGSize(width: screenWidth/7, height: 80)
-//        }
-//        else
-//        {
-//            return CGSize(width: screenWidth, height: screenHeight)
-//        }
-//    }
-    
+        
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
         UIView.animate(
