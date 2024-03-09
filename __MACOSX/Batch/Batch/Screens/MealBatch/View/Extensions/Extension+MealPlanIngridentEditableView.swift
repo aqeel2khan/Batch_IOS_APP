@@ -15,11 +15,9 @@ extension MealPlanIngridentEditableView : UITableViewDelegate,UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueCell(MealPlanIngridentTableCell.self, for: indexPath)
         cell.lblTitle.text = ingridentlist[indexPath.row]
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -33,7 +31,6 @@ extension MealPlanIngridentEditableView : UITableViewDelegate,UITableViewDataSou
 extension MealPlanIngridentEditableView : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         if collectionView == planReviewCollView {
             return 4
         }else if collectionView == showProtinListCollView{
@@ -47,7 +44,8 @@ extension MealPlanIngridentEditableView : UICollectionViewDelegate,UICollectionV
         if collectionView == showProtinListCollView{
             let cell1 = collectionView.dequeue(MealPlanProtienCollectionViewCell.self, indexPath)
             cell1.nameLbl.text = self.nutritionList[indexPath.item].nutrientName
-            cell1.valueLbl.text = self.nutritionList[indexPath.item].value
+            let integerValue = self.nutritionList[indexPath.item].value?.components(separatedBy: ".").first ?? ""
+            cell1.valueLbl.text = "\(integerValue)g"
             return cell1
         } else if collectionView == planReviewCollView {
             let cell = collectionView.dequeue(ReviewIngridentCollectionViewCell.self, indexPath)

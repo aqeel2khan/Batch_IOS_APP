@@ -35,10 +35,10 @@ class ASVideoPlayerController: NSObject, NSCacheDelegate {
      */
     private var observingURLs = Dictionary<String, Bool>()
     // Cache of player and player item
-    private var videoCache = NSCache<NSString, ASVideoContainer>()
-    private var videoLayers = VideoLayers()
+    public var videoCache = NSCache<NSString, ASVideoContainer>()
+    public var videoLayers = VideoLayers()
     // Current AVPlapyerLayer that is playing video
-    private var currentLayer: AVPlayerLayer?
+    public var currentLayer: AVPlayerLayer?
     
     override init() {
         super.init()

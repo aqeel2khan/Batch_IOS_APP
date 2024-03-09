@@ -8,12 +8,13 @@
 import Foundation
 
 struct UpdateBatchMealPlanRequest: Codable {
-    let userId, subscribedId, mealId, dayDishes: String?
+    let userId, subscribedId, mealId, dayDishes, day, month: String?
     
     enum CodingKeys: String, CodingKey {
         case userId = "user_id"
         case subscribedId = "subscribed_id"
         case mealId = "meal_id"
         case dayDishes = "day_dishes"
+        case day, month
     }
 }

@@ -13,6 +13,8 @@ struct FontSize {
     static let regularSize14 = UIFont(name:"Outfit-Regular",size:14)
     static let regularSize16 = UIFont(name:"Outfit-Regular",size:16)
     static let mediumSize18 = UIFont(name:"Outfit-Medium",size:18)
+    static let mediumSize20 = UIFont(name:"Outfit-Medium",size:20)
+ 
     static let semiBoldSize20 =  UIFont(name:"Outfit-SemiBold",size:20)
     
     static let mediumSize24 = UIFont(name:"Outfit-Medium",size:24)

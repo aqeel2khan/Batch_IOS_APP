@@ -42,11 +42,10 @@ class MealBatchDetailVC: UIViewController {
         super.viewDidLoad()
         self.setupNavigationBar()
         self.mealTitleLbl.text = mealData.name
-        self.mealPriceLbl.text = "from $ \(mealData.price ?? "")"
+        self.mealPriceLbl.text = "from \(CURRENCY) " + " \(mealData.price ?? "")"
         self.mealDescriptionLbl.text = mealData.description
         self.durationLbl.text = (mealData.duration ?? "") + " weeks"
-        self.weekCalenderCollView.reloadData()
-        self.mealTblView.reloadData()
+        self.mealMsgBackView.isHidden = true
         self.mealTblView.addObserver(self, forKeyPath: BatchConstant.contentSize, options: .new, context: nil)
         self.setUpTagCollView()
     }
@@ -136,15 +135,14 @@ extension MealBatchDetailVC {
         let bHomeViewModel = DashboardViewModel()
         let urlStr = API.subscriptionMealDetail
         var request = SubscribedMealDetailRequest()
-        if let userId = Batch_UserDefaults.value(forKey: UserDefaultKey.USER_ID) {
-            request.userId = "\(userId)"
-        }
+        request.userId = "\(UserDefaultUtility().getUserId())"
         if let subscribedId = mealData.subscribedId {
             request.subscribedId = "\(subscribedId)"
         }
         if let mealId = mealData.id {
             request.mealId = "\(mealId)"
         }
+        request.goalId = "1"
         self.tagTitleArray.removeAll()
         self.weekDays.removeAll()
         bHomeViewModel.getSubscribedMealDetail(urlStr: urlStr, request: request) { (response) in
@@ -167,23 +165,30 @@ extension MealBatchDetailVC {
                            let endDate = dateFormatter.date(from: response.data?.data?.subscribeDetail.endDate ?? "") {
                             let weekDays = self.datesBetween(startDate: startDate, endDate: endDate)
                             self.weekDays = weekDays
-                            if self.selectedWeekDay == nil && self.weekDays.count > 0 {
+                        }
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        self.tagCollView.reloadData()
+                        self.weekCalenderCollView.reloadData()
+                        self.weekCalenderCollView.collectionViewLayout.invalidateLayout()
+                        self.weekCalenderCollView.layoutSubviews()
+                        if self.weekDays.count > 0 {
+                            if let matchingWeekday = self.weekDays.first(where: { $0.day == DateHelper.getDay(from: Date()) }),
+                               let index = self.weekDays.firstIndex(where: { $0.day == DateHelper.getDay(from: Date()) }) {
+                                self.selectedWeekDay = matchingWeekday
+                                self.weekCalenderCollView.selectItem(at: IndexPath(item: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+                            } else {
                                 self.selectedWeekDay = self.weekDays.first
-                                self.mealTblView.reloadData()
+                                self.weekCalenderCollView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
                             }
                             if let dish = self.selectedWeekDay?.dishes, dish.count > 0 {
                                 self.mealMsgBackView.isHidden = true
                             } else {
                                 self.mealMsgBackView.isHidden = false
                             }
+                            self.mealTblView.reloadData()
                         }
                     }
-//                    self.setUpTagCollView()
-//                    self.tagCollViewHeightConstraint.constant = self.tagCollView.collectionViewLayout.collectionViewContentSize.height
-                    self.tagCollView.reloadData()
-                    self.weekCalenderCollView.reloadData()
-                    self.weekCalenderCollView.collectionViewLayout.invalidateLayout()
-                    self.weekCalenderCollView.layoutSubviews()
                 }
             }else{
                 DispatchQueue.main.async {
@@ -225,7 +230,7 @@ extension MealBatchDetailVC {
                                                     dishCategory: dish.dishCategory,
                                                     month: dish.month,
                                                     day: dish.day,
-                                                    selected: dish.selected)
+                                                    selected: dish.selected, calories: dish.calories)
                             dateEntry.dishes?.append(daysDish)
                         }
                     }
@@ -242,4 +247,22 @@ extension MealBatchDetailVC {
         }
         return datesArray
     }
+    
+    func openMealIngredientView(dishId: String, dishName: String) {
+        let vc = MealPlanIngridentEditableView.instantiate(fromAppStoryboard: .batchMealPlans)
+        vc.isCommingFrom = "MealBatchDetailVC"
+        if let mealId = mealData.id, let goalId = mealData.goalID {
+            vc.dishRequest = DishRequest(mealId: "\(mealId)", dishId: dishId, goalId: "\(goalId)", dishName: dishName)
+        }
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true)
+    }
+}
+
+struct DishRequest {
+    let mealId: String
+    let dishId: String
+    let goalId: String
+    let dishName: String
 }

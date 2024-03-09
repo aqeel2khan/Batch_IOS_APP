@@ -81,10 +81,16 @@ class QuestionHeightVC: UIViewController {
     }
  
     @IBAction func nextActionBtn(_ sender: BatchButton) {
-        let vc = QuestionWeightVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .coverVertical
-        self.present(vc, animated: true)
+        AnswerStruct.height = rulerPicker(heightPicker, highlightTitleForIndex: heightPicker.highlightedIndex) ?? "0"
+
+        if AnswerStruct.height == "0" {
+            showAlert(message: "Please select Correct Height")
+        } else {
+            let vc = QuestionWeightVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)
+        }      
     }
 }
 

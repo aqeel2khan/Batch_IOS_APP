@@ -16,5 +16,20 @@ class BMealCategoryCollCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    override var isSelected: Bool {
+        didSet{
+            if self.isSelected {
+                UIView.animate(withDuration: 0.3) { // for animation effect
+                    self.bgView.backgroundColor = Colors.appViewPinkBackgroundColor
+                }
+            }
+            else {
+                UIView.animate(withDuration: 0.3) { // for animation effect
+                    self.bgView.backgroundColor = Colors.appViewBackgroundColor
+                }
+            }
+        }
+    }
 
 }

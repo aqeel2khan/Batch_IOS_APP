@@ -474,14 +474,17 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJz-vV-bwZ" userLabel="ContainerView">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="485.66666666666669"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight Loss" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfL-hf-LWS">
-                                                <rect key="frame" x="12" y="20" width="110" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight Loss" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfL-hf-LWS" customClass="BatchMedium20Black" customModule="Batch" customModuleProvider="target">
+                                                <rect key="frame" x="12" y="20" width="209" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from $35" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvP-Cf-9af">
-                                                <rect key="frame" x="304.66666666666669" y="20" width="76.333333333333314" height="21.666666666666671"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from KWD 35123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvP-Cf-9af" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
+                                                <rect key="frame" x="231" y="20" width="150" height="21.666666666666671"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="qS7-Rp-yHZ"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -645,6 +648,7 @@
                                             <constraint firstAttribute="bottom" secondItem="C9F-Tf-oey" secondAttribute="bottom" constant="20" id="DSa-fj-mFd"/>
                                             <constraint firstItem="mfL-hf-LWS" firstAttribute="top" secondItem="jJz-vV-bwZ" secondAttribute="top" constant="20" id="P5j-AF-nqX"/>
                                             <constraint firstItem="dvP-Cf-9af" firstAttribute="top" secondItem="jJz-vV-bwZ" secondAttribute="top" constant="20" id="XI6-jc-BdR"/>
+                                            <constraint firstItem="dvP-Cf-9af" firstAttribute="leading" secondItem="mfL-hf-LWS" secondAttribute="trailing" constant="10" id="Znt-dl-Qch"/>
                                             <constraint firstItem="C9F-Tf-oey" firstAttribute="leading" secondItem="jJz-vV-bwZ" secondAttribute="leading" constant="20" id="agR-YE-fYd"/>
                                             <constraint firstItem="mfL-hf-LWS" firstAttribute="leading" secondItem="jJz-vV-bwZ" secondAttribute="leading" constant="12" id="ft6-mx-6OC"/>
                                             <constraint firstItem="C9F-Tf-oey" firstAttribute="top" secondItem="mfL-hf-LWS" secondAttribute="bottom" constant="15" id="skT-mM-Sfh"/>
@@ -818,7 +822,7 @@
                         <outlet property="durationLbl" destination="jGI-bm-PE9" id="nXV-Th-XeC"/>
                         <outlet property="durationTitleLbl" destination="Pxe-6M-ymp" id="DaS-xC-Zkl"/>
                         <outlet property="grandTotalPriceBackView" destination="OZc-BL-0FY" id="7KO-G3-toO"/>
-                        <outlet property="grandTotalPriceLbl" destination="jGS-S4-VEJ" id="RTg-ai-ccY"/>
+                        <outlet property="grandTotalPriceLbl" destination="jGS-S4-VEJ" id="IOV-Wa-PyB"/>
                         <outlet property="startWorkOutBtn" destination="GFe-hQ-Sad" id="BNq-TF-Fe1"/>
                         <outlet property="subscribeCourseBtn" destination="hLT-G8-eqH" id="62p-s0-scb"/>
                         <outlet property="trainingCollectionHeight" destination="yhq-bg-7vJ" id="e9a-8L-IWF"/>
@@ -827,13 +831,13 @@
                         <outlet property="videoListTableView" destination="lV9-bU-QzW" id="uUv-Sx-8Jg"/>
                         <outlet property="videoPlayBtn" destination="4l1-Ba-xkv" id="LIf-0r-Efj"/>
                         <outlet property="woDesLbl" destination="riN-Zq-dLJ" id="CNr-dv-DEI"/>
-                        <outlet property="woTitleLbl" destination="mfL-hf-LWS" id="fNE-i4-7HM"/>
-                        <outlet property="workOutPriceLbl" destination="dvP-Cf-9af" id="1d4-I4-ueq"/>
+                        <outlet property="woTitleLbl" destination="mfL-hf-LWS" id="nkA-WK-ZTG"/>
+                        <outlet property="workOutPriceLbl" destination="dvP-Cf-9af" id="R5h-qP-1e5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DF3-Zf-uPa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2218" y="-27"/>
+            <point key="canvasLocation" x="2217.5572519083967" y="-27.464788732394368"/>
         </scene>
         <!--Start Work Out DetailVC-->
         <scene sceneID="Z9m-Hi-eYq">

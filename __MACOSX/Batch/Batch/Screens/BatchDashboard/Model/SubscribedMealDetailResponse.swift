@@ -37,7 +37,7 @@ struct SubscribedMealDetail: Codable {
     let discount: Int
     let description, descriptionAr, avgCalPerDay, mealType: String
     let mealCount, snackCount: Int
-    let categoryList: [CategoryList]
+    let categoryList: [String: SubscribedCategoryList]
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -49,6 +49,36 @@ struct SubscribedMealDetail: Codable {
         case mealCount = "meal_count"
         case snackCount = "snack_count"
         case categoryList = "category_list"
+    }
+}
+
+// MARK: - CategoryList
+struct SubscribedCategoryList: Codable {
+    let categoryID: Int
+    let categoryName, categoryType: String
+    let categoryDishes: [String: CategoryDish]
+    
+    enum CodingKeys: String, CodingKey {
+        case categoryID = "category_id"
+        case categoryName = "category_name"
+        case categoryType = "category_type"
+        case categoryDishes = "category_dishes"
+    }
+}
+
+// MARK: - CategoryDish
+struct CategoryDish: Codable {
+    let dishID: Int
+    let dishName, dishImage: String
+    let dishCategory: Int
+    let dishCalorie: String
+    
+    enum CodingKeys: String, CodingKey {
+        case dishID = "dish_id"
+        case dishName = "dish_name"
+        case dishImage = "dish_image"
+        case dishCategory = "dish_category"
+        case dishCalorie = "dish_calorie"
     }
 }
 
@@ -71,15 +101,16 @@ struct SubscribeDetail: Codable {
 // MARK: - DaysDish
 struct DaysDish: Codable {
     let dishID: Int
-    let dishName, dishImage: String
+    let dishName, dishImage: String?
     let dishCategory, month, day, selected: Int
+    let calories: String
     
     enum CodingKeys: String, CodingKey {
         case dishID = "dish_id"
         case dishName = "dish_name"
         case dishImage = "dish_image"
         case dishCategory = "dish_category"
-        case month, day, selected
+        case month, day, selected, calories
     }
 }
 

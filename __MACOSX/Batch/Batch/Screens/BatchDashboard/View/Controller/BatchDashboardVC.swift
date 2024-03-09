@@ -345,10 +345,7 @@ extension BatchDashboardVC {
         showLoader()
         let bHomeViewModel = DashboardViewModel()
         let urlStr = API.subscriptionMealList
-        var request = SubscribedMealListRequest(userId: "")
-        if let userId = Batch_UserDefaults.value(forKey: UserDefaultKey.USER_ID) {
-            request.userId = "\(userId)"
-        }
+        let request = SubscribedMealListRequest(userId: "\(UserDefaultUtility().getUserId())")
         bHomeViewModel.getSubscribedMealList(urlStr: urlStr, request: request) { (response) in
             if response.status == true, response.data?.data?.count != 0 {
                 self.subscribedMealListData = response.data?.data ?? []

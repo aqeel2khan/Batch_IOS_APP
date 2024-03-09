@@ -8,6 +8,15 @@
 import Foundation
 import UIKit
 
+class BatchLabelRegularWhite: UILabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        text = text?.localized()
+        font = FontSize.mediumSize18
+        textColor = .white
+    }
+}
+
 class BatchLabelTitleBlack: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -89,6 +98,15 @@ class BatchMedium18Black: UILabel {
         super.awakeFromNib()
         text = text?.localized()
         font = FontSize.mediumSize18
+        textColor = Colors.appLabelBlackColor
+    }
+}
+//MARK: - Medium Size label
+class BatchMedium20Black: UILabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        text = text?.localized()
+        font = FontSize.mediumSize20
         textColor = Colors.appLabelBlackColor
     }
 }
