@@ -21,9 +21,32 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1EF-7R-ZzX">
                         <rect key="frame" x="0.0" y="0.0" width="398" height="388"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ukr-RB-FUX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo Batch" translatesAutoresizingMaskIntoConstraints="NO" id="ukr-RB-FUX">
                                 <rect key="frame" x="0.0" y="0.0" width="398" height="388"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="n0b-KQ-F3Y">
+                                <rect key="frame" x="346.33333333333331" y="40" width="31.666666666666686" height="29"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MED-bI-Adc">
+                                        <rect key="frame" x="0.0" y="0.0" width="31.666666666666668" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdD-np-C92">
+                                        <rect key="frame" x="0.0" y="17" width="31.666666666666668" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="MED-bI-Adc" firstAttribute="leading" secondItem="n0b-KQ-F3Y" secondAttribute="leading" id="52M-e7-moh"/>
+                                    <constraint firstAttribute="trailing" secondItem="kdD-np-C92" secondAttribute="trailing" id="qGn-R3-Axg"/>
+                                    <constraint firstItem="kdD-np-C92" firstAttribute="leading" secondItem="n0b-KQ-F3Y" secondAttribute="leading" id="tc3-q6-YSd"/>
+                                    <constraint firstAttribute="trailing" secondItem="MED-bI-Adc" secondAttribute="trailing" id="vR7-I0-HYc"/>
+                                </constraints>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RzI-7g-zzG">
                                 <rect key="frame" x="119" y="134" width="160" height="120"/>
                                 <subviews>
@@ -54,16 +77,10 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hOn-S7-Y4I">
-                                <rect key="frame" x="20" y="233.66666666666663" width="358" height="144.33333333333337"/>
+                                <rect key="frame" x="20" y="322" width="358" height="56"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin by standing up straight with your feet hip-width apart, toes pointing forward." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCE-V6-0Eb" customClass="BatchLabelRegularWhite">
-                                        <rect key="frame" x="0.0" y="0.0" width="358" height="38.333333333333336"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrY-OY-DzM" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="48.333333333333343" width="358" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="56"/>
                                         <color key="backgroundColor" name="AppThemeButtonColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="hnX-X7-25C"/>
@@ -74,23 +91,13 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9n-f5-Hon">
-                                        <rect key="frame" x="0.0" y="114.33333333333334" width="358" height="30"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="A4H-F6-4O4"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Start Next Workout">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" name="AppLabelLightGrayColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="n0b-KQ-F3Y" secondAttribute="trailing" constant="20" id="4kb-8n-Wpe"/>
+                            <constraint firstItem="n0b-KQ-F3Y" firstAttribute="top" secondItem="1EF-7R-ZzX" secondAttribute="top" constant="40" id="9TV-LR-eUb"/>
                             <constraint firstAttribute="bottom" secondItem="hOn-S7-Y4I" secondAttribute="bottom" constant="10" id="AxV-sv-fET"/>
                             <constraint firstItem="ukr-RB-FUX" firstAttribute="leading" secondItem="1EF-7R-ZzX" secondAttribute="leading" id="Egg-yj-FSt"/>
                             <constraint firstItem="hOn-S7-Y4I" firstAttribute="leading" secondItem="1EF-7R-ZzX" secondAttribute="leading" constant="20" id="LaV-MI-2lr"/>
@@ -116,7 +123,7 @@
                 <outlet property="dragUpUIView" destination="RzI-7g-zzG" id="Lci-yT-5zu"/>
                 <outlet property="finishWorkOutBtn" destination="VrY-OY-DzM" id="Nyq-Kr-wyz"/>
                 <outlet property="shotImageView" destination="ukr-RB-FUX" id="Za3-4T-sy8"/>
-                <outlet property="startNextWoBtn" destination="w9n-f5-Hon" id="RZs-Ke-XZk"/>
+                <outlet property="timeLbl" destination="kdD-np-C92" id="NCH-7j-ANZ"/>
                 <outlet property="videoContainerView" destination="1EF-7R-ZzX" id="A9z-bH-4Hb"/>
             </connections>
             <point key="canvasLocation" x="135.87786259541986" y="0.0"/>
@@ -124,14 +131,12 @@
     </objects>
     <designables>
         <designable name="VrY-OY-DzM">
-            <size key="intrinsicContentSize" width="129" height="33"/>
+            <size key="intrinsicContentSize" width="139" height="33"/>
         </designable>
     </designables>
     <resources>
+        <image name="Logo Batch" width="66.666664123535156" height="22.333333969116211"/>
         <image name="swipe-up" width="138" height="138"/>
-        <namedColor name="AppLabelLightGrayColor">
-            <color red="0.62352941176470589" green="0.61176470588235299" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="AppThemeButtonColor">
             <color red="0.31764705882352939" green="0.40000000000000002" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

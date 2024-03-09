@@ -142,7 +142,7 @@ class BWorkOutDetailVC: UIViewController {
             
             let info = woMotivatorInfo
             self.woTitleLbl.text = info?.courseName
-            self.workOutPriceLbl.text = "from \(CURRENCY) " + (info?.coursePrice ?? "")
+            self.workOutPriceLbl.text = "from \(CURRENCY) " + (info?.coursePrice?.removeDecimalValue() ?? "")
             self.woDesLbl.text = info?.description ?? ""
             self.coachNameLbl.text = info?.coachDetail?.name ?? ""
             self.durationLbl.text = info?.duration ?? ""
@@ -151,10 +151,10 @@ class BWorkOutDetailVC: UIViewController {
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info?.coachDetail?.profilePhotoPath ?? ""))
             self.coachPicImgView.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
             
-            self.grandTotalPriceLbl.text = "\(CURRENCY) \(info?.coursePrice ?? "")"
+            self.grandTotalPriceLbl.text = "\(CURRENCY) \(info?.coursePrice?.removeDecimalValue() ?? "")"
             
-            newArray.append("\(String(describing: info?.duration ?? "" )) min")
-            newImage.append(UIImage(named: "clock-circle-black")!)
+//            newArray.append("\(String(describing: info?.duration ?? "" )) min")
+//            newImage.append(UIImage(named: "clock-circle-black")!)
             newArray.append("\(String(describing: info?.courseLevel?.levelName ?? "" ))")
             newImage.append(UIImage(named: "barchart-black")!)
             
@@ -177,7 +177,7 @@ class BWorkOutDetailVC: UIViewController {
             
             let info = woDetailInfo[0]
             self.woTitleLbl.text = info.courseName
-            self.workOutPriceLbl.text = "from \(CURRENCY) " + (info.coursePrice ?? "")
+            self.workOutPriceLbl.text = "from \(CURRENCY) " + (info.coursePrice?.removeDecimalValue() ?? "")
             self.woDesLbl.text = info.description ?? ""
             self.coachNameLbl.text = info.coachDetail?.name ?? ""
             self.durationLbl.text = info.duration ?? ""
@@ -186,7 +186,7 @@ class BWorkOutDetailVC: UIViewController {
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info.coachDetail?.profilePhotoPath ?? ""))
             self.coachPicImgView.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
             
-            self.grandTotalPriceLbl.text = "\(CURRENCY) \(info.coursePrice ?? "")"
+            self.grandTotalPriceLbl.text = "\(CURRENCY) \(info.coursePrice?.removeDecimalValue() ?? "")"
             
             self.coursePromotionVideoId = info.coursePromoVideo ?? ""
             self.videoPlayBtn.isHidden = false
@@ -202,18 +202,18 @@ class BWorkOutDetailVC: UIViewController {
             let info = courseDetailsInfo
             self.coursePromotionVideoId = info?.coursePromoVideo ?? ""
             self.woTitleLbl.text = info?.courseName
-            self.workOutPriceLbl.text = "from \(CURRENCY) " + (info?.coursePrice ?? "")
+            self.workOutPriceLbl.text = "from \(CURRENCY) " + (info?.coursePrice?.removeDecimalValue() ?? "")
             self.woDesLbl.text = info?.description ?? ""
             self.coachNameLbl.text = info?.coachDetail?.name ?? ""
            
-            self.durationLbl.text = "\(todayWorkoutsInfo.row ?? 0)"
+            self.durationLbl.text = "Day \(todayWorkoutsInfo.row ?? 0)"
            
             let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (info?.courseImage ?? ""))
             self.courseImgView.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info?.coachDetail?.profilePhotoPath ?? ""))
             self.coachPicImgView.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
             
-            self.grandTotalPriceLbl.text = "\(CURRENCY) \(info?.coursePrice ?? "")"
+            self.grandTotalPriceLbl.text = "\(CURRENCY) \(info?.coursePrice?.removeDecimalValue() ?? "")"
             
             self.videoPlayBtn.isHidden = false
             

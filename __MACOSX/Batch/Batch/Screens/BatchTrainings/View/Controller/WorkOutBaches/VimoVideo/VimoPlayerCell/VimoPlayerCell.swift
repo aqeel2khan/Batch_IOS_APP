@@ -12,8 +12,7 @@ class VimoPlayerCell: UITableViewCell ,ASAutoPlayVideoLayerContainer {
     @IBOutlet weak var dragUpUIView: UIView!
     @IBOutlet weak var bottomView: UIStackView!
     @IBOutlet weak var finishWorkOutBtn: BatchButton!
-    @IBOutlet weak var startNextWoBtn: UIButton!
-    
+    @IBOutlet weak var timeLbl: UILabel!
     
     @IBOutlet weak var videoContainerView: UIView!
     @IBOutlet var shotImageView: UIImageView!
