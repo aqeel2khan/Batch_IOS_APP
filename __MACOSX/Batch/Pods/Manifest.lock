@@ -5,6 +5,9 @@ PODS:
   - AppAuth/Core (1.6.2)
   - AppAuth/ExternalUserAgent (1.6.2):
     - AppAuth/Core
+  - DGCharts (5.1.0):
+    - DGCharts/Core (= 5.1.0)
+  - DGCharts/Core (5.1.0)
   - DropDown (2.3.13)
   - FSCalendar (2.8.4)
   - GoogleSignIn (7.0.0):
@@ -32,6 +35,7 @@ PODS:
   - SwiftyStarRatingView (1.0.4)
 
 DEPENDENCIES:
+  - DGCharts
   - DropDown
   - FSCalendar
   - GoogleSignIn
@@ -47,6 +51,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AppAuth
+    - DGCharts
     - DropDown
     - FSCalendar
     - GoogleSignIn
@@ -63,6 +68,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AppAuth: 3bb1d1cd9340bd09f5ed189fb00b1cc28e1e8570
+  DGCharts: 1c6daf585b6cfc78807af44ea690d357c410627f
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   GoogleSignIn: b232380cf495a429b8095d3178a8d5855b42e842
@@ -77,6 +83,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
   SwiftyStarRatingView: a2b0057700e0adeb8e7442c55d99cb53b531d2f4
 
-PODFILE CHECKSUM: 53353b45c1b93cdf2920f162ff1999c6d6517b9a
+PODFILE CHECKSUM: ddee3d451e4715ce0aee39e18afb55ac6837770f
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.14.3

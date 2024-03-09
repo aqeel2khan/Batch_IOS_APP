@@ -167,16 +167,16 @@ class HealthManager{
         healthStore.execute(query)
     }
     
+    
+    
     func retrieveSleepAnalysis(completion: @escaping ([HKSample]?) -> Void) {
         if let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) {
             
             // Use a sortDescriptor to get the recent data first
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
             
-            let now = Date()
-            let startOfDay = Calendar.current.date(byAdding: .day, value: -20, to: now)
             let predicate = HKQuery.predicateForSamples(
-                withStart: startOfDay,
+                withStart: Date.distantPast,
                 end: Date(),
                 options: .strictEndDate
             )

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 @objc protocol barButtonTappedDelegate {
     @objc optional func leftBarButtonTapped()
@@ -17,6 +18,7 @@ import UIKit
 class CustomNavigationBar: UIView {
     
     // MARK: - IBOutlets
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var leftBarBtnItem: UIButton!
     @IBOutlet weak var titleFirstLbl: UILabel!
     @IBOutlet weak var titleSecondLbl: UILabel!
@@ -35,6 +37,10 @@ class CustomNavigationBar: UIView {
         view!.frame = bounds
         view!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view!)
+        let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? String
+        if getprofilePhoto != nil{
+            profileImage.sd_setImage(with: URL(string: BaseUrl.imageBaseUrl + (getprofilePhoto ?? ""))!, placeholderImage: UIImage(named: "Avatar"))
+        }
     }
     
     func loadViewFromNib() -> UIView {
@@ -42,7 +48,6 @@ class CustomNavigationBar: UIView {
         let nib = UINib(nibName: "CustomNavigationBar", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         titleFirstLbl.font = FontSize.mediumSize24
-
         return view
     }
     

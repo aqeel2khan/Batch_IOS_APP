@@ -20,10 +20,12 @@ struct BatchLoginData: Codable {
     let id: Int?
     let name, mobile, email, dob: String?
     let gender, createdAt, updatedAt: String?
+    let profile_photo_path: String?
 
     enum CodingKeys: String, CodingKey {
         case id, name, mobile, email, dob, gender
         case createdAt = "created_at"
         case updatedAt = "updated_at"
+        case profile_photo_path
     }
 }

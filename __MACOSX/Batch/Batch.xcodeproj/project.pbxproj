@@ -27,6 +27,7 @@
 		191184892B9719BA00343F4B /* UserProfileValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191184882B9719BA00343F4B /* UserProfileValidation.swift */; };
 		1911848B2B9735B500343F4B /* Extension+BUserPersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911848A2B9735B500343F4B /* Extension+BUserPersonalInfo.swift */; };
 		1911848D2B97457300343F4B /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911848C2B97457300343F4B /* LogoutResponse.swift */; };
+		193AC7742B9CA23700DD6BCA /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193AC7732B9CA23700DD6BCA /* LineChart.swift */; };
 		194690622B9C098900086423 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194690612B9C098900086423 /* HealthManager.swift */; };
 		196290672B99CFAA009D7820 /* UpdateNotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196290662B99CFA9009D7820 /* UpdateNotificationResponse.swift */; };
 		1A9B01262B93ABD300F17C42 /* MealFilterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */; };
@@ -343,6 +344,7 @@
 		191184882B9719BA00343F4B /* UserProfileValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileValidation.swift; sourceTree = "<group>"; };
 		1911848A2B9735B500343F4B /* Extension+BUserPersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+BUserPersonalInfo.swift"; sourceTree = "<group>"; };
 		1911848C2B97457300343F4B /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
+		193AC7732B9CA23700DD6BCA /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		194690612B9C098900086423 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		196290662B99CFA9009D7820 /* UpdateNotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNotificationResponse.swift; sourceTree = "<group>"; };
 		1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterRequest.swift; sourceTree = "<group>"; };
@@ -1642,6 +1644,7 @@
 			children = (
 				570D8FD32B84B28300EB643A /* BatchDashboardVC.swift */,
 				570D8FD52B84B28300EB643A /* Extension+BatchDashboardVC.swift */,
+				193AC7732B9CA23700DD6BCA /* LineChart.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2383,6 +2386,7 @@
 				1911847C2B96B33100343F4B /* BUserLogoutResource.swift in Sources */,
 				3147145C2B68EB8F002EED87 /* MealplanRatingVC.swift in Sources */,
 				5759E7BC2B9048AB00352B24 /* CheckOutResponse.swift in Sources */,
+				193AC7742B9CA23700DD6BCA /* LineChart.swift in Sources */,
 				319BAD762B2A37820081A8F2 /* Colors.swift in Sources */,
 				5759E7EA2B9048AB00352B24 /* ASVideoPlayerController.swift in Sources */,
 				5759E7F52B9048AB00352B24 /* Extension+TrainingFilterVC.swift in Sources */,

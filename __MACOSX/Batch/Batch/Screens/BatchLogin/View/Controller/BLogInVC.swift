@@ -136,7 +136,7 @@ class BLogInVC: UIViewController {
                     Batch_UserDefaults.set(response.token ?? "" , forKey: UserDefaultKey.TOKEN)
                     let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN)
                     UserDefaultUtility.setUserLoggedIn(true)
-                    
+                    Batch_UserDefaults.setValue(response.data?.profile_photo_path, forKey:UserDefaultKey.profilePhoto )
                     if self.isCommingFrom == "workoutbatches" {
                         let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
                         vc.modalPresentationStyle = .overFullScreen
