@@ -41,12 +41,12 @@ class BatchDashboardVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         axisFormatDelegate = self
-        self.setupNavigationBar()
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-      
+        self.setupNavigationBar()
         if !UserDefaultUtility.isUserLoggedIn() {
             let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
             vc.modalPresentationStyle = .overFullScreen
@@ -200,6 +200,12 @@ class BatchDashboardVC: UIViewController {
     
     private func setupNavigationBar() {
         customNavigationBar.titleFirstLbl.text = CustomNavTitle.dashboardVCNavTitle
+        let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
+        if getprofilePhoto != nil{
+            customNavigationBar.profileImage.image = UIImage(data: getprofilePhoto ?? Data())
+        }else{
+            customNavigationBar.profileImage.image = UIImage(named: "Avatar")
+        }
         self.registerCollTblView()
     }
     

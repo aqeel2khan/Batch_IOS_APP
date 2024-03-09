@@ -89,7 +89,13 @@ class BWorkOutVC: UIViewController {
     // MARK: - UI
     
     private func setupNavigationBar() {
-        customNavigationBar.titleFirstLbl.text = CustomNavTitle.bWorkOutVCNavTitle //CustomNavTitle.batchWorkOutVC
+        customNavigationBar.titleFirstLbl.text = CustomNavTitle.bWorkOutVCNavTitle
+        let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
+        if getprofilePhoto != nil{
+            customNavigationBar.profileImage.image = UIImage(data: getprofilePhoto ?? Data())
+        }else{
+            customNavigationBar.profileImage.image = UIImage(named: "Avatar")
+        }//CustomNavTitle.batchWorkOutVC
         registerCollectionView()
     }
     private func registerCollectionView(){

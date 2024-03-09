@@ -40,7 +40,7 @@ class MealBatchDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNavigationBar()
+       
         self.mealTitleLbl.text = mealData.name
         self.mealPriceLbl.text = "from \(CURRENCY) " + " \(mealData.price ?? "")"
         self.mealDescriptionLbl.text = mealData.description
@@ -51,6 +51,7 @@ class MealBatchDetailVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.setupNavigationBar()
         self.getSubscribedMealDetails()
     }
     override func viewWillDisappear(_ animated: Bool) {

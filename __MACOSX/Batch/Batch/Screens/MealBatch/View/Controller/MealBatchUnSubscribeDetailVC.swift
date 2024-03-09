@@ -47,13 +47,14 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
         durationLbl.text = (mealData.duration ?? "") + " weeks"
         
         self.setUpTagCollView()
-        self.setupNavigationBar()
+       
         
         self.getMealDetails()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.setupNavigationBar()
         self.dishesCollView.addObserver(self, forKeyPath: BatchConstant.contentSize, options: .new, context: nil)
     }
     override func viewWillDisappear(_ animated: Bool) {

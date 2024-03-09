@@ -31,7 +31,6 @@ class BatchBoardHomeVC: UIViewController {
         self.showImagesOnSrollView(array_Images: ["banner1","banner2","banner3"])
         
         // Do any additional setup after loading the view.
-        self.setupNavigationBar()
         self.registerCollView()
         
         
@@ -52,7 +51,7 @@ class BatchBoardHomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        self.setupNavigationBar()
         self.getCourses()
         self.getMotivators()
         self.getMealList()
@@ -63,6 +62,12 @@ class BatchBoardHomeVC: UIViewController {
     
     private func setupNavigationBar() {
         customNavigationBar.titleFirstLbl.text = CustomNavTitle.batchBoardHomeVCNavTitle
+        let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
+        if getprofilePhoto != nil{
+            customNavigationBar.profileImage.image = UIImage(data: getprofilePhoto ?? Data())
+        }else{
+            customNavigationBar.profileImage.image = UIImage(named: "Avatar")
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
