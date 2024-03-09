@@ -42,7 +42,7 @@ class MealBatchDetailVC: UIViewController {
         super.viewDidLoad()
         self.setupNavigationBar()
         self.mealTitleLbl.text = mealData.name
-        self.mealPriceLbl.text = "from \(CURRENCY) " + " \(mealData.price ?? "")"
+        self.mealPriceLbl.text = "from \(CURRENCY) " + " \(mealData.price?.removeDecimalValue() ?? "")"
         self.mealDescriptionLbl.text = mealData.description
         self.durationLbl.text = (mealData.duration ?? "") + " weeks"
         self.mealMsgBackView.isHidden = true
