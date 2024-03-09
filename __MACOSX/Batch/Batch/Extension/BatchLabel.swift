@@ -101,6 +101,15 @@ class BatchMedium18Black: UILabel {
         textColor = Colors.appLabelBlackColor
     }
 }
+//MARK: - Medium Size label
+class BatchMedium20Black: UILabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        text = text?.localized()
+        font = FontSize.mediumSize20
+        textColor = Colors.appLabelBlackColor
+    }
+}
 
 //MARK: - Medium Size label
 class BatchMedium32Black: UILabel {

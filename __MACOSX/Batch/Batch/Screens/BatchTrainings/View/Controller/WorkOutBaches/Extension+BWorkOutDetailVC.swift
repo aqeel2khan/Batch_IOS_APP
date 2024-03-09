@@ -35,7 +35,8 @@ extension BWorkOutDetailVC: UICollectionViewDelegate,UICollectionViewDataSource 
 extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isCommingFrom == "workoutbatches" {
-            return self.totalCourseArr.count
+            //return self.totalCourseArr.count
+            return self.unsubscribeWorkoutsInfo.count
         } else if isCommingFrom == "dashboard" {
             return self.totalCourseDashboardArr.count
         }
@@ -49,22 +50,38 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(TrainingListTableCell.self,for: indexPath)
-        if isCommingFrom == "workoutbatches" {
-            let info = totalCourseArr[indexPath.row]
+        if isCommingFrom == "workoutbatches"
+        {
+            let info = self.unsubscribeWorkoutsInfo[indexPath.row]
             if info.status == 0 {
                 cell.dayLbl.text = ""
                 cell.lblTitle.text  = "Day Off"
                 cell.bottomStackView.isHidden = true
             } else {
                 cell.dayLbl.text = "\(indexPath.row + 1)"
-                cell.lblTitle.text  = "Lower-Body Burn"
+                cell.lblTitle.text  = info.dayName
                 cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
                 cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
                 cell.bottomStackView.isHidden = false
             }
-            
-            
-        } else if isCommingFrom == "dashboard" {
+        }
+//        {
+//            let info = totalCourseArr[indexPath.row]
+//            if info.status == 0 {
+//                cell.dayLbl.text = ""
+//                cell.lblTitle.text  = "Day Off"
+//                cell.bottomStackView.isHidden = true
+//            } else {
+//                cell.dayLbl.text = "\(indexPath.row + 1)"
+//                cell.lblTitle.text  = "Lower-Body Burn"
+//                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
+//                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+//                cell.bottomStackView.isHidden = false
+//            }
+//
+//
+//        }
+        else if isCommingFrom == "dashboard" {
             let info = self.totalCourseDashboardArr[indexPath.row]
             if info.status == 0 {
                 cell.dayLbl.text = ""
@@ -112,40 +129,43 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if self.totalCourseDashboardArr[indexPath.row].status == 0 {
-            return
-        }
         
-        self.videoIdArr.removeAll()
-        for i in 0..<self.totalCourseDashboardArr[indexPath.row].courseDurationExercise!.count {
-            let idArray = self.totalCourseDashboardArr[indexPath.row].courseDurationExercise
-            let videoId = idArray?[i].videoDetail?.videoID ?? ""
-            self.videoIdArr.append(videoId)
-        }
-        showLoading()
-        vimoVideoURLList.removeAll()
-        DispatchQueue.main.async {
-            self.vimoVideoSetUp {
-                hideLoading()
-                if self.vimoVideoURLList.count != 0 {
-                    let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
-                    vc.viemoVideoArr = self.vimoVideoURLList
-                    
-                    if self.isCommingFrom == "dashboard" {
-                        vc.dayNumberText = "\(indexPath.row + 1) / \(self.totalCourseDashboardArr.count)"
-                    } else {
-                        vc.dayNumberText = "\(indexPath.row + 1) / \(self.totalCourseArr.count)"
+        if isCommingFrom == "dashboard" {
+            if self.totalCourseDashboardArr[indexPath.row].status == 0 {
+                return
+            }
+            
+            self.videoIdArr.removeAll()
+            for i in 0..<self.totalCourseDashboardArr[indexPath.row].courseDurationExercise!.count {
+                let idArray = self.totalCourseDashboardArr[indexPath.row].courseDurationExercise
+                let videoId = idArray?[i].videoDetail?.videoID ?? ""
+                self.videoIdArr.append(videoId)
+            }
+            showLoading()
+            vimoVideoURLList.removeAll()
+            DispatchQueue.main.async {
+                self.vimoVideoSetUp {
+                    hideLoading()
+                    if self.vimoVideoURLList.count != 0 {
+                        let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
+                        vc.viemoVideoArr = self.vimoVideoURLList
+                        
+                        if self.isCommingFrom == "dashboard" {
+                            vc.dayNumberText = "\(indexPath.row + 1) / \(self.totalCourseDashboardArr.count)"
+                        } else {
+                            vc.dayNumberText = "\(indexPath.row + 1) / \(self.totalCourseArr.count)"
+                        }
+                        
+                        vc.courseDurationExerciseArr = self.totalCourseDashboardArr[indexPath.row].courseDurationExercise!
+                        vc.titleText = self.self.totalCourseDashboardArr[indexPath.row].dayName ?? ""
+                        vc.modalPresentationStyle = .overFullScreen
+                        vc.modalTransitionStyle = .coverVertical
+                        vc.completion = {
+                            print(self.vimoVideoURLList)
+                            self.callApiServices()
+                        }
+                        self.present(vc, animated: true)
                     }
-           
-                    vc.courseDurationExerciseArr = self.totalCourseDashboardArr[indexPath.row].courseDurationExercise!
-                    vc.titleText = self.self.totalCourseDashboardArr[indexPath.row].dayName ?? ""
-                    vc.modalPresentationStyle = .overFullScreen
-                    vc.modalTransitionStyle = .coverVertical
-                    vc.completion = {
-                        print(self.vimoVideoURLList)
-                        self.callApiServices()
-                    }
-                    self.present(vc, animated: true)
                 }
             }
         }

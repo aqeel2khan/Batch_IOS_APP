@@ -230,21 +230,24 @@ struct HttpUtility {
     }
     
     private func createUrlRequest(requestUrl: URL, isAuthorization:Bool) -> URLRequest{
+        let appToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN) as? String ?? ""
+        debugPrint("Token-- Bearer \(appToken)")
+        
         var urlRequest = URLRequest(url: requestUrl)
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
        
-        let appToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN) as? String ?? ""
-        debugPrint("Token-- Bearer \(appToken)")
-        if appToken != "" {
-            urlRequest.setValue("Bearer \(appToken)", forHTTPHeaderField: "Authorization")
-        } else {
+        // sending empty token for course details api success for now, later we will remove if condtion
+        if requestUrl.absoluteURL.absoluteString.contains("/course/detail/") {
             urlRequest.setValue("", forHTTPHeaderField: "Authorization")
+        } else {
+            if appToken != "" {
+                urlRequest.setValue("Bearer \(appToken)", forHTTPHeaderField: "Authorization")
+            } else {
+                urlRequest.setValue("", forHTTPHeaderField: "Authorization")
+            }
         }
-
-        
-        //urlRequest.setValue(apiKey, forHTTPHeaderField: "XAPIKEY")
+       
         return urlRequest
-        
     }
     
     private func decodeJsonResponse<T: Decodable>(data: Data, responseType: T.Type) -> T?{
