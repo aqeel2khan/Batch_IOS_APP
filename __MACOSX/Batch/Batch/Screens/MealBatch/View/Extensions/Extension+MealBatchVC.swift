@@ -86,7 +86,7 @@ extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
                 let vc = MealBatchUnSubscribeDetailVC.instantiate(fromAppStoryboard: .batchMealPlans)
                 vc.modalPresentationStyle = .overFullScreen
                 vc.modalTransitionStyle = .coverVertical
-                vc.mealData = self.mealListData[indexPath.item + 1]
+                vc.mealData = self.mealListData[indexPath.item]
                 self.present(vc, animated: true)
             } else {
                 let vc = MealBatchUnSubscribeDetailVC.instantiate(fromAppStoryboard: .batchMealPlans)

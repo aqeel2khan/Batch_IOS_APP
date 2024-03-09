@@ -38,6 +38,7 @@
 		1A9B013A2B98596800F17C42 /* BMealBatchPlanningResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01392B98596800F17C42 /* BMealBatchPlanningResource.swift */; };
 		1A9B013C2B985A8100F17C42 /* UpdateBatchMealPlanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B013B2B985A8100F17C42 /* UpdateBatchMealPlanRequest.swift */; };
 		1A9B013E2B985D8300F17C42 /* UpdateBatchMealPlanResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B013D2B985D8300F17C42 /* UpdateBatchMealPlanResponse.swift */; };
+		1A9B01402B9C46FC00F17C42 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B013F2B9C46FC00F17C42 /* DateHelper.swift */; };
 		311576B92B86660B00224EDE /* BatchCountryLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576B82B86660B00224EDE /* BatchCountryLanguageVC.swift */; };
 		311576BB2B8676FA00224EDE /* BLogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BA2B8676FA00224EDE /* BLogInViewModel.swift */; };
 		311576BD2B8678E400224EDE /* BLogInResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BC2B8678E400224EDE /* BLogInResource.swift */; };
@@ -358,6 +359,7 @@
 		1A9B01392B98596800F17C42 /* BMealBatchPlanningResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMealBatchPlanningResource.swift; sourceTree = "<group>"; };
 		1A9B013B2B985A8100F17C42 /* UpdateBatchMealPlanRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBatchMealPlanRequest.swift; sourceTree = "<group>"; };
 		1A9B013D2B985D8300F17C42 /* UpdateBatchMealPlanResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBatchMealPlanResponse.swift; sourceTree = "<group>"; };
+		1A9B013F2B9C46FC00F17C42 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		311576B82B86660B00224EDE /* BatchCountryLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchCountryLanguageVC.swift; sourceTree = "<group>"; };
 		311576BA2B8676FA00224EDE /* BLogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInViewModel.swift; sourceTree = "<group>"; };
 		311576BC2B8678E400224EDE /* BLogInResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInResource.swift; sourceTree = "<group>"; };
@@ -1522,6 +1524,7 @@
 				68C14B712B63BFE10085AAD4 /* Extension+StartPlanCheckoutVC.swift */,
 				3176092F2B6676D3005D4395 /* Extension+MealBatchDetailVC.swift */,
 				317609312B6676EE005D4395 /* Extension+MealBatchPlanningVC.swift */,
+				1A9B013F2B9C46FC00F17C42 /* DateHelper.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2580,6 +2583,7 @@
 				191184782B96B30800343F4B /* BUserPersonalInfoResource.swift in Sources */,
 				31D4249D2B6B84C300E988C7 /* QuestionAgeVC.swift in Sources */,
 				5797812D2B92476B00057943 /* BWorkOutVideoInfoPopUp.swift in Sources */,
+				1A9B01402B9C46FC00F17C42 /* DateHelper.swift in Sources */,
 				318C03E92B3372F900C4281F /* UIFont.swift in Sources */,
 				313645B02B30BA9B007D0E18 /* OnBoardingScreenVC.swift in Sources */,
 				5759E7E22B9048AB00352B24 /* BRegistrationVC.swift in Sources */,
