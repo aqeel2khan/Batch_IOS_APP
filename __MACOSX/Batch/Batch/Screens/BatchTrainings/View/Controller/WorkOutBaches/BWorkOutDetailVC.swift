@@ -61,6 +61,11 @@ class BWorkOutDetailVC: UIViewController {
     var courseDetailsInfo : CourseDetail!
     var todayWorkoutsInfo : TodayWorkoutsElement!
     
+    //var unsubscribeWorkoutsInfo : [WorkoutTypeWS]?
+    var unsubscribeWorkoutsInfo = [TodayWorkoutsElement]()
+
+    
+    
     var totalCourseDashboardArr = [CourseDuration]()
     var videoIdArr = [String]()
     
@@ -146,7 +151,7 @@ class BWorkOutDetailVC: UIViewController {
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info?.coachDetail?.profilePhotoPath ?? ""))
             self.coachPicImgView.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
             
-            self.grandTotalPriceLbl.text = info?.coursePrice ?? ""
+            self.grandTotalPriceLbl.text = "\(CURRENCY) \(info?.coursePrice ?? "")"
             
             newArray.append("\(String(describing: info?.duration ?? "" )) min")
             newImage.append(UIImage(named: "clock-circle-black")!)
@@ -181,7 +186,7 @@ class BWorkOutDetailVC: UIViewController {
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info.coachDetail?.profilePhotoPath ?? ""))
             self.coachPicImgView.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
             
-            self.grandTotalPriceLbl.text = info.coursePrice ?? ""
+            self.grandTotalPriceLbl.text = "\(CURRENCY) \(info.coursePrice ?? "")"
             
             self.coursePromotionVideoId = info.coursePromoVideo ?? ""
             self.videoPlayBtn.isHidden = false
@@ -208,7 +213,7 @@ class BWorkOutDetailVC: UIViewController {
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info?.coachDetail?.profilePhotoPath ?? ""))
             self.coachPicImgView.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
             
-            self.grandTotalPriceLbl.text = info?.coursePrice ?? ""
+            self.grandTotalPriceLbl.text = "\(CURRENCY) \(info?.coursePrice ?? "")"
             
             self.videoPlayBtn.isHidden = false
             
@@ -410,14 +415,24 @@ class BWorkOutDetailVC: UIViewController {
         let urlStr = API.courseDetail + courseId
         bWorkOutDetailViewModel.courseDetail(requestUrl: urlStr)  { (response) in
             
-            if response.status == true, response.data?.courseDuration?.count != 0 {
-                self.totalCourseArr = response.data?.courseDuration ?? []
-                // self.blogsArray = response.data!
+            if response.status == true, response.data?.workouts?.count != 0 {
+                print(response.data?.workouts?.count)
+                self.unsubscribeWorkoutsInfo = response.data?.workouts ?? []
+//                self.totalCourseArr = response.data?.courseDuration ?? []
                 DispatchQueue.main.async {
                     hideLoading()
                     self.videoListTableView.reloadData()
                 }
-            }else{
+            }
+//            if response.status == true, response.data?.courseDuration?.count != 0 {
+//                self.totalCourseArr = response.data?.courseDuration ?? []
+//                // self.blogsArray = response.data!
+//                DispatchQueue.main.async {
+//                    hideLoading()
+//                    self.videoListTableView.reloadData()
+//                }
+//            }
+            else{
                 DispatchQueue.main.async {
                     hideLoading()
                 }

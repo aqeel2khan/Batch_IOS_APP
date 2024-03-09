@@ -29,6 +29,7 @@ struct CourseDetailWSData: Codable {
     let courseDuration: [CourseDurationWS]?
     let goals: [GoalWS]?
     let workoutType: [WorkoutTypeWS]?
+    let workouts: [TodayWorkoutsElement]?
 
     enum CodingKeys: String, CodingKey {
         case courseID = "course_id"
@@ -52,6 +53,7 @@ struct CourseDetailWSData: Codable {
         case courseDuration = "course_duration"
         case goals
         case workoutType = "workout_type"
+        case workouts
     }
 }
 
@@ -188,18 +190,44 @@ struct BatchgoalWS: Codable {
     }
 }
 
-// MARK: - WorkoutType
+//// MARK: - WorkoutType
+//struct WorkoutTypeWS: Codable {
+//    let id, courseID, workoutTypeID: Int?
+//    let workoutdetail: WorkoutdetailWS?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id
+//        case courseID = "course_id"
+//        case workoutTypeID = "workout_type_id"
+//        case workoutdetail
+//    }
+//}
 struct WorkoutTypeWS: Codable {
-    let id, courseID, workoutTypeID: Int?
-    let workoutdetail: WorkoutdetailWS?
+    let courseDurationID, courseID: Int?
+    let dayName: String?
+    let description: String?
+    let noOfExercise: Int?
+    let calorieBurn, workoutTime: String?
+    let status: Int?
+    let createdAt, updatedAt: String?
+    let row: Int?
 
     enum CodingKeys: String, CodingKey {
-        case id
+        case courseDurationID = "course_duration_id"
         case courseID = "course_id"
-        case workoutTypeID = "workout_type_id"
-        case workoutdetail
+        case dayName = "day_name"
+        case description
+        case noOfExercise = "no_of_exercise"
+        case calorieBurn = "calorie_burn"
+        case workoutTime = "workout_time"
+        case status
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case row = "Row"
     }
 }
+
+
 
 // MARK: - Workoutdetail
 struct WorkoutdetailWS: Codable {
