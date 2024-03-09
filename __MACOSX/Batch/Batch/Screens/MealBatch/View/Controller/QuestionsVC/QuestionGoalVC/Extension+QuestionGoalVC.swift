@@ -1,27 +1,28 @@
 //
-//  Extension+MealBatchVC.swift
+//  Extension+QuestionGoalVC.swift
 //  Batch
 //
-//  Created by CTS-Jay Gupta on 23/12/23.
+//  Created by Hari Mohan on 09/03/24.
 //
 
-import Foundation
 import UIKit
 
-extension QuestionDietVC: UITableViewDelegate,UITableViewDataSource {
+extension QuestionGoalVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dietList.count
+        return self.goalList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(QuestionLabelTVC.self, for: indexPath)
-        cell.titleLbl.text = self.dietList[indexPath.row].name
+        cell.titleLbl.text = self.goalList[indexPath.row].name
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell : QuestionLabelTVC = tblView.cellForRow(at: indexPath) as! QuestionLabelTVC
         cell.questionUIView.backgroundColor = Colors.appThemeBackgroundColor
+        
+        AnswerInputStruct.goal_id = self.goalList[indexPath.row].id
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
