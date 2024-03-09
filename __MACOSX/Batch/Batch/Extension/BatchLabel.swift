@@ -8,6 +8,15 @@
 import Foundation
 import UIKit
 
+class BatchLabelRegularWhite: UILabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        text = text?.localized()
+        font = FontSize.mediumSize18
+        textColor = .white
+    }
+}
+
 class BatchLabelTitleBlack: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
