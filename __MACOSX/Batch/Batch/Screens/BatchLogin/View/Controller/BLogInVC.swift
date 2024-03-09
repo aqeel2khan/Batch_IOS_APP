@@ -136,7 +136,7 @@ class BLogInVC: UIViewController {
                     Batch_UserDefaults.set(response.token ?? "" , forKey: UserDefaultKey.TOKEN)
                     let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN)
                     UserDefaultUtility.setUserLoggedIn(true)
-                    Batch_UserDefaults.setValue(response.data?.profile_photo_path, forKey:UserDefaultKey.profilePhoto )
+                    self.getProfileData(profile: response.data?.profile_photo_path ?? "")
                     if self.isCommingFrom == "workoutbatches" {
                         let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
                         vc.modalPresentationStyle = .overFullScreen
@@ -172,6 +172,16 @@ class BLogInVC: UIViewController {
                 // makeToast(error.localizedDescription)
             }
         }
+    }
+    
+    func getProfileData(profile:String){
+        let url = URL(string: BaseUrl.imageBaseUrl + profile)!
+        let dataTask = URLSession.shared.dataTask(with: url){ data,repo,err in
+            if err == nil{
+                Batch_UserDefaults.setValue(data ?? Data(), forKey: UserDefaultKey.profilePhoto)
+            }
+        }
+        dataTask.resume()
     }
     
     @IBAction func onTapSignUpBtn(_ sender: Any) {

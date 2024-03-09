@@ -62,11 +62,17 @@ class BUserProfileVC: UIViewController {
     }
     
     func updateUI(response: GetProfileResponse){
-        if response.data?.profile_photo_path != nil{
-            userImageView.sd_setImage(with: URL(string: BaseUrl.imageBaseUrl + (response.data?.profile_photo_path ?? ""))!, placeholderImage: UIImage(named: "Avatar"))
+        let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
+        if getprofilePhoto != nil{
+            userImageView.image = UIImage(data: getprofilePhoto ?? Data())
         }else{
             userImageView.image = UIImage(named: "Avatar")
         }
+//        if response.data?.profile_photo_path != nil{
+//            userImageView.sd_setImage(with: URL(string: BaseUrl.imageBaseUrl + (response.data?.profile_photo_path ?? ""))!, placeholderImage: UIImage(named: "Avatar"))
+//        }else{
+//            userImageView.image = UIImage(named: "Avatar")
+//        }
         userNameLbl.text = response.data?.name ?? ""
     }
     

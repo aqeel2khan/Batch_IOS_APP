@@ -37,10 +37,6 @@ class CustomNavigationBar: UIView {
         view!.frame = bounds
         view!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view!)
-        let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? String
-        if getprofilePhoto != nil{
-            profileImage.sd_setImage(with: URL(string: BaseUrl.imageBaseUrl + (getprofilePhoto ?? ""))!, placeholderImage: UIImage(named: "Avatar"))
-        }
     }
     
     func loadViewFromNib() -> UIView {
@@ -48,6 +44,12 @@ class CustomNavigationBar: UIView {
         let nib = UINib(nibName: "CustomNavigationBar", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         titleFirstLbl.font = FontSize.mediumSize24
+        let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
+        if getprofilePhoto != nil{
+            profileImage.image = UIImage(data: getprofilePhoto ?? Data())
+        }else{
+            profileImage.image = UIImage(named: "Avatar")
+        }
         return view
     }
     
