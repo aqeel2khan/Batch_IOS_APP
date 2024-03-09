@@ -46,7 +46,6 @@ class BWorkOutVC: UIViewController {
         super.viewDidLoad()
         // Set the delegate of the custom search text field to self
         self.woSearchTextField.delegate = self
-        setupNavigationBar()
         setupViews()
         
         //        // Call Api func here
@@ -71,6 +70,10 @@ class BWorkOutVC: UIViewController {
         
         // Inside the class or part of the code where you want to observe the notification
         NotificationCenter.default.addObserver(self, selector: #selector(handleCustomNotification(_:)), name: .myCustomNotification, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupNavigationBar()
     }
     @objc func handleCustomNotification(_ notification: Notification) {
         if internetConnection.isConnectedToNetwork() == true {
