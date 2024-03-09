@@ -17,9 +17,6 @@ class MealPlanProtienCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         claoryview.layer.cornerRadius = 20
         mainView.layer.cornerRadius = 20
-        
-        
-        
     }
 
 }

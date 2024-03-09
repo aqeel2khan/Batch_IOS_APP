@@ -29,10 +29,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="318" height="244"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2VT-ui-Wm6">
-                                <rect key="frame" x="0.0" y="177" width="318" height="67"/>
+                                <rect key="frame" x="0.0" y="163" width="318" height="81"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OW3-pX-Qza">
-                                        <rect key="frame" x="10" y="10" width="298" height="47"/>
+                                        <rect key="frame" x="10" y="10" width="298" height="61"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yo-HO-mWE">
                                                 <rect key="frame" x="0.0" y="0.0" width="298" height="25"/>
@@ -83,12 +83,22 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Ret-w1-qkW">
+                                                <rect key="frame" x="0.0" y="57" width="298" height="4"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="4" id="7gy-Ls-WFH"/>
+                                                </constraints>
+                                                <color key="progressTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="trackTintColor" red="0.80392158030000005" green="0.79607844350000001" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </progressView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="0yo-HO-mWE" firstAttribute="leading" secondItem="OW3-pX-Qza" secondAttribute="leading" id="7ft-V2-HIm"/>
                                             <constraint firstItem="FeE-L5-hu6" firstAttribute="leading" secondItem="OW3-pX-Qza" secondAttribute="leading" id="DMe-mB-wfQ"/>
+                                            <constraint firstItem="Ret-w1-qkW" firstAttribute="leading" secondItem="OW3-pX-Qza" secondAttribute="leading" id="Id1-Zy-3C9"/>
                                             <constraint firstAttribute="trailing" secondItem="0yo-HO-mWE" secondAttribute="trailing" id="Oef-YG-Jm7"/>
                                             <constraint firstAttribute="trailing" secondItem="FeE-L5-hu6" secondAttribute="trailing" id="fCY-D3-BoG"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ret-w1-qkW" secondAttribute="trailing" id="mbE-sM-h6F"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -165,6 +175,7 @@
                 <outlet property="daysLbl" destination="2Oq-a1-e4z" id="z3L-DR-2ac"/>
                 <outlet property="descLbl" destination="FeE-L5-hu6" id="LeO-t7-mJV"/>
                 <outlet property="imageBackGrd" destination="Sou-cl-SQl" id="TIq-B7-XJp"/>
+                <outlet property="progressView" destination="Ret-w1-qkW" id="SUw-R1-9P3"/>
                 <outlet property="titleLbl" destination="qEB-Wy-7cu" id="Q6p-Fo-5bP"/>
                 <outlet property="titleView" destination="2VT-ui-Wm6" id="8ht-sh-c4F"/>
             </connections>

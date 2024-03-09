@@ -19,11 +19,13 @@ class MealPlanIngridentEditableView: UIViewController {
     @IBOutlet weak var mealTblView: UITableView!
     @IBOutlet weak var mealTblViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var nameLbl: UILabel!
+    
+    @IBOutlet weak var ingridentLabelView: UILabel!
 
     var selectedMealData : Meals!
     var dishData : Dishes!
     var nutritionList : [NutritionDetail] = []
-
+    var dishRequest: DishRequest?
     // MARK: - Properties
     var isCommingFrom = ""
 
@@ -32,8 +34,6 @@ class MealPlanIngridentEditableView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavigationBar()
-        
-        nameLbl.text = dishData.name
         self.getDishesDetailsApi()
     }
 
@@ -43,6 +43,15 @@ class MealPlanIngridentEditableView: UIViewController {
     private func setupNavigationBar() {
         self.customSecondNavigationBar.titleLbl.text = ""
         self.registerCollTblView()
+        if isCommingFrom == "MealBatchUnSubscribeDetailVC" {
+            self.ingridentLabelView.isHidden = true
+            self.mealTblView.isHidden = false
+            nameLbl.text = dishData.name
+        } else {
+            self.ingridentLabelView.isHidden = false
+            self.mealTblView.isHidden = true
+            nameLbl.text = dishRequest?.dishName
+        }
     }
     
     private func registerCollTblView(){
@@ -68,18 +77,25 @@ class MealPlanIngridentEditableView: UIViewController {
             showLoading()
         }
         let bMealViewModel = BMealViewModel()
-        let urlStr = API.dishesDetail + "?dish_id=\(dishData.dishID ?? 0)&meal_id=\(selectedMealData.id ?? 0)&goal_id=\(selectedMealData.goalID ?? 0)"
+        var urlStr = ""
+        if isCommingFrom == "MealBatchUnSubscribeDetailVC" {
+            urlStr = API.dishesDetail + "?dish_id=\(dishData.dishID ?? 0)&meal_id=\(selectedMealData.id ?? 0)&goal_id=\(selectedMealData.goalID ?? 0)"
+        } else {
+            urlStr = API.dishesDetail + "?dish_id=\(dishRequest?.dishId ?? "0")&meal_id=\(dishRequest?.mealId ?? "0")&goal_id=\(dishRequest?.goalId ?? "0")"
+        }
         bMealViewModel.dishesDetail(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data?.data != nil {
-                
                 self.nutritionList.removeAll()
                 self.nutritionList = response.data?.data?.nutritionDetails ?? []
-
                 DispatchQueue.main.async {
                     hideLoading()
-
+                    if self.isCommingFrom == "MealBatchUnSubscribeDetailVC" {
+                    } else {
+                        let nutrientNames = self.nutritionList.compactMap { $0.nutrientName }
+                        let commaSeparatedNutrientNames = nutrientNames.joined(separator: ", ")
+                        self.ingridentLabelView.text = commaSeparatedNutrientNames
+                    }
                     self.showProtinListCollView.reloadData()
-
                 }
             }else{
                 DispatchQueue.main.async {

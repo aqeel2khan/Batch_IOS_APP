@@ -16,6 +16,7 @@ extension MealBatchDetailVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(BMealTblCell.self, for: indexPath)
+        cell.selectionStyle = .none
         if let dish = self.selectedWeekDay?.dishes?[indexPath.row] {
             if let category = getCategory(from: dish.dishCategory) {
                 cell.sectionTitleLbl.text = category.categoryName
@@ -30,6 +31,9 @@ extension MealBatchDetailVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Tap On Collection")
+        if let dish = self.selectedWeekDay?.dishes?[indexPath.row] {
+            openMealIngredientView(dishId: "\(dish.dishID)", dishName: dish.dishName ?? "")
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
