@@ -15,10 +15,11 @@ struct SubscribedMealListRequest: Codable {
 }
 
 struct SubscribedMealDetailRequest: Codable {
-    var userId, subscribedId, mealId: String?
+    var userId, subscribedId, mealId, goalId: String?
     enum CodingKeys: String, CodingKey {
         case userId = "user_id"
         case subscribedId = "subscribed_id"
         case mealId = "meal_id"
+        case goalId = "goal_id"
     }
 }

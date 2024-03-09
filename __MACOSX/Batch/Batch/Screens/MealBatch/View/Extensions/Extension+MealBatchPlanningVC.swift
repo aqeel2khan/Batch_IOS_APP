@@ -15,7 +15,7 @@ extension MealBatchPlanningVC: UICollectionViewDelegate,UICollectionViewDataSour
             return self.weekDays.count
         }
         else if collectionView.tag == 602 {
-            return self.subscribedMealDetails?.mealDetails.categoryList.count ?? 0
+            return self.allCategories.count
         }
         else if collectionView.tag == 603 {
             return self.dishesList.count
@@ -29,20 +29,19 @@ extension MealBatchPlanningVC: UICollectionViewDelegate,UICollectionViewDataSour
         
         if collectionView.tag == 601 {
             let cell = collectionView.dequeue(weekCalenderCollCell.self, indexPath)
+            cell.isRenderingFromMealCalendarScreen = true
             cell.weekDayNameLbl.text = self.weekDays[indexPath.item].dayName
             cell.weekDateLbl.text = self.weekDays[indexPath.item].dayOfMonth
-            cell.greenDotImgView.isHidden = isOldDate(self.weekDays[indexPath.row].date)
+            cell.greenDotImgView.isHidden = !DateHelper.isOldDate(self.weekDays[indexPath.row].date)
             return cell
         } else if collectionView.tag == 602 {
             let cell = collectionView.dequeue(BMealCategoryCollCell.self, indexPath)
-            if let categoryArray = self.subscribedMealDetails?.mealDetails.categoryList {
-                cell.categoryTitleLbl.text = categoryArray[indexPath.item].categoryName
-            }
+            cell.categoryTitleLbl.text = allCategories[indexPath.item].categoryName
             return cell
         } else if collectionView.tag == 603 {
             let cell = collectionView.dequeue(BMealDishCollCell.self, indexPath)
-            cell.nameLbl.text = self.dishesList[indexPath.item].name
-            
+            cell.nameLbl.text = self.dishesList[indexPath.item].dishName
+            cell.kclLbl.text = "\(self.dishesList[indexPath.item].dishCalorie) kcal" 
             if let selectedDayDishes = selectedWeekDay?.dishes {
                 // Check if the dish is selected for the current day
                 let dishID = self.dishesList[indexPath.item].dishID
@@ -73,101 +72,55 @@ extension MealBatchPlanningVC: UICollectionViewDelegate,UICollectionViewDataSour
         if collectionView.tag == 601 {
             let weekday = self.weekDays[indexPath.item]
             self.selectedWeekDay = weekday
-            collectionView.deselectAllItems(animated: false)
+            self.reloadTheMealCollectionView()
         } else if collectionView.tag == 602 {
-            if let cell = self.mealCategoryCollView.cellForItem(at: indexPath) as? BMealCategoryCollCell {
-                cell.bgView.backgroundColor = Colors.appViewBackgroundColor
-            } else {
-                // Handle the case when the cell is not available
-                print("Cell is not available")
-            }
+            let tappedCategoryId = self.allCategories[indexPath.item].categoryID
+            self.selectedMealCategory = self.allCategories[indexPath.item]
+            self.reloadTheDishCollectionViewAsPerCategoryId(categoryId: tappedCategoryId)
         } else if collectionView.tag == 603 {
             let tappedDish = self.dishesList[indexPath.item]
-
-            if let existingDishIndex = selectedWeekDay?.dishes?.firstIndex(where: { $0.dishCategory == selectedMealCategory?.categoryID }) {
-                // There is an existing dish in the selected category
-                if let selectedDish = selectedWeekDay?.dishes?[existingDishIndex] {
-                    if selectedDish.dishID == tappedDish.dishID {
-                        print("User tapped on the same item of the same category")
-                        // Do nothing
-                    } else {
-                        // Replace the existing dish with the tapped dish in the array
-                        if let foundDayDish = convertDishesToDaysDish(dish: tappedDish) {
-                            selectedWeekDay?.dishes?[existingDishIndex] = foundDayDish
-                            reloadTheMealCollectionView()
+            if let aSelectedWeekDay = selectedWeekDay, DateHelper.isDateGreaterThanTwoDays(aSelectedWeekDay.date) {
+                if let existingDishIndex = selectedWeekDay?.dishes?.firstIndex(where: { $0.dishCategory == selectedMealCategory?.categoryID }) {
+                    // There is an existing dish in the selected category
+                    if let selectedDish = selectedWeekDay?.dishes?[existingDishIndex] {
+                        if selectedDish.dishID == tappedDish.dishID {
+                            print("User tapped on the same item of the same category")
+                            // Do nothing
+                        } else {
+                            // Replace the existing dish with the tapped dish in the array
+                            if let foundDayDish = convertDishesToDaysDish(dish: tappedDish) {
+                                selectedWeekDay?.dishes?[existingDishIndex] = foundDayDish
+                                reloadTheMealCollectionView()
+                            }
+                            print("User tapped on a different item of the same category, replaced it in the array")
                         }
-                        print("User tapped on a different item of the same category, replaced it in the array")
                     }
+                } else {
+                    // No dish exists in the selected category, so append the tapped dish
+                    if let foundDayDish = convertDishesToDaysDish(dish: tappedDish) {
+                        selectedWeekDay?.dishes?.append(foundDayDish)
+                        reloadTheMealCollectionView()
+                    }
+                    print("User tapped on a dish in a new category, added it to the array")
                 }
             } else {
-                // No dish exists in the selected category, so append the tapped dish
-                if let foundDayDish = convertDishesToDaysDish(dish: tappedDish) {
-                    selectedWeekDay?.dishes?.append(foundDayDish)
-                    reloadTheMealCollectionView()
-                }
-                print("User tapped on a dish in a new category, added it to the array")
+                showAlert(message: "You can only modify the dishes for 2 days later.")
             }
-
-//            if let selectedDish = selectedWeekDay?.dishes?.first(where: { $0.dishCategory == selectedMealCategory?.categoryID }) {
-//                if selectedDish.dishID == tappedDish.dishID {
-//                    print("User tapped on the same item of the same category")
-//                    // Do nothing
-//                } else {
-//                    // Replace the existing dish with the tapped dish in the array
-//                    if let index = selectedWeekDay?.dishes?.firstIndex(where: { $0.dishID == selectedDish.dishID }) {
-//                        if let foundDayDish = convertDishesToDaysDish(dish: tappedDish) {
-//                            selectedWeekDay?.dishes?[index] = foundDayDish
-//                            reloadTheMealCollectionView()
-//                        }
-//                        print("User tapped on a different item of the same category, replaced it in the array")
-//                    }
-//                }
-//            } else {
-//                // If no dish exists in the category, simply append the tapped dish
-//                if let foundDayDish = convertDishesToDaysDish(dish: tappedDish) {
-//                    selectedWeekDay?.dishes?.append(foundDayDish)
-//                    reloadTheMealCollectionView()
-//                }
-//                print("User tapped on a dish in a new category, added it to the array")
-//            }
-
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if collectionView.tag == 602 {
-            if let cell = self.mealCategoryCollView.cellForItem(at: indexPath) as? BMealCategoryCollCell {
-                cell.bgView.backgroundColor = Colors.appViewBackgroundColor
-            } else {
-                // Handle the case when the cell is not available
-                print("Cell is not available")
-            }
-        }
-    }
-
-    func convertDishesToDaysDish(dish: Dishes) -> DaysDish? {
+    func convertDishesToDaysDish(dish: CategoryDish) -> DaysDish? {
         guard let aSelectedWeekday = self.selectedWeekDay else {
             return nil
         }
-        return DaysDish(dishID: dish.dishID ?? 0,
-                        dishName: dish.name ?? "",
-                        dishImage: "", // You need to set the dish image from somewhere
-                        dishCategory: dish.categoryID ?? 0,
+        return DaysDish(dishID: dish.dishID,
+                        dishName: dish.dishName,
+                        dishImage: dish.dishImage, // You need to set the dish image from somewhere
+                        dishCategory: dish.dishCategory,
                         month: aSelectedWeekday.month, // You need to set the month from somewhere
                         day: aSelectedWeekday.day, // You need to set the day from somewhere
-                        selected: 1) // You need to set the selected from somewhere
-    }
-    
-    func isOldDate(_ date: Date) -> Bool {
-        let currentDate = Date()
-        return date < currentDate
-    }
-    
-    func isDateGreaterThanTwoDays(_ date: Date) -> Bool {
-        let currentDate = Date()
-        let twoDaysFromNow = Calendar.current.date(byAdding: .day, value: 2, to: currentDate)!
-        return date > twoDaysFromNow
-    }
+                        selected: 1, calories: dish.dishCalorie) // You need to set the selected from somewhere
+    }    
 }
 
 extension MealBatchPlanningVC {

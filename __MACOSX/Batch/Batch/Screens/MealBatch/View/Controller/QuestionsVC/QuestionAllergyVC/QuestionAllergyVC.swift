@@ -19,6 +19,7 @@ class QuestionAllergyVC: UIViewController {
         setUpCollectionView()
         setupNavigationBar()
         
+        allergyCollectionView.allowsMultipleSelection = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,11 +43,24 @@ class QuestionAllergyVC: UIViewController {
     }
     
     @IBAction func nextActionBtn(_ sender: BatchButton) {
+        var selectedValue : [Int] = []
         
-        let vc = WelcomeVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .coverVertical
-        self.present(vc, animated: true)
+        for indexPath in allergyCollectionView.indexPathsForSelectedItems ?? [] {
+            selectedValue.append(self.algeryList[indexPath.row].id)
+        }
+        
+        let commaSeperatedString = (selectedValue.map{String($0)}.joined(separator: ","))
+        
+        if commaSeperatedString == "" {
+            showAlert(message: "Please select at least one allergy")
+        } else {
+            AnswerStruct.allergic_id = commaSeperatedString
+            
+            let vc = WelcomeVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)
+        }
     }
     
     //Get Allerty List

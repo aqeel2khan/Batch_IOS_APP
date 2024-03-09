@@ -40,10 +40,19 @@ class QuestionWeightVC: UIViewController {
     }
     
     @IBAction func nextActionBtn(_ sender: BatchButton) {
-        let vc = QuestionActivityVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .coverVertical
-        self.present(vc, animated: true)
+        AnswerStruct.current_weight = rulerPicker(currentWeightPicker, highlightTitleForIndex: currentWeightPicker.highlightedIndex) ?? "0"
+        AnswerStruct.target_weight = rulerPicker(currentWeightPicker, highlightTitleForIndex: targetWeightPicker.highlightedIndex) ?? "0"
+        
+        if AnswerStruct.current_weight == "0" || AnswerStruct.current_weight == "0.0" {
+            showAlert(message: "Please select Current Weight")
+        } else if AnswerStruct.target_weight == "0" || AnswerStruct.target_weight == "0.0" {
+            showAlert(message: "Please select Target Weight")
+        } else {
+            let vc = QuestionActivityVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)
+        }
     }
     
     private func configureCurrentWeightPicker() {

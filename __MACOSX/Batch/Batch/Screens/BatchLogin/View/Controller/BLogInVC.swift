@@ -133,10 +133,13 @@ class BLogInVC: UIViewController {
                     hideLoading()
                     
                     //                    UserDefaultUtility.saveToken(token: response.token ?? "")
+                    Batch_UserDefaults.set(response.data?.id, forKey: UserDefaultKey.USER_ID)
                     Batch_UserDefaults.set(response.token ?? "" , forKey: UserDefaultKey.TOKEN)
                     let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN)
                     UserDefaultUtility.setUserLoggedIn(true)
                     Batch_UserDefaults.setValue(response.data?.profile_photo_path, forKey:UserDefaultKey.profilePhoto )
+                    UserDefaultUtility.saveUserId(userId: response.data?.id ?? 0)
+                  
                     if self.isCommingFrom == "workoutbatches" {
                         let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
                         vc.modalPresentationStyle = .overFullScreen

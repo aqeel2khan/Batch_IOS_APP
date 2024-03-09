@@ -42,7 +42,7 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
         super.viewDidLoad()
 
         titleLbl.text = mealData.name
-        priceLbl.text = "from $ \(mealData.price ?? "")" 
+        priceLbl.text = "from \(CURRENCY) " + " \(mealData.price ?? "")" 
         descLbl.text = mealData.description
         durationLbl.text = (mealData.duration ?? "") + " weeks"
         
@@ -144,8 +144,6 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
         let urlStr = API.mealDetail + "\(mealData.id ?? 0)"
         bMealViewModel.mealDetail(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data?.data != nil {
-                
-                
                 self.tagTitleArray.append((response.data?.data?.avgCalPerDay ?? "") + " kcal")
                 self.tagTitleArray.append(("\(response.data?.data?.mealCount ?? 0)") + " meals")
                 self.tagTitleArray.append((response.data?.data?.mealType ?? ""))

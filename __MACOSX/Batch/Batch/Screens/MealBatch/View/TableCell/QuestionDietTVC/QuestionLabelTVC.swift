@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QuestionDietTVC: UITableViewCell {
+class QuestionLabelTVC: UITableViewCell {
 
     @IBOutlet weak var titleLbl: BatchRegularBlack!
     @IBOutlet weak var questionUIView: UIView!

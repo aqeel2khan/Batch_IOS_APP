@@ -79,6 +79,7 @@ extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionVie
             let vc = MealPlanIngridentEditableView.instantiate(fromAppStoryboard: .batchMealPlans)
             vc.selectedMealData = self.mealData
             vc.dishData = self.dishesList[indexPath.item]
+            vc.isCommingFrom = "MealBatchUnSubscribeDetailVC"
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true)

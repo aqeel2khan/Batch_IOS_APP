@@ -16,6 +16,7 @@ extension MealBatchDetailVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(BMealTblCell.self, for: indexPath)
+        cell.selectionStyle = .none
         if let dish = self.selectedWeekDay?.dishes?[indexPath.row] {
             if let category = getCategory(from: dish.dishCategory) {
                 cell.sectionTitleLbl.text = category.categoryName
@@ -23,13 +24,16 @@ extension MealBatchDetailVC: UITableViewDelegate,UITableViewDataSource {
                 cell.sectionTitleLbl.text = ""
             }
             cell.dishName.text = dish.dishName
-            // cell.dishCalory.text = // Here show the dish calory
+            cell.dishCalory.text = "\(dish.calories) kcal"
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Tap On Collection")
+        if let dish = self.selectedWeekDay?.dishes?[indexPath.row] {
+            openMealIngredientView(dishId: "\(dish.dishID)", dishName: dish.dishName ?? "")
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -71,29 +75,13 @@ extension MealBatchDetailVC: UICollectionViewDelegate,UICollectionViewDataSource
             let cell = collectionView.dequeue(weekCalenderCollCell.self, indexPath)
             cell.weekDayNameLbl.text = self.weekDays[indexPath.row].dayName
             cell.weekDateLbl.text = self.weekDays[indexPath.row].dayOfMonth
-            cell.greenDotImgView.isHidden = true
-            if let dishes = self.weekDays[indexPath.row].dishes, dishes.count > 0 {
-                cell.greenDotImgView.isHidden = false
-            }
+            cell.greenDotImgView.isHidden = !DateHelper.isOldDate(self.weekDays[indexPath.row].date)
             return cell
         } else {
             return UICollectionViewCell()
         }
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let screenWidth = weekCalenderCollView.frame.width
-//        let screenHeight = tagCollView.frame.height
-//        if collectionView.tag == 202
-//        {
-//            return CGSize(width: screenWidth/7, height: 80)
-//        }
-//        else
-//        {
-//            return CGSize(width: screenWidth, height: screenHeight)
-//        }
-//    }
-    
+        
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
         UIView.animate(

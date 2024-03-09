@@ -11,7 +11,7 @@ class MealPlanTVC: UITableViewCell {
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var backGroundImage: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var priceLbl: UILabel!
+    @IBOutlet weak var priceLbl: BatchLabelRegularWhite!
     @IBOutlet weak var kclLbl: UILabel!
     @IBOutlet weak var mealsLbl: UILabel!
 
