@@ -140,6 +140,26 @@ struct BMealResource {
                 }
             }
     }
+        
+    
+    // Get Goal List Api  //1
+    func goalList(urlStr:String, onSuccess:@escaping(GoalListResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        
+        let courseContentUrl = URL(string: urlStr)!
+        let urlRequest = HURequest(url: courseContentUrl, method: .get)
+        
+        HttpUtility.shared.request(huRequest: urlRequest, isAuthorization: false, resultType: GoalListResponse
+            .self) { (result) in
+                
+                switch result{
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+    }
+    
     
     // Get Diet List Api  //1
     func dietList(urlStr:String, onSuccess:@escaping(DietListResponse) -> Void, onError:@escaping(BatchError) -> Void){

@@ -101,7 +101,9 @@ struct API {
     static let dishesDetail  = baseUrl + "/dish/details"// post
     static let filterOption  = baseUrl + "/meal/filters"// post
     static let topRatedMealList  = baseUrl + "/meal/top-rated-meals"// post
-    
+
+    //Questin Module
+    static let goalList  = baseUrl + "/meal/goals"// get
     static let typeOfDiegtList  = baseUrl + "/meal/tags"// get
     static let allergiesList  = baseUrl + "/meal/allergies"// get
 
