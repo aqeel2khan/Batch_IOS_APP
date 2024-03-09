@@ -8,11 +8,50 @@
 import UIKit
 
 class ShowTotalBurnerCaloryVC: UIViewController {
+    @IBOutlet weak var averageCaloryPerDayLbl: UILabel!
+    
+    var averageCalory: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.submitAllAnswers()
+    }
 
+    func submitAllAnswers() {
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealViewModel = BMealViewModel()
+        let urlStr = API.submitQuestionAnswers
+        
+        let request = AnswerRequest.init(goal_id: "\(AnswerStruct.goal_id!)", age: "\(AnswerStruct.age!)", height: AnswerStruct.height, current_weight: AnswerStruct.current_weight, target_weight: AnswerStruct.target_weight, workout_per_week: AnswerStruct.workout_per_week!, tag_id: AnswerStruct.tag_id!, allergic_id: AnswerStruct.allergic_id!)
+        
+        bMealViewModel.questionAnswer(requestUrl: urlStr, request: request)  { (response) in
+            if response.status == true {
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.averageCalory = response.data.data.avg_cal_per_day
+                    self.averageCaloryPerDayLbl.text = self.averageCalory
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
+        }
+    }
+    
     @IBAction func backActinBtn(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
@@ -20,6 +59,7 @@ class ShowTotalBurnerCaloryVC: UIViewController {
     @IBAction func nextActionBtn(_ sender: UIButton) {
         self.switchToHomeVC()
     }
+    
     func switchToHomeVC() {
             let vc = BatchTabBarController.instantiate(fromAppStoryboard: .batchTabBar)
             tabBarController?.selectedIndex = 1

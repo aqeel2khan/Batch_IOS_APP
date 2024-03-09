@@ -33,10 +33,10 @@ class QuestionActivityVC: UIViewController {
     
     @IBAction func nextActionBtn(_ sender: BatchButton) {
         if tblView.indexPathsForSelectedRows?.count ?? 0 > 0 {
-            AnswerInputStruct.workout_per_week = self.activityList[(tblView.indexPathsForSelectedRows?[0].row)!]
+            AnswerStruct.workout_per_week = self.activityList[(tblView.indexPathsForSelectedRows?[0].row)!]
         }
         
-        if AnswerInputStruct.workout_per_week == nil {
+        if AnswerStruct.workout_per_week == nil {
             showAlert(message: "Please select at least one active option")
         }  else {
             let vc = QuestionDietVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)

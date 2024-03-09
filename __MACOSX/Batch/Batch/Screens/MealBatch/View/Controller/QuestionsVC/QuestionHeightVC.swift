@@ -81,9 +81,9 @@ class QuestionHeightVC: UIViewController {
     }
  
     @IBAction func nextActionBtn(_ sender: BatchButton) {
-        AnswerInputStruct.height = rulerPicker(heightPicker, highlightTitleForIndex: heightPicker.highlightedIndex) ?? "0"
+        AnswerStruct.height = rulerPicker(heightPicker, highlightTitleForIndex: heightPicker.highlightedIndex) ?? "0"
 
-        if AnswerInputStruct.height == "0" {
+        if AnswerStruct.height == "0" {
             showAlert(message: "Please select Correct Height")
         } else {
             let vc = QuestionWeightVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)

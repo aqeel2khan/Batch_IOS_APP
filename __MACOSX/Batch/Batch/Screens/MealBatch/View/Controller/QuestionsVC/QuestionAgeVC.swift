@@ -24,7 +24,7 @@ class QuestionAgeVC: UIViewController {
         let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
         if let day = components.day, let month = components.month, let year = components.year {
             print("\(day) \(month) \(year)")
-            AnswerInputStruct.age = year
+            AnswerStruct.age = year
         }
     }
     
@@ -37,7 +37,7 @@ class QuestionAgeVC: UIViewController {
     
 
     @IBAction func nextActionBtn(_ sender: BatchButton) {
-        if AnswerInputStruct.age == nil {
+        if AnswerStruct.age == nil {
             showAlert(message: "Please select your date of birth")
         }  else {
             let vc = QuestionHeightVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
