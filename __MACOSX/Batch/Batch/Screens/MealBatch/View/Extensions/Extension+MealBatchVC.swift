@@ -33,14 +33,14 @@ extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
                     if searchTextField.text == "" {
                         let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
                         cell.titleLbl.text = self.mealListData[indexPath.row].name
-                        cell.priceLbl.text = "from \(CURRENCY) " + "\(self.mealListData[indexPath.row].price ?? "")"
+                        cell.priceLbl.text = "from \(CURRENCY) " + "\(self.mealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
                         cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") kcal"
                         cell.mealsLbl.text = "\(self.mealListData[indexPath.row].mealCount ?? 0) meals"
                         return cell
                     } else {
                         let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
                         cell.titleLbl.text = self.searchmealListData[indexPath.row].name
-                        cell.priceLbl.text = "from \(CURRENCY) " + "\(self.searchmealListData[indexPath.row].price ?? "")"
+                        cell.priceLbl.text = "from \(CURRENCY) " + "\(self.searchmealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
                         cell.kclLbl.text = "\(self.searchmealListData[indexPath.row].avgCalPerDay ?? "") kcal"
                         cell.mealsLbl.text = "\(self.searchmealListData[indexPath.row].mealCount ?? 0) meals"
                         return cell
@@ -49,14 +49,14 @@ extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
                     if searchTextField.text == "" {
                         let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
                         cell.titleLbl.text = self.mealListData[indexPath.row - 1].name
-                        cell.priceLbl.text = "from \(CURRENCY) " + "\(self.mealListData[indexPath.row - 1].price ?? "")"
+                        cell.priceLbl.text = "from \(CURRENCY) " + "\(self.mealListData[indexPath.row - 1].price?.removeDecimalValue() ?? "")"
                         cell.kclLbl.text = "\(self.mealListData[indexPath.row - 1].avgCalPerDay ?? "") kcal"
                         cell.mealsLbl.text = "\(self.mealListData[indexPath.row - 1].mealCount ?? 0) meals"
                         return cell
                     } else {
                         let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
                         cell.titleLbl.text = self.searchmealListData[indexPath.row].name
-                        cell.priceLbl.text = "from \(CURRENCY) " + "\(self.searchmealListData[indexPath.row].price ?? "")"
+                        cell.priceLbl.text = "from \(CURRENCY) " + "\(self.searchmealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
                         cell.kclLbl.text = "\(self.searchmealListData[indexPath.row].avgCalPerDay ?? "") kcal"
                         cell.mealsLbl.text = "\(self.searchmealListData[indexPath.row].mealCount ?? 0) meals"
                         return cell
@@ -100,7 +100,7 @@ extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 260 //UITableView.automaticDimension
+        return 240 //UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -172,7 +172,7 @@ class BWorkOutMotivatorDetailVC: UIViewController {
         let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (info.profilePhotoPath ?? ""))
         self.coachPicImgView.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
         self.coachNameLbl.text = "\(info.name ?? "")"
-        self.followerCountLbl.text = "\(info.followersCount ?? 0)" //"0"
+        self.followerCountLbl.text = "\(info.followersCount ?? 0) follower" //"0"
         self.followerCount = info.followersCount ?? 0
         self.desLbl.text = ""
                 
@@ -222,7 +222,7 @@ class BWorkOutMotivatorDetailVC: UIViewController {
                     self.followBtn.isHidden   = false
                     self.unFollowBtn.isHidden = true
                     self.followerCount += 1
-                    self.followerCountLbl.text = "\(self.followerCount)"
+                    self.followerCountLbl.text = "\(self.followerCount) follower"
                     fullUrlStr = API.motivatorFollow + "\(info.id ?? 0)"
                 }
                 else
@@ -230,7 +230,7 @@ class BWorkOutMotivatorDetailVC: UIViewController {
                     self.followBtn.isHidden   = true
                     self.unFollowBtn.isHidden = false
                     self.followerCount -= 1
-                    self.followerCountLbl.text = "\(self.followerCount)"
+                    self.followerCountLbl.text = "\(self.followerCount) follower"
                     fullUrlStr = API.motivatorUnfollow + "\(info.id ?? 0)"
                 }
                 self.getfollowUnfollow(urlStr: fullUrlStr)
@@ -305,7 +305,6 @@ class BWorkOutMotivatorDetailVC: UIViewController {
             //            if response.status == true, response.data?.count != 0{
             if response.status == true, response.data?.list?.count != 0 {
                 
-                print(response.data)
                 self.coachDetailCourseArr = response.data?.list ?? []
                 // self.blogsArray = response.data!
                 
@@ -432,12 +431,9 @@ class BWorkOutMotivatorDetailVC: UIViewController {
                     else if self.unFollowBtn.isHidden == false
                     {
                         self.isFollowed = false
-                        //self.followerCount -= 1
                     }
-                    //self.followerCountLbl.text = "\(self.followerCount)"
 
                     hideLoading()
-                    //                    self.traningPackageTblView.reloadData()
                 }
             }else{
                 DispatchQueue.main.async {

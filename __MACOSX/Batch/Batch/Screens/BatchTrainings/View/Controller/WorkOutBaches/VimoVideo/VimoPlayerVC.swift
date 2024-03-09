@@ -29,8 +29,8 @@ class VimoPlayerVC: UIViewController {
         super.viewDidLoad()
         
         titleLbl.text = titleText
-        dayCountLbl.text = dayNumberText
-        
+        dayCountLbl.text = "Day : " + dayNumberText
+                
         print("OUR FINAL VIDEO URL")
         print(viemoVideoArr)
         
@@ -60,13 +60,11 @@ class VimoPlayerVC: UIViewController {
             let indexPath = IndexPath(row: i, section: 0)
             let cell2 = selectedVideoViewTbl.cellForRow(at: indexPath) as? VideoThunbListTblCell
             
-            if i == index
-            {
+            if i == index {
                 // Change the color of the selected index
                 cell2?.selectedView.backgroundColor = Colors.appThemeButtonColor
             }
-            else
-            {
+            else {
                 // Keep the color white for other cells
                 cell2?.selectedView.backgroundColor = Colors.appViewBackgroundColor
             }
@@ -114,15 +112,15 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "VimoPlayerCell", for: indexPath) as! VimoPlayerCell
             cell.configureCell(videoUrl: self.viemoVideoArr[indexPath.row])
            
+            cell.timeLbl.text = "test"
+            
             cell.dragUpUIView.isHidden = indexPath.row == 0 ? false : true
             cell.bottomView.isHidden = indexPath.row == (self.viemoVideoArr.count - 1) ? false : true
-            
+          
+            cell.timeLbl.layer.zPosition = 1
             cell.bottomView.layer.zPosition = 1
             cell.dragUpUIView.layer.zPosition = 1
             
-            cell.startNextWoBtn.tag = indexPath.row
-            cell.startNextWoBtn.addTarget(self, action: #selector(startNextWoBtnAction(_:)), for: .touchUpInside)
-
             cell.finishWorkOutBtn.tag = indexPath.row
             cell.finishWorkOutBtn.addTarget(self, action: #selector(finishWorkOutBtnAction(_:)), for: .touchUpInside)
             return cell

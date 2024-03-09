@@ -74,8 +74,8 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             vc.woDetailInfo = [info]
             vc.isCommingFrom = "workoutbatches"
             
-            vc.newArray.append("\(String(describing: info.duration ?? "" )) min")
-            vc.newImage.append(UIImage(named: "clock-circle-black")!)
+//            vc.newArray.append("\(String(describing: info.duration ?? "" )) min")
+//            vc.newImage.append(UIImage(named: "clock-circle-black")!)
             vc.newArray.append("\(String(describing: info.courseLevel?.levelName ?? "" ))")
             vc.newImage.append(UIImage(named: "barchart-black")!)
             

@@ -59,7 +59,7 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
         else if collectionView == mealBatchCollView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealPlanCollectionCell", for: indexPath)  as! MealPlanCollectionCell
             cell.titleLbl.text = self.mealListData[indexPath.row].name
-            cell.priceLbl.text = "from \(CURRENCY) " + "\(self.mealListData[indexPath.row].price ?? "")"
+            cell.priceLbl.text = "from \(CURRENCY) " + "\(self.mealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
             cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") kcal"
             cell.mealsLbl.text = "\(self.mealListData[indexPath.row].mealCount ?? 0) meals"
             return cell
@@ -67,7 +67,7 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
         else if collectionView == topRatedMealCollView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealPlanCollectionCell", for: indexPath)  as! MealPlanCollectionCell
             cell.titleLbl.text = self.topRatedMealListData[indexPath.row].name
-            cell.priceLbl.text = "from \(CURRENCY) " + "\(self.topRatedMealListData[indexPath.row].price ?? "")"
+            cell.priceLbl.text = "from \(CURRENCY) " + "\(self.topRatedMealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
             cell.kclLbl.text = "\(self.topRatedMealListData[indexPath.row].avgCalPerDay ?? "") kcal"
             cell.mealsLbl.text = "\(self.topRatedMealListData[indexPath.row].mealCount ?? 0) meals"
             return cell
@@ -84,8 +84,8 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             vc.woDetailInfo = [info]
             vc.isCommingFrom = "workoutbatches"
 
-            vc.newArray.append("\(String(describing: info.duration ?? "" )) min")
-            vc.newImage.append(UIImage(named: "clock-circle-black")!)
+//            vc.newArray.append("\(String(describing: info.duration ?? "" )) min")
+//            vc.newImage.append(UIImage(named: "clock-circle-black")!)
             vc.newArray.append("\(String(describing: info.courseLevel?.levelName ?? "" ))")
             vc.newImage.append(UIImage(named: "barchart-black")!)
 

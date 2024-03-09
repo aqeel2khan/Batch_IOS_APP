@@ -84,8 +84,8 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
             vc.todayWorkoutsInfo = info.todayWorkouts
             vc.isCommingFrom = "dashboard"
             
-            vc.newArray.append("\(String(describing: info.courseDetail?.duration ?? "" )) min")
-            vc.newImage.append(UIImage(named: "clock-circle-black")!)
+//            vc.newArray.append("\(String(describing: info.courseDetail?.duration ?? "" )) min")
+//            vc.newImage.append(UIImage(named: "clock-circle-black")!)
             
             vc.newArray.append("\(String(describing: info.courseDetail?.courseLevel?.levelName ?? "" ))")
             vc.newImage.append(UIImage(named: "barchart-black")!)
