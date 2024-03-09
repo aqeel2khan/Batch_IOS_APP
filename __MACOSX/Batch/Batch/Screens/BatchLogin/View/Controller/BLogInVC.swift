@@ -145,16 +145,18 @@ class BLogInVC: UIViewController {
                         vc.selectedSubscriptionInfo = [self.selectedSubscriptionInfo[0]]
                         vc.isCommingFrom = self.isCommingFrom
                         self.present(vc, animated: true)
-                    }
-                    
-                    if self.isCommingFrom == "MealBatchSubscribe" {
+                    }else if self.isCommingFrom == "MealBatchSubscribe" {
                         let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
                         vc.isCommingFrom = "MealBatchSubscribe"
                         vc.mealData = self.mealData
                         vc.modalPresentationStyle = .overFullScreen
                         vc.modalTransitionStyle = .coverVertical
                         self.present(vc, animated: true)
+                    }else{
+                        self.dismiss(animated: true)
                     }
+                    
+                    
                 }
             }else{
                 DispatchQueue.main.async {

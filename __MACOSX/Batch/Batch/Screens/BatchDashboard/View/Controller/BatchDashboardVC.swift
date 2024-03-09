@@ -6,9 +6,22 @@
 //
 
 import UIKit
+import HealthKitUI
 
 class BatchDashboardVC: UIViewController {
     
+    @IBOutlet weak var sleepTimeLbl: UILabel!
+    @IBOutlet weak var noSleepDataAvailableLbl: UILabel!
+    @IBOutlet weak var noHealthDataLbl: UILabel!
+    @IBOutlet weak var stepsCountLbl: UILabel!
+    @IBOutlet weak var heartRateLabel: UILabel!
+    @IBOutlet weak var healthDataStackHeight: NSLayoutConstraint!
+    @IBOutlet weak var healthDataStack: UIStackView!
+    @IBOutlet weak var healthKitConnectBtnHeight: NSLayoutConstraint!
+    @IBOutlet weak var healthKitConnectBtn: BatchButton!
+    @IBOutlet weak var healthKitLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var healthKitLabel: BatchMediumDarkGray!
+    @IBOutlet weak var healthConnectView: UIView!
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     @IBOutlet weak var mealBatchCollView: UICollectionView!
@@ -16,16 +29,63 @@ class BatchDashboardVC: UIViewController {
     //var courseList = [List]()
     var courseList = [DashboardWOList]()
     var subscribedMealListData : [SubscribedMeals] = []
+    var calloriesBurned: [CalloriesBurned] = []
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         self.setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if !UserDefaultUtility.isUserLoggedIn() {
+            let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)
+        }
+        
+        if UserDefaultUtility.isUserLoggedIn() && HealthManager.shared.isHealthKitAuthorised(){
+            healthKitConnectBtnHeight.constant = 0
+            healthKitConnectBtn.isHidden = true
+            healthKitLabelHeight.constant = 0
+            healthKitLabel.isHidden = true
+            healthDataStack.isHidden = false
+            healthDataStackHeight.constant = 640
+    
+            HealthManager.shared.getWeeklyEnergyBurned { dat in
+                dat?.statistics().forEach({ data in
+                    self.calloriesBurned.append(CalloriesBurned(cal: data.sumQuantity()?.doubleValue(for: HKUnit(from: "kcal")) ?? 0, date: data.endDate))
+                })
+                debugPrint(self.calloriesBurned)
+                
+            }
+            
+            
+            HealthManager.shared.getTodaysSteps { steps in
+                DispatchQueue.main.async {
+                    self.stepsCountLbl.text = "\(Int(steps))"
+                }
+            }
+            HealthManager.shared.fetchLatestHeartRateSample { samples in
+              DispatchQueue.main.async {
+                  let heartRateInDouble = samples?.first?.quantity.doubleValue(for: HKUnit(from: "count/s"))
+                  let heartRateInBPM = (heartRateInDouble ?? 0) * 60
+                  self.heartRateLabel.text = "\(Int(heartRateInBPM))"
+                }
+            }
+        }else{
+            healthKitConnectBtnHeight.constant = 56
+            healthKitConnectBtn.isHidden = false
+            healthKitLabelHeight.constant = 90
+            healthKitLabel.isHidden = false
+            healthDataStack.isHidden = true
+            healthDataStackHeight.constant = 0
+        }
         
         if UserDefaultUtility.isUserLoggedIn() {
             if internetConnection.isConnectedToNetwork() == true {
@@ -85,6 +145,54 @@ class BatchDashboardVC: UIViewController {
             }
         }
     }
+    
+    
+    @IBAction func connectToHealthKit(_ sender: UIButton) {
+        if UserDefaultUtility.isUserLoggedIn() {
+            HealthManager.shared.requestHealthkitPermissions { succ, err in
+                if err != nil{
+                    DispatchQueue.main.async {
+                        self.healthKitConnectBtnHeight.constant = 56
+                        self.healthKitConnectBtn.isHidden = false
+                        self.healthKitLabelHeight.constant = 90
+                        self.healthKitLabel.isHidden = false
+                        self.healthDataStack.isHidden = true
+                        self.healthDataStackHeight.constant = 0
+                        self.showAlert(message: err ?? "")
+                    }
+                }else{
+                    DispatchQueue.main.async {
+                        self.healthKitConnectBtnHeight.constant = 0
+                        self.healthKitConnectBtn.isHidden = true
+                        self.healthKitLabelHeight.constant = 0
+                        self.healthKitLabel.isHidden = true
+                        self.healthDataStack.isHidden = false
+                        self.healthDataStackHeight.constant = 640
+                        HealthManager.shared.getTodaysSteps { steps in
+                            DispatchQueue.main.async {
+                                self.stepsCountLbl.text = "\(Int(steps))"
+                            }
+                        }
+                        
+                        HealthManager.shared.fetchLatestHeartRateSample { samples in
+                          DispatchQueue.main.async {
+                              let heartRateInDouble = samples?.first?.quantity.doubleValue(for: HKUnit(from: "count/s"))
+                              let heartRateInBPM = (heartRateInDouble ?? 0) * 60
+                              self.heartRateLabel.text = "\(Int(heartRateInBPM))"
+                            }
+                        }
+                    }
+                }
+            }
+
+        }else{
+            let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)
+        }
+    }
+    
 }
 
 extension BatchDashboardVC {

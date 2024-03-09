@@ -80,6 +80,12 @@ class CustomNavigationBar: UIView {
                 vc.modalTransitionStyle = .coverVertical
                 let controller = (self.superview)?.next as! UIViewController
                 controller.present(vc, animated: true)
+            }else{
+                let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .coverVertical
+                let controller = (self.superview)?.next as! UIViewController
+                controller.present(vc, animated: true)
             }
         }
         
