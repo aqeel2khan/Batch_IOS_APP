@@ -167,7 +167,7 @@ extension MealBatchDetailVC {
                             self.weekDays = weekDays
                         }
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                         self.tagCollView.reloadData()
                         self.weekCalenderCollView.reloadData()
                         self.weekCalenderCollView.collectionViewLayout.invalidateLayout()
@@ -247,4 +247,22 @@ extension MealBatchDetailVC {
         }
         return datesArray
     }
+    
+    func openMealIngredientView(dishId: String, dishName: String) {
+        let vc = MealPlanIngridentEditableView.instantiate(fromAppStoryboard: .batchMealPlans)
+        vc.isCommingFrom = "MealBatchDetailVC"
+        if let mealId = mealData.id, let goalId = mealData.goalID {
+            vc.dishRequest = DishRequest(mealId: "\(mealId)", dishId: dishId, goalId: "\(goalId)", dishName: dishName)
+        }
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true)
+    }
+}
+
+struct DishRequest {
+    let mealId: String
+    let dishId: String
+    let goalId: String
+    let dishName: String
 }
