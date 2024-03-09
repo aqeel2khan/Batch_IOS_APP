@@ -837,7 +837,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DF3-Zf-uPa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2217.5572519083967" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="2215" y="-159"/>
         </scene>
         <!--Start Work Out DetailVC-->
         <scene sceneID="Z9m-Hi-eYq">
@@ -1339,7 +1339,7 @@
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                        <state key="normal" title="Follow">
+                                                                        <state key="normal" title="Following">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <userDefinedRuntimeAttributes>
@@ -1359,7 +1359,7 @@
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                        <state key="normal" title="Following">
+                                                                        <state key="normal" title="Follow">
                                                                             <color key="titleColor" name="AppThemeButtonColor"/>
                                                                         </state>
                                                                         <userDefinedRuntimeAttributes>
@@ -2897,29 +2897,6 @@
                                     <action selector="infoBtnTap:" destination="idS-LC-KRc" eventType="touchUpInside" id="MjD-SC-3Le"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VME-Td-Gs5">
-                                <rect key="frame" x="341.33333333333331" y="144" width="31.666666666666686" height="29"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4p-Nd-e8Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="31.666666666666668" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9g-na-Idy">
-                                        <rect key="frame" x="0.0" y="17" width="31.666666666666668" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="p9g-na-Idy" firstAttribute="leading" secondItem="VME-Td-Gs5" secondAttribute="leading" id="6Ig-Xh-LG7"/>
-                                    <constraint firstAttribute="trailing" secondItem="p9g-na-Idy" secondAttribute="trailing" id="IHg-Ag-3Cx"/>
-                                    <constraint firstAttribute="trailing" secondItem="v4p-Nd-e8Q" secondAttribute="trailing" id="XSK-mq-CJz"/>
-                                    <constraint firstItem="v4p-Nd-e8Q" firstAttribute="leading" secondItem="VME-Td-Gs5" secondAttribute="leading" id="Zi6-Ja-6sn"/>
-                                </constraints>
-                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zme-MS-oMj">
                                 <rect key="frame" x="10" y="109" width="5" height="659"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2937,11 +2914,9 @@
                         <constraints>
                             <constraint firstItem="Vaf-vg-eZf" firstAttribute="top" secondItem="YbQ-3Y-Sad" secondAttribute="top" constant="5" id="1Fn-Ic-t9f"/>
                             <constraint firstItem="zme-MS-oMj" firstAttribute="top" secondItem="YbQ-3Y-Sad" secondAttribute="top" constant="50" id="3FB-8y-qVL"/>
-                            <constraint firstItem="YbQ-3Y-Sad" firstAttribute="trailing" secondItem="VME-Td-Gs5" secondAttribute="trailing" constant="20" id="Oyk-Xh-bkt"/>
                             <constraint firstItem="787-eh-yLs" firstAttribute="top" secondItem="SpP-A9-Jua" secondAttribute="top" id="RLY-RE-ETP"/>
                             <constraint firstItem="Q0a-Wk-XZd" firstAttribute="centerX" secondItem="Vaf-vg-eZf" secondAttribute="centerX" id="W85-Ib-CaR"/>
                             <constraint firstItem="787-eh-yLs" firstAttribute="leading" secondItem="YbQ-3Y-Sad" secondAttribute="leading" id="aua-ky-WUm"/>
-                            <constraint firstItem="VME-Td-Gs5" firstAttribute="top" secondItem="Vaf-vg-eZf" secondAttribute="bottom" constant="40" id="hTc-nR-EmG"/>
                             <constraint firstItem="YbQ-3Y-Sad" firstAttribute="trailing" secondItem="Vaf-vg-eZf" secondAttribute="trailing" constant="20" id="mBs-De-9WW"/>
                             <constraint firstItem="YbQ-3Y-Sad" firstAttribute="bottom" secondItem="zme-MS-oMj" secondAttribute="bottom" constant="50" id="mna-lM-rhX"/>
                             <constraint firstAttribute="bottom" secondItem="787-eh-yLs" secondAttribute="bottom" id="nBg-nc-NhH"/>
@@ -3284,49 +3259,49 @@
     </scenes>
     <designables>
         <designable name="DJA-bJ-AFD">
-            <size key="intrinsicContentSize" width="129" height="33"/>
+            <size key="intrinsicContentSize" width="139" height="33"/>
         </designable>
         <designable name="GFe-hQ-Sad">
-            <size key="intrinsicContentSize" width="128" height="33"/>
+            <size key="intrinsicContentSize" width="136" height="33"/>
         </designable>
         <designable name="LTw-wC-I7b">
-            <size key="intrinsicContentSize" width="42" height="33"/>
+            <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
         <designable name="Pwf-aV-rtb">
-            <size key="intrinsicContentSize" width="161" height="33"/>
+            <size key="intrinsicContentSize" width="176" height="33"/>
         </designable>
         <designable name="SgW-pb-ZK2">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="41" height="33"/>
         </designable>
         <designable name="Uf5-jF-pLk">
-            <size key="intrinsicContentSize" width="64" height="33"/>
+            <size key="intrinsicContentSize" width="69" height="33"/>
         </designable>
         <designable name="bO6-Up-lR6">
-            <size key="intrinsicContentSize" width="128" height="33"/>
+            <size key="intrinsicContentSize" width="136" height="33"/>
         </designable>
         <designable name="h0O-Bc-Ua0">
-            <size key="intrinsicContentSize" width="140" height="33"/>
+            <size key="intrinsicContentSize" width="153" height="33"/>
         </designable>
         <designable name="hLT-G8-eqH">
-            <size key="intrinsicContentSize" width="160" height="33"/>
+            <size key="intrinsicContentSize" width="175" height="33"/>
         </designable>
         <designable name="rDA-Xe-ypL">
-            <size key="intrinsicContentSize" width="46" height="33"/>
+            <size key="intrinsicContentSize" width="72" height="33"/>
         </designable>
         <designable name="rRC-Vk-tFJ">
-            <size key="intrinsicContentSize" width="42" height="33"/>
+            <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
         <designable name="ttp-kr-zeh">
-            <size key="intrinsicContentSize" width="64" height="33"/>
+            <size key="intrinsicContentSize" width="69" height="33"/>
         </designable>
         <designable name="uA6-xl-yIK">
-            <size key="intrinsicContentSize" width="49" height="33"/>
+            <size key="intrinsicContentSize" width="53" height="33"/>
         </designable>
         <designable name="wXf-0l-VvT">
-            <size key="intrinsicContentSize" width="68" height="33"/>
+            <size key="intrinsicContentSize" width="49" height="33"/>
         </designable>
         <designable name="zPv-oy-eFN">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="41" height="33"/>
         </designable>
     </designables>
     <resources>

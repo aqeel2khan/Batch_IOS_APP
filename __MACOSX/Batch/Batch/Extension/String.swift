@@ -99,4 +99,8 @@ extension String{
         
         return String(incatorSymbols.map({Character($0)}))
     }
+    
+    func removeDecimalValue() -> String {
+        return "\(Int(self) ?? 0)"
+    }
 }
