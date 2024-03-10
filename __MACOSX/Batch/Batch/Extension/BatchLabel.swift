@@ -54,6 +54,15 @@ class BatchLabelSubTitleBlack: UILabel {
     }
 }
 
+class BatchLabelRegular16DarkGray: UILabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        text = text?.localized()
+        font = FontSize.regularSize16
+        textColor = Colors.appLabelDarkGrayColor
+    }
+}
+
 //MARK: - regular Size label
 class BatchRegularBlack: UILabel {
     override func awakeFromNib() {

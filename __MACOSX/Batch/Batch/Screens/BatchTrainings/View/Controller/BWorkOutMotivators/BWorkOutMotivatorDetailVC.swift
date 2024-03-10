@@ -11,9 +11,9 @@ class BWorkOutMotivatorDetailVC: UIViewController {
     
     @IBOutlet weak var followUnfollowBtn: UIButton!
     @IBOutlet weak var coachPicImgView: UIImageView!
-    @IBOutlet weak var coachNameLbl: UILabel!
+    @IBOutlet weak var coachNameLbl: BatchMedium20Black!
     @IBOutlet weak var followerCountLbl: UILabel!
-    @IBOutlet weak var desLbl: UILabel!
+    @IBOutlet weak var desLbl: BatchLabelRegular16DarkGray!
     
     @IBOutlet weak var followBtn: BatchButton!
     @IBOutlet weak var unFollowBtn: BatchButton!

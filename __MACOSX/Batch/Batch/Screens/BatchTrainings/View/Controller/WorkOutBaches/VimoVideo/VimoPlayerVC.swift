@@ -58,6 +58,7 @@ class VimoPlayerVC: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         ASVideoPlayerController.sharedVideoPlayer.currentLayer?.player?.pause()
+        ASVideoPlayerController.sharedVideoPlayer.videoLayers.layers.removeAll()
     }
     
     //1

@@ -21,8 +21,15 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1EF-7R-ZzX">
                         <rect key="frame" x="0.0" y="0.0" width="398" height="388"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo Batch" translatesAutoresizingMaskIntoConstraints="NO" id="ukr-RB-FUX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ukr-RB-FUX">
                                 <rect key="frame" x="0.0" y="0.0" width="398" height="388"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_icon_white" translatesAutoresizingMaskIntoConstraints="NO" id="Ezs-rj-6X5">
+                                <rect key="frame" x="159" y="154" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="AF9-zj-E5f"/>
+                                    <constraint firstAttribute="width" constant="80" id="Iwf-aN-mfK"/>
+                                </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="n0b-KQ-F3Y">
                                 <rect key="frame" x="346.33333333333331" y="40" width="31.666666666666686" height="29"/>
@@ -96,6 +103,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Ezs-rj-6X5" firstAttribute="centerX" secondItem="1EF-7R-ZzX" secondAttribute="centerX" id="3ug-tR-1pj"/>
                             <constraint firstAttribute="trailing" secondItem="n0b-KQ-F3Y" secondAttribute="trailing" constant="20" id="4kb-8n-Wpe"/>
                             <constraint firstItem="n0b-KQ-F3Y" firstAttribute="top" secondItem="1EF-7R-ZzX" secondAttribute="top" constant="40" id="9TV-LR-eUb"/>
                             <constraint firstAttribute="bottom" secondItem="hOn-S7-Y4I" secondAttribute="bottom" constant="10" id="AxV-sv-fET"/>
@@ -106,6 +114,7 @@
                             <constraint firstAttribute="trailing" secondItem="ukr-RB-FUX" secondAttribute="trailing" id="Xze-st-jVH"/>
                             <constraint firstAttribute="bottom" secondItem="ukr-RB-FUX" secondAttribute="bottom" id="YXY-Fr-jki"/>
                             <constraint firstItem="RzI-7g-zzG" firstAttribute="centerY" secondItem="1EF-7R-ZzX" secondAttribute="centerY" id="ehw-7J-Lva"/>
+                            <constraint firstItem="Ezs-rj-6X5" firstAttribute="centerY" secondItem="1EF-7R-ZzX" secondAttribute="centerY" id="g2u-Yt-ZFc"/>
                             <constraint firstItem="RzI-7g-zzG" firstAttribute="centerX" secondItem="1EF-7R-ZzX" secondAttribute="centerX" id="nf7-pN-lLI"/>
                         </constraints>
                     </view>
@@ -131,11 +140,11 @@
     </objects>
     <designables>
         <designable name="VrY-OY-DzM">
-            <size key="intrinsicContentSize" width="139" height="33"/>
+            <size key="intrinsicContentSize" width="129" height="33"/>
         </designable>
     </designables>
     <resources>
-        <image name="Logo Batch" width="66.666664123535156" height="22.333333969116211"/>
+        <image name="logo_icon_white" width="124" height="171"/>
         <image name="swipe-up" width="138" height="138"/>
         <namedColor name="AppThemeButtonColor">
             <color red="0.31764705882352939" green="0.40000000000000002" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
