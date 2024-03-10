@@ -169,12 +169,11 @@ extension BatchBoardHomeVC {
         let urlStr = API.mealList
         bMealViewModel.mealList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data?.data?.count != 0 {
-                self.mealListData.removeAll()
-                self.mealListData = response.data?.data ?? []
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.mealListData.removeAll()
+                    self.mealListData = response.data?.data ?? []
                     self.mealBatchCollView.reloadData()
-                    self.topRatedMealCollView.reloadData()
                 }
             }else{
                 DispatchQueue.main.async {
@@ -197,11 +196,10 @@ extension BatchBoardHomeVC {
         let urlStr = API.topRatedMealList
         bMealViewModel.mealList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data?.data?.count != 0 {
-                self.topRatedMealListData.removeAll()
-                self.topRatedMealListData = response.data?.data ?? []
                 DispatchQueue.main.async {
                     hideLoading()
-                    self.mealBatchCollView.reloadData()
+                    self.topRatedMealListData.removeAll()
+                    self.topRatedMealListData = response.data?.data ?? []
                     self.topRatedMealCollView.reloadData()
                 }
             }else{

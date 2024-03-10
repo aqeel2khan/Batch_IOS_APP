@@ -1966,6 +1966,7 @@
 				5759E79F2B9048AB00352B24 /* BWorkOutCompleteVC.swift */,
 				5759E7A02B9048AB00352B24 /* MotivatorFilterVC.swift */,
 				5759E7A12B9048AB00352B24 /* BWorkOutVC.swift */,
+				5759E7A82B9048AB00352B24 /* Extension+BWorkOutVC.swift */,
 				5759E7A22B9048AB00352B24 /* BWorkOutAllowNotificationVC.swift */,
 				5759E7A32B9048AB00352B24 /* BStartWorkOutVideoVC.swift */,
 				5759E7A42B9048AB00352B24 /* TrainingFilterVC.swift */,
@@ -1998,7 +1999,6 @@
 			children = (
 				5759E7A62B9048AB00352B24 /* Extension+VideoPlayerVC.swift */,
 				5759E7A72B9048AB00352B24 /* Extension+TrainingFilterVC.swift */,
-				5759E7A82B9048AB00352B24 /* Extension+BWorkOutVC.swift */,
 				5759E7AA2B9048AB00352B24 /* Extension+MotivationFilterVC.swift */,
 				5759E7AB2B9048AB00352B24 /* Extension+BStartWorkOutDetailVC.swift */,
 				5759E7AC2B9048AB00352B24 /* Extension+BWorkOutMotivatorDetailVC.swift */,

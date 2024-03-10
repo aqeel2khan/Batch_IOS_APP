@@ -2819,7 +2819,7 @@
         <!--Vimo PlayerVC-->
         <scene sceneID="N1g-jL-ar1">
             <objects>
-                <viewController storyboardIdentifier="VimoPlayerVC" id="idS-LC-KRc" customClass="VimoPlayerVC" customModule="Batch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VimoPlayerVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="idS-LC-KRc" customClass="VimoPlayerVC" customModule="Batch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SpP-A9-Jua">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2827,6 +2827,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="787-eh-yLs">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="idS-LC-KRc" id="55V-SK-PT1"/>
                                     <outlet property="delegate" destination="idS-LC-KRc" id="K77-RM-sBN"/>
@@ -3366,7 +3367,7 @@
         <image name="Star-fill" width="20" height="19"/>
         <image name="Tick" width="48.333332061767578" height="48"/>
         <image name="detail" width="375" height="308"/>
-        <image name="downArrow" width="24" height="24"/>
+        <image name="downArrow" width="11" height="5.3333334922790527"/>
         <image name="filter" width="36" height="36"/>
         <image name="info.png" width="28" height="28"/>
         <image name="info_white" width="600" height="600"/>

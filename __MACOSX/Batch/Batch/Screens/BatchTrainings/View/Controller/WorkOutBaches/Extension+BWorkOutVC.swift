@@ -14,7 +14,7 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (self.segmentControl.selectedSegmentIndex == 0)
         {
-            return self.courseListDataArr.count//courseListData.count
+            return self.courseListDataArr.count
         }
         else
         {
@@ -51,20 +51,17 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             let cell = collectionView.dequeue(BWOMotivatorsListCollCell.self, indexPath)
             let data = coachListDataArr[indexPath.item]
             
+            cell.typeLbl.text = ""
             var workOutType: [String] = []
-            workOutType.removeAll()
-            for i in 0..<(data.workoutType?.count ?? 0)
-            {
+            for i in 0..<(data.workoutType?.count ?? 0) {
                 let type = data.workoutType?[i].workoutdetail?.workoutType ?? ""
                 workOutType.append(type)
-                if data.workoutType?.count == 1
-                {
+                if data.workoutType?.count == 1 {
                     cell.typeLbl.text = workOutType.joined(separator: ", ")
                 }
                 else if (data.workoutType?.count == 2) {
                     cell.typeLbl.text = workOutType.joined(separator: ", ")
                 }
-                
             }
             
             cell.nameLbl.text = data.name ?? ""

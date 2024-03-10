@@ -50,7 +50,20 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
         else if collectionView == motivatorsCollView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BWOMotivatorsListCollCell", for: indexPath)  as! BWOMotivatorsListCollCell
             let data = coachListDataArr[indexPath.item]
-            cell.typeLbl.text = data.website ?? ""
+            
+            cell.typeLbl.text = ""
+            var workOutType: [String] = []
+            for i in 0..<(data.workoutType?.count ?? 0) {
+                let type = data.workoutType?[i].workoutdetail?.workoutType ?? ""
+                workOutType.append(type)
+                if data.workoutType?.count == 1 {
+                    cell.typeLbl.text = workOutType.joined(separator: ", ")
+                }
+                else if (data.workoutType?.count == 2) {
+                    cell.typeLbl.text = workOutType.joined(separator: ", ")
+                }
+            }
+            
             cell.nameLbl.text = data.name ?? ""
             let fileUrl = URL(string: BaseUrl.imageBaseUrl + (data.profilePhotoPath ?? ""))
             cell.imageMotivatorUser.cornerRadius = 75
