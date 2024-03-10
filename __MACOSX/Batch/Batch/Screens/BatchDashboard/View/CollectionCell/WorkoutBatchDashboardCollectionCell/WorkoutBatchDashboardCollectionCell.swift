@@ -13,6 +13,7 @@ class WorkoutBatchDashboardCollectionCell: UICollectionViewCell {
     @IBOutlet weak var daysLbl: UILabel!
     @IBOutlet weak var kclLbl: UILabel!
     @IBOutlet weak var minLbl: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
