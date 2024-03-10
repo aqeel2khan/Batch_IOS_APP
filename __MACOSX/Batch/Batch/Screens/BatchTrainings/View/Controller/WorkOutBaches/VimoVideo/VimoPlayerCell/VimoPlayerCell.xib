@@ -140,7 +140,7 @@
     </objects>
     <designables>
         <designable name="VrY-OY-DzM">
-            <size key="intrinsicContentSize" width="129" height="33"/>
+            <size key="intrinsicContentSize" width="128" height="29"/>
         </designable>
     </designables>
     <resources>
