@@ -36,7 +36,7 @@ extension BUserFollowingVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension //1300//
+            return UITableView.automaticDimension //1300//
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //            cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)

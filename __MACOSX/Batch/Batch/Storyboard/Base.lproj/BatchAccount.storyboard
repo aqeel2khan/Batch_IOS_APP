@@ -61,7 +61,7 @@
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="15"/>
+                                                                <integer key="value" value="50"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
@@ -688,7 +688,7 @@
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hI5-Gi-SdT">
-                                        <rect key="frame" x="0.0" y="90" width="393" height="310"/>
+                                        <rect key="frame" x="0.0" y="70" width="393" height="330"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="dataSource" destination="qPN-3T-g7M" id="dzp-w6-Kkl"/>
@@ -702,7 +702,7 @@
                                     <constraint firstItem="Le0-fe-iQa" firstAttribute="centerX" secondItem="L5H-wy-cDc" secondAttribute="centerX" id="Df6-sw-xnA"/>
                                     <constraint firstItem="Tcr-mx-cnY" firstAttribute="centerX" secondItem="L5H-wy-cDc" secondAttribute="centerX" id="F4B-Ym-ejC"/>
                                     <constraint firstAttribute="height" constant="400" id="KMw-z0-KqV"/>
-                                    <constraint firstItem="hI5-Gi-SdT" firstAttribute="top" secondItem="Le0-fe-iQa" secondAttribute="bottom" constant="20" id="S10-Vq-u0m"/>
+                                    <constraint firstItem="hI5-Gi-SdT" firstAttribute="top" secondItem="Le0-fe-iQa" secondAttribute="bottom" id="S10-Vq-u0m"/>
                                     <constraint firstItem="H6d-n9-3YF" firstAttribute="leading" secondItem="L5H-wy-cDc" secondAttribute="leading" constant="20" id="U6V-Gi-oay"/>
                                     <constraint firstItem="Le0-fe-iQa" firstAttribute="top" secondItem="L5H-wy-cDc" secondAttribute="top" constant="20" id="Xkd-TV-HHd"/>
                                     <constraint firstAttribute="trailing" secondItem="hI5-Gi-SdT" secondAttribute="trailing" id="Yv4-mQ-l03"/>
@@ -1135,20 +1135,20 @@
                                                                         <color key="textColor" name="AppLabelBlackColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BLo-lt-Mqd">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BLo-lt-Mqd">
                                                                         <rect key="frame" x="0.0" y="40" width="353" height="50"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k8b-hS-Y5b">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="166.33333333333334" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="50"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3to-AA-bFJ" customClass="BatchRegularBlack">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="166.33333333333334" height="50"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="50"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                                                         <color key="textColor" name="AppLabelBlackColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmT-Ry-HWH">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="166.33333333333334" height="50"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="50"/>
                                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                     </button>
                                                                                 </subviews>
@@ -1171,16 +1171,16 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DbL-K0-Kze">
-                                                                                <rect key="frame" x="186.33333333333337" y="0.0" width="166.66666666666663" height="50"/>
+                                                                                <rect key="frame" x="186.66666666666663" y="0.0" width="166.33333333333337" height="50"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfk-ra-8Ci" customClass="BatchRegularBlack">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="50"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="166.33333333333334" height="50"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                                                         <color key="textColor" name="AppLabelBlackColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfQ-oz-Hwz">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="50"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="166.33333333333334" height="50"/>
                                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                     </button>
                                                                                 </subviews>

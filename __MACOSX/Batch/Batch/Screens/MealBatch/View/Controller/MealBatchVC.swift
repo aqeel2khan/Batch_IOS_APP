@@ -28,11 +28,11 @@ class MealBatchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.setupNavigationBar()
+       
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.setupNavigationBar()
 //        self.mealPlanCollView.reloadData()
         self.mealPlanTblView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         
@@ -57,6 +57,12 @@ class MealBatchVC: UIViewController {
     
     private func setupNavigationBar() {
         customNavigationBar.titleFirstLbl.text = CustomNavTitle.mealBatchVCNavTitle
+        let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
+        if getprofilePhoto != nil{
+            customNavigationBar.profileImage.image = UIImage(data: getprofilePhoto ?? Data())
+        }else{
+            customNavigationBar.profileImage.image = UIImage(named: "Avatar")
+        }
         self.registerTblView()
     }
     

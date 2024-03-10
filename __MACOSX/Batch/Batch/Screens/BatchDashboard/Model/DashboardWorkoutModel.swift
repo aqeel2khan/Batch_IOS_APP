@@ -140,3 +140,14 @@ struct TodayWorkoutsElement: Codable {
         case courseDurationExercise = "course_duration_exercise"
     }
 }
+
+
+struct CalloriesBurned{
+    let cal: Double
+    let date: Date
+    
+    init(cal: Double, date: Date) {
+        self.cal = cal
+        self.date = date
+    }
+}

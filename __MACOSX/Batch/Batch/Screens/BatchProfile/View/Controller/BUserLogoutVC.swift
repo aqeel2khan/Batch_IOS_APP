@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 class BUserLogoutVC: UIViewController {
     @IBOutlet var mainView: UIView!
@@ -45,7 +46,11 @@ class BUserLogoutVC: UIViewController {
                 hideLoading()
                 self.dismiss(animated: true) {
                     Batch_UserDefaults.removeObject(forKey: UserDefaultKey.TOKEN)
+                    Batch_UserDefaults.setValue(nil, forKey: UserDefaultKey.profilePhoto)
+                    Batch_UserDefaults.setValue(false, forKey: UserDefaultKey.healthPermission)
                     UserDefaultUtility.setUserLoggedIn(false)
+                    SDImageCache.shared.clearMemory()
+                    SDImageCache.shared.clearDisk()
                     self.callBackToProfile?()
                 }
             }

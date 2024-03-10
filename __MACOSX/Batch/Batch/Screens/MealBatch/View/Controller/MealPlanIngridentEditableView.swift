@@ -41,6 +41,7 @@ class MealPlanIngridentEditableView: UIViewController {
     // MARK: - UI
     
     private func setupNavigationBar() {
+      
         self.customSecondNavigationBar.titleLbl.text = ""
         self.registerCollTblView()
         if isCommingFrom == "MealBatchUnSubscribeDetailVC" {

@@ -137,8 +137,9 @@ class BLogInVC: UIViewController {
                     Batch_UserDefaults.set(response.token ?? "" , forKey: UserDefaultKey.TOKEN)
                     let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN)
                     UserDefaultUtility.setUserLoggedIn(true)
+                    self.getProfileData(profile: response.data?.profile_photo_path ?? "")
+                    Batch_UserDefaults.setValue(response.data?.profile_photo_path, forKey:UserDefaultKey.profilePhoto )
                     UserDefaultUtility.saveUserId(userId: response.data?.id ?? 0)
-                    
                     if self.isCommingFrom == "workoutbatches" {
                         let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
                         vc.modalPresentationStyle = .overFullScreen
@@ -147,16 +148,18 @@ class BLogInVC: UIViewController {
                         vc.selectedSubscriptionInfo = [self.selectedSubscriptionInfo[0]]
                         vc.isCommingFrom = self.isCommingFrom
                         self.present(vc, animated: true)
-                    }
-                    
-                    if self.isCommingFrom == "MealBatchSubscribe" {
+                    }else if self.isCommingFrom == "MealBatchSubscribe" {
                         let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
                         vc.isCommingFrom = "MealBatchSubscribe"
                         vc.mealData = self.mealData
                         vc.modalPresentationStyle = .overFullScreen
                         vc.modalTransitionStyle = .coverVertical
                         self.present(vc, animated: true)
+                    }else{
+                        self.dismiss(animated: true)
                     }
+                    
+                    
                 }
             }else{
                 DispatchQueue.main.async {
@@ -172,6 +175,16 @@ class BLogInVC: UIViewController {
                 // makeToast(error.localizedDescription)
             }
         }
+    }
+    
+    func getProfileData(profile:String){
+        let url = URL(string: BaseUrl.imageBaseUrl + profile)!
+        let dataTask = URLSession.shared.dataTask(with: url){ data,repo,err in
+            if err == nil{
+                Batch_UserDefaults.setValue(data ?? Data(), forKey: UserDefaultKey.profilePhoto)
+            }
+        }
+        dataTask.resume()
     }
     
     @IBAction func onTapSignUpBtn(_ sender: Any) {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 @objc protocol barButtonTappedDelegate {
     @objc optional func leftBarButtonTapped()
@@ -17,6 +18,7 @@ import UIKit
 class CustomNavigationBar: UIView {
     
     // MARK: - IBOutlets
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var leftBarBtnItem: UIButton!
     @IBOutlet weak var titleFirstLbl: UILabel!
     @IBOutlet weak var titleSecondLbl: UILabel!
@@ -42,7 +44,12 @@ class CustomNavigationBar: UIView {
         let nib = UINib(nibName: "CustomNavigationBar", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         titleFirstLbl.font = FontSize.mediumSize24
-
+        let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
+        if getprofilePhoto != nil{
+            profileImage.image = UIImage(data: getprofilePhoto ?? Data())
+        }else{
+            profileImage.image = UIImage(named: "Avatar")
+        }
         return view
     }
     
@@ -76,6 +83,12 @@ class CustomNavigationBar: UIView {
         if sender == rightThirdBarBtnItem {
             if (UserDefaultUtility.isUserLoggedIn()) {
                 let vc = BUserProfileVC.instantiate(fromAppStoryboard: .batchAccount)
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .coverVertical
+                let controller = (self.superview)?.next as! UIViewController
+                controller.present(vc, animated: true)
+            }else{
+                let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
                 vc.modalPresentationStyle = .overFullScreen
                 vc.modalTransitionStyle = .coverVertical
                 let controller = (self.superview)?.next as! UIViewController
