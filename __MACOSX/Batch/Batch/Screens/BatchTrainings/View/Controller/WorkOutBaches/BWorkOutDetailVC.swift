@@ -365,8 +365,10 @@ class BWorkOutDetailVC: UIViewController {
             if vimeoVideoArr.count != 0 {
                 let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
                 vc.courseDurationExerciseArr = self.courseDurationExerciseArr
+                vc.courseDetail = self.courseDetailsInfo
                 vc.viemoVideoArr = self.vimoVideoURLList
-                
+                vc.todayWorkoutsInfo = self.todayWorkoutsInfo
+
                 vc.dayNumberText = "\(self.durationLbl.text ?? "") / \(self.totalCourseDashboardArr.count)"
                 
                 vc.titleText = self.woTitleLbl.text ?? ""

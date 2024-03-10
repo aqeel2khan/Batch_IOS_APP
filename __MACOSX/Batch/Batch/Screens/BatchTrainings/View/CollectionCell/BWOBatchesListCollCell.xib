@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzn-Ev-Mtf">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="290"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummyImg" translatesAutoresizingMaskIntoConstraints="NO" id="R0l-t6-6xU">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="290"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="20"/>
@@ -30,7 +30,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcT-Fr-NhT">
-                                <rect key="frame" x="0.0" y="185" width="393" height="115"/>
+                                <rect key="frame" x="0.0" y="175" width="393" height="115"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dl0-bT-qdG">
                                         <rect key="frame" x="15" y="15" width="363" height="88"/>
@@ -45,9 +45,9 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/14 days" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="WzI-Dq-A1W" customClass="BatchMedium18White" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="258" y="0.0" width="100" height="25"/>
+                                                        <rect key="frame" x="208" y="0.0" width="150" height="25"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="1Oa-oB-pa6"/>
+                                                            <constraint firstAttribute="width" constant="150" id="1Oa-oB-pa6"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -195,20 +195,20 @@
             <viewLayoutGuide key="safeArea" id="d8d-oN-Vob"/>
             <constraints>
                 <constraint firstItem="lzn-Ev-Mtf" firstAttribute="leading" secondItem="9YW-dm-xZO" secondAttribute="leading" id="8aZ-HZ-07h"/>
-                <constraint firstAttribute="bottom" secondItem="lzn-Ev-Mtf" secondAttribute="bottom" id="LcI-Ck-PqF"/>
+                <constraint firstAttribute="bottom" secondItem="lzn-Ev-Mtf" secondAttribute="bottom" constant="10" id="LcI-Ck-PqF"/>
                 <constraint firstAttribute="trailing" secondItem="lzn-Ev-Mtf" secondAttribute="trailing" id="bTt-od-zmM"/>
                 <constraint firstItem="lzn-Ev-Mtf" firstAttribute="top" secondItem="9YW-dm-xZO" secondAttribute="top" id="iyP-cg-hG7"/>
             </constraints>
             <connections>
                 <outlet property="bottomBackView" destination="zcT-Fr-NhT" id="sa5-JK-7HL"/>
-                <outlet property="coachNameLbl" destination="TFA-Dp-90P" id="aVe-pL-CAm"/>
+                <outlet property="coachNameLbl" destination="TFA-Dp-90P" id="9Se-vk-Iky"/>
                 <outlet property="coachProfileImg" destination="Dux-gR-JwF" id="KyD-sM-4vi"/>
-                <outlet property="courseLevelTypeLbl" destination="KDc-wW-dTT" id="YvE-wP-OeG"/>
-                <outlet property="goalLblBtn" destination="gDO-di-h9g" id="sOy-cb-aAu"/>
+                <outlet property="courseLevelTypeLbl" destination="KDc-wW-dTT" id="CBh-qg-UhX"/>
+                <outlet property="goalLblBtn" destination="gDO-di-h9g" id="Wp0-Fh-Xbl"/>
                 <outlet property="imgCourse" destination="R0l-t6-6xU" id="zUR-Rn-yjj"/>
-                <outlet property="lblTitle" destination="KES-fx-NP3" id="Ppe-8k-1P8"/>
-                <outlet property="woDayCountLbl" destination="WzI-Dq-A1W" id="Vpd-or-TxQ"/>
-                <outlet property="workOutTypeBtn" destination="7zf-an-TYU" id="fdV-Nv-T1K"/>
+                <outlet property="lblTitle" destination="KES-fx-NP3" id="exx-cQ-kx0"/>
+                <outlet property="woDayCountLbl" destination="WzI-Dq-A1W" id="HTA-c7-8TI"/>
+                <outlet property="workOutTypeBtn" destination="7zf-an-TYU" id="GMF-fR-cxm"/>
             </connections>
             <point key="canvasLocation" x="51.145038167938928" y="0.0"/>
         </collectionViewCell>
