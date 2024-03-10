@@ -148,6 +148,7 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
                     hideLoading()
                     if self.vimoVideoURLList.count != 0 {
                         let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
+                        vc.courseDetail = self.courseDetailsInfo
                         vc.viemoVideoArr = self.vimoVideoURLList
                         
                         if self.isCommingFrom == "dashboard" {
@@ -155,7 +156,7 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
                         } else {
                             vc.dayNumberText = "\(indexPath.row + 1) / \(self.totalCourseArr.count)"
                         }
-                        
+                        vc.todayWorkoutsInfo = self.todayWorkoutsInfo
                         vc.courseDurationExerciseArr = self.totalCourseDashboardArr[indexPath.row].courseDurationExercise!
                         vc.titleText = self.self.totalCourseDashboardArr[indexPath.row].dayName ?? ""
                         vc.modalPresentationStyle = .overFullScreen

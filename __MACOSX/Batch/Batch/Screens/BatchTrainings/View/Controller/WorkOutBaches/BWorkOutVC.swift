@@ -48,12 +48,6 @@ class BWorkOutVC: UIViewController {
         self.woSearchTextField.delegate = self
         setupViews()
         
-        //        // Call Api func here
-        //        self.getCourses()
-        //        self.getAllBatchesLevel()
-        //        self.getAllWOTypes()
-        //        self.getAllBatchGoals()
-        //        self.getAllCoachFilterList()
         if internetConnection.isConnectedToNetwork() == true {
             // Call Api here
             self.getCourses()

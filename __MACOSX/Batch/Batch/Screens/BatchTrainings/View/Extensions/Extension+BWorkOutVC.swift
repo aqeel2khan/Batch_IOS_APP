@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 
 extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (self.segmentControl.selectedSegmentIndex == 0)
         {
@@ -18,7 +19,6 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
         else
         {
             return self.coachListDataArr.count
-            //motivatorListData.count
         }
     }
     
@@ -37,16 +37,12 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             cell.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
             
             cell.lblTitle.text = info.courseName
-            //            cell.woDayCountLbl.text = "\(info.perDayWorkout ?? "0")/\(info.duration ?? "0") days"
-            cell.woDayCountLbl.text = "\(info.coursePrice ?? "")"
+            
+            cell.woDayCountLbl.text = "from \(CURRENCY) \(info.coursePrice?.removeDecimalValue() ?? "")"
             cell.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
             let workType = info.workoutType?[0].workoutdetail?.workoutType
-            
             cell.workOutTypeBtn.setTitle("\(workType ?? "")", for: .normal)
-            
             cell.coachNameLbl.text = info.coachDetail?.name ?? ""
-            
-            //            cell.goalLblBtn.setTitle("\(info.duration ?? "")", for: .normal)
             
             return cell
         }
@@ -54,7 +50,23 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
         {
             let cell = collectionView.dequeue(BWOMotivatorsListCollCell.self, indexPath)
             let data = coachListDataArr[indexPath.item]
-            cell.typeLbl.text = data.website ?? ""
+            
+            var workOutType: [String] = []
+            workOutType.removeAll()
+            for i in 0..<(data.workoutType?.count ?? 0)
+            {
+                let type = data.workoutType?[i].workoutdetail?.workoutType ?? ""
+                workOutType.append(type)
+                if data.workoutType?.count == 1
+                {
+                    cell.typeLbl.text = workOutType.joined(separator: ", ")
+                }
+                else if (data.workoutType?.count == 2) {
+                    cell.typeLbl.text = workOutType.joined(separator: ", ")
+                }
+                
+            }
+            
             cell.nameLbl.text = data.name ?? ""
             let fileUrl = URL(string: BaseUrl.imageBaseUrl + (data.profilePhotoPath ?? ""))
             cell.imageMotivatorUser.cornerRadius = 75
@@ -74,8 +86,6 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             vc.woDetailInfo = [info]
             vc.isCommingFrom = "workoutbatches"
             
-//            vc.newArray.append("\(String(describing: info.duration ?? "" )) min")
-//            vc.newImage.append(UIImage(named: "clock-circle-black")!)
             vc.newArray.append("\(String(describing: info.courseLevel?.levelName ?? "" ))")
             vc.newImage.append(UIImage(named: "barchart-black")!)
             
@@ -99,9 +109,6 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
             vc.woCoachDetailInfo = [self.coachListDataArr[indexPath.item]]
-            // vc.isCommingFrom = "motivtors"
-            
-            
             self.present(vc, animated: true)
         }
     }
