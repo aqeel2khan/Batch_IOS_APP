@@ -46,8 +46,7 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
                 let fileUrl = URL(string: BaseUrl.imageBaseUrl + (course?.courseImage ?? ""))
                 cell.bgImageView.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Image"))
                 cell.titleLbl.text = course?.courseName
-                //cell.daysLbl.text = (course?.courseValidity ?? "") + " days"
-                cell.daysLbl.text = (course?.duration ?? "")
+                cell.daysLbl.text = "\(self.courseList[indexPath.item].todayWorkouts?.row ?? 0)" + "/" + (course?.duration ?? "")
                 cell.kclLbl.text = (course?.perDayWorkout ?? "") + " kcl"
                 cell.minLbl.text = (course?.duration ?? "") + " min"
                 

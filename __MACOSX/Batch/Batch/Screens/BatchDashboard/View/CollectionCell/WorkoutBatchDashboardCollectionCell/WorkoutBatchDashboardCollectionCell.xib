@@ -25,7 +25,7 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QO8-XL-s4G">
                         <rect key="frame" x="5" y="5" width="318" height="244"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Meal" translatesAutoresizingMaskIntoConstraints="NO" id="Sou-cl-SQl">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sou-cl-SQl">
                                 <rect key="frame" x="0.0" y="0.0" width="318" height="244"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2VT-ui-Wm6">
@@ -238,7 +238,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Meal" width="125" height="96.333335876464844"/>
         <image name="clock-white" width="16" height="16"/>
         <image name="flash" width="16" height="16"/>
     </resources>

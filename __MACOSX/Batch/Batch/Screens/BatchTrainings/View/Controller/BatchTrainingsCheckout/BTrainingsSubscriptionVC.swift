@@ -27,7 +27,7 @@ class BTrainingsSubscriptionVC: UIViewController {
     var selectedSubscriptionInfo = [CourseDataList]()
     var selectedMotivatorSubscriptionInfo : CourseDataList?
     var courseId : Int!
-    var discountValue : Double!
+    var discountValue : Double = 0.0
     
     var isCommingFrom = ""
     var totalOrderAmount : String!
@@ -61,7 +61,7 @@ class BTrainingsSubscriptionVC: UIViewController {
             self.lblTitle.text = "\(info?.courseName ?? "")"
             self.woPriceLbl.text = "from \(CURRENCY) " +  "\(info?.coursePrice ?? "")".removeDecimalValue()
             self.coachNameLbl.text = "\(info?.coachDetail?.name ?? "")"
-            self.grandTotalPriceLbl.text = "from \(CURRENCY) " + "$\(info?.coursePrice ?? "")"
+            self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(info?.coursePrice ?? "")"
             self.totalOrderAmount = info?.coursePrice
             self.courseLevelTypeLbl.setTitle("\(info?.courseLevel?.levelName ?? "")", for: .normal)
             let workType = info?.workoutType?[0].workoutdetail?.workoutType
@@ -78,7 +78,7 @@ class BTrainingsSubscriptionVC: UIViewController {
             self.lblTitle.text = "\(info.courseName ?? "")"
             self.woPriceLbl.text = "from \(CURRENCY) " +  "\(info.coursePrice ?? "")".removeDecimalValue()
             self.coachNameLbl.text = "\(info.coachDetail?.name ?? "")"
-            self.grandTotalPriceLbl.text = "from \(CURRENCY) " + "$\(info.coursePrice ?? "")"
+            self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(info.coursePrice ?? "")"
             self.totalOrderAmount = info.coursePrice
             self.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
             let workType = info.workoutType?[0].workoutdetail?.workoutType
@@ -94,7 +94,7 @@ class BTrainingsSubscriptionVC: UIViewController {
             self.lblTitle.text = "\(info?.courseName ?? "")"
             self.woPriceLbl.text = "from \(CURRENCY) " +  "\(info?.coursePrice ?? "")".removeDecimalValue()
             self.coachNameLbl.text = "\(info?.coachDetail?.name ?? "")"
-            self.grandTotalPriceLbl.text = "from \(CURRENCY) " + "$\(info?.coursePrice ?? "")"
+            self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(info?.coursePrice ?? "")"
             self.totalOrderAmount = info?.coursePrice
             self.courseLevelTypeLbl.setTitle("\(info?.courseLevel?.levelName ?? "")", for: .normal)
             let workType = info?.workoutType?[0].workoutdetail?.workoutType
