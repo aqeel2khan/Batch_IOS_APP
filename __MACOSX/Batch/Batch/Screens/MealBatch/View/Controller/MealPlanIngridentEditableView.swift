@@ -109,6 +109,5 @@ class MealPlanIngridentEditableView: UIViewController {
                 hideLoading()
             }
         }
-
     }
 }

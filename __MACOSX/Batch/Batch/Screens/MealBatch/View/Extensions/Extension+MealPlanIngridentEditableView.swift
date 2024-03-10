@@ -33,7 +33,7 @@ extension MealPlanIngridentEditableView : UICollectionViewDelegate,UICollectionV
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == planReviewCollView {
             return 4
-        }else if collectionView == showProtinListCollView{
+        } else if collectionView == showProtinListCollView{
             return self.nutritionList.count
         }
         return 0
@@ -59,7 +59,7 @@ extension MealPlanIngridentEditableView : UICollectionViewDelegate,UICollectionV
         if collectionView == showProtinListCollView {
             return CGSize(width: self.view.frame.size.width/4 - 20, height: 108)
         } else {
-            return CGSize(width: self.view.frame.size.width - 20, height: 120)
+            return CGSize(width: self.view.frame.size.width - 60, height: 120)
         }
     }
     

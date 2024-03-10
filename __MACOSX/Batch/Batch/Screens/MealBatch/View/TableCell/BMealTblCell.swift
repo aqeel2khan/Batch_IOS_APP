@@ -17,6 +17,7 @@ class BMealTblCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        sectionTitleLbl.font = FontSize.mediumSize16
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
