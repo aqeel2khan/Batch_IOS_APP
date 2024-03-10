@@ -19,7 +19,6 @@ class BMealDishCollCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         bottomBackView.makeSpecificCornerRound(corners: .bottomTwo, radius: 20)
-
+        nameLbl.font = FontSize.mediumSize14
     }
-
 }

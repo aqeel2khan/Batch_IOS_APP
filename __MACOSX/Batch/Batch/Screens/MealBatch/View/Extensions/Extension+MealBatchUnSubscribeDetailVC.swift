@@ -43,8 +43,11 @@ extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionVie
         else if collectionView.tag == 703 {
             let cell = collectionView.dequeue(BMealDishCollCell.self, indexPath)
             cell.radioBtn.isHidden = true
-            cell.nameLbl.text = self.dishesList[indexPath.item].name
-            cell.kclLbl.text = (self.dishesList[indexPath.item].avgPreparationTime ?? "0") + " kcal"
+            cell.nameLbl.text = self.dishesList[indexPath.item].name            
+            let original1String = (self.dishesList[indexPath.item].avgPreparationTime ?? "0") + " kcal"
+            let keyword1 = "kcal"
+            let attributedString = NSAttributedString.attributedStringWithDifferentFonts(for: original1String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword1)
+            cell.kclLbl.attributedText = attributedString
             return cell
         }
         return UICollectionViewCell()
@@ -72,7 +75,6 @@ extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionVie
         if collectionView == mealCategoryCollView {
             let cell : BMealCategoryCollCell = mealCategoryCollView.cellForItem(at: indexPath) as! BMealCategoryCollCell
             cell.bgView.backgroundColor = Colors.appViewPinkBackgroundColor
-            
             self.getDishesListApi(mealCateogryId: self.mealCategoryArr[indexPath.item].categoryID!)
         }
         else if collectionView == dishesCollView {
@@ -105,11 +107,15 @@ extension MealBatchUnSubscribeDetailVC {
             let screenSize              = collectionView.frame.size //UIScreen.main.bounds
             let screenWidth             = screenSize.width
             let cellSquareSize: CGFloat = screenWidth
-            return CGSize.init(width: cellSquareSize/2 - 20, height: 180) //250
+            return CGSize.init(width: cellSquareSize/2 - 10, height: 180) //250
+        } else if collectionView.tag == 701 {
+            let screenSize              = collectionView.frame.size //UIScreen.main.bounds
+            let screenWidth             = screenSize.width
+            return CGSize(width: screenWidth, height: 44)
         } else {
             let screenSize              = collectionView.frame.size //UIScreen.main.bounds
             let screenWidth             = screenSize.width
-            return CGSize(width: screenWidth, height: 60)
+            return CGSize(width: screenWidth, height: 44)
         }
     }
     

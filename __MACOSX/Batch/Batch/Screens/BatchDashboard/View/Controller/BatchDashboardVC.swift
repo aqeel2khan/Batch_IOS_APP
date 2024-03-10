@@ -27,6 +27,8 @@ class BatchDashboardVC: UIViewController {
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     @IBOutlet weak var mealBatchCollView: UICollectionView!
     @IBOutlet weak var workoutBatchCollView: UICollectionView!
+    @IBOutlet weak var macroContainer: UIView!
+
     //var courseList = [List]()
     var courseList = [DashboardWOList]()
     var subscribedMealListData : [SubscribedMeals] = []

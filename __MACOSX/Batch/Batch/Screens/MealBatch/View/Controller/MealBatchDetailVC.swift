@@ -42,9 +42,14 @@ class MealBatchDetailVC: UIViewController {
         super.viewDidLoad()
        
         self.mealTitleLbl.text = mealData.name
-        self.mealPriceLbl.text = "from \(CURRENCY) " + " \(mealData.price?.removeDecimalValue() ?? "")"
+        self.mealTitleLbl.font = FontSize.mediumSize20
+        let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: "from", value: " \(CURRENCY) \(mealData.price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+        self.mealPriceLbl.attributedText = attributedPriceString
+
         self.mealDescriptionLbl.text = mealData.description
+        self.mealDescriptionLbl.font = FontSize.regularSize14
         self.durationLbl.text = (mealData.duration ?? "") + " weeks"
+        self.durationLbl.font = FontSize.mediumSize12
         self.mealMsgBackView.isHidden = true
         self.mealTblView.addObserver(self, forKeyPath: BatchConstant.contentSize, options: .new, context: nil)
         self.setUpTagCollView()

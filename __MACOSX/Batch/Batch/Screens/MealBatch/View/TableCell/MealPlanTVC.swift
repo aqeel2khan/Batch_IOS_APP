@@ -23,7 +23,4 @@ class MealPlanTVC: UITableViewCell {
          */
         titleLbl.font = FontSize.mediumSize18
     }
-
-
-    
 }

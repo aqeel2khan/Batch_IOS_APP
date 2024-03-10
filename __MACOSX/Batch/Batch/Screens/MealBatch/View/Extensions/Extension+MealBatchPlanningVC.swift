@@ -133,7 +133,7 @@ extension MealBatchPlanningVC {
             let screenSize              = collectionView.frame.size //UIScreen.main.bounds
             let screenWidth             = screenSize.width
             let cellSquareSize: CGFloat = screenWidth
-            return CGSize.init(width: cellSquareSize/2 - 20, height: 180) //250
+            return CGSize.init(width: cellSquareSize/2 - 10, height: 180) //250
         } else {
             let screenSize              = collectionView.frame.size //UIScreen.main.bounds
             let screenWidth             = screenSize.width

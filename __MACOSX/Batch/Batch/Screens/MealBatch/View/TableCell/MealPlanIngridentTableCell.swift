@@ -13,9 +13,6 @@ class MealPlanIngridentTableCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        lblTitle.font = FontSize.mediumSize16
     }
-
-
-    
 }

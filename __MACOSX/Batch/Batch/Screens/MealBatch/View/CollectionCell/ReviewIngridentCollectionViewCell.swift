@@ -14,5 +14,4 @@ class ReviewIngridentCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         imgImage.makeRounded()
     }
-
 }
