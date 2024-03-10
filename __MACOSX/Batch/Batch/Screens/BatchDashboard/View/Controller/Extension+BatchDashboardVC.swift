@@ -30,6 +30,11 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
                 cell.titleLbl.text = self.subscribedMealListData[indexPath.item].name
                 cell.descLbl.text = self.subscribedMealListData[indexPath.item].description
                 cell.daysLbl.text = self.subscribedMealListData[indexPath.item].duration
+                
+                if let startDate = createDate(from: self.subscribedMealListData[indexPath.item].startDate), let endDate = createDate(from: self.subscribedMealListData[indexPath.item].endDate) {
+                    let percentage = calculatePercentage(startDate: startDate, endDate: endDate)
+                    cell.progressView.progress = percentage
+                }
             }
             return cell
         } else {
@@ -100,5 +105,19 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
             }
             self.present(vc, animated: true)
         }
+    }
+    
+    func calculatePercentage(startDate: Date, endDate: Date) -> Float {
+        let currentDate = Date()
+        let totalTimeInterval = endDate.timeIntervalSince(startDate)
+        let currentTimeInterval = currentDate.timeIntervalSince(startDate)
+        let percentage = Float(currentTimeInterval / totalTimeInterval)
+        return percentage
+    }
+    
+    func createDate(from dateString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.date(from: dateString)
     }
 }
