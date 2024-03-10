@@ -50,6 +50,11 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
                 cell.daysLbl.text = (course?.duration ?? "")
                 cell.kclLbl.text = (course?.perDayWorkout ?? "") + " kcl"
                 cell.minLbl.text = (course?.duration ?? "") + " min"
+                
+                if let startDate = createCourseDate(from: self.courseList[indexPath.item].startDate ?? ""), let endDate = createCourseDate(from: self.courseList[indexPath.item].endDate ?? "") {
+                    let percentage = calculatePercentage(startDate: startDate, endDate: endDate)
+                    cell.progressView.progress = percentage
+                }
             }
             return cell
         }
@@ -118,6 +123,12 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
     func createDate(from dateString: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.date(from: dateString)
+    }
+    
+    func createCourseDate(from dateString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.date(from: dateString)
     }
 }
