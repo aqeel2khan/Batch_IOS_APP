@@ -21,6 +21,7 @@ class MealPlanTVC: UITableViewCell {
          titleView.makeSpecificCornerRound(corners: .topTwo, radius: 20)
          backGroundImage.makeSpecificCornerRound(corners: .topTwo, radius: 20)
          */
+        titleLbl.font = FontSize.mediumSize18
     }
 
 

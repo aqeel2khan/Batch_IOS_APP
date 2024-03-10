@@ -33,9 +33,7 @@ class MealBatchVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setupNavigationBar()
-//        self.mealPlanCollView.reloadData()
         self.mealPlanTblView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-        
         getMealList()
         getFilterOptionList()
     }
