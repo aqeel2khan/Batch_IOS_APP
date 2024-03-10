@@ -154,9 +154,17 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
               
                 DispatchQueue.main.async {
                     hideLoading()
-                    let duration : Double = Double(response.data?.data?.duration ?? "0")!
-                    let price : Double = Double(response.data?.data?.price ?? "0")!
-                    self.grandTotalLbl.text = "$" + "\(duration * price)"
+                    if let durationString = response.data?.data?.duration,
+                       let duration = Double(durationString),
+                       let priceString = response.data?.data?.price,
+                       let price = Double(priceString) {
+                        // Use duration and price safely
+                        let grandTotal = duration * price
+                        self.grandTotalLbl.text = "$" + String(format: "%.2f", grandTotal)
+                    } else {
+                        // Handle the case where either duration or price is nil or cannot be converted to Double
+                        self.grandTotalLbl.text = "$0.00"
+                    }
                     self.tagCollView.reloadData()
                     self.mealCategoryCollView.reloadData()
                     
