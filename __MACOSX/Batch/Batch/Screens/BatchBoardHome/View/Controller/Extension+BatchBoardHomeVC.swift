@@ -40,7 +40,8 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             cell.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
             
             cell.lblTitle.text = info.courseName
-            cell.woDayCountLbl.text = "\(info.coursePrice ?? "")"
+            cell.woDayCountLbl.text = "from \(CURRENCY) " + (info.coursePrice?.removeDecimalValue() ?? "")
+
             cell.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
             cell.workOutTypeBtn.setTitle("\(info.workoutType?[0].workoutdetail?.workoutType ?? "")", for: .normal)
             cell.coachNameLbl.text = info.coachDetail?.name ?? ""
@@ -149,7 +150,7 @@ extension BatchBoardHomeVC : UICollectionViewDelegateFlowLayout {
         let screenSize              = collectionView.frame.size //UIScreen.main.bounds
         //        let screenSize              = UIScreen.main.bounds
         let screenWidth             = screenSize.width
-        let cellSquareSize: CGFloat = screenWidth
+        let cellSquareSize: CGFloat = screenWidth - 40
         
         if collectionView == woBatchCollView {
             return CGSize.init(width: cellSquareSize, height: 240)

@@ -10,7 +10,7 @@ import UIKit
 class BTrainingsSubscriptionVC: UIViewController {
     
     @IBOutlet weak var imgCourse: UIImageView!
-    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblTitle: BatchLabelTitleBlack!
     @IBOutlet weak var woPriceLbl: UILabel!
     @IBOutlet weak var coachProfileImg: UIImageView!
     @IBOutlet weak var coachNameLbl: UILabel!
@@ -67,7 +67,7 @@ class BTrainingsSubscriptionVC: UIViewController {
         if isCommingFrom == "dashboard" {
             let info = selectedMotivatorSubscriptionInfo
             self.lblTitle.text = "\(info?.courseName ?? "")"
-            self.woPriceLbl.text = "\(info?.coursePrice ?? "")"
+            self.woPriceLbl.text = "from \(CURRENCY) " +  "\(info?.coursePrice ?? "")"
             self.coachNameLbl.text = "\(info?.coachDetail?.name ?? "")"
             self.grandTotalPriceLbl.text = "$\(info?.coursePrice ?? "")"
             self.totalOrderAmount = info?.coursePrice
@@ -82,7 +82,7 @@ class BTrainingsSubscriptionVC: UIViewController {
         else if isCommingFrom == "workoutbatches" {
             let info = selectedSubscriptionInfo[0]
             self.lblTitle.text = "\(info.courseName ?? "")"
-            self.woPriceLbl.text = "\(info.coursePrice ?? "")"
+            self.woPriceLbl.text = "from \(CURRENCY) " + "\(info.coursePrice ?? "")"
             self.coachNameLbl.text = "\(info.coachDetail?.name ?? "")"
             self.grandTotalPriceLbl.text = "$\(info.coursePrice ?? "")"
             self.totalOrderAmount = info.coursePrice
@@ -97,7 +97,7 @@ class BTrainingsSubscriptionVC: UIViewController {
         else if isCommingFrom == "MotivatorDetailVC" {
             let info = selectedMotivatorSubscriptionInfo
             self.lblTitle.text = "\(info?.courseName ?? "")"
-            self.woPriceLbl.text = "\(info?.coursePrice ?? "")"
+            self.woPriceLbl.text = "from \(CURRENCY) " + "\(info?.coursePrice ?? "")"
             self.coachNameLbl.text = "\(info?.coachDetail?.name ?? "")"
             self.grandTotalPriceLbl.text = "$\(info?.coursePrice ?? "")"
             self.totalOrderAmount = info?.coursePrice

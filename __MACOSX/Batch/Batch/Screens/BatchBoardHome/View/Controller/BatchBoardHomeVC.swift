@@ -219,8 +219,8 @@ extension BatchBoardHomeVC {
 
 extension BatchBoardHomeVC {
     func showImagesOnSrollView(array_Images : [String]){
-        bannerSliderShow.slideshowInterval = 2.0
-        bannerSliderShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .bottom)
+        bannerSliderShow.slideshowInterval = 0
+        bannerSliderShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .customBottom(padding: 0))
         bannerSliderShow.contentScaleMode = .scaleAspectFill
         bannerSliderShow.circular = true
         bannerSliderShow.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
@@ -230,11 +230,11 @@ extension BatchBoardHomeVC {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
         bannerSliderShow.addGestureRecognizer(gestureRecognizer)
         
-        let pageControl = UIPageControl()
-        pageControl.currentPageIndicatorTintColor = UIColor.white
-        pageControl.pageIndicatorTintColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.6)
-        pageControl.isEnabled = true
-        bannerSliderShow.pageIndicator = pageControl
+//        let pageControl = UIPageControl()
+//        pageControl.currentPageIndicatorTintColor = UIColor.black
+//        pageControl.pageIndicatorTintColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.6)
+//        pageControl.isEnabled = true
+//        bannerSliderShow.pageIndicator = pageControl
         //        bannerSliderShow.pageIndicator = LabelPageIndicator()  ////it will show like 1/8,2/8,....
         
         //        var arr = [KingfisherSource]()

@@ -14,16 +14,14 @@ struct BRegistrationViewModel {
         let result = signUpValidation.validate(request: request)
         
         if result.success{
-            
-        let bWOResource = BWorkOutResource()
-        bWOResource.registrationResourse(request: request) { (response) in
-            onSuccess(response)
-        } onError: { (error) in
-            onError(error)
+            let bWOResource = BWorkOutResource()
+            bWOResource.registrationResourse(request: request) { (response) in
+                onSuccess(response)
+            } onError: { (error) in
+                onError(error)
+            }
         }
-        }
-        else
-        {
+        else {
             onError(result.error!)
         }
     }

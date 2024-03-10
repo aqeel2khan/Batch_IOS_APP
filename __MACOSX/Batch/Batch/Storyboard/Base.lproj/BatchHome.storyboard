@@ -88,7 +88,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="260"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="260" id="nA3-3l-qew"/>
+                                                                    <constraint firstAttribute="height" constant="260" id="Zh1-QL-app"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -144,7 +144,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="240" id="Diz-uf-XO7"/>
                                                                                 </constraints>
-                                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="S07-KC-PvP">
+                                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="20" id="S07-KC-PvP">
                                                                                     <size key="itemSize" width="122" height="220"/>
                                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -306,7 +306,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="260" id="V7w-7v-h8P"/>
                                                                                 </constraints>
-                                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="enS-AZ-ndu">
+                                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="20" id="enS-AZ-ndu">
                                                                                     <size key="itemSize" width="122" height="120"/>
                                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -387,7 +387,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="260" id="fRC-t4-3Ry"/>
                                                                                 </constraints>
-                                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uNG-74-Erq">
+                                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="20" id="uNG-74-Erq">
                                                                                     <size key="itemSize" width="122" height="120"/>
                                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -422,8 +422,8 @@
                                                             </view>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="7NU-bi-3ey" firstAttribute="leading" secondItem="HoG-lu-hP7" secondAttribute="leading" id="1AU-oO-zzT"/>
-                                                            <constraint firstAttribute="trailing" secondItem="7NU-bi-3ey" secondAttribute="trailing" id="cAS-aO-vmI"/>
+                                                            <constraint firstAttribute="trailing" secondItem="7NU-bi-3ey" secondAttribute="trailing" id="10w-7w-B7A"/>
+                                                            <constraint firstItem="7NU-bi-3ey" firstAttribute="leading" secondItem="HoG-lu-hP7" secondAttribute="leading" id="404-wM-1ag"/>
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
@@ -487,123 +487,7 @@
             </objects>
             <point key="canvasLocation" x="-710.68702290076328" y="-13.380281690140846"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="FPj-qQ-eOc">
-            <objects>
-                <viewController id="Mo7-la-Wlu" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kaz-xQ-sOQ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbS-Et-RO3">
-                                <rect key="frame" x="20" y="58" width="353" height="659"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yRM-ki-GpV">
-                                        <rect key="frame" x="20" y="225.66666666666669" width="313" height="208"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVF-SB-S4B" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="313" height="56"/>
-                                                <color key="backgroundColor" name="AppThemeButtonColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="56" id="ap4-Ry-Dhe"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Workout Batch">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="20"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onTapBatchBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gMA-GX-gXC"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HyY-L2-xtO" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="76" width="313" height="56"/>
-                                                <color key="backgroundColor" name="AppThemeButtonColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="56" id="jQv-B5-7uZ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Meal Batch">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="20"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onTapBatchBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tua-m0-Olv"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZf-JQ-sai" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="152" width="313" height="56"/>
-                                                <color key="backgroundColor" name="AppThemeButtonColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="56" id="rtL-UU-sZH"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Shop Batch">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="20"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onTapBatchBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dIc-N6-yEe"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="yRM-ki-GpV" firstAttribute="centerX" secondItem="dbS-Et-RO3" secondAttribute="centerX" id="M1W-s6-NJZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="yRM-ki-GpV" secondAttribute="trailing" constant="20" id="kec-b2-Ngk"/>
-                                    <constraint firstItem="yRM-ki-GpV" firstAttribute="leading" secondItem="dbS-Et-RO3" secondAttribute="leading" constant="20" id="tOo-kD-Yvk"/>
-                                    <constraint firstItem="yRM-ki-GpV" firstAttribute="centerY" secondItem="dbS-Et-RO3" secondAttribute="centerY" id="xnM-MO-v0X"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="aBY-Y2-js1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="aBY-Y2-js1" firstAttribute="trailing" secondItem="dbS-Et-RO3" secondAttribute="trailing" constant="20" id="0jk-Sa-Vxu"/>
-                            <constraint firstItem="dbS-Et-RO3" firstAttribute="centerX" secondItem="kaz-xQ-sOQ" secondAttribute="centerX" id="GO1-dN-Qwm"/>
-                            <constraint firstItem="dbS-Et-RO3" firstAttribute="centerY" secondItem="kaz-xQ-sOQ" secondAttribute="centerY" id="si0-jc-WzW"/>
-                            <constraint firstItem="dbS-Et-RO3" firstAttribute="leading" secondItem="aBY-Y2-js1" secondAttribute="leading" constant="20" id="uit-qY-sM2"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GMb-aS-vRm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="767" y="-52"/>
-        </scene>
     </scenes>
-    <designables>
-        <designable name="HVF-SB-S4B">
-            <size key="intrinsicContentSize" width="106" height="33"/>
-        </designable>
-        <designable name="HyY-L2-xtO">
-            <size key="intrinsicContentSize" width="80" height="33"/>
-        </designable>
-        <designable name="hZf-JQ-sai">
-            <size key="intrinsicContentSize" width="81" height="33"/>
-        </designable>
-    </designables>
     <resources>
         <image name="filter" width="36" height="36"/>
         <image name="home" width="42" height="42"/>
@@ -611,9 +495,6 @@
         <image name="search" width="24" height="24"/>
         <namedColor name="AppThemeBackgroundColor">
             <color red="0.80000000000000004" green="0.87058823529411766" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="AppThemeButtonColor">
-            <color red="0.31764705882352939" green="0.40000000000000002" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="AppViewBackgroundColor">
             <color red="0.96078431372549022" green="0.96470588235294119" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

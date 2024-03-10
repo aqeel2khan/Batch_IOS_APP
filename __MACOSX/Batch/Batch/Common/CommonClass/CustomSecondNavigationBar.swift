@@ -16,7 +16,7 @@ class CustomSecondNavigationBar: UIView {
     // MARK: - IBOutlets
     
     @IBOutlet weak var leftBarBtnItem: UIButton!
-    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var titleLbl: BatchLabelTitleBlack!
     
     @IBOutlet weak var rightBarBtnItem1: UIButton!
     

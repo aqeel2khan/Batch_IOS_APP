@@ -32,7 +32,7 @@ class VimoPlayerVC: UIViewController {
         
         titleLbl.text = courseDetail.courseName
         if dayNumberText.contains("Day") {
-            dayNumberText.substring(fromIndex: 4)
+            dayCountLbl.text = dayNumberText.substring(fromIndex: 4)
         } else {
             dayCountLbl.text = "Day : " + dayNumberText
         }

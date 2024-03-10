@@ -254,7 +254,6 @@
 		5759E7DD2B9048AB00352B24 /* Extension+BPaymentGatewayPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E78B2B9048AB00352B24 /* Extension+BPaymentGatewayPopUpVC.swift */; };
 		5759E7DE2B9048AB00352B24 /* PaymentMethodTblViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E78C2B9048AB00352B24 /* PaymentMethodTblViewCell.swift */; };
 		5759E7DF2B9048AB00352B24 /* PaymentMethodTblViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5759E78D2B9048AB00352B24 /* PaymentMethodTblViewCell.xib */; };
-		5759E7E02B9048AB00352B24 /* BSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E78E2B9048AB00352B24 /* BSignUpVC.swift */; };
 		5759E7E12B9048AB00352B24 /* BCheckoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E78F2B9048AB00352B24 /* BCheckoutVC.swift */; };
 		5759E7E22B9048AB00352B24 /* BRegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7902B9048AB00352B24 /* BRegistrationVC.swift */; };
 		5759E7E32B9048AB00352B24 /* BChangeCoursePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7922B9048AB00352B24 /* BChangeCoursePopUpVC.swift */; };
@@ -580,7 +579,6 @@
 		5759E78B2B9048AB00352B24 /* Extension+BPaymentGatewayPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+BPaymentGatewayPopUpVC.swift"; sourceTree = "<group>"; };
 		5759E78C2B9048AB00352B24 /* PaymentMethodTblViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodTblViewCell.swift; sourceTree = "<group>"; };
 		5759E78D2B9048AB00352B24 /* PaymentMethodTblViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentMethodTblViewCell.xib; sourceTree = "<group>"; };
-		5759E78E2B9048AB00352B24 /* BSignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSignUpVC.swift; sourceTree = "<group>"; };
 		5759E78F2B9048AB00352B24 /* BCheckoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCheckoutVC.swift; sourceTree = "<group>"; };
 		5759E7902B9048AB00352B24 /* BRegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BRegistrationVC.swift; sourceTree = "<group>"; };
 		5759E7922B9048AB00352B24 /* BChangeCoursePopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BChangeCoursePopUpVC.swift; sourceTree = "<group>"; };
@@ -1949,7 +1947,6 @@
 				5759E78B2B9048AB00352B24 /* Extension+BPaymentGatewayPopUpVC.swift */,
 				5759E78C2B9048AB00352B24 /* PaymentMethodTblViewCell.swift */,
 				5759E78D2B9048AB00352B24 /* PaymentMethodTblViewCell.xib */,
-				5759E78E2B9048AB00352B24 /* BSignUpVC.swift */,
 				5759E7902B9048AB00352B24 /* BRegistrationVC.swift */,
 			);
 			path = BatchTrainingsCheckout;
@@ -2525,7 +2522,6 @@
 				5759E7BA2B9048AB00352B24 /* BWorkOutRequestModel.swift in Sources */,
 				5759E7F42B9048AB00352B24 /* Extension+VideoPlayerVC.swift in Sources */,
 				5759E7B92B9048AB00352B24 /* BRegistrationResponse.swift in Sources */,
-				5759E7E02B9048AB00352B24 /* BSignUpVC.swift in Sources */,
 				31AE2DA22B36BC72000FEB41 /* Extension+MealBatchVC.swift in Sources */,
 				314714592B68EB4B002EED87 /* ReviewIngridentCollectionViewCell.swift in Sources */,
 				1911846D2B96B1EB00343F4B /* BUserFollowingVM.swift in Sources */,
