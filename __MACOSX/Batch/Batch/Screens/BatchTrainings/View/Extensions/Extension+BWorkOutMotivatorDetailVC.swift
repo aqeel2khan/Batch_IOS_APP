@@ -28,8 +28,8 @@ extension BWorkOutMotivatorDetailVC: UITableViewDelegate,UITableViewDataSource {
         let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info.coachDetail?.profilePhotoPath ?? ""))
         cell.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
         cell.lblTitle.text = info.courseName
-        //            cell.woDayCountLbl.text = "\(info.perDayWorkout ?? "0")/\(info.duration ?? "0") days"
-        cell.woDayCountLbl.text = "\(info.coursePrice ?? "")"
+
+        cell.woDayCountLbl.text = "from \(CURRENCY) " + "\(info.coursePrice?.removeDecimalValue() ?? "")"
         cell.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
         let workType = info.workoutType?[0].workoutdetail?.workoutType
         cell.workOutTypeBtn.setTitle("\(workType ?? "")", for: .normal)

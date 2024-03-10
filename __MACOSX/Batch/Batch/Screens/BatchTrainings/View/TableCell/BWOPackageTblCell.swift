@@ -8,34 +8,26 @@
 import UIKit
 
 class BWOPackageTblCell: UITableViewCell {
-
+    
     @IBOutlet weak var cellBtn: UIButton!
-    
-    @IBOutlet weak var courseLevelTypeLbl: UIButton!
-    
-    
-    
+    @IBOutlet weak var courseLevelTypeLbl: BatchButtonMedium12White!
     @IBOutlet weak var imgCourse: UIImageView!
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var woDayCountLbl: UILabel!
+    @IBOutlet weak var lblTitle: BatchMedium18White!
+    @IBOutlet weak var woDayCountLbl: BatchMedium18White!
     @IBOutlet weak var coachProfileImg: UIImageView!
-    @IBOutlet weak var coachNameLbl: UILabel!
+    @IBOutlet weak var coachNameLbl: BatchLabelMedium14White!
+    @IBOutlet weak var workOutTypeBtn: BatchButtonMedium12White!
+    @IBOutlet weak var goalLblBtn: BatchButtonMedium12White!
+    @IBOutlet weak var bottomBackView: UIView!
 
-    @IBOutlet weak var workOutTypeBtn: UIButton!
-    
-    @IBOutlet weak var goalLblBtn: UIButton!
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
+        bottomBackView.makeSpecificCornerRound(corners: .bottomTwo, radius: 20)
 
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
 }

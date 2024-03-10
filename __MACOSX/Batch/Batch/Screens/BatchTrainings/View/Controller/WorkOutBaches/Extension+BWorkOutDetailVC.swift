@@ -94,6 +94,13 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
                 cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
                 cell.bottomStackView.isHidden = false
             }
+            
+            if indexPath.row == (todayWorkoutsInfo.row ?? 0) - 1 {
+                cell.dayLbl.backgroundColor  = Colors.appThemeButtonColor
+            } else {
+                cell.dayLbl.backgroundColor  = .clear
+            }
+            
         } else {
             let info = totalCourseArr[indexPath.row]
             if info.status == 0 {
