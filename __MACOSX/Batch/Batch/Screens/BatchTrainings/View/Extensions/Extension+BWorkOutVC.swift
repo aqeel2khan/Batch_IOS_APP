@@ -76,9 +76,7 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if (self.segmentControl.selectedSegmentIndex == 0)
-        {
+        if (self.segmentControl.selectedSegmentIndex == 0) {
             let vc = BWorkOutDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
@@ -103,8 +101,7 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             
             self.present(vc, animated: true)
         }
-        else
-        {
+        else {
             let vc = BWorkOutMotivatorDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
@@ -123,7 +120,6 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
                 cell.transform = CGAffineTransform(translationX: 0, y: 0)
             })
     }
-    
 }
 
 extension BWorkOutVC : UICollectionViewDelegateFlowLayout

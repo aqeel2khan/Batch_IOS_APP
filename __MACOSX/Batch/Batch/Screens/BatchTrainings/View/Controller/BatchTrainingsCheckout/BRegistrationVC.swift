@@ -77,18 +77,14 @@ class BRegistrationVC: UIViewController {
         {
             showAlert(message: "Please select terms and conditions checkbox")
         }
-        
-        
     }
     
-    @IBAction func onTapPassowrdEyeBtn(_ sender: UIButton)
-    {
+    @IBAction func onTapPassowrdEyeBtn(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         self.passwordTextField.isSecureTextEntry = !self.passwordTextField.isSecureTextEntry
     }
     
     private func signUpApi(){
-        
         let email = (emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
         let password = (passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
         let name = (fullNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
@@ -99,12 +95,8 @@ class BRegistrationVC: UIViewController {
             showLoading()
         }
         let bRegistrationViewModel = BRegistrationViewModel()
-        let urlStr = API.signUp
         bRegistrationViewModel.registrationApi(request: request) { (response) in
-            
             if response.status == true {
-                print(response.data)
-                // self.blogsArray = response.data!
                 DispatchQueue.main.async {
                     hideLoading()
                     Batch_UserDefaults.set(response.data?.id, forKey: UserDefaultKey.USER_ID)
@@ -113,8 +105,7 @@ class BRegistrationVC: UIViewController {
                     print(getToken)
                     UserDefaultUtility.setUserLoggedIn(true)
 
-                    if self.isCommingFrom == "workoutbatches"
-                    {
+                    if self.isCommingFrom == "workoutbatches" {
                         let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
                         vc.modalPresentationStyle = .overFullScreen
                         vc.modalTransitionStyle = .coverVertical
@@ -123,7 +114,6 @@ class BRegistrationVC: UIViewController {
                         vc.isCommingFrom = self.isCommingFrom
                         self.present(vc, animated: true)
                     }
-                    
                     if self.isCommingFrom == "MealBatchSubscribe" {
                         let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
                         vc.modalPresentationStyle = .overFullScreen
@@ -134,11 +124,13 @@ class BRegistrationVC: UIViewController {
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.showAlert(message: response.message ?? "")
                 }
             }
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
+                self.showAlert(message: "\(error.localizedDescription)")
             }
         }
     }

@@ -11,7 +11,6 @@ import AuthenticationServices
 
 class BLogInVC: UIViewController {
     
-    @IBOutlet weak var lblTermCondition: UILabel!
     @IBOutlet weak var btnSignIn: UIButton!
     @IBOutlet weak var btnFbLogin: BatchButton!
     @IBOutlet weak var btnAppleLogin: BatchButton!
@@ -20,14 +19,11 @@ class BLogInVC: UIViewController {
     
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    @IBOutlet weak var checkBoxBtn: UIButton!
-    
+        
     var promotionPriceValue = 0.0
     var selectedSubscriptionInfo = [CourseDataList]()
     
     var isCommingFrom = ""
-    var isCheckBoxSelected = false
     var mealData : Meals!
 
     override func viewDidLoad() {
@@ -38,8 +34,6 @@ class BLogInVC: UIViewController {
     //MARK:- SetUp Localization
     
     func setUpLocalization() {
-        
-        self.lblTermCondition.text = "I agree to the company Terms & Conditions".localized()
         self.btnSignIn.setTitle("Sign In".localized(), for: .normal)
         self.btnFbLogin.setTitle("Sign in with Facebook".localized(), for: .normal)
         self.btnAppleLogin.setTitle("Sign in with Apple".localized(), for: .normal)
@@ -47,20 +41,10 @@ class BLogInVC: UIViewController {
         self.btnOutlookLogin.setTitle("Sign in with Outlook".localized(), for: .normal)
     }
     
-    @IBAction func onTapCheckBoxBtn(_ sender: UIButton)
-    {
-        
-        sender.isSelected = !sender.isSelected
-        isCheckBoxSelected = sender.isSelected
-        // self.userEmailTextField.isSecureTextEntry = !self.userEmailTextField.isSecureTextEntry
-    }
-    @IBAction func onTapPassowrdEyeBtn(_ sender: UIButton)
-    {
+    @IBAction func onTapPassowrdEyeBtn(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         self.passwordTextField.isSecureTextEntry = !self.passwordTextField.isSecureTextEntry
-        
     }
-    
     
     @IBAction func onTapSignInBtn(_ sender: Any) {
         //        //        GIDSignIn.sharedInstance.signOut()
@@ -69,20 +53,11 @@ class BLogInVC: UIViewController {
         //        vc.modalPresentationStyle = .overFullScreen
         //        vc.modalTransitionStyle = .crossDissolve
         //        self.present(vc, animated: true)
-        if isCheckBoxSelected == true
-        {
-            if internetConnection.isConnectedToNetwork() == true {
-                self.logInApi()
-            }else{
-                self.showAlert(message: "Please check your internet", title: "Network issue")
-            }
+        if internetConnection.isConnectedToNetwork() == true {
+            self.logInApi()
+        } else{
+            self.showAlert(message: "Please check your internet", title: "Network issue")
         }
-        else
-        {
-            showAlert(message: "Please select terms and conditions checkbox")
-        }
-        
-        
         //        if (self.userEmailTextField.text?.isEmpty) == true
         //        {
         //            showAlert(message: "Please enter email")
@@ -106,11 +81,9 @@ class BLogInVC: UIViewController {
         //                showAlert(message: "Please select terms and conditions checkbox")
         //            }
         //        }
-        
     }
     
     private func logInApi(){
-        
         let email = (userEmailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
         let password = (passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
         
@@ -121,14 +94,10 @@ class BLogInVC: UIViewController {
         }
         
         let bLogInViewModel = BLogInViewModel()
-        let urlStr = API.logIn
         bLogInViewModel.loginApi(request: request) { (response) in
-            
             if response.status == true,response.token != nil {
                 print(response.data)
                 // self.blogsArray = response.data!
-                
-                
                 DispatchQueue.main.async {
                     hideLoading()
                     

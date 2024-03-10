@@ -20,7 +20,7 @@ class CustomNavigationBar: UIView {
     // MARK: - IBOutlets
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var leftBarBtnItem: UIButton!
-    @IBOutlet weak var titleFirstLbl: UILabel!
+    @IBOutlet weak var titleFirstLbl: BatchLabelTitleBlack!
     @IBOutlet weak var titleSecondLbl: UILabel!
     @IBOutlet weak var rightFirstBarBtnItem: UIButton!
     @IBOutlet weak var rightSecondBarBtnItem: UIButton!
