@@ -21,10 +21,15 @@ class MealPlanIngridentEditableView: UIViewController {
     @IBOutlet weak var nameLbl: UILabel!
     
     @IBOutlet weak var ingridentLabelView: UILabel!
+    @IBOutlet weak var reviewsCountLabel: UILabel!
+    
+    @IBOutlet weak var rateMealLabel: UILabel!
+
 
     var selectedMealData : Meals!
     var dishData : Dishes!
     var nutritionList : [NutritionDetail] = []
+    var dishReviews : DishReviews?
     var dishRequest: DishRequest?
     // MARK: - Properties
     var isCommingFrom = ""
@@ -33,10 +38,27 @@ class MealPlanIngridentEditableView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Enable user interaction
+        rateMealLabel.isUserInteractionEnabled = true
+        
+        // Add tap gesture recognizer
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
+        rateMealLabel.addGestureRecognizer(tapGesture)
+
         self.setupNavigationBar()
         self.getDishesDetailsApi()
     }
+    
+    @objc func labelTapped() {
+        // Call your function here
+        openRatingScreen()
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.getDishesReviewsList()
+    }
 
     // MARK: - UI
     
@@ -72,7 +94,7 @@ class MealPlanIngridentEditableView: UIViewController {
     }
 
     //Get Dishes Details
-    public func getDishesDetailsApi(){
+    public func getDishesDetailsApi() {
 
         DispatchQueue.main.async {
             showLoading()
@@ -109,5 +131,60 @@ class MealPlanIngridentEditableView: UIViewController {
                 hideLoading()
             }
         }
+    }
+    
+    //Get Dishes Details
+    public func getDishesReviewsList() {
+        
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealViewModel = BMealViewModel()
+        var urlStr = ""
+        if isCommingFrom == "MealBatchUnSubscribeDetailVC" {
+            urlStr = API.dishesReviewList + "\(dishData.dishID ?? 0)"
+        } else {
+            urlStr = API.dishesReviewList + "\(dishRequest?.dishId ?? "0")"
+        }
+        bMealViewModel.getDishReviewList(requestUrl: urlStr)  { (response) in
+            if response.status == true {
+                self.dishReviews = response.data
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.planReviewCollView.reloadData()
+                    if self.dishReviews?.data.count == 0 {
+                        self.reviewsCountLabel.text = ""
+                    } else {
+                        self.reviewsCountLabel.text = "Reviews(\(self.dishReviews?.data.count ?? 0))"
+                    }
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.reviewsCountLabel.text = ""
+                    self.planReviewCollView.reloadData()
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.reviewsCountLabel.text = ""
+                self.planReviewCollView.reloadData()
+            }
+        }
+    }
+    
+    func openRatingScreen() {
+        let vc = MealplanRatingVC.instantiate(fromAppStoryboard: .batchMealPlans)
+        var dishId = ""
+        if isCommingFrom == "MealBatchUnSubscribeDetailVC" {
+            dishId = "\(dishData.dishID ?? 0)"
+        } else {
+            dishId = "\(dishRequest?.dishId ?? "0")"
+        }
+        vc.postReviewRequest = PostReviewRequest(userId: "\(UserDefaultUtility().getUserId())", dishId: dishId, rating: "", review: "")
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true)
     }
 }
