@@ -36,5 +36,261 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "42F4DA7D-6CDF-4DB6-8A29-63F03AE52004"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VideoPlayerVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "playerDidFinishPlaying(note:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D0CF0F82-DAFD-460A-9D75-DCCC0BB8A90C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VideoPlayerVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "setupVideo(videoPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A585AEB3-58B8-48DD-803C-26DBA27CE3FA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VideoPlayLibrary/ASVideoPlayerController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "playerDidFinishPlaying(note:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A585AEB3-58B8-48DD-803C-26DBA27CE3FA - 4674124ccb4274d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Batch.ASVideoPlayerController.playerDidFinishPlaying(note: __C.NSNotification) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harimohan/Documents/Latest_Batch/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VideoPlayLibrary/ASVideoPlayerController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "456">
+               </Location>
+               <Location
+                  uuid = "A585AEB3-58B8-48DD-803C-26DBA27CE3FA - 4674124ccb4274d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Batch.ASVideoPlayerController.playerDidFinishPlaying(note: __C.NSNotification) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harimohan/Documents/Latest_Batch/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VideoPlayLibrary/ASVideoPlayerController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "496">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6161AEDF-1972-4461-BC9A-CCED98C83D56"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VideoPlayLibrary/ASVideoPlayerController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "pauseRemoveLayer(layer:url:layerHeight:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CAF22425-0FC0-4192-ADAD-158C3177A923"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VideoPlayLibrary/ASVideoPlayerController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "removeFromSuperLayer(layer:url:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "674701AF-66EC-435A-9699-BAC753CBD814"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VideoPlayLibrary/ASVideoPlayerController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "removeLayerFor(cell:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "674701AF-66EC-435A-9699-BAC753CBD814 - 8e61addc4e413a3b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Batch.ASVideoPlayerController.removeLayerFor(cell: Batch.ASAutoPlayVideoLayerContainer) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harimohan/Documents/Latest_Batch/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VideoPlayLibrary/ASVideoPlayerController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "674701AF-66EC-435A-9699-BAC753CBD814 - 8e61addc4e413a3b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Batch.ASVideoPlayerController.removeLayerFor(cell: Batch.ASAutoPlayVideoLayerContainer) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harimohan/Documents/Latest_Batch/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VideoPlayLibrary/ASVideoPlayerController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "196">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A3D56CC-0EE6-4DA6-A2D7-C610F539F7CD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VideoPlayLibrary/ASVideoPlayerController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "pauseVideo(forLayer:url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6A3D56CC-0EE6-4DA6-A2D7-C610F539F7CD - bcff5b920775c98a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Batch.ASVideoPlayerController.pauseVideo(forLayer: __C.AVPlayerLayer, url: Swift.String) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harimohan/Documents/Latest_Batch/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VideoPlayLibrary/ASVideoPlayerController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "6A3D56CC-0EE6-4DA6-A2D7-C610F539F7CD - bcff5b920775c98a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Batch.ASVideoPlayerController.pauseVideo(forLayer: __C.AVPlayerLayer, url: Swift.String) -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harimohan/Documents/Latest_Batch/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VideoPlayLibrary/ASVideoPlayerController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "268">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EA904714-8F67-4ADD-AB91-C6363831CD75"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VideoPlayLibrary/ASVideoPlayerController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "pauseVideo(forLayer:url:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63AEA766-5FED-49A3-8D8F-90751D7D5600"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VideoPlayLibrary/ASVideoPlayerController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "pauseVideo(forLayer:url:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CC211B8B-7BDF-46D0-8C46-1AD2435D96DA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VideoPlayLibrary/ASVideoPlayerController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "removeObserverFor(url:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

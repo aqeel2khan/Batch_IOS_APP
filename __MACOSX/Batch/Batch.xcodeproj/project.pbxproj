@@ -175,6 +175,10 @@
 		570443C52B9A2EF000F630F6 /* Extension+QuestionDietVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570443C32B9A2EF000F630F6 /* Extension+QuestionDietVC.swift */; };
 		570443C92B9A2FAA00F630F6 /* QuestionLabelTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570443C72B9A2FAA00F630F6 /* QuestionLabelTVC.xib */; };
 		570443CA2B9A2FAA00F630F6 /* QuestionLabelTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570443C82B9A2FAA00F630F6 /* QuestionLabelTVC.swift */; };
+		570A7E232B9F5B3C000C7D9C /* BWorkOutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A7E1E2B9F5B3C000C7D9C /* BWorkOutDetailVC.swift */; };
+		570A7E242B9F5B3C000C7D9C /* Extension+BWorkOutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A7E1F2B9F5B3C000C7D9C /* Extension+BWorkOutDetailVC.swift */; };
+		570A7E252B9F5B3C000C7D9C /* Extension+BWorkOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A7E212B9F5B3C000C7D9C /* Extension+BWorkOutVC.swift */; };
+		570A7E262B9F5B3C000C7D9C /* BWorkOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A7E222B9F5B3C000C7D9C /* BWorkOutVC.swift */; };
 		570D8FEB2B84B28300EB643A /* DashboardResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570D8FC52B84B28300EB643A /* DashboardResource.swift */; };
 		570D8FEC2B84B28300EB643A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570D8FC62B84B28300EB643A /* DashboardViewModel.swift */; };
 		570D8FEE2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570D8FCC2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.xib */; };
@@ -260,21 +264,17 @@
 		5759E7E42B9048AB00352B24 /* VideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7932B9048AB00352B24 /* VideoPlayerVC.swift */; };
 		5759E7E52B9048AB00352B24 /* BStartWorkOutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7942B9048AB00352B24 /* BStartWorkOutDetailVC.swift */; };
 		5759E7E62B9048AB00352B24 /* BNextWorkOutTimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7952B9048AB00352B24 /* BNextWorkOutTimerVC.swift */; };
-		5759E7E72B9048AB00352B24 /* BWorkOutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7962B9048AB00352B24 /* BWorkOutDetailVC.swift */; };
 		5759E7E92B9048AB00352B24 /* ASVideoLayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E79A2B9048AB00352B24 /* ASVideoLayerObject.swift */; };
 		5759E7EA2B9048AB00352B24 /* ASVideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E79B2B9048AB00352B24 /* ASVideoPlayerController.swift */; };
 		5759E7EB2B9048AB00352B24 /* ASVideoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E79C2B9048AB00352B24 /* ASVideoContainer.swift */; };
 		5759E7EC2B9048AB00352B24 /* VimoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E79D2B9048AB00352B24 /* VimoPlayerVC.swift */; };
 		5759E7EE2B9048AB00352B24 /* BWorkOutCompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E79F2B9048AB00352B24 /* BWorkOutCompleteVC.swift */; };
 		5759E7EF2B9048AB00352B24 /* MotivatorFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7A02B9048AB00352B24 /* MotivatorFilterVC.swift */; };
-		5759E7F02B9048AB00352B24 /* BWorkOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7A12B9048AB00352B24 /* BWorkOutVC.swift */; };
 		5759E7F12B9048AB00352B24 /* BWorkOutAllowNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7A22B9048AB00352B24 /* BWorkOutAllowNotificationVC.swift */; };
 		5759E7F22B9048AB00352B24 /* BStartWorkOutVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7A32B9048AB00352B24 /* BStartWorkOutVideoVC.swift */; };
 		5759E7F32B9048AB00352B24 /* TrainingFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7A42B9048AB00352B24 /* TrainingFilterVC.swift */; };
 		5759E7F42B9048AB00352B24 /* Extension+VideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7A62B9048AB00352B24 /* Extension+VideoPlayerVC.swift */; };
 		5759E7F52B9048AB00352B24 /* Extension+TrainingFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7A72B9048AB00352B24 /* Extension+TrainingFilterVC.swift */; };
-		5759E7F62B9048AB00352B24 /* Extension+BWorkOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7A82B9048AB00352B24 /* Extension+BWorkOutVC.swift */; };
-		5759E7F72B9048AB00352B24 /* Extension+BWorkOutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7A92B9048AB00352B24 /* Extension+BWorkOutDetailVC.swift */; };
 		5759E7F82B9048AB00352B24 /* Extension+MotivationFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7AA2B9048AB00352B24 /* Extension+MotivationFilterVC.swift */; };
 		5759E7F92B9048AB00352B24 /* Extension+BStartWorkOutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7AB2B9048AB00352B24 /* Extension+BStartWorkOutDetailVC.swift */; };
 		5759E7FA2B9048AB00352B24 /* Extension+BWorkOutMotivatorDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759E7AC2B9048AB00352B24 /* Extension+BWorkOutMotivatorDetailVC.swift */; };
@@ -500,6 +500,10 @@
 		570443C32B9A2EF000F630F6 /* Extension+QuestionDietVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+QuestionDietVC.swift"; sourceTree = "<group>"; };
 		570443C72B9A2FAA00F630F6 /* QuestionLabelTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionLabelTVC.xib; sourceTree = "<group>"; };
 		570443C82B9A2FAA00F630F6 /* QuestionLabelTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionLabelTVC.swift; sourceTree = "<group>"; };
+		570A7E1E2B9F5B3C000C7D9C /* BWorkOutDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutDetailVC.swift; sourceTree = "<group>"; };
+		570A7E1F2B9F5B3C000C7D9C /* Extension+BWorkOutDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+BWorkOutDetailVC.swift"; sourceTree = "<group>"; };
+		570A7E212B9F5B3C000C7D9C /* Extension+BWorkOutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+BWorkOutVC.swift"; sourceTree = "<group>"; };
+		570A7E222B9F5B3C000C7D9C /* BWorkOutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutVC.swift; sourceTree = "<group>"; };
 		570D8FC52B84B28300EB643A /* DashboardResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardResource.swift; sourceTree = "<group>"; };
 		570D8FC62B84B28300EB643A /* DashboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		570D8FCC2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutBatchDashboardCollectionCell.xib; sourceTree = "<group>"; };
@@ -585,21 +589,17 @@
 		5759E7932B9048AB00352B24 /* VideoPlayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerVC.swift; sourceTree = "<group>"; };
 		5759E7942B9048AB00352B24 /* BStartWorkOutDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BStartWorkOutDetailVC.swift; sourceTree = "<group>"; };
 		5759E7952B9048AB00352B24 /* BNextWorkOutTimerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNextWorkOutTimerVC.swift; sourceTree = "<group>"; };
-		5759E7962B9048AB00352B24 /* BWorkOutDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutDetailVC.swift; sourceTree = "<group>"; };
 		5759E79A2B9048AB00352B24 /* ASVideoLayerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoLayerObject.swift; sourceTree = "<group>"; };
 		5759E79B2B9048AB00352B24 /* ASVideoPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoPlayerController.swift; sourceTree = "<group>"; };
 		5759E79C2B9048AB00352B24 /* ASVideoContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoContainer.swift; sourceTree = "<group>"; };
 		5759E79D2B9048AB00352B24 /* VimoPlayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimoPlayerVC.swift; sourceTree = "<group>"; };
 		5759E79F2B9048AB00352B24 /* BWorkOutCompleteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutCompleteVC.swift; sourceTree = "<group>"; };
 		5759E7A02B9048AB00352B24 /* MotivatorFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotivatorFilterVC.swift; sourceTree = "<group>"; };
-		5759E7A12B9048AB00352B24 /* BWorkOutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutVC.swift; sourceTree = "<group>"; };
 		5759E7A22B9048AB00352B24 /* BWorkOutAllowNotificationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutAllowNotificationVC.swift; sourceTree = "<group>"; };
 		5759E7A32B9048AB00352B24 /* BStartWorkOutVideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BStartWorkOutVideoVC.swift; sourceTree = "<group>"; };
 		5759E7A42B9048AB00352B24 /* TrainingFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingFilterVC.swift; sourceTree = "<group>"; };
 		5759E7A62B9048AB00352B24 /* Extension+VideoPlayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+VideoPlayerVC.swift"; sourceTree = "<group>"; };
 		5759E7A72B9048AB00352B24 /* Extension+TrainingFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+TrainingFilterVC.swift"; sourceTree = "<group>"; };
-		5759E7A82B9048AB00352B24 /* Extension+BWorkOutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+BWorkOutVC.swift"; sourceTree = "<group>"; };
-		5759E7A92B9048AB00352B24 /* Extension+BWorkOutDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+BWorkOutDetailVC.swift"; sourceTree = "<group>"; };
 		5759E7AA2B9048AB00352B24 /* Extension+MotivationFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+MotivationFilterVC.swift"; sourceTree = "<group>"; };
 		5759E7AB2B9048AB00352B24 /* Extension+BStartWorkOutDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+BStartWorkOutDetailVC.swift"; sourceTree = "<group>"; };
 		5759E7AC2B9048AB00352B24 /* Extension+BWorkOutMotivatorDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+BWorkOutMotivatorDetailVC.swift"; sourceTree = "<group>"; };
@@ -1575,6 +1575,24 @@
 			path = QuestionDietTVC;
 			sourceTree = "<group>";
 		};
+		570A7E1D2B9F5B3C000C7D9C /* BWorkOutDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				570A7E1E2B9F5B3C000C7D9C /* BWorkOutDetailVC.swift */,
+				570A7E1F2B9F5B3C000C7D9C /* Extension+BWorkOutDetailVC.swift */,
+			);
+			path = BWorkOutDetailVC;
+			sourceTree = "<group>";
+		};
+		570A7E202B9F5B3C000C7D9C /* BWorkOutVC */ = {
+			isa = PBXGroup;
+			children = (
+				570A7E222B9F5B3C000C7D9C /* BWorkOutVC.swift */,
+				570A7E212B9F5B3C000C7D9C /* Extension+BWorkOutVC.swift */,
+			);
+			path = BWorkOutVC;
+			sourceTree = "<group>";
+		};
 		570D8FC32B84B28300EB643A /* BatchDashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -1955,18 +1973,16 @@
 		5759E7912B9048AB00352B24 /* WorkOutBaches */ = {
 			isa = PBXGroup;
 			children = (
-				5759E7962B9048AB00352B24 /* BWorkOutDetailVC.swift */,
-				5759E7A92B9048AB00352B24 /* Extension+BWorkOutDetailVC.swift */,
+				570A7E202B9F5B3C000C7D9C /* BWorkOutVC */,
+				570A7E1D2B9F5B3C000C7D9C /* BWorkOutDetailVC */,
+				5759E7972B9048AB00352B24 /* VimoVideo */,
 				5797812C2B92476B00057943 /* BWorkOutVideoInfoPopUp.swift */,
 				5759E7922B9048AB00352B24 /* BChangeCoursePopUpVC.swift */,
 				5759E7932B9048AB00352B24 /* VideoPlayerVC.swift */,
 				5759E7942B9048AB00352B24 /* BStartWorkOutDetailVC.swift */,
 				5759E7952B9048AB00352B24 /* BNextWorkOutTimerVC.swift */,
-				5759E7972B9048AB00352B24 /* VimoVideo */,
 				5759E79F2B9048AB00352B24 /* BWorkOutCompleteVC.swift */,
 				5759E7A02B9048AB00352B24 /* MotivatorFilterVC.swift */,
-				5759E7A12B9048AB00352B24 /* BWorkOutVC.swift */,
-				5759E7A82B9048AB00352B24 /* Extension+BWorkOutVC.swift */,
 				5759E7A22B9048AB00352B24 /* BWorkOutAllowNotificationVC.swift */,
 				5759E7A32B9048AB00352B24 /* BStartWorkOutVideoVC.swift */,
 				5759E7A42B9048AB00352B24 /* TrainingFilterVC.swift */,
@@ -1980,6 +1996,7 @@
 				579781272B92278C00057943 /* VimoPlayerCell */,
 				5759E7992B9048AB00352B24 /* VideoPlayLibrary */,
 				5759E79D2B9048AB00352B24 /* VimoPlayerVC.swift */,
+				5759E7A62B9048AB00352B24 /* Extension+VideoPlayerVC.swift */,
 			);
 			path = VimoVideo;
 			sourceTree = "<group>";
@@ -1997,7 +2014,6 @@
 		5759E7A52B9048AB00352B24 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5759E7A62B9048AB00352B24 /* Extension+VideoPlayerVC.swift */,
 				5759E7A72B9048AB00352B24 /* Extension+TrainingFilterVC.swift */,
 				5759E7AA2B9048AB00352B24 /* Extension+MotivationFilterVC.swift */,
 				5759E7AB2B9048AB00352B24 /* Extension+BStartWorkOutDetailVC.swift */,
@@ -2421,6 +2437,7 @@
 				314714542B68EB3A002EED87 /* MealPlanProtienCollectionViewCell.swift in Sources */,
 				570D8FF42B84B28300EB643A /* NotificationSettingsListTableCell.swift in Sources */,
 				5759E7F82B9048AB00352B24 /* Extension+MotivationFilterVC.swift in Sources */,
+				570A7E232B9F5B3C000C7D9C /* BWorkOutDetailVC.swift in Sources */,
 				570D8FFC2B84B28300EB643A /* BUserDeliveryDetailVC.swift in Sources */,
 				1911847C2B96B33100343F4B /* BUserLogoutResource.swift in Sources */,
 				3147145C2B68EB8F002EED87 /* MealplanRatingVC.swift in Sources */,
@@ -2446,7 +2463,6 @@
 				31AE2DA62B36BD10000FEB41 /* Extension+ShoppingBatchVC.swift in Sources */,
 				1A9B01302B943C5F00F17C42 /* SubscribedMealListResponse.swift in Sources */,
 				319BAD662B2A31A00081A8F2 /* UITextField.swift in Sources */,
-				5759E7E72B9048AB00352B24 /* BWorkOutDetailVC.swift in Sources */,
 				5759E7EF2B9048AB00352B24 /* MotivatorFilterVC.swift in Sources */,
 				57719F072B9C2F0400F7A599 /* Extension+QuestionGoalVC.swift in Sources */,
 				31934C7B2B88C73C00AD7185 /* LaunchScreenVC.swift in Sources */,
@@ -2490,7 +2506,6 @@
 				5759E7AE2B9048AB00352B24 /* BRegistrationViewModel.swift in Sources */,
 				68C14B682B6395450085AAD4 /* MealPlanCheckout.swift in Sources */,
 				3176093D2B66AC54005D4395 /* BMealDishCollCell.swift in Sources */,
-				5759E7F62B9048AB00352B24 /* Extension+BWorkOutVC.swift in Sources */,
 				3147144D2B68EAF6002EED87 /* Extension+MealPlanIngridentEditableView.swift in Sources */,
 				319BAD652B2A31A00081A8F2 /* Protocols.swift in Sources */,
 				57719F082B9C2F0400F7A599 /* QuestionGoalVC.swift in Sources */,
@@ -2518,7 +2533,6 @@
 				319BAD612B2A31A00081A8F2 /* NetworkPopUp.swift in Sources */,
 				311576BD2B8678E400224EDE /* BLogInResource.swift in Sources */,
 				31C489F42B8616700050702C /* BatchLoginResponse.swift in Sources */,
-				5759E7F72B9048AB00352B24 /* Extension+BWorkOutDetailVC.swift in Sources */,
 				5759E7BA2B9048AB00352B24 /* BWorkOutRequestModel.swift in Sources */,
 				5759E7F42B9048AB00352B24 /* Extension+VideoPlayerVC.swift in Sources */,
 				5759E7B92B9048AB00352B24 /* BRegistrationResponse.swift in Sources */,
@@ -2562,6 +2576,7 @@
 				31AE2DA42B36BCF1000FEB41 /* ShoppingBatchVC.swift in Sources */,
 				313645B22B30BAB5007D0E18 /* Extension+OnBoardingScreenVC.swift in Sources */,
 				5759E7D12B9048AB00352B24 /* BWOPackageTblCell.swift in Sources */,
+				570A7E262B9F5B3C000C7D9C /* BWorkOutVC.swift in Sources */,
 				5759E7E52B9048AB00352B24 /* BStartWorkOutDetailVC.swift in Sources */,
 				5759E7B32B9048AB00352B24 /* BWorkOutDetailViewModel.swift in Sources */,
 				1A9B01262B93ABD300F17C42 /* MealFilterRequest.swift in Sources */,
@@ -2605,6 +2620,8 @@
 				317609302B6676D3005D4395 /* Extension+MealBatchDetailVC.swift in Sources */,
 				574FA5B52B8E599000F6D3BA /* FilterOptionModel.swift in Sources */,
 				31AE2D842B36BA82000FEB41 /* BatchBoardHomeVC.swift in Sources */,
+				570A7E242B9F5B3C000C7D9C /* Extension+BWorkOutDetailVC.swift in Sources */,
+				570A7E252B9F5B3C000C7D9C /* Extension+BWorkOutVC.swift in Sources */,
 				5759E7B62B9048AB00352B24 /* BRegistrationRequest.swift in Sources */,
 				5759E7D32B9048AB00352B24 /* BWorkOutMotivatorDetailVC.swift in Sources */,
 				57719F0E2B9C3F0400F7A599 /* Extension+QuestionActivityVC.swift in Sources */,
@@ -2627,7 +2644,6 @@
 				31AE2D862B36BAC2000FEB41 /* Extension+BatchBoardHomeVC.swift in Sources */,
 				5759E7B72B9048AB00352B24 /* BWorkOutModel.swift in Sources */,
 				191184842B97184400343F4B /* BUserDeliveryDetailVM.swift in Sources */,
-				5759E7F02B9048AB00352B24 /* BWorkOutVC.swift in Sources */,
 				AF7CE9F72B34B9C500E545A4 /* SelectLanguage.swift in Sources */,
 				5759E7F92B9048AB00352B24 /* Extension+BStartWorkOutDetailVC.swift in Sources */,
 				319BAD622B2A31A00081A8F2 /* UIView.swift in Sources */,
