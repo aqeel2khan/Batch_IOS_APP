@@ -44,9 +44,9 @@ class OnBoardingScreenVC: UIViewController {
     }
   
     override func viewWillAppear(_ animated: Bool) {
-//        selectLang.append(SelectLang(languageName: "English"))
+        selectLang.append(SelectLang(languageName: "English"))
 
-        // selectLang.append(SelectLang(languageName:LTYText.english))
+//         selectLang.append(SelectLang(languageName:LTYText.english))
    
         lblTitle.text = "Lorem ipsum dolor sit".localized()
         lblSubTitle.text = "Lorem ipsum dolor sit amet consectetur.".localized()
