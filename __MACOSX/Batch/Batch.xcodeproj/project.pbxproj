@@ -883,11 +883,11 @@
 		3188B3F52B299C8C00E19945 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				5759E7512B9048AB00352B24 /* BatchTrainings */,
 				31934C792B88C71F00AD7185 /* LaunchScreen */,
+				318C82BD2B2F0095008E1AA6 /* BatchOnboarding */,
+				5759E7512B9048AB00352B24 /* BatchTrainings */,
 				570D8FC32B84B28300EB643A /* BatchDashboard */,
 				570D8FD62B84B28300EB643A /* BatchProfile */,
-				318C82BD2B2F0095008E1AA6 /* BatchOnboarding */,
 				318A2B342B30CA8A004845AB /* BatchLogin */,
 				31AE2D7B2B36B9D6000FEB41 /* BatchBoardHome */,
 				31AE2D972B36BB10000FEB41 /* MealBatch */,

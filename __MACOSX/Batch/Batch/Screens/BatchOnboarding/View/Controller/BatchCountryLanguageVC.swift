@@ -112,10 +112,8 @@ class BatchCountryLanguageVC: UIViewController {
     }
     
     @IBAction func onTapNextBtn(_ sender: Any) {
-        
-        if selectedCountryName != ""
-        {
-            UserDefaults.standard.set(selectedCountryName, forKey: "isCountrySelected")
+        if selectedCountryName != "" {
+            UserDefaults.standard.set(selectedCountryName, forKey: USER_DEFAULT_KEYS.SELECTED_COUNTRY)
             // Synchronize UserDefaults to make sure the value is saved immediately
             UserDefaults.standard.synchronize()
             
@@ -123,11 +121,9 @@ class BatchCountryLanguageVC: UIViewController {
             tabbarVC.modalPresentationStyle = .fullScreen
             present(tabbarVC, animated: true, completion: nil)
         }
-        else
-        {
+        else {
             showAlert(message: "Please select country")
         }
-        
     }
     
     @IBAction func onTapBackBtn(_ sender: Any) {
@@ -200,41 +196,37 @@ extension BatchCountryLanguageVC : UISearchBarDelegate {
 }
 
 
-extension BatchCountryLanguageVC : UITableViewDelegate, UITableViewDataSource
-{
+extension BatchCountryLanguageVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dupList.count//countryName.count
+        return dupList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryListTableCell", for: indexPath) as! CountryListTableCell
         
         let info = dupList[indexPath.row]
-        if info.name != "Israel"
-        {
+        if info.name != "Israel" {
             cell.lblCountryName.text = "\(info.flag!) \(info.name!)"
         }
-        
+
         cell.backGroundUIView.backgroundColor = Colors.appViewBackgroundColor
-        if info.name != ""
-        {
+        if info.name != "" {
             if self.selectedCountry.contains(info.name!) {
                 cell.backGroundUIView.backgroundColor = Colors.appViewPinkBackgroundColor
                 
                 selectedCountryName = info.name!
-                //1
-                UserDefaults.standard.set(selectedCountryName, forKey: "country")
-                // Synchronize UserDefaults to make sure the value is saved immediately
+                UserDefaults.standard.set(selectedCountryName, forKey: USER_DEFAULT_KEYS.SELECTED_COUNTRY)
                 UserDefaults.standard.synchronize()
-                
             }
         }
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50//UIScreen.main.bounds.height
+        return 50
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.selectedCountry.count == 0 {
             self.selectedCountry.append(self.list[indexPath.row].name ?? "")

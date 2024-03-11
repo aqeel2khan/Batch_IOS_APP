@@ -8,26 +8,21 @@
 import UIKit
 
 class LaunchScreenVC: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaults.standard.string(forKey: "isCountrySelected") == nil
-        {
+        if UserDefaults.standard.string(forKey: USER_DEFAULT_KEYS.SELECTED_COUNTRY) == nil {
             DispatchQueue.main.async {
                 let vc = OnBoardingScreenVC.instantiate(fromAppStoryboard: .main)
                 vc.modalTransitionStyle = .crossDissolve
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true)
- 
             }
-            
         }
-        else
-        {
+        else {
             DispatchQueue.main.async {
                 DispatchQueue.main.async {
-                    
                     let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
                     tabbarVC.modalPresentationStyle = .fullScreen
                     self.present(tabbarVC, animated: true, completion: nil)
@@ -35,5 +30,4 @@ class LaunchScreenVC: UIViewController {
             }
         }
     }
-    
 }

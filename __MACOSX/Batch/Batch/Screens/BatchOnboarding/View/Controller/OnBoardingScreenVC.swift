@@ -8,13 +8,9 @@
 import UIKit
 
 class OnBoardingScreenVC: UIViewController {
-
     var selectLang = [SelectLang]()
 
     //MARK:- Outlets
-  
-    @IBOutlet weak var bottomUIViewHeightConstant: NSLayoutConstraint!
-  
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!
     
@@ -32,15 +28,12 @@ class OnBoardingScreenVC: UIViewController {
             pageControl.currentPage = currentPage
         }
     }
-    //MARK: - Didload func
     
+    //MARK: - Didload func
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
-        setDrowerHeight()
-        //bottomView.insetsLayoutMarginsFromSafeArea = false
         self.pageControl.numberOfPages = 3
-
     }
   
     override func viewWillAppear(_ animated: Bool) {
@@ -51,58 +44,38 @@ class OnBoardingScreenVC: UIViewController {
         lblTitle.text = "Lorem ipsum dolor sit".localized()
         lblSubTitle.text = "Lorem ipsum dolor sit amet consectetur.".localized()
         btnLookAround.setTitle("I want to look around".localized(), for: .normal)
-        btnLogin.setTitle("Select Country".localized(), for: .normal)
+        btnLogin.setTitle("Log In".localized(), for: .normal)
 
     }
-    //MARK:- SetUp CollectionView
     
+    //MARK:- SetUp CollectionView
     func setUpCollectionView(){
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
-    //MARK:- set navigationDrower Height
-    
-    func setDrowerHeight() {
-      /*
-       if UIDevice.current.hasNotch {
-           
-           bottomUIViewHeightConstant.constant = DroverHeight.haveNotch
-       } else {
-           bottomUIViewHeightConstant.constant = DroverHeight.dontHaveNotch
-           
-       }
-       */
-    }
-    
     //MARK: - login Action Btn
     @IBAction func loginActionBtn(_ sender: UIButton) {
-        
-//        L102Language.setAppleLAnguageTo(lang: "ar")
-//        change(selectedLanguage: "ar")
-        /*
         let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
+        vc.isCommingFrom = "onboarding"
         self.present(vc, animated: true)
-         */
-        
+    }
+    
+    @IBAction func workAroundActionBtn(_ sender: UIButton) {
+        let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
+        tabbarVC.modalPresentationStyle = .fullScreen
+        present(tabbarVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func languageSelectionBtnTap(_ sender: UIButton) {
+//        L102Language.setAppleLAnguageTo(lang: "ar")
+//        change(selectedLanguage: "ar")
         let vc = BatchCountryLanguageVC.instantiate(fromAppStoryboard: .main)
         vc.modalPresentationStyle = .pageSheet
         vc.modalTransitionStyle = .crossDissolve
         self.present(vc, animated: true)
-        
-        
-//        let vc = BWorkOutVC.instantiate(fromAppStoryboard: .batchTrainings)
-//        vc.modalPresentationStyle = .overFullScreen
-//        vc.modalTransitionStyle = .coverVertical
-//        self.present(vc, animated: true)
-     /*
-        let vc = TrainingFilterVC.instantiate(fromAppStoryboard: .batchTrainings)
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .crossDissolve
-        self.present(vc, animated: true)
-      */
     }
     
     func change(selectedLanguage: String){
@@ -114,5 +87,4 @@ class OnBoardingScreenVC: UIViewController {
 //        }
         Bundle.setLanguage(selectedLanguage)
     }
-
 }
