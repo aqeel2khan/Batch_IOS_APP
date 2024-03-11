@@ -194,6 +194,8 @@
                         <outlet property="bHeaderLbl" destination="4Vp-Hf-47c" id="GFN-5E-NVa"/>
                         <outlet property="batchesMotivatorCollView" destination="opC-to-Am4" id="xZ0-CD-YPe"/>
                         <outlet property="customNavigationBar" destination="STo-LT-dDB" id="nm2-iA-h2O"/>
+                        <outlet property="filterBtnMotivator" destination="JwK-A2-eRc" id="hmi-Fp-rpf"/>
+                        <outlet property="filterBtnWorkout" destination="n6o-SS-pAv" id="HS7-h4-jQ0"/>
                         <outlet property="segmentControl" destination="sZV-Ek-dle" id="303-u2-SKa"/>
                         <outlet property="woBatchesBackView" destination="pDt-U1-n4f" id="yC8-LY-BRJ"/>
                         <outlet property="woMotivatorBackView" destination="6uS-52-RYh" id="cLt-7v-k65"/>
@@ -469,7 +471,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ee-lY-KxS">
-                                <rect key="frame" x="0.0" y="385" width="393" height="663"/>
+                                <rect key="frame" x="0.0" y="385" width="393" height="729"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJz-vV-bwZ" userLabel="ContainerView">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="485.66666666666669"/>
@@ -671,22 +673,22 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="qQj-FP-OHe"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlB-9G-XPW" userLabel="bottomView">
-                                <rect key="frame" x="0.0" y="1048" width="393" height="152"/>
+                                <rect key="frame" x="0.0" y="1114" width="393" height="86"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LmQ-R0-4fZ">
-                                        <rect key="frame" x="20" y="10" width="353" height="122"/>
+                                        <rect key="frame" x="20" y="10" width="353" height="56"/>
                                         <subviews>
                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZc-BL-0FY">
-                                                <rect key="frame" x="0.0" y="-56" width="353" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grand total" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icc-KM-bOY" customClass="BatchSemiboldBlack" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="18.333333333333371" width="84.666666666666671" height="19.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="18.333333333333258" width="84.666666666666671" height="19.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$35" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGS-S4-VEJ" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="308.33333333333331" y="13.666666666666631" width="44.666666666666686" height="28.666666666666671"/>
+                                                        <rect key="frame" x="308.33333333333331" y="13.666666666666744" width="44.666666666666686" height="28.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -702,7 +704,7 @@
                                                 </constraints>
                                             </view>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLT-G8-eqH" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="-56" width="353" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
                                                 <color key="backgroundColor" name="AppThemeButtonColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="6ju-tZ-5vd"/>
@@ -747,32 +749,6 @@
                                                     <action selector="onTapStartWorkOutBtn:" destination="4mN-ta-Iwb" eventType="touchUpInside" id="ztr-91-pPG"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0O-Bc-Ua0" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="66" width="353" height="56"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Change the courses">
-                                                    <color key="titleColor" name="AppThemeButtonColor"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="AppThemeButtonColor"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
-                                                        <real key="value" value="20"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="20"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onTapChangeCourseBtn:" destination="4mN-ta-Iwb" eventType="touchUpInside" id="7uX-bI-2aT"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -815,7 +791,6 @@
                     </view>
                     <size key="freeformSize" width="393" height="1200"/>
                     <connections>
-                        <outlet property="changeCourseBtn" destination="h0O-Bc-Ua0" id="rxO-6j-O7H"/>
                         <outlet property="coachNameLbl" destination="ko6-wW-kGy" id="cPd-vJ-uvf"/>
                         <outlet property="coachPicImgView" destination="E0G-cS-bT2" id="Mfg-Yt-SIf"/>
                         <outlet property="courseImgView" destination="ub7-jj-btK" id="aZc-Pp-kLN"/>
@@ -3329,9 +3304,6 @@
         </designable>
         <designable name="bO6-Up-lR6">
             <size key="intrinsicContentSize" width="128" height="33"/>
-        </designable>
-        <designable name="h0O-Bc-Ua0">
-            <size key="intrinsicContentSize" width="140" height="33"/>
         </designable>
         <designable name="hLT-G8-eqH">
             <size key="intrinsicContentSize" width="160" height="33"/>

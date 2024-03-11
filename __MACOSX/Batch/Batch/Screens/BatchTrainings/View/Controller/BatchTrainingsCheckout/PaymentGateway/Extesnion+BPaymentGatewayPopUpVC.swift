@@ -50,6 +50,8 @@ extension BPaymentGatewayPopUpVC {
                 }
             case .failure(let failError):
                 self?.showFailError(failError)
+                self?.dismiss(animated: true)
+                self?.showAlert(message: failError.localizedDescription)
             }
         }
     }

@@ -59,7 +59,6 @@ class BatchBoardHomeVC: UIViewController {
     }
     
     // MARK: - UI
-    
     private func setupNavigationBar() {
         customNavigationBar.titleFirstLbl.text = CustomNavTitle.batchBoardHomeVCNavTitle
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
@@ -84,7 +83,6 @@ class BatchBoardHomeVC: UIViewController {
     }
     
     // MARK: - UI Action
-    
     @IBAction func onTapShowAllBtn(_ sender: UIButton) {
         switch sender.tag {
         case 152:
@@ -218,8 +216,10 @@ extension BatchBoardHomeVC {
 extension BatchBoardHomeVC {
     func showImagesOnSrollView(array_Images : [String]){
         bannerSliderShow.slideshowInterval = 0
-        bannerSliderShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .customBottom(padding: 0))
+        bannerSliderShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .bottom)
+
         bannerSliderShow.contentScaleMode = .scaleAspectFill
+        bannerSliderShow.scrollView.isPagingEnabled = true
         bannerSliderShow.circular = true
         bannerSliderShow.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
         bannerSliderShow.scrollView.backgroundColor = UIColor(red: 225 / 255.0,green: 225 / 255.0,blue: 225 / 255.0,alpha: CGFloat(1.0))

@@ -163,7 +163,7 @@ extension BatchBoardHomeVC : UICollectionViewDelegateFlowLayout {
         let screenSize              = collectionView.frame.size //UIScreen.main.bounds
         //        let screenSize              = UIScreen.main.bounds
         let screenWidth             = screenSize.width
-        let cellSquareSize: CGFloat = screenWidth - 40
+        let cellSquareSize: CGFloat = screenWidth - 60
         
         if collectionView == woBatchCollView {
             return CGSize.init(width: cellSquareSize, height: 240)
@@ -172,10 +172,10 @@ extension BatchBoardHomeVC : UICollectionViewDelegateFlowLayout {
             return CGSize.init(width: (cellSquareSize / 2) - 20, height: 220)
         }
         else if collectionView == mealBatchCollView {
-            return CGSize.init(width: cellSquareSize, height: 220)
+            return CGSize.init(width: cellSquareSize, height: 240)
         }
         else if collectionView == topRatedMealCollView {
-            return CGSize.init(width: cellSquareSize, height: 220)
+            return CGSize.init(width: cellSquareSize, height: 240)
         }
         else {
             return CGSize.init(width: cellSquareSize, height: 120)
@@ -186,7 +186,7 @@ extension BatchBoardHomeVC : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: CGFloat(), right: 0)
+        return UIEdgeInsets(top: 0, left: 15, bottom: CGFloat(), right: 0)
     }
     
     @objc(collectionView:layout:minimumLineSpacingForSectionAtIndex:)

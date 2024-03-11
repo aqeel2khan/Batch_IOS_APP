@@ -120,7 +120,7 @@ class ASVideoPlayerController: NSObject, NSCacheDelegate {
         if let videoContainer = self.videoCache.object(forKey: url as NSString) {
             videoContainer.playOn = true
             //videoContainer.play = false
-            //removeObserverFor(url: url)
+//            removeObserverFor(url: url)
         }
     }
     
