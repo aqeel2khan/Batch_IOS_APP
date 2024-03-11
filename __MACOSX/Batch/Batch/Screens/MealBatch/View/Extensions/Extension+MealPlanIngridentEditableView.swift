@@ -32,7 +32,7 @@ extension MealPlanIngridentEditableView : UICollectionViewDelegate,UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == planReviewCollView {
-            return 4
+            return self.dishReviews?.data.count ?? 0
         } else if collectionView == showProtinListCollView{
             return self.nutritionList.count
         }
@@ -49,6 +49,12 @@ extension MealPlanIngridentEditableView : UICollectionViewDelegate,UICollectionV
             return cell1
         } else if collectionView == planReviewCollView {
             let cell = collectionView.dequeue(ReviewIngridentCollectionViewCell.self, indexPath)
+            if let disReview = self.dishReviews?.data[indexPath.row] {
+                cell.labelUserName.text = disReview.userName
+                cell.labelReviewDescription.text = disReview.review
+                cell.rating.text = "\(disReview.rating)"
+                cell.labelTime.text =  DateHelper.readableDateString(from: disReview.updatedAt)
+            }
             return cell
         }
         return UICollectionViewCell()
@@ -58,9 +64,10 @@ extension MealPlanIngridentEditableView : UICollectionViewDelegate,UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == showProtinListCollView {
             return CGSize(width: self.view.frame.size.width/4 - 20, height: 108)
+        } else if collectionView == planReviewCollView {
+            return CGSize(width: self.view.frame.size.width - 60, height: 207)
         } else {
             return CGSize(width: self.view.frame.size.width - 60, height: 120)
         }
     }
-    
 }

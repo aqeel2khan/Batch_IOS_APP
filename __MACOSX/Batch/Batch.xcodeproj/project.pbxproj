@@ -41,6 +41,8 @@
 		1A9B013C2B985A8100F17C42 /* UpdateBatchMealPlanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B013B2B985A8100F17C42 /* UpdateBatchMealPlanRequest.swift */; };
 		1A9B013E2B985D8300F17C42 /* UpdateBatchMealPlanResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B013D2B985D8300F17C42 /* UpdateBatchMealPlanResponse.swift */; };
 		1A9B01402B9C46FC00F17C42 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B013F2B9C46FC00F17C42 /* DateHelper.swift */; };
+		1A9B01422B9EB18900F17C42 /* DishReviewListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01412B9EB18900F17C42 /* DishReviewListResponse.swift */; };
+		1A9B01442B9F74B800F17C42 /* PostReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01432B9F74B800F17C42 /* PostReviewRequest.swift */; };
 		311576B92B86660B00224EDE /* BatchCountryLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576B82B86660B00224EDE /* BatchCountryLanguageVC.swift */; };
 		311576BB2B8676FA00224EDE /* BLogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BA2B8676FA00224EDE /* BLogInViewModel.swift */; };
 		311576BD2B8678E400224EDE /* BLogInResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BC2B8678E400224EDE /* BLogInResource.swift */; };
@@ -363,6 +365,8 @@
 		1A9B013B2B985A8100F17C42 /* UpdateBatchMealPlanRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBatchMealPlanRequest.swift; sourceTree = "<group>"; };
 		1A9B013D2B985D8300F17C42 /* UpdateBatchMealPlanResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBatchMealPlanResponse.swift; sourceTree = "<group>"; };
 		1A9B013F2B9C46FC00F17C42 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		1A9B01412B9EB18900F17C42 /* DishReviewListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishReviewListResponse.swift; sourceTree = "<group>"; };
+		1A9B01432B9F74B800F17C42 /* PostReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReviewRequest.swift; sourceTree = "<group>"; };
 		311576B82B86660B00224EDE /* BatchCountryLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchCountryLanguageVC.swift; sourceTree = "<group>"; };
 		311576BA2B8676FA00224EDE /* BLogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInViewModel.swift; sourceTree = "<group>"; };
 		311576BC2B8678E400224EDE /* BLogInResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInResource.swift; sourceTree = "<group>"; };
@@ -1802,6 +1806,8 @@
 				570443BF2B9A2C7500F630F6 /* DietModel.swift */,
 				570E5D762B9B6D3F00F6BFC8 /* AllergyModel.swift */,
 				57719F102B9C5D7200F7A599 /* AnswerModel.swift */,
+				1A9B01412B9EB18900F17C42 /* DishReviewListResponse.swift */,
+				1A9B01432B9F74B800F17C42 /* PostReviewRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2525,6 +2531,7 @@
 				31AE2DA22B36BC72000FEB41 /* Extension+MealBatchVC.swift in Sources */,
 				314714592B68EB4B002EED87 /* ReviewIngridentCollectionViewCell.swift in Sources */,
 				1911846D2B96B1EB00343F4B /* BUserFollowingVM.swift in Sources */,
+				1A9B01422B9EB18900F17C42 /* DishReviewListResponse.swift in Sources */,
 				5759E7B42B9048AB00352B24 /* BWorkOutMotivatorDetailViewModel.swift in Sources */,
 				570D8FEF2B84B28300EB643A /* WorkoutBatchDashboardCollectionCell.swift in Sources */,
 				5759E7CE2B9048AB00352B24 /* TrainingListTableCell.swift in Sources */,
@@ -2601,6 +2608,7 @@
 				5759E7B52B9048AB00352B24 /* BWorkOutMotivatorDetailModel.swift in Sources */,
 				3188B41C2B29CBD700E19945 /* HURequest.swift in Sources */,
 				319BAD722B2A333D0081A8F2 /* BatchTextField.swift in Sources */,
+				1A9B01442B9F74B800F17C42 /* PostReviewRequest.swift in Sources */,
 				1911845E2B96AB9800343F4B /* UpdateProfileResponse.swift in Sources */,
 				317609302B6676D3005D4395 /* Extension+MealBatchDetailVC.swift in Sources */,
 				574FA5B52B8E599000F6D3BA /* FilterOptionModel.swift in Sources */,
