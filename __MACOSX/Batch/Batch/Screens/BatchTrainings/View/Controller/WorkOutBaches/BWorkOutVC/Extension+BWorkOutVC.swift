@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 
 extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (self.segmentControl.selectedSegmentIndex == 0)
         {
@@ -108,19 +108,28 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
-        UIView.animate(
-            withDuration: 0.5,
-            delay: 0.05 * Double(indexPath.row),
-            options: [.curveEaseInOut],
-            animations: {
-                cell.transform = CGAffineTransform(translationX: 0, y: 0)
-            })
+        
+        if (self.lastContentOffset > collectionView.contentOffset.y) {
+            // move up
+        }
+        else if (self.lastContentOffset < collectionView.contentOffset.y) {
+            // move down
+            cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
+            UIView.animate(
+                withDuration: 0.5,
+                delay: 0.05 * Double(indexPath.row),
+                options: [.curveEaseInOut],
+                animations: {
+                    cell.transform = CGAffineTransform(translationX: 0, y: 0)
+                })
+        }
+        
+        // update the new position acquired
+        self.lastContentOffset = collectionView.contentOffset.y
     }
 }
 
-extension BWorkOutVC : UICollectionViewDelegateFlowLayout
-{
+extension BWorkOutVC : UICollectionViewDelegateFlowLayout {
     @objc(collectionView:layout:sizeForItemAtIndexPath:)
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

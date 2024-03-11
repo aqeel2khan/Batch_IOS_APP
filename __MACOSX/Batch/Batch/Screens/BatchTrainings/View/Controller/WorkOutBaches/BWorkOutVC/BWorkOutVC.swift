@@ -8,7 +8,8 @@
 import UIKit
 
 class BWorkOutVC: UIViewController {
-    
+    public var lastContentOffset: CGFloat = 0
+
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     @IBOutlet weak var segmentControl: BatchSegmentedControl!
@@ -154,6 +155,11 @@ class BWorkOutVC: UIViewController {
         vc.goalArray = self.goalFilterArray
         vc.completion = { (wo,level,goal) in
             print("Coming back Course Filter Id")
+//            if wo == "" && level == "" && goal == "" {
+//
+//            } else {
+//
+//            }
             self.applyCourseFilterApi(woFStr: wo, levelFStr: level, goalFStr: goal)
         }
         self.present(vc, animated: true)
@@ -427,8 +433,6 @@ extension BWorkOutVC
             
             if response.status == true, response.data?.list?.count != 0
             {
-                print(response.data)
-                // self.blogsArray = response.data!
                 self.courseListDataArr = response.data?.list ?? []
                 DispatchQueue.main.async {
                     hideLoading()
