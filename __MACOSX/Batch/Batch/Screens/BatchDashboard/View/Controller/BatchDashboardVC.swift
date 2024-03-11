@@ -127,8 +127,8 @@ class BatchDashboardVC: UIViewController {
             if internetConnection.isConnectedToNetwork() == true {
                 //self.workoutBatchCollView.isHidden = false
                 // Call Api here
-                self.getSubscribedCourseList()
                 self.getSubscribedMealList()
+                self.getSubscribedCourseList()
             }
             else
             {
@@ -350,7 +350,10 @@ extension BatchDashboardVC {
     }
     
     private func getSubscribedMealList() {
-        showLoader()
+        DispatchQueue.main.async {
+            self.showLoader()
+        }
+        
         let bHomeViewModel = DashboardViewModel()
         let urlStr = API.subscriptionMealList
         let request = SubscribedMealListRequest(userId: "\(UserDefaultUtility().getUserId())")
@@ -364,6 +367,7 @@ extension BatchDashboardVC {
             } else {
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.mealBatchCollView.isHidden = response.data?.data?.count == 0 ? true : false
                     self.mealBatchCollView.reloadData()
                 }
             }

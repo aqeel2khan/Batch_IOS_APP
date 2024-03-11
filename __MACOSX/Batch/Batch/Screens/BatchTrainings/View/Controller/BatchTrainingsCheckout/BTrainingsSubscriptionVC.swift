@@ -34,12 +34,9 @@ class BTrainingsSubscriptionVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-            self.setUpViewData()
-        
+        self.setUpViewData()
         // Inside the class or part of the code where you want to observe the notification
         NotificationCenter.default.addObserver(self, selector: #selector(handleCustomNotification(_:)), name: .myCustomNotification, object: nil)
-        
     }
     
     @objc func handleCustomNotification(_ notification: Notification) {

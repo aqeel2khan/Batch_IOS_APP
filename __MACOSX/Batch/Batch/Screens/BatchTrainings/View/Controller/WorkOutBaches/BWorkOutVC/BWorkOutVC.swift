@@ -18,7 +18,9 @@ class BWorkOutVC: UIViewController {
     @IBOutlet weak var batchesMotivatorCollView: UICollectionView!
     @IBOutlet weak var bHeaderLbl: UILabel!
     @IBOutlet weak var woSearchTextField: UITextField!
-    
+    @IBOutlet weak var filterBtnWorkout: UIButton!
+    @IBOutlet weak var filterBtnMotivator: UIButton!
+
     // MARK: - Properties
     private let cornerRadius: CGFloat = 24
     
@@ -155,11 +157,11 @@ class BWorkOutVC: UIViewController {
         vc.goalArray = self.goalFilterArray
         vc.completion = { (wo,level,goal) in
             print("Coming back Course Filter Id")
-//            if wo == "" && level == "" && goal == "" {
-//
-//            } else {
-//
-//            }
+            if wo == "" && level == "" && goal == "" {
+                self.filterBtnWorkout.setImage(UIImage.init(named: "filter"), for: .normal)
+            } else {
+                self.filterBtnWorkout.setImage(UIImage.init(named: "filter_selected"), for: .normal)
+            }
             self.applyCourseFilterApi(woFStr: wo, levelFStr: level, goalFStr: goal)
         }
         self.present(vc, animated: true)
@@ -171,27 +173,28 @@ class BWorkOutVC: UIViewController {
         vc.modalTransitionStyle = .coverVertical
         vc.workOutArray = self.coachFilterArray?.workouttypes ?? []
         vc.experienceArray = self.coachFilterArray.experiences
-        vc.completion = { (a,b) in
+        vc.completion = { (exp, workout) in
             print("Coming back Motivator filter Id")
-            self.applyMotivatorFilterApi(keywordStr: "", experienceStr: a, workoutStr: b)
+            self.applyMotivatorFilterApi(keywordStr: "", experienceStr: exp, workoutStr: workout)
+            if exp == "" && workout == "" {
+                self.filterBtnMotivator.setImage(UIImage.init(named: "filter"), for: .normal)
+            } else {
+                self.filterBtnMotivator.setImage(UIImage.init(named: "filter_selected"), for: .normal)
+            }
         }
         self.present(vc, animated: true)
     }
     
     // MARK: - API Call
-    
     //Get Course List
     private func getCourses(){
-        
         DispatchQueue.main.async {
             showLoading()
         }
         let bWorkOutViewModel = BWorkOutViewModel()
         let urlStr = API.courseList
         bWorkOutViewModel.courseList(requestUrl: urlStr)  { (response) in
-            
-            if response.status == true, response.data?.list?.count != 0
-            {
+            if response.status == true, response.data?.list?.count != 0 {
                 // print(response.data)
                 // self.blogsArray = response.data!
                 self.courseListDataArr = response.data?.list ?? []
@@ -205,7 +208,6 @@ class BWorkOutVC: UIViewController {
                     //makeToast(response.message!)
                 }
             }
-            
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
