@@ -49,6 +49,21 @@
                   endingLineNumber = "393"
                   offsetFromSymbolStart = "808">
                </Location>
+               <Location
+                  uuid = "9EB0F8F1-C0AF-48E4-9F3F-10E30F5C625E - 438fe60a4d881586"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Batch.BatchDashboardVC.getSubscribedMealList() -&gt; ()"
+                  moduleName = "Batch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vijaysingh/Desktop/Batch_IOS_APP/__MACOSX/Batch/Batch/Screens/BatchDashboard/View/Controller/BatchDashboardVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "393"
+                  endingLineNumber = "393"
+                  offsetFromSymbolStart = "536">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>

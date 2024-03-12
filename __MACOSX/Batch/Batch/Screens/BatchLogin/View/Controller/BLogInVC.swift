@@ -41,12 +41,7 @@ class BLogInVC: UIViewController {
     //MARK:- SetUp Localization
     
     func setUpLocalization() {
-        self.lblTermCondition.text = "I agree to the company Terms & Conditions".localized()
-        self.btnSignIn.setTitle("Sign In".localized(), for: .normal)
-        self.btnFbLogin.setTitle("Sign in with Facebook".localized(), for: .normal)
-        self.btnAppleLogin.setTitle("Sign in with Apple".localized(), for: .normal)
-        self.btnGoogleLogin.setTitle("Sign in with Google".localized(), for: .normal)
-        self.btnOutlookLogin.setTitle("Sign in with Outlook".localized(), for: .normal)
+        self.lblTermCondition.text = "I agree to the company Terms & Conditions".localized
         self.btnSignIn.setTitle("Sign In".localized, for: .normal)
         self.btnFbLogin.setTitle("Sign in with Facebook".localized, for: .normal)
         self.btnAppleLogin.setTitle("Sign in with Apple".localized, for: .normal)
@@ -121,8 +116,6 @@ class BLogInVC: UIViewController {
                         self.dismiss(animated: true)
                     }
                         self.CallBackToUpdateProfile?()
-                    
-                    }                    
                 }
             }else{
                 DispatchQueue.main.async {
