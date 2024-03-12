@@ -9,15 +9,14 @@ import UIKit
 import DGCharts
 import HealthKit
 
-class BatchDashboardVC: UIViewController {
+
+class BatchDashboardVC: UIViewController, AxisValueFormatter {
     
-    @IBOutlet weak var sleepChartView: LineChartView!
-    @IBOutlet weak var calloriesChartView: LineChartView!
-    @IBOutlet weak var sleepTimeLbl: UILabel!
-    @IBOutlet weak var stepsCountLbl: UILabel!
-    @IBOutlet weak var heartRateLabel: UILabel!
-    @IBOutlet weak var healthDataStackHeight: NSLayoutConstraint!
-    @IBOutlet weak var healthDataStack: UIStackView!
+    
+    @IBOutlet weak var loginBtnHeight: NSLayoutConstraint!
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var healthKitTableView: UITableView!
+    @IBOutlet weak var loginBtn: BatchButton!
     @IBOutlet weak var healthKitConnectBtnHeight: NSLayoutConstraint!
     @IBOutlet weak var healthKitConnectBtn: BatchButton!
     @IBOutlet weak var healthKitLabelHeight: NSLayoutConstraint!
@@ -30,26 +29,81 @@ class BatchDashboardVC: UIViewController {
     //var courseList = [List]()
     var courseList = [DashboardWOList]()
     var subscribedMealListData : [SubscribedMeals] = []
-    var calloriesBurned: [Double] = []
-    var sleepingData: [String] = []
-    var dates: [String] = []
-    var dates1: [String] = []
     weak var axisFormatDelegate: AxisValueFormatter?
+   
+    var datesForSleep: [String] = []
+    var datesForEnergyBurned: [String] = []
+    
+    var energyBurned: [Double] = []{
+        didSet{
+            DispatchQueue.main.async{
+                self.healthKitTableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
+            }
+        }
+    }
+    
+    
+    var sleepData: [String] = []{
+        didSet{
+            DispatchQueue.main.async{
+                self.healthKitTableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
+            }
+        }
+    }
+    
+    var heartRate: Int?{
+        didSet{
+            DispatchQueue.main.async{
+                self.healthKitTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            }
+        }
+    }
+    
+    var stepCount: Int?{
+        didSet{
+            DispatchQueue.main.async{
+                self.healthKitTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            }
+        }
+    }
+    
+    var datesSleep: [String]?{
+        didSet{
+            DispatchQueue.main.async{
+                self.healthKitTableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
+            }
+        }
+    }
+    
+    var datesEnergy: [String]?{
+        didSet{
+            DispatchQueue.main.async{
+                self.healthKitTableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
+            }
+        }
+    }
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        axisFormatDelegate = self
        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setupNavigationBar()
+        loginBtn.isHidden = true
         if !UserDefaultUtility.isUserLoggedIn() {
+            loginBtn.isHidden = false
             let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
             vc.modalPresentationStyle = .overFullScreen
+            vc.CallBackToUpdateProfile = {
+                DispatchQueue.main.async {
+                    self.viewWillAppear(true)
+                }
+            }
+            vc.isCommingFrom = "BatchBoard"
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true)
         }
@@ -59,66 +113,30 @@ class BatchDashboardVC: UIViewController {
             healthKitConnectBtn.isHidden = true
             healthKitLabelHeight.constant = 0
             healthKitLabel.isHidden = true
-            healthDataStack.isHidden = false
-            healthDataStackHeight.constant = 640
-            
-            HealthManager.shared.retrieveSleepAnalysis { data in
-                if data?.count ?? 0 > 0{
-                    self.dates.removeAll()
-                    self.sleepingData.removeAll()
-                    for i in stride(from: 0, to: 5, by: 1){
-                        let difference = Calendar.current.dateComponents([.hour, .minute], from: data![i].endDate, to: data![i].startDate)
-                        let formattedString = String(format: "%02dh%02dm", difference.hour!, difference.minute!).replacingOccurrences(of: "-", with: "")
-                        self.sleepingData.append(formattedString)
-                        let finalDate = self.dateToString(date: data![i].startDate)
-                        self.dates.append(finalDate)
-                    }
-                    DispatchQueue.main.async{
-                        self.sleepTimeLbl.isHidden = false
-                        self.sleepTimeLbl.text = self.sleepingData.first
-                    }
-                }else{
-                    DispatchQueue.main.async{
-                        self.sleepTimeLbl.isHidden = true
-                    }
-                }
-                
-            }
-    
-            HealthManager.shared.getWeeklyEnergyBurned { dat in
-                self.dates.removeAll()
-                self.calloriesBurned.removeAll()
-                let data = dat?.statistics()
-                for i in stride(from: (data?.count ?? 0) - 1, to: (data?.count ?? 0) - 7, by: -1){
-                    self.calloriesBurned.append(data?[i].sumQuantity()?.doubleValue(for: HKUnit(from: "kcal")) ?? 0)
-                    let date = data?[i].startDate
-                    let finalDate = self.dateToString(date: date ?? Date())
-                    self.dates.append(finalDate)
-                }
-                DispatchQueue.main.async {
-                    self.updateLineChartForCallories()
-                }
-            }
-            
-            HealthManager.shared.getTodaysSteps { steps in
-                DispatchQueue.main.async {
-                    self.stepsCountLbl.text = "\(Int(steps))"
-                }
-            }
-            HealthManager.shared.fetchLatestHeartRateSample { samples in
-              DispatchQueue.main.async {
-                  let heartRateInDouble = samples?.first?.quantity.doubleValue(for: HKUnit(from: "count/s"))
-                  let heartRateInBPM = (heartRateInDouble ?? 0) * 60
-                  self.heartRateLabel.text = "\(Int(heartRateInBPM))"
-                }
-            }
+            tableViewHeight.constant = 700
+            healthKitTableView.isHidden = false
+            loginBtn.isHidden = true
+            loginBtnHeight.constant = 0
+            self.axisFormatDelegate = self
+            self.fetchHealthKitData()
+        }else if  UserDefaultUtility.isUserLoggedIn() && !(healthPermission ?? false){
+            healthKitConnectBtnHeight.constant = 56
+            healthKitConnectBtn.isHidden = false
+            healthKitLabelHeight.constant = 90
+            healthKitLabel.isHidden = false
+            tableViewHeight.constant = 0
+            healthKitTableView.isHidden = true
+            loginBtn.isHidden = true
+            loginBtnHeight.constant = 0
         }else{
             healthKitConnectBtnHeight.constant = 56
             healthKitConnectBtn.isHidden = false
             healthKitLabelHeight.constant = 90
             healthKitLabel.isHidden = false
-            healthDataStack.isHidden = true
-            healthDataStackHeight.constant = 0
+            tableViewHeight.constant = 0
+            healthKitTableView.isHidden = true
+            loginBtn.isHidden = false
+            loginBtnHeight.constant = 56
         }
         
         if UserDefaultUtility.isUserLoggedIn() {
@@ -139,62 +157,35 @@ class BatchDashboardVC: UIViewController {
         }
     }
     
-    func updateLineChartForCallories(){
-        var lineChartEntry = [ChartDataEntry]()
-        for i in 0..<self.calloriesBurned.count{
-            let lineChart = ChartDataEntry(x: Double(i), y: self.calloriesBurned[i], data: dates)
-            lineChartEntry.append(lineChart)
-        }
-        let l1 = LineChartDataSet(entries: lineChartEntry)
-        l1.colors = [UIColor.white]
-        
-        let chartData = LineChartData(dataSet: l1)
-        calloriesChartView.data = chartData
-        calloriesChartView.legend.enabled = false
-        calloriesChartView.rightAxis.enabled = false
-        calloriesChartView.leftAxis.enabled = false
-        calloriesChartView.drawBordersEnabled = false
-        calloriesChartView.setDragOffsetX(22.0)
-        
-        calloriesChartView.xAxis.labelPosition = .bottom
-        calloriesChartView.xAxis.drawAxisLineEnabled = false
-        calloriesChartView.xAxis.granularityEnabled = true
-        calloriesChartView.xAxis.granularity = 1
-        calloriesChartView.xAxis.forceLabelsEnabled = true
-        let xAxisValue = calloriesChartView.xAxis
-        let formatter = NumberFormatter()
-        formatter.minimumFractionDigits = 2
-        chartData.setValueFormatter(DefaultValueFormatter(formatter:formatter))
-        xAxisValue.valueFormatter = axisFormatDelegate
-    }
+  
     
     func updateLineChartForSleeping(){
-        var lineChartEntry = [ChartDataEntry]()
-        for i in 0..<self.sleepingData.count{
-            let lineChart = ChartDataEntry(x: Double(i), y:Double(i), data: dates)
-            lineChartEntry.append(lineChart)
-        }
-        let l1 = LineChartDataSet(entries: lineChartEntry)
-        l1.colors = [UIColor.white]
-        
-        let chartData = LineChartData(dataSet: l1)
-        sleepChartView.data = chartData
-        sleepChartView.legend.enabled = false
-        sleepChartView.rightAxis.enabled = false
-        sleepChartView.leftAxis.enabled = false
-        sleepChartView.drawBordersEnabled = false
-        sleepChartView.setDragOffsetX(22.0)
-        
-        sleepChartView.xAxis.labelPosition = .bottom
-        sleepChartView.xAxis.drawAxisLineEnabled = false
-        sleepChartView.xAxis.granularityEnabled = true
-        sleepChartView.xAxis.granularity = 1
-        sleepChartView.xAxis.forceLabelsEnabled = true
-        let xAxisValue = sleepChartView.xAxis
-        let formatter = NumberFormatter()
-        formatter.minimumFractionDigits = 2
-        chartData.setValueFormatter(DefaultValueFormatter(formatter:formatter))
-        xAxisValue.valueFormatter = axisFormatDelegate
+//        var lineChartEntry = [ChartDataEntry]()
+//        for i in 0..<self.sleepingData.count{
+//            let lineChart = ChartDataEntry(x: Double(i), y:Double(i), data: dates)
+//            lineChartEntry.append(lineChart)
+//        }
+//        let l1 = LineChartDataSet(entries: lineChartEntry)
+//        l1.colors = [UIColor.white]
+//        
+//        let chartData = LineChartData(dataSet: l1)
+//        sleepChartView.data = chartData
+//        sleepChartView.legend.enabled = false
+//        sleepChartView.rightAxis.enabled = false
+//        sleepChartView.leftAxis.enabled = false
+//        sleepChartView.drawBordersEnabled = false
+//        sleepChartView.setDragOffsetX(22.0)
+//        
+//        sleepChartView.xAxis.labelPosition = .bottom
+//        sleepChartView.xAxis.drawAxisLineEnabled = false
+//        sleepChartView.xAxis.granularityEnabled = true
+//        sleepChartView.xAxis.granularity = 1
+//        sleepChartView.xAxis.forceLabelsEnabled = true
+//        let xAxisValue = sleepChartView.xAxis
+//        let formatter = NumberFormatter()
+//        formatter.minimumFractionDigits = 2
+//        chartData.setValueFormatter(DefaultValueFormatter(formatter:formatter))
+//        xAxisValue.valueFormatter = axisFormatDelegate
     }
     
     
@@ -210,6 +201,9 @@ class BatchDashboardVC: UIViewController {
     }
     
     private func registerCollTblView(){
+        healthKitTableView.register(UINib(nibName: "HSCell", bundle: nil), forCellReuseIdentifier: "HSCell")
+        healthKitTableView.register(UINib(nibName: "SleepHealthCell", bundle: nil), forCellReuseIdentifier: "SleepHealthCell")
+
         mealBatchCollView.register(UINib(nibName: "MealBatchDashboardCollectionCell", bundle: .main), forCellWithReuseIdentifier: "MealBatchDashboardCollectionCell")
         workoutBatchCollView.register(UINib(nibName: "WorkoutBatchDashboardCollectionCell", bundle: .main), forCellWithReuseIdentifier: "WorkoutBatchDashboardCollectionCell")
     }
@@ -245,6 +239,20 @@ class BatchDashboardVC: UIViewController {
     }
     
     
+    @IBAction func loginBtnTapped(_ sender: UIButton) {
+        let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.isCommingFrom = "BatchBoard"
+        vc.CallBackToUpdateProfile = {
+            DispatchQueue.main.async {
+                self.viewWillAppear(true)
+            }
+        }
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true)
+    }
+    
+    
     @IBAction func connectToHealthKit(_ sender: UIButton) {
         if UserDefaultUtility.isUserLoggedIn() {
             HealthManager.shared.requestHealthkitPermissions { succ, err in
@@ -255,70 +263,23 @@ class BatchDashboardVC: UIViewController {
                         self.healthKitConnectBtn.isHidden = false
                         self.healthKitLabelHeight.constant = 90
                         self.healthKitLabel.isHidden = false
-                        self.healthDataStack.isHidden = true
-                        self.healthDataStackHeight.constant = 0
+                        self.tableViewHeight.constant = 0
+                        self.healthKitTableView.isHidden = true
                         self.showAlert(message: err ?? "")
                     }
                 }else{
                     Batch_UserDefaults.set(true , forKey: UserDefaultKey.healthPermission)
                     DispatchQueue.main.async {
+                        DispatchQueue.main.async {
+                            showLoading()
+                        }
+                        self.fetchHealthKitData()
                         self.healthKitConnectBtnHeight.constant = 0
                         self.healthKitConnectBtn.isHidden = true
                         self.healthKitLabelHeight.constant = 0
                         self.healthKitLabel.isHidden = true
-                        self.healthDataStack.isHidden = false
-                        self.healthDataStackHeight.constant = 640
-                        
-                        HealthManager.shared.retrieveSleepAnalysis { data in
-                            if data?.count ?? 0 > 0{
-                                self.dates.removeAll()
-                                self.sleepingData.removeAll()
-                                for i in stride(from: 0, to: 5, by: 1){
-                                    let difference = Calendar.current.dateComponents([.hour, .minute], from: data![i].endDate, to: data![i].startDate)
-                                    let formattedString = String(format: "%02dh%02dm", difference.hour!, difference.minute!).replacingOccurrences(of: "-", with: "")
-                                    self.sleepingData.append(formattedString)
-                                    let finalDate = self.dateToString(date: data![i].startDate)
-                                    self.dates.append(finalDate)
-                                }
-                                DispatchQueue.main.async{
-                                    self.sleepTimeLbl.isHidden = false
-                                    self.sleepTimeLbl.text = self.sleepingData.first
-                                }
-                            }else{
-                                DispatchQueue.main.async{
-                                    self.sleepTimeLbl.isHidden = true
-                                }
-                            }
-                            
-                        }
-                
-                        HealthManager.shared.getWeeklyEnergyBurned { dat in
-                            self.dates.removeAll()
-                            self.calloriesBurned.removeAll()
-                            let data = dat?.statistics()
-                            for i in stride(from: (data?.count ?? 0) - 1, to: (data?.count ?? 0) - 7, by: -1){
-                                self.calloriesBurned.append(data?[i].sumQuantity()?.doubleValue(for: HKUnit(from: "kcal")) ?? 0)
-                                let date = data?[i].startDate
-                                let finalDate = self.dateToString(date: date ?? Date())
-                                self.dates.append(finalDate)
-                            }
-                            DispatchQueue.main.async {
-                                self.updateLineChartForCallories()
-                            }
-                        }
-                        HealthManager.shared.getTodaysSteps { steps in
-                            DispatchQueue.main.async {
-                                self.stepsCountLbl.text = "\(Int(steps))"
-                            }
-                        }
-                        
-                        HealthManager.shared.fetchLatestHeartRateSample { samples in
-                          DispatchQueue.main.async {
-                              let heartRateInDouble = samples?.first?.quantity.doubleValue(for: HKUnit(from: "count/s"))
-                              let heartRateInBPM = (heartRateInDouble ?? 0) * 60
-                              self.heartRateLabel.text = "\(Int(heartRateInBPM))"
-                            }
-                        }
+                        self.tableViewHeight.constant = 700
+                        self.healthKitTableView.isHidden = false
                     }
                 }
             }
@@ -326,8 +287,83 @@ class BatchDashboardVC: UIViewController {
         }else{
             let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
             vc.modalPresentationStyle = .overFullScreen
+            vc.isCommingFrom = "BatchBoard"
+            vc.CallBackToUpdateProfile = {
+                DispatchQueue.main.async {
+                    self.viewWillAppear(true)
+                }
+            }
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true)
+        }
+    }
+    
+    
+    func fetchHealthKitData(){
+       
+        let dispatchGroup = DispatchGroup()
+       let queue = DispatchQueue(label: "healthKit data")
+        queue.async {
+            dispatchGroup.enter()
+            HealthManager.shared.getTodaysSteps { steps in
+                self.stepCount = Int(steps)
+                dispatchGroup.leave()
+            }
+        }
+        
+        queue.async {
+            dispatchGroup.enter()
+            HealthManager.shared.getWeeklyEnergyBurned { dat in
+                self.energyBurned.removeAll()
+                self.datesEnergy?.removeAll()
+                let data = dat?.statistics()
+                if data?.count ?? 0 > 0{
+                    for i in stride(from: (data?.count ?? 0) - 1, to: (data?.count ?? 0) - 7, by: -1){
+                        self.energyBurned.append(data?[i].sumQuantity()?.doubleValue(for: HKUnit(from: "kcal")) ?? 0)
+                        let date = data?[i].startDate
+                        let finalDate = self.dateToString(date: date ?? Date())
+                        self.datesEnergy?.append(finalDate)
+                    }
+                }
+                dispatchGroup.leave()
+            }
+        }
+        
+        queue.async {
+            dispatchGroup.enter()
+            HealthManager.shared.retrieveSleepAnalysis { data in
+                self.sleepData.removeAll()
+                self.datesSleep?.removeAll()
+                if data?.count ?? 0 > 0{
+                    for i in stride(from: 0, to: 5, by: 1){
+                        let difference = Calendar.current.dateComponents([.hour, .minute], from: data![i].endDate, to: data![i].startDate)
+                        let formattedString = String(format: "%02dh%02dm", difference.hour!, difference.minute!).replacingOccurrences(of: "-", with: "")
+                        self.sleepData.append(formattedString)
+                        let finalDate = self.dateToString(date: data![i].startDate)
+                        self.datesSleep?.append(finalDate)
+                    }
+                }
+                dispatchGroup.leave()
+            }
+        }
+        queue.async {
+            dispatchGroup.enter()
+            HealthManager.shared.fetchLatestHeartRateSample { samples in
+              DispatchQueue.main.async {
+                  if samples?.count ?? 0 > 0{
+                      let heartRateInDouble = samples?.first?.quantity.doubleValue(for: HKUnit(from: "count/s"))
+                      let heartRateInBPM = (heartRateInDouble ?? 0) * 60
+                      self.heartRate = Int(heartRateInBPM)
+                  }
+                  dispatchGroup.leave()
+                }
+            }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            DispatchQueue.main.async {
+                hideLoading()
+            }
         }
     }
     
@@ -381,10 +417,91 @@ extension BatchDashboardVC {
 }
 
 
-extension BatchDashboardVC: AxisValueFormatter {
+
+
+extension BatchDashboardVC: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
     
-    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        
-        return dates[Int(value)]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0{
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "HSCell", for: indexPath) as? HSCell{
+                cell.heartRateLabel.text = "\(self.heartRate ?? 0)"
+                cell.stepsLbl.text = "\(self.stepCount ?? 0)"
+                return cell
+            }
+        }else{
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "SleepHealthCell", for: indexPath) as? SleepHealthCell{
+                if indexPath.row == 1{
+                    cell.sleepLabel.isHidden = false
+                    cell.typeLabel.text = "Sleep"
+                    cell.typeIcon.image = UIImage(systemName: "moon.fill")
+                    cell.sleepLabel.text = self.sleepData.first ?? ""
+                    cell.cellView.backgroundColor = .gray
+                    cell.sleepLabelHeight.constant = 34
+                    
+                }else{
+                    cell.sleepLabel.isHidden = true
+                    cell.typeLabel.text = "Callories"
+                    cell.typeIcon.image = UIImage(systemName: "bolt.fill")
+                    cell.cellView.backgroundColor = UIColor(named: "AppThemeButtonColor")
+                    cell.sleepLabelHeight.constant = 0
+                    updateLineChartForCallories(lineChartView: cell.lineChartView)
+                }
+               
+                return cell
+            }
+        }
+        return UITableViewCell()
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row ==  0{
+            return 200
+        }else{
+            return 240
+        }
+    }
+    
+    func updateLineChartForCallories(lineChartView: LineChartView){
+        var lineChartEntry = [ChartDataEntry]()
+        for i in 0..<(self.energyBurned.count ?? 0){
+            let lineChart = ChartDataEntry(x: Double(i), y:Double(self.energyBurned[i] ?? 0), data: datesEnergy)
+            lineChartEntry.append(lineChart)
+        }
+        let l1 = LineChartDataSet(entries: lineChartEntry)
+        l1.colors = [UIColor.white]
+
+        let chartData = LineChartData(dataSet: l1)
+        lineChartView.data = chartData
+        lineChartView.legend.enabled = false
+        lineChartView.rightAxis.enabled = false
+        lineChartView.leftAxis.enabled = false
+        lineChartView.drawBordersEnabled = false
+        lineChartView.setDragOffsetX(22.0)
+
+        lineChartView.xAxis.labelPosition = .bottom
+        lineChartView.xAxis.drawAxisLineEnabled = false
+        lineChartView.xAxis.granularityEnabled = true
+        lineChartView.xAxis.granularity = 1
+        lineChartView.xAxis.forceLabelsEnabled = true
+        let xAxisValue = lineChartView.xAxis
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 2
+        chartData.setValueFormatter(DefaultValueFormatter(formatter:formatter))
+        xAxisValue.valueFormatter = axisFormatDelegate
+    }
+    
+    func stringForValue(_ value: Double, axis: DGCharts.AxisBase?) -> String {
+        if datesEnergy?.count ?? 0 > 0{
+            return datesEnergy![Int(value)]
+        }else{
+            return ""
+        }
+       
     }
 }
+

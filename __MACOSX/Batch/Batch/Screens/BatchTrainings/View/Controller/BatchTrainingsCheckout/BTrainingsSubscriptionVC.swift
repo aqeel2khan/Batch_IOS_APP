@@ -146,6 +146,9 @@ class BTrainingsSubscriptionVC: UIViewController {
                if isCommingFrom == "workoutbatches" {
                    vc.selectedSubscriptionInfo = [selectedSubscriptionInfo[0]]
                }
+                vc.CallBackToUpdateProfile = {
+                    self.viewWillAppear(true)
+                }
                vc.isCommingFrom = isCommingFrom
                vc.modalPresentationStyle = .overFullScreen
                vc.modalTransitionStyle = .crossDissolve

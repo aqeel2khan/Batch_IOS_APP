@@ -16,6 +16,8 @@ class BatchTabBarController: UITabBarController {
         addShadow()
         self.delegate = self
     }
+    
+    
     private func addShadow() {
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         tabBar.layer.shadowRadius = 4.0

@@ -250,7 +250,7 @@ struct HttpUtility {
         return urlRequest
     }
     
-    private func decodeJsonResponse<T: Decodable>(data: Data, responseType: T.Type) -> T?{
+    func decodeJsonResponse<T: Decodable>(data: Data, responseType: T.Type) -> T?{
         
         let jsonDecoder = JSONDecoder()
         do {

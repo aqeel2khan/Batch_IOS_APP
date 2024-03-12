@@ -28,6 +28,10 @@
 		1911848B2B9735B500343F4B /* Extension+BUserPersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911848A2B9735B500343F4B /* Extension+BUserPersonalInfo.swift */; };
 		1911848D2B97457300343F4B /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911848C2B97457300343F4B /* LogoutResponse.swift */; };
 		193AC7742B9CA23700DD6BCA /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193AC7732B9CA23700DD6BCA /* LineChart.swift */; };
+		193AC7792B9F56CC00DD6BCA /* HSCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193AC7772B9F56CC00DD6BCA /* HSCell.swift */; };
+		193AC77A2B9F56CC00DD6BCA /* HSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 193AC7782B9F56CC00DD6BCA /* HSCell.xib */; };
+		193AC77E2B9F575600DD6BCA /* SleepHealthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193AC77C2B9F575600DD6BCA /* SleepHealthCell.swift */; };
+		193AC77F2B9F575600DD6BCA /* SleepHealthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 193AC77D2B9F575600DD6BCA /* SleepHealthCell.xib */; };
 		194690622B9C098900086423 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194690612B9C098900086423 /* HealthManager.swift */; };
 		196290672B99CFAA009D7820 /* UpdateNotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196290662B99CFA9009D7820 /* UpdateNotificationResponse.swift */; };
 		1A9B01262B93ABD300F17C42 /* MealFilterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */; };
@@ -351,6 +355,10 @@
 		1911848A2B9735B500343F4B /* Extension+BUserPersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+BUserPersonalInfo.swift"; sourceTree = "<group>"; };
 		1911848C2B97457300343F4B /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
 		193AC7732B9CA23700DD6BCA /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		193AC7772B9F56CC00DD6BCA /* HSCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSCell.swift; sourceTree = "<group>"; };
+		193AC7782B9F56CC00DD6BCA /* HSCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HSCell.xib; sourceTree = "<group>"; };
+		193AC77C2B9F575600DD6BCA /* SleepHealthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepHealthCell.swift; sourceTree = "<group>"; };
+		193AC77D2B9F575600DD6BCA /* SleepHealthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SleepHealthCell.xib; sourceTree = "<group>"; };
 		194690612B9C098900086423 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		196290662B99CFA9009D7820 /* UpdateNotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNotificationResponse.swift; sourceTree = "<group>"; };
 		1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterRequest.swift; sourceTree = "<group>"; };
@@ -706,6 +714,24 @@
 				191184882B9719BA00343F4B /* UserProfileValidation.swift */,
 			);
 			path = Validation;
+			sourceTree = "<group>";
+		};
+		193AC7762B9F568100DD6BCA /* BatchHeartAndStepsCell */ = {
+			isa = PBXGroup;
+			children = (
+				193AC7772B9F56CC00DD6BCA /* HSCell.swift */,
+				193AC7782B9F56CC00DD6BCA /* HSCell.xib */,
+			);
+			path = BatchHeartAndStepsCell;
+			sourceTree = "<group>";
+		};
+		193AC77B2B9F574000DD6BCA /* SleepCell */ = {
+			isa = PBXGroup;
+			children = (
+				193AC77C2B9F575600DD6BCA /* SleepHealthCell.swift */,
+				193AC77D2B9F575600DD6BCA /* SleepHealthCell.xib */,
+			);
+			path = SleepCell;
 			sourceTree = "<group>";
 		};
 		311B1BBD2B2E211100E37E47 /* CommonClass */ = {
@@ -1648,6 +1674,8 @@
 		570D8FD12B84B28300EB643A /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				193AC77B2B9F574000DD6BCA /* SleepCell */,
+				193AC7762B9F568100DD6BCA /* BatchHeartAndStepsCell */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -2212,11 +2240,13 @@
 				318C03E62B33682900C4281F /* Outfit-SemiBold.ttf in Resources */,
 				3147145F2B692DB3002EED87 /* BatchMealPlanQuestionnaire.storyboard in Resources */,
 				570D8FF52B84B28300EB643A /* NotificationSettingsListTableCell.xib in Resources */,
+				193AC77A2B9F56CC00DD6BCA /* HSCell.xib in Resources */,
 				317609362B6683D0005D4395 /* weekCalenderCollCell.xib in Resources */,
 				5759E7C82B9048AB00352B24 /* BWOMotivatorsListCollCell.xib in Resources */,
 				5759E7CF2B9048AB00352B24 /* TrainingListTableCell.xib in Resources */,
 				570D8FF72B84B28300EB643A /* FollowingListTableCell.xib in Resources */,
 				68C14B6C2B6396A20085AAD4 /* MealPlanCheckoutCell.xib in Resources */,
+				193AC77F2B9F575600DD6BCA /* SleepHealthCell.xib in Resources */,
 				3188B3CD2B299B6A00E19945 /* LaunchScreen.storyboard in Resources */,
 				570443C92B9A2FAA00F630F6 /* QuestionLabelTVC.xib in Resources */,
 				AFEF32FE2B34B2D100D4BD74 /* Localizable.strings in Resources */,
@@ -2636,10 +2666,12 @@
 				5759E7F92B9048AB00352B24 /* Extension+BStartWorkOutDetailVC.swift in Sources */,
 				319BAD622B2A31A00081A8F2 /* UIView.swift in Sources */,
 				191184762B96B2F800343F4B /* BUserNotificationResource.swift in Sources */,
+				193AC7792B9F56CC00DD6BCA /* HSCell.swift in Sources */,
 				313894162B683F8300F687B1 /* MealDilevaryDropOffVC.swift in Sources */,
 				5797812B2B92278C00057943 /* VimoPlayerCell.swift in Sources */,
 				5759E7FC2B9060C100352B24 /* DashboardWorkoutModel.swift in Sources */,
 				1A9B013A2B98596800F17C42 /* BMealBatchPlanningResource.swift in Sources */,
+				193AC77E2B9F575600DD6BCA /* SleepHealthCell.swift in Sources */,
 				31D4248E2B6B84AC00E988C7 /* QuestionAllergyCollectionCell.swift in Sources */,
 				5759E7DD2B9048AB00352B24 /* Extension+BPaymentGatewayPopUpVC.swift in Sources */,
 				31AE2DAA2B36E564000FEB41 /* BatchTabBar.swift in Sources */,
@@ -2908,7 +2940,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2947,7 +2979,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

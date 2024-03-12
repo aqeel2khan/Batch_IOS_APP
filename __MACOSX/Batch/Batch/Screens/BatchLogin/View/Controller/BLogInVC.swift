@@ -11,6 +11,7 @@ import AuthenticationServices
 
 class BLogInVC: UIViewController {
     
+    @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var lblTermCondition: UILabel!
     @IBOutlet weak var btnSignIn: UIButton!
     @IBOutlet weak var btnFbLogin: BatchButton!
@@ -29,16 +30,20 @@ class BLogInVC: UIViewController {
     var isCommingFrom = ""
     var isCheckBoxSelected = false
     var mealData : Meals!
+    
+    var CallBackToUpdateProfile:(()->())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLocalization()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+    }
+    
     //MARK:- SetUp Localization
     
     func setUpLocalization() {
-        
         self.lblTermCondition.text = "I agree to the company Terms & Conditions".localized()
         self.btnSignIn.setTitle("Sign In".localized(), for: .normal)
         self.btnFbLogin.setTitle("Sign in with Facebook".localized(), for: .normal)
@@ -158,12 +163,13 @@ class BLogInVC: UIViewController {
                     }else{
                         self.dismiss(animated: true)
                     }
-                    
+                        self.CallBackToUpdateProfile?()
                     
                 }
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.CallBackToUpdateProfile?()
                     self.showAlert(message: response.message ?? "")
                     //makeToast(response.message!)
                 }

@@ -416,6 +416,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backBtn" destination="BM6-ea-Bq8" id="yMH-Tm-baA"/>
                         <outlet property="btnAppleLogin" destination="Qg1-9a-SxT" id="yTo-uE-aAt"/>
                         <outlet property="btnFbLogin" destination="KQD-go-G9W" id="dbH-3V-bB5"/>
                         <outlet property="btnGoogleLogin" destination="8Ad-zg-q7B" id="Fr5-Ae-CX4"/>
