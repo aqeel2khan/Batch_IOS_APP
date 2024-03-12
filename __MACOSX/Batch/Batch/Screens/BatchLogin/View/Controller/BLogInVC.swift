@@ -58,29 +58,6 @@ class BLogInVC: UIViewController {
         } else{
             self.showAlert(message: "Please check your internet", title: "Network issue")
         }
-        //        if (self.userEmailTextField.text?.isEmpty) == true
-        //        {
-        //            showAlert(message: "Please enter email")
-        //        }
-        //        else if (self.passwordTextField.text?.isEmpty) == true
-        //        {
-        //            showAlert(message: "Please enter password")
-        //        }
-        //        else
-        //        {
-        //            if isCheckBoxSelected == true
-        //            {
-        //                if internetConnection.isConnectedToNetwork() == true {
-        //                    self.logInApi()
-        //                }else{
-        //                    self.showAlert(message: "Please check your internet", title: "Network issue")
-        //                }
-        //            }
-        //            else
-        //            {
-        //                showAlert(message: "Please select terms and conditions checkbox")
-        //            }
-        //        }
     }
     
     private func logInApi(){
@@ -96,19 +73,15 @@ class BLogInVC: UIViewController {
         let bLogInViewModel = BLogInViewModel()
         bLogInViewModel.loginApi(request: request) { (response) in
             if response.status == true,response.token != nil {
-                print(response.data)
-                // self.blogsArray = response.data!
                 DispatchQueue.main.async {
                     hideLoading()
-                    
-                    //                    UserDefaultUtility.saveToken(token: response.token ?? "")
                     Batch_UserDefaults.set(response.data?.id, forKey: UserDefaultKey.USER_ID)
                     Batch_UserDefaults.set(response.token ?? "" , forKey: UserDefaultKey.TOKEN)
-                    let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN)
                     UserDefaultUtility.setUserLoggedIn(true)
                     self.getProfileData(profile: response.data?.profile_photo_path ?? "")
                     Batch_UserDefaults.setValue(response.data?.profile_photo_path, forKey:UserDefaultKey.profilePhoto )
                     UserDefaultUtility.saveUserId(userId: response.data?.id ?? 0)
+                
                     if self.isCommingFrom == "workoutbatches" {
                         let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
                         vc.modalPresentationStyle = .overFullScreen
@@ -117,18 +90,26 @@ class BLogInVC: UIViewController {
                         vc.selectedSubscriptionInfo = [self.selectedSubscriptionInfo[0]]
                         vc.isCommingFrom = self.isCommingFrom
                         self.present(vc, animated: true)
-                    }else if self.isCommingFrom == "MealBatchSubscribe" {
+                    } else if self.isCommingFrom == "MealBatchSubscribe" {
                         let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
                         vc.isCommingFrom = "MealBatchSubscribe"
                         vc.mealData = self.mealData
                         vc.modalPresentationStyle = .overFullScreen
                         vc.modalTransitionStyle = .coverVertical
                         self.present(vc, animated: true)
-                    }else{
+                    } else if self.isCommingFrom == "onboarding" {
+                        UserDefaults.standard.set("AR", forKey: USER_DEFAULT_KEYS.SELECTED_LANGUAGE)
+                        UserDefaults.standard.synchronize()
+                        
+                        UserDefaults.standard.set("Kuwait", forKey: USER_DEFAULT_KEYS.SELECTED_COUNTRY)
+                        UserDefaults.standard.synchronize()
+                        
+                        let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
+                        tabbarVC.modalPresentationStyle = .fullScreen
+                        self.present(tabbarVC, animated: true, completion: nil)
+                    } else {
                         self.dismiss(animated: true)
-                    }
-                    
-                    
+                    }                    
                 }
             }else{
                 DispatchQueue.main.async {

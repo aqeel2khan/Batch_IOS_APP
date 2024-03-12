@@ -21,17 +21,13 @@ let MF_Token = "rLtt6JWvbUHDDhsZnfpAhpYk4dxYDQkbcPTyGaKp2TYqQgG7FGZ5Th_WD53Oq8Eb
 //Using that current on all screens
 let CURRENCY = "KD"
 
-struct SetConstantTitle
-{
+struct SetConstantTitle{
     static var segmentFirstTitle = "Batches".localized()
     static var segmentSecondTitle = "Motivators".localized()
-    
     static var bWorkOutHeaderLblText = "Workout Batches".localized()
-    
-    
 }
-struct CustomNavTitle
-{
+
+struct CustomNavTitle {
     static var bWorkOutVCNavTitle = "Workout Batches".localized()
     static var batchBoardHomeVCNavTitle = "Batcheboard".localized()
     static var mealBatchVCNavTitle = "Meal Batch".localized()
@@ -39,21 +35,18 @@ struct CustomNavTitle
     static var dashboardVCNavTitle = "Batchboard".localized()
 }
 
-struct BatchConstant
-{
+struct BatchConstant {
     static var contentSize = "contentSize"
 }
 
 struct API {
-    
     // Staging Base URL
     static let baseUrl = "http://admin.batch.com.co/public/api/v1"
     
     static let coachList = baseUrl + "/coach/list"// post
     static let coachDetail = baseUrl + "/coach/detail/"// get
     static let motivatorCourseList = baseUrl + "/course/list"// post
-    
-    
+        
     static let courseList  = baseUrl + "/course/list"// post
     static let courseDetail    = baseUrl + "/course/detail/" // get
     
@@ -112,17 +105,7 @@ struct API {
 }
 
 
-
-
-//enum CustomNavTitle : String {
-//
-//    case batchWorkOutVC = "Workout Batches" // OnBoarding Screens
-////    case batchLogInSignUp = "BatchLogInSignUp"
-////    case batchTabBar = "BatchTabBar"
-////    case batchHome = "BatchHome"
-////    case batchTrainings = "BatchTrainings"
-////    case batchMealPlans = "BatchMealPlans"
-////    case batchShopping = "BatchShopping"
-////    case batchBarcodeScanner = "BatchBarcodeScanner"
-////    case batchAccount = "BatchAccount"
-//}
+struct USER_DEFAULT_KEYS {
+    static let SELECTED_LANGUAGE = "SELECTED_LANGUAGE"
+    static let SELECTED_COUNTRY = "SELECTED_COUNTRY"
+}
