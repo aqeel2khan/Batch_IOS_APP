@@ -22,7 +22,7 @@ class CountryListTableCell: UITableViewCell {
     //MARK Methods
     func configure(selected: Bool) {
         if selected {
-            radioImageView.image = UIImage.init(named: "right_icon")
+            radioImageView.image = UIImage.init(named: "radio_fill") //right_icon
         } else {
             radioImageView.image = UIImage.init(named: "radio_empty")
         }
