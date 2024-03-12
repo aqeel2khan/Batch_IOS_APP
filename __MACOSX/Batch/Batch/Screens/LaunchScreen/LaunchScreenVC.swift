@@ -12,7 +12,7 @@ class LaunchScreenVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaults.standard.string(forKey: USER_DEFAULT_KEYS.SELECTED_COUNTRY) == nil {
+        if UserDefaults.standard.string(forKey: USER_DEFAULTS_KEYS.SELECTED_COUNTRY) == nil {
             DispatchQueue.main.async {
                 let vc = OnBoardingScreenVC.instantiate(fromAppStoryboard: .main)
                 vc.modalTransitionStyle = .crossDissolve

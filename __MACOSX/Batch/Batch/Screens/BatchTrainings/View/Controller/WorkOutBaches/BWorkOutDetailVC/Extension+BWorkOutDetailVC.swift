@@ -97,8 +97,10 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
             
             if indexPath.row == (todayWorkoutsInfo.row ?? 0) - 1 {
                 cell.dayLbl.backgroundColor  = Colors.appThemeButtonColor
+                cell.dayLbl.textColor = .white
             } else {
                 cell.dayLbl.backgroundColor  = .clear
+                cell.dayLbl.textColor = .black
             }
             
         } else {

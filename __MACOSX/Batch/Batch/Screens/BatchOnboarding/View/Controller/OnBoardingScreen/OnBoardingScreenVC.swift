@@ -41,11 +41,11 @@ class OnBoardingScreenVC: UIViewController {
 
 //         selectLang.append(SelectLang(languageName:LTYText.english))
    
-        lblTitle.text = "Lorem ipsum dolor sit".localized()
-        lblSubTitle.text = "Lorem ipsum dolor sit amet consectetur.".localized()
-        btnLookAround.setTitle("I want to look around".localized(), for: .normal)
-        btnLogin.setTitle("Log In".localized(), for: .normal)
-
+        lblTitle.text = "Lorem ipsum dolor sit".localized
+        lblSubTitle.text = "Lorem ipsum dolor sit amet consectetur.".localized
+        btnLookAround.setTitle("I want to look around".localized, for: .normal)
+        btnLogin.setTitle("Log In".localized, for: .normal)
+  
     }
     
     //MARK:- SetUp CollectionView
@@ -59,7 +59,7 @@ class OnBoardingScreenVC: UIViewController {
         let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
-        vc.isCommingFrom = "onboarding"
+        vc.isCommingFrom = "OnBoarding"
         self.present(vc, animated: true)
     }
     
@@ -70,21 +70,10 @@ class OnBoardingScreenVC: UIViewController {
     }
     
     @IBAction func languageSelectionBtnTap(_ sender: UIButton) {
-//        L102Language.setAppleLAnguageTo(lang: "ar")
-//        change(selectedLanguage: "ar")
         let vc = BatchCountryLanguageVC.instantiate(fromAppStoryboard: .main)
         vc.modalPresentationStyle = .pageSheet
         vc.modalTransitionStyle = .crossDissolve
+        vc.selectedCountryName = "Kuwait"
         self.present(vc, animated: true)
-    }
-    
-    func change(selectedLanguage: String){
-        L102Language.setAppleLAnguageTo(lang: selectedLanguage)
-//        if L102Language.currentAppleLanguage() == "en" {
-//            UIView.appearance().semanticContentAttribute = .forceLeftToRight
-//        } else {
-//            UIView.appearance().semanticContentAttribute = .forceRightToLeft
-//        }
-        Bundle.setLanguage(selectedLanguage)
     }
 }

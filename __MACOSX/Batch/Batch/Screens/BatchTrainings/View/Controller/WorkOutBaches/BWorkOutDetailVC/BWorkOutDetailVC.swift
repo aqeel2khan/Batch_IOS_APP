@@ -126,7 +126,7 @@ class BWorkOutDetailVC: UIViewController {
             self.grandTotalPriceBackView.isHidden = false
             self.subscribeCourseBtn.isHidden = false
             self.startWorkOutBtn.isHidden = true
-            self.changeCourseBtn.isHidden = true
+            //self.changeCourseBtn.isHidden = true
             
             let info = woMotivatorInfo
             self.woTitleLbl.text = info?.courseName
@@ -155,7 +155,7 @@ class BWorkOutDetailVC: UIViewController {
             self.grandTotalPriceBackView.isHidden = false
             self.subscribeCourseBtn.isHidden = false
             self.startWorkOutBtn.isHidden = true
-            self.changeCourseBtn.isHidden = true
+           // self.changeCourseBtn.isHidden = true
             let info = woDetailInfo[0]
             self.woTitleLbl.text = info.courseName
             self.workOutPriceLbl.text = "from \(CURRENCY) " + (info.coursePrice?.removeDecimalValue() ?? "")
@@ -175,7 +175,7 @@ class BWorkOutDetailVC: UIViewController {
             self.grandTotalPriceBackView.isHidden = true
             self.subscribeCourseBtn.isHidden = true
             self.startWorkOutBtn.isHidden = false
-            self.changeCourseBtn.isHidden = false
+           // self.changeCourseBtn.isHidden = false
             let info = courseDetailsInfo
             self.coursePromotionVideoId = info?.coursePromoVideo ?? ""
             self.woTitleLbl.text = info?.courseName

@@ -8,20 +8,23 @@
 import UIKit
 
 class CountryListTableCell: UITableViewCell {
-
-    @IBOutlet weak var backGroundUIView: UIView!
-
     @IBOutlet weak var lblCountryName: UILabel!
-    
+    @IBOutlet weak var radioImageView: UIImageView!
+  
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    //MARK Methods
+    func configure(selected: Bool) {
+        if selected {
+            radioImageView.image = UIImage.init(named: "right_icon")
+        } else {
+            radioImageView.image = UIImage.init(named: "radio_empty")
+        }
+    }
 }

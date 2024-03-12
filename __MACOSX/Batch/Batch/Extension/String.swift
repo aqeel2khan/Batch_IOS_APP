@@ -70,12 +70,14 @@ extension String{
     var htmlToString: String {
         return htmlToAttributedString?.string ?? ""
     }
-    
-    func localized(bundle: Bundle = .main, tableName: String = "Localizable") -> String {
-        return NSLocalizedString(self, tableName: tableName, value: "\(self)", comment: "")
-    }
-    
-    
+
+    //    func localized(bundle: Bundle = .main, tableName: String = "Localizable") -> String {
+//        return NSLocalizedString(self, tableName: tableName, value: "\(self)", comment: "")
+//    }
+}
+
+extension String {
+    var localized: String { LocalizationSystem.sharedInstance.localizedStringForKey(key: self, comment: "")}
 }
 
 extension String{
