@@ -14,15 +14,21 @@ class BUserProfileVC: UIViewController {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     
+    var imagePicker = UIImagePickerController()
+    var callBackToUpdateNavigation: (()->())?
+    var MediaPlaye:Media? = nil
+    let dGroup = DispatchGroup()
+    let operationQueue = OperationQueue()
+    let que = DispatchQueue(label: "so")
     
-
     override func viewDidLoad() {
-        super.viewDidLoad()
-        //        setUpLocalization()
+        super.viewDidLoad() 
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         getProfileData()
+        imagePicker.delegate = self
     }
     
     //    func setUpLocalization(){
@@ -37,7 +43,6 @@ class BUserProfileVC: UIViewController {
     //    }
     
     func getProfileData(){
-    
         if internetConnection.isConnectedToNetwork() == true {
             let bUserProfileVM = BUserProfileVM()
             DispatchQueue.main.async {
@@ -62,20 +67,28 @@ class BUserProfileVC: UIViewController {
     }
     
     func updateUI(response: GetProfileResponse){
-        let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
-        if getprofilePhoto != nil{
-            userImageView.image = UIImage(data: getprofilePhoto ?? Data())
-        }else{
-            userImageView.image = UIImage(named: "Avatar")
-        }
-//        if response.data?.profile_photo_path != nil{
-//            userImageView.sd_setImage(with: URL(string: BaseUrl.imageBaseUrl + (response.data?.profile_photo_path ?? ""))!, placeholderImage: UIImage(named: "Avatar"))
-//        }else{
-//            userImageView.image = UIImage(named: "Avatar")
-//        }
-        userNameLbl.text = response.data?.name ?? ""
+            self.userImageView.contentMode = .scaleAspectFit
+            self.userImageView.clipsToBounds = true
+            self.userImageView.sd_setImage(with:  URL(string: BaseUrl.imageBaseUrl + (response.data?.profile_photo_path ?? ""))!, placeholderImage: UIImage(named: "Avatar"))
+            userNameLbl.text = response.data?.name ?? ""
     }
     
+    
+    
+    @IBAction func uploadPhotoBtnTapped(_ sender: UIButton) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+                self.openCamera()
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Choose Photo", style: .default, handler: { _ in
+                self.openGallary()
+            }))
+            
+            alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func onTapBackBtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -114,7 +127,9 @@ class BUserProfileVC: UIViewController {
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical
         vc.callBackToProfile = {
-            self.dismiss(animated: true)
+            self.dismiss(animated: true){
+                self.callBackToUpdateNavigation?()
+            }
         }
         self.present(vc, animated: true)
     }
@@ -131,5 +146,119 @@ extension BUserProfileVC : barButtonTappedDelegate {
         }else{
             self.showAlert(message: "First login then you are able to check profile details.")
         }
+    }
+}
+
+
+extension BUserProfileVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    /// Open the camera
+    func openCamera() {
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)){
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            //If you dont want to edit the photo then you can set allowsEditing to false
+            imagePicker.allowsEditing = true
+            imagePicker.delegate = self
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else{
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+
+    /// Choose image from camera roll
+    func openGallary() {
+        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        // If you don't want to edit the photo then you can set allowsEditing to false
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+   
+    // MARK:-- Camera Methods
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true) { [self] in
+            if let image = info[.originalImage] as? UIImage {
+                DispatchQueue.main.async {
+                    self.userImageView.image = image
+                    self.userImageView.contentMode = .scaleAspectFit
+                    self.userImageView.clipsToBounds = true
+                }
+                self.MediaPlaye = nil
+                let mediafile = Media(withImage: image, forKey: "profile_image")
+                self.MediaPlaye = mediafile
+                self.profileUploadAndUpdate()
+               
+            }
+        }
+    }
+    
+    func profileUploadAndUpdate(){
+        var profile = ""
+        
+        let profileUploadBlockOperation = BlockOperation()
+        profileUploadBlockOperation.addExecutionBlock {
+            DispatchQueue.main.async {
+                showLoading()
+            }
+            if internetConnection.isConnectedToNetwork() == true {
+                self.dGroup.enter()
+                let bUserProfileVM = BUserProfileVM()
+                if let media = self.MediaPlaye {
+                    bUserProfileVM.uploadProfilePhoto(media: media) { response in
+                        profile = response.data?.profile_photo_path ?? ""
+                        self.dGroup.leave()
+                    } onError: { error in
+                        DispatchQueue.main.async {
+                            self.showAlert(message: error.localizedDescription)
+                            self.dGroup.leave()
+                        }
+                    }
+                }
+                self.dGroup.wait()
+            }else{
+                self.showAlert(message: "Please check your internet", title: "Network issue")
+            }
+        }
+        let profileUpdateBlockOperation = BlockOperation()
+        profileUpdateBlockOperation.addExecutionBlock {
+            let url = URL(string: BaseUrl.imageBaseUrl + profile)!
+            let dataTask = URLSession.shared.dataTask(with: url){ data,repo,err in
+                
+                if err == nil{
+                    Batch_UserDefaults.setValue(data ?? Data(), forKey: UserDefaultKey.profilePhoto)
+                    let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
+                    DispatchQueue.main.async {
+                            hideLoading()
+                        if getprofilePhoto != nil{
+                            self.userImageView.contentMode = .scaleAspectFit
+                            self.userImageView.clipsToBounds = true
+                            self.userImageView.image = UIImage(data: getprofilePhoto ?? Data())
+                        }else{
+                            self.userImageView.contentMode = .scaleAspectFit
+                            self.userImageView.clipsToBounds = true
+                            self.userImageView.image = UIImage(named: "Avatar")
+                        }
+                    }
+                }else{
+                    self.userImageView.contentMode = .scaleAspectFit
+                    self.userImageView.clipsToBounds = true
+                    self.userImageView.image = UIImage(named: "Avatar")
+                }
+            }
+            dataTask.resume()
+        }
+        
+        profileUpdateBlockOperation.addDependency(profileUploadBlockOperation)
+        
+        let operationQueue = OperationQueue()
+        operationQueue.addOperation(profileUploadBlockOperation)
+        operationQueue.addOperation(profileUpdateBlockOperation)
     }
 }

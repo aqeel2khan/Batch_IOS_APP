@@ -107,6 +107,7 @@ struct API {
     static let updateProfileDetail  = baseUrl + "/account/profile"// post
     static let logout = baseUrl + "/account/logout"// post
     static let updateNotifiationPrefrences = baseUrl + "/account/notification"// post
+    static let updateProfilephoto = baseUrl + "/account/profileimage"// post
 }
 
 

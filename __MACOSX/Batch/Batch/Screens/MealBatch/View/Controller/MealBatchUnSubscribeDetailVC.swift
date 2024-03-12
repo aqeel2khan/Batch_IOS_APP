@@ -122,6 +122,9 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
             // let vc = BRegistrationVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
             vc.isCommingFrom = "MealBatchSubscribe"
             vc.mealData = mealData
+            vc.CallBackToUpdateProfile = {
+                self.viewWillAppear(true)
+            }
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true)
