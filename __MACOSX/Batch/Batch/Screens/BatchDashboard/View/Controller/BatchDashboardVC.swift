@@ -229,13 +229,11 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
-                    //makeToast(response.message!)
                 }
             }
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
-                // makeToast(error.localizedDescription)
             }
         }
     }
@@ -422,9 +420,6 @@ extension BatchDashboardVC {
     }
 }
 
-
-
-
 extension BatchDashboardVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -461,8 +456,6 @@ extension BatchDashboardVC: UITableViewDelegate, UITableViewDataSource{
         }
         return UITableViewCell()
     }
-    
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row ==  0{

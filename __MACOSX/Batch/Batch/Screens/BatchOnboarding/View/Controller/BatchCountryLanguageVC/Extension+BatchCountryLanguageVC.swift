@@ -34,22 +34,21 @@ extension BatchCountryLanguageVC: UITableViewDelegate,UITableViewDataSource {
             self.selectedCountryName = dupList[indexPath.row].name ?? ""
             countryTblView.reloadData()
         } else {
-            selectedLanguageCode = ENGLISH_LANGUAGE_CODE
-//            let cell : QuestionLabelTVC = languageTblView.cellForRow(at: indexPath) as! QuestionLabelTVC
-//            cell.questionUIView.backgroundColor = Colors.appThemeBackgroundColor
-//
-//            if indexPath.row == 0 {
-//                selectedLanguageCode = ENGLISH_LANGUAGE_CODE
-//            } else {
-//                selectedLanguageCode = ARABIC_LANGUAGE_CODE
-//            }
+            let cell : QuestionLabelTVC = languageTblView.cellForRow(at: indexPath) as! QuestionLabelTVC
+            cell.questionUIView.backgroundColor = Colors.appThemeBackgroundColor
+
+            if indexPath.row == 0 {
+                selectedLanguageCode = ENGLISH_LANGUAGE_CODE
+            } else {
+                selectedLanguageCode = ARABIC_LANGUAGE_CODE
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if tableView == languageTblView {
-//            let cell : QuestionLabelTVC = languageTblView.cellForRow(at: indexPath) as! QuestionLabelTVC
-//            cell.questionUIView.backgroundColor = Colors.appViewBackgroundColor
+            let cell : QuestionLabelTVC = languageTblView.cellForRow(at: indexPath) as! QuestionLabelTVC
+            cell.questionUIView.backgroundColor = Colors.appViewBackgroundColor
         }
     }
     

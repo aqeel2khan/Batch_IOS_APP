@@ -43,7 +43,7 @@ class MealPlanCheckout: UIViewController {
         let vc = BPaymentGatewayPopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
         vc.modalPresentationStyle = .pageSheet
         vc.modalTransitionStyle = .coverVertical
-        vc.totalOrderAmount = mealData.price
+        vc.totalOrderAmount = mealData.price ?? "0"
         if isCommingFrom == "MealBatchSubscribe" {
             vc.mealData = mealData
         }

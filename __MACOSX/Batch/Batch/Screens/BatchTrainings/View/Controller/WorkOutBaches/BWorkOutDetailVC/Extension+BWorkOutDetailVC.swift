@@ -12,7 +12,7 @@ extension BWorkOutDetailVC: UICollectionViewDelegate,UICollectionViewDataSource 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return newArray.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeue(BatchTrainingDetailCollCell.self, indexPath)
         cell.imgWorkOut.image = newImage[indexPath.row]
@@ -20,14 +20,14 @@ extension BWorkOutDetailVC: UICollectionViewDelegate,UICollectionViewDataSource 
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
-//        UIView.animate(
-//            withDuration: 0.5,
-//            delay: 0.05 * Double(indexPath.row),
-//            options: [.curveEaseInOut],
-//            animations: {
-//                cell.transform = CGAffineTransform(translationX: 0, y: 0)
-//        })
+        //        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
+        //        UIView.animate(
+        //            withDuration: 0.5,
+        //            delay: 0.05 * Double(indexPath.row),
+        //            options: [.curveEaseInOut],
+        //            animations: {
+        //                cell.transform = CGAffineTransform(translationX: 0, y: 0)
+        //        })
     }
 }
 
@@ -40,9 +40,9 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
         } else if isCommingFrom == "dashboard" {
             return self.totalCourseDashboardArr.count
         }
-//        else if isCommingFrom == "MotivatorDetailVC" {
-//            return self.woMotivatorInfo?.
-//        }
+        //        else if isCommingFrom == "MotivatorDetailVC" {
+        //            return self.woMotivatorInfo?.
+        //        }
         else {
             return self.totalCourseArr.count
         }
@@ -60,27 +60,38 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
             } else {
                 cell.dayLbl.text = "\(indexPath.row + 1)"
                 cell.lblTitle.text  = info.dayName
-                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
-                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+                //                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
+                let originalKcalString = "\(info.calorieBurn ?? "") kcal"
+                let keyword1 = BatchConstant.kcalSuffix
+                let attributedKcalString = NSAttributedString.attributedStringWithDifferentFonts(for: originalKcalString, prefixFont: UIFont(name:"Outfit-Medium",size:14)!, suffixFont: UIFont(name:"Outfit-Medium",size:10)!, keyword: keyword1)
+                cell.lblKalori.attributedText = attributedKcalString
+                
+                let originalMinsString = "\(info.workoutTime ?? "") mins"
+                let keyword2 = BatchConstant.minsSuffix
+                let attributedMinsString = NSAttributedString.attributedStringWithDifferentFonts(for: originalMinsString, prefixFont: UIFont(name:"Outfit-Medium",size:14)!, suffixFont: UIFont(name:"Outfit-Medium",size:10)!, keyword: keyword2)
+                cell.lblMints.attributedText = attributedMinsString
+                
+                
+                //                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
                 cell.bottomStackView.isHidden = false
             }
         }
-//        {
-//            let info = totalCourseArr[indexPath.row]
-//            if info.status == 0 {
-//                cell.dayLbl.text = ""
-//                cell.lblTitle.text  = "Day Off"
-//                cell.bottomStackView.isHidden = true
-//            } else {
-//                cell.dayLbl.text = "\(indexPath.row + 1)"
-//                cell.lblTitle.text  = "Lower-Body Burn"
-//                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
-//                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
-//                cell.bottomStackView.isHidden = false
-//            }
-//
-//
-//        }
+        //        {
+        //            let info = totalCourseArr[indexPath.row]
+        //            if info.status == 0 {
+        //                cell.dayLbl.text = ""
+        //                cell.lblTitle.text  = "Day Off"
+        //                cell.bottomStackView.isHidden = true
+        //            } else {
+        //                cell.dayLbl.text = "\(indexPath.row + 1)"
+        //                cell.lblTitle.text  = "Lower-Body Burn"
+        //                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
+        //                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+        //                cell.bottomStackView.isHidden = false
+        //            }
+        //
+        //
+        //        }
         else if isCommingFrom == "dashboard" {
             let info = self.totalCourseDashboardArr[indexPath.row]
             if info.status == 0 {
@@ -90,8 +101,21 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
             } else {
                 cell.dayLbl.text = "\(indexPath.row + 1)"
                 cell.lblTitle.text  = info.dayName
-                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
-                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+                //                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
+                //                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+                
+                let originalKcalString = "\(info.calorieBurn ?? "") kcal"
+                let keyword1 = BatchConstant.kcalSuffix
+                let attributedKcalString = NSAttributedString.attributedStringWithDifferentFonts(for: originalKcalString, prefixFont: UIFont(name:"Outfit-Medium",size:14)!, suffixFont: UIFont(name:"Outfit-Medium",size:10)!, keyword: keyword1)
+                cell.lblKalori.attributedText = attributedKcalString
+                
+                let originalMinsString = "\(info.workoutTime ?? "") mins"
+                let keyword2 = BatchConstant.minsSuffix
+                let attributedMinsString = NSAttributedString.attributedStringWithDifferentFonts(for: originalMinsString, prefixFont: UIFont(name:"Outfit-Medium",size:14)!, suffixFont: UIFont(name:"Outfit-Medium",size:10)!, keyword: keyword2)
+                cell.lblMints.attributedText = attributedMinsString
+                
+                
+                
                 cell.bottomStackView.isHidden = false
             }
             
@@ -112,13 +136,23 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
             } else {
                 cell.dayLbl.text = "\(indexPath.row + 1)"
                 cell.lblTitle.text  = "Lower-Body Burn"
-                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
-                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+                //                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
+                //                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
+                
+                
+                let originalKcalString = "\(info.calorieBurn ?? "") kcal"
+                let keyword1 = BatchConstant.kcalSuffix
+                let attributedKcalString = NSAttributedString.attributedStringWithDifferentFonts(for: originalKcalString, prefixFont: UIFont(name:"Outfit-Medium",size:14)!, suffixFont: UIFont(name:"Outfit-Medium",size:10)!, keyword: keyword1)
+                cell.lblKalori.attributedText = attributedKcalString
+                
+                let originalMinsString = "\(info.workoutTime ?? "") mins"
+                let keyword2 = BatchConstant.minsSuffix
+                let attributedMinsString = NSAttributedString.attributedStringWithDifferentFonts(for: originalMinsString, prefixFont: UIFont(name:"Outfit-Medium",size:14)!, suffixFont: UIFont(name:"Outfit-Medium",size:10)!, keyword: keyword2)
+                cell.lblMints.attributedText = attributedMinsString
+                
                 cell.bottomStackView.isHidden = false
             }
         }
-        
-        
         return cell
     }
     
@@ -127,14 +161,14 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//            cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
-//            UIView.animate(
-//                withDuration: 0.5,
-//                delay: 0.05 * Double(indexPath.row),
-//                options: [.curveEaseInOut],
-//                animations: {
-//                    cell.transform = CGAffineTransform(translationX: 0, y: 0)
-//            })
+        //            cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
+        //            UIView.animate(
+        //                withDuration: 0.5,
+        //                delay: 0.05 * Double(indexPath.row),
+        //                options: [.curveEaseInOut],
+        //                animations: {
+        //                    cell.transform = CGAffineTransform(translationX: 0, y: 0)
+        //            })
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -34,8 +34,8 @@ class BatchLabelTitleWhite: UILabel {
         textColor = UIColor.white
     }
 }
-//MARK: - SubTitle
 
+//MARK: - SubTitle
 class BatchLabelSubTitleWhite: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -92,6 +92,7 @@ class BatchMediumBlack: UILabel {
         textColor = Colors.appLabelBlackColor
     }
 }
+
 class BatchMediumDarkGray: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -129,7 +130,6 @@ class BatchMedium32Black: UILabel {
         textColor = Colors.appLabelBlackColor
     }
 }
-
 
 class BatchLabelMedium12Black: UILabel {
     override func awakeFromNib() {

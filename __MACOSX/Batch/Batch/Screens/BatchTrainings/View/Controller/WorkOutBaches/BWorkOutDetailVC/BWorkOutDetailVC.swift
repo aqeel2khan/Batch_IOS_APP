@@ -15,11 +15,11 @@ class BWorkOutDetailVC: UIViewController {
     @IBOutlet weak var videoPlayBtn: UIButton!
     @IBOutlet weak var woTitleLbl: UILabel!
     @IBOutlet weak var workOutPriceLbl: UILabel!
-    @IBOutlet weak var woDesLbl: UILabel!
+    @IBOutlet weak var woDesLbl: BatchLabelRegular16DarkGray!
     @IBOutlet weak var coachPicImgView: UIImageView!
-    @IBOutlet weak var coachNameLbl: UILabel!
-    @IBOutlet weak var durationLbl: UILabel!
-    @IBOutlet weak var durationTitleLbl: UILabel!
+    @IBOutlet weak var coachNameLbl: BatchLabelMedium14DarkGray!
+    @IBOutlet weak var durationLbl: BatchLabelRegular16DarkGray!
+    @IBOutlet weak var durationTitleLbl: BatchMedium18Black!
     @IBOutlet weak var videoListTableHeight: NSLayoutConstraint!
     @IBOutlet weak var videoListTableView: UITableView!
     @IBOutlet weak var trainingCollectionView: UICollectionView!
@@ -130,10 +130,13 @@ class BWorkOutDetailVC: UIViewController {
             
             let info = woMotivatorInfo
             self.woTitleLbl.text = info?.courseName
-            self.workOutPriceLbl.text = "from \(CURRENCY) " + (info?.coursePrice?.removeDecimalValue() ?? "")
+            //self.workOutPriceLbl.text = "from \(CURRENCY) " + (info?.coursePrice?.removeDecimalValue() ?? "")
+            let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info?.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+            self.workOutPriceLbl.attributedText = attributedPriceString
             self.woDesLbl.text = info?.description ?? ""
             self.coachNameLbl.text = info?.coachDetail?.name ?? ""
-            self.durationLbl.text = info?.duration ?? ""
+            self.durationLbl.text = "\(info?.duration ?? "") \(BatchConstant.days)"
+            
             let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (info?.courseImage ?? ""))
             self.courseImgView.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info?.coachDetail?.profilePhotoPath ?? ""))
@@ -158,10 +161,12 @@ class BWorkOutDetailVC: UIViewController {
            // self.changeCourseBtn.isHidden = true
             let info = woDetailInfo[0]
             self.woTitleLbl.text = info.courseName
-            self.workOutPriceLbl.text = "from \(CURRENCY) " + (info.coursePrice?.removeDecimalValue() ?? "")
+//            self.workOutPriceLbl.text = "from \(CURRENCY) " + (info.coursePrice?.removeDecimalValue() ?? "")
+            let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+            self.workOutPriceLbl.attributedText = attributedPriceString
             self.woDesLbl.text = info.description ?? ""
             self.coachNameLbl.text = info.coachDetail?.name ?? ""
-            self.durationLbl.text = info.duration ?? ""
+            self.durationLbl.text = "\(info.duration ?? "") \(BatchConstant.days)"
             let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (info.courseImage ?? ""))
             self.courseImgView.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info.coachDetail?.profilePhotoPath ?? ""))
@@ -169,7 +174,7 @@ class BWorkOutDetailVC: UIViewController {
             self.grandTotalPriceLbl.text = "\(CURRENCY) \(info.coursePrice?.removeDecimalValue() ?? "")"
             self.coursePromotionVideoId = info.coursePromoVideo ?? ""
             self.videoPlayBtn.isHidden = false
-            durationTitleLbl.text = "Duration"
+            durationTitleLbl.text = "Duration".localized
         }
         else if isCommingFrom == "dashboard" {
             self.grandTotalPriceBackView.isHidden = true
@@ -189,23 +194,21 @@ class BWorkOutDetailVC: UIViewController {
             self.coachPicImgView.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
             self.grandTotalPriceLbl.text = "\(CURRENCY) \(info?.coursePrice?.removeDecimalValue() ?? "")"
             self.videoPlayBtn.isHidden = false
-            durationTitleLbl.text = "Todays Exercise"
+            durationTitleLbl.text = "Todays Exercise".localized
         }
     }
     
     // MARK: - IBActions
     
     @IBAction func onTapVideoPlayBtn(_ sender: Any) {
-        if coursePromotionVideoId != ""
-        {
+        if coursePromotionVideoId != "" {
             let vc = VideoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
             vc.courseVideoId = coursePromotionVideoId
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true)
         }
-        else
-        {
+        else {
             showAlert(message: "Promo video not available")
         }
     }
