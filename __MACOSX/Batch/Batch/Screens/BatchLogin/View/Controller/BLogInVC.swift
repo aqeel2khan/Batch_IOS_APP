@@ -34,11 +34,11 @@ class BLogInVC: UIViewController {
     //MARK:- SetUp Localization
     
     func setUpLocalization() {
-        self.btnSignIn.setTitle("Sign In".localized(), for: .normal)
-        self.btnFbLogin.setTitle("Sign in with Facebook".localized(), for: .normal)
-        self.btnAppleLogin.setTitle("Sign in with Apple".localized(), for: .normal)
-        self.btnGoogleLogin.setTitle("Sign in with Google".localized(), for: .normal)
-        self.btnOutlookLogin.setTitle("Sign in with Outlook".localized(), for: .normal)
+        self.btnSignIn.setTitle("Sign In".localized, for: .normal)
+        self.btnFbLogin.setTitle("Sign in with Facebook".localized, for: .normal)
+        self.btnAppleLogin.setTitle("Sign in with Apple".localized, for: .normal)
+        self.btnGoogleLogin.setTitle("Sign in with Google".localized, for: .normal)
+        self.btnOutlookLogin.setTitle("Sign in with Outlook".localized, for: .normal)
     }
     
     @IBAction func onTapPassowrdEyeBtn(_ sender: UIButton) {
@@ -97,11 +97,8 @@ class BLogInVC: UIViewController {
                         vc.modalPresentationStyle = .overFullScreen
                         vc.modalTransitionStyle = .coverVertical
                         self.present(vc, animated: true)
-                    } else if self.isCommingFrom == "onboarding" {
-                        UserDefaults.standard.set("AR", forKey: USER_DEFAULT_KEYS.SELECTED_LANGUAGE)
-                        UserDefaults.standard.synchronize()
-                        
-                        UserDefaults.standard.set("Kuwait", forKey: USER_DEFAULT_KEYS.SELECTED_COUNTRY)
+                    } else if self.isCommingFrom == "OnBoarding" {
+                        UserDefaults.standard.set("Kuwait", forKey: USER_DEFAULTS_KEYS.SELECTED_COUNTRY)
                         UserDefaults.standard.synchronize()
                         
                         let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")

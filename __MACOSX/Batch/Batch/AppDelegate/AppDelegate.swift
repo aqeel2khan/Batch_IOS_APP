@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        self.setUpLanguage()
+      
         //**********Key board manager setup
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.resignOnTouchOutside = true
@@ -75,6 +77,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    
+    func setUpLanguage() {
+        // check selected language is english or arabic
+         let languageCode = UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String ?? DEFAULT_LANGUAGE_CODE
+        LocalizationSystem.sharedInstance.setLanguage(languageCode: languageCode)
+        UserDefaults.standard.setValue(languageCode, forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE)
+
+        UIView.appearance().semanticContentAttribute = (languageCode == ENGLISH_LANGUAGE_CODE ? .forceLeftToRight : .forceRightToLeft)  
+    }
 }
 
