@@ -1,27 +1,19 @@
-//
-//  BLogInVC.swift
-//  Batch
-//
-//  Created by CTS-Jay Gupta on 19/12/23.
-//
 
 import UIKit
 import GoogleSignIn
 import AuthenticationServices
 
 class BLogInVC: UIViewController {
-    
     @IBOutlet weak var backBtn: UIButton!
-    @IBOutlet weak var lblTermCondition: UILabel!
     @IBOutlet weak var btnSignIn: UIButton!
     @IBOutlet weak var btnFbLogin: BatchButton!
     @IBOutlet weak var btnAppleLogin: BatchButton!
     @IBOutlet weak var btnGoogleLogin: BatchButton!
     @IBOutlet weak var btnOutlookLogin: BatchButton!
-    
+
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-        
+  
     var promotionPriceValue = 0.0
     var selectedSubscriptionInfo = [CourseDataList]()
     
@@ -35,13 +27,8 @@ class BLogInVC: UIViewController {
         setUpLocalization()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-    }
-    
     //MARK:- SetUp Localization
-    
     func setUpLocalization() {
-//        self.lblTermCondition.text = "I agree to the company Terms & Conditions".localized
         self.btnSignIn.setTitle("Sign In".localized, for: .normal)
         self.btnFbLogin.setTitle("Sign in with Facebook".localized, for: .normal)
         self.btnAppleLogin.setTitle("Sign in with Apple".localized, for: .normal)

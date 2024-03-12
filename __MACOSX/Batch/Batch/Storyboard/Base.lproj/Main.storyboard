@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Agy-lp-iAL">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="388" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6Og-47-qF1">
                                     <size key="itemSize" width="393" height="852"/>
@@ -30,7 +30,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NTh-SK-cye">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                        <rect key="frame" x="-2.6666666666666665" y="0.0" width="393" height="852"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JiC-Jr-clh">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -56,10 +56,10 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLu-cr-og9">
-                                <rect key="frame" x="-1" y="511.33333333333326" width="395" height="340.66666666666674"/>
+                                <rect key="frame" x="-1" y="511.33333333333326" width="390" height="340.66666666666674"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="P4a-KZ-9WB">
-                                        <rect key="frame" x="0.0" y="0.0" width="395" height="340.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="340.66666666666669"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Gog-ba-DVs">
                                         <rect key="frame" x="20" y="40.000000000000043" width="350" height="227.66666666666663"/>
@@ -162,7 +162,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XP1-ja-Trx">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="388" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Dxe-QH-Dcy">
                                     <size key="itemSize" width="393" height="852"/>
@@ -243,10 +243,10 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgQ-Mh-2DH">
-                                <rect key="frame" x="-1" y="531.33333333333337" width="395" height="320.66666666666663"/>
+                                <rect key="frame" x="-1" y="531.33333333333337" width="390" height="320.66666666666663"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="5IF-9r-N9p">
-                                        <rect key="frame" x="0.0" y="0.0" width="395" height="320.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="320.66666666666669"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ibe-yz-Uo2">
                                         <rect key="frame" x="20" y="29.999999999999986" width="350" height="253.66666666666663"/>
@@ -589,19 +589,19 @@
     </scenes>
     <designables>
         <designable name="8Kl-hq-j6A">
-            <size key="intrinsicContentSize" width="159" height="33"/>
+            <size key="intrinsicContentSize" width="149" height="33"/>
         </designable>
         <designable name="967-iC-wqE">
-            <size key="intrinsicContentSize" width="159" height="33"/>
+            <size key="intrinsicContentSize" width="149" height="33"/>
         </designable>
         <designable name="Ze0-HW-7a7">
-            <size key="intrinsicContentSize" width="42" height="33"/>
+            <size key="intrinsicContentSize" width="40" height="33"/>
         </designable>
         <designable name="jDR-yu-Zla">
-            <size key="intrinsicContentSize" width="36" height="33"/>
+            <size key="intrinsicContentSize" width="34" height="33"/>
         </designable>
         <designable name="tO2-sm-zmS">
-            <size key="intrinsicContentSize" width="47" height="33"/>
+            <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
     </designables>
     <resources>

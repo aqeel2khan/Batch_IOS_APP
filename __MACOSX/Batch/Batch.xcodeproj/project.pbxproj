@@ -64,11 +64,6 @@
 		313894102B68167300F687B1 /* CustomSecondNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3138940F2B68167300F687B1 /* CustomSecondNavigationBar.swift */; };
 		313894122B68168500F687B1 /* CustomSecondNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313894112B68168500F687B1 /* CustomSecondNavigationBar.xib */; };
 		313894162B683F8300F687B1 /* MealDilevaryDropOffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313894152B683F8300F687B1 /* MealDilevaryDropOffVC.swift */; };
-		3145BBD92B827808001AC288 /* Video2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3145BBD52B8277D1001AC288 /* Video2.mp4 */; };
-		3145BBDA2B827812001AC288 /* Video3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3145BBD42B8277D0001AC288 /* Video3.mp4 */; };
-		3145BBDB2B82781B001AC288 /* Video4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3145BBD62B8277D1001AC288 /* Video4.mp4 */; };
-		3145BBDC2B827825001AC288 /* Video5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3145BBD82B8277D1001AC288 /* Video5.mp4 */; };
-		3145BBDD2B82782C001AC288 /* Video6.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3145BBD72B8277D1001AC288 /* Video6.mp4 */; };
 		3147144D2B68EAF6002EED87 /* Extension+MealPlanIngridentEditableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3147144C2B68EAF6002EED87 /* Extension+MealPlanIngridentEditableView.swift */; };
 		314714502B68EB14002EED87 /* MealPlanIngridentTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3147144E2B68EB14002EED87 /* MealPlanIngridentTableCell.xib */; };
 		314714512B68EB14002EED87 /* MealPlanIngridentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3147144F2B68EB14002EED87 /* MealPlanIngridentTableCell.swift */; };
@@ -316,7 +311,6 @@
 		AF1955072B3B423900E3BB90 /* BatchLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1955062B3B423900E3BB90 /* BatchLabel.swift */; };
 		AF7CE9F72B34B9C500E545A4 /* SelectLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7CE9F62B34B9C500E545A4 /* SelectLanguage.swift */; };
 		AF8AD9942B81D92E00F9FB4D /* GoogleInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF8AD9932B81D92E00F9FB4D /* GoogleInfo.plist */; };
-		AFA0100D2B5EAA5400FC36AD /* StarVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AFA0100C2B5EAA4B00FC36AD /* StarVideo.mp4 */; };
 		AFEF32FE2B34B2D100D4BD74 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AFEF33002B34B2D100D4BD74 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -394,11 +388,6 @@
 		3138940F2B68167300F687B1 /* CustomSecondNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecondNavigationBar.swift; sourceTree = "<group>"; };
 		313894112B68168500F687B1 /* CustomSecondNavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSecondNavigationBar.xib; sourceTree = "<group>"; };
 		313894152B683F8300F687B1 /* MealDilevaryDropOffVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDilevaryDropOffVC.swift; sourceTree = "<group>"; };
-		3145BBD42B8277D0001AC288 /* Video3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video3.mp4; sourceTree = "<group>"; };
-		3145BBD52B8277D1001AC288 /* Video2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video2.mp4; sourceTree = "<group>"; };
-		3145BBD62B8277D1001AC288 /* Video4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video4.mp4; sourceTree = "<group>"; };
-		3145BBD72B8277D1001AC288 /* Video6.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video6.mp4; sourceTree = "<group>"; };
-		3145BBD82B8277D1001AC288 /* Video5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video5.mp4; sourceTree = "<group>"; };
 		3147144C2B68EAF6002EED87 /* Extension+MealPlanIngridentEditableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+MealPlanIngridentEditableView.swift"; sourceTree = "<group>"; };
 		3147144E2B68EB14002EED87 /* MealPlanIngridentTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealPlanIngridentTableCell.xib; sourceTree = "<group>"; };
 		3147144F2B68EB14002EED87 /* MealPlanIngridentTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealPlanIngridentTableCell.swift; sourceTree = "<group>"; };
@@ -654,7 +643,6 @@
 		AF7CE9F62B34B9C500E545A4 /* SelectLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguage.swift; sourceTree = "<group>"; };
 		AF8AD9932B81D92E00F9FB4D /* GoogleInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GoogleInfo.plist; sourceTree = "<group>"; };
 		AF8AD9952B81DEB800F9FB4D /* Batch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Batch.entitlements; sourceTree = "<group>"; };
-		AFA0100C2B5EAA4B00FC36AD /* StarVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = StarVideo.mp4; sourceTree = "<group>"; };
 		AFEF32FF2B34B2D100D4BD74 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AFEF33012B34B2D900D4BD74 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D27F2AE9FB3B750C1554C80F /* Pods_BatchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BatchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -805,12 +793,6 @@
 			isa = PBXGroup;
 			children = (
 				AF8AD9952B81DEB800F9FB4D /* Batch.entitlements */,
-				AFA0100C2B5EAA4B00FC36AD /* StarVideo.mp4 */,
-				3145BBD52B8277D1001AC288 /* Video2.mp4 */,
-				3145BBD42B8277D0001AC288 /* Video3.mp4 */,
-				3145BBD62B8277D1001AC288 /* Video4.mp4 */,
-				3145BBD82B8277D1001AC288 /* Video5.mp4 */,
-				3145BBD72B8277D1001AC288 /* Video6.mp4 */,
 				574050C12B98CDE000875E88 /* ThirdParty */,
 				AFEF32E12B34AFDD00D4BD74 /* Localizable */,
 				318C03DF2B33682900C4281F /* Fonts */,
@@ -2260,15 +2242,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3145BBDD2B82782C001AC288 /* Video6.mp4 in Resources */,
-				3145BBDC2B827825001AC288 /* Video5.mp4 in Resources */,
-				3145BBDB2B82781B001AC288 /* Video4.mp4 in Resources */,
 				5759E7CC2B9048AB00352B24 /* BatchTrainingDetailCollCell.xib in Resources */,
-				3145BBDA2B827812001AC288 /* Video3.mp4 in Resources */,
-				3145BBD92B827808001AC288 /* Video2.mp4 in Resources */,
 				5759E7D22B9048AB00352B24 /* BWOPackageTblCell.xib in Resources */,
 				5759E7DF2B9048AB00352B24 /* PaymentMethodTblViewCell.xib in Resources */,
-				AFA0100D2B5EAA5400FC36AD /* StarVideo.mp4 in Resources */,
 				570D90012B84B2D600EB643A /* BatchDashboard.storyboard in Resources */,
 				318C03E42B33682900C4281F /* Outfit-Bold.ttf in Resources */,
 				311B1B9B2B2E0E2000E37E47 /* BatchMealPlans.storyboard in Resources */,

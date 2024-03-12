@@ -23,32 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "41023BE2-C864-4FB1-AE90-06D1FB653E26"
-            shouldBeEnabled = "Yes"
+            uuid = "22050D6F-418B-44C8-A8D2-EF0A12528500"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchTrainings/View/Controller/BatchTrainingsCheckout/BRegistrationVC.swift"
+            filePath = "Batch/Screens/BatchTrainings/View/Controller/WorkOutBaches/VimoVideo/VimoPlayerVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "signUpApi()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FB9F7734-6F06-42DF-9BBF-EAEFDEFAE1C1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Batch/Screens/BatchTrainings/View/Controller/BatchTrainingsCheckout/BRegistrationVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "signUpApi()"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "setUpTimeValue()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

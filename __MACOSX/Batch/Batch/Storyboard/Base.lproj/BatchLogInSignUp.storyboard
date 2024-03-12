@@ -53,7 +53,7 @@
                                                 <color key="textColor" name="AppLabelBlackColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In to your account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIo-LJ-Sjw" customClass="BatchLabelSubTitleBlack">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In to your account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIo-LJ-Sjw" customClass="BatchLabelSubTitleBlack" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="43.666666666666657" width="353" height="19.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" name="AppLabelDarkGrayColor"/>
@@ -157,14 +157,14 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7X-OQ-2OD">
                                                                 <rect key="frame" x="54" y="5" width="245" height="35"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twy-9S-Ogb" customClass="BatchLabelSubTitleBlack">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twy-9S-Ogb" customClass="BatchLabelSubTitleBlack" customModule="Batch" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="165" height="35"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                         <color key="textColor" name="AppLabelDarkGrayColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAZ-RS-kg8">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAZ-RS-kg8" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
                                                                         <rect key="frame" x="165" y="0.0" width="80" height="35"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="80" id="9fV-Tm-wbU"/>
@@ -743,25 +743,28 @@
     </scenes>
     <designables>
         <designable name="5Sp-H2-kGd">
-            <size key="intrinsicContentSize" width="68" height="32"/>
+            <size key="intrinsicContentSize" width="64" height="33"/>
         </designable>
         <designable name="8Ad-zg-q7B">
-            <size key="intrinsicContentSize" width="175.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="155.33333333333334" height="21"/>
         </designable>
         <designable name="FXb-5W-R8W">
-            <size key="intrinsicContentSize" width="180.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="160.33333333333334" height="21"/>
         </designable>
         <designable name="JQD-2q-6oe">
-            <size key="intrinsicContentSize" width="68" height="32"/>
+            <size key="intrinsicContentSize" width="64" height="33"/>
         </designable>
         <designable name="KQD-go-G9W">
-            <size key="intrinsicContentSize" width="195.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="173.33333333333334" height="21"/>
         </designable>
         <designable name="Qg1-9a-SxT">
-            <size key="intrinsicContentSize" width="161.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="142.33333333333334" height="21"/>
         </designable>
         <designable name="XdZ-cl-Dus">
-            <size key="intrinsicContentSize" width="51" height="32"/>
+            <size key="intrinsicContentSize" width="47" height="33"/>
+        </designable>
+        <designable name="iAZ-RS-kg8">
+            <size key="intrinsicContentSize" width="61" height="33"/>
         </designable>
     </designables>
     <resources>

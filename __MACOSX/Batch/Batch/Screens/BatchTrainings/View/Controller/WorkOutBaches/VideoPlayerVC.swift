@@ -11,8 +11,6 @@ import SDWebImage
 import HCVimeoVideoExtractor
 
 class VideoPlayerVC: UIViewController {
-    
-    @IBOutlet weak var videoListTblView: UITableView!
     var tblIconArray = [#imageLiteral(resourceName: "Image"), #imageLiteral(resourceName: "image2"), #imageLiteral(resourceName: "image2"), #imageLiteral(resourceName: "Image"), #imageLiteral(resourceName: "image2"), #imageLiteral(resourceName: "image2")]
     
     @IBOutlet private weak var videoContainerView: UIView!
@@ -20,9 +18,6 @@ class VideoPlayerVC: UIViewController {
     
     @IBOutlet weak var vimoImageView: UIImageView!
     @IBOutlet private weak var takeFreeChallengeButton: UIButton!
-    
-    @IBOutlet private weak var signInButton: UIButton!
-    
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var playPauseButton: UIButton!
@@ -38,10 +33,7 @@ class VideoPlayerVC: UIViewController {
     
     var timeObserver: Any?
     
-    
-    
-    
-    let videoArr = ["StarVideo","Video2","Video3","Video4","Video5"]
+//    let videoArr = ["StarVideo","Video2","Video3","Video4","Video5"]
     //    var vimoVideoID = ["898220213","898877471","898220213"]//,"898877471","254597739","898220213"]
     var vimoVideoID = [String]()
     var vimoBaseUrl = "https://vimeo.com/"
@@ -55,11 +47,11 @@ class VideoPlayerVC: UIViewController {
 //        self.playPauseButton.imageView?.tintColor = UIColor.darkGray // Change UIColor.red to your desired tint color
         // Change the tint color of the progress view
         //progressView.progressTintColor = UIColor.darkGray
-        progressView.layer.sublayers?[1].backgroundColor = UIColor.gray.cgColor
+        progressView.layer.sublayers?[1].backgroundColor = UIColor.darkGray.cgColor
         // Change the progress color of the progress view
         progressView.progressTintColor = Colors.appViewBackgroundColor
 
-        self.videoListTblView.isHidden = true
+        //self.videoListTblView.isHidden = true
         self.vimoVideoID.removeAll()
         self.vimoVideoID.append(courseVideoId)
         
@@ -71,7 +63,7 @@ class VideoPlayerVC: UIViewController {
         //  setupVideo(videoPath:path)
         setupEvents()
         
-        self.videoListTblView.register(UINib(nibName: "VideoThunbListTblCell", bundle: .main), forCellReuseIdentifier: "VideoThunbListTblCell")
+       // self.videoListTblView.register(UINib(nibName: "VideoThunbListTblCell", bundle: .main), forCellReuseIdentifier: "VideoThunbListTblCell")
         
         
     }
@@ -125,7 +117,7 @@ class VideoPlayerVC: UIViewController {
                     // This is used for creating video thumbnail
                      if let url = vid.thumbnailURL[.qualityBase] {
                      self.vimoImageView.contentMode = .scaleAspectFill
-                     self.vimoImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "Image"))
+                     self.vimoImageView.sd_setImage(with: url)
                      }
                     
                     self.videoURL = vid.videoURL[.quality1080p]
@@ -162,12 +154,12 @@ class VideoPlayerVC: UIViewController {
         if player?.rate == 0 {
               // Video is paused, resume playback
               player?.play()
-              playPauseButton.setTitle("Pause", for: .normal)
+              playPauseButton.setTitle("", for: .normal)
             playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
           } else {
               // Video is playing, pause playback
               player?.pause()
-              playPauseButton.setTitle("Play", for: .normal)
+              playPauseButton.setTitle("", for: .normal)
               playPauseButton.setImage(UIImage(named: "play"), for: .normal)
 
           }

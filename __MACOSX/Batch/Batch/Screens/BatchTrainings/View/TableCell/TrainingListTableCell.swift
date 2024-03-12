@@ -9,9 +9,9 @@ import UIKit
 
 class TrainingListTableCell: UITableViewCell {
     
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblMints: UILabel!
-    @IBOutlet weak var lblKalori: UILabel!
+    @IBOutlet weak var lblTitle: BatchMedium18Black!
+    @IBOutlet weak var lblMints: BatchLabelMedium18DarkGray!
+    @IBOutlet weak var lblKalori: BatchLabelMedium18DarkGray!
     
     @IBOutlet weak var backgrounView: UIView!
     
