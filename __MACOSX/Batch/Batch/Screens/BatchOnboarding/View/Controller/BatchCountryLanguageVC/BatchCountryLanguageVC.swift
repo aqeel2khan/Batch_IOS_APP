@@ -13,7 +13,6 @@ class Country {
 }
 
 class BatchCountryLanguageVC: UIViewController {
-    
     @IBOutlet weak var CountryBackView: UIStackView!
     @IBOutlet weak var languageBackView: UIView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
@@ -26,26 +25,11 @@ class BatchCountryLanguageVC: UIViewController {
     
     @IBOutlet weak var bottomBackView: UIView!
     
-    //    var selectedCountry : [Int] = []
-    var selectedCountry : [String] = []
-    //var selectedCountryName: String?
+//    var selectedCountry : [String] = []
     var selectedCountryName = ""
-    
-    
-    //    var countryListData = [String:CountryListValue]()
     
     var list = [Country]()
     var dupList = [Country]()
-    
-    
-    //    var countryName = [String]()
-    //    var countryImage = [String]()
-    //    var callApiService = HttpUtility1.shared
-    
-    // MARK: - Properties
-    private let cornerRadius: CGFloat = 24
-    var selectedIndex = 0
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +41,7 @@ class BatchCountryLanguageVC: UIViewController {
         
         configuration()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        // checkNetwork ()
-    }
-    
+ 
     //MARK:-  check internet Connection
     
     //    func checkNetwork () {
@@ -90,66 +70,49 @@ class BatchCountryLanguageVC: UIViewController {
     //
     //    }
     
-    
-    
-    
-    
     @IBAction func segmentControlValueChanged(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0
-        {
-            selectedIndex = 0
+        if sender.selectedSegmentIndex == 0 {
             self.CountryBackView.isHidden = false
             self.languageBackView.isHidden = true
         }
-        else
-        {
-            selectedIndex = 1
+        else {
             self.CountryBackView.isHidden = true
             self.languageBackView.isHidden = false
-        }
-        DispatchQueue.main.async {
         }
     }
     
     @IBAction func onTapNextBtn(_ sender: Any) {
+        change(selectedLanguage: selectedCountryName)
         
-        if selectedCountryName != ""
-        {
-            UserDefaults.standard.set(selectedCountryName, forKey: "isCountrySelected")
-            // Synchronize UserDefaults to make sure the value is saved immediately
-            UserDefaults.standard.synchronize()
-            
-            let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
-            tabbarVC.modalPresentationStyle = .fullScreen
-            present(tabbarVC, animated: true, completion: nil)
-        }
-        else
-        {
-            showAlert(message: "Please select country")
-        }
-        
+        let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
+        tabbarVC.modalPresentationStyle = .fullScreen
+        present(tabbarVC, animated: true, completion: nil)
     }
+    
+    func change(selectedLanguage: String){
+        L102Language.setAppleLAnguageTo(lang: selectedLanguage)
+        //        if L102Language.currentAppleLanguage() == "en" {
+        //            UIView.appearance().semanticContentAttribute = .forceLeftToRight
+        //        } else {
+        //            UIView.appearance().semanticContentAttribute = .forceRightToLeft
+        //        }
+        Bundle.setLanguage(selectedLanguage)
+    }
+    
     
     @IBAction func onTapBackBtn(_ sender: Any) {
         dismiss(animated: true)
     }
     
     @IBAction func onTapEnglishLBtn(_ sender: UIButton) {
-        
         sender.isSelected = !sender.isSelected
-        
-        if sender.isSelected
-        {
+        if sender.isSelected {
             self.englishL.backgroundColor = Colors.appViewPinkBackgroundColor
         }
-        else
-        {
+        else {
             self.englishL.backgroundColor = Colors.appViewBackgroundColor
         }
     }
-    
-    
-    
     
     func configuration() {
         for code in NSLocale.isoCountryCodes  {
@@ -176,12 +139,9 @@ class BatchCountryLanguageVC: UIViewController {
         self.dupList = self.list
         self.countryTblView.reloadData()
     }
-    
-    
 }
 
 extension BatchCountryLanguageVC : UISearchBarDelegate {
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text =  ""
         searchBar.endEditing(true)
@@ -199,52 +159,28 @@ extension BatchCountryLanguageVC : UISearchBarDelegate {
     }
 }
 
-
-extension BatchCountryLanguageVC : UITableViewDelegate, UITableViewDataSource
-{
+extension BatchCountryLanguageVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dupList.count//countryName.count
+        return dupList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryListTableCell", for: indexPath) as! CountryListTableCell
-        
+        cell.configure(selected: selectedCountryName == dupList[indexPath.row].name )
+
         let info = dupList[indexPath.row]
-        if info.name != "Israel"
-        {
+        if info.name != "Israel" {
             cell.lblCountryName.text = "\(info.flag!) \(info.name!)"
         }
-        
-        cell.backGroundUIView.backgroundColor = Colors.appViewBackgroundColor
-        if info.name != ""
-        {
-            if self.selectedCountry.contains(info.name!) {
-                cell.backGroundUIView.backgroundColor = Colors.appViewPinkBackgroundColor
-                
-                selectedCountryName = info.name!
-                //1
-                UserDefaults.standard.set(selectedCountryName, forKey: "country")
-                // Synchronize UserDefaults to make sure the value is saved immediately
-                UserDefaults.standard.synchronize()
-                
-            }
-        }
-        
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50//UIScreen.main.bounds.height
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if self.selectedCountry.count == 0 {
-            self.selectedCountry.append(self.list[indexPath.row].name ?? "")
-        } else {
-            self.selectedCountry.removeAll()
-            self.selectedCountry.append(self.list[indexPath.row].name ?? "")
-        }
-        // Reload table here
-        self.countryTblView.reloadData()
-
+        return 50
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedCountryName = dupList[indexPath.row].name ?? ""
+        countryTblView.reloadData()
+    }
 }

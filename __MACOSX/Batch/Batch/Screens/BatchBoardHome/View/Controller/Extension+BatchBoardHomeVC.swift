@@ -40,7 +40,8 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             cell.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
             
             cell.lblTitle.text = info.courseName
-            cell.woDayCountLbl.text = "\(info.coursePrice ?? "")"
+            cell.woDayCountLbl.text = "from \(CURRENCY) " + (info.coursePrice?.removeDecimalValue() ?? "")
+
             cell.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
             cell.workOutTypeBtn.setTitle("\(info.workoutType?[0].workoutdetail?.workoutType ?? "")", for: .normal)
             cell.coachNameLbl.text = info.coachDetail?.name ?? ""
@@ -49,7 +50,20 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
         else if collectionView == motivatorsCollView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BWOMotivatorsListCollCell", for: indexPath)  as! BWOMotivatorsListCollCell
             let data = coachListDataArr[indexPath.item]
-            cell.typeLbl.text = data.website ?? ""
+            
+            cell.typeLbl.text = ""
+            var workOutType: [String] = []
+            for i in 0..<(data.workoutType?.count ?? 0) {
+                let type = data.workoutType?[i].workoutdetail?.workoutType ?? ""
+                workOutType.append(type)
+                if data.workoutType?.count == 1 {
+                    cell.typeLbl.text = workOutType.joined(separator: ", ")
+                }
+                else if (data.workoutType?.count == 2) {
+                    cell.typeLbl.text = workOutType.joined(separator: ", ")
+                }
+            }
+            
             cell.nameLbl.text = data.name ?? ""
             let fileUrl = URL(string: BaseUrl.imageBaseUrl + (data.profilePhotoPath ?? ""))
             cell.imageMotivatorUser.cornerRadius = 75
@@ -149,7 +163,7 @@ extension BatchBoardHomeVC : UICollectionViewDelegateFlowLayout {
         let screenSize              = collectionView.frame.size //UIScreen.main.bounds
         //        let screenSize              = UIScreen.main.bounds
         let screenWidth             = screenSize.width
-        let cellSquareSize: CGFloat = screenWidth
+        let cellSquareSize: CGFloat = screenWidth - 60
         
         if collectionView == woBatchCollView {
             return CGSize.init(width: cellSquareSize, height: 240)
@@ -158,10 +172,10 @@ extension BatchBoardHomeVC : UICollectionViewDelegateFlowLayout {
             return CGSize.init(width: (cellSquareSize / 2) - 20, height: 220)
         }
         else if collectionView == mealBatchCollView {
-            return CGSize.init(width: cellSquareSize, height: 220)
+            return CGSize.init(width: cellSquareSize, height: 240)
         }
         else if collectionView == topRatedMealCollView {
-            return CGSize.init(width: cellSquareSize, height: 220)
+            return CGSize.init(width: cellSquareSize, height: 240)
         }
         else {
             return CGSize.init(width: cellSquareSize, height: 120)
@@ -172,7 +186,7 @@ extension BatchBoardHomeVC : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: CGFloat(), right: 0)
+        return UIEdgeInsets(top: 0, left: 15, bottom: CGFloat(), right: 0)
     }
     
     @objc(collectionView:layout:minimumLineSpacingForSectionAtIndex:)

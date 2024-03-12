@@ -15,6 +15,8 @@ class VimoPlayerVC: UIViewController {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var selectedVideoViewTbl: UITableView!
     var courseDurationExerciseArr = [CourseDurationExercise]()
+    var courseDetail: CourseDetail!
+    var todayWorkoutsInfo : TodayWorkoutsElement!
 
     var refreshControl: UIRefreshControl!
     var completion: (()->Void)? = nil
@@ -28,8 +30,12 @@ class VimoPlayerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLbl.text = titleText
-        dayCountLbl.text = "Day : " + dayNumberText
+        titleLbl.text = courseDetail.courseName
+        if dayNumberText.contains("Day") {
+            dayCountLbl.text = dayNumberText.substring(fromIndex: 4)
+        } else {
+            dayCountLbl.text = "Day : " + dayNumberText
+        }
                 
         print("OUR FINAL VIDEO URL")
         print(viemoVideoArr)
@@ -52,6 +58,7 @@ class VimoPlayerVC: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         ASVideoPlayerController.sharedVideoPlayer.currentLayer?.player?.pause()
+        ASVideoPlayerController.sharedVideoPlayer.videoLayers.layers.removeAll()
     }
     
     //1
@@ -85,6 +92,8 @@ class VimoPlayerVC: UIViewController {
                     let vc = BWorkOutVideoInfoPopUp.instantiate(fromAppStoryboard: .batchTrainings)
                     vc.courseDurationExercise = self.courseDurationExerciseArr[indexPath.row]
                     vc.dayNumberText = self.dayNumberText
+                    vc.courseDetail = courseDetail
+                    vc.todayWorkoutsInfo = todayWorkoutsInfo
                     vc.modalPresentationStyle = .overFullScreen
                     vc.modalTransitionStyle = .coverVertical
                     self.present(vc, animated: true)

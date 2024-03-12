@@ -118,4 +118,22 @@ struct BMealViewModel {
             onError(error)
         }
     }
+    
+    func getDishReviewList(requestUrl: String, onSuccess:@escaping(DishReviewListResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        let bMealResource = BMealResource()
+        bMealResource.dishReviewList(urlStr: requestUrl) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
+    
+    func postReviewForDish(urlStr:String, request: PostReviewRequest, onSuccess:@escaping(PostReviewResponse) -> Void, onError:@escaping(BatchError) -> Void) {
+        let bMealResource = BMealResource()
+        bMealResource.postReviewForDish(urlStr: urlStr, request: request) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
 }

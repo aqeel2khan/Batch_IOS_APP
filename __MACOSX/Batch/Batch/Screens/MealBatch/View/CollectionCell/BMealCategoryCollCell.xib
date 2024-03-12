@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,17 +12,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BMealCategoryCollCell" id="gTV-IL-0wX" customClass="BMealCategoryCollCell" customModule="Batch" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="138" height="40"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="138" height="40"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nrz-2q-xLk">
-                        <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="138" height="40"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmK-k8-RnR" customClass="BatchLabelSubTitleBlack" customModule="Batch" customModuleProvider="target">
-                                <rect key="frame" x="20" y="5" width="98" height="40"/>
+                                <rect key="frame" x="20" y="0.0" width="98" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="zQ7-Cb-yB0"/>
@@ -39,15 +39,15 @@
                         </subviews>
                         <color key="backgroundColor" name="AppViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="1vI-DR-PzF"/>
-                            <constraint firstAttribute="bottom" secondItem="lmK-k8-RnR" secondAttribute="bottom" constant="5" id="MVZ-kM-uE3"/>
-                            <constraint firstItem="lmK-k8-RnR" firstAttribute="top" secondItem="nrz-2q-xLk" secondAttribute="top" constant="5" id="Q6v-os-wuI"/>
+                            <constraint firstAttribute="height" constant="40" id="1vI-DR-PzF"/>
+                            <constraint firstAttribute="bottom" secondItem="lmK-k8-RnR" secondAttribute="bottom" id="MVZ-kM-uE3"/>
+                            <constraint firstItem="lmK-k8-RnR" firstAttribute="top" secondItem="nrz-2q-xLk" secondAttribute="top" id="Q6v-os-wuI"/>
                             <constraint firstItem="lmK-k8-RnR" firstAttribute="leading" secondItem="nrz-2q-xLk" secondAttribute="leading" constant="20" id="R56-h9-cnF"/>
                             <constraint firstAttribute="trailing" secondItem="lmK-k8-RnR" secondAttribute="trailing" constant="20" id="fu7-AD-TUt"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="25"/>
+                                <real key="value" value="20"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -57,7 +57,6 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="nrz-2q-xLk" secondAttribute="trailing" id="Euj-3W-LtN"/>
                 <constraint firstItem="nrz-2q-xLk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Pfn-DV-Tg9"/>
-                <constraint firstAttribute="bottom" secondItem="nrz-2q-xLk" secondAttribute="bottom" id="iHi-wU-rCz"/>
                 <constraint firstItem="nrz-2q-xLk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="nOa-nI-aYB"/>
             </constraints>
             <size key="customSize" width="138" height="50"/>

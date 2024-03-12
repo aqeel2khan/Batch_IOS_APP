@@ -30,6 +30,7 @@ struct SubscribedMeals: Codable {
     let createdAt, updatedAt: String?
     let avgCalPerDay: String?
     let mealCount: Int?
+    let startDate, endDate, subscribedStatus: String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -46,5 +47,8 @@ struct SubscribedMeals: Codable {
         case updatedAt = "updated_at"
         case avgCalPerDay = "avg_cal_per_day"
         case mealCount = "meal_count"
+        case startDate = "start_date"
+        case endDate = "end_date"
+        case subscribedStatus = "subscribed_status"
     }
 }

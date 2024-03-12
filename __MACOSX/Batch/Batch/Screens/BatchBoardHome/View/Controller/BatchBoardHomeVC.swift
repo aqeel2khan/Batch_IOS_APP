@@ -59,7 +59,6 @@ class BatchBoardHomeVC: UIViewController {
     }
     
     // MARK: - UI
-    
     private func setupNavigationBar() {
         customNavigationBar.titleFirstLbl.text = CustomNavTitle.batchBoardHomeVCNavTitle
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
@@ -84,7 +83,6 @@ class BatchBoardHomeVC: UIViewController {
     }
     
     // MARK: - UI Action
-    
     @IBAction func onTapShowAllBtn(_ sender: UIButton) {
         switch sender.tag {
         case 152:
@@ -169,12 +167,11 @@ extension BatchBoardHomeVC {
         let urlStr = API.mealList
         bMealViewModel.mealList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data?.data?.count != 0 {
-                self.mealListData.removeAll()
-                self.mealListData = response.data?.data ?? []
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.mealListData.removeAll()
+                    self.mealListData = response.data?.data ?? []
                     self.mealBatchCollView.reloadData()
-                    self.topRatedMealCollView.reloadData()
                 }
             }else{
                 DispatchQueue.main.async {
@@ -197,11 +194,10 @@ extension BatchBoardHomeVC {
         let urlStr = API.topRatedMealList
         bMealViewModel.mealList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data?.data?.count != 0 {
-                self.topRatedMealListData.removeAll()
-                self.topRatedMealListData = response.data?.data ?? []
                 DispatchQueue.main.async {
                     hideLoading()
-                    self.mealBatchCollView.reloadData()
+                    self.topRatedMealListData.removeAll()
+                    self.topRatedMealListData = response.data?.data ?? []
                     self.topRatedMealCollView.reloadData()
                 }
             }else{
@@ -219,9 +215,11 @@ extension BatchBoardHomeVC {
 
 extension BatchBoardHomeVC {
     func showImagesOnSrollView(array_Images : [String]){
-        bannerSliderShow.slideshowInterval = 2.0
+        bannerSliderShow.slideshowInterval = 0
         bannerSliderShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .bottom)
+
         bannerSliderShow.contentScaleMode = .scaleAspectFill
+        bannerSliderShow.scrollView.isPagingEnabled = true
         bannerSliderShow.circular = true
         bannerSliderShow.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
         bannerSliderShow.scrollView.backgroundColor = UIColor(red: 225 / 255.0,green: 225 / 255.0,blue: 225 / 255.0,alpha: CGFloat(1.0))
@@ -230,11 +228,11 @@ extension BatchBoardHomeVC {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
         bannerSliderShow.addGestureRecognizer(gestureRecognizer)
         
-        let pageControl = UIPageControl()
-        pageControl.currentPageIndicatorTintColor = UIColor.white
-        pageControl.pageIndicatorTintColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.6)
-        pageControl.isEnabled = true
-        bannerSliderShow.pageIndicator = pageControl
+//        let pageControl = UIPageControl()
+//        pageControl.currentPageIndicatorTintColor = UIColor.black
+//        pageControl.pageIndicatorTintColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.6)
+//        pageControl.isEnabled = true
+//        bannerSliderShow.pageIndicator = pageControl
         //        bannerSliderShow.pageIndicator = LabelPageIndicator()  ////it will show like 1/8,2/8,....
         
         //        var arr = [KingfisherSource]()

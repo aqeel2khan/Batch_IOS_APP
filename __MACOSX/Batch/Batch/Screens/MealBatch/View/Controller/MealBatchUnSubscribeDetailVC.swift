@@ -40,15 +40,14 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         titleLbl.text = mealData.name
-        priceLbl.text = "from \(CURRENCY) " + " \(mealData.price?.removeDecimalValue() ?? "")" 
+        titleLbl.font = FontSize.mediumSize20
+        let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: "from", value: " \(CURRENCY) \(mealData.price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+        priceLbl.attributedText = attributedPriceString
         descLbl.text = mealData.description
+        descLbl.font = FontSize.regularSize14
         durationLbl.text = (mealData.duration ?? "") + " weeks"
-        
         self.setUpTagCollView()
-       
-        
         self.getMealDetails()
     }
     
@@ -157,9 +156,17 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
               
                 DispatchQueue.main.async {
                     hideLoading()
-                    let duration : Double = Double(response.data?.data?.duration ?? "0")!
-                    let price : Double = Double(response.data?.data?.price ?? "0")!
-                    self.grandTotalLbl.text = "$" + "\(duration * price)"
+                    if let durationString = response.data?.data?.duration,
+                       let duration = Double(durationString),
+                       let priceString = response.data?.data?.price,
+                       let price = Double(priceString) {
+                        // Use duration and price safely
+                        let grandTotal = duration * price
+                        self.grandTotalLbl.text = "KD" + String(format: "%.2f", grandTotal)
+                    } else {
+                        // Handle the case where either duration or price is nil or cannot be converted to Double
+                        self.grandTotalLbl.text = "KD 0.00"
+                    }
                     self.tagCollView.reloadData()
                     self.mealCategoryCollView.reloadData()
                     
@@ -217,7 +224,5 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
                 hideLoading()
             }
         }
-
     }
-    
 }

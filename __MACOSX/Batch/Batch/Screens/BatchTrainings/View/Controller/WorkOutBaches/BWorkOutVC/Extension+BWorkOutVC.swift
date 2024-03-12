@@ -10,15 +10,15 @@ import UIKit
 import SDWebImage
 
 extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (self.segmentControl.selectedSegmentIndex == 0)
         {
-            return self.courseListDataArr.count//courseListData.count
+            return self.courseListDataArr.count
         }
         else
         {
             return self.coachListDataArr.count
-            //motivatorListData.count
         }
     }
     
@@ -37,16 +37,12 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             cell.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
             
             cell.lblTitle.text = info.courseName
-            //            cell.woDayCountLbl.text = "\(info.perDayWorkout ?? "0")/\(info.duration ?? "0") days"
-            cell.woDayCountLbl.text = "\(info.coursePrice ?? "")"
+            
+            cell.woDayCountLbl.text = "from \(CURRENCY) \(info.coursePrice?.removeDecimalValue() ?? "")"
             cell.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
             let workType = info.workoutType?[0].workoutdetail?.workoutType
-            
             cell.workOutTypeBtn.setTitle("\(workType ?? "")", for: .normal)
-            
             cell.coachNameLbl.text = info.coachDetail?.name ?? ""
-            
-            //            cell.goalLblBtn.setTitle("\(info.duration ?? "")", for: .normal)
             
             return cell
         }
@@ -54,7 +50,20 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
         {
             let cell = collectionView.dequeue(BWOMotivatorsListCollCell.self, indexPath)
             let data = coachListDataArr[indexPath.item]
-            cell.typeLbl.text = data.website ?? ""
+            
+            cell.typeLbl.text = ""
+            var workOutType: [String] = []
+            for i in 0..<(data.workoutType?.count ?? 0) {
+                let type = data.workoutType?[i].workoutdetail?.workoutType ?? ""
+                workOutType.append(type)
+                if data.workoutType?.count == 1 {
+                    cell.typeLbl.text = workOutType.joined(separator: ", ")
+                }
+                else if (data.workoutType?.count == 2) {
+                    cell.typeLbl.text = workOutType.joined(separator: ", ")
+                }
+            }
+            
             cell.nameLbl.text = data.name ?? ""
             let fileUrl = URL(string: BaseUrl.imageBaseUrl + (data.profilePhotoPath ?? ""))
             cell.imageMotivatorUser.cornerRadius = 75
@@ -64,9 +73,7 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if (self.segmentControl.selectedSegmentIndex == 0)
-        {
+        if (self.segmentControl.selectedSegmentIndex == 0) {
             let vc = BWorkOutDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
@@ -74,8 +81,6 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             vc.woDetailInfo = [info]
             vc.isCommingFrom = "workoutbatches"
             
-//            vc.newArray.append("\(String(describing: info.duration ?? "" )) min")
-//            vc.newImage.append(UIImage(named: "clock-circle-black")!)
             vc.newArray.append("\(String(describing: info.courseLevel?.levelName ?? "" ))")
             vc.newImage.append(UIImage(named: "barchart-black")!)
             
@@ -93,34 +98,38 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             
             self.present(vc, animated: true)
         }
-        else
-        {
+        else {
             let vc = BWorkOutMotivatorDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
             vc.woCoachDetailInfo = [self.coachListDataArr[indexPath.item]]
-            // vc.isCommingFrom = "motivtors"
-            
-            
             self.present(vc, animated: true)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
-        UIView.animate(
-            withDuration: 0.5,
-            delay: 0.05 * Double(indexPath.row),
-            options: [.curveEaseInOut],
-            animations: {
-                cell.transform = CGAffineTransform(translationX: 0, y: 0)
-            })
+        
+        if (self.lastContentOffset > collectionView.contentOffset.y) {
+            // move up
+        }
+        else if (self.lastContentOffset < collectionView.contentOffset.y) {
+            // move down
+            cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
+            UIView.animate(
+                withDuration: 0.5,
+                delay: 0.05 * Double(indexPath.row),
+                options: [.curveEaseInOut],
+                animations: {
+                    cell.transform = CGAffineTransform(translationX: 0, y: 0)
+                })
+        }
+        
+        // update the new position acquired
+        self.lastContentOffset = collectionView.contentOffset.y
     }
-    
 }
 
-extension BWorkOutVC : UICollectionViewDelegateFlowLayout
-{
+extension BWorkOutVC : UICollectionViewDelegateFlowLayout {
     @objc(collectionView:layout:sizeForItemAtIndexPath:)
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

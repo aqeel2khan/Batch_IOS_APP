@@ -87,8 +87,7 @@ struct DashboardWOList: Codable {
     let subtotal, discount, tax, total: String?
     let paymentType, transactionID, paymentStatus, status: String?
     let endDate: String?
-//    let createdAt: CreatedAt?
-//let updatedAt: AtedAt?
+    let createdAt, updatedAt: String?
     let startDate: String?
     let courseDetail: CourseDetail?
     let todayWorkouts: TodayWorkoutsElement?
@@ -104,8 +103,8 @@ struct DashboardWOList: Codable {
         case paymentStatus = "payment_status"
         case status
         case endDate = "end_date"
-//        case createdAt = "created_at"
-//        case updatedAt = "updated_at"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
         case startDate = "start_date"
         case todayWorkouts = "today_workouts"
         case courseDetail = "course_detail"

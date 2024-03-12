@@ -28,14 +28,10 @@ struct UserDefaultUtility
         return UserDefaults.standard.bool(forKey: "LOGGED_IN")
     }
     
-    func saveCountryName(nameStr: String)
-    {
-        UserDefaults.standard.set(nameStr, forKey: "country")
+    func saveCountryName(nameStr: String) {
+        UserDefaults.standard.set(nameStr, forKey: USER_DEFAULTS_KEYS.SELECTED_COUNTRY)
     }
-    static func isSelectCountry() -> Bool{
-        return UserDefaults.standard.bool(forKey: "country")
-    }
-
+  
     func getUserId() -> Int {
         return UserDefaults.standard.value(forKey: "userId") as! Int
     }

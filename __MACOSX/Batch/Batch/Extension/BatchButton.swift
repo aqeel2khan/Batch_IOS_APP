@@ -89,3 +89,31 @@ class BatchButtonMedium12White: UIButton {
     }
     
 }
+
+class BatchButtonMedium14White: UIButton {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        setUpView()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setUpView()
+    }
+    
+    func setUpView() {
+        //self.titleLabel?.text = text?.localized()
+        self.titleLabel?.font = FontSize.mediumSize14
+        self.titleLabel?.textColor = .white
+        
+    }
+    
+}

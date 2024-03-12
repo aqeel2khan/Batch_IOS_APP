@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -45,7 +45,7 @@
                                 <rect key="frame" x="0.0" y="100" width="393" height="752"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1D2-Mv-P8D">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="715"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="665"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOZ-1O-kXX" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="10.000000000000002" width="353" height="28.666666666666671"/>
@@ -60,7 +60,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ps6-Ny-SES">
-                                                <rect key="frame" x="20" y="93" width="353" height="602"/>
+                                                <rect key="frame" x="20" y="93" width="353" height="552"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Di-QX-Hz3">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
@@ -131,55 +131,8 @@
                                                             <constraint firstItem="tvG-fW-zcA" firstAttribute="top" secondItem="WD9-qa-qOx" secondAttribute="top" id="t51-l3-jEp"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57b-07-hyL">
-                                                        <rect key="frame" x="0.0" y="132" width="353" height="40"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6d-T7-9cx">
-                                                                <rect key="frame" x="0.0" y="7.6666666666666856" width="25" height="25"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="25" id="1ws-Qb-hVo"/>
-                                                                    <constraint firstAttribute="width" constant="25" id="tsq-V2-x9T"/>
-                                                                </constraints>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="checkbox"/>
-                                                                <state key="selected" image="checkbox_fill"/>
-                                                                <connections>
-                                                                    <action selector="onTapCheckBoxBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PdP-l3-6WN"/>
-                                                                </connections>
-                                                            </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTS-o3-62C">
-                                                                <rect key="frame" x="35" y="11.666666666666686" width="308" height="17"/>
-                                                                <attributedString key="attributedText">
-                                                                    <fragment content="I agree to the company ">
-                                                                        <attributes>
-                                                                            <color key="NSColor" name="AppLabelLightGrayColor"/>
-                                                                            <font key="NSFont" metaFont="system" size="14"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                    <fragment content="Terms &amp; Conditions">
-                                                                        <attributes>
-                                                                            <color key="NSColor" red="0.31764705882352939" green="0.40000000000000002" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <font key="NSFont" metaFont="system" size="14"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstItem="NTS-o3-62C" firstAttribute="leading" secondItem="V6d-T7-9cx" secondAttribute="trailing" constant="10" id="0Ut-8s-4Wc"/>
-                                                            <constraint firstAttribute="trailing" secondItem="NTS-o3-62C" secondAttribute="trailing" constant="10" id="DWN-Wz-LBQ"/>
-                                                            <constraint firstItem="NTS-o3-62C" firstAttribute="centerY" secondItem="V6d-T7-9cx" secondAttribute="centerY" id="IyK-PC-N4F"/>
-                                                            <constraint firstItem="V6d-T7-9cx" firstAttribute="leading" secondItem="57b-07-hyL" secondAttribute="leading" id="MhE-tE-cA5"/>
-                                                            <constraint firstItem="V6d-T7-9cx" firstAttribute="centerY" secondItem="57b-07-hyL" secondAttribute="centerY" id="eRv-gB-2pH"/>
-                                                            <constraint firstAttribute="height" constant="40" id="iBs-YV-aBg"/>
-                                                        </constraints>
-                                                    </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XdZ-cl-Dus" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="182" width="353" height="56"/>
+                                                        <rect key="frame" x="0.0" y="132" width="353" height="56"/>
                                                         <color key="backgroundColor" name="AppThemeButtonColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="vh7-ob-JAC"/>
@@ -199,7 +152,7 @@
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bau-GT-0PK">
-                                                        <rect key="frame" x="0.0" y="248" width="353" height="40"/>
+                                                        <rect key="frame" x="0.0" y="198" width="353" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7X-OQ-2OD">
                                                                 <rect key="frame" x="54" y="5" width="245" height="35"/>
@@ -237,7 +190,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7I-TQ-TW5">
-                                                        <rect key="frame" x="0.0" y="298" width="353" height="40"/>
+                                                        <rect key="frame" x="0.0" y="248" width="353" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCb-mL-f2z">
                                                                 <rect key="frame" x="0.0" y="19.666666666666686" width="353" height="1"/>
@@ -268,7 +221,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ad-zg-q7B" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="348" width="353" height="56"/>
+                                                        <rect key="frame" x="0.0" y="298" width="353" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="J6L-3a-IP5"/>
                                                         </constraints>
@@ -296,7 +249,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXb-5W-R8W" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="414" width="353" height="56"/>
+                                                        <rect key="frame" x="0.0" y="364" width="353" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="tqF-03-TeS"/>
                                                         </constraints>
@@ -321,7 +274,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQD-go-G9W" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="480" width="353" height="56"/>
+                                                        <rect key="frame" x="0.0" y="430" width="353" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="hiH-c7-oIy"/>
                                                         </constraints>
@@ -346,7 +299,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qg1-9a-SxT" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="546" width="353" height="56"/>
+                                                        <rect key="frame" x="0.0" y="496" width="353" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="U8e-si-Nvp"/>
                                                         </constraints>
@@ -422,8 +375,6 @@
                         <outlet property="btnGoogleLogin" destination="8Ad-zg-q7B" id="Fr5-Ae-CX4"/>
                         <outlet property="btnOutlookLogin" destination="FXb-5W-R8W" id="QTG-Nh-eU7"/>
                         <outlet property="btnSignIn" destination="XdZ-cl-Dus" id="T0C-3o-EpY"/>
-                        <outlet property="checkBoxBtn" destination="V6d-T7-9cx" id="4TG-wn-cUf"/>
-                        <outlet property="lblTermCondition" destination="NTS-o3-62C" id="FtM-Np-st2"/>
                         <outlet property="passwordTextField" destination="NXf-cc-L3X" id="ldt-cx-Gnv"/>
                         <outlet property="userEmailTextField" destination="7Di-QX-Hz3" id="v85-IT-nSz"/>
                     </connections>
@@ -819,8 +770,6 @@
         <image name="G_logo" width="20.333333969116211" height="20"/>
         <image name="Microsoft_Outlook-Logo" width="20.333333969116211" height="20"/>
         <image name="back" width="32" height="32"/>
-        <image name="checkbox" width="21.666666030883789" height="21.666666030883789"/>
-        <image name="checkbox_fill" width="20" height="20"/>
         <image name="eyeclose" width="16" height="16"/>
         <image name="eyeopen" width="16" height="16"/>
         <image name="female" width="40.333332061767578" height="40"/>
@@ -833,9 +782,6 @@
         </namedColor>
         <namedColor name="AppLabelDarkGrayColor">
             <color red="0.35686274509803922" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="AppLabelLightGrayColor">
-            <color red="0.62352941176470589" green="0.61176470588235299" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="AppThemeButtonColor">
             <color red="0.31764705882352939" green="0.40000000000000002" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

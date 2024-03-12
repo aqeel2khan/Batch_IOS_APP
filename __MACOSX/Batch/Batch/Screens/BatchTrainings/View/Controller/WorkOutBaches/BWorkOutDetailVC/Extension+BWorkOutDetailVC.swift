@@ -94,6 +94,15 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
                 cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
                 cell.bottomStackView.isHidden = false
             }
+            
+            if indexPath.row == (todayWorkoutsInfo.row ?? 0) - 1 {
+                cell.dayLbl.backgroundColor  = Colors.appThemeButtonColor
+                cell.dayLbl.textColor = .white
+            } else {
+                cell.dayLbl.backgroundColor  = .clear
+                cell.dayLbl.textColor = .black
+            }
+            
         } else {
             let info = totalCourseArr[indexPath.row]
             if info.status == 0 {
@@ -148,6 +157,7 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
                     hideLoading()
                     if self.vimoVideoURLList.count != 0 {
                         let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
+                        vc.courseDetail = self.courseDetailsInfo
                         vc.viemoVideoArr = self.vimoVideoURLList
                         
                         if self.isCommingFrom == "dashboard" {
@@ -155,7 +165,7 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
                         } else {
                             vc.dayNumberText = "\(indexPath.row + 1) / \(self.totalCourseArr.count)"
                         }
-                        
+                        vc.todayWorkoutsInfo = self.todayWorkoutsInfo
                         vc.courseDurationExerciseArr = self.totalCourseDashboardArr[indexPath.row].courseDurationExercise!
                         vc.titleText = self.self.totalCourseDashboardArr[indexPath.row].dayName ?? ""
                         vc.modalPresentationStyle = .overFullScreen

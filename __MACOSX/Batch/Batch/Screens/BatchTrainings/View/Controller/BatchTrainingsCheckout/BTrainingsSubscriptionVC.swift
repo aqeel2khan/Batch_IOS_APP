@@ -10,7 +10,7 @@ import UIKit
 class BTrainingsSubscriptionVC: UIViewController {
     
     @IBOutlet weak var imgCourse: UIImageView!
-    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblTitle: BatchLabelTitleBlack!
     @IBOutlet weak var woPriceLbl: UILabel!
     @IBOutlet weak var coachProfileImg: UIImageView!
     @IBOutlet weak var coachNameLbl: UILabel!
@@ -25,28 +25,18 @@ class BTrainingsSubscriptionVC: UIViewController {
     @IBOutlet weak var addPromoBtn: BatchButton!
     
     var selectedSubscriptionInfo = [CourseDataList]()
-//    var selectedMotivatorSubscriptionInfo : motivatorCoachListDataList?
     var selectedMotivatorSubscriptionInfo : CourseDataList?
-
+    var courseId : Int!
+    var discountValue : Double = 0.0
+    
     var isCommingFrom = ""
     var totalOrderAmount : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-//        if isCommingFrom == "workoutbatches"
-//        {
-//            self.setUpViewData()
-//        }
-      
-            self.setUpViewData()
-        
+        self.setUpViewData()
         // Inside the class or part of the code where you want to observe the notification
         NotificationCenter.default.addObserver(self, selector: #selector(handleCustomNotification(_:)), name: .myCustomNotification, object: nil)
-        
-    }
-    override func viewWillAppear(_ animated: Bool) {
     }
     
     @objc func handleCustomNotification(_ notification: Notification) {
@@ -62,14 +52,13 @@ class BTrainingsSubscriptionVC: UIViewController {
         }
     }
     
-    
     func setUpViewData() {
         if isCommingFrom == "dashboard" {
             let info = selectedMotivatorSubscriptionInfo
             self.lblTitle.text = "\(info?.courseName ?? "")"
-            self.woPriceLbl.text = "\(info?.coursePrice ?? "")"
+            self.woPriceLbl.text = "from \(CURRENCY) " +  "\(info?.coursePrice ?? "")".removeDecimalValue()
             self.coachNameLbl.text = "\(info?.coachDetail?.name ?? "")"
-            self.grandTotalPriceLbl.text = "$\(info?.coursePrice ?? "")"
+            self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(info?.coursePrice ?? "")"
             self.totalOrderAmount = info?.coursePrice
             self.courseLevelTypeLbl.setTitle("\(info?.courseLevel?.levelName ?? "")", for: .normal)
             let workType = info?.workoutType?[0].workoutdetail?.workoutType
@@ -78,13 +67,15 @@ class BTrainingsSubscriptionVC: UIViewController {
             self.imgCourse.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info?.coachDetail?.profilePhotoPath ?? ""))
             self.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
+            
+            courseId = info?.courseID
         }
         else if isCommingFrom == "workoutbatches" {
             let info = selectedSubscriptionInfo[0]
             self.lblTitle.text = "\(info.courseName ?? "")"
-            self.woPriceLbl.text = "\(info.coursePrice ?? "")"
+            self.woPriceLbl.text = "from \(CURRENCY) " +  "\(info.coursePrice ?? "")".removeDecimalValue()
             self.coachNameLbl.text = "\(info.coachDetail?.name ?? "")"
-            self.grandTotalPriceLbl.text = "$\(info.coursePrice ?? "")"
+            self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(info.coursePrice ?? "")"
             self.totalOrderAmount = info.coursePrice
             self.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
             let workType = info.workoutType?[0].workoutdetail?.workoutType
@@ -93,13 +84,14 @@ class BTrainingsSubscriptionVC: UIViewController {
             self.imgCourse.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info.coachDetail?.profilePhotoPath ?? ""))
             self.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
+            courseId = info.courseID
         }
         else if isCommingFrom == "MotivatorDetailVC" {
             let info = selectedMotivatorSubscriptionInfo
             self.lblTitle.text = "\(info?.courseName ?? "")"
-            self.woPriceLbl.text = "\(info?.coursePrice ?? "")"
+            self.woPriceLbl.text = "from \(CURRENCY) " +  "\(info?.coursePrice ?? "")".removeDecimalValue()
             self.coachNameLbl.text = "\(info?.coachDetail?.name ?? "")"
-            self.grandTotalPriceLbl.text = "$\(info?.coursePrice ?? "")"
+            self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(info?.coursePrice ?? "")"
             self.totalOrderAmount = info?.coursePrice
             self.courseLevelTypeLbl.setTitle("\(info?.courseLevel?.levelName ?? "")", for: .normal)
             let workType = info?.workoutType?[0].workoutdetail?.workoutType
@@ -108,6 +100,7 @@ class BTrainingsSubscriptionVC: UIViewController {
             self.imgCourse.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info?.coachDetail?.profilePhotoPath ?? ""))
             self.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
+            courseId = info?.courseID
         }
         
         self.addPromoBtn.isHidden = UserDefaultUtility.isUserLoggedIn() ? false : true
@@ -130,7 +123,7 @@ class BTrainingsSubscriptionVC: UIViewController {
                let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
                vc.modalPresentationStyle = .overFullScreen
                vc.modalTransitionStyle = .coverVertical
-               vc.promotionPriceValue = 0
+               vc.promotionPriceValue = discountValue
                if isCommingFrom == "workoutbatches" {
                    vc.selectedSubscriptionInfo = [selectedSubscriptionInfo[0]]
                }
@@ -142,7 +135,7 @@ class BTrainingsSubscriptionVC: UIViewController {
            }
             else {
                let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
-               vc.promotionPriceValue = 0
+                vc.promotionPriceValue = discountValue
                if isCommingFrom == "workoutbatches" {
                    vc.selectedSubscriptionInfo = [selectedSubscriptionInfo[0]]
                }
@@ -159,6 +152,11 @@ class BTrainingsSubscriptionVC: UIViewController {
     
     @IBAction func onTapAddPromoCodeBtn(_ sender: Any) {
         let vc = BPromoCodePopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+        vc.courseId = courseId
+        vc.completion = { (discount, message) in
+            self.discountValue = Double(discount) ?? 0.0
+//            self.showAlert(message: message)
+        }
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical
         self.present(vc, animated: true)

@@ -9,11 +9,14 @@ import UIKit
 
 class BWorkOutVideoInfoPopUp: UIViewController {
     var courseDurationExercise:CourseDurationExercise!
+    var courseDetail: CourseDetail!
+    var todayWorkoutsInfo : TodayWorkoutsElement!
 
     @IBOutlet var mainView: UIView!
     @IBOutlet var dayLbl: UILabel!
-    @IBOutlet var descriptionDetailLbl: UILabel!
-    @IBOutlet var instructionDetailLbl: UILabel!
+    @IBOutlet var videoTitleLbl: UILabel!
+    @IBOutlet var videoDescriptionLbl: UILabel!
+    @IBOutlet var videoInstructionLbl: UILabel!
     var dayNumberText : String!
 
     override func viewDidLoad() {
@@ -23,8 +26,9 @@ class BWorkOutVideoInfoPopUp: UIViewController {
         mainView.addGestureRecognizer(tap)
        
         dayLbl.text = dayNumberText
-        descriptionDetailLbl.text = courseDurationExercise.description
-        instructionDetailLbl.text = courseDurationExercise.instruction
+        videoTitleLbl.text = courseDurationExercise.title
+        videoDescriptionLbl.text = courseDurationExercise.description
+        videoInstructionLbl.text = courseDurationExercise.instruction
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {

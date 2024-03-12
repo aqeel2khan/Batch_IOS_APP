@@ -10,7 +10,8 @@ import DropDown
 
 
 class BPromoCodePopUpVC: UIViewController {
-    
+    var completion: ((String, String)->Void)? = nil
+
     @IBOutlet var mainView: UIView!
     
     @IBOutlet weak var addPromoCodeTextField: UITextField!
@@ -22,7 +23,7 @@ class BPromoCodePopUpVC: UIViewController {
     var promocodeArr   = [String]()
     
     
-    
+    var courseId : Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +34,14 @@ class BPromoCodePopUpVC: UIViewController {
         // Do any additional setup after loading the view.
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         mainView.addGestureRecognizer(tap)
-        if internetConnection.isConnectedToNetwork() == true {
-            // Call Api here
-            getPromoCodes()
-        }
-        else
-        {
-            self.showAlert(message: "Please check your internet", title: "Network issue")
-        }
+//        if internetConnection.isConnectedToNetwork() == true {
+//            // Call Api here
+//            getPromoCodes()
+//        }
+//        else
+//        {
+//            self.showAlert(message: "Please check your internet", title: "Network issue")
+//        }
     }
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         self.dismiss(animated: true)
@@ -74,17 +75,16 @@ class BPromoCodePopUpVC: UIViewController {
         //self.dismiss(animated: true)
         
         let promoCodeStr = self.addPromoCodeTextField.text ?? ""
-        if promoCodeStr != ""
-        {
-        if internetConnection.isConnectedToNetwork() == true {
-            // Call Api here
-            self.addPromoCodes(courseId: "28", promoCode: promoCodeStr)
-        }
-        else
-        {
-            self.showAlert(message: "Please check your internet", title: "Network issue")
-        }
-        
+        if promoCodeStr != "" {
+            if internetConnection.isConnectedToNetwork() == true {
+                // Call Api here
+                self.addPromoCodes(courseId: "\(courseId ?? 0)", promoCode: promoCodeStr)
+            }
+            else {
+                self.showAlert(message: "Please check your internet", title: "Network issue")
+            }
+        } else {
+            self.showAlert(message: "Please enter your promocode", title: "Alert")
         }
         
         //        let vc = BPromoCodeSucessfulPopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
@@ -98,44 +98,44 @@ class BPromoCodePopUpVC: UIViewController {
     }
     
     
-    private func getPromoCodes(){
-        DispatchQueue.main.async {
-            showLoading()
-        }
-        let bPromoCodePopUpViewModel = BPromoCodePopUpViewModel()
-        let urlStr = API.getPromoCodeList
-        bPromoCodePopUpViewModel.getPromoCodeApi(requestUrl: urlStr)  { (response) in
-            
-            if response.status == true, response.data?.count != 0 {
-                print(response.data)
-                self.promocodeDDArr = response.data?.list ?? []
-                
-                self.promocodeArr.removeAll()
-                for i in 0..<self.promocodeDDArr.count
-                {
-                    let promoCode = self.promocodeDDArr[i].promoCode
-                    if promoCode != ""
-                    {
-                        self.promocodeArr.append(promoCode ?? "")
-                    }
-                }
-                DispatchQueue.main.async {
-                    hideLoading()
-                    // self.blogTableView.reloadData()
-                }
-            }else{
-                DispatchQueue.main.async {
-                    hideLoading()
-                    //makeToast(response.message!)
-                }
-            }
-        } onError: { (error) in
-            DispatchQueue.main.async {
-                hideLoading()
-                // makeToast(error.localizedDescription)
-            }
-        }
-    }
+//    private func getPromoCodes(){
+//        DispatchQueue.main.async {
+//            showLoading()
+//        }
+//        let bPromoCodePopUpViewModel = BPromoCodePopUpViewModel()
+//        let urlStr = API.getPromoCodeList
+//        bPromoCodePopUpViewModel.getPromoCodeApi(requestUrl: urlStr)  { (response) in
+//
+//            if response.status == true, response.data?.count != 0 {
+//                print(response.data)
+//                self.promocodeDDArr = response.data?.list ?? []
+//
+//                self.promocodeArr.removeAll()
+//                for i in 0..<self.promocodeDDArr.count
+//                {
+//                    let promoCode = self.promocodeDDArr[i].promoCode
+//                    if promoCode != ""
+//                    {
+//                        self.promocodeArr.append(promoCode ?? "")
+//                    }
+//                }
+//                DispatchQueue.main.async {
+//                    hideLoading()
+//                    // self.blogTableView.reloadData()
+//                }
+//            }else{
+//                DispatchQueue.main.async {
+//                    hideLoading()
+//                    //makeToast(response.message!)
+//                }
+//            }
+//        } onError: { (error) in
+//            DispatchQueue.main.async {
+//                hideLoading()
+//                // makeToast(error.localizedDescription)
+//            }
+//        }
+//    }
     
     private func addPromoCodes(courseId:String, promoCode:String){
         
@@ -144,15 +144,15 @@ class BPromoCodePopUpVC: UIViewController {
             showLoading()
         }
         let bPromoCodePopUpViewModel = BPromoCodePopUpViewModel()
-        let urlStr = API.addPromoCode
         bPromoCodePopUpViewModel.addPromoCodeApi(request: request) { (response) in
             
             if response.status == true {
-                print(response.data)
-                // self.blogsArray = response.data!
+                print(response.data?.discount ?? "")
                 DispatchQueue.main.async {
                     hideLoading()
                     self.dismiss(animated: true)
+                    self.completion?(response.data?.discount ?? "", response.message ?? "")
+
                 }
             }else{
                 DispatchQueue.main.async {
@@ -164,6 +164,7 @@ class BPromoCodePopUpVC: UIViewController {
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
+                self.showAlert(message: error.localizedDescription)
                 // makeToast(error.localizedDescription)
             }
         }

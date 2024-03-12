@@ -41,7 +41,7 @@ enum RegistrationError: BatchError, LocalizedError {
         case .invalidEmail:
             return NSLocalizedString("Please enter valid email", comment: "")
         case .invalidPassword:
-            return NSLocalizedString("Password must be of minimum 6 characters", comment: "")
+            return NSLocalizedString("Password must be of minimum 8 characters", comment: "")
         case .matchPasswords:
             return NSLocalizedString("Passwords do not match", comment: "")
         case .emptyDob:

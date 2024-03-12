@@ -30,6 +30,11 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
                 cell.titleLbl.text = self.subscribedMealListData[indexPath.item].name
                 cell.descLbl.text = self.subscribedMealListData[indexPath.item].description
                 cell.daysLbl.text = self.subscribedMealListData[indexPath.item].duration
+                
+                if let startDate = createDate(from: self.subscribedMealListData[indexPath.item].startDate), let endDate = createDate(from: self.subscribedMealListData[indexPath.item].endDate) {
+                    let percentage = calculatePercentage(startDate: startDate, endDate: endDate)
+                    cell.progressView.progress = percentage
+                }
             }
             return cell
         } else {
@@ -41,10 +46,14 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
                 let fileUrl = URL(string: BaseUrl.imageBaseUrl + (course?.courseImage ?? ""))
                 cell.bgImageView.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Image"))
                 cell.titleLbl.text = course?.courseName
-                //cell.daysLbl.text = (course?.courseValidity ?? "") + " days"
-                cell.daysLbl.text = (course?.duration ?? "")
+                cell.daysLbl.text = "\(self.courseList[indexPath.item].todayWorkouts?.row ?? 0)" + "/" + (course?.duration ?? "")
                 cell.kclLbl.text = (course?.perDayWorkout ?? "") + " kcl"
                 cell.minLbl.text = (course?.duration ?? "") + " min"
+                
+                if let startDate = createCourseDate(from: self.courseList[indexPath.item].startDate ?? ""), let endDate = createCourseDate(from: self.courseList[indexPath.item].endDate ?? "") {
+                    let percentage = calculatePercentage(startDate: startDate, endDate: endDate)
+                    cell.progressView.progress = percentage
+                }
             }
             return cell
         }
@@ -100,5 +109,25 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
             }
             self.present(vc, animated: true)
         }
+    }
+    
+    func calculatePercentage(startDate: Date, endDate: Date) -> Float {
+        let currentDate = Date()
+        let totalTimeInterval = endDate.timeIntervalSince(startDate)
+        let currentTimeInterval = currentDate.timeIntervalSince(startDate)
+        let percentage = Float(currentTimeInterval / totalTimeInterval)
+        return percentage
+    }
+    
+    func createDate(from dateString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.date(from: dateString)
+    }
+    
+    func createCourseDate(from dateString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.date(from: dateString)
     }
 }

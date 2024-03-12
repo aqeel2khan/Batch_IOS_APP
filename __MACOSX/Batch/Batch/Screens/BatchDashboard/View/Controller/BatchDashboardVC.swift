@@ -26,6 +26,8 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     @IBOutlet weak var mealBatchCollView: UICollectionView!
     @IBOutlet weak var workoutBatchCollView: UICollectionView!
+    @IBOutlet weak var macroContainer: UIView!
+
     //var courseList = [List]()
     var courseList = [DashboardWOList]()
     var subscribedMealListData : [SubscribedMeals] = []
@@ -143,8 +145,8 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
             if internetConnection.isConnectedToNetwork() == true {
                 //self.workoutBatchCollView.isHidden = false
                 // Call Api here
-                self.getSubscribedCourseList()
                 self.getSubscribedMealList()
+                self.getSubscribedCourseList()
             }
             else
             {
@@ -384,7 +386,10 @@ extension BatchDashboardVC {
     }
     
     private func getSubscribedMealList() {
-        showLoader()
+        DispatchQueue.main.async {
+            self.showLoader()
+        }
+        
         let bHomeViewModel = DashboardViewModel()
         let urlStr = API.subscriptionMealList
         let request = SubscribedMealListRequest(userId: "\(UserDefaultUtility().getUserId())")
@@ -398,6 +403,7 @@ extension BatchDashboardVC {
             } else {
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.mealBatchCollView.isHidden = response.data?.data?.count == 0 ? true : false
                     self.mealBatchCollView.reloadData()
                 }
             }

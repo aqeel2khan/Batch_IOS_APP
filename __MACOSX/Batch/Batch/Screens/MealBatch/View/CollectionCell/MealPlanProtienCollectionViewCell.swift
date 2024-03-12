@@ -17,6 +17,7 @@ class MealPlanProtienCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         claoryview.layer.cornerRadius = 20
         mainView.layer.cornerRadius = 20
+        valueLbl.font = FontSize.semiboldSize14
+        nameLbl.font = FontSize.mediumSize12
     }
-
 }
