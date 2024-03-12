@@ -41,7 +41,7 @@ class BLogInVC: UIViewController {
     //MARK:- SetUp Localization
     
     func setUpLocalization() {
-        self.lblTermCondition.text = "I agree to the company Terms & Conditions".localized
+//        self.lblTermCondition.text = "I agree to the company Terms & Conditions".localized
         self.btnSignIn.setTitle("Sign In".localized, for: .normal)
         self.btnFbLogin.setTitle("Sign in with Facebook".localized, for: .normal)
         self.btnAppleLogin.setTitle("Sign in with Apple".localized, for: .normal)
