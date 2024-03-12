@@ -301,6 +301,7 @@
 		57C874CA2BA01C980094ABC6 /* BatchCountryLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C874C52BA01C980094ABC6 /* BatchCountryLanguageVC.swift */; };
 		57C874CC2BA01C980094ABC6 /* OnBoardingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C874C82BA01C980094ABC6 /* OnBoardingScreenVC.swift */; };
 		57C874CD2BA01C980094ABC6 /* Extension+OnBoardingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C874C92BA01C980094ABC6 /* Extension+OnBoardingScreenVC.swift */; };
+		57D42C682BA0B12A00303A89 /* Extension+BatchCountryLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D42C672BA0B12A00303A89 /* Extension+BatchCountryLanguageVC.swift */; };
 		685680392B64B165002AF31C /* MealPlanAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685680382B64B165002AF31C /* MealPlanAddressVC.swift */; };
 		6856803B2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856803A2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift */; };
 		6869A49E2B6EA19E004F9A7C /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6869A49D2B6EA19E004F9A7C /* WelcomeVC.swift */; };
@@ -633,6 +634,7 @@
 		57C874C52BA01C980094ABC6 /* BatchCountryLanguageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchCountryLanguageVC.swift; sourceTree = "<group>"; };
 		57C874C82BA01C980094ABC6 /* OnBoardingScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingScreenVC.swift; sourceTree = "<group>"; };
 		57C874C92BA01C980094ABC6 /* Extension+OnBoardingScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+OnBoardingScreenVC.swift"; sourceTree = "<group>"; };
+		57D42C672BA0B12A00303A89 /* Extension+BatchCountryLanguageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+BatchCountryLanguageVC.swift"; sourceTree = "<group>"; };
 		685680382B64B165002AF31C /* MealPlanAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanAddressVC.swift; sourceTree = "<group>"; };
 		6856803A2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDilevaryArrivingVC.swift; sourceTree = "<group>"; };
 		6869A49D2B6EA19E004F9A7C /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
@@ -2099,6 +2101,7 @@
 			isa = PBXGroup;
 			children = (
 				57C874C52BA01C980094ABC6 /* BatchCountryLanguageVC.swift */,
+				57D42C672BA0B12A00303A89 /* Extension+BatchCountryLanguageVC.swift */,
 			);
 			path = BatchCountryLanguageVC;
 			sourceTree = "<group>";
@@ -2515,6 +2518,7 @@
 				3188B3C52B299B6600E19945 /* ViewController.swift in Sources */,
 				1911848B2B9735B500343F4B /* Extension+BUserPersonalInfo.swift in Sources */,
 				68C14B722B63BFE10085AAD4 /* Extension+StartPlanCheckoutVC.swift in Sources */,
+				57D42C682BA0B12A00303A89 /* Extension+BatchCountryLanguageVC.swift in Sources */,
 				31AE2DA62B36BD10000FEB41 /* Extension+ShoppingBatchVC.swift in Sources */,
 				1A9B01302B943C5F00F17C42 /* SubscribedMealListResponse.swift in Sources */,
 				319BAD662B2A31A00081A8F2 /* UITextField.swift in Sources */,
