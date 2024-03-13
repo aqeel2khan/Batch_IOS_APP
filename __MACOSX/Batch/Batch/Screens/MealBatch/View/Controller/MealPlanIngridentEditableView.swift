@@ -63,16 +63,14 @@ class MealPlanIngridentEditableView: UIViewController {
     // MARK: - UI
     
     private func setupNavigationBar() {
-      
+        self.mealTblView.isHidden = true
+        self.ingridentLabelView.isHidden = false
+
         self.customSecondNavigationBar.titleLbl.text = ""
         self.registerCollTblView()
         if isCommingFrom == "MealBatchUnSubscribeDetailVC" {
-            self.ingridentLabelView.isHidden = true
-            self.mealTblView.isHidden = false
             nameLbl.text = dishData.name
         } else {
-            self.ingridentLabelView.isHidden = false
-            self.mealTblView.isHidden = true
             nameLbl.text = dishRequest?.dishName
         }
     }
@@ -112,12 +110,9 @@ class MealPlanIngridentEditableView: UIViewController {
                 self.nutritionList = response.data?.data?.nutritionDetails ?? []
                 DispatchQueue.main.async {
                     hideLoading()
-                    if self.isCommingFrom == "MealBatchUnSubscribeDetailVC" {
-                    } else {
-                        let nutrientNames = self.nutritionList.compactMap { $0.nutrientName }
-                        let commaSeparatedNutrientNames = nutrientNames.joined(separator: ", ")
-                        self.ingridentLabelView.text = commaSeparatedNutrientNames
-                    }
+                    let nutrientNames = self.nutritionList.compactMap { $0.nutrientName }
+                    let commaSeparatedNutrientNames = nutrientNames.joined(separator: ", ")
+                    self.ingridentLabelView.text = commaSeparatedNutrientNames
                     self.showProtinListCollView.reloadData()
                 }
             }else{
