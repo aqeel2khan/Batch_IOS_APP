@@ -24,6 +24,11 @@ class BatchTextField: UITextField {
         configureTextField()
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        placeholder = placeholder?.localized
+    }
+    
     func configureTextField(){
         let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: self.frame.height))
         self.leftView = leftView
