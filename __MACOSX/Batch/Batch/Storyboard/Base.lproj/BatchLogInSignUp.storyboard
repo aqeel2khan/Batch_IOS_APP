@@ -62,7 +62,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ps6-Ny-SES">
                                                 <rect key="frame" x="20" y="93" width="353" height="552"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Di-QX-Hz3">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Di-QX-Hz3" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
                                                         <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                         <constraints>
@@ -85,7 +85,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WD9-qa-qOx">
                                                         <rect key="frame" x="0.0" y="66" width="353" height="56"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXf-cc-L3X">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXf-cc-L3X" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
                                                                 <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                                 <constraints>
@@ -202,7 +202,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or continue with" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YD2-8c-8X1" customClass="BatchLabelSubTitleBlack">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or continue with" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YD2-8c-8X1" customClass="BatchLabelSubTitleBlack" customModule="Batch" customModuleProvider="target">
                                                                 <rect key="frame" x="115.33333333333334" y="10.333333333333313" width="122.66666666666666" height="19.333333333333329"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
@@ -397,7 +397,7 @@
                                 <color key="textColor" name="AppLabelBlackColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We have sent the code verification to your mobile number " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rI-Z8-q3c" customClass="BatchLabelSubTitleBlack">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We have sent the code verification to your mobile number " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rI-Z8-q3c" customClass="BatchLabelSubTitleBlack" customModule="Batch" customModuleProvider="target">
                                 <rect key="frame" x="20" y="289.66666666666669" width="353" height="38.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" name="AppLabelDarkGrayColor"/>
@@ -554,7 +554,7 @@
                                 <color key="textColor" name="AppLabelBlackColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before we start, we need to know your gender" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNQ-oH-bvA" customClass="BatchLabelSubTitleBlack">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before we start, we need to know your gender" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNQ-oH-bvA" customClass="BatchLabelSubTitleBlack" customModule="Batch" customModuleProvider="target">
                                 <rect key="frame" x="30" y="143.66666666666666" width="333" height="38.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <color key="textColor" name="AppLabelDarkGrayColor"/>
@@ -573,7 +573,7 @@
                                                     <constraint firstAttribute="width" constant="40" id="Z4n-fh-K4W"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Male" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Yi-r2-fGU" customClass="BatchRegularBlack">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Male" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Yi-r2-fGU" customClass="BatchRegularBlack" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="20.000000000000007" y="70" width="126.66666666666669" height="19.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                 <color key="textColor" name="AppLabelBlackColor"/>
@@ -616,7 +616,7 @@
                                                     <constraint firstAttribute="width" constant="40" id="DbT-0D-aK9"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AF9-T9-PrX" customClass="BatchRegularBlack">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AF9-T9-PrX" customClass="BatchRegularBlack" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="19.999999999999993" y="70" width="126.33333333333331" height="19.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                 <color key="textColor" name="AppLabelBlackColor"/>
