@@ -136,4 +136,13 @@ struct BMealViewModel {
             onError(error)
         }
     }
+    
+    func checkIfMealIsSubscribed(urlStr:String, request: CheckSubscribedRequest, onSuccess:@escaping(CheckSubscribedResponse) -> Void, onError:@escaping(BatchError) -> Void) {
+        let bMealResource = BMealResource()
+        bMealResource.checkIsMealSubscribed(urlStr: urlStr, request: request) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
 }

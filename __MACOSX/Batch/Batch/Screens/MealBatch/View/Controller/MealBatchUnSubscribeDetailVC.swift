@@ -35,6 +35,7 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
     var tagIconArray = [#imageLiteral(resourceName: "flash-black"), #imageLiteral(resourceName: "meal_Black"), #imageLiteral(resourceName: "Filled")]    
     var mealCategoryArr : [CategoryList] = []
     var dishesList : [Dishes] = []
+    var isMealSubscribed: CheckSubscribedMeal?
 
     // MARK: - Lifecycle
     
@@ -111,12 +112,7 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
     
     @IBAction func onTapSubscribePlanBtn(_ sender: UIButton) {
         if UserDefaultUtility.isUserLoggedIn() {
-            let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
-            vc.isCommingFrom = "MealBatchSubscribe"
-            vc.mealData = self.mealData
-            vc.modalPresentationStyle = .overFullScreen
-            vc.modalTransitionStyle = .coverVertical
-            self.present(vc, animated: true)
+            self.checkIfMealIsAlreadySubscribed()
         } else {
             let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
             // let vc = BRegistrationVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
@@ -130,6 +126,16 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
             self.present(vc, animated: true)
         }
     }
+    
+    func goToCheckoutScreen() {
+        let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
+        vc.isCommingFrom = "MealBatchSubscribe"
+        vc.mealData = self.mealData
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true)
+    }
+    
     @IBAction func onTapAddPromoCodeBtn(_ sender: UIButton) {
         let vc = BPromoCodePopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
         vc.modalPresentationStyle = .overFullScreen
@@ -222,6 +228,41 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
+            }
+        }
+    }
+    
+    func checkIfMealIsAlreadySubscribed() {
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealViewModel = BMealViewModel()
+        let urlStr = API.subscriptionMealcheckSubscribed
+        
+        let request = CheckSubscribedRequest(userId: "\(UserDefaultUtility().getUserId())", mealId: "\(mealData.id ?? 0)")
+        
+        bMealViewModel.checkIfMealIsSubscribed(urlStr: urlStr, request: request)  { (response) in
+            if response.status == true, response.data?.data != nil {
+                self.isMealSubscribed = response.data?.data
+                DispatchQueue.main.async {
+                    hideLoading()
+                    if let isAlreadySubscribed = self.isMealSubscribed?.subscribed, isAlreadySubscribed == 1 {
+                        self.showAlert(message: "Already Subscribed")
+                    } else {
+                        // Proceed to purchase
+                        self.goToCheckoutScreen()
+                    }
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.showAlert(message: "Something Wrong")
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.showAlert(message: "Something Wrong")
             }
         }
     }
