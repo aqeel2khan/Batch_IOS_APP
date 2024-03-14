@@ -37,8 +37,8 @@
                                                     <action selector="backActionBtn:" destination="boS-Mb-N3I" eventType="touchUpInside" id="Hto-d8-g4g"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abr-Kb-nny">
-                                                <rect key="frame" x="125" y="50" width="258" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abr-Kb-nny" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
+                                                <rect key="frame" x="75" y="50" width="243" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="dlm-TG-mjo"/>
                                                 </constraints>
@@ -52,8 +52,8 @@
                                             <constraint firstItem="Ch5-kt-v2n" firstAttribute="leading" secondItem="KRD-y7-syg" secondAttribute="leading" constant="5" id="4el-Al-EvK"/>
                                             <constraint firstAttribute="bottom" secondItem="Ch5-kt-v2n" secondAttribute="bottom" id="AlK-l2-HZu"/>
                                             <constraint firstItem="abr-Kb-nny" firstAttribute="centerY" secondItem="Ch5-kt-v2n" secondAttribute="centerY" id="De6-bY-DvQ"/>
-                                            <constraint firstItem="abr-Kb-nny" firstAttribute="leading" secondItem="Ch5-kt-v2n" secondAttribute="trailing" constant="60" id="je2-EL-28A"/>
-                                            <constraint firstAttribute="trailing" secondItem="abr-Kb-nny" secondAttribute="trailing" constant="10" id="pYg-M8-RY2"/>
+                                            <constraint firstItem="abr-Kb-nny" firstAttribute="leading" secondItem="Ch5-kt-v2n" secondAttribute="trailing" constant="10" id="je2-EL-28A"/>
+                                            <constraint firstAttribute="trailing" secondItem="abr-Kb-nny" secondAttribute="trailing" constant="75" id="pYg-M8-RY2"/>
                                             <constraint firstAttribute="height" constant="100" id="rNY-5O-Jec"/>
                                         </constraints>
                                     </view>
@@ -1673,19 +1673,19 @@
     </scenes>
     <designables>
         <designable name="6Dg-HQ-ZK0">
-            <size key="intrinsicContentSize" width="42" height="33"/>
+            <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
         <designable name="6K0-lF-WRu">
-            <size key="intrinsicContentSize" width="67" height="33"/>
+            <size key="intrinsicContentSize" width="73" height="33"/>
         </designable>
         <designable name="Fdw-Pf-3d5">
             <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
         <designable name="J9f-y9-TjG">
-            <size key="intrinsicContentSize" width="42" height="33"/>
+            <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
         <designable name="Tv5-jO-9jw">
-            <size key="intrinsicContentSize" width="42" height="33"/>
+            <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
     </designables>
     <resources>
@@ -2498,7 +2498,7 @@ AAAAAAAAAgEAAAAAAAAAaAAAAAAAAAAAAAAAAAAAufw
         </image>
         <image name="calendar" width="16" height="16"/>
         <image name="card" width="32" height="32"/>
-        <image name="downArrow" width="11" height="5.3333334922790527"/>
+        <image name="downArrow" width="24" height="24"/>
         <image name="dummyImg" width="371.33334350585938" height="457.66665649414062"/>
         <image name="leftArrow" width="32" height="32"/>
         <image name="rightArrow" width="32" height="32"/>

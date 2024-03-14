@@ -43,7 +43,7 @@ class QuestionDietVC: UIViewController {
         let commaSeperatedString = (selectedValue.map{String($0)}.joined(separator: ","))
         
         if commaSeperatedString == "" {
-            showAlert(message: "Please select at least one diet")
+            showAlert(message: "Please select at least one diet".localized)
         } else {
             AnswerStruct.tag_id = commaSeperatedString
             let vc = QuestionAllergyVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)

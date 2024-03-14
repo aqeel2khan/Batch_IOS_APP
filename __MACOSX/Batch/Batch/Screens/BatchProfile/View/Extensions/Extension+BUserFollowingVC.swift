@@ -16,10 +16,6 @@ extension BUserFollowingVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(FollowingListTableCell.self,for: indexPath)
-//        let info = totalCourseArr[indexPath.row]
-//        cell.lblTitle.text  = "Lower-Body Burn"
-//        cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
-//        cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
         cell.unfollowBtn.tag = indexPath.row
         cell.lblName.text = followingData?.data?[indexPath.row].motivator_detail?.name ?? ""
         cell.lblDetails.text = followingData?.data?[indexPath.row].motivator_detail?.email ?? ""

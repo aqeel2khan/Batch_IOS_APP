@@ -39,7 +39,7 @@ class MealplanRatingVC: UIViewController {
             return
         }
         guard let rating = postReviewRequest?.rating, !rating.isEmpty else {
-            self.showAlert(message: "Please select rating")
+            self.showAlert(message: "Please select rating".localized)
             return
         }
         self.postDishReview()

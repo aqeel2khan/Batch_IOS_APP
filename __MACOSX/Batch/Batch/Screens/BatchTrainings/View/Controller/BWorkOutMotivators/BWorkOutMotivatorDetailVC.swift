@@ -172,7 +172,7 @@ class BWorkOutMotivatorDetailVC: UIViewController {
         let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (info.profilePhotoPath ?? ""))
         self.coachPicImgView.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
         self.coachNameLbl.text = "\(info.name ?? "")"
-        self.followerCountLbl.text = "\(info.followersCount ?? 0) follower" //"0"
+        self.followerCountLbl.text = "\(info.followersCount ?? 0) \(BatchConstant.followers)" //"0"
         self.followerCount = info.followersCount ?? 0
         self.desLbl.text = ""
         
@@ -222,7 +222,7 @@ class BWorkOutMotivatorDetailVC: UIViewController {
                     self.followBtn.isHidden   = false
                     self.unFollowBtn.isHidden = true
                     self.followerCount += 1
-                    self.followerCountLbl.text = "\(self.followerCount) follower"
+                    self.followerCountLbl.text = "\(self.followerCount) \(BatchConstant.followers)"
                     fullUrlStr = API.motivatorFollow + "\(info.id ?? 0)"
                 }
                 else
@@ -230,7 +230,7 @@ class BWorkOutMotivatorDetailVC: UIViewController {
                     self.followBtn.isHidden   = true
                     self.unFollowBtn.isHidden = false
                     self.followerCount -= 1
-                    self.followerCountLbl.text = "\(self.followerCount) follower"
+                    self.followerCountLbl.text = "\(self.followerCount) \(BatchConstant.followers)"
                     fullUrlStr = API.motivatorUnfollow + "\(info.id ?? 0)"
                 }
                 self.getfollowUnfollow(urlStr: fullUrlStr)

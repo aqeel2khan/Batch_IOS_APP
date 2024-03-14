@@ -83,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LocalizationSystem.sharedInstance.setLanguage(languageCode: languageCode)
         UserDefaults.standard.setValue(languageCode, forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE)
 
-        UIView.appearance().semanticContentAttribute = (languageCode == ENGLISH_LANGUAGE_CODE ? .forceLeftToRight : .forceLeftToRight)  
+        UIView.appearance().semanticContentAttribute = (languageCode == ENGLISH_LANGUAGE_CODE ? .forceLeftToRight : .forceRightToLeft)  
     }
 }
 

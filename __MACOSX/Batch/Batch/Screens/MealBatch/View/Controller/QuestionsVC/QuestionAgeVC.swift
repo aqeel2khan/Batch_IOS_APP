@@ -38,7 +38,7 @@ class QuestionAgeVC: UIViewController {
 
     @IBAction func nextActionBtn(_ sender: BatchButton) {
         if AnswerStruct.age == nil {
-            showAlert(message: "Please select your date of birth")
+            showAlert(message: "Please select your date of birth".localized)
         }  else {
             let vc = QuestionHeightVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
             vc.modalPresentationStyle = .overFullScreen

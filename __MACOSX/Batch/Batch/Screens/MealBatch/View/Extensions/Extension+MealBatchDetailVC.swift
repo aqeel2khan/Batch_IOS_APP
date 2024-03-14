@@ -24,8 +24,8 @@ extension MealBatchDetailVC: UITableViewDelegate,UITableViewDataSource {
                 cell.sectionTitleLbl.text = ""
             }
             cell.dishName.text = dish.dishName
-            let original1String = "\(dish.calories) kcal"
-            let keyword1 = "kcal"
+            let original1String = "\(dish.calories) " + BatchConstant.kcalSuffix
+            let keyword1 = BatchConstant.kcalSuffix
             let attributedString = NSAttributedString.attributedStringWithDifferentFonts(for: original1String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword1)
             cell.dishCalory.attributedText = attributedString
         }

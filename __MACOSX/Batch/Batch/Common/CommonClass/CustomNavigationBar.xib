@@ -33,11 +33,11 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SE8-Eg-nMM" userLabel="FirstNavView">
                             <rect key="frame" x="0.0" y="0.0" width="353" height="120"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="4ZE-IL-ZV7">
-                                    <rect key="frame" x="315.66666666666669" y="52.666666666666657" width="25" height="25"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="4ZE-IL-ZV7">
+                                    <rect key="frame" x="310.66666666666669" y="47.666666666666657" width="35" height="35"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="25" id="VJU-t2-lhd"/>
-                                        <constraint firstAttribute="height" constant="25" id="hit-nA-gfX"/>
+                                        <constraint firstAttribute="width" constant="35" id="VJU-t2-lhd"/>
+                                        <constraint firstAttribute="height" constant="35" id="hit-nA-gfX"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

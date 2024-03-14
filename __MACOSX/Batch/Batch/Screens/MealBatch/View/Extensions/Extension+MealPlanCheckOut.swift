@@ -16,7 +16,7 @@ extension MealPlanCheckout :UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(MealPlanCheckoutCell.self, for: indexPath)
-        cell.lblTitle.text = deliverTitles[indexPath.row]
+        cell.lblTitle.text = deliverTitles[indexPath.row].localized
         cell.imgDeliveryItem.image = deliverImages[indexPath.row]
         cell.btnSelctDeliveryItems.tag = indexPath.row
         cell.btnSelctDeliveryItems.addTarget(self, action: #selector(selectDeleviryAddress(_:)), for: .touchUpInside)
