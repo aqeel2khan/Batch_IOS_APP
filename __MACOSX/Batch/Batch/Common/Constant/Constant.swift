@@ -47,8 +47,8 @@ struct BatchConstant {
     static var minsSuffix  = "mins".localized
     static var days  = "days".localized
     static var meals = "meals".localized
+    static var followers = "followers".localized
 }
-
 
 struct API {
     // Staging Base URL
@@ -68,6 +68,8 @@ struct API {
     
     static let courseWOList  = baseUrl + "/course/workout/list/"// get
     static let courseWODetail    = baseUrl + "/course/workout/detail/56" // get
+    
+    static let courseStartWorkOut = baseUrl + "/course/order/workout/status"// post
     
     static let createCourseOrder  = baseUrl + "/course/order/create"// post
     static let addPromoCode  = baseUrl + "/course/promocode/apply"// post

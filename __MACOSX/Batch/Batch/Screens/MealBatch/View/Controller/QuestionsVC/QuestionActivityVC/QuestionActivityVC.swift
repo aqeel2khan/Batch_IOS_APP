@@ -37,7 +37,7 @@ class QuestionActivityVC: UIViewController {
         }
         
         if AnswerStruct.workout_per_week == nil {
-            showAlert(message: "Please select at least one active option")
+            showAlert(message: "Please select at least one active option".localized)
         }  else {
             let vc = QuestionDietVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
             vc.modalPresentationStyle = .overFullScreen

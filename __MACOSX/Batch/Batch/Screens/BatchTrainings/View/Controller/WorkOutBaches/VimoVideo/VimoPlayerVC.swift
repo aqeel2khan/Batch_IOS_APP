@@ -37,7 +37,7 @@ class VimoPlayerVC: UIViewController {
         if dayNumberText.contains("Day") {
             dayCountLbl.text = dayNumberText.substring(fromIndex: 4)
         } else {
-            dayCountLbl.text = "Day : " + dayNumberText
+            dayCountLbl.text = "Day".localized + " : " + dayNumberText
         }
                 
         print("OUR FINAL VIDEO URL")

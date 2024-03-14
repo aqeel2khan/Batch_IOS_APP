@@ -40,7 +40,6 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             
             let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
             cell.woDayCountLbl.attributedText = attributedPriceString
-//            cell.woDayCountLbl.text = "from \(CURRENCY) \(info.coursePrice?.removeDecimalValue() ?? "")"
             
             cell.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
             let workType = info.workoutType?[0].workoutdetail?.workoutType

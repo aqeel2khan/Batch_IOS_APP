@@ -12,16 +12,14 @@ import UIKit
 extension BStartWorkOutDetailVC: UICollectionViewDelegate,UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return workOutArray.count
+        return 10//workOutArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeue(BatchTrainingDetailCollCell.self, indexPath)
-        cell.imgWorkOut.image = workOutIconArray[indexPath.row]
-        cell.lblWorkoutName.text = workOutArray[indexPath.row]
-        
+        //        cell.imgWorkOut.image = workOutIconArray[indexPath.row]
+        //        cell.lblWorkoutName.text = workOutArray[indexPath.row]
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

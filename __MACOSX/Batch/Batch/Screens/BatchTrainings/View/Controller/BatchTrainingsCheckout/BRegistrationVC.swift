@@ -75,7 +75,7 @@ class BRegistrationVC: UIViewController {
         }
         else
         {
-            showAlert(message: "Please select terms and conditions checkbox")
+            showAlert(message: "Please select terms and conditions checkbox".localized)
         }
     }
     

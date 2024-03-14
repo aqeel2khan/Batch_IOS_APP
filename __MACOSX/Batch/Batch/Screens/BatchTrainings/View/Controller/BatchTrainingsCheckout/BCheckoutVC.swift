@@ -49,7 +49,7 @@ class BCheckoutVC: UIViewController {
     func setUpViewData() {
         let info = selectedSubscriptionInfo[0]
         self.lblTitle.text = "\(info.courseName ?? "")"
-        self.woPriceLbl.text = "from \(CURRENCY) " +  "\(info.coursePrice ?? "")".removeDecimalValue()
+        self.woPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " +  "\(info.coursePrice ?? "")".removeDecimalValue()
         self.coachNameLbl.text = "\(info.coachDetail?.name ?? "")"
         self.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
         let workType = info.workoutType?[0].workoutdetail?.workoutType
@@ -75,7 +75,7 @@ class BCheckoutVC: UIViewController {
     func setUpViewMotivatorData() {
         let info = selectedMotivatorSubscriptionInfo
         self.lblTitle.text = "\(info?.courseName ?? "")"
-        self.woPriceLbl.text = "from \(CURRENCY) " +  "\(info?.coursePrice ?? "")".removeDecimalValue()
+        self.woPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " +  "\(info?.coursePrice ?? "")".removeDecimalValue()
         self.coachNameLbl.text = "\(info?.coachDetail?.name ?? "")"
         self.courseLevelTypeLbl.setTitle("\(info?.courseLevel?.levelName ?? "")", for: .normal)
         let workType = info?.workoutType?[0].workoutdetail?.workoutType

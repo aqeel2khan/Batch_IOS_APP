@@ -43,7 +43,7 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
         super.viewDidLoad()
         titleLbl.text = mealData.name
         titleLbl.font = FontSize.mediumSize20
-        let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: "from", value: " \(CURRENCY) \(mealData.price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+        let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(mealData.price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
         priceLbl.attributedText = attributedPriceString
         descLbl.text = mealData.description
         descLbl.font = FontSize.regularSize14
@@ -153,8 +153,8 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
         let urlStr = API.mealDetail + "\(mealData.id ?? 0)"
         bMealViewModel.mealDetail(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data?.data != nil {
-                self.tagTitleArray.append((response.data?.data?.avgCalPerDay ?? "") + " kcal")
-                self.tagTitleArray.append(("\(response.data?.data?.mealCount ?? 0)") + " meals")
+                self.tagTitleArray.append((response.data?.data?.avgCalPerDay ?? "") + " " + BatchConstant.kcalSuffix)
+                self.tagTitleArray.append(("\(response.data?.data?.mealCount ?? 0)") + " " + BatchConstant.meals)
                 self.tagTitleArray.append((response.data?.data?.mealType ?? ""))
                 
                 self.mealCategoryArr = response.data?.data?.categoryList ?? []

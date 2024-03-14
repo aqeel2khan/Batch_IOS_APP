@@ -45,7 +45,7 @@ class QuestionGoalVC: UIViewController {
     
     @IBAction func nextActionBtn(_ sender: BatchButton) {
         if AnswerStruct.goal_id == nil {
-            showAlert(message: "Please select at least one goal")
+            showAlert(message: "Please select at least one goal".localized)
         } else {
             let vc = QuestionAgeVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
             vc.modalPresentationStyle = .overFullScreen

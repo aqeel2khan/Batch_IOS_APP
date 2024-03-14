@@ -41,7 +41,7 @@ extension MealBatchPlanningVC: UICollectionViewDelegate,UICollectionViewDataSour
         } else if collectionView.tag == 603 {
             let cell = collectionView.dequeue(BMealDishCollCell.self, indexPath)
             cell.nameLbl.text = self.dishesList[indexPath.item].dishName
-            cell.kclLbl.text = "\(self.dishesList[indexPath.item].dishCalorie) kcal" 
+            cell.kclLbl.text = "\(self.dishesList[indexPath.item].dishCalorie) " + BatchConstant.kcalSuffix
             if let selectedDayDishes = selectedWeekDay?.dishes {
                 // Check if the dish is selected for the current day
                 let dishID = self.dishesList[indexPath.item].dishID

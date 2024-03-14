@@ -869,7 +869,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MnA-GU-Vdu">
                                                 <rect key="frame" x="20" y="93" width="353" height="638"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RDg-3A-Cm1">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RDg-3A-Cm1" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
                                                         <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                         <constraints>
@@ -889,7 +889,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7vT-Qm-aD3">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7vT-Qm-aD3" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="66" width="353" height="56"/>
                                                         <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                         <constraints>
@@ -909,7 +909,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pwP-VA-WOy">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pwP-VA-WOy" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="132" width="353" height="56"/>
                                                         <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                         <constraints>
@@ -932,7 +932,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgf-XB-d2S">
                                                         <rect key="frame" x="0.0" y="198" width="353" height="56"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6QH-d3-hcB">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6QH-d3-hcB" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
                                                                 <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                                 <constraints>
@@ -2135,7 +2135,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLw-hc-fgw">
                                                 <rect key="frame" x="0.0" y="70" width="353" height="56"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add promo code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Swn-ff-Fbe">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add promo code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Swn-ff-Fbe" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="10" width="333" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -2232,47 +2232,62 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="6QH-d3-hcB">
+            <size key="intrinsicContentSize" width="132.33333333333334" height="17"/>
+        </designable>
+        <designable name="7vT-Qm-aD3">
+            <size key="intrinsicContentSize" width="81" height="18.666666666666668"/>
+        </designable>
         <designable name="Ewz-78-z3b">
-            <size key="intrinsicContentSize" width="67" height="33"/>
+            <size key="intrinsicContentSize" width="73" height="33"/>
         </designable>
         <designable name="Ij2-zT-bAj">
-            <size key="intrinsicContentSize" width="160.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="172.33333333333334" height="21"/>
         </designable>
         <designable name="Jix-Ik-UYZ">
-            <size key="intrinsicContentSize" width="35" height="33"/>
+            <size key="intrinsicContentSize" width="37" height="33"/>
         </designable>
         <designable name="MbH-cQ-u5X">
-            <size key="intrinsicContentSize" width="110" height="33"/>
+            <size key="intrinsicContentSize" width="119" height="33"/>
         </designable>
         <designable name="MpW-pI-3Vg">
-            <size key="intrinsicContentSize" width="67" height="33"/>
+            <size key="intrinsicContentSize" width="73" height="33"/>
+        </designable>
+        <designable name="RDg-3A-Cm1">
+            <size key="intrinsicContentSize" width="104.33333333333333" height="18.666666666666668"/>
         </designable>
         <designable name="SRS-5M-TWR">
-            <size key="intrinsicContentSize" width="155.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="167.33333333333334" height="21"/>
+        </designable>
+        <designable name="Swn-ff-Fbe">
+            <size key="intrinsicContentSize" width="107.33333333333333" height="18.666666666666668"/>
         </designable>
         <designable name="TzP-7l-f81">
-            <size key="intrinsicContentSize" width="122" height="33"/>
+            <size key="intrinsicContentSize" width="130" height="33"/>
         </designable>
         <designable name="UUX-vX-ObF">
-            <size key="intrinsicContentSize" width="173.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="186.33333333333334" height="21"/>
         </designable>
         <designable name="YDr-Nf-cTp">
-            <size key="intrinsicContentSize" width="47" height="33"/>
+            <size key="intrinsicContentSize" width="52" height="33"/>
         </designable>
         <designable name="ZAw-YT-9gp">
-            <size key="intrinsicContentSize" width="35" height="33"/>
+            <size key="intrinsicContentSize" width="37" height="33"/>
         </designable>
         <designable name="fjh-re-LRo">
-            <size key="intrinsicContentSize" width="122" height="33"/>
+            <size key="intrinsicContentSize" width="130" height="33"/>
         </designable>
         <designable name="kJL-VZ-Fnd">
             <size key="intrinsicContentSize" width="30" height="33"/>
         </designable>
         <designable name="oYr-lq-7tO">
-            <size key="intrinsicContentSize" width="35" height="33"/>
+            <size key="intrinsicContentSize" width="37" height="33"/>
+        </designable>
+        <designable name="pwP-VA-WOy">
+            <size key="intrinsicContentSize" width="74.666666666666671" height="18.666666666666668"/>
         </designable>
         <designable name="w2p-qS-raC">
-            <size key="intrinsicContentSize" width="142.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="153.33333333333334" height="21"/>
         </designable>
     </designables>
     <resources>

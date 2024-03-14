@@ -40,7 +40,7 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             cell.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
             
             cell.lblTitle.text = info.courseName
-            cell.woDayCountLbl.text = "from \(CURRENCY) " + (info.coursePrice?.removeDecimalValue() ?? "")
+            cell.woDayCountLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + (info.coursePrice?.removeDecimalValue() ?? "")
 
             cell.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
             cell.workOutTypeBtn.setTitle("\(info.workoutType?[0].workoutdetail?.workoutType ?? "")", for: .normal)
@@ -73,17 +73,17 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
         else if collectionView == mealBatchCollView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealPlanCollectionCell", for: indexPath)  as! MealPlanCollectionCell
             cell.titleLbl.text = self.mealListData[indexPath.row].name
-            cell.priceLbl.text = "from \(CURRENCY) " + "\(self.mealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
-            cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") kcal"
-            cell.mealsLbl.text = "\(self.mealListData[indexPath.row].mealCount ?? 0) meals"
+            cell.priceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + "\(self.mealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
+            cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") " + BatchConstant.kcalSuffix
+            cell.mealsLbl.text = "\(self.mealListData[indexPath.row].mealCount ?? 0) " + BatchConstant.meals
             return cell
         }
         else if collectionView == topRatedMealCollView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealPlanCollectionCell", for: indexPath)  as! MealPlanCollectionCell
             cell.titleLbl.text = self.topRatedMealListData[indexPath.row].name
-            cell.priceLbl.text = "from \(CURRENCY) " + "\(self.topRatedMealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
-            cell.kclLbl.text = "\(self.topRatedMealListData[indexPath.row].avgCalPerDay ?? "") kcal"
-            cell.mealsLbl.text = "\(self.topRatedMealListData[indexPath.row].mealCount ?? 0) meals"
+            cell.priceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + "\(self.topRatedMealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
+            cell.kclLbl.text = "\(self.topRatedMealListData[indexPath.row].avgCalPerDay ?? "") " + BatchConstant.kcalSuffix
+            cell.mealsLbl.text = "\(self.topRatedMealListData[indexPath.row].mealCount ?? 0) " + BatchConstant.meals
             return cell
         }
         return UICollectionViewCell()

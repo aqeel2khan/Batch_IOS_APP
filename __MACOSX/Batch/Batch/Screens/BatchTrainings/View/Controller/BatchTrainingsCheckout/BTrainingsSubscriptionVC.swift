@@ -56,7 +56,7 @@ class BTrainingsSubscriptionVC: UIViewController {
         if isCommingFrom == "dashboard" {
             let info = selectedMotivatorSubscriptionInfo
             self.lblTitle.text = "\(info?.courseName ?? "")"
-            self.woPriceLbl.text = "from \(CURRENCY) " +  "\(info?.coursePrice ?? "")".removeDecimalValue()
+            self.woPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " +  "\(info?.coursePrice ?? "")".removeDecimalValue()
             self.coachNameLbl.text = "\(info?.coachDetail?.name ?? "")"
             self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(info?.coursePrice ?? "")"
             self.totalOrderAmount = info?.coursePrice
@@ -73,7 +73,7 @@ class BTrainingsSubscriptionVC: UIViewController {
         else if isCommingFrom == "workoutbatches" {
             let info = selectedSubscriptionInfo[0]
             self.lblTitle.text = "\(info.courseName ?? "")"
-            self.woPriceLbl.text = "from \(CURRENCY) " +  "\(info.coursePrice ?? "")".removeDecimalValue()
+            self.woPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " +  "\(info.coursePrice ?? "")".removeDecimalValue()
             self.coachNameLbl.text = "\(info.coachDetail?.name ?? "")"
             self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(info.coursePrice ?? "")"
             self.totalOrderAmount = info.coursePrice
@@ -89,7 +89,7 @@ class BTrainingsSubscriptionVC: UIViewController {
         else if isCommingFrom == "MotivatorDetailVC" {
             let info = selectedMotivatorSubscriptionInfo
             self.lblTitle.text = "\(info?.courseName ?? "")"
-            self.woPriceLbl.text = "from \(CURRENCY) " +  "\(info?.coursePrice ?? "")".removeDecimalValue()
+            self.woPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " +  "\(info?.coursePrice ?? "")".removeDecimalValue()
             self.coachNameLbl.text = "\(info?.coachDetail?.name ?? "")"
             self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(info?.coursePrice ?? "")"
             self.totalOrderAmount = info?.coursePrice
@@ -116,7 +116,7 @@ class BTrainingsSubscriptionVC: UIViewController {
     
     @IBAction func onTapCheckOutBtn(_ sender: Any) {
         if selectedPlaneDurationLbl.text == "" {
-            showAlert(message: "Please select plan duration")
+            showAlert(message: "Please select plan duration".localized)
         }
         else {
            if UserDefaultUtility.isUserLoggedIn() {

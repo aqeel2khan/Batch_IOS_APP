@@ -16,10 +16,6 @@ extension BUserNotificationVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(NotificationSettingsListTableCell.self,for: indexPath)
-//        let info = totalCourseArr[indexPath.row]
-//        cell.lblTitle.text  = "Lower-Body Burn"
-//        cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
-//        cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
         cell.switchBtn.tag = indexPath.row
         if notificationPrefrences?.data?.all ?? 0 == 1 && notificationList[indexPath.row] == "All notifications"{
             cell.switchBtn.isOn = true

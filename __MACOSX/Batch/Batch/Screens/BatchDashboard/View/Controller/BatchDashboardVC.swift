@@ -319,7 +319,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
                 let data = dat?.statistics()
                 if data?.count ?? 0 > 0{
                     for i in stride(from: (data?.count ?? 0) - 1, to: (data?.count ?? 0) - 7, by: -1){
-                        self.energyBurned.append(data?[i].sumQuantity()?.doubleValue(for: HKUnit(from: "kcal")) ?? 0)
+                        self.energyBurned.append(data?[i].sumQuantity()?.doubleValue(for: HKUnit(from: "" + BatchConstant.kcalSuffix)) ?? 0)
                         let date = data?[i].startDate
                         let finalDate = self.dateToString(date: date ?? Date())
                         self.datesEnergy?.append(finalDate)
