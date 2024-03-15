@@ -102,7 +102,7 @@ class BUserPersonalInfoVC: UIViewController {
         phnTxt.delegate = self
         dobTxt.delegate = self
         emailTxt.delegate = self
-        saveBtn.setTitle("Edit", for: .normal)
+        saveBtn.setTitle("Edit".localized, for: .normal)
     }
     
     
@@ -163,7 +163,7 @@ class BUserPersonalInfoVC: UIViewController {
         bUserPersonalInfoVM.updatePersonalInfo(request: request) { response in
             DispatchQueue.main.async {
                 hideLoading()
-                self.saveBtn.setTitle("Edit", for: .normal)
+                self.saveBtn.setTitle("Edit".localized, for: .normal)
                 self.showAlertViewWithOne(title: "Batch", message: response.message ?? "", option1: "Ok") {
                     self.dismiss(animated: true)
                 }

@@ -9,6 +9,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Outfit-Regular.ttf">
+            <string>Outfit-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Payment Gateway Pop UpVC-->
         <scene sceneID="qsO-2L-B8R">
@@ -231,13 +236,13 @@
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJT-om-HF8">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="25"/>
                                                                                                 <subviews>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Batch" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1Y-kd-BCV">
+                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Batch" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1Y-kd-BCV" customClass="BatchMedium18White" customModule="Batch" customModuleProvider="target">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="122" height="25"/>
                                                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from KD 40" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNc-qx-QJZ">
+                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from KD 40" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNc-qx-QJZ" customClass="BatchMedium18White" customModule="Batch" customModuleProvider="target">
                                                                                                         <rect key="frame" x="193" y="0.0" width="120" height="25"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" constant="120" id="qjV-Dz-KfP"/>
@@ -265,7 +270,7 @@
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hys-bh-aBh">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                         <subviews>
-                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09q-w1-oXc">
+                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09q-w1-oXc" customClass="BatchButtonMedium12White" customModule="Batch" customModuleProvider="target">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -286,7 +291,7 @@
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7sY-1b-6QL">
                                                                                                         <rect key="frame" x="107.66666666666666" y="0.0" width="97.666666666666657" height="30"/>
                                                                                                         <subviews>
-                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xou-Mh-YF9">
+                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xou-Mh-YF9" customClass="BatchButtonMedium12White" customModule="Batch" customModuleProvider="target">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -307,7 +312,7 @@
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXk-9G-djw">
                                                                                                         <rect key="frame" x="215.33333333333334" y="0.0" width="97.666666666666657" height="30"/>
                                                                                                         <subviews>
-                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZW-Lu-jgI">
+                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZW-Lu-jgI" customClass="BatchButtonMedium12White" customModule="Batch" customModuleProvider="target">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -345,7 +350,7 @@
                                                                                                             </userDefinedRuntimeAttribute>
                                                                                                         </userDefinedRuntimeAttributes>
                                                                                                     </imageView>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bessie Cooper" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vA-d0-9KJ">
+                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bessie Cooper" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vA-d0-9KJ" customClass="BatchLabelMedium14White" customModule="Batch" customModuleProvider="target">
                                                                                                         <rect key="frame" x="40" y="0.0" width="273" height="30"/>
                                                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -727,7 +732,7 @@
                                                 <subviews>
                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="01a-TF-ygh">
                                                         <rect key="frame" x="10" y="10" width="333" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku4-EE-2XA">
@@ -1335,16 +1340,16 @@
                                         <rect key="frame" x="0.0" y="20" width="393" height="625"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YnT-b8-wub">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="470"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="450"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L3s-wb-Lkd">
-                                                        <rect key="frame" x="20" y="10" width="353" height="450"/>
+                                                        <rect key="frame" x="20" y="0.0" width="353" height="440"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chE-kF-vbI">
-                                                                <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your order" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QK4-e9-RKY" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1354,13 +1359,13 @@
                                                                 <constraints>
                                                                     <constraint firstItem="QK4-e9-RKY" firstAttribute="top" secondItem="chE-kF-vbI" secondAttribute="top" id="KPl-Eq-dze"/>
                                                                     <constraint firstItem="QK4-e9-RKY" firstAttribute="leading" secondItem="chE-kF-vbI" secondAttribute="leading" id="agV-au-9pg"/>
-                                                                    <constraint firstAttribute="height" constant="50" id="dbO-6w-HGP"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="dbO-6w-HGP"/>
                                                                     <constraint firstAttribute="bottom" secondItem="QK4-e9-RKY" secondAttribute="bottom" id="dqP-4z-wAo"/>
                                                                     <constraint firstAttribute="trailing" secondItem="QK4-e9-RKY" secondAttribute="trailing" id="kL2-cY-98t"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKq-cK-RVI">
-                                                                <rect key="frame" x="0.0" y="60" width="353" height="220"/>
+                                                                <rect key="frame" x="0.0" y="50" width="353" height="220"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z8H-ge-4Av">
                                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="220"/>
@@ -1390,13 +1395,13 @@
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klF-V6-Iou">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="25"/>
                                                                                                 <subviews>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Batch" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ws-yv-NjI">
+                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Batch" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ws-yv-NjI" customClass="BatchMedium18White" customModule="Batch" customModuleProvider="target">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="122" height="25"/>
                                                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/14 days" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekj-jP-vrC">
+                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/14 days" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekj-jP-vrC" customClass="BatchMedium18White" customModule="Batch" customModuleProvider="target">
                                                                                                         <rect key="frame" x="193" y="0.0" width="120" height="25"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" constant="120" id="bLa-A1-Goc"/>
@@ -1424,7 +1429,7 @@
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xop-2T-SME">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                         <subviews>
-                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dn-0f-x0N">
+                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dn-0f-x0N" customClass="BatchButtonMedium12White" customModule="Batch" customModuleProvider="target">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1445,7 +1450,7 @@
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FND-x1-38d">
                                                                                                         <rect key="frame" x="107.66666666666666" y="0.0" width="97.666666666666657" height="30"/>
                                                                                                         <subviews>
-                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVd-Wg-X65">
+                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVd-Wg-X65" customClass="BatchButtonMedium12White" customModule="Batch" customModuleProvider="target">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1466,7 +1471,7 @@
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsf-C9-QM1">
                                                                                                         <rect key="frame" x="215.33333333333334" y="0.0" width="97.666666666666657" height="30"/>
                                                                                                         <subviews>
-                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVh-wh-udg">
+                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVh-wh-udg" customClass="BatchButtonMedium12White" customModule="Batch" customModuleProvider="target">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1504,7 +1509,7 @@
                                                                                                             </userDefinedRuntimeAttribute>
                                                                                                         </userDefinedRuntimeAttributes>
                                                                                                     </imageView>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bessie Cooper" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExP-02-Gh1">
+                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bessie Cooper" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExP-02-Gh1" customClass="BatchLabelMedium14White" customModule="Batch" customModuleProvider="target">
                                                                                                         <rect key="frame" x="40" y="0.0" width="273" height="30"/>
                                                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1565,7 +1570,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLy-Pw-aTo">
-                                                                <rect key="frame" x="0.0" y="285" width="353" height="50"/>
+                                                                <rect key="frame" x="0.0" y="275" width="353" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payment method" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sks-YX-v5a" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="14.999999999999886" width="353" height="19.333333333333329"/>
@@ -1581,7 +1586,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xre-Ph-fiD">
-                                                                <rect key="frame" x="0.0" y="285" width="353" height="60"/>
+                                                                <rect key="frame" x="0.0" y="275" width="353" height="60"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="G0P-W4-EdP">
                                                                         <rect key="frame" x="0.0" y="10" width="40" height="40"/>
@@ -1644,7 +1649,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCN-bi-uzY">
-                                                                <rect key="frame" x="0.0" y="290" width="353" height="160"/>
+                                                                <rect key="frame" x="0.0" y="280" width="353" height="160"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cbF-Kf-5Br">
                                                                         <rect key="frame" x="20" y="20" width="313" height="120"/>
@@ -1749,7 +1754,7 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="L3s-wb-Lkd" secondAttribute="bottom" constant="10" id="OPA-JB-hGY"/>
-                                                    <constraint firstItem="L3s-wb-Lkd" firstAttribute="top" secondItem="YnT-b8-wub" secondAttribute="top" constant="10" id="TPr-BU-UTd"/>
+                                                    <constraint firstItem="L3s-wb-Lkd" firstAttribute="top" secondItem="YnT-b8-wub" secondAttribute="top" id="TPr-BU-UTd"/>
                                                     <constraint firstAttribute="trailing" secondItem="L3s-wb-Lkd" secondAttribute="trailing" constant="20" id="YO5-mQ-tKS"/>
                                                     <constraint firstItem="L3s-wb-Lkd" firstAttribute="leading" secondItem="YnT-b8-wub" secondAttribute="leading" constant="20" id="rKz-5f-2dK"/>
                                                 </constraints>
@@ -1852,7 +1857,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bS6-7s-SNb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988.5496183206105" y="-25.35211267605634"/>
+            <point key="canvasLocation" x="2024" y="-25"/>
         </scene>
         <!--Thankyou PurchaseVC-->
         <scene sceneID="gtE-JC-lu1">
@@ -2233,61 +2238,61 @@
     </scenes>
     <designables>
         <designable name="6QH-d3-hcB">
-            <size key="intrinsicContentSize" width="132.33333333333334" height="17"/>
+            <size key="intrinsicContentSize" width="62.333333333333336" height="17"/>
         </designable>
         <designable name="7vT-Qm-aD3">
-            <size key="intrinsicContentSize" width="81" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="41" height="18.666666666666668"/>
         </designable>
         <designable name="Ewz-78-z3b">
-            <size key="intrinsicContentSize" width="73" height="33"/>
+            <size key="intrinsicContentSize" width="67" height="33"/>
         </designable>
         <designable name="Ij2-zT-bAj">
-            <size key="intrinsicContentSize" width="172.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="180.33333333333334" height="22"/>
         </designable>
         <designable name="Jix-Ik-UYZ">
-            <size key="intrinsicContentSize" width="37" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="32"/>
         </designable>
         <designable name="MbH-cQ-u5X">
-            <size key="intrinsicContentSize" width="119" height="33"/>
+            <size key="intrinsicContentSize" width="116" height="32"/>
         </designable>
         <designable name="MpW-pI-3Vg">
-            <size key="intrinsicContentSize" width="73" height="33"/>
+            <size key="intrinsicContentSize" width="67" height="33"/>
         </designable>
         <designable name="RDg-3A-Cm1">
-            <size key="intrinsicContentSize" width="104.33333333333333" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="64.333333333333329" height="18.666666666666668"/>
         </designable>
         <designable name="SRS-5M-TWR">
-            <size key="intrinsicContentSize" width="167.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="175.33333333333334" height="22"/>
         </designable>
         <designable name="Swn-ff-Fbe">
             <size key="intrinsicContentSize" width="107.33333333333333" height="18.666666666666668"/>
         </designable>
         <designable name="TzP-7l-f81">
-            <size key="intrinsicContentSize" width="130" height="33"/>
+            <size key="intrinsicContentSize" width="126" height="32"/>
         </designable>
         <designable name="UUX-vX-ObF">
-            <size key="intrinsicContentSize" width="186.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="195.33333333333334" height="22"/>
         </designable>
         <designable name="YDr-Nf-cTp">
-            <size key="intrinsicContentSize" width="52" height="33"/>
+            <size key="intrinsicContentSize" width="51" height="32"/>
         </designable>
         <designable name="ZAw-YT-9gp">
-            <size key="intrinsicContentSize" width="37" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="32"/>
         </designable>
         <designable name="fjh-re-LRo">
-            <size key="intrinsicContentSize" width="130" height="33"/>
+            <size key="intrinsicContentSize" width="122" height="33"/>
         </designable>
         <designable name="kJL-VZ-Fnd">
             <size key="intrinsicContentSize" width="30" height="33"/>
         </designable>
         <designable name="oYr-lq-7tO">
-            <size key="intrinsicContentSize" width="37" height="33"/>
+            <size key="intrinsicContentSize" width="35" height="33"/>
         </designable>
         <designable name="pwP-VA-WOy">
-            <size key="intrinsicContentSize" width="74.666666666666671" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="34.666666666666664" height="18.666666666666668"/>
         </designable>
         <designable name="w2p-qS-raC">
-            <size key="intrinsicContentSize" width="153.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="161.33333333333334" height="22"/>
         </designable>
     </designables>
     <resources>

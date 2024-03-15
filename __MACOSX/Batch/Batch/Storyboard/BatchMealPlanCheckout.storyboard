@@ -1673,19 +1673,19 @@
     </scenes>
     <designables>
         <designable name="6Dg-HQ-ZK0">
-            <size key="intrinsicContentSize" width="44" height="33"/>
+            <size key="intrinsicContentSize" width="42" height="33"/>
         </designable>
         <designable name="6K0-lF-WRu">
-            <size key="intrinsicContentSize" width="73" height="33"/>
+            <size key="intrinsicContentSize" width="67" height="33"/>
         </designable>
         <designable name="Fdw-Pf-3d5">
-            <size key="intrinsicContentSize" width="44" height="33"/>
+            <size key="intrinsicContentSize" width="42" height="33"/>
         </designable>
         <designable name="J9f-y9-TjG">
-            <size key="intrinsicContentSize" width="44" height="33"/>
+            <size key="intrinsicContentSize" width="42" height="33"/>
         </designable>
         <designable name="Tv5-jO-9jw">
-            <size key="intrinsicContentSize" width="44" height="33"/>
+            <size key="intrinsicContentSize" width="42" height="33"/>
         </designable>
     </designables>
     <resources>
@@ -2498,7 +2498,7 @@ AAAAAAAAAgEAAAAAAAAAaAAAAAAAAAAAAAAAAAAAufw
         </image>
         <image name="calendar" width="16" height="16"/>
         <image name="card" width="32" height="32"/>
-        <image name="downArrow" width="24" height="24"/>
+        <image name="downArrow" width="11" height="5.3333334922790527"/>
         <image name="dummyImg" width="371.33334350585938" height="457.66665649414062"/>
         <image name="leftArrow" width="32" height="32"/>
         <image name="rightArrow" width="32" height="32"/>

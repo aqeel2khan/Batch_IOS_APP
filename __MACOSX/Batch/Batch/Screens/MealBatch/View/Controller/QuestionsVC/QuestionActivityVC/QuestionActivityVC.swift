@@ -10,8 +10,8 @@ import UIKit
 class QuestionActivityVC: UIViewController {
     @IBOutlet weak var customNavigationBar: CustomSecondNavigationBar!
     @IBOutlet weak var tblView: UITableView!
-    var activityList : [String] = ["Low Mobility", "1-2 workouts per week", "3-5 workouts per week", "5-7 workouts per week"]
-
+    var activityList : [String] = ["Low Mobility", " 1-2" + "workouts per week".localized, " 3-5" + "workouts per week".localized, " 5-7" + "workouts per week".localized]
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
