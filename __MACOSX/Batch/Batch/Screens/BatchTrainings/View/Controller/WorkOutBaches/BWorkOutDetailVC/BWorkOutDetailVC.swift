@@ -203,6 +203,28 @@ class BWorkOutDetailVC: UIViewController {
             showAlert(message: "Promo video not available")
         }
     }
+    
+    
+    @IBAction func coachBtnTap(_ sender: Any) {
+//        let vc = BWorkOutMotivatorDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
+//        vc.modalPresentationStyle = .overFullScreen
+//        vc.modalTransitionStyle = .coverVertical
+//
+//        if isCommingFrom == "MotivatorDetailVC"  {
+//            let info = woMotivatorInfo
+//            vc.woCoachDetailInfo = info?.coachDetail
+//        }
+//        else if isCommingFrom == "workoutbatches" {
+//            let info = woDetailInfo[0]
+//            vc.woCoachDetailInfo = info?.coachDetail
+//        }
+//        else if isCommingFrom == "dashboard" {
+//            let info = courseDetailsInfo
+//            vc.woCoachDetailInfo = info?.coachDetail
+//        }
+//        self.present(vc, animated: true)
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         self.videoListTableView.removeObserver(self, forKeyPath: "contentSize")
     }

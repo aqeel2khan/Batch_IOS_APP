@@ -57,7 +57,7 @@
                                                         <rect key="frame" x="146.66666666666666" y="20" width="100" height="100"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="Dds-O3-Gc2"/>
-                                                            <constraint firstAttribute="width" secondItem="gzI-nt-MC3" secondAttribute="height" multiplier="1:1" id="l7Z-xY-xda"/>
+                                                            <constraint firstAttribute="height" constant="100" id="FBm-i9-ohS"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -72,7 +72,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ke-5G-5Te" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="112.00000000000001" y="158.33333333333331" width="169.33333333333337" height="30"/>
+                                                        <rect key="frame" x="121.00000000000001" y="158.33333333333331" width="151.33333333333337" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="e6u-KY-aWM"/>
                                                         </constraints>
@@ -437,7 +437,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpX-0W-1tD" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="126" y="20" width="141" height="50"/>
+                                                        <rect key="frame" x="125" y="20" width="143" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="YqF-FF-fX6"/>
                                                         </constraints>
@@ -1009,11 +1009,11 @@
             <objects>
                 <viewController storyboardIdentifier="BUserDeliveryDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ghe-uk-IWi" customClass="BUserDeliveryDetailVC" customModule="Batch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="30f-Kn-dNh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJk-4v-r6N">
-                                <rect key="frame" x="0.0" y="202" width="393" height="650"/>
+                                <rect key="frame" x="0.0" y="550" width="393" height="650"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxI-Q4-x6D">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="650"/>
@@ -1029,7 +1029,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Z6-ea-OsJ" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="114" y="20" width="165" height="50"/>
+                                                        <rect key="frame" x="110.66666666666667" y="20" width="171.66666666666663" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="54e-Ax-s88"/>
                                                         </constraints>
@@ -1061,7 +1061,7 @@
                                                                 <color key="textColor" name="AppLabelBlackColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Governorate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mgz-Bv-v49">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Governorate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mgz-Bv-v49" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="70" width="353" height="56"/>
                                                                 <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                                 <constraints>
@@ -1081,7 +1081,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Block" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hp-WX-OJj">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Block" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hp-WX-OJj" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="146" width="353" height="56"/>
                                                                 <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                                 <constraints>
@@ -1101,7 +1101,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="House #" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zBz-D3-bjh">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="House #" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zBz-D3-bjh" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="222" width="353" height="56"/>
                                                                 <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                                 <constraints>
@@ -1121,7 +1121,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Street" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sls-M2-WWM">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Street" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sls-M2-WWM" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="298" width="353" height="56"/>
                                                                 <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                                 <constraints>
@@ -1141,7 +1141,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Avenue" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ayV-nv-bvo">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Avenue" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ayV-nv-bvo" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="374" width="353" height="56"/>
                                                                 <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                                 <constraints>
@@ -1164,14 +1164,14 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFu-Zb-YKf">
                                                                 <rect key="frame" x="0.0" y="450" width="353" height="50"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set default address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTX-dX-kbZ">
-                                                                        <rect key="frame" x="0.0" y="15.666666666666631" width="139" height="18.666666666666671"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set default address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTX-dX-kbZ" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="14.999999999999998" width="140" height="20.333333333333329"/>
                                                                         <fontDescription key="fontDescription" name="Outfit-SemiBold" family="Outfit" pointSize="16"/>
                                                                         <color key="textColor" name="AppLabelBlackColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rXw-7y-1wj">
-                                                                        <rect key="frame" x="304" y="9.6666666666666288" width="51" height="31"/>
+                                                                        <rect key="frame" x="304" y="9.6666666666667425" width="51" height="31"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <color key="onTintColor" name="AppThemeButtonColor"/>
                                                                     </switch>
@@ -1188,8 +1188,8 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPN-Lg-n52">
                                                                 <rect key="frame" x="0.0" y="520" width="353" height="100"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery place" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bY-or-y9R">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="100.33333333333333" height="25"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery place" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bY-or-y9R" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="25"/>
                                                                         <fontDescription key="fontDescription" name="Outfit-SemiBold" family="Outfit" pointSize="16"/>
                                                                         <color key="textColor" name="AppLabelBlackColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1357,6 +1357,7 @@
                             <constraint firstItem="K8u-2H-uOX" firstAttribute="trailing" secondItem="jJk-4v-r6N" secondAttribute="trailing" id="Imc-yB-EuQ"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="393" height="1200"/>
                     <connections>
                         <outlet property="mainView" destination="30f-Kn-dNh" id="cc9-i4-HCB"/>
                     </connections>
@@ -1371,7 +1372,10 @@
             <size key="intrinsicContentSize" width="104.33333333333333" height="18.666666666666668"/>
         </designable>
         <designable name="3vc-0K-mxM">
-            <size key="intrinsicContentSize" width="37" height="33"/>
+            <size key="intrinsicContentSize" width="35" height="33"/>
+        </designable>
+        <designable name="8Ke-5G-5Te">
+            <size key="intrinsicContentSize" width="151.33333333333334" height="34.333333333333336"/>
         </designable>
         <designable name="GoE-z7-tKW">
             <size key="intrinsicContentSize" width="81" height="18.666666666666668"/>
@@ -1386,10 +1390,10 @@
             <size key="intrinsicContentSize" width="121" height="18.666666666666668"/>
         </designable>
         <designable name="vLL-uO-UXk">
-            <size key="intrinsicContentSize" width="37" height="33"/>
+            <size key="intrinsicContentSize" width="35" height="33"/>
         </designable>
         <designable name="w6v-ip-4fU">
-            <size key="intrinsicContentSize" width="53" height="33"/>
+            <size key="intrinsicContentSize" width="49" height="33"/>
         </designable>
     </designables>
     <resources>

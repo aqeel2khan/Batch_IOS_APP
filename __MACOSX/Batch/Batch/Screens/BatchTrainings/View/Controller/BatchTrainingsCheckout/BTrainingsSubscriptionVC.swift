@@ -56,9 +56,13 @@ class BTrainingsSubscriptionVC: UIViewController {
         if isCommingFrom == "dashboard" {
             let info = selectedMotivatorSubscriptionInfo
             self.lblTitle.text = "\(info?.courseName ?? "")"
-            self.woPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " +  "\(info?.coursePrice ?? "")".removeDecimalValue()
+//            self.woPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " +  "\(info?.coursePrice ?? "")".removeDecimalValue()
+            let coursePrice = "\(info?.coursePrice ?? "")"
+            let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(coursePrice.removeDecimalValue())", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+            self.woPriceLbl.attributedText = attributedPriceString
+            
             self.coachNameLbl.text = "\(info?.coachDetail?.name ?? "")"
-            self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(info?.coursePrice ?? "")"
+            self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(coursePrice.removeDecimalValue())"
             self.totalOrderAmount = info?.coursePrice
             self.courseLevelTypeLbl.setTitle("\(info?.courseLevel?.levelName ?? "")", for: .normal)
             let workType = info?.workoutType?[0].workoutdetail?.workoutType
@@ -73,9 +77,14 @@ class BTrainingsSubscriptionVC: UIViewController {
         else if isCommingFrom == "workoutbatches" {
             let info = selectedSubscriptionInfo[0]
             self.lblTitle.text = "\(info.courseName ?? "")"
-            self.woPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " +  "\(info.coursePrice ?? "")".removeDecimalValue()
+//            self.woPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " +  "\(info.coursePrice ?? "")".removeDecimalValue()
+            
+            let coursePrice = "\(info.coursePrice ?? "")"
+            let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(coursePrice.removeDecimalValue())", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+            self.woPriceLbl.attributedText = attributedPriceString
+            
             self.coachNameLbl.text = "\(info.coachDetail?.name ?? "")"
-            self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(info.coursePrice ?? "")"
+            self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(coursePrice.removeDecimalValue())"
             self.totalOrderAmount = info.coursePrice
             self.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
             let workType = info.workoutType?[0].workoutdetail?.workoutType
@@ -89,9 +98,14 @@ class BTrainingsSubscriptionVC: UIViewController {
         else if isCommingFrom == "MotivatorDetailVC" {
             let info = selectedMotivatorSubscriptionInfo
             self.lblTitle.text = "\(info?.courseName ?? "")"
-            self.woPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " +  "\(info?.coursePrice ?? "")".removeDecimalValue()
+//            self.woPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " +  "\(info?.coursePrice ?? "")".removeDecimalValue()
+            
+            let coursePrice = "\(info?.coursePrice ?? "")"
+            let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(coursePrice.removeDecimalValue())", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+            self.woPriceLbl.attributedText = attributedPriceString
+            
             self.coachNameLbl.text = "\(info?.coachDetail?.name ?? "")"
-            self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(info?.coursePrice ?? "")"
+            self.grandTotalPriceLbl.text = "\(CURRENCY) " + "\(coursePrice.removeDecimalValue())"
             self.totalOrderAmount = info?.coursePrice
             self.courseLevelTypeLbl.setTitle("\(info?.courseLevel?.levelName ?? "")", for: .normal)
             let workType = info?.workoutType?[0].workoutdetail?.workoutType

@@ -15,11 +15,9 @@ extension BWorkOutMotivatorDetailVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.motivatorCourseArr.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(BWOPackageTblCell.self,for: indexPath)
         cell.cellBtn.tag = indexPath.row
-        
         cell.cellBtn.addTarget(self, action: #selector(cellBtnClicked(sender:)), for: UIControl.Event.touchUpInside)
         
         let info = motivatorCourseArr[indexPath.item]
@@ -28,8 +26,14 @@ extension BWorkOutMotivatorDetailVC: UITableViewDelegate,UITableViewDataSource {
         let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info.coachDetail?.profilePhotoPath ?? ""))
         cell.coachProfileImg.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
         cell.lblTitle.text = info.courseName
+//        cell.woDayCountLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + "\(info.coursePrice?.removeDecimalValue() ?? "")"
+        
+        let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+        cell.woDayCountLbl.attributedText = attributedPriceString
 
-        cell.woDayCountLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + "\(info.coursePrice?.removeDecimalValue() ?? "")"
+        
+        
+        
         cell.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
         let workType = info.workoutType?[0].workoutdetail?.workoutType
         cell.workOutTypeBtn.setTitle("\(workType ?? "")", for: .normal)

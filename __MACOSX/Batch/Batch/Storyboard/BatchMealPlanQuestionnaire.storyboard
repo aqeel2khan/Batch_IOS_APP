@@ -55,16 +55,16 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your fitness goal?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4B-4J-y50" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="70" width="353" height="22"/>
+                                        <rect key="frame" x="20" y="70" width="353" height="38"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="8kB-az-3oY"/>
+                                            <constraint firstAttribute="height" constant="38" id="8kB-az-3oY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="u0E-gF-HEL">
-                                        <rect key="frame" x="20" y="112" width="353" height="544"/>
+                                        <rect key="frame" x="20" y="128" width="353" height="528"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="dataSource" destination="KSx-fv-NEf" id="7Ha-hS-Ekd"/>
@@ -1481,7 +1481,7 @@
             <size key="intrinsicContentSize" width="137" height="33"/>
         </designable>
         <designable name="DH5-PB-iIe">
-            <size key="intrinsicContentSize" width="36" height="33"/>
+            <size key="intrinsicContentSize" width="34" height="33"/>
         </designable>
         <designable name="IZ0-38-SzY">
             <size key="intrinsicContentSize" width="34" height="33"/>
@@ -1490,13 +1490,13 @@
             <size key="intrinsicContentSize" width="34" height="33"/>
         </designable>
         <designable name="l5w-ec-Yc4">
-            <size key="intrinsicContentSize" width="36" height="33"/>
+            <size key="intrinsicContentSize" width="34" height="33"/>
         </designable>
         <designable name="pTi-FX-6dR">
             <size key="intrinsicContentSize" width="34" height="33"/>
         </designable>
         <designable name="uYj-Pj-96Y">
-            <size key="intrinsicContentSize" width="36" height="33"/>
+            <size key="intrinsicContentSize" width="34" height="33"/>
         </designable>
     </designables>
     <resources>

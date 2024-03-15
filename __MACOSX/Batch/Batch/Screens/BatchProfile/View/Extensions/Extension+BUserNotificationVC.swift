@@ -17,26 +17,26 @@ extension BUserNotificationVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(NotificationSettingsListTableCell.self,for: indexPath)
         cell.switchBtn.tag = indexPath.row
-        if notificationPrefrences?.data?.all ?? 0 == 1 && notificationList[indexPath.row] == "All notifications"{
+        if notificationPrefrences?.data?.all ?? 0 == 1 && notificationList[indexPath.row] == "All notifications".localized {
             cell.switchBtn.isOn = true
         }
         
-        if notificationPrefrences?.data?.training ?? 0 == 1 && notificationList[indexPath.row] == "Training notifications"{
+        if notificationPrefrences?.data?.training ?? 0 == 1 && notificationList[indexPath.row] == "Training notifications".localized {
             cell.switchBtn.isOn = true
         }
         
-        if notificationPrefrences?.data?.live_stream ?? 0 == 1 && notificationList[indexPath.row] == "Live stream notifications"{
+        if notificationPrefrences?.data?.live_stream ?? 0 == 1 && notificationList[indexPath.row] == "Live stream notifications".localized {
             cell.switchBtn.isOn = true
         }
         
-        if notificationPrefrences?.data?.meal_plan ?? 0 == 1 && notificationList[indexPath.row] == "Meal plan notificatins"{
+        if notificationPrefrences?.data?.meal_plan ?? 0 == 1 && notificationList[indexPath.row] == "Meal plan notifications".localized {
             cell.switchBtn.isOn = true
         }
         
-        if notificationPrefrences?.data?.delivery ?? 0 == 1 && notificationList[indexPath.row] == "Delivery notifications"{
+        if notificationPrefrences?.data?.delivery ?? 0 == 1 && notificationList[indexPath.row] == "Delivery notifications".localized {
             cell.switchBtn.isOn = true
         }
-        cell.lblTitle.text = notificationList[indexPath.row]
+        cell.lblTitle.text = notificationList[indexPath.row].localized
         
         cell.callBack = {
             if cell.switchBtn.isOn {

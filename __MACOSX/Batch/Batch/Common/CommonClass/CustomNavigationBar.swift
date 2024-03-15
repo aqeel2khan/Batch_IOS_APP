@@ -48,6 +48,7 @@ class CustomNavigationBar: UIView {
         if getprofilePhoto != nil {
             profileImage.image = UIImage(data: getprofilePhoto ?? Data())
             profileImage.cornerRadius = 18
+            profileImage.clipsToBounds = true
         }else{
             profileImage.image = UIImage(named: "Avatar")
             profileImage.cornerRadius = 0
