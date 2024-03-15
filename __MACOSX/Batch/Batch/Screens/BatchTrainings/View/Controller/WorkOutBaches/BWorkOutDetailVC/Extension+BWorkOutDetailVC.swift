@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 extension BWorkOutDetailVC: UICollectionViewDelegate,UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return newArray.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeue(BatchTrainingDetailCollCell.self, indexPath)
         cell.imgWorkOut.image = newImage[indexPath.row]
@@ -35,86 +35,62 @@ extension BWorkOutDetailVC: UICollectionViewDelegate,UICollectionViewDataSource 
 extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isCommingFrom == "workoutbatches" {
-            //return self.totalCourseArr.count
             return self.unsubscribeWorkoutsInfo.count
         } else if isCommingFrom == "dashboard" {
             return self.totalCourseDashboardArr.count
         }
-        //        else if isCommingFrom == "MotivatorDetailVC" {
-        //            return self.woMotivatorInfo?.
-        //        }
+        else if isCommingFrom == "MotivatorDetailVC" {
+            return self.unsubscribeWorkoutsInfo.count
+        }
         else {
             return self.totalCourseArr.count
         }
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(TrainingListTableCell.self,for: indexPath)
-        if isCommingFrom == "workoutbatches"
+        if (isCommingFrom == "workoutbatches") || (isCommingFrom == "MotivatorDetailVC")
         {
             let info = self.unsubscribeWorkoutsInfo[indexPath.row]
             if info.status == 0 {
                 cell.dayLbl.text = ""
-                cell.lblTitle.text  = "Day Off"
+                cell.lblTitle.text  = "Day Off".localized
                 cell.bottomStackView.isHidden = true
             } else {
                 cell.dayLbl.text = "\(indexPath.row + 1)"
                 cell.lblTitle.text  = info.dayName
-                //                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
-                let originalKcalString = "\(info.calorieBurn ?? "") kcal"
+                
+                let originalKcalString = "\(info.calorieBurn ?? "") " + BatchConstant.kcalSuffix
                 let keyword1 = BatchConstant.kcalSuffix
                 let attributedKcalString = NSAttributedString.attributedStringWithDifferentFonts(for: originalKcalString, prefixFont: UIFont(name:"Outfit-Medium",size:14)!, suffixFont: UIFont(name:"Outfit-Medium",size:10)!, keyword: keyword1)
                 cell.lblKalori.attributedText = attributedKcalString
                 
-                let originalMinsString = "\(info.workoutTime ?? "") mins"
+                let originalMinsString = "\(info.workoutTime ?? "") " + BatchConstant.minsSuffix
                 let keyword2 = BatchConstant.minsSuffix
                 let attributedMinsString = NSAttributedString.attributedStringWithDifferentFonts(for: originalMinsString, prefixFont: UIFont(name:"Outfit-Medium",size:14)!, suffixFont: UIFont(name:"Outfit-Medium",size:10)!, keyword: keyword2)
                 cell.lblMints.attributedText = attributedMinsString
                 
-                
-                //                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
                 cell.bottomStackView.isHidden = false
             }
         }
-        //        {
-        //            let info = totalCourseArr[indexPath.row]
-        //            if info.status == 0 {
-        //                cell.dayLbl.text = ""
-        //                cell.lblTitle.text  = "Day Off"
-        //                cell.bottomStackView.isHidden = true
-        //            } else {
-        //                cell.dayLbl.text = "\(indexPath.row + 1)"
-        //                cell.lblTitle.text  = "Lower-Body Burn"
-        //                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
-        //                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
-        //                cell.bottomStackView.isHidden = false
-        //            }
-        //
-        //
-        //        }
         else if isCommingFrom == "dashboard" {
             let info = self.totalCourseDashboardArr[indexPath.row]
             if info.status == 0 {
                 cell.dayLbl.text = ""
-                cell.lblTitle.text  = "Day Off"
+                cell.lblTitle.text  = "Day Off".localized
                 cell.bottomStackView.isHidden = true
             } else {
                 cell.dayLbl.text = "\(indexPath.row + 1)"
                 cell.lblTitle.text  = info.dayName
-                //                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
-                //                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
                 
-                let originalKcalString = "\(info.calorieBurn ?? "") kcal"
+                let originalKcalString = "\(info.calorieBurn ?? "") " + BatchConstant.kcalSuffix
                 let keyword1 = BatchConstant.kcalSuffix
                 let attributedKcalString = NSAttributedString.attributedStringWithDifferentFonts(for: originalKcalString, prefixFont: UIFont(name:"Outfit-Medium",size:14)!, suffixFont: UIFont(name:"Outfit-Medium",size:10)!, keyword: keyword1)
                 cell.lblKalori.attributedText = attributedKcalString
                 
-                let originalMinsString = "\(info.workoutTime ?? "") mins"
+                let originalMinsString = "\(info.workoutTime ?? "") " + BatchConstant.minsSuffix
                 let keyword2 = BatchConstant.minsSuffix
                 let attributedMinsString = NSAttributedString.attributedStringWithDifferentFonts(for: originalMinsString, prefixFont: UIFont(name:"Outfit-Medium",size:14)!, suffixFont: UIFont(name:"Outfit-Medium",size:10)!, keyword: keyword2)
                 cell.lblMints.attributedText = attributedMinsString
-                
-                
                 
                 cell.bottomStackView.isHidden = false
             }
@@ -131,21 +107,18 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
             let info = totalCourseArr[indexPath.row]
             if info.status == 0 {
                 cell.dayLbl.text = ""
-                cell.lblTitle.text  = "Day Off"
+                cell.lblTitle.text  = "Day Off".localized
                 cell.bottomStackView.isHidden = true
             } else {
                 cell.dayLbl.text = "\(indexPath.row + 1)"
                 cell.lblTitle.text  = "Lower-Body Burn"
-                //                cell.lblKalori.text = "\(info.calorieBurn ?? "") kcal"
-                //                cell.lblMints.text  = "\(info.workoutTime ?? "") mins"
                 
-                
-                let originalKcalString = "\(info.calorieBurn ?? "") kcal"
+                let originalKcalString = "\(info.calorieBurn ?? "") " + BatchConstant.kcalSuffix
                 let keyword1 = BatchConstant.kcalSuffix
                 let attributedKcalString = NSAttributedString.attributedStringWithDifferentFonts(for: originalKcalString, prefixFont: UIFont(name:"Outfit-Medium",size:14)!, suffixFont: UIFont(name:"Outfit-Medium",size:10)!, keyword: keyword1)
                 cell.lblKalori.attributedText = attributedKcalString
                 
-                let originalMinsString = "\(info.workoutTime ?? "") mins"
+                let originalMinsString = "\(info.workoutTime ?? "") " + BatchConstant.minsSuffix
                 let keyword2 = BatchConstant.minsSuffix
                 let attributedMinsString = NSAttributedString.attributedStringWithDifferentFonts(for: originalMinsString, prefixFont: UIFont(name:"Outfit-Medium",size:14)!, suffixFont: UIFont(name:"Outfit-Medium",size:10)!, keyword: keyword2)
                 cell.lblMints.attributedText = attributedMinsString

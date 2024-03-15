@@ -257,7 +257,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet consectetur." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bPd-D9-WPX" customClass="BatchLabelSubTitleWhite">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet consectetur." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bPd-D9-WPX" customClass="BatchLabelSubTitleWhite" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="43.333333333333336" width="350" height="19.333333333333336"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -589,19 +589,19 @@
     </scenes>
     <designables>
         <designable name="8Kl-hq-j6A">
-            <size key="intrinsicContentSize" width="149" height="33"/>
+            <size key="intrinsicContentSize" width="159" height="33"/>
         </designable>
         <designable name="967-iC-wqE">
-            <size key="intrinsicContentSize" width="149" height="33"/>
+            <size key="intrinsicContentSize" width="159" height="33"/>
         </designable>
         <designable name="Ze0-HW-7a7">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="42" height="33"/>
         </designable>
         <designable name="jDR-yu-Zla">
-            <size key="intrinsicContentSize" width="34" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="33"/>
         </designable>
         <designable name="tO2-sm-zmS">
-            <size key="intrinsicContentSize" width="44" height="33"/>
+            <size key="intrinsicContentSize" width="47" height="33"/>
         </designable>
     </designables>
     <resources>

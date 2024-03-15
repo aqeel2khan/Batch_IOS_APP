@@ -104,33 +104,25 @@ class BWorkOutDetailVC: UIViewController {
             self.videoListTableView.reloadData()
         }
         else if isCommingFrom == "MotivatorDetailVC"  {
-            if woDetailInfo.count != 0 {
-                let info = woDetailInfo[0]
-                guard info.courseID != nil else { return }
-                
-                if internetConnection.isConnectedToNetwork() == true {
-                    // Call Api here
-                    self.getCourseDetails(courseId:"\(info.courseID ?? 0)")
-                }
-                else {
-                    self.showAlert(message: "Please check your internet", title: "Network issue")
-                }
+            let info = woMotivatorInfo
+            guard info?.courseID != nil else { return }
+            if internetConnection.isConnectedToNetwork() == true {
+                // Call Api here
+                self.getCourseDetails(courseId:"\(info?.courseID ?? 0)")
+            }
+            else {
+                self.showAlert(message: "Please check your internet", title: "Network issue")
             }
         }
     }
-    
     // MARK: - UI
-    
     private func setUpViewData()  {
         if isCommingFrom == "MotivatorDetailVC"  {
             self.grandTotalPriceBackView.isHidden = false
             self.subscribeCourseBtn.isHidden = false
             self.startWorkOutBtn.isHidden = true
-            //self.changeCourseBtn.isHidden = true
-            
             let info = woMotivatorInfo
             self.woTitleLbl.text = info?.courseName
-            //self.workOutPriceLbl.text = "from \(CURRENCY) " + (info?.coursePrice?.removeDecimalValue() ?? "")
             let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info?.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
             self.workOutPriceLbl.attributedText = attributedPriceString
             self.woDesLbl.text = info?.description ?? ""
@@ -158,10 +150,9 @@ class BWorkOutDetailVC: UIViewController {
             self.grandTotalPriceBackView.isHidden = false
             self.subscribeCourseBtn.isHidden = false
             self.startWorkOutBtn.isHidden = true
-           // self.changeCourseBtn.isHidden = true
+            // self.changeCourseBtn.isHidden = true
             let info = woDetailInfo[0]
             self.woTitleLbl.text = info.courseName
-//            self.workOutPriceLbl.text = "from \(CURRENCY) " + (info.coursePrice?.removeDecimalValue() ?? "")
             let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
             self.workOutPriceLbl.attributedText = attributedPriceString
             self.woDesLbl.text = info.description ?? ""
@@ -180,11 +171,11 @@ class BWorkOutDetailVC: UIViewController {
             self.grandTotalPriceBackView.isHidden = true
             self.subscribeCourseBtn.isHidden = true
             self.startWorkOutBtn.isHidden = false
-           // self.changeCourseBtn.isHidden = false
+            // self.changeCourseBtn.isHidden = false
             let info = courseDetailsInfo
             self.coursePromotionVideoId = info?.coursePromoVideo ?? ""
             self.woTitleLbl.text = info?.courseName
-            self.workOutPriceLbl.text = "from \(CURRENCY) " + (info?.coursePrice?.removeDecimalValue() ?? "")
+            self.workOutPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + (info?.coursePrice?.removeDecimalValue() ?? "")
             self.woDesLbl.text = info?.description ?? ""
             self.coachNameLbl.text = info?.coachDetail?.name ?? ""
             self.durationLbl.text = "Day \(todayWorkoutsInfo.row ?? 0)"
@@ -212,6 +203,28 @@ class BWorkOutDetailVC: UIViewController {
             showAlert(message: "Promo video not available")
         }
     }
+    
+    
+    @IBAction func coachBtnTap(_ sender: Any) {
+//        let vc = BWorkOutMotivatorDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
+//        vc.modalPresentationStyle = .overFullScreen
+//        vc.modalTransitionStyle = .coverVertical
+//
+//        if isCommingFrom == "MotivatorDetailVC"  {
+//            let info = woMotivatorInfo
+//            vc.woCoachDetailInfo = info?.coachDetail
+//        }
+//        else if isCommingFrom == "workoutbatches" {
+//            let info = woDetailInfo[0]
+//            vc.woCoachDetailInfo = info?.coachDetail
+//        }
+//        else if isCommingFrom == "dashboard" {
+//            let info = courseDetailsInfo
+//            vc.woCoachDetailInfo = info?.coachDetail
+//        }
+//        self.present(vc, animated: true)
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         self.videoListTableView.removeObserver(self, forKeyPath: "contentSize")
     }
@@ -251,19 +264,16 @@ class BWorkOutDetailVC: UIViewController {
             print("all video setup done")
             let vimeoVideoArr = self.videoIdArr.filter {$0 != ""}
             if vimeoVideoArr.count != 0 {
-                let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
+                
+                let vc = BStartWorkOutDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .coverVertical
                 vc.courseDurationExerciseArr = self.courseDurationExerciseArr
                 vc.courseDetail = self.courseDetailsInfo
                 vc.viemoVideoArr = self.vimoVideoURLList
                 vc.todayWorkoutsInfo = self.todayWorkoutsInfo
                 vc.dayNumberText = "\(self.durationLbl.text ?? "") / \(self.totalCourseDashboardArr.count)"
                 vc.titleText = self.woTitleLbl.text ?? ""
-                vc.modalPresentationStyle = .overFullScreen
-                vc.modalTransitionStyle = .coverVertical
-                vc.completion = {
-                    print(self.vimoVideoURLList)
-                    self.callApiServices()
-                }
                 self.present(vc, animated: true)
             }
             else {

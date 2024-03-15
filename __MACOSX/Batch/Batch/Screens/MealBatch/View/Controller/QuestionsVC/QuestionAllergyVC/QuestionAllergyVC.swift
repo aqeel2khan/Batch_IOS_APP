@@ -52,7 +52,7 @@ class QuestionAllergyVC: UIViewController {
         let commaSeperatedString = (selectedValue.map{String($0)}.joined(separator: ","))
         
         if commaSeperatedString == "" {
-            showAlert(message: "Please select at least one allergy")
+            showAlert(message: "Please select at least one allergy".localized)
         } else {
             AnswerStruct.allergic_id = commaSeperatedString
             

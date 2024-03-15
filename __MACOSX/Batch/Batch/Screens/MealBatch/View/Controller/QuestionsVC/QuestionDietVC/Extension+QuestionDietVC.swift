@@ -15,7 +15,7 @@ extension QuestionDietVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(QuestionLabelTVC.self, for: indexPath)
-        cell.titleLbl.text = self.dietList[indexPath.row].name
+        cell.titleLbl.text = self.dietList[indexPath.row].name.localized
         return cell
     }
     

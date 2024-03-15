@@ -57,8 +57,8 @@ extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
                         let keyword = BatchConstant.kcalSuffix
                         let attributedString = NSAttributedString.attributedStringWithDifferentFonts(for: originalString, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword)
                         cell.kclLbl.attributedText = attributedString
-                        let original2String = "\(self.searchmealListData[indexPath.row].mealCount ?? 0) meals"
-                        let keyword2 = "meals"
+                        let original2String = "\(self.searchmealListData[indexPath.row].mealCount ?? 0) " + BatchConstant.meals
+                        let keyword2 = BatchConstant.meals
                         let attributedString1 = NSAttributedString.attributedStringWithDifferentFonts(for: original2String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword2)
                         cell.mealsLbl.attributedText = attributedString1
                         return cell
@@ -67,28 +67,28 @@ extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
                     if searchTextField.text == "" {
                         let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
                         cell.titleLbl.text = self.mealListData[indexPath.row].name
-                        let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: "from", value: " \(CURRENCY) \(self.mealListData[indexPath.row].price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+                        let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(self.mealListData[indexPath.row].price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
                         cell.priceLbl.attributedText = attributedPriceString
-                        let originalString = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") kcal"
-                        let keyword = "kcal"
+                        let originalString = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") " + BatchConstant.kcalSuffix
+                        let keyword = BatchConstant.kcalSuffix
                         let attributedString = NSAttributedString.attributedStringWithDifferentFonts(for: originalString, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword)
                         cell.kclLbl.attributedText = attributedString
-                        let original2String = "\(self.mealListData[indexPath.row].mealCount ?? 0) meals"
-                        let keyword2 = "meals"
+                        let original2String = "\(self.mealListData[indexPath.row].mealCount ?? 0) " + BatchConstant.meals
+                        let keyword2 = BatchConstant.meals
                         let attributedString1 = NSAttributedString.attributedStringWithDifferentFonts(for: original2String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword2)
                         cell.mealsLbl.attributedText = attributedString1
                         return cell
                     } else {
                         let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
                         cell.titleLbl.text = self.searchmealListData[indexPath.row].name
-                        let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: "from", value: " \(CURRENCY) \(self.searchmealListData[indexPath.row].price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+                        let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(self.searchmealListData[indexPath.row].price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
                         cell.priceLbl.attributedText = attributedPriceString
-                        let originalString = "\(self.searchmealListData[indexPath.row].avgCalPerDay ?? "") kcal"
-                        let keyword = "kcal"
+                        let originalString = "\(self.searchmealListData[indexPath.row].avgCalPerDay ?? "") " + BatchConstant.kcalSuffix
+                        let keyword = BatchConstant.kcalSuffix
                         let attributedString = NSAttributedString.attributedStringWithDifferentFonts(for: originalString, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword)
                         cell.kclLbl.attributedText = attributedString
-                        let original2String = "\(self.searchmealListData[indexPath.row].mealCount ?? 0) meals"
-                        let keyword2 = "meals"
+                        let original2String = "\(self.searchmealListData[indexPath.row].mealCount ?? 0) " + BatchConstant.meals
+                        let keyword2 = BatchConstant.meals
                         let attributedString1 = NSAttributedString.attributedStringWithDifferentFonts(for: original2String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword2)
                         cell.mealsLbl.attributedText = attributedString1
                         return cell

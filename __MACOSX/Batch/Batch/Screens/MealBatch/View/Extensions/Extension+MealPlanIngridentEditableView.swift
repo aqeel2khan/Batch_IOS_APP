@@ -45,7 +45,11 @@ extension MealPlanIngridentEditableView : UICollectionViewDelegate,UICollectionV
             let cell1 = collectionView.dequeue(MealPlanProtienCollectionViewCell.self, indexPath)
             cell1.nameLbl.text = self.nutritionList[indexPath.item].nutrientName
             let integerValue = self.nutritionList[indexPath.item].value?.components(separatedBy: ".").first ?? ""
-            cell1.valueLbl.text = "\(integerValue)g"
+            if indexPath.row == 0 {
+                cell1.valueLbl.text = "\(integerValue)"
+            } else {
+                cell1.valueLbl.text = "\(integerValue)g"
+            }
             return cell1
         } else if collectionView == planReviewCollView {
             let cell = collectionView.dequeue(ReviewIngridentCollectionViewCell.self, indexPath)

@@ -46,7 +46,7 @@ class BatchCountryLanguageVC: UIViewController {
     
     @IBAction func onTapNextBtn(_ sender: Any) {
         if selectedLanguageCode == "" {
-            showAlert(message: "Please select Langauge")
+            showAlert(message: "Please select Langauge".localized)
         } else {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: selectedLanguageCode)
             UserDefaults.standard.setValue(selectedLanguageCode, forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE)

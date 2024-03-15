@@ -33,37 +33,37 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="2027"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwB-E6-bFm" userLabel="ContainerView">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1442"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1452"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HoG-lu-hP7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1432"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1442"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QE7-o4-Xo7">
-                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="260"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="270"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7NU-bi-3ey" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                                                        <rect key="frame" x="20" y="10" width="353" height="240"/>
+                                                                        <rect key="frame" x="20" y="20" width="353" height="240"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="240" id="Zh1-QL-app"/>
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                <real key="value" value="20"/>
+                                                                                <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="7NU-bi-3ey" firstAttribute="top" secondItem="QE7-o4-Xo7" secondAttribute="top" constant="10" id="4bW-T7-bon"/>
+                                                                    <constraint firstItem="7NU-bi-3ey" firstAttribute="top" secondItem="QE7-o4-Xo7" secondAttribute="top" constant="20" id="4bW-T7-bon"/>
                                                                     <constraint firstAttribute="trailing" secondItem="7NU-bi-3ey" secondAttribute="trailing" constant="20" id="Hsu-MU-C6i"/>
                                                                     <constraint firstItem="7NU-bi-3ey" firstAttribute="leading" secondItem="QE7-o4-Xo7" secondAttribute="leading" constant="20" id="d4H-T2-fb3"/>
                                                                     <constraint firstAttribute="bottom" secondItem="7NU-bi-3ey" secondAttribute="bottom" constant="10" id="elD-sf-i0L"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccv-gC-23Z" userLabel="WOBatchBView">
-                                                                <rect key="frame" x="0.0" y="268" width="393" height="280"/>
+                                                                <rect key="frame" x="0.0" y="278" width="393" height="280"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ct2-IK-B7T">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="280"/>
@@ -71,13 +71,13 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uh0-nA-Hln">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="30"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Batches" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaH-wC-KDh">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Batches" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaH-wC-KDh" customClass="BatchLabelMedium18DarkGray" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="20" y="0.0" width="268" height="30"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <button opaque="NO" tag="152" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mC-lo-zqr">
+                                                                                    <button opaque="NO" tag="152" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mC-lo-zqr" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="293" y="-5" width="80" height="40"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="80" id="SAa-uO-fsh"/>
@@ -144,7 +144,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0od-gK-99o" userLabel="MotivatorBView">
-                                                                <rect key="frame" x="0.0" y="556" width="393" height="260"/>
+                                                                <rect key="frame" x="0.0" y="566" width="393" height="260"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Sf-qI-qkX">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="260"/>
@@ -152,13 +152,13 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bf0-he-sh0">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="30"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motivators" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnc-dL-pKc" userLabel="Motivators">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motivators" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnc-dL-pKc" userLabel="Motivators" customClass="BatchLabelMedium18DarkGray" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="20" y="0.0" width="268" height="30"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <button opaque="NO" tag="153" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D26-7e-1bi">
+                                                                                    <button opaque="NO" tag="153" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D26-7e-1bi" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="293" y="-5" width="80" height="40"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="40" id="G9l-kV-fh5"/>
@@ -225,7 +225,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQV-qR-xmW" userLabel="MealBView">
-                                                                <rect key="frame" x="0.0" y="824" width="393" height="300"/>
+                                                                <rect key="frame" x="0.0" y="834" width="393" height="300"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lo5-dB-tAf">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
@@ -233,13 +233,13 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSf-ER-ZrF">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="30"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Batches" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIR-Wc-gEd">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Batches" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIR-Wc-gEd" customClass="BatchLabelMedium18DarkGray" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="20" y="0.0" width="268" height="30"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <button opaque="NO" tag="154" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7c-hy-iTA">
+                                                                                    <button opaque="NO" tag="154" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7c-hy-iTA" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="293" y="-5" width="80" height="40"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="80" id="Dnb-21-utA"/>
@@ -306,7 +306,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0d-MT-42Q" userLabel="TopRBView">
-                                                                <rect key="frame" x="0.0" y="1132" width="393" height="300"/>
+                                                                <rect key="frame" x="0.0" y="1142" width="393" height="300"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SNL-33-kTK">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
@@ -314,13 +314,13 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JJ-oM-mNz">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="30"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Rated Meals" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hse-8k-7Ep">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Rated Meals" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hse-8k-7Ep" customClass="BatchLabelMedium18DarkGray" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="20" y="0.0" width="268" height="30"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <button opaque="NO" tag="155" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FV-cO-ZpN">
+                                                                                    <button opaque="NO" tag="155" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FV-cO-ZpN" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="293" y="-5" width="80" height="40"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="80" id="GZe-Za-PlF"/>
@@ -454,6 +454,20 @@
             <point key="canvasLocation" x="-710.68702290076328" y="-13.380281690140846"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="4FV-cO-ZpN">
+            <size key="intrinsicContentSize" width="60" height="33"/>
+        </designable>
+        <designable name="8mC-lo-zqr">
+            <size key="intrinsicContentSize" width="60" height="33"/>
+        </designable>
+        <designable name="D26-7e-1bi">
+            <size key="intrinsicContentSize" width="60" height="33"/>
+        </designable>
+        <designable name="X7c-hy-iTA">
+            <size key="intrinsicContentSize" width="60" height="33"/>
+        </designable>
+    </designables>
     <resources>
         <image name="home" width="42" height="42"/>
         <image name="homefill" width="42" height="42"/>

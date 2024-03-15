@@ -42,7 +42,7 @@ class QuestionHeightVC: UIViewController {
         //        let _ = view
         heightPickerUIView.addSubview(heightPicker)
         heightPicker.translatesAutoresizingMaskIntoConstraints = false
-        heightPicker.backgroundColor = Colors.appViewBackgroundColor
+        heightPicker.backgroundColor = .clear
         heightPicker.font = UIFont.systemFont(ofSize: 16)
         heightPicker.highlightFont = UIFont.boldSystemFont(ofSize: 24)
 
@@ -50,7 +50,7 @@ class QuestionHeightVC: UIViewController {
             heightPicker.topAnchor.constraint(equalTo: heightPicker.superview!.topAnchor, constant: 0),
             heightPicker.bottomAnchor.constraint(equalTo: heightPicker.superview!.bottomAnchor, constant: 0),
             heightPicker.centerXAnchor.constraint(equalTo: heightPicker.superview!.centerXAnchor, constant: 0),
-            heightPicker.widthAnchor.constraint(equalToConstant: 150),
+            heightPicker.widthAnchor.constraint(equalToConstant: 120),
         ])
         
         //        heightPicker.layoutSubviews()

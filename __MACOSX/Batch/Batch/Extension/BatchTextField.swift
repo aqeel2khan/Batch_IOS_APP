@@ -24,15 +24,20 @@ class BatchTextField: UITextField {
         configureTextField()
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        placeholder = placeholder?.localized
+    }
+    
     func configureTextField(){
-        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: self.frame.height))
-        self.leftView = leftView
-        self.leftViewMode = .always
-        self.tintColor = Colors.appThemeBackgroundColor//Colors.darkGray
-        self.backgroundColor = Colors.appThemeBackgroundColor//Colors.lightGray
-        self.layer.cornerRadius = 15
-        self.layer.borderColor = Colors.appThemeBackgroundColor.cgColor //Colors.borderColor.cgColor
-        self.layer.borderWidth = 0.5
+//        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: self.frame.height))
+//        self.leftView = leftView
+//        self.leftViewMode = .always
+//        self.tintColor = Colors.appThemeBackgroundColor//Colors.darkGray
+//        self.backgroundColor = Colors.appThemeBackgroundColor//Colors.lightGray
+//        self.layer.cornerRadius = 15
+//        self.layer.borderColor = Colors.appThemeBackgroundColor.cgColor //Colors.borderColor.cgColor
+//        self.layer.borderWidth = 0.5
     }
     
     enum Direction {

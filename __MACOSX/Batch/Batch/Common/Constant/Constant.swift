@@ -16,9 +16,9 @@ let Batch_UserDefaults = UserDefaults.standard
 let CURRENCY = "KD"
 
 let ENGLISH_LANGUAGE_CODE = "en"
-let ARABIC_LANGUAGE_CODE = "en"
+let ARABIC_LANGUAGE_CODE = "en"  
 
-let DEFAULT_LANGUAGE_CODE = ENGLISH_LANGUAGE_CODE
+let DEFAULT_LANGUAGE_CODE = ARABIC_LANGUAGE_CODE
 
 // Live Fatoora Payment Token
 //let MF_Token = "eQnUzIzBo_fU_5_0OL0zeBxyR89gYfC4_vNFGhkYSEv1XARgliorHHzlYrn8HuEqcNHEpbKzoUdpIJD9U_LKGIE0Q3oyQepvq9RmsflpJv8MhBrFnTcdo9mgbNi3suj4vn-Eqdgyua_J9Qv6Qs2Bk8PmhLJj-zd8zZ5QQKN383VJ21wmEBK8n1TPVAhWzvPmmb37zkZRfdmH26CBK8ti9l-D3RbojlTX6YHEK3pMmLJgAtpY-QCYo8RFcZioAb5Jzhn-8HrLUKdwKHYzN-nPE7Gkd4wdTQFQyHxS4-_XJflJS-6jGGisKDWo4tJkNTN9535S0LRYVMSsHCv-nMtL_SvGQ2JPxTcL-41s5EWZz9XpHM_XKrBysieT5981Fus1QJ5YRHCHh8eXRVoSuinMNNFtm6xJdIZoOXU64acMlHZWTUhJpkWdjHzjCfdB5x-lMaFzAYmpSxROYTih9J1IvYgHCyKjdsGYgcGYdXEGxgoQ4bVBrq5wdmADIBU2UJbAQe_XTac1aVaDDty2aVAwWXQ2PxktoGfPC4u9K2Ekz0O-TNyOwE1BeUNR1GC60prPU5-tXH0eJq-FwYjgFgQYAg1dJ6lgkDyaWKrRLUrrDYuaqfk5HYO5PDYGXF5SM1Ox7EjFAqRT7v5Ip7qOxli5gYIqffq1NiPt-EUx80Qc-IY-TQKe1tpzFLUSv17HkNi85WOLnA"
@@ -47,8 +47,8 @@ struct BatchConstant {
     static var minsSuffix  = "mins".localized
     static var days  = "days".localized
     static var meals = "meals".localized
+    static var followers = "followers".localized
 }
-
 
 struct API {
     // Staging Base URL
@@ -68,6 +68,8 @@ struct API {
     
     static let courseWOList  = baseUrl + "/course/workout/list/"// get
     static let courseWODetail    = baseUrl + "/course/workout/detail/56" // get
+    
+    static let courseStartWorkOut = baseUrl + "/course/order/workout/status"// post
     
     static let createCourseOrder  = baseUrl + "/course/order/create"// post
     static let addPromoCode  = baseUrl + "/course/promocode/apply"// post
@@ -106,6 +108,7 @@ struct API {
     static let subscriptionMealList = baseUrl + "/subscription/list" // post
     static let subscriptionMealDetail = baseUrl + "/subscription/details" // post"
     static let subscriptionMealUpdate = baseUrl + "/subscription/single-update" // post
+    static let subscriptionMealcheckSubscribed = baseUrl +  "/subscription/check-subscribed" // post
     
     //Account Module
     static let getProfileDetail  = baseUrl + "/account/profile"// get
