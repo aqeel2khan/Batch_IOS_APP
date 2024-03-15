@@ -25,5 +25,5 @@ struct BCheckoutViewModel
         } onError: { (error) in
             onError(error)
         }
-    }
+    }    
 }
