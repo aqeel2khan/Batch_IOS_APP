@@ -11,7 +11,9 @@ import FSCalendar
 class StartDatePlanVC: UIViewController {
 
     var planStartDate = ""
-    
+    @IBOutlet weak var dateLabelContainer: UIView!
+    @IBOutlet weak var lblCurrentSelectedDate: UILabel!
+
     @IBOutlet weak var calenderStackView: UIStackView!
     @IBOutlet var mainView: UIView!
     
@@ -27,8 +29,11 @@ class StartDatePlanVC: UIViewController {
         planCalender.delegate = self
         planCalender.dataSource = self
         calenderStackView.layer.cornerRadius = 20
-        
-        
+//        planCalender.appearance.selectionColor = UIColor(hex: "#516634")
+        planCalender.appearance.todayColor = UIColor.hexStringToUIColor(hex: "#516634")
+        dateLabelContainer.addRoundedRect(cornerRadius: 10, borderWidth: 2, borderColor: UIColor.hexStringToUIColor(hex: "#516634"))
+
+        planCalender.appearance.weekdayTextColor = .gray
         calenderStackView.layer.borderWidth = 0.5
         calenderStackView.layer.borderColor = Colors.appViewBackgroundColor.cgColor
         
@@ -38,7 +43,7 @@ class StartDatePlanVC: UIViewController {
         let currentMonthName = timeStampCurrentDate.getCurrentDate(dateStyle: .dateWithWholeMonthOnly)
        
         lblCurrentmonthName.text = currentMonthName
-  
+        lblCurrentSelectedDate.text = convertDate(date: Date())
         
          let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
          mainView.addGestureRecognizer(tap)
@@ -58,36 +63,23 @@ class StartDatePlanVC: UIViewController {
     func getPreviousMonth(date:Date)->Date {
         return  Calendar.current.date(byAdding: .month, value: -1, to:date)!
     }
-    
 
     @IBAction func leftArrowActionBtn(_ sender: UIButton) {
         planCalender.setCurrentPage(getPreviousMonth(date: planCalender.currentPage), animated: true)
-        
-              updateDateAndMonth(planCalender)
+        updateDateAndMonth(planCalender)
     }
-    
     
     @IBAction func rightArrowActionBtn(_ sender: UIButton) {
         planCalender.setCurrentPage(getNextMonth(date: planCalender.currentPage), animated: true)
-            updateDateAndMonth(planCalender)
-
+        updateDateAndMonth(planCalender)
     }
-    
 
     //MARK: Upadte Month & Year in Calendar header
     func updateDateAndMonth(_ calendar: FSCalendar) {
-
         let timeStampCurrentDate = calendar.currentPage.timeIntervalSince1970.description
-       
-        
         let currentMonthName = timeStampCurrentDate.getCurrentDate(dateStyle: .dateWithWholeMonthOnly)
-       
-      
         lblCurrentmonthName.text = currentMonthName
-
     }
-
-
 
     func convertToString (dateString: String, formatIn : String, formatOut : String) -> String {
 
@@ -118,13 +110,21 @@ class StartDatePlanVC: UIViewController {
 
 
 extension String {
-        func getCurrentDate(dateStyle:CustomDateStylesTypes) -> String {
-    
-            let epochTime = (Double(self) ?? 0.0)
-            let exactDate = Date.init(timeIntervalSince1970: epochTime)
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            dateFormatter.dateFormat = dateStyle.rawValue
-            return dateFormatter.string(from: exactDate)
-        }
+    func getCurrentDate(dateStyle:CustomDateStylesTypes) -> String {
+        let epochTime = (Double(self) ?? 0.0)
+        let exactDate = Date.init(timeIntervalSince1970: epochTime)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = dateStyle.rawValue
+        return dateFormatter.string(from: exactDate)
+    }
+}
+
+extension UIView {
+    func addRoundedRect(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) {
+        layer.cornerRadius = cornerRadius
+        layer.borderWidth = borderWidth
+        layer.borderColor = borderColor.cgColor
+        layer.masksToBounds = true
+    }
 }

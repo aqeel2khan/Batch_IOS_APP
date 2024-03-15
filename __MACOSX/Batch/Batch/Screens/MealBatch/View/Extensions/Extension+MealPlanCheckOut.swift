@@ -38,8 +38,7 @@ extension MealPlanCheckout :UITableViewDelegate,UITableViewDataSource{
             self.present(vc, animated: true)
         }
         else if sender.tag == 2 {
-            let vc = BWOPlanDurationPopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
-            vc.isCommingFrom = "MealPlanAddressVC"
+            let vc = MealPlanDeliveryTimeVC.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true)

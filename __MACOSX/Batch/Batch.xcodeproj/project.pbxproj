@@ -47,6 +47,14 @@
 		1A9B01402B9C46FC00F17C42 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B013F2B9C46FC00F17C42 /* DateHelper.swift */; };
 		1A9B01422B9EB18900F17C42 /* DishReviewListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01412B9EB18900F17C42 /* DishReviewListResponse.swift */; };
 		1A9B01442B9F74B800F17C42 /* PostReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01432B9F74B800F17C42 /* PostReviewRequest.swift */; };
+		1A9B01462BA4BB3200F17C42 /* BMealPlanCheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01452BA4BB3200F17C42 /* BMealPlanCheckoutViewModel.swift */; };
+		1A9B01482BA4BB6400F17C42 /* BMealPlanCheckoutResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01472BA4BB6400F17C42 /* BMealPlanCheckoutResource.swift */; };
+		1A9B014B2BA4BBFC00F17C42 /* DeliveryTimeSlotsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B014A2BA4BBFC00F17C42 /* DeliveryTimeSlotsResponse.swift */; };
+		1A9B014D2BA4BCAD00F17C42 /* DeliveryArrivingOptionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B014C2BA4BCAD00F17C42 /* DeliveryArrivingOptionsResponse.swift */; };
+		1A9B014F2BA4C11100F17C42 /* MealPlanDeliveryTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B014E2BA4C11100F17C42 /* MealPlanDeliveryTimeVC.swift */; };
+		1A9B01552BA4C46F00F17C42 /* DeliveryTimeSlotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01532BA4C46F00F17C42 /* DeliveryTimeSlotCell.swift */; };
+		1A9B01562BA4C46F00F17C42 /* DeliveryTimeSlotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9B01542BA4C46F00F17C42 /* DeliveryTimeSlotCell.xib */; };
+		1A9B01582BA4C91B00F17C42 /* DeliveryDropOffOptionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01572BA4C91B00F17C42 /* DeliveryDropOffOptionsResponse.swift */; };
 		311576BB2B8676FA00224EDE /* BLogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BA2B8676FA00224EDE /* BLogInViewModel.swift */; };
 		311576BD2B8678E400224EDE /* BLogInResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BC2B8678E400224EDE /* BLogInResource.swift */; };
 		311B1B612B2DE00C00E37E47 /* BatchTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311B1B602B2DE00C00E37E47 /* BatchTabBar.storyboard */; };
@@ -371,6 +379,14 @@
 		1A9B013F2B9C46FC00F17C42 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		1A9B01412B9EB18900F17C42 /* DishReviewListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishReviewListResponse.swift; sourceTree = "<group>"; };
 		1A9B01432B9F74B800F17C42 /* PostReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReviewRequest.swift; sourceTree = "<group>"; };
+		1A9B01452BA4BB3200F17C42 /* BMealPlanCheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMealPlanCheckoutViewModel.swift; sourceTree = "<group>"; };
+		1A9B01472BA4BB6400F17C42 /* BMealPlanCheckoutResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMealPlanCheckoutResource.swift; sourceTree = "<group>"; };
+		1A9B014A2BA4BBFC00F17C42 /* DeliveryTimeSlotsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTimeSlotsResponse.swift; sourceTree = "<group>"; };
+		1A9B014C2BA4BCAD00F17C42 /* DeliveryArrivingOptionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryArrivingOptionsResponse.swift; sourceTree = "<group>"; };
+		1A9B014E2BA4C11100F17C42 /* MealPlanDeliveryTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDeliveryTimeVC.swift; sourceTree = "<group>"; };
+		1A9B01532BA4C46F00F17C42 /* DeliveryTimeSlotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTimeSlotCell.swift; sourceTree = "<group>"; };
+		1A9B01542BA4C46F00F17C42 /* DeliveryTimeSlotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryTimeSlotCell.xib; sourceTree = "<group>"; };
+		1A9B01572BA4C91B00F17C42 /* DeliveryDropOffOptionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDropOffOptionsResponse.swift; sourceTree = "<group>"; };
 		311576BA2B8676FA00224EDE /* BLogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInViewModel.swift; sourceTree = "<group>"; };
 		311576BC2B8678E400224EDE /* BLogInResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInResource.swift; sourceTree = "<group>"; };
 		311B1B602B2DE00C00E37E47 /* BatchTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BatchTabBar.storyboard; sourceTree = "<group>"; };
@@ -726,6 +742,25 @@
 				193AC77D2B9F575600DD6BCA /* SleepHealthCell.xib */,
 			);
 			path = SleepCell;
+			sourceTree = "<group>";
+		};
+		1A9B01492BA4BBE700F17C42 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				1A9B014A2BA4BBFC00F17C42 /* DeliveryTimeSlotsResponse.swift */,
+				1A9B014C2BA4BCAD00F17C42 /* DeliveryArrivingOptionsResponse.swift */,
+				1A9B01572BA4C91B00F17C42 /* DeliveryDropOffOptionsResponse.swift */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
+		1A9B01502BA4C40000F17C42 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				1A9B01532BA4C46F00F17C42 /* DeliveryTimeSlotCell.swift */,
+				1A9B01542BA4C46F00F17C42 /* DeliveryTimeSlotCell.xib */,
+			);
+			path = Checkout;
 			sourceTree = "<group>";
 		};
 		311B1BBD2B2E211100E37E47 /* CommonClass */ = {
@@ -1467,6 +1502,7 @@
 		31AE2D9C2B36BB10000FEB41 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				1A9B01502BA4C40000F17C42 /* Checkout */,
 				570443C62B9A2FAA00F630F6 /* QuestionDietTVC */,
 				575A200A2B8B541500FFCD56 /* MealPlanBannerViewTVC.swift */,
 				575A200B2B8B541600FFCD56 /* MealPlanBannerViewTVC.xib */,
@@ -1783,6 +1819,8 @@
 				570EA5252B89FC5400D801AE /* BMealResource.swift */,
 				1A9B01372B98593100F17C42 /* BMealBatchPlanningViewModel.swift */,
 				1A9B01392B98596800F17C42 /* BMealBatchPlanningResource.swift */,
+				1A9B01452BA4BB3200F17C42 /* BMealPlanCheckoutViewModel.swift */,
+				1A9B01472BA4BB6400F17C42 /* BMealPlanCheckoutResource.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1790,6 +1828,7 @@
 		570EA5292B89FDED00D801AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1A9B01492BA4BBE700F17C42 /* Checkout */,
 				570EA52A2B89FDED00D801AE /* MealsModel.swift */,
 				575A20082B8B466900FFCD56 /* MealsDetailModel.swift */,
 				575A200E2B8B784900FFCD56 /* DishesModel.swift */,
@@ -2105,6 +2144,7 @@
 				685680382B64B165002AF31C /* MealPlanAddressVC.swift */,
 				6856803A2B64D2FE002AF31C /* MealDilevaryArrivingVC.swift */,
 				313894152B683F8300F687B1 /* MealDilevaryDropOffVC.swift */,
+				1A9B014E2BA4C11100F17C42 /* MealPlanDeliveryTimeVC.swift */,
 			);
 			path = MealPlanCheckout;
 			sourceTree = "<group>";
@@ -2248,6 +2288,7 @@
 				570D90012B84B2D600EB643A /* BatchDashboard.storyboard in Resources */,
 				318C03E42B33682900C4281F /* Outfit-Bold.ttf in Resources */,
 				311B1B9B2B2E0E2000E37E47 /* BatchMealPlans.storyboard in Resources */,
+				1A9B01562BA4C46F00F17C42 /* DeliveryTimeSlotCell.xib in Resources */,
 				311B1B942B2E0E0D00E37E47 /* BatchTrainings.storyboard in Resources */,
 				3176093A2B668545005D4395 /* BMealTblCell.xib in Resources */,
 				318C03E72B33682900C4281F /* Outfit-Medium.ttf in Resources */,
@@ -2596,6 +2637,7 @@
 				3186CBAC2B55B92C007213C3 /* MealPlanCollectionCell.swift in Sources */,
 				570D8FF62B84B28300EB643A /* FollowingListTableCell.swift in Sources */,
 				5759E7D82B9048AB00352B24 /* BSignInVC.swift in Sources */,
+				1A9B01582BA4C91B00F17C42 /* DeliveryDropOffOptionsResponse.swift in Sources */,
 				5759E7DB2B9048AB00352B24 /* BPromoCodePopUpVC.swift in Sources */,
 				1A9B01342B94E1CB00F17C42 /* CreateMealSubscriptionRequest.swift in Sources */,
 				5759E7C72B9048AB00352B24 /* BWOBatchesListCollCell.swift in Sources */,
@@ -2603,6 +2645,7 @@
 				574FA5B12B8E56DC00F6D3BA /* MealFilterVC.swift in Sources */,
 				570D8FF22B84B28300EB643A /* BatchDashboardVC.swift in Sources */,
 				5759E7E62B9048AB00352B24 /* BNextWorkOutTimerVC.swift in Sources */,
+				1A9B014D2BA4BCAD00F17C42 /* DeliveryArrivingOptionsResponse.swift in Sources */,
 				319BAD672B2A31A00081A8F2 /* UserDefaults.swift in Sources */,
 				5759E7FA2B9048AB00352B24 /* Extension+BWorkOutMotivatorDetailVC.swift in Sources */,
 				1911845A2B96AA2800343F4B /* GetNotificationPrefrencesResponse.swift in Sources */,
@@ -2622,6 +2665,8 @@
 				5759E7F12B9048AB00352B24 /* BWorkOutAllowNotificationVC.swift in Sources */,
 				319BAD6C2B2A31A00081A8F2 /* String.swift in Sources */,
 				57C874CC2BA01C980094ABC6 /* OnBoardingScreenVC.swift in Sources */,
+				1A9B01482BA4BB6400F17C42 /* BMealPlanCheckoutResource.swift in Sources */,
+				1A9B01552BA4C46F00F17C42 /* DeliveryTimeSlotCell.swift in Sources */,
 				575A200F2B8B784900FFCD56 /* DishesModel.swift in Sources */,
 				191184582B96A79F00343F4B /* GetProfileResponse.swift in Sources */,
 				313894102B68167300F687B1 /* CustomSecondNavigationBar.swift in Sources */,
@@ -2649,6 +2694,7 @@
 				570E5D7B2B9B6EFD00F6BFC8 /* Extension+QuestionAllergyVC.swift in Sources */,
 				319BAD6D2B2A31A00081A8F2 /* UITableView.swift in Sources */,
 				319BAD6E2B2A31A00081A8F2 /* CustomSegmentedControl.swift in Sources */,
+				1A9B014F2BA4C11100F17C42 /* MealPlanDeliveryTimeVC.swift in Sources */,
 				5759E7CD2B9048AB00352B24 /* VideoThunbListTblCell.swift in Sources */,
 				5759E7B52B9048AB00352B24 /* BWorkOutMotivatorDetailModel.swift in Sources */,
 				3188B41C2B29CBD700E19945 /* HURequest.swift in Sources */,
@@ -2663,6 +2709,7 @@
 				5759E7B62B9048AB00352B24 /* BRegistrationRequest.swift in Sources */,
 				5759E7D32B9048AB00352B24 /* BWorkOutMotivatorDetailVC.swift in Sources */,
 				57719F0E2B9C3F0400F7A599 /* Extension+QuestionActivityVC.swift in Sources */,
+				1A9B01462BA4BB3200F17C42 /* BMealPlanCheckoutViewModel.swift in Sources */,
 				319BAD6B2B2A31A00081A8F2 /* UIColor.swift in Sources */,
 				5759E7BD2B9048AB00352B24 /* CourseDetaolWSModel.swift in Sources */,
 				570D8FFE2B84B28300EB643A /* Extension+BUserNotificationVC.swift in Sources */,
@@ -2697,6 +2744,7 @@
 				31AE2DAA2B36E564000FEB41 /* BatchTabBar.swift in Sources */,
 				570D8FF12B84B28300EB643A /* MealBatchDashboardCollectionCell.swift in Sources */,
 				5759E7E92B9048AB00352B24 /* ASVideoLayerObject.swift in Sources */,
+				1A9B014B2BA4BBFC00F17C42 /* DeliveryTimeSlotsResponse.swift in Sources */,
 				570D8FFB2B84B28300EB643A /* BUserPersonalInfoVC.swift in Sources */,
 				57C874CA2BA01C980094ABC6 /* BatchCountryLanguageVC.swift in Sources */,
 				3188B4222B29D34E00E19945 /* ValidationResult.swift in Sources */,

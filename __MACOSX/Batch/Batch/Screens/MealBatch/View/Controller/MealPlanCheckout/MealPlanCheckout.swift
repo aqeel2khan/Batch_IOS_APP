@@ -14,6 +14,14 @@ class MealPlanCheckout: UIViewController {
     
     @IBOutlet weak var tableViewHeightContant: NSLayoutConstraint!
     @IBOutlet weak var delivertTableView: UITableView!
+    
+    @IBOutlet weak var titleView: UIView!
+    @IBOutlet weak var backGroundImage: UIImageView!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var priceLbl: BatchLabelRegularWhite!
+    @IBOutlet weak var kclLbl: UILabel!
+    @IBOutlet weak var mealsLbl: UILabel!
+
     var mealData : Meals!
     var isCommingFrom = ""
 
@@ -24,7 +32,19 @@ class MealPlanCheckout: UIViewController {
         delivertTableView.dataSource = self
         
         setupTableView()
-
+        
+        self.titleLbl.text = mealData.name
+        let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(mealData.price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+        self.priceLbl.attributedText = attributedPriceString
+        
+        let originalString = "\(mealData.avgCalPerDay ?? "") \(BatchConstant.kcalSuffix)"
+        let keyword = BatchConstant.kcalSuffix
+        let attributedString = NSAttributedString.attributedStringWithDifferentFonts(for: originalString, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword)
+        self.kclLbl.attributedText = attributedString
+        let original2String = "\(mealData.mealCount ?? 0) meals"
+        let keyword2 = "meals"
+        let attributedString1 = NSAttributedString.attributedStringWithDifferentFonts(for: original2String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword2)
+        self.mealsLbl.attributedText = attributedString1
     }
     
     override func viewWillLayoutSubviews() {
