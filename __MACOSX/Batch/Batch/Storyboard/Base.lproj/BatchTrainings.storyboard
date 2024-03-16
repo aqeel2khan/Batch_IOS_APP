@@ -600,7 +600,7 @@
                                                                                 <state key="normal" image="downArrow"/>
                                                                             </button>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" name="AppViewBackgroundColor"/>
+                                                                        <color key="backgroundColor" name="AppViewDaysBackgroundColor"/>
                                                                         <constraints>
                                                                             <constraint firstItem="jGI-bm-PE9" firstAttribute="width" secondItem="AkM-V2-USo" secondAttribute="width" id="3MQ-PA-wtA"/>
                                                                             <constraint firstItem="oTl-Wd-hFc" firstAttribute="top" secondItem="AkM-V2-USo" secondAttribute="top" constant="9" id="4Dk-4E-vEV"/>
@@ -3323,46 +3323,46 @@
     </scenes>
     <designables>
         <designable name="DJA-bJ-AFD">
-            <size key="intrinsicContentSize" width="129" height="33"/>
+            <size key="intrinsicContentSize" width="139" height="33"/>
         </designable>
         <designable name="GFe-hQ-Sad">
-            <size key="intrinsicContentSize" width="124" height="33"/>
+            <size key="intrinsicContentSize" width="132" height="33"/>
         </designable>
         <designable name="LTw-wC-I7b">
-            <size key="intrinsicContentSize" width="85" height="33"/>
+            <size key="intrinsicContentSize" width="94" height="33"/>
         </designable>
         <designable name="Pwf-aV-rtb">
-            <size key="intrinsicContentSize" width="161" height="33"/>
+            <size key="intrinsicContentSize" width="176" height="33"/>
         </designable>
         <designable name="SgW-pb-ZK2">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="41" height="33"/>
         </designable>
         <designable name="Uf5-jF-pLk">
-            <size key="intrinsicContentSize" width="64" height="33"/>
+            <size key="intrinsicContentSize" width="69" height="33"/>
         </designable>
         <designable name="bO6-Up-lR6">
-            <size key="intrinsicContentSize" width="124" height="33"/>
+            <size key="intrinsicContentSize" width="132" height="33"/>
         </designable>
         <designable name="hLT-G8-eqH">
-            <size key="intrinsicContentSize" width="160" height="33"/>
+            <size key="intrinsicContentSize" width="175" height="33"/>
         </designable>
         <designable name="rDA-Xe-ypL">
-            <size key="intrinsicContentSize" width="68" height="33"/>
+            <size key="intrinsicContentSize" width="72" height="33"/>
         </designable>
         <designable name="rRC-Vk-tFJ">
-            <size key="intrinsicContentSize" width="85" height="33"/>
+            <size key="intrinsicContentSize" width="94" height="33"/>
         </designable>
         <designable name="ttp-kr-zeh">
-            <size key="intrinsicContentSize" width="64" height="33"/>
+            <size key="intrinsicContentSize" width="69" height="33"/>
         </designable>
         <designable name="uA6-xl-yIK">
-            <size key="intrinsicContentSize" width="49" height="33"/>
+            <size key="intrinsicContentSize" width="53" height="33"/>
         </designable>
         <designable name="wXf-0l-VvT">
-            <size key="intrinsicContentSize" width="46" height="33"/>
+            <size key="intrinsicContentSize" width="49" height="33"/>
         </designable>
         <designable name="zPv-oy-eFN">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="41" height="33"/>
         </designable>
     </designables>
     <resources>
@@ -3418,6 +3418,9 @@
         </namedColor>
         <namedColor name="AppViewBackgroundColor">
             <color red="0.96078431372549022" green="0.96470588235294119" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppViewDaysBackgroundColor">
+            <color red="0.85490196078431369" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Gray">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>

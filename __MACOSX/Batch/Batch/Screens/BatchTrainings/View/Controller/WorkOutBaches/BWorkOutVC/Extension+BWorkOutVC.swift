@@ -216,7 +216,19 @@ extension BWorkOutVC : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
         if textField == woSearchTextField {
+            
             let placeTextFieldStr = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
+            
+            if placeTextFieldStr != "" {
+                woMotivatorBackView.layer.borderWidth = 1
+                woMotivatorBackView.layer.borderColor = Colors.appThemeButtonColor.cgColor
+                woMotivatorBackView.backgroundColor = .clear
+            } else {
+                woMotivatorBackView.layer.borderWidth = 0
+                woMotivatorBackView.layer.borderColor = UIColor.clear.cgColor
+                woMotivatorBackView.backgroundColor = Colors.appViewBackgroundColor
+            }
+            
             timer?.invalidate()
             timer = Timer.scheduledTimer(
                 timeInterval: 0.5,

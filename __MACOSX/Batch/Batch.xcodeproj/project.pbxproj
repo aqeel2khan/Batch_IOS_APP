@@ -1974,9 +1974,9 @@
 		5759E77E2B9048AB00352B24 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5759E7912B9048AB00352B24 /* WorkOutBaches */,
 				5759E77F2B9048AB00352B24 /* BWorkOutMotivators */,
 				5759E7812B9048AB00352B24 /* BatchTrainingsCheckout */,
-				5759E7912B9048AB00352B24 /* WorkOutBaches */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
