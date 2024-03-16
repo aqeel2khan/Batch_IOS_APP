@@ -110,6 +110,11 @@
             <point key="canvasLocation" x="107.63358778625954" y="36.619718309859159"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="sVU-QZ-5Ym">
+            <size key="intrinsicContentSize" width="63" height="33"/>
+        </designable>
+    </designables>
     <resources>
         <image name="image2" width="375" height="552"/>
         <namedColor name="AppThemeButtonColor">

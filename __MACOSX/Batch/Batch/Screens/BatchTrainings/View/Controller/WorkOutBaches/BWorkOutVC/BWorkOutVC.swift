@@ -31,7 +31,8 @@ class BWorkOutVC: UIViewController {
     
     var courseListDataArr = [CourseDataList]()
     var coachListDataArr = [CoachListData]()
-    
+    var searchedCoachListDataArr = [CoachListData]()
+
     var workItemReference : DispatchWorkItem? = nil
     
     var levelArray      = [AllBatchLevelList]()
@@ -42,6 +43,8 @@ class BWorkOutVC: UIViewController {
     
     var coachFilterArray : CoachDataList!
     
+    var timer: Timer? = nil
+
     
     // MARK: - Lifecycle
     
