@@ -60,7 +60,8 @@ open class ImageSlideshowItem: UIScrollView, UIScrollViewDelegate {
         self.maximumScale = maximumScale
 
         super.init(frame: CGRect.null)
-
+        imageView.layer.cornerRadius = 20
+        imageView.clipsToBounds = true
         imageViewWrapper.addSubview(imageView)
         imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         imageView.isAccessibilityElement = true

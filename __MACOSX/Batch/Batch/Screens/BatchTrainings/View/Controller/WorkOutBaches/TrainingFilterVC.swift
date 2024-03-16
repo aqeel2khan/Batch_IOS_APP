@@ -13,7 +13,7 @@
 import UIKit
 
 class TrainingFilterVC: UIViewController {
-    
+    var isAlreadyAnimated : Bool = false
     var completion: ((String, String, String) ->Void)? = nil
     
     @IBOutlet var mainView: UIView!

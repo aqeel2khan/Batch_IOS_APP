@@ -13,6 +13,7 @@
 import UIKit
 
 class MotivatorFilterVC: UIViewController {
+    var isAlreadyAnimated : Bool = false
     var completion: ((String, String)->Void)? = nil
 
     @IBOutlet var mainView: UIView!
