@@ -8,7 +8,7 @@
 import UIKit
 
 class MealDilevaryDropOffVC: UIViewController {
-    
+    var completion: (() ->Void)? = nil
     @IBOutlet var mainView: UIView!
     var deliveryDropOffOptions : [DeliveryDropOffOption] = []
     @IBOutlet weak var button1: UIButton!
@@ -94,14 +94,16 @@ class MealDilevaryDropOffVC: UIViewController {
     }
 
     @IBAction func backactionBtn(_ sender: UIButton) {
-        MealSubscriptionManager.shared.deliveryDropoff = selectedDeliveryDropOffOption?.options
-        MealSubscriptionManager.shared.deliveryDropoffId = selectedDeliveryDropOffOption?.id
-        self.dismiss(animated: true)
+        setupDataAndDismiss()
     }
-    
-    @IBAction func btnApplyAction(_ sender: UIButton) {
+    func setupDataAndDismiss() {
         MealSubscriptionManager.shared.deliveryDropoff = selectedDeliveryDropOffOption?.options
         MealSubscriptionManager.shared.deliveryDropoffId = selectedDeliveryDropOffOption?.id
         self.dismiss(animated: true)
+        completion?()
+    }
+
+    @IBAction func btnApplyAction(_ sender: UIButton) {
+        setupDataAndDismiss()
     }
 }

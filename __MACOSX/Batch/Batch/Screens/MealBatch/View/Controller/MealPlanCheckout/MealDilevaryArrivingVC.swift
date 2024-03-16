@@ -66,16 +66,17 @@ class MealDilevaryArrivingVC: UIViewController {
     }
 
     @IBAction func backactionBtn(_ sender: UIButton) {
-        MealSubscriptionManager.shared.deliveryArriving = selectedDeliveryOption?.options
-        MealSubscriptionManager.shared.deliveryArrivingId = selectedDeliveryOption?.id
-        self.dismiss(animated: true)
+        setupDataAndDismiss()
     }
-    
-    @IBAction func btnApplyAction(_ sender: UIButton) {
+    func setupDataAndDismiss() {
         MealSubscriptionManager.shared.deliveryArriving = selectedDeliveryOption?.options
         MealSubscriptionManager.shared.deliveryArrivingId = selectedDeliveryOption?.id
         self.dismiss(animated: true)
         completion?()
+    }
+
+    @IBAction func btnApplyAction(_ sender: UIButton) {
+        setupDataAndDismiss()
     }
 
     func getDeliveryArrivingOptions() {
