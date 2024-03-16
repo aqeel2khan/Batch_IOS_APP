@@ -9,6 +9,7 @@ import UIKit
 import FSCalendar
 
 class StartDatePlanVC: UIViewController {
+    var completion: (() ->Void)? = nil
 
     var planStartDate = ""
     @IBOutlet weak var dateLabelContainer: UIView!
@@ -96,10 +97,8 @@ class StartDatePlanVC: UIViewController {
     }
     
     @IBAction func btnApplyAction(_ sender: UIButton) {
-        let vc = MealPlanAddressVC.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        self.dismiss(animated: true)
+        completion?()
     }
     
     @IBAction func backActionBtn(_ sender: UIButton) {

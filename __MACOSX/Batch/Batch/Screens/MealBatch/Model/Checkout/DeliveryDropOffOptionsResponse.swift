@@ -11,12 +11,12 @@ import Foundation
 struct DeliveryDropOffOptionsResponse: Codable {
     let status: Bool
     let message: String
-    let data: DeliveryDropOffOptionData
+    let data: DeliveryDropOffOptionData?
 }
 
 // MARK: - DataClass
 struct DeliveryDropOffOptionData: Codable {
-    let data: [DeliveryDropOffOption]
+    let data: [DeliveryDropOffOption]?
     let status: String
 }
 

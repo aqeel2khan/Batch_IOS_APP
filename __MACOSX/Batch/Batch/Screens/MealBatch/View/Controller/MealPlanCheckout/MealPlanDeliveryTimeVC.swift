@@ -14,9 +14,13 @@ class MealPlanDeliveryTimeVC: UIViewController, UITableViewDelegate {
     var deliveryTimeSlots: [DeliveryTimeSlots] = []
     var selectedTimeSlot: DeliveryTimeSlots?
     var selectedRowIndex: Int?
+    var completion: (() ->Void)? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         tableDeliveryTime.delegate = self
         tableDeliveryTime.dataSource = self
         tableDeliveryTime.register(UINib(nibName: "DeliveryTimeSlotCell", bundle: .main), forCellReuseIdentifier: "DeliveryTimeSlotCell")
@@ -29,14 +33,16 @@ class MealPlanDeliveryTimeVC: UIViewController, UITableViewDelegate {
     }
     
     @IBAction func backactionBtn(_ sender: UIButton) {
+        MealSubscriptionManager.shared.deliveryTime = selectedTimeSlot?.timeSlot
+        MealSubscriptionManager.shared.deliveryTimeId = selectedTimeSlot?.id
         self.dismiss(animated: true)
     }
 
     @IBAction func btnApplyAction(_ sender: UIButton) {
-        let vc = MealDilevaryDropOffVC.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true )
+        MealSubscriptionManager.shared.deliveryTime = selectedTimeSlot?.timeSlot
+        MealSubscriptionManager.shared.deliveryTimeId = selectedTimeSlot?.id
+        self.dismiss(animated: true)
+        completion?()
     }
     
     func getDeliveryTimeSlots() {
@@ -108,3 +114,4 @@ extension MealPlanDeliveryTimeVC: UITableViewDataSource {
         selectedTimeSlotLabel.text = selectedTimeSlot?.timeSlot
     }
 }
+

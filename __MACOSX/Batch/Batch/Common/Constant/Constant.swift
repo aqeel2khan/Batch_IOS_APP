@@ -101,6 +101,7 @@ struct API {
 
     static let deliveryTimeList  = baseUrl + "/subscription/delivery_time"// get
     static let deliveryArrivingList  = baseUrl + "/subscription/delivery_arriving"// get
+    static let deliveryDropOffList  = baseUrl + "/subscription/delivery_drop"// get
 
     // BatchBoard Home Module
     static let createSubscriptionMeal  = baseUrl + "/subscription/subscribe"// post

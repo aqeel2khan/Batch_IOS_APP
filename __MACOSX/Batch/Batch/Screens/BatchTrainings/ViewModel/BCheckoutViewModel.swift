@@ -25,5 +25,15 @@ struct BCheckoutViewModel
         } onError: { (error) in
             onError(error)
         }
-    }    
+    }
+    
+    func createMealSubscriptionCall(request: SubscriptionRequest, onSuccess:@escaping(CreateMealSubscriptionResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        let bWorkOutResource = BWorkOutResource()
+        bWorkOutResource.createMealSubscriptionApi(request: request) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
+
 }

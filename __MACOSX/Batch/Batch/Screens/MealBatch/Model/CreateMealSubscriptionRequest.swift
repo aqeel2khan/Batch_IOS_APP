@@ -29,17 +29,17 @@ struct CreateMealSubscriptionRequest: Codable {
 struct SubscriptionRequest: Encodable {
     let userId: Int
     let mealId: Int
-    let subtotal: Int
-    let discount: Int
+    let subtotal: String
+    let discount: String
     let tax: Int
-    let total: Int
+    let total: String
     let paymentType: String
     let transactionId: String
     let paymentStatus: String
     let startDate: String
-    let duration: Int
-    let latitude: Double
-    let longitude: Double
+    let duration: String
+    let latitude: String
+    let longitude: String
     let area: String
     let block: String
     let house: String

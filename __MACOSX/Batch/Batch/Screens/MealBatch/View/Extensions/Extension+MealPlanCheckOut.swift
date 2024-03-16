@@ -29,24 +29,59 @@ extension MealPlanCheckout :UITableViewDelegate,UITableViewDataSource{
             let vc = StartDatePlanVC.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
+            vc.completion = {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    let vc = MealPlanAddressVC.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
+                    vc.modalTransitionStyle = .crossDissolve
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true)
+                }
+            }
             self.present(vc, animated: true)
         }
         else if sender.tag == 1 {
             let vc = MealPlanAddressVC.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
+            vc.completion = {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    let vc = MealPlanDeliveryTimeVC.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
+                    vc.modalPresentationStyle = .fullScreen
+                    vc.modalTransitionStyle = .crossDissolve
+                    self.present(vc, animated: true)
+                }
+            }
             self.present(vc, animated: true)
         }
         else if sender.tag == 2 {
             let vc = MealPlanDeliveryTimeVC.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
+            vc.completion = {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    
+                    let vc = MealDilevaryArrivingVC.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
+                    vc.modalPresentationStyle = .fullScreen
+                    vc.modalTransitionStyle = .crossDissolve
+                    self.present(vc, animated: true)
+                }
+            }
+
             self.present(vc, animated: true)
         }
         else if sender.tag == 3 {
             let vc = MealDilevaryArrivingVC.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
+            vc.completion = {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    
+                    let vc = MealDilevaryDropOffVC.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
+                    vc.modalTransitionStyle = .crossDissolve
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true)
+                }
+            }
             self.present(vc, animated: true)
         }
         else if sender.tag == 4 {
