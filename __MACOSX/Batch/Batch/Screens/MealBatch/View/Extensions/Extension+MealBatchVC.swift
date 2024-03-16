@@ -159,9 +159,11 @@ extension MealBatchVC : UITextFieldDelegate {
                    replacementString string: String) -> Bool {
         if textField == searchTextField {
             
-            if string != "" {
+            let placeTextFieldStr = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
+            
+            if placeTextFieldStr != "" {
                 searchView.layer.borderWidth = 1
-                searchView.layer.borderColor = UIColor.black.cgColor
+                searchView.layer.borderColor = Colors.appThemeButtonColor.cgColor
                 searchView.backgroundColor = .clear
             } else {
                 searchView.layer.borderWidth = 0
@@ -169,7 +171,6 @@ extension MealBatchVC : UITextFieldDelegate {
                 searchView.backgroundColor = Colors.appViewBackgroundColor
             }
             
-            let placeTextFieldStr = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
             timer?.invalidate()
             timer = Timer.scheduledTimer(
                 timeInterval: 0.5,

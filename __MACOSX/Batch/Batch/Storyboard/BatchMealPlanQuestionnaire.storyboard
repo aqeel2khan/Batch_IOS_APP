@@ -1375,6 +1375,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="a4t-6U-VsA" firstAttribute="width" secondItem="6FR-3m-dI0" secondAttribute="width" id="82P-vs-ytD"/>
                                     <constraint firstItem="a4t-6U-VsA" firstAttribute="leading" secondItem="6FR-3m-dI0" secondAttribute="leading" id="CAE-j4-MDc"/>
@@ -1480,28 +1481,28 @@
     </scenes>
     <designables>
         <designable name="Air-1f-r34">
-            <size key="intrinsicContentSize" width="34" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="33"/>
         </designable>
         <designable name="D9b-TN-rNz">
-            <size key="intrinsicContentSize" width="137" height="33"/>
+            <size key="intrinsicContentSize" width="147" height="33"/>
         </designable>
         <designable name="DH5-PB-iIe">
-            <size key="intrinsicContentSize" width="34" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="33"/>
         </designable>
         <designable name="IZ0-38-SzY">
-            <size key="intrinsicContentSize" width="34" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="33"/>
         </designable>
         <designable name="KyB-BE-oqA">
-            <size key="intrinsicContentSize" width="34" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="33"/>
         </designable>
         <designable name="l5w-ec-Yc4">
-            <size key="intrinsicContentSize" width="34" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="33"/>
         </designable>
         <designable name="pTi-FX-6dR">
-            <size key="intrinsicContentSize" width="34" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="33"/>
         </designable>
         <designable name="uYj-Pj-96Y">
-            <size key="intrinsicContentSize" width="34" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="33"/>
         </designable>
     </designables>
     <resources>
