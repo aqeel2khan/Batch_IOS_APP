@@ -37,7 +37,21 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
         address4.delegate = self
 
         configureButtons()
+        configureTextfieldsWithSelectedValues()
     }
+    
+    func configureTextfieldsWithSelectedValues() {
+        addressString1 = MealSubscriptionManager.shared.area ?? ""
+        addressString2 = MealSubscriptionManager.shared.block ?? ""
+        addressString3 = MealSubscriptionManager.shared.house ?? ""
+        addressString4 = MealSubscriptionManager.shared.street ?? ""
+        
+        address1.text = addressString1
+        address2.text = addressString2
+        address3.text = addressString3
+        address4.text = addressString4
+    }
+
     // Action method for switch to handle state changes
     @IBAction func switchValueChanged(_ sender: UISwitch) {
         // Handle switch state change
@@ -48,18 +62,29 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
         }
     }
 
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == address1 {
-            addressString1 = textField.text ?? ""
-        } else if textField == address2 {
-            addressString2 = textField.text ?? ""
-        } else if textField == address3 {
-            addressString3 = textField.text ?? ""
-        } else if textField == address4 {
-            addressString4 = textField.text ?? ""
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text, let textRange = Range(range, in: text) else {
+            return true
         }
+        
+        let updatedText = text.replacingCharacters(in: textRange, with: string)
+        
+        switch textField {
+        case address1:
+            addressString1 = updatedText
+        case address2:
+            addressString2 = updatedText
+        case address3:
+            addressString3 = updatedText
+        case address4:
+            addressString4 = updatedText
+        default:
+            break
+        }
+        
+        return true
     }
-    
+
     func configureButtons() {
         buttonHome.layer.cornerRadius = 10
         buttonOffice.layer.cornerRadius = 10
@@ -92,19 +117,9 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
 
 
     @IBAction func backActionBtn(_ sender: UIButton) {
-        MealSubscriptionManager.shared.area = addressString1
-        MealSubscriptionManager.shared.block = addressString2
-        MealSubscriptionManager.shared.house = addressString3
-        MealSubscriptionManager.shared.street = addressString4
-        MealSubscriptionManager.shared.addressType = selectedDeliveryAddressType
-        MealSubscriptionManager.shared.latitude = ""
-        MealSubscriptionManager.shared.longitude = ""
-
-        self.dismiss(animated: true)
+        setupDataAndDismiss()
     }
-    
-    @IBAction func btnApplyAction(_ sender: UIButton) {
-        
+    func setupDataAndDismiss() {
         MealSubscriptionManager.shared.area = addressString1
         MealSubscriptionManager.shared.block = addressString2
         MealSubscriptionManager.shared.house = addressString3
@@ -114,6 +129,8 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
         MealSubscriptionManager.shared.longitude = ""
         self.dismiss(animated: true)
         completion?()
-
+    }
+    @IBAction func btnApplyAction(_ sender: UIButton) {
+        setupDataAndDismiss()
     }
 }

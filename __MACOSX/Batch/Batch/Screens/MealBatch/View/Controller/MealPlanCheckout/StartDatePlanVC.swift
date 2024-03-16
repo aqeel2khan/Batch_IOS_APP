@@ -97,12 +97,19 @@ class StartDatePlanVC: UIViewController {
     }
     
     @IBAction func btnApplyAction(_ sender: UIButton) {
+        setupDataAndDismiss()
+    }
+    
+    func setupDataAndDismiss() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-YYYY"
+        MealSubscriptionManager.shared.startDate = dateFormatter.string(from:Date())
         self.dismiss(animated: true)
         completion?()
     }
     
     @IBAction func backActionBtn(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        setupDataAndDismiss()
     }
 }
 

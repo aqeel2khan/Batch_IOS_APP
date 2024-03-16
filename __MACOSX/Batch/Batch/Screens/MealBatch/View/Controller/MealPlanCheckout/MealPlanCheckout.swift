@@ -32,10 +32,7 @@ class MealPlanCheckout: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        delivertTableView.delegate = self
-        delivertTableView.dataSource = self
-        
+            
         setupTableView()
         
         self.titleLbl.text = mealData.name
@@ -54,6 +51,8 @@ class MealPlanCheckout: UIViewController {
         self.subtotal.attributedText = NSAttributedString.attributedStringForPrice(prefix: "", value: " \(CURRENCY) \(mealData.price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
         self.promotion.text = "0.0"
         self.total.attributedText = NSAttributedString.attributedStringForPrice(prefix: "", value: " \(CURRENCY) \(mealData.price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+        
+        self.fetchData()
     }
     
     override func viewWillLayoutSubviews() {
@@ -65,6 +64,7 @@ class MealPlanCheckout: UIViewController {
     }
 
     @IBAction func backActionBtn(_ sender: UIButton) {
+        MealSubscriptionManager.shared.reset()
         self.dismiss(animated: true)
     }
     
@@ -127,6 +127,129 @@ class MealPlanCheckout: UIViewController {
             DispatchQueue.main.async {
                 hideLoading()
                 self.showAlert(message: "\(error.localizedDescription)")
+            }
+        }
+    }
+}
+
+
+extension MealPlanCheckout {
+    
+    func fetchData() {
+        let dispatchGroup = DispatchGroup()
+        
+        // Enter the DispatchGroup before making each API call
+        dispatchGroup.enter()
+        getDeliveryArrivingOptions(dispatchGroup: dispatchGroup)
+        
+        dispatchGroup.enter()
+        getDeliveryTimeSlots(dispatchGroup: dispatchGroup)
+        
+        dispatchGroup.enter()
+        getDeliveryDropOffOptions(dispatchGroup: dispatchGroup)
+        
+        // Notify when all tasks are completed
+        dispatchGroup.notify(queue: .main) {
+            // Reload the table view once all API calls are completed
+            self.delivertTableView.delegate = self
+            self.delivertTableView.dataSource = self
+
+            self.delivertTableView.reloadData()
+            
+            self.delivertTableView.transform = CGAffineTransform(translationX: self.delivertTableView.frame.width, y: 0)
+            UIView.animate(
+                withDuration: 0.5,
+                delay: 0.05,
+                options: [.curveEaseInOut],
+                animations: {
+                    self.delivertTableView.transform = CGAffineTransform(translationX: 0, y: 0)
+                })
+
+            hideLoading()
+        }
+    }
+    
+    func getDeliveryArrivingOptions(dispatchGroup: DispatchGroup) {
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealCoViewModel = BMealPlanCheckoutViewModel()
+        let urlStr = API.deliveryArrivingList
+        bMealCoViewModel.getDeliveryArrivingSlots(requestUrl: urlStr)  { (response) in
+            defer {
+                // Leave the DispatchGroup whether the call succeeds or fails
+                dispatchGroup.leave()
+            }
+            if response.status == true, response.data?.data?.count != 0 {
+                DispatchQueue.main.async {
+                    hideLoading()
+                    MealSubscriptionManager.shared.deliveryArriving = response.data?.data?[0].options
+                    MealSubscriptionManager.shared.deliveryArrivingId = response.data?.data?[0].id
+                }
+            } else {
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
+        }
+    }
+    
+    func getDeliveryTimeSlots(dispatchGroup: DispatchGroup) {
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealCoViewModel = BMealPlanCheckoutViewModel()
+        let urlStr = API.deliveryTimeList
+        bMealCoViewModel.getDeliveryTimeSlots(requestUrl: urlStr)  { (response) in
+            defer {
+                dispatchGroup.leave()
+            }
+            if response.status == true, let data = response.data?.data, !data.isEmpty {
+                DispatchQueue.main.async {
+                    hideLoading()
+                    MealSubscriptionManager.shared.deliveryTime = data[0].timeSlot
+                    MealSubscriptionManager.shared.deliveryTimeId = data[0].id
+                }
+            } else {
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
+        }
+    }
+    
+    func getDeliveryDropOffOptions(dispatchGroup: DispatchGroup) {
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealCoViewModel = BMealPlanCheckoutViewModel()
+        let urlStr = API.deliveryDropOffList
+        bMealCoViewModel.getDeliveryDropOffSlots(requestUrl: urlStr)  { (response) in
+            defer {
+                dispatchGroup.leave()
+            }
+            if response.status == true, let data = response.data?.data, !data.isEmpty {
+                DispatchQueue.main.async {
+                    hideLoading()
+                    MealSubscriptionManager.shared.deliveryDropoff = data[0].options
+                    MealSubscriptionManager.shared.deliveryDropoffId = data[0].id
+                }
+            } else {
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
             }
         }
     }
