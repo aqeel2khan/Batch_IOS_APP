@@ -158,6 +158,17 @@ extension MealBatchVC : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
         if textField == searchTextField {
+            
+            if string != "" {
+                searchView.layer.borderWidth = 1
+                searchView.layer.borderColor = UIColor.black.cgColor
+                searchView.backgroundColor = .clear
+            } else {
+                searchView.layer.borderWidth = 0
+                searchView.layer.borderColor = UIColor.clear.cgColor
+                searchView.backgroundColor = Colors.appViewBackgroundColor
+            }
+            
             let placeTextFieldStr = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
             timer?.invalidate()
             timer = Timer.scheduledTimer(
@@ -167,6 +178,8 @@ extension MealBatchVC : UITextFieldDelegate {
                 userInfo: placeTextFieldStr,
                 repeats: false)
         }
+          
+       
         return true
     }
     

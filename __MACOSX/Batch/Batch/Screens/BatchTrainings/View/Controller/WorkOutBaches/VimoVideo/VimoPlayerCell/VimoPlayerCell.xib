@@ -61,7 +61,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hOn-S7-Y4I">
-                                <rect key="frame" x="20" y="322" width="358" height="56"/>
+                                <rect key="frame" x="20" y="307" width="358" height="56"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrY-OY-DzM" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="358" height="56"/>
@@ -81,7 +81,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ezs-rj-6X5" firstAttribute="centerX" secondItem="1EF-7R-ZzX" secondAttribute="centerX" id="3ug-tR-1pj"/>
-                            <constraint firstAttribute="bottom" secondItem="hOn-S7-Y4I" secondAttribute="bottom" constant="10" id="AxV-sv-fET"/>
+                            <constraint firstAttribute="bottom" secondItem="hOn-S7-Y4I" secondAttribute="bottom" constant="25" id="AxV-sv-fET"/>
                             <constraint firstItem="ukr-RB-FUX" firstAttribute="leading" secondItem="1EF-7R-ZzX" secondAttribute="leading" id="Egg-yj-FSt"/>
                             <constraint firstItem="hOn-S7-Y4I" firstAttribute="leading" secondItem="1EF-7R-ZzX" secondAttribute="leading" constant="20" id="LaV-MI-2lr"/>
                             <constraint firstItem="ukr-RB-FUX" firstAttribute="top" secondItem="1EF-7R-ZzX" secondAttribute="top" id="Otw-Tv-tho"/>

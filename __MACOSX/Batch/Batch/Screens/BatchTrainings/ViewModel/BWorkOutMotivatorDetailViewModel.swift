@@ -9,7 +9,7 @@ import Foundation
 
 struct BWorkOutMotivatorDetailViewModel {
     
-    func couchDetail(requestUrl: String, onSuccess:@escaping(CoachDetailResponse) -> Void, onError:@escaping(BatchError) -> Void){
+    func couchDetail(requestUrl: String, onSuccess:@escaping(BCoachDetailResponse) -> Void, onError:@escaping(BatchError) -> Void){
         let bWOResource = BWorkOutResource()
         bWOResource.getCoachDetail(urlStr: requestUrl) { (response) in
             onSuccess(response)

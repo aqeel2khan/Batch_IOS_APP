@@ -11,6 +11,7 @@ class MealBatchVC: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
+    @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var mealPlanTblView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var mealPlanTblViewHeightConstraint: NSLayoutConstraint!

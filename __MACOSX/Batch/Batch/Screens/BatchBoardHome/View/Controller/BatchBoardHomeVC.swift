@@ -222,8 +222,9 @@ extension BatchBoardHomeVC {
         bannerSliderShow.scrollView.isPagingEnabled = true
         bannerSliderShow.circular = true
         bannerSliderShow.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
-        bannerSliderShow.scrollView.backgroundColor = UIColor(red: 225 / 255.0,green: 225 / 255.0,blue: 225 / 255.0,alpha: CGFloat(1.0))
+        bannerSliderShow.scrollView.backgroundColor = .clear
         bannerSliderShow.activityIndicator = DefaultActivityIndicator()
+        bannerSliderShow.cornerRadius = 20
         
 //        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
 //        bannerSliderShow.addGestureRecognizer(gestureRecognizer)

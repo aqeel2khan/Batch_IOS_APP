@@ -56,6 +56,8 @@ class BWorkOutDetailVC: UIViewController {
     var totalCourseDashboardArr = [CourseDuration]()
     var videoIdArr = [String]()
     
+    var coachIdValue:Int?
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -123,6 +125,7 @@ class BWorkOutDetailVC: UIViewController {
             self.startWorkOutBtn.isHidden = true
             let info = woMotivatorInfo
             self.woTitleLbl.text = info?.courseName
+            coachIdValue = info?.coachDetail?.id ?? 0
             let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info?.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
             self.workOutPriceLbl.attributedText = attributedPriceString
             self.woDesLbl.text = info?.description ?? ""
@@ -153,6 +156,7 @@ class BWorkOutDetailVC: UIViewController {
             // self.changeCourseBtn.isHidden = true
             let info = woDetailInfo[0]
             self.woTitleLbl.text = info.courseName
+            coachIdValue = info.coachDetail?.id ?? 0
             let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
             self.workOutPriceLbl.attributedText = attributedPriceString
             self.woDesLbl.text = info.description ?? ""
@@ -174,6 +178,7 @@ class BWorkOutDetailVC: UIViewController {
             // self.changeCourseBtn.isHidden = false
             let info = courseDetailsInfo
             self.coursePromotionVideoId = info?.coursePromoVideo ?? ""
+            coachIdValue = info?.coachDetail?.id ?? 0
             self.woTitleLbl.text = info?.courseName
             self.workOutPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + (info?.coursePrice?.removeDecimalValue() ?? "")
             self.woDesLbl.text = info?.description ?? ""
@@ -206,10 +211,20 @@ class BWorkOutDetailVC: UIViewController {
     
     
     @IBAction func coachBtnTap(_ sender: Any) {
+        
+        let vc = BWorkOutMotivatorDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        vc.isCommingFrom = "BWorkOutDetailVC"
+        vc.coachIdStr = "\(coachIdValue ?? 0)"
+        self.present(vc, animated: true)
+
+        
+        
 //        let vc = BWorkOutMotivatorDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
 //        vc.modalPresentationStyle = .overFullScreen
 //        vc.modalTransitionStyle = .coverVertical
-//
+// isCommingFrom
 //        if isCommingFrom == "MotivatorDetailVC"  {
 //            let info = woMotivatorInfo
 //            vc.woCoachDetailInfo = info?.coachDetail

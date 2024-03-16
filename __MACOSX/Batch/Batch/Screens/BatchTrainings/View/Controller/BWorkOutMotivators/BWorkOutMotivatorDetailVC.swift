@@ -14,28 +14,21 @@ class BWorkOutMotivatorDetailVC: UIViewController {
     @IBOutlet weak var coachNameLbl: BatchMedium20Black!
     @IBOutlet weak var followerCountLbl: UILabel!
     @IBOutlet weak var desLbl: BatchLabelRegular16DarkGray!
-    
     @IBOutlet weak var followBtn: BatchButton!
     @IBOutlet weak var unFollowBtn: BatchButton!
-    
     @IBOutlet weak var trainingCollectionView: UICollectionView!
     @IBOutlet weak var trainingCollectionHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var traningPackageTblView: UITableView!
     @IBOutlet weak var traningPackageTblViewHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var recomProductCollView: UICollectionView!
     @IBOutlet weak var recomProductCollViewHeight: NSLayoutConstraint!
-    
     var workOutArray = ["20 trainings","15-20 min","Beginner","Yoga","Stretching","Cardio"]
     var workOutIconArray = [#imageLiteral(resourceName: "accessibility_Black"), #imageLiteral(resourceName: "clock-circle-black"), #imageLiteral(resourceName: "barchart-black"), #imageLiteral(resourceName: "accessibility_Black"), #imageLiteral(resourceName: "accessibility_Black"), #imageLiteral(resourceName: "accessibility_Black")]
     var recomProductArr = [#imageLiteral(resourceName: "Plans_Cards2"), #imageLiteral(resourceName: "Plans_Cards1"), #imageLiteral(resourceName: "Plans_Cards3"), #imageLiteral(resourceName: "Plans_Cards4"), #imageLiteral(resourceName: "Plans_Cards2"), #imageLiteral(resourceName: "Plans_Cards1"), #imageLiteral(resourceName: "Plans_Cards3"), #imageLiteral(resourceName: "Plans_Cards4")]
     
     var newArray = [String]()
     var newImage = [UIImage]()
-    
     var woCoachDetailInfo = [CoachListData]()
-    
     var coachDetailCourseArr = [CourseWorkoutList]()
     //    var motivatorCourseArr = [motivatorCoachListDataList]()
     var motivatorCourseArr = [CourseDataList]()
@@ -47,87 +40,107 @@ class BWorkOutMotivatorDetailVC: UIViewController {
     let debounceInterval: TimeInterval = 0.50
     var isFollowButtonEnabled = true
     
+    var isCommingFrom = ""
+    var coachIdStr:String?
+    var detailInfo: BCoachDetailResponseData?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.registerCollectionTblView()
+        self.addTags()
         
+        if isCommingFrom == "BWorkOutDetailVC" {
+            self.callCoachDetailApi()
+        }
+        else {
+            self.setUpViewData()
+        }
+        self.callMotivatorCourseListApi()
+    }
+    
+    func addTags()
+    {
+        // Add Tag
         let leftLayout = leftSideDataInColl()
         leftLayout.estimatedItemSize = CGSize(width: 140, height: 40)
         trainingCollectionView.collectionViewLayout = leftLayout
+    }
+    
+    func callMotivatorCourseListApi()
+    {
+        var coachIDD = "0"
+        if isCommingFrom == "BWorkOutDetailVC" {
+            coachIDD = self.coachIdStr ?? "0"
+        }
+        else {
+            
+            if woCoachDetailInfo.count != 0
+            {
+                let info = woCoachDetailInfo[0]
+                coachIDD = "\(info.id ?? 0)"
+                
+                let isYouFollow = info.youFollowedCount
+                if isYouFollow == 0
+                {
+                    self.isFollowed = false
+                }
+                else
+                {
+                    self.isFollowed = true
+                }
+            }
+        }
+        self.setMotivatorPrUI()
         
-        if woCoachDetailInfo.count != 0
+        //guard coachIDD != nil else { return }
+        
+        if internetConnection.isConnectedToNetwork() == true {
+            // Call Api here
+            if coachIDD != "0" {
+                self.getMotivatorCourseList(coachId: coachIDD)
+            }
+        }
+        else
         {
-            let info = woCoachDetailInfo[0]
-            
-            let isYouFollow = info.youFollowedCount
-            if isYouFollow == 0
-            {
-                self.isFollowed = false
-            }
-            else
-            {
-                self.isFollowed = true
-            }
-            
-            //            guard info.id != nil else { return }
-            //            self.getCoachDetailsCourseList (courseId:"\(info.id ?? 0)")
-            guard info.id != nil else { return }
-            
+            self.showAlert(message: "Please check your internet", title: "Network issue")
+        }
+        
+    }
+    
+    func callCoachDetailApi ()
+    {
+        if coachIdStr != "0"  {
             if internetConnection.isConnectedToNetwork() == true {
-                // Call Api here
-                self.getMotivatorCourseList(coachId: "\(info.id ?? 0)")
+                self.getCoachDetails(coachId: "\(coachIdStr ?? "0")")
             }
             else
             {
                 self.showAlert(message: "Please check your internet", title: "Network issue")
             }
-            // self.getCoachDetails(coachId: "\(info.id ?? 0)")
         }
-        setUpViewData()
-        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         // Update height constraint
         self.trainingCollectionHeight.constant = self.trainingCollectionView.collectionViewLayout.collectionViewContentSize.height
-        //self.traningPackageTblView.reloadData()
-        // recomProductCollView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.traningPackageTblView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-        
-        //        self.trainingCollectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-        
-        
     }
     override func viewWillDisappear(_ animated: Bool) {
         self.traningPackageTblView.removeObserver(self, forKeyPath: "contentSize")
-        
-        //        self.trainingCollectionView.removeObserver(self, forKeyPath: "contentSize")
-        
-        
     }
-    
-    
-    
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentSize"
         {
             if let newValue = change?[.newKey] {
                 let newsize = newValue as! CGSize
-                //                self.trainingCollectionHeight.constant = newsize.height
-                
                 self.traningPackageTblViewHeight.constant = newsize.height
-                
-                // self.traningPackageTblViewHeight.constant = newsize.height
-                // self.recomProductCollViewHeight.constant = newsize.height
             }
         }
         
@@ -145,8 +158,7 @@ class BWorkOutMotivatorDetailVC: UIViewController {
         recomProductCollView.register(UINib(nibName: "BWOMotivatorsReProductCollCell", bundle: .main), forCellWithReuseIdentifier: "BWOMotivatorsReProductCollCell")
     }
     
-    
-    func setUpViewData()
+    func setMotivatorPrUI()
     {
         if UserDefaultUtility.isUserLoggedIn()
         {
@@ -167,7 +179,10 @@ class BWorkOutMotivatorDetailVC: UIViewController {
             self.unFollowBtn.isHidden = true
             self.followUnfollowBtn.isHidden = true
         }
-        
+    }
+    
+    func setUpViewData()
+    {
         let info = woCoachDetailInfo[0]
         let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (info.profilePhotoPath ?? ""))
         self.coachPicImgView.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
@@ -175,20 +190,12 @@ class BWorkOutMotivatorDetailVC: UIViewController {
         self.followerCountLbl.text = "\(info.followersCount ?? 0) \(BatchConstant.followers)" //"0"
         self.followerCount = info.followersCount ?? 0
         self.desLbl.text = ""
-        
         if info.workoutType?.count != 0 {
-            let workOutType = info.workoutType?.count
-            
             for i in 0..<(info.workoutType!.count ?? 0) {
-                print(info.workoutType?[i].workoutdetail?.workoutType)
-                
                 newArray.append("\(info.workoutType?[i].workoutdetail?.workoutType ?? "" )")
                 newImage.append(UIImage(named: "accessibility_Black")!)
-                
             }
         }
-        
-        
     }
     
     @IBAction func onTapBackBtn(_ sender: Any) {
@@ -210,11 +217,19 @@ class BWorkOutMotivatorDetailVC: UIViewController {
         sender.isSelected = self.isFollowed
         sender.isSelected = !sender.isSelected
         var fullUrlStr = ""
-        if woCoachDetailInfo.count != 0
-        {
-            let info = woCoachDetailInfo[0]
-            guard info.id != nil else { return }
-            
+        var coachIDD = "0"
+        if isCommingFrom == "BWorkOutDetailVC" {
+            coachIDD = self.coachIdStr ?? "0"
+        }
+        else {
+            if woCoachDetailInfo.count != 0
+            {
+                let info = woCoachDetailInfo[0]
+                coachIDD = "\(info.id ?? 0)"
+            }
+        }
+        //        guard info.id != nil else { return }
+        if coachIDD != "0" {
             if internetConnection.isConnectedToNetwork() == true {
                 // Call Api here
                 if sender.isSelected
@@ -223,7 +238,7 @@ class BWorkOutMotivatorDetailVC: UIViewController {
                     self.unFollowBtn.isHidden = true
                     self.followerCount += 1
                     self.followerCountLbl.text = "\(self.followerCount) \(BatchConstant.followers)"
-                    fullUrlStr = API.motivatorFollow + "\(info.id ?? 0)"
+                    fullUrlStr = API.motivatorFollow + coachIDD
                 }
                 else
                 {
@@ -231,19 +246,20 @@ class BWorkOutMotivatorDetailVC: UIViewController {
                     self.unFollowBtn.isHidden = false
                     self.followerCount -= 1
                     self.followerCountLbl.text = "\(self.followerCount) \(BatchConstant.followers)"
-                    fullUrlStr = API.motivatorUnfollow + "\(info.id ?? 0)"
+                    fullUrlStr = API.motivatorUnfollow + coachIDD
                 }
+                
                 self.getfollowUnfollow(urlStr: fullUrlStr)
             }
             else
             {
                 self.showAlert(message: "Please check your internet", title: "Network issue")
             }
-        }
-        
-        // After the debounce interval, enable the button again
-        DispatchQueue.main.asyncAfter(deadline: .now() + debounceInterval) { [weak self] in
-            self?.isFollowButtonEnabled = true
+            
+            // After the debounce interval, enable the button again
+            DispatchQueue.main.asyncAfter(deadline: .now() + debounceInterval) { [weak self] in
+                self?.isFollowButtonEnabled = true
+            }
         }
     }
     
@@ -257,26 +273,52 @@ class BWorkOutMotivatorDetailVC: UIViewController {
     //    }
     
     
+    private func setUpCoachProfileData() {
+        
+        let info = self.detailInfo
+        let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (info?.profilePhotoPath ?? ""))
+        self.coachPicImgView.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
+        self.coachNameLbl.text = "\(info?.name ?? "")"
+        self.followerCountLbl.text = "\(info?.followersCount ?? 0) \(BatchConstant.followers)" //"0"
+        self.followerCount = info?.followersCount ?? 0
+        self.desLbl.text = ""
+        
+        let isYouFollow = info?.youFollowedCount
+        if isYouFollow == 0
+        {
+            self.isFollowed = false
+        }
+        else
+        {
+            self.isFollowed = true
+        }
+        self.setMotivatorPrUI()
+        
+        if info?.workoutType?.count != 0 {
+            for i in 0..<(info?.workoutType?.count ?? 0) {
+                newArray.append("\(info?.workoutType?[i].workoutdetail?.workoutType ?? "" )")
+                newImage.append(UIImage(named: "accessibility_Black")!)
+            }
+            self.trainingCollectionView.reloadData()
+
+        }
+    }
     private func getCoachDetails(coachId:String){
         
         DispatchQueue.main.async {
             showLoading()
         }
         let bWOMotivatorDetailViewModel = BWorkOutMotivatorDetailViewModel()
-        
         let urlStr = API.coachDetail + coachId
         bWOMotivatorDetailViewModel.couchDetail(requestUrl: urlStr)  { (response) in
             
-            //            if response.status == true, response.data?.count != 0{
             if response.status == true {
-                
                 print(response.data)
-                //                self.woCoachDetailInfo = response.data
-                
+                self.detailInfo = response.data
                 DispatchQueue.main.async {
+                    self.setUpCoachProfileData()
                     hideLoading()
                 }
-                
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
@@ -449,5 +491,3 @@ class BWorkOutMotivatorDetailVC: UIViewController {
         }
     }
 }
-
-

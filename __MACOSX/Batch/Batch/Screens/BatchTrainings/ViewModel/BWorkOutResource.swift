@@ -146,12 +146,12 @@ struct BWorkOutResource {
     // BWorkOutMotivatorDetailVC -->
     
     // Coach Detail
-    func getCoachDetail(urlStr:String, onSuccess:@escaping(CoachDetailResponse) -> Void, onError:@escaping(BatchError) -> Void){
+    func getCoachDetail(urlStr:String, onSuccess:@escaping(BCoachDetailResponse) -> Void, onError:@escaping(BatchError) -> Void){
         
         let coachDetailContentUrl = URL(string: urlStr)!
         let urlRequest = HURequest(url: coachDetailContentUrl, method: .get)
         
-        HttpUtility.shared.request(huRequest: urlRequest, isAuthorization: false, resultType: CoachDetailResponse
+        HttpUtility.shared.request(huRequest: urlRequest, isAuthorization: false, resultType: BCoachDetailResponse
             .self) { (result) in
                 
                 switch result{
