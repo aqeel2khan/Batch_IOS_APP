@@ -47,7 +47,11 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
         priceLbl.attributedText = attributedPriceString
         descLbl.text = mealData.description
         descLbl.font = FontSize.regularSize14
-        durationLbl.text = (mealData.duration ?? "") + " weeks"
+        
+        let arrayofOptions = mealData.duration?.components(separatedBy: ",").map { String($0) } ?? []
+        durationLbl.text = (arrayofOptions.first ?? "") + " weeks"
+        MealSubscriptionManager.shared.duration = arrayofOptions.first ?? "1"
+
         self.setUpTagCollView()
         self.getMealDetails()
     }
@@ -300,6 +304,27 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
         DispatchQueue.main.async {
             showLoading()
         }
+    }
+
+}
+
+extension MealBatchUnSubscribeDetailVC: OptionPickerDelegate {
+    func showOptionPicker() {
+        let vc = OptionPickerViewController.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        let options = ["Option 1", "Option 2", "Option 3"]
+        vc.pickerOptions = mealData.duration?.components(separatedBy: ",").map { String($0) } ?? []
+        vc.delegate = self
+        present(vc, animated: true, completion: nil)
+    }
+    
+    // MARK: - OptionPickerDelegate
+    
+    func didSelectOption(_ option: String) {
+        print("Selected option: \(option)")
+        // Handle the selected option as needed
+        MealSubscriptionManager.shared.duration = option
     }
 
 }

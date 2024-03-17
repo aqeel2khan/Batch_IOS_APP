@@ -36,4 +36,13 @@ struct DashboardViewModel {
             onError(error)
         }
     }
+    
+    func getMacroList(urlStr:String, request: MacroRequest, onSuccess:@escaping(MacroResponse) -> Void, onError:@escaping(BatchError) -> Void) {
+        let bHomeResource = DashboardResource()
+        bHomeResource.getMacroList(urlStr: urlStr, request: request) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
 }

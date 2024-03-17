@@ -28,11 +28,27 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     @IBOutlet weak var workoutBatchCollView: UICollectionView!
     @IBOutlet weak var macroContainer: UIView!
 
+    
+    @IBOutlet weak var kcalContainerView: UIView!
+    @IBOutlet weak var kcalLabelValueTitle: UILabel!
+    @IBOutlet weak var kcalStaticTitle: UILabel!
+    
+    @IBOutlet weak var progressBar1: UIProgressView!
+    @IBOutlet weak var progressBar2: UIProgressView!
+    @IBOutlet weak var progressBar3: UIProgressView!
+
+    @IBOutlet weak var lblProgressBar1: UILabel!
+    @IBOutlet weak var lblProgressBar2: UILabel!
+    @IBOutlet weak var lblProgressBar3: UILabel!
+
+
     //var courseList = [List]()
     var courseList = [DashboardWOList]()
     var subscribedMealListData : [SubscribedMeals] = []
     weak var axisFormatDelegate: AxisValueFormatter?
    
+    var macroDetails : [Macros] = []
+
     var datesForSleep: [String] = []
     var datesForEnergyBurned: [String] = []
     
@@ -140,6 +156,13 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
             loginBtn.isHidden = false
             loginBtnHeight.constant = 56
         }
+        
+        kcalContainerView.layer.cornerRadius = kcalContainerView.bounds.width / 2
+        kcalContainerView.layer.masksToBounds = true
+        
+        // Add a border
+        kcalContainerView.layer.borderWidth = 2.0 // You can adjust the border width as needed
+        kcalContainerView.layer.borderColor = UIColor.black.cgColor // You can adjust the border color as needed
         
         if UserDefaultUtility.isUserLoggedIn() {
             if internetConnection.isConnectedToNetwork() == true {
@@ -397,6 +420,7 @@ extension BatchDashboardVC {
                 DispatchQueue.main.async {
                     hideLoading()
                     self.mealBatchCollView.reloadData()
+                    self.getMacrosDetail()
                 }
             } else {
                 DispatchQueue.main.async {
@@ -418,6 +442,56 @@ extension BatchDashboardVC {
             showLoading()
         }
     }
+    
+    //Get Macros Detail
+    private func getMacrosDetail(){
+        
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bHomeViewModel = DashboardViewModel()
+        let urlStr = API.macroDetail
+        
+        guard let subscribedId = self.subscribedMealListData[0].subscribedId else {
+            return
+        }
+        
+        guard let mealId = self.subscribedMealListData[0].id else {
+            return
+        }
+
+        let request = MacroRequest(userId: "\(UserDefaultUtility().getUserId())", mealId: "\(mealId)", subscribedId: "\(subscribedId)")
+        bHomeViewModel.getMacroList(urlStr: urlStr, request: request) { (response) in
+            if response.status == true, response.data?.data?.count != 0 {
+                self.macroDetails = response.data?.data ?? []
+                DispatchQueue.main.async {
+                    hideLoading()
+                    // macroContainer
+                    self.kcalLabelValueTitle.text = self.macroDetails[0].totalValue
+                    self.kcalStaticTitle.text = "kcal"
+                    
+                    self.progressBar1.progress = 0.5
+                    self.lblProgressBar1.text = self.macroDetails[2].nutrientName
+                    
+                    self.progressBar2.progress = 0.7
+                    self.lblProgressBar2.text = self.macroDetails[3].nutrientName
+                    
+                    self.progressBar3.progress = 0.4
+                    self.lblProgressBar3.text = self.macroDetails[1].nutrientName
+
+                }
+            } else {
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
+        }
+    }
+
 }
 
 extension BatchDashboardVC: UITableViewDelegate, UITableViewDataSource{

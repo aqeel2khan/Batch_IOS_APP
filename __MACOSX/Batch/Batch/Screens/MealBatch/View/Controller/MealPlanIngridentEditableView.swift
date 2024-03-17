@@ -46,6 +46,7 @@ class MealPlanIngridentEditableView: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
         rateMealLabel.addGestureRecognizer(tapGesture)
 
+        rateMealLabel.textColor = Colors.appThemeButtonColor
         self.setupNavigationBar()
         self.getDishesDetailsApi()
     }
