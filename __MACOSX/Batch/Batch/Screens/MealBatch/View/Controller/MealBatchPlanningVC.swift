@@ -108,6 +108,7 @@ class MealBatchPlanningVC: UIViewController {
         self.customSecondNavigationBar.titleLbl.isHidden = false
         self.customSecondNavigationBar.titleLbl.text = "Meal Planning"
         self.customSecondNavigationBar.rightBarBtnItem2.isHidden = false
+        self.customSecondNavigationBar.leftBarBtnItem.setImage(UIImage(named: "back"), for: .normal)
         self.registerCollTblView()
     }
     

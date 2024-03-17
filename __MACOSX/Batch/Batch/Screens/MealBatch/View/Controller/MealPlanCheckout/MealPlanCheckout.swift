@@ -68,20 +68,74 @@ class MealPlanCheckout: UIViewController {
         self.dismiss(animated: true)
     }
     
+    func validateData() -> (isValid: Bool, errorMessage: String) {
+        if MealSubscriptionManager.shared.startDate == nil || MealSubscriptionManager.shared.startDate?.isEmpty == true {
+            return (false, "Start date is required.")
+        }
+        
+        if MealSubscriptionManager.shared.duration == nil || MealSubscriptionManager.shared.duration?.isEmpty == true {
+            return (false, "Duration is required.")
+        }
+        
+        if MealSubscriptionManager.shared.area == nil || MealSubscriptionManager.shared.area?.isEmpty == true {
+            return (false, "Area is required.")
+        }
+        
+        if MealSubscriptionManager.shared.block == nil || MealSubscriptionManager.shared.block?.isEmpty == true {
+            return (false, "Block is required.")
+        }
+        
+        if MealSubscriptionManager.shared.house == nil || MealSubscriptionManager.shared.house?.isEmpty == true {
+            return (false, "House is required.")
+        }
+        
+        if MealSubscriptionManager.shared.street == nil || MealSubscriptionManager.shared.street?.isEmpty == true {
+            return (false, "Street is required.")
+        }
+        
+        if MealSubscriptionManager.shared.addressType == nil || MealSubscriptionManager.shared.addressType?.isEmpty == true {
+            return (false, "Address type is required.")
+        }
+        
+        if MealSubscriptionManager.shared.deliveryTime == nil || MealSubscriptionManager.shared.deliveryTime?.isEmpty == true {
+            return (false, "Delivery time is required.")
+        }
+        
+        if MealSubscriptionManager.shared.deliveryArriving == nil || MealSubscriptionManager.shared.deliveryArriving?.isEmpty == true {
+            return (false, "Delivery arriving is required.")
+        }
+        
+        if MealSubscriptionManager.shared.deliveryDropoff == nil || MealSubscriptionManager.shared.deliveryDropoff?.isEmpty == true {
+            return (false, "Delivery dropoff is required.")
+        }
+        
+        // Add validation for other properties here if needed
+        
+        return (true, "")
+    }
+
+    
     @IBAction func onTapCheckOutBtn(_ sender: Any) {
-        let vc = BPaymentGatewayPopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
-        vc.modalPresentationStyle = .pageSheet
-        vc.modalTransitionStyle = .coverVertical
-        vc.totalOrderAmount = mealData.price ?? "0"
-        if isCommingFrom == "MealBatchSubscribe" {
-            vc.mealData = mealData
-        }
-        vc.completion = { (transactionID) in
-            if let price = self.mealData.price {
-                self.createMealSubscriptionApi(mealId: self.mealData.id ?? 0, subtotal: price, discount: 0, total: price, paymentType: "card", transactionID: transactionID, paymentStatus: "true")
+        let (isValid, errorMessage) = validateData()
+        if isValid {
+            // Data is valid, proceed further
+            let vc = BPaymentGatewayPopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+            vc.modalPresentationStyle = .pageSheet
+            vc.modalTransitionStyle = .coverVertical
+            vc.totalOrderAmount = mealData.price ?? "0"
+            if isCommingFrom == "MealBatchSubscribe" {
+                vc.mealData = mealData
             }
+            vc.completion = { (transactionID) in
+                if let price = self.mealData.price {
+                    self.createMealSubscriptionApi(mealId: self.mealData.id ?? 0, subtotal: price, discount: 0, total: price, paymentType: "card", transactionID: transactionID, paymentStatus: "true")
+                }
+            }
+            self.present(vc, animated: true )
+        } else {
+            // Show error message to the user
+            showAlert(message: errorMessage)
         }
-        self.present(vc, animated: true )
     }
     
     private func createMealSubscriptionApi(mealId:Int, subtotal:String, discount:Int, total:String, paymentType:String, transactionID:String, paymentStatus:String) {
@@ -98,7 +152,6 @@ class MealPlanCheckout: UIViewController {
         MealSubscriptionManager.shared.transactionId = transactionID
         MealSubscriptionManager.shared.paymentStatus = paymentStatus
         MealSubscriptionManager.shared.startDate = dateFormatter.string(from:Date())
-        MealSubscriptionManager.shared.duration = mealData.duration
 
         guard let req = MealSubscriptionManager.shared.createSubscriptionRequest() else {
             return
