@@ -16,7 +16,7 @@ let Batch_UserDefaults = UserDefaults.standard
 let CURRENCY = "KD"
 
 let ENGLISH_LANGUAGE_CODE = "en"
-let ARABIC_LANGUAGE_CODE = "en"  
+let ARABIC_LANGUAGE_CODE = "en"
 
 let DEFAULT_LANGUAGE_CODE = ARABIC_LANGUAGE_CODE
 

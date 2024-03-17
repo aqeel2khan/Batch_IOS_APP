@@ -7,19 +7,16 @@
 
 import Foundation
 import UIKit
-//import QuartzCore
 
 extension BStartWorkOutDetailVC: UICollectionViewDelegate,UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10//workOutArray.count
+        return newArray.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeue(BatchTrainingDetailCollCell.self, indexPath)
-        //        cell.imgWorkOut.image = workOutIconArray[indexPath.row]
-        //        cell.lblWorkoutName.text = workOutArray[indexPath.row]
+        cell.imgWorkOut.image = newImage[indexPath.row]
+        cell.lblWorkoutName.text = newArray[indexPath.row]
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -32,5 +29,4 @@ extension BStartWorkOutDetailVC: UICollectionViewDelegate,UICollectionViewDataSo
                 cell.transform = CGAffineTransform(translationX: 0, y: 0)
             })
     }
-    
 }

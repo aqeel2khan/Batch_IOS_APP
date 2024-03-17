@@ -46,6 +46,12 @@ class PaymentMethodTblViewCell: UITableViewCell {
         if let imageURL = paymentMethod.imageUrl {
             paymentMethodImageView.downloaded(from: imageURL)
         }
-        paymentMethodNameLabel.text = paymentMethod.paymentMethodEn ?? ""
+        
+        let languageCode = UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String ?? DEFAULT_LANGUAGE_CODE
+        if languageCode == ENGLISH_LANGUAGE_CODE {
+            paymentMethodNameLabel.text = paymentMethod.paymentMethodEn ?? ""
+        } else {
+            paymentMethodNameLabel.text = paymentMethod.paymentMethodAr ?? ""
+        }
     }
 }

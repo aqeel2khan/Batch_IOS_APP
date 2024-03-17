@@ -164,6 +164,9 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
                     hideLoading()
                     if self.vimoVideoURLList.count != 0 {
                         let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
+                      
+//                        let vc = BStartWorkOutDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
+
                         vc.courseDetail = self.courseDetailsInfo
                         vc.viemoVideoArr = self.vimoVideoURLList
                         

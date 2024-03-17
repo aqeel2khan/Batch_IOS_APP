@@ -148,6 +148,8 @@ class BWorkOutDetailVC: UIViewController {
                 }
             }
             durationTitleLbl.text = "Duration"
+            self.videoPlayBtn.isHidden = false
+            self.coursePromotionVideoId = info?.coursePromoVideo ?? ""
         }
         else if isCommingFrom == "workoutbatches" { // without subscription
             self.grandTotalPriceBackView.isHidden = false
@@ -180,7 +182,13 @@ class BWorkOutDetailVC: UIViewController {
             self.coursePromotionVideoId = info?.coursePromoVideo ?? ""
             coachIdValue = info?.coachDetail?.id ?? 0
             self.woTitleLbl.text = info?.courseName
-            self.workOutPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + (info?.coursePrice?.removeDecimalValue() ?? "")
+//            self.workOutPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + (info?.coursePrice?.removeDecimalValue() ?? "")
+            
+            let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info?.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+            self.workOutPriceLbl.attributedText = attributedPriceString
+
+            
+            
             self.woDesLbl.text = info?.description ?? ""
             self.coachNameLbl.text = info?.coachDetail?.name ?? ""
             self.durationLbl.text = "Day \(todayWorkoutsInfo.row ?? 0)"
@@ -283,6 +291,7 @@ class BWorkOutDetailVC: UIViewController {
                 let vc = BStartWorkOutDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
                 vc.modalPresentationStyle = .overFullScreen
                 vc.modalTransitionStyle = .coverVertical
+                vc.isCommingFrom = "StartWorkout"
                 vc.courseDurationExerciseArr = self.courseDurationExerciseArr
                 vc.courseDetail = self.courseDetailsInfo
                 vc.viemoVideoArr = self.vimoVideoURLList

@@ -15,9 +15,9 @@ extension BPaymentGatewayPopUpVC:UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let paymentMethods = paymentMethods else {
-            return 0
-        }
+//        guard let paymentMethods = paymentMethods else {
+//            return 0
+//        }
         return paymentMethods.count
     }
     
@@ -25,10 +25,10 @@ extension BPaymentGatewayPopUpVC:UITableViewDataSource {
         
         let cell = tableView.dequeueCell(PaymentMethodTblViewCell.self,for: indexPath)
         
-        if let paymentMethods = paymentMethods, !paymentMethods.isEmpty {
+//        if let paymentMethods = paymentMethods, !paymentMethods.isEmpty {
             let selectedIndex = selectedPaymentMethodIndex ?? -1
             cell.configure(paymentMethod: paymentMethods[indexPath.row], selected: selectedIndex == indexPath.row)
-        }
+//        }
         return cell
     }
 }
