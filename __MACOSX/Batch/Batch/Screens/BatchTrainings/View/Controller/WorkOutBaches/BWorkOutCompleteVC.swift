@@ -10,26 +10,16 @@ import UIKit
 class BWorkOutCompleteVC: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
-   
-    
-    
+  
     override func viewDidLoad() {
         scrollView.makeSpecificCornerRound(corners: .topTwo, radius: 30)
-        
     }
     
     @IBAction func onTapContinueBtn(_ sender: UIButton) {
-        
-       // tabBarController?.selectedIndex = 1
-       // /*
-         let vc = BNextWorkOutTimerVC.instantiate(fromAppStoryboard: .batchTrainings)
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .coverVertical
-        self.present(vc, animated: true)
-       //  */
+        self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func backBtn(_ sender: UIButton) {
         self.dismiss(animated: true)
-    }
+    } 
 }

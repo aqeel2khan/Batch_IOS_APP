@@ -891,7 +891,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="253.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lower-Body Burn" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wo-BK-AzU" customClass="BatchMedium20Black" customModule="Batch" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="20" width="369" height="24"/>
+                                                <rect key="frame" x="20" y="20" width="353" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -912,12 +912,17 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2b5-kq-arE">
                                                                 <rect key="frame" x="0.0" y="122.66666666666669" width="353" height="34"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="spO-Wi-SvB">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="spO-Wi-SvB">
                                                                         <rect key="frame" x="5" y="2" width="30" height="30"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="30" id="JH3-sa-VgB"/>
                                                                             <constraint firstAttribute="height" constant="30" id="rUv-WB-gXc"/>
                                                                         </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="15"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Couch Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVp-f3-76P" customClass="BatchLabelMedium14DarkGray" customModule="Batch" customModuleProvider="target">
                                                                         <rect key="frame" x="45.000000000000007" y="6.6666666666666838" width="98.666666666666686" height="20.333333333333329"/>
@@ -949,6 +954,10 @@
                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells/>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="GgD-ok-0fS" id="a3T-km-2Op"/>
+                                                                    <outlet property="delegate" destination="GgD-ok-0fS" id="Zo4-En-MP6"/>
+                                                                </connections>
                                                             </collectionView>
                                                         </subviews>
                                                         <constraints>
@@ -1041,8 +1050,8 @@
                                             <constraint firstItem="Fdl-ws-nte" firstAttribute="leading" secondItem="vGW-sF-3jH" secondAttribute="leading" constant="20" id="JFI-z2-RBv"/>
                                             <constraint firstAttribute="trailing" secondItem="Fdl-ws-nte" secondAttribute="trailing" constant="20" id="M9w-ds-1Yk"/>
                                             <constraint firstAttribute="bottom" secondItem="Fdl-ws-nte" secondAttribute="bottom" constant="20" id="NdA-vL-QVb"/>
-                                            <constraint firstAttribute="trailing" secondItem="8Wo-BK-AzU" secondAttribute="trailing" constant="12" id="ar8-II-iqh"/>
-                                            <constraint firstItem="8Wo-BK-AzU" firstAttribute="leading" secondItem="vGW-sF-3jH" secondAttribute="leading" constant="12" id="brc-ds-BTy"/>
+                                            <constraint firstAttribute="trailing" secondItem="8Wo-BK-AzU" secondAttribute="trailing" constant="20" id="ar8-II-iqh"/>
+                                            <constraint firstItem="8Wo-BK-AzU" firstAttribute="leading" secondItem="vGW-sF-3jH" secondAttribute="leading" constant="20" id="brc-ds-BTy"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1126,6 +1135,9 @@
                     <connections>
                         <outlet property="coachNameLbl" destination="AVp-f3-76P" id="6eU-U1-MK0"/>
                         <outlet property="coachPicImgView" destination="spO-Wi-SvB" id="mQ2-0j-q1T"/>
+                        <outlet property="courseImgView" destination="uku-72-9Ko" id="N1d-3J-g56"/>
+                        <outlet property="trainingCollectionHeight" destination="5d0-IK-9bx" id="T5x-Ad-rcC"/>
+                        <outlet property="trainingCollectionView" destination="m5V-rn-b62" id="OYq-5H-VBH"/>
                         <outlet property="woDesLbl" destination="sCK-oI-bW1" id="khd-2W-f2t"/>
                         <outlet property="woTitleLbl" destination="8Wo-BK-AzU" id="lAO-C0-BQq"/>
                     </connections>
@@ -1626,10 +1638,10 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oW1-Rb-tI8">
-                                <rect key="frame" x="0.0" y="159" width="393" height="693"/>
+                                <rect key="frame" x="0.0" y="443.66666666666674" width="393" height="408.33333333333326"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYj-T2-rUn">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="681.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="401.66666666666669"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tick" translatesAutoresizingMaskIntoConstraints="NO" id="xnt-bj-Bdv">
                                                 <rect key="frame" x="171.66666666666666" y="20" width="50" height="50"/>
@@ -1639,22 +1651,22 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rVL-IH-1Tw">
-                                                <rect key="frame" x="20" y="90" width="353" height="571.66666666666663"/>
+                                                <rect key="frame" x="20" y="89.999999999999943" width="353" height="291.66666666666669"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Workout Completed!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpX-Cj-uzZ" customClass="BatchMedium32Black" customModule="Batch" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Completed!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpX-Cj-uzZ" customClass="BatchMedium32Black" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="38.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
                                                         <color key="textColor" name="AppLabelBlackColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Congratulations on completing the Lower-Body Burn exercise! Keep up the great work and see you at your next workout!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIi-YK-qDc" customClass="BatchLabelSubTitleBlack">
-                                                        <rect key="frame" x="0.0" y="58.333333333333314" width="353" height="57.333333333333343"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations on completing the Lower-Body Burn exercise! Keep up the great work and see you at your next workout!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIi-YK-qDc" customClass="BatchLabelSubTitleBlack">
+                                                        <rect key="frame" x="0.0" y="58.333333333333371" width="353" height="57.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" name="AppLabelDarkGrayColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAp-An-4Wy">
-                                                        <rect key="frame" x="0.0" y="135.66666666666669" width="353" height="170"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAp-An-4Wy">
+                                                        <rect key="frame" x="0.0" y="125.66666666666674" width="353" height="170"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise Summary" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ilx-Fy-vcm" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="10" width="353" height="30"/>
@@ -1784,8 +1796,8 @@
                                                             <constraint firstItem="fpD-qv-hze" firstAttribute="top" secondItem="Ilx-Fy-vcm" secondAttribute="bottom" constant="20" id="sM8-lB-Qjm"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHn-LK-r6o">
-                                                        <rect key="frame" x="0.0" y="325.66666666666663" width="353" height="170"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHn-LK-r6o">
+                                                        <rect key="frame" x="0.0" y="125.66666666666674" width="353" height="170"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you enjoy the training?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Je8-TS-X47" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="10" width="353" height="30"/>
@@ -1881,7 +1893,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0f-hX-cq7" userLabel="FeedbackBackView">
-                                                        <rect key="frame" x="0.0" y="505.66666666666663" width="353" height="120"/>
+                                                        <rect key="frame" x="0.0" y="125.66666666666674" width="353" height="120"/>
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Did you enjoy the training?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N8I-1Y-vTX">
                                                                 <rect key="frame" x="20" y="10" width="313" height="100"/>
@@ -1905,29 +1917,41 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uf5-jF-pLk" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="515.66666666666663" width="353" height="56"/>
-                                                        <color key="backgroundColor" name="AppThemeButtonColor"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsd-v4-gED">
+                                                        <rect key="frame" x="0.0" y="135.66666666666674" width="353" height="156"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uf5-jF-pLk" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="100" width="353" height="56"/>
+                                                                <color key="backgroundColor" name="AppThemeButtonColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="56" id="oTD-gy-biO"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Continue">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="onTapContinueBtn:" destination="8hT-oW-Ybo" eventType="touchUpInside" id="ZAQ-Cm-8Dj"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="56" id="oTD-gy-biO"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Uf5-jF-pLk" secondAttribute="trailing" id="NbW-pU-yGO"/>
+                                                            <constraint firstItem="Uf5-jF-pLk" firstAttribute="top" secondItem="wsd-v4-gED" secondAttribute="top" constant="100" id="OPI-sV-ieq"/>
+                                                            <constraint firstItem="Uf5-jF-pLk" firstAttribute="leading" secondItem="wsd-v4-gED" secondAttribute="leading" id="XLk-8M-rd2"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Uf5-jF-pLk" secondAttribute="bottom" id="tMs-A3-N73"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Continue">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
-                                                                <real key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="onTapContinueBtn:" destination="8hT-oW-Ybo" eventType="touchUpInside" id="ZAQ-Cm-8Dj"/>
-                                                        </connections>
-                                                    </button>
+                                                    </view>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -3323,28 +3347,28 @@
     </scenes>
     <designables>
         <designable name="DJA-bJ-AFD">
-            <size key="intrinsicContentSize" width="129" height="33"/>
+            <size key="intrinsicContentSize" width="128" height="29"/>
         </designable>
         <designable name="GFe-hQ-Sad">
-            <size key="intrinsicContentSize" width="124" height="33"/>
+            <size key="intrinsicContentSize" width="130" height="32"/>
         </designable>
         <designable name="LTw-wC-I7b">
-            <size key="intrinsicContentSize" width="85" height="33"/>
+            <size key="intrinsicContentSize" width="92" height="32"/>
         </designable>
         <designable name="Pwf-aV-rtb">
             <size key="intrinsicContentSize" width="161" height="33"/>
         </designable>
         <designable name="SgW-pb-ZK2">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="41" height="32"/>
         </designable>
         <designable name="Uf5-jF-pLk">
             <size key="intrinsicContentSize" width="64" height="33"/>
         </designable>
         <designable name="bO6-Up-lR6">
-            <size key="intrinsicContentSize" width="124" height="33"/>
+            <size key="intrinsicContentSize" width="130" height="32"/>
         </designable>
         <designable name="hLT-G8-eqH">
-            <size key="intrinsicContentSize" width="160" height="33"/>
+            <size key="intrinsicContentSize" width="170" height="32"/>
         </designable>
         <designable name="rDA-Xe-ypL">
             <size key="intrinsicContentSize" width="68" height="33"/>
@@ -3362,7 +3386,7 @@
             <size key="intrinsicContentSize" width="46" height="33"/>
         </designable>
         <designable name="zPv-oy-eFN">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="41" height="32"/>
         </designable>
     </designables>
     <resources>
@@ -3377,7 +3401,7 @@
         <image name="Star-fill" width="20" height="19"/>
         <image name="Tick" width="48.333332061767578" height="48"/>
         <image name="detail" width="375" height="308"/>
-        <image name="downArrow" width="11" height="5.3333334922790527"/>
+        <image name="downArrow" width="24" height="24"/>
         <image name="filter" width="36" height="36"/>
         <image name="info_icon" width="72" height="72"/>
         <image name="logo_icon_white" width="124" height="171"/>

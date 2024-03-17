@@ -19,19 +19,19 @@ class VimoPlayerVC: UIViewController {
     var courseDurationExerciseArr = [CourseDurationExercise]()
     var courseDetail: CourseDetail!
     var todayWorkoutsInfo : TodayWorkoutsElement!
-
+    
     var refreshControl: UIRefreshControl!
     var completion: (()->Void)? = nil
     var viemoVideoArr = [String]()
     var titleText = "Lower-Body Burn"
     var dayNumberText : String!
-
+    
     var selectedIndex = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUpTimeValue()
         
         if dayNumberText.contains("Day") {
@@ -39,7 +39,7 @@ class VimoPlayerVC: UIViewController {
         } else {
             dayCountLbl.text = "Day".localized + " : " + dayNumberText
         }
-                
+        
         print("OUR FINAL VIDEO URL")
         print(viemoVideoArr)
         
@@ -148,13 +148,13 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
         else  {
             let cell = tableView.dequeueReusableCell(withIdentifier: "VimoPlayerCell", for: indexPath) as! VimoPlayerCell
             cell.configureCell(videoUrl: self.viemoVideoArr[indexPath.row])
-                       
+            
             cell.dragUpUIView.isHidden = indexPath.row == 0 ? false : true
             cell.bottomView.isHidden = indexPath.row == (self.viemoVideoArr.count - 1) ? false : true
-          
+            
             cell.bottomView.layer.zPosition = 1
             cell.dragUpUIView.layer.zPosition = 1
-
+            
             cell.finishWorkOutBtn.tag = indexPath.row
             cell.finishWorkOutBtn.addTarget(self, action: #selector(finishWorkOutBtnAction(_:)), for: .touchUpInside)
             return cell
@@ -166,7 +166,13 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     @objc func finishWorkOutBtnAction(_ sender:UIButton) {
-        dismiss(animated: true)
+        ASVideoPlayerController.sharedVideoPlayer.currentLayer?.player?.pause()
+        ASVideoPlayerController.sharedVideoPlayer.videoLayers.layers.removeAll()
+        
+        let vc = BWorkOutCompleteVC.instantiate(fromAppStoryboard: .batchTrainings)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -189,7 +195,7 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         changeSecondTableViewCellColor(index:selectedIndex)
         setUpTimeValue()
-
+        
         pausePlayeVideos()
     }
     
@@ -212,7 +218,7 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
         selectedIndex = indexPath.row
         
         setUpTimeValue()
-
+        
         print("play video \(indexPath.row)")
         
         if tableView == selectedVideoViewTbl

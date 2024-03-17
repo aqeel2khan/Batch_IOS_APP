@@ -83,16 +83,13 @@ class BLogInVC: UIViewController {
                         vc.modalTransitionStyle = .coverVertical
                         self.present(vc, animated: true)
                     } else if self.isCommingFrom == "OnBoarding" {
-                        UserDefaults.standard.set("Kuwait", forKey: USER_DEFAULTS_KEYS.SELECTED_COUNTRY)
-                        UserDefaults.standard.synchronize()
-                        
                         let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
                         tabbarVC.modalPresentationStyle = .fullScreen
                         self.present(tabbarVC, animated: true, completion: nil)
                     } else {
                         self.dismiss(animated: true)
                     }
-                        self.CallBackToUpdateProfile?()
+                    self.CallBackToUpdateProfile?()
                 }
             }else{
                 DispatchQueue.main.async {
@@ -148,6 +145,12 @@ class BLogInVC: UIViewController {
         //handleAuthorizationAppleIDButtonPress()
     }
     
+    @IBAction func languageSelectionBtnTap(_ sender: UIButton) {
+        let vc = BatchCountryLanguageVC.instantiate(fromAppStoryboard: .main)
+        vc.modalPresentationStyle = .pageSheet
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true)
+    }
     
     //  MARK:-  Apple Login Delegate func
     

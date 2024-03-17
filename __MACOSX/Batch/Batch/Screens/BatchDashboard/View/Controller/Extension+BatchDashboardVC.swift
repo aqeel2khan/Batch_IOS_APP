@@ -30,14 +30,42 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
                 cell.titleLbl.text = self.subscribedMealListData[indexPath.item].name
                 cell.descLbl.text = self.subscribedMealListData[indexPath.item].description
                 cell.daysLbl.text = self.subscribedMealListData[indexPath.item].duration
-                
+
                 if let startDate = createDate(from: self.subscribedMealListData[indexPath.item].startDate), let endDate = createDate(from: self.subscribedMealListData[indexPath.item].endDate) {
                     let percentage = calculatePercentage(startDate: startDate, endDate: endDate)
                     cell.progressView.progress = percentage
                 }
             }
             return cell
-        } else {
+        }
+
+//        if collectionView == mealBatchCollView {
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealBatchDashboardCollectionCell", for: indexPath)  as! MealBatchDashboardCollectionCell
+//            if self.subscribedMealListData.count > 0 {
+//
+//                cell.titleLbl.text = self.subscribedMealListData[indexPath.row].name
+//                let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(self.subscribedMealListData[indexPath.row].price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+//                cell.priceLbl.attributedText = attributedPriceString
+//
+//                let original1String = "\(self.subscribedMealListData[indexPath.row].avgCalPerDay ?? "") \(BatchConstant.kcalSuffix)"
+//                let keyword1 = BatchConstant.kcalSuffix
+//                let attributedString = NSAttributedString.attributedStringWithDifferentFonts(for: original1String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword1)
+//                cell.kclLbl.attributedText = attributedString
+//                cell.mealsLbl.text = "\(self.subscribedMealListData[indexPath.row].mealCount ?? 0) \(BatchConstant.meals)"
+//
+//                let original2String = "\(self.subscribedMealListData[indexPath.row].mealCount ?? 0) \(BatchConstant.meals)"
+//                let keyword2 = BatchConstant.meals
+//                let attributedString1 = NSAttributedString.attributedStringWithDifferentFonts(for: original2String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword2)
+//                cell.mealsLbl.attributedText = attributedString1
+//
+//                if let startDate = createDate(from: self.subscribedMealListData[indexPath.item].startDate), let endDate = createDate(from: self.subscribedMealListData[indexPath.item].endDate) {
+//                    let percentage = calculatePercentage(startDate: startDate, endDate: endDate)
+//                    cell.progressView.progress = percentage
+//                }
+//                return cell
+//            }
+//        }
+        else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WorkoutBatchDashboardCollectionCell", for: indexPath)  as! WorkoutBatchDashboardCollectionCell
             
             if self.courseList.count > 0 {
@@ -60,7 +88,20 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenWidth = mealBatchCollView.frame.width - 10
+        var screenWidth : CGFloat!
+        if collectionView == mealBatchCollView {
+            if subscribedMealListData.count == 1 {
+                screenWidth = mealBatchCollView.frame.width
+            } else {
+                screenWidth = mealBatchCollView.frame.width - 20
+            }
+        } else {
+            if courseList.count == 1 {
+                screenWidth = workoutBatchCollView.frame.width
+            } else {
+                screenWidth = workoutBatchCollView.frame.width - 20
+            }
+        }
         return CGSize(width: screenWidth, height: 220)
     }
     

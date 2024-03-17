@@ -16,7 +16,8 @@ class BPaymentGatewayPopUpVC: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     
     //MARK: Variables
-    var paymentMethods: [MFPaymentMethod]?
+    var paymentMethods: [MFPaymentMethod] = []
+
     var selectedPaymentMethodIndex: Int?
     var errorCodeStr: String?
     var resultStr:String?
@@ -48,7 +49,7 @@ class BPaymentGatewayPopUpVC: UIViewController {
     }
     
     @IBAction func payDidPressed(_ sender: Any) {
-        if let paymentMethods = paymentMethods, !paymentMethods.isEmpty {
+        if paymentMethods.count != 0 {
             if let selectedIndex = selectedPaymentMethodIndex {
                 
                 executePayment(paymentMethodId: paymentMethods[selectedIndex].paymentMethodId)
