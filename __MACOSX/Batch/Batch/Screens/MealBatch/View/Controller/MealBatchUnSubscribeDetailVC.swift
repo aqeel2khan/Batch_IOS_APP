@@ -101,18 +101,14 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
         if isCommingFrom == "MealBatchVCWithSubscribeBatch"
         {
         }
-        /*
-         else if isCommingFrom == "MealBatchVCWithOutSubscribeBatch"
-         {
-         }
-         */
     }
     
     // MARK: - IBActions
     
     @IBAction func onTapSubscribePlanBtn(_ sender: UIButton) {
         if UserDefaultUtility.isUserLoggedIn() {
-            self.checkIfMealIsAlreadySubscribed()
+//            self.checkIfMealIsAlreadySubscribed()
+            self.getSubscribedMealList()
         } else {
             let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
             // let vc = BRegistrationVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
@@ -266,4 +262,44 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
             }
         }
     }
+    
+    private func getSubscribedMealList() {
+        DispatchQueue.main.async {
+            self.showLoader()
+        }
+        
+        let bHomeViewModel = DashboardViewModel()
+        let urlStr = API.subscriptionMealList
+        let request = SubscribedMealListRequest(userId: "\(UserDefaultUtility().getUserId())")
+        bHomeViewModel.getSubscribedMealList(urlStr: urlStr, request: request) { (response) in
+            if response.status == true {
+                let totalRecords = response.data?.recordsTotal ?? 0
+                DispatchQueue.main.async {
+                    hideLoading()
+                    if totalRecords == 0 {
+                        self.goToCheckoutScreen()
+                    } else {
+                        self.showAlert(message: "User can not subscribed more than 1 Meal Plan.")
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.showAlert(message: "Something Wrong")
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.showAlert(message: "Something Wrong")
+            }
+        }
+    }
+    
+    private func showLoader() {
+        DispatchQueue.main.async {
+            showLoading()
+        }
+    }
+
 }

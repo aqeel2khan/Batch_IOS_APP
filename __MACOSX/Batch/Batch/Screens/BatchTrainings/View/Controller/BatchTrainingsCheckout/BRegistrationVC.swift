@@ -116,6 +116,8 @@ class BRegistrationVC: UIViewController {
                     }
                     if self.isCommingFrom == "MealBatchSubscribe" {
                         let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
+                        vc.isCommingFrom = "MealBatchSubscribe"
+                        vc.mealData = self.mealData
                         vc.modalPresentationStyle = .overFullScreen
                         vc.modalTransitionStyle = .coverVertical
                         self.present(vc, animated: true)

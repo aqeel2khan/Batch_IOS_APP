@@ -30,8 +30,13 @@ class StartDatePlanVC: UIViewController {
         planCalender.delegate = self
         planCalender.dataSource = self
         calenderStackView.layer.cornerRadius = 20
-//        planCalender.appearance.selectionColor = UIColor(hex: "#516634")
-        planCalender.appearance.todayColor = UIColor.hexStringToUIColor(hex: "#516634")
+        planCalender.appearance.todayColor = .gray
+        planCalender.appearance.titleTodayColor = .white
+
+        planCalender.appearance.selectionColor = UIColor.hexStringToUIColor(hex: "#516634")
+        planCalender.appearance.titleDefaultColor = UIColor.black
+        planCalender.appearance.titlePlaceholderColor = UIColor.gray
+
         dateLabelContainer.addRoundedRect(cornerRadius: 10, borderWidth: 2, borderColor: UIColor.hexStringToUIColor(hex: "#516634"))
 
         planCalender.appearance.weekdayTextColor = .gray
@@ -45,24 +50,16 @@ class StartDatePlanVC: UIViewController {
        
         lblCurrentmonthName.text = currentMonthName
         lblCurrentSelectedDate.text = convertDate(date: Date())
-        
-         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-         mainView.addGestureRecognizer(tap)
-     }
-     
-     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-     //    self.dismiss(animated: true)
-     }
-    
+    }
     
     //MARK: Next Calendar Month
     func getNextMonth(date:Date)->Date {
-        return  Calendar.current.date(byAdding: .month, value: 1, to:date)!
+        return Calendar.current.date(byAdding: .month, value: 1, to:date)!
     }
     
     //MARK: Previous Calendar Month
     func getPreviousMonth(date:Date)->Date {
-        return  Calendar.current.date(byAdding: .month, value: -1, to:date)!
+        return Calendar.current.date(byAdding: .month, value: -1, to:date)!
     }
 
     @IBAction func leftArrowActionBtn(_ sender: UIButton) {
@@ -103,7 +100,7 @@ class StartDatePlanVC: UIViewController {
     func setupDataAndDismiss() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-YYYY"
-        MealSubscriptionManager.shared.startDate = dateFormatter.string(from:Date())
+        MealSubscriptionManager.shared.startDate = dateFormatter.string(from:planCalender.selectedDate ?? Date())
         self.dismiss(animated: true)
         completion?()
     }
@@ -112,8 +109,6 @@ class StartDatePlanVC: UIViewController {
         setupDataAndDismiss()
     }
 }
-
-
 
 extension String {
     func getCurrentDate(dateStyle:CustomDateStylesTypes) -> String {
