@@ -19,7 +19,14 @@ extension BPaymentGatewayPopUpVC {
             }
             switch result {
             case .success(let initiatePaymentResponse):
-                self?.paymentMethods = initiatePaymentResponse.paymentMethods
+                //self?.paymentMethods = initiatePaymentResponse.paymentMethods
+                
+                for method in initiatePaymentResponse.paymentMethods! {
+                    if method.paymentMethodId == 1 ||  method.paymentMethodId == 11 ||  method.paymentMethodId == 2 ||  method.paymentMethodId == 32 {
+                        self?.paymentMethods.append(method)
+                    }
+                }
+                                
                 self?.tblView.reloadData()
             case .failure(let failError):
                 self?.showFailError(failError)

@@ -45,17 +45,20 @@ class BatchCountryLanguageVC: UIViewController {
     }
     
     @IBAction func onTapNextBtn(_ sender: Any) {
-        if selectedLanguageCode == "" {
-            showAlert(message: "Please select Langauge".localized)
+        if selectedCountryName == "" {
+            showAlert(message: "Please select country".localized)
+        } else if selectedLanguageCode == "" {
+            showAlert(message: "Please select langauge".localized)
         } else {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: selectedLanguageCode)
             UserDefaults.standard.setValue(selectedLanguageCode, forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE)
-            //UIView.appearance().semanticContentAttribute = (selectedLanguageCode == ENGLISH_LANGUAGE_CODE) ? .forceLeftToRight : .forceRightToLeft
-        }
+            UIView.appearance().semanticContentAttribute = (selectedLanguageCode == ENGLISH_LANGUAGE_CODE) ? .forceLeftToRight : .forceRightToLeft
+            
+            let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
+            tabbarVC.modalPresentationStyle = .fullScreen
+            AppDelegate.standard.window?.rootViewController = tabbarVC
+        }       
         
-        let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
-        tabbarVC.modalPresentationStyle = .fullScreen
-        present(tabbarVC, animated: true, completion: nil)
     }
     
     @IBAction func onTapBackBtn(_ sender: Any) {

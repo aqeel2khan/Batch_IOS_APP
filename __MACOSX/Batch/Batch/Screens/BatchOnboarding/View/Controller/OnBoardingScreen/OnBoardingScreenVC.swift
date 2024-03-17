@@ -73,7 +73,6 @@ class OnBoardingScreenVC: UIViewController {
         let vc = BatchCountryLanguageVC.instantiate(fromAppStoryboard: .main)
         vc.modalPresentationStyle = .pageSheet
         vc.modalTransitionStyle = .crossDissolve
-        vc.selectedCountryName = "Kuwait"
         self.present(vc, animated: true)
     }
 }
