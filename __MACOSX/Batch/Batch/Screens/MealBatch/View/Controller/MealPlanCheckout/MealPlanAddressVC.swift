@@ -119,11 +119,44 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
     @IBAction func backActionBtn(_ sender: UIButton) {
         setupDataAndDismiss()
     }
+    
+    func validateAddresses() -> (isValid: Bool, errorMessage: String) {
+        
+        if addressString1.isEmpty {
+            return (false, "Area address is empty.")
+        }
+        
+        if addressString2.isEmpty {
+            return (false, "Block address is empty.")
+        }
+        
+        if addressString3.isEmpty {
+            return (false, "House address is empty.")
+        }
+        
+        if addressString4.isEmpty {
+            return (false, "Street address is empty.")
+        }
+        
+        return (true, "")
+    }
+
     func setupDataAndDismiss() {
-        MealSubscriptionManager.shared.area = addressString1
-        MealSubscriptionManager.shared.block = addressString2
-        MealSubscriptionManager.shared.house = addressString3
-        MealSubscriptionManager.shared.street = addressString4
+        if !addressString1.isEmpty {
+            MealSubscriptionManager.shared.area = addressString1
+        }
+        
+        if !addressString2.isEmpty {
+            MealSubscriptionManager.shared.block = addressString2
+        }
+        
+        if !addressString3.isEmpty {
+            MealSubscriptionManager.shared.house = addressString3
+        }
+        
+        if !addressString4.isEmpty {
+            MealSubscriptionManager.shared.street = addressString4
+        }
         MealSubscriptionManager.shared.addressType = selectedDeliveryAddressType
         MealSubscriptionManager.shared.latitude = ""
         MealSubscriptionManager.shared.longitude = ""
@@ -131,6 +164,14 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
         completion?()
     }
     @IBAction func btnApplyAction(_ sender: UIButton) {
-        setupDataAndDismiss()
+        let validation = validateAddresses()
+        
+        if validation.isValid {
+            // All addresses are non-empty
+            setupDataAndDismiss()
+        } else {
+            // Show alert with errorMessage
+            showAlert(message: validation.errorMessage)
+        }
     }
 }
