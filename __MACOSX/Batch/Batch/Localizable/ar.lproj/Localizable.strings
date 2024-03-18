@@ -33,7 +33,7 @@
 "Filter"  = "دفعة النص العربي";
 "Goal"  = "دفعة النص العربي";
 
-"Please select Langauge" = "دفعة النص العربي";
+"Please select langauge" = "دفعة النص العربي";
 "Please select plan duration" = "دفعة النص العربي";
 "Please select terms and conditions checkbox"  = "دفعة النص العربي";
 "Please select at least one goal"  = "دفعة النص العربي";
@@ -85,6 +85,7 @@
 "Area" = "أهلاً مجدداً";
 "Take Photo" = "";
 "Choose Photo" = "";
+"Please select country"  = "دفعة النص العربي";
 
 
 

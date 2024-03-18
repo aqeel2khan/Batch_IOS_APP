@@ -34,7 +34,7 @@ class VimoPlayerVC: UIViewController {
         
         setUpTimeValue()
         
-        if dayNumberText.contains("Day") {
+        if dayNumberText.contains("Day".localized) {
             dayCountLbl.text = dayNumberText.substring(fromIndex: 4)
         } else {
             dayCountLbl.text = "Day".localized + " : " + dayNumberText
