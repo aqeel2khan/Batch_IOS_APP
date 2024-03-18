@@ -43,49 +43,40 @@ class BUserProfileVC: UIViewController {
     //    }
     
     func getProfileData(){
-        if internetConnection.isConnectedToNetwork() == true {
-            let bUserProfileVM = BUserProfileVM()
-            DispatchQueue.main.async {
-                showLoading()
-            }
-            bUserProfileVM.getProfileDetails { response in
-                DispatchQueue.main.async {
-                    hideLoading()
-                    self.updateUI(response: response)
-                }
-                
-            } onError: { error in
-                DispatchQueue.main.async {
-                    hideLoading()
-                    self.showAlert(message: error.localizedDescription)
-                }
-            }
-        }else{
-            self.showAlert(message: "Please check your internet", title: "Network issue")
+        DispatchQueue.main.async {
+            showLoading()
         }
-
+        let bUserProfileVM = BUserProfileVM()
+        bUserProfileVM.getProfileDetails { response in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.updateUI(response: response)
+            }
+            
+        } onError: { error in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.showAlert(message: error.localizedDescription)
+            }
+        }
     }
     
     func updateUI(response: GetProfileResponse){
-            self.userImageView.contentMode = .scaleAspectFit
-            self.userImageView.clipsToBounds = true
             self.userImageView.sd_setImage(with:  URL(string: BaseUrl.imageBaseUrl + (response.data?.profile_photo_path ?? ""))!, placeholderImage: UIImage(named: "Avatar"))
             userNameLbl.text = response.data?.name ?? ""
     }
     
-    
-    
     @IBAction func uploadPhotoBtnTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Take Photo".localized, style: .default, handler: { _ in
                 self.openCamera()
             }))
             
-            alert.addAction(UIAlertAction(title: "Choose Photo", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Choose Photo".localized, style: .default, handler: { _ in
                 self.openGallary()
             }))
             
-            alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction.init(title: "Cancel".localized, style: .cancel, handler: nil))
             
             self.present(alert, animated: true, completion: nil)
     }
