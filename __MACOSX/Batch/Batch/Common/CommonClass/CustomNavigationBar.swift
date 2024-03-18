@@ -47,7 +47,7 @@ class CustomNavigationBar: UIView {
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
         if getprofilePhoto != nil {
             profileImage.image = UIImage(data: getprofilePhoto ?? Data())
-            profileImage.cornerRadius = 18
+            profileImage.cornerRadius = 12
             profileImage.clipsToBounds = true
         }else{
             profileImage.image = UIImage(named: "Avatar")

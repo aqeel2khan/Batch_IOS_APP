@@ -50,7 +50,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pDt-U1-n4f">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Batches" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Vp-Hf-47c">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Batches" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Vp-Hf-47c" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="5" y="10" width="298" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                         <nil key="textColor"/>
@@ -346,7 +346,7 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="Show Result">
+                                                                <state key="normal" title="Show Results">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
@@ -3005,25 +3005,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="981-Qw-9U2">
-                                        <rect key="frame" x="0.0" y="83.666666666666686" width="393" height="208"/>
+                                        <rect key="frame" x="0.0" y="83.666666666666686" width="393" height="220"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gEV-0J-fFc">
-                                                <rect key="frame" x="16" y="10" width="361" height="178"/>
+                                                <rect key="frame" x="16" y="10" width="361" height="190"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehl-xs-Txj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="39"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="45"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCs-ot-2Ne" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="22"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="28"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="22" id="E63-jn-bMn"/>
+                                                                    <constraint firstAttribute="height" constant="28" id="E63-jn-bMn"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="901" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fZc-ZR-2gi">
-                                                                <rect key="frame" x="0.0" y="39" width="361" height="0.0"/>
+                                                                <rect key="frame" x="0.0" y="45" width="361" height="0.0"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" id="iHf-lR-jim"/>
@@ -3043,19 +3043,19 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="SCt-0t-yZ9">
-                                                        <rect key="frame" x="0.0" y="39" width="361" height="39"/>
+                                                        <rect key="frame" x="0.0" y="45" width="361" height="45"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Experience" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iG-ZZ-nHD" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="22"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="28"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="22" id="PGq-Yp-qkh"/>
+                                                                    <constraint firstAttribute="height" constant="28" id="PGq-Yp-qkh"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="902" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kAl-VU-tDh">
-                                                                <rect key="frame" x="0.0" y="39" width="361" height="0.0"/>
+                                                                <rect key="frame" x="0.0" y="45" width="361" height="0.0"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" id="4xZ-nF-vxV"/>
@@ -3075,7 +3075,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pX-nQ-EHP">
-                                                        <rect key="frame" x="0.0" y="78" width="361" height="100"/>
+                                                        <rect key="frame" x="0.0" y="90" width="361" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRC-Vk-tFJ" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="33.999999999999943" width="361" height="56"/>
@@ -3085,7 +3085,7 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="Show Result">
+                                                                <state key="normal" title="Show Results">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
@@ -3347,34 +3347,34 @@
     </scenes>
     <designables>
         <designable name="DJA-bJ-AFD">
-            <size key="intrinsicContentSize" width="128" height="29"/>
+            <size key="intrinsicContentSize" width="129" height="33"/>
         </designable>
         <designable name="GFe-hQ-Sad">
-            <size key="intrinsicContentSize" width="130" height="32"/>
+            <size key="intrinsicContentSize" width="124" height="33"/>
         </designable>
         <designable name="LTw-wC-I7b">
-            <size key="intrinsicContentSize" width="92" height="32"/>
+            <size key="intrinsicContentSize" width="92" height="33"/>
         </designable>
         <designable name="Pwf-aV-rtb">
             <size key="intrinsicContentSize" width="161" height="33"/>
         </designable>
         <designable name="SgW-pb-ZK2">
-            <size key="intrinsicContentSize" width="41" height="32"/>
+            <size key="intrinsicContentSize" width="40" height="33"/>
         </designable>
         <designable name="Uf5-jF-pLk">
             <size key="intrinsicContentSize" width="64" height="33"/>
         </designable>
         <designable name="bO6-Up-lR6">
-            <size key="intrinsicContentSize" width="130" height="32"/>
+            <size key="intrinsicContentSize" width="124" height="33"/>
         </designable>
         <designable name="hLT-G8-eqH">
-            <size key="intrinsicContentSize" width="170" height="32"/>
+            <size key="intrinsicContentSize" width="160" height="33"/>
         </designable>
         <designable name="rDA-Xe-ypL">
             <size key="intrinsicContentSize" width="68" height="33"/>
         </designable>
         <designable name="rRC-Vk-tFJ">
-            <size key="intrinsicContentSize" width="85" height="33"/>
+            <size key="intrinsicContentSize" width="92" height="33"/>
         </designable>
         <designable name="ttp-kr-zeh">
             <size key="intrinsicContentSize" width="64" height="33"/>
@@ -3386,7 +3386,7 @@
             <size key="intrinsicContentSize" width="46" height="33"/>
         </designable>
         <designable name="zPv-oy-eFN">
-            <size key="intrinsicContentSize" width="41" height="32"/>
+            <size key="intrinsicContentSize" width="40" height="33"/>
         </designable>
     </designables>
     <resources>

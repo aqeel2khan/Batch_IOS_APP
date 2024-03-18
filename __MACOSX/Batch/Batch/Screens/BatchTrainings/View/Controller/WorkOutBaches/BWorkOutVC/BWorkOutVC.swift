@@ -52,7 +52,6 @@ class BWorkOutVC: UIViewController {
         super.viewDidLoad()
         // Set the delegate of the custom search text field to self
         self.woSearchTextField.delegate = self
-        setupViews()
         
         if internetConnection.isConnectedToNetwork() == true {
             // Call Api here
@@ -63,8 +62,7 @@ class BWorkOutVC: UIViewController {
             self.getAllBatchGoals()
             self.getAllCoachFilterList()
         }
-        else
-        {
+        else {
             self.showAlert(message: "Please check your internet", title: "Network issue")
         }
         
@@ -72,9 +70,14 @@ class BWorkOutVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handleCustomNotification(_:)), name: .myCustomNotification, object: nil)
     }
     
+    override func viewDidLayoutSubviews() {
+        setupViews()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         setupNavigationBar()
     }
+    
     @objc func handleCustomNotification(_ notification: Notification) {
         if internetConnection.isConnectedToNetwork() == true {
             if selectedIndex == 1 {
@@ -92,13 +95,13 @@ class BWorkOutVC: UIViewController {
     // MARK: - UI
     
     private func setupNavigationBar() {
-        customNavigationBar.titleFirstLbl.text = CustomNavTitle.bWorkOutVCNavTitle
+        customNavigationBar.titleFirstLbl.text = CustomNavTitle.bWorkOutVCNavTitle.localized
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
         if getprofilePhoto != nil{
             customNavigationBar.profileImage.image = UIImage(data: getprofilePhoto ?? Data())
         }else{
             customNavigationBar.profileImage.image = UIImage(named: "Avatar")
-        }//CustomNavTitle.batchWorkOutVC
+        }
         registerCollectionView()
     }
     private func registerCollectionView(){
@@ -107,21 +110,16 @@ class BWorkOutVC: UIViewController {
     }
     
     private func setupViews() {
-        
-        self.bHeaderLbl.text = SetConstantTitle.bWorkOutHeaderLblText
         self.bHeaderLbl.font = FontSize.mediumSize18
         self.bHeaderLbl.textColor = Colors.appLabelBlackColor
-    }
-    
-    private func setupCornerRadius() {
-        //        containerView.roundCorners([MaskedCorners.topLeft, MaskedCorners.topRight], radius: cornerRadius)
+        
+//        self.segmentControl.setTitle(SegmentControlTitle.batchesSegmentTitle.localized, forSegmentAt: 0)
+//        self.segmentControl.setTitle(SegmentControlTitle.langaugeSegmentTitle.localized, forSegmentAt: 1)
     }
     
     // MARK: - IBActions
-    
     @IBAction func segmentControlValueChanged(_ sender: BatchSegmentedControl) {
-        if sender.selectedSegmentIndex == 0
-        {
+        if sender.selectedSegmentIndex == 0 {
             selectedIndex = 0
             self.woBatchesBackView.isHidden = false
             self.woMotivatorBackView.isHidden = true
@@ -129,8 +127,7 @@ class BWorkOutVC: UIViewController {
                 self.getCourses()
             }
         }
-        else
-        {
+        else {  
             selectedIndex = 1
             self.woBatchesBackView.isHidden = true
             self.woMotivatorBackView.isHidden = false

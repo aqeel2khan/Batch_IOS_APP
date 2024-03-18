@@ -101,6 +101,13 @@ class BUserProfileVC: UIViewController {
         self.present(vc, animated: true)
     }
     
+    @IBAction func onTapChangeLanguageBtn(_ sender: UIButton) {
+        let vc = BatchCountryLanguageVC.instantiate(fromAppStoryboard: .main)
+        vc.modalPresentationStyle = .pageSheet
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true)
+    }
+    
     @IBAction func onTapFollowingBtn(_ sender: UIButton) {
         let vc = BUserFollowingVC.instantiate(fromAppStoryboard: .batchAccount)
         vc.modalPresentationStyle = .overFullScreen
@@ -137,7 +144,6 @@ class BUserProfileVC: UIViewController {
 
 extension BUserProfileVC : barButtonTappedDelegate {
     func rightThirdBarBtnItem() {
-        let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN)
         if (UserDefaultUtility.isUserLoggedIn()) {
             let vc = BUserProfileVC.instantiate(fromAppStoryboard: .batchAccount)
             vc.modalPresentationStyle = .overFullScreen
@@ -149,9 +155,7 @@ extension BUserProfileVC : barButtonTappedDelegate {
     }
 }
 
-
 extension BUserProfileVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     /// Open the camera
     func openCamera() {
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)){

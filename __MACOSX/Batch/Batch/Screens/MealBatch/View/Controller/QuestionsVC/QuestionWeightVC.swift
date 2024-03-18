@@ -36,7 +36,7 @@ class QuestionWeightVC: UIViewController {
     // MARK: - UI
     private func setupNavigationBar() {
         customNavigationBar.titleLbl.isHidden = false
-        customNavigationBar.titleLbl.text = CustomNavTitle.qustionVCTitle
+        customNavigationBar.titleLbl.text = CustomNavTitle.qustionVCTitle.localized
     }
     
     @IBAction func nextActionBtn(_ sender: BatchButton) {

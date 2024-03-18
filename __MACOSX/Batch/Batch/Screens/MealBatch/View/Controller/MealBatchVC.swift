@@ -55,7 +55,7 @@ class MealBatchVC: UIViewController {
     // MARK: - UI
     
     private func setupNavigationBar() {
-        customNavigationBar.titleFirstLbl.text = CustomNavTitle.mealBatchVCNavTitle
+        customNavigationBar.titleFirstLbl.text = CustomNavTitle.mealBatchVCNavTitle.localized
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
         if getprofilePhoto != nil{
             customNavigationBar.profileImage.image = UIImage(data: getprofilePhoto ?? Data())

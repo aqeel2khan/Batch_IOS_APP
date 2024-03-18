@@ -56,6 +56,8 @@ class OnBoardingScreenVC: UIViewController {
     
     //MARK: - login Action Btn
     @IBAction func loginActionBtn(_ sender: UIButton) {
+        UserDefaults.standard.setValue("true", forKey: USER_DEFAULTS_KEYS.INITIAL_SCREEN_APPEAR)
+
         let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
@@ -64,6 +66,8 @@ class OnBoardingScreenVC: UIViewController {
     }
     
     @IBAction func workAroundActionBtn(_ sender: UIButton) {
+        UserDefaults.standard.setValue("true", forKey: USER_DEFAULTS_KEYS.INITIAL_SCREEN_APPEAR)
+
         let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
         tabbarVC.modalPresentationStyle = .fullScreen
         present(tabbarVC, animated: true, completion: nil)
