@@ -215,7 +215,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     
     
     private func setupNavigationBar() {
-        customNavigationBar.titleFirstLbl.text = CustomNavTitle.dashboardVCNavTitle
+        customNavigationBar.titleFirstLbl.text = CustomNavTitle.dashboardVCNavTitle.localized
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
         if getprofilePhoto != nil{
             customNavigationBar.profileImage.image = UIImage(data: getprofilePhoto ?? Data())

@@ -1,70 +1,3 @@
-//
-//"Sign In to your account" = "Sign In to your account";
-//"Or continue with" = "Or continue with" ;
-//"Welcome Back!" = "Welcome Back!";
-//"I agree to the company Terms & Conditions" = "I agree to the company Terms & Conditions";
-//"Sign in with Facebook" = "Sign in with Facebook";
-//"Sign in with Apple" = "Sign in with Apple";
-//"Sign in with Google" = "Sign in with Google";
-//"Sign in with Outlook" = "Sign in with Outlook";
-//"We have sent the code verification to your mobile number" = "We have sent the code verification to your mobile number";
-//"Before we start, we need to know your gender" = "Before we start, we need to know your gender";
-//"Welcome to Batch!" = "Welcome to Batch!";
-//"Lorem ipsum dolor sit" = "Lorem ipsum dolor sit";
-//"Lorem ipsum dolor sit amet consectetur." = "Lorem ipsum dolor sit amet consectetur.";
-//"I want to look around" = "I want to look around";
-//"Log In" = "Log In";
-//"Don't have an account ?" = "Don't have an account ?";
-//"SIGN UP" = "SIGN UP";
-//"Batcheboard" = "Batcheboard";
-//"Workout Batches" = "Workout Batches";
-//"Meal Batches" = "Meal Batches";
-//"Top Rated Meals" = "Top Rated Meals";
-//"Show All" = "Show All";
-//"Grand total" = "Grand total";
-//"Save" = "Save";
-//"from" = "from";
-//"mins" = "mins";
-//"days" = "days";
-//"meals" = "meals";
-//"followers" = "followers";
-//"Day" = "Day";
-//"Day Off" = "Day Off";
-//"Filter" = "Filter";
-//"Goal" = "Goal";
-//
-//"Please select Langauge" = "Please select Langauge";
-//"Please select plan duration" = "Please select plan duration";
-//"Please select terms and conditions checkbox" = "Please select terms and conditions checkbox";
-//"Please select at least one goal" = "Please select at least one goal";
-//"Please select your date of birth" = "Please select your date of birth";
-//"Please select Current Weight" = "Please select Current Weight";
-//"Please select Target Weight" = "Please select Target Weight";
-//"Please select at least one active option" = "Please select at least one active option";
-//"Please select at least one diet" = "Please select at least one diet";
-//"Please select at least one allergy" = "Please select at least one allergy";
-//"Please select rating" = "Please select rating";
-//"All Batches" = "All Batches";
-//"Need help choosing the right Meal Batch?" = "Need help choosing the right Meal Batch?";
-//"Answer a few questions or talk to our nutritionist and you'll find the best batch for you based on your needs and calories" = "Answer a few questions or talk to our nutritionist and you'll find the best batch for you based on your needs and calories";
-//"By connecting your Apple Health data, you can easily view your daily steps, workouts and other health metrics within the App." = "By connecting your Apple Health data, you can easily view your daily steps, workouts and other health metrics within the App.";
-//"Todays Exercise" = "Today Exercise";
-//"Start the workout" = "Start the workout" ;
-//"Delivery arriving" = "Delivery arriving";
-//"Account" = "Account";
-//"Following" = "Following";
-//"Change the photo" = "Change the photo";
-//"Edit" = "Edit";
-//"Full Name" = "Full Name";
-//"Date of birth" = "Date of birth";
-//"Delivery place" = "Delivery place";
-//"Delivery place" = "Delivery place";
-//"All notifications" = "All notifications";
-//"Training notifications" = "Training notifications";
-//"Live stream notifications" = "Live stream notifications";
-//"Meal plan notifications" = "Meal plan notifications";
-//"Yes" = "Yes";
-//"OK" = "OK";
 
 "Sign In to your account" = "دفعة النص العربي";
 "Or continue with" = "دفعة النص العربي";
@@ -132,8 +65,24 @@
 "Meal plan notifications" = "دفعة النص العربي";
 "Yes" = "دفعة النص العربي";
 "OK" = "دفعة النص العربي";
-
-
+"Welcome" = "أهلاً مجدداً";
+"Change Language" = "أهلاً مجدداً";
+"Go to Homepage" = "أهلاً مجدداً";
+"Start date is required." = "أهلاً مجدداً";
+"Duration is required." = "أهلاً مجدداً";
+"Area is required." = "أهلاً مجدداً";
+"Block is required." = "أهلاً مجدداً";
+"House is required." = "أهلاً مجدداً";
+"Street is required." = "أهلاً مجدداً";
+"Address type is required." = "أهلاً مجدداً";
+"Delivery time is required." = "أهلاً مجدداً";
+"Delivery arriving is required." = "أهلاً مجدداً";
+"Delivery dropoff is required." = "أهلاً مجدداً";
+"We calculate..." = "أهلاً مجدداً";
+"Based on your answers, we recommend you try this meal batch. You could go to it and take a closer look, or you could go back to the other meal plans page." = "أهلاً مجدداً";
+"Back to Meal Batch" = "أهلاً مجدداً";
+"Experience" = "أهلاً مجدداً";
+"Area" = "أهلاً مجدداً";
 
 
 
@@ -443,12 +392,15 @@
 "Write a Review" = "اكتب تعليق";
 "Yoga" = "يوغا";
 "You can't freeze your meal plan because you don't have more than 30 days left in your plan" = "نأسف، لا يمكنك تعليق خطة وجباتك لعدم وجود مدة كافية.";
-"You haven't chosen a dish yet. We will compile the meal on our preference, if you don't make your choice in time." = "لم تختر الأطباق حتى الآن. سنختار لك أطباقك في حال عدم اختيارك في الوقت المناسب.";
+"You haven't chosen a dish yet. We will compile the meal on our prefence, if you don't make your choice in time." = "لم تختر الأطباق حتى الآن. سنختار لك أطباقك في حال عدم اختيارك في الوقت المناسب.";
+
 "You might also like:" = "قد يعجبك أيضاً";
-"Your course is available in the training section" = "برنامجك متوفر في قسم التمارين الخاص بك";
+"Your course is already available in the Training section" = "برنامجك متوفر في قسم التمارين الخاص بك";
 "Your ideal daily caloric intake" = "استهلاك السعرات الحرارية المثالي لك";
 "Your order" = "طلبك";
-
+"Country" = "الدولة";
+"Language" = "اللغة";
+"Workouts" = "تمارين غير";
 
 
 

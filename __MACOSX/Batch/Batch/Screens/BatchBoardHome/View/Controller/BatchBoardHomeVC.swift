@@ -60,7 +60,7 @@ class BatchBoardHomeVC: UIViewController {
     
     // MARK: - UI
     private func setupNavigationBar() {
-        customNavigationBar.titleFirstLbl.text = CustomNavTitle.batchBoardHomeVCNavTitle
+        customNavigationBar.titleFirstLbl.text = CustomNavTitle.batchBoardHomeVCNavTitle.localized
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
         if getprofilePhoto != nil{
             customNavigationBar.profileImage.image = UIImage(data: getprofilePhoto ?? Data())

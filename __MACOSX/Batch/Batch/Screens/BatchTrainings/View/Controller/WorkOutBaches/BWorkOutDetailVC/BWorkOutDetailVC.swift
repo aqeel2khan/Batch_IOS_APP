@@ -147,7 +147,7 @@ class BWorkOutDetailVC: UIViewController {
                     newImage.append(UIImage(named: "accessibility_Black")!)
                 }
             }
-            durationTitleLbl.text = "Duration"
+            durationTitleLbl.text = "Duration".localized
             self.videoPlayBtn.isHidden = false
             self.coursePromotionVideoId = info?.coursePromoVideo ?? ""
         }

@@ -785,7 +785,7 @@
     </scenes>
     <designables>
         <designable name="5Sp-H2-kGd">
-            <size key="intrinsicContentSize" width="68" height="32"/>
+            <size key="intrinsicContentSize" width="64" height="33"/>
         </designable>
         <designable name="7Di-QX-Hz3">
             <size key="intrinsicContentSize" width="34.666666666666664" height="18.666666666666668"/>

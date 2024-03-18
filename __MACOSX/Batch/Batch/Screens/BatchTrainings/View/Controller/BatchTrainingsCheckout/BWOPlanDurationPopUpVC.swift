@@ -20,7 +20,7 @@ class BWOPlanDurationPopUpVC: UIViewController {
     var isCommingFrom = ""
     //Drop Down
     lazy var planDurationDropDown = DropDown()
-    var planDurationArray = ["30 days"]
+    var planDurationArray = ["30 \("days".localized)"] 
     var selectedPlanDurationStr = ""
     
     override func viewDidLoad() {

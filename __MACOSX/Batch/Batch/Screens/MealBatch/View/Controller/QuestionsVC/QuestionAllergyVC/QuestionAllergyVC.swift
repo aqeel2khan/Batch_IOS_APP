@@ -30,7 +30,7 @@ class QuestionAllergyVC: UIViewController {
     
     private func setupNavigationBar() {
         customNavigationBar.titleLbl.isHidden = false
-        customNavigationBar.titleLbl.text = CustomNavTitle.qustionVCTitle
+        customNavigationBar.titleLbl.text = CustomNavTitle.qustionVCTitle.localized
     }
     
     // MARK:- setUP CollectionView

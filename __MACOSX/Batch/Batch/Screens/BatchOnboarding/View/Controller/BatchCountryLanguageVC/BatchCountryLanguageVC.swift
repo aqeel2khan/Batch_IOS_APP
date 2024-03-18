@@ -1,4 +1,3 @@
-
 import UIKit
 
 class Country {
@@ -33,6 +32,15 @@ class BatchCountryLanguageVC: UIViewController {
         configuration()
     }
     
+    override func viewDidLayoutSubviews() {
+        setupViews()
+    }
+    
+    private func setupViews() {
+        self.segmentControl.setTitle(SegmentControlTitle.countrySegmentTitle.localized, forSegmentAt: 0)
+        self.segmentControl.setTitle(SegmentControlTitle.langaugeSegmentTitle.localized, forSegmentAt: 1)
+    }
+    
     @IBAction func segmentControlValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             self.CountryBackView.isHidden = false
@@ -50,6 +58,8 @@ class BatchCountryLanguageVC: UIViewController {
         } else if selectedLanguageCode == "" {
             showAlert(message: "Please select langauge".localized)
         } else {
+            UserDefaults.standard.setValue("true", forKey: USER_DEFAULTS_KEYS.INITIAL_SCREEN_APPEAR)
+
             LocalizationSystem.sharedInstance.setLanguage(languageCode: selectedLanguageCode)
             UserDefaults.standard.setValue(selectedLanguageCode, forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE)
             UIView.appearance().semanticContentAttribute = (selectedLanguageCode == ENGLISH_LANGUAGE_CODE) ? .forceLeftToRight : .forceRightToLeft
@@ -58,7 +68,6 @@ class BatchCountryLanguageVC: UIViewController {
             tabbarVC.modalPresentationStyle = .fullScreen
             AppDelegate.standard.window?.rootViewController = tabbarVC
         }       
-        
     }
     
     @IBAction func onTapBackBtn(_ sender: Any) {

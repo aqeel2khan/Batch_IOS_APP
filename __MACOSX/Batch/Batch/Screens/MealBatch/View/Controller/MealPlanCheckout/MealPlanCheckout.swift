@@ -70,15 +70,15 @@ class MealPlanCheckout: UIViewController {
     
     func validateData() -> (isValid: Bool, errorMessage: String) {
         if MealSubscriptionManager.shared.startDate == nil || MealSubscriptionManager.shared.startDate?.isEmpty == true {
-            return (false, "Start date is required.")
+            return (false, "Start date is required.".localized)
         }
         
         if MealSubscriptionManager.shared.duration == nil || MealSubscriptionManager.shared.duration?.isEmpty == true {
-            return (false, "Duration is required.")
+            return (false, "Duration is required.".localized)
         }
         
         if MealSubscriptionManager.shared.area == nil || MealSubscriptionManager.shared.area?.isEmpty == true {
-            return (false, "Area is required.")
+            return (false, "Area is required.".localized)
         }
         
         if MealSubscriptionManager.shared.block == nil || MealSubscriptionManager.shared.block?.isEmpty == true {
@@ -86,27 +86,27 @@ class MealPlanCheckout: UIViewController {
         }
         
         if MealSubscriptionManager.shared.house == nil || MealSubscriptionManager.shared.house?.isEmpty == true {
-            return (false, "House is required.")
+            return (false, "House is required.".localized)
         }
         
         if MealSubscriptionManager.shared.street == nil || MealSubscriptionManager.shared.street?.isEmpty == true {
-            return (false, "Street is required.")
+            return (false, "Street is required.".localized)
         }
         
         if MealSubscriptionManager.shared.addressType == nil || MealSubscriptionManager.shared.addressType?.isEmpty == true {
-            return (false, "Address type is required.")
+            return (false, "Address type is required.".localized)
         }
         
         if MealSubscriptionManager.shared.deliveryTime == nil || MealSubscriptionManager.shared.deliveryTime?.isEmpty == true {
-            return (false, "Delivery time is required.")
+            return (false, "Delivery time is required.".localized)
         }
         
         if MealSubscriptionManager.shared.deliveryArriving == nil || MealSubscriptionManager.shared.deliveryArriving?.isEmpty == true {
-            return (false, "Delivery arriving is required.")
+            return (false, "Delivery arriving is required.".localized)
         }
         
         if MealSubscriptionManager.shared.deliveryDropoff == nil || MealSubscriptionManager.shared.deliveryDropoff?.isEmpty == true {
-            return (false, "Delivery dropoff is required.")
+            return (false, "Delivery dropoff is required.".localized)
         }
         
         // Add validation for other properties here if needed

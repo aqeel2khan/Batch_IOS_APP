@@ -589,13 +589,13 @@
     </scenes>
     <designables>
         <designable name="8Kl-hq-j6A">
-            <size key="intrinsicContentSize" width="152" height="32"/>
+            <size key="intrinsicContentSize" width="149" height="33"/>
         </designable>
         <designable name="967-iC-wqE">
             <size key="intrinsicContentSize" width="156" height="32"/>
         </designable>
         <designable name="Ze0-HW-7a7">
-            <size key="intrinsicContentSize" width="40" height="32"/>
+            <size key="intrinsicContentSize" width="40" height="33"/>
         </designable>
         <designable name="jDR-yu-Zla">
             <size key="intrinsicContentSize" width="35" height="32"/>
