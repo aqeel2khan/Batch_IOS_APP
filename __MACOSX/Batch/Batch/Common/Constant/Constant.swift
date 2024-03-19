@@ -36,7 +36,7 @@ struct SegmentControlTitle {
 
 struct CustomNavTitle {
     static var bWorkOutVCNavTitle = "Workout Batches"
-    static var batchBoardHomeVCNavTitle = "Batcheboard"
+    static var batchBoardHomeVCNavTitle = "Homepage"
     static var mealBatchVCNavTitle = "Meal Batch"
     static var qustionVCTitle = "Questionnaire"
     static var dashboardVCNavTitle = "Batchboard"
@@ -130,4 +130,5 @@ struct USER_DEFAULTS_KEYS {
     static let SELECTED_LANGUAGE = "selectedLanguage"
     static let SELECTED_COUNTRY = "selectedCountry"
     static let APP_LANGUAGE_CODE = "appLanguageCode"
+    static let USER_NAME = "userName"
 }

@@ -8,7 +8,8 @@
 import UIKit
 
 class BWorkOutVC: UIViewController {
-    public var lastContentOffset: CGFloat = 0
+    var isWorkoutLoaded = false
+    var isMotivatorLoaded = false 
 
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
@@ -112,13 +113,13 @@ class BWorkOutVC: UIViewController {
     private func setupViews() {
         self.bHeaderLbl.font = FontSize.mediumSize18
         self.bHeaderLbl.textColor = Colors.appLabelBlackColor
-        
-//        self.segmentControl.setTitle(SegmentControlTitle.batchesSegmentTitle.localized, forSegmentAt: 0)
-//        self.segmentControl.setTitle(SegmentControlTitle.langaugeSegmentTitle.localized, forSegmentAt: 1)
     }
     
     // MARK: - IBActions
     @IBAction func segmentControlValueChanged(_ sender: BatchSegmentedControl) {
+        isWorkoutLoaded = false
+        isMotivatorLoaded = false
+  
         if sender.selectedSegmentIndex == 0 {
             selectedIndex = 0
             self.woBatchesBackView.isHidden = false
@@ -142,10 +143,6 @@ class BWorkOutVC: UIViewController {
                 self.showAlert(message: "Please check your internet", title: "Network issue")
             }
         }
-        //        DispatchQueue.main.async {
-        //            // self.checkNetwork()
-        //            //self.batchesMotivatorCollView.reloadData()
-        //        }
     }
     
     @IBAction func onTapFilterBtn(_ sender: Any) {
@@ -195,8 +192,6 @@ class BWorkOutVC: UIViewController {
         let urlStr = API.courseList
         bWorkOutViewModel.courseList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data?.list?.count != 0 {
-                // print(response.data)
-                // self.blogsArray = response.data!
                 self.courseListDataArr = response.data?.list ?? []
                 DispatchQueue.main.async {
                     hideLoading()
@@ -226,12 +221,10 @@ class BWorkOutVC: UIViewController {
         let urlStr = API.coachList
         bWorkOutViewModel.coachList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data != nil{
-                print(response.data)
-                
-                self.coachListDataArr = response.data ?? []
                 
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.coachListDataArr = response.data ?? []
                     self.batchesMotivatorCollView.reloadData()
                 }
             }else{
@@ -267,9 +260,9 @@ class BWorkOutVC: UIViewController {
         bWorkOutViewModel.coachList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data != nil{
                 print(response.data as Any)
-                self.coachListDataArr = response.data ?? []
                 DispatchQueue.main.async {
                     // hideLoading()
+                    self.coachListDataArr = response.data ?? []
                     self.batchesMotivatorCollView.reloadData()
                 }
             }else{
@@ -435,9 +428,9 @@ extension BWorkOutVC
             
             if response.status == true, response.data?.list?.count != 0
             {
-                self.courseListDataArr = response.data?.list ?? []
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.courseListDataArr = response.data?.list ?? []
                     self.batchesMotivatorCollView.reloadData()
                 }
             }else{
@@ -473,10 +466,10 @@ extension BWorkOutVC
             {
                 print(response.data)
                 
-                self.coachListDataArr = response.data ?? []
                 
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.coachListDataArr = response.data ?? []
                     self.batchesMotivatorCollView.reloadData()
                 }
             }else{

@@ -63,6 +63,7 @@ class BUserProfileVC: UIViewController {
     
     func updateUI(response: GetProfileResponse){
             self.userImageView.sd_setImage(with:  URL(string: BaseUrl.imageBaseUrl + (response.data?.profile_photo_path ?? ""))!, placeholderImage: UIImage(named: "Avatar"))
+            UserDefaults.standard.set(response.data?.name ?? "", forKey: USER_DEFAULTS_KEYS.USER_NAME)
             userNameLbl.text = response.data?.name ?? ""
     }
     
@@ -232,11 +233,11 @@ extension BUserProfileVC : UIImagePickerControllerDelegate, UINavigationControll
                     DispatchQueue.main.async {
                             hideLoading()
                         if getprofilePhoto != nil{
-                            self.userImageView.contentMode = .scaleAspectFit
+                            self.userImageView.contentMode = .scaleAspectFill
                             self.userImageView.clipsToBounds = true
                             self.userImageView.image = UIImage(data: getprofilePhoto ?? Data())
                         }else{
-                            self.userImageView.contentMode = .scaleAspectFit
+                            self.userImageView.contentMode = .scaleAspectFill
                             self.userImageView.clipsToBounds = true
                             self.userImageView.image = UIImage(named: "Avatar")
                         }
