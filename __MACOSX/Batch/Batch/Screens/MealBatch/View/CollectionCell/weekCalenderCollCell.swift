@@ -10,7 +10,7 @@ import UIKit
 class weekCalenderCollCell: UICollectionViewCell {
     
     @IBOutlet weak var weekDayNameLbl: UILabel!
-    @IBOutlet weak var weekDateLbl: BatchLabelMedium14DarkGray!
+    @IBOutlet weak var weekDateLbl: UILabel!
     @IBOutlet weak var greenDotImgView: UIImageView!
     var isRenderingFromMealCalendarScreen = false
     override func awakeFromNib() {
