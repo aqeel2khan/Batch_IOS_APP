@@ -33,6 +33,19 @@
                                     <constraint firstAttribute="height" constant="200" id="OGu-N1-Bn2"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_icon_white" translatesAutoresizingMaskIntoConstraints="NO" id="oBL-Ei-PdU">
+                                <rect key="frame" x="25" y="60" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="g8H-3O-HI5"/>
+                                    <constraint firstAttribute="width" constant="30" id="yDX-ez-IwO"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAQ-WO-jjV" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
+                                <rect key="frame" x="65" y="61" width="45" height="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" name="AppLabelBlackColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GxY-Fb-jN5">
                                 <rect key="frame" x="0.0" y="110" width="393" height="1007"/>
                                 <subviews>
@@ -371,7 +384,11 @@
                             <constraint firstItem="pGy-fx-VsA" firstAttribute="leading" secondItem="Qn0-lQ-nVa" secondAttribute="leading" id="CoO-3d-M8N"/>
                             <constraint firstItem="GxY-Fb-jN5" firstAttribute="leading" secondItem="hyq-KV-gfA" secondAttribute="leading" id="J4t-hz-qAF"/>
                             <constraint firstItem="hyq-KV-gfA" firstAttribute="trailing" secondItem="pGy-fx-VsA" secondAttribute="trailing" id="XIZ-HN-w8n"/>
+                            <constraint firstItem="GxY-Fb-jN5" firstAttribute="top" secondItem="oBL-Ei-PdU" secondAttribute="bottom" constant="20" id="Znk-QE-5Zt"/>
+                            <constraint firstItem="GAQ-WO-jjV" firstAttribute="leading" secondItem="oBL-Ei-PdU" secondAttribute="trailing" constant="10" id="ahv-Xb-fWQ"/>
                             <constraint firstItem="GxY-Fb-jN5" firstAttribute="trailing" secondItem="hyq-KV-gfA" secondAttribute="trailing" id="eVY-np-H0L"/>
+                            <constraint firstItem="oBL-Ei-PdU" firstAttribute="leading" secondItem="pGy-fx-VsA" secondAttribute="leading" constant="25" id="r1N-S1-n4E"/>
+                            <constraint firstItem="GAQ-WO-jjV" firstAttribute="centerY" secondItem="oBL-Ei-PdU" secondAttribute="centerY" id="tFZ-D8-Mbu"/>
                             <constraint firstItem="hyq-KV-gfA" firstAttribute="bottom" secondItem="GxY-Fb-jN5" secondAttribute="bottom" id="xf7-k8-Bvx"/>
                         </constraints>
                     </view>
@@ -380,6 +397,7 @@
                     <size key="freeformSize" width="393" height="1200"/>
                     <connections>
                         <outlet property="customNavigationBar" destination="pGy-fx-VsA" id="GZO-pD-Y6T"/>
+                        <outlet property="headerTitleLbl" destination="GAQ-WO-jjV" id="0pa-4e-SNQ"/>
                         <outlet property="healthConnectView" destination="KoI-hb-6HV" id="HHN-MF-71v"/>
                         <outlet property="healthKitConnectBtn" destination="7JZ-Tc-LyG" id="89d-L5-4eR"/>
                         <outlet property="healthKitConnectBtnHeight" destination="yy9-Ir-Q0j" id="E3a-SP-JBS"/>
@@ -394,6 +412,7 @@
                         <outlet property="lblProgressBar3" destination="lic-vB-cQd" id="Llx-oA-R6g"/>
                         <outlet property="loginBtn" destination="bhw-Ul-z4M" id="ZGi-bw-lqn"/>
                         <outlet property="loginBtnHeight" destination="7Xb-vb-Pvm" id="Tp2-uD-cD9"/>
+                        <outlet property="logoHeader" destination="oBL-Ei-PdU" id="3nP-Lb-7ph"/>
                         <outlet property="mealBatchCollView" destination="xf9-sh-jwf" id="b6Z-dq-bC5"/>
                         <outlet property="progressBar1" destination="fux-G8-zA2" id="XN6-c0-yGw"/>
                         <outlet property="progressBar2" destination="D8x-tS-TN3" id="z1m-3l-N88"/>
@@ -416,8 +435,12 @@
         </designable>
     </designables>
     <resources>
+        <image name="logo_icon_white" width="124" height="171"/>
         <image name="scanner" width="42" height="42"/>
         <image name="scannerfill" width="42" height="42"/>
+        <namedColor name="AppLabelBlackColor">
+            <color red="0.062745098039215685" green="0.070588235294117646" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="AppThemeBackgroundColor">
             <color red="0.80000000000000004" green="0.87058823529411766" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -50,6 +50,7 @@ class VimoPlayerVC: UIViewController {
         self.selectedVideoViewTbl.register(UINib(nibName: "VideoThunbListTblCell", bundle: .main), forCellReuseIdentifier: "VideoThunbListTblCell")
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.appEnteredFromBackground), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        
     }
     
     func setUpTimeValue() {
@@ -80,6 +81,8 @@ class VimoPlayerVC: UIViewController {
         super.viewDidAppear(animated)
         //        vimoVideoSetUp(stingUrl:vimoBaseUrl + vimoVideoID[0])
         pausePlayeVideos()
+        
+        changeSecondTableViewCellColor(index:selectedIndex)
     }
     
     
@@ -225,7 +228,6 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
         {
             print("play video \(indexPath.row)")
             
-            //changeSecondTableViewCellColor(index:indexPath.row)
             if self.viemoVideoArr.count != 0
             {
                 let cell2 = selectedVideoViewTbl.cellForRow(at: indexPath) as? VideoThunbListTblCell

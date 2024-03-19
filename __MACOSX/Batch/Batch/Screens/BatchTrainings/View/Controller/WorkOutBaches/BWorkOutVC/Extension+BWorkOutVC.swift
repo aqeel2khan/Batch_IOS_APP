@@ -57,9 +57,9 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             let cell = collectionView.dequeue(BWOMotivatorsListCollCell.self, indexPath)
             var data : CoachListData!
 
-            if woSearchTextField.text == "" {
+            if woSearchTextField.text == "" && coachListDataArr.count > 0 {
                 data = coachListDataArr[indexPath.item]
-            } else {
+            } else if woSearchTextField.text != "" && searchedCoachListDataArr.count > 0  {
                 data = searchedCoachListDataArr[indexPath.item]
             }
 
@@ -119,12 +119,16 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-        if (self.lastContentOffset > collectionView.contentOffset.y) {
-            // move up
-        }
-        else if (self.lastContentOffset < collectionView.contentOffset.y) {
-            // move down
+        if segmentControl.selectedSegmentIndex == 0 && !isWorkoutLoaded {
+            cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
+            UIView.animate(
+                withDuration: 0.5,
+                delay: 0.05 * Double(indexPath.row),
+                options: [.curveEaseInOut],
+                animations: {
+                    cell.transform = CGAffineTransform(translationX: 0, y: 0)
+                })
+        } else if segmentControl.selectedSegmentIndex == 1 && !isMotivatorLoaded {
             cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
             UIView.animate(
                 withDuration: 0.5,
@@ -134,9 +138,14 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
                     cell.transform = CGAffineTransform(translationX: 0, y: 0)
                 })
         }
-        
-        // update the new position acquired
-        self.lastContentOffset = collectionView.contentOffset.y
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if segmentControl.selectedSegmentIndex == 0 {
+            isWorkoutLoaded = true
+        } else {
+            isMotivatorLoaded = true
+        }
     }
 }
 

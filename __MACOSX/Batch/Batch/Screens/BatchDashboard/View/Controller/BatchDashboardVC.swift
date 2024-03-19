@@ -11,8 +11,6 @@ import HealthKit
 
 
 class BatchDashboardVC: UIViewController, AxisValueFormatter {
-    
-    
     @IBOutlet weak var loginBtnHeight: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var healthKitTableView: UITableView!
@@ -41,6 +39,8 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     @IBOutlet weak var lblProgressBar2: UILabel!
     @IBOutlet weak var lblProgressBar3: UILabel!
 
+    @IBOutlet weak var logoHeader: UIImageView!
+    @IBOutlet weak var headerTitleLbl: UILabel!
 
     //var courseList = [List]()
     var courseList = [DashboardWOList]()
@@ -111,6 +111,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setupNavigationBar()
+        
         loginBtn.isHidden = true
         if !UserDefaultUtility.isUserLoggedIn() {
             loginBtn.isHidden = false
@@ -215,7 +216,18 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     
     
     private func setupNavigationBar() {
-        customNavigationBar.titleFirstLbl.text = CustomNavTitle.dashboardVCNavTitle.localized
+        customNavigationBar.titleFirstLbl.text = ""
+      
+        
+        logoHeader.image = logoHeader.image?.withRenderingMode(.alwaysTemplate)
+        logoHeader.tintColor = UIColor.black
+        
+        headerTitleLbl.text = "Batchboard".localized
+        if let userName = UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.USER_NAME) as? String {
+            headerTitleLbl.text = userName
+        }
+        
+        
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
         if getprofilePhoto != nil{
             customNavigationBar.profileImage.image = UIImage(data: getprofilePhoto ?? Data())

@@ -1627,7 +1627,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sC7-3A-Qc4">
-                                <rect key="frame" x="0.0" y="408.33333333333326" width="393" height="443.66666666666674"/>
+                                <rect key="frame" x="0.0" y="410" width="393" height="442"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viewCenterRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="RzA-px-m6p">
                                         <rect key="frame" x="171.66666666666666" y="5" width="50" height="5"/>
@@ -1637,7 +1637,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="682-Nu-qz6">
-                                        <rect key="frame" x="20" y="30" width="353" height="393.66666666666669"/>
+                                        <rect key="frame" x="20" y="30" width="353" height="392"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E4d-X3-ykQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="96"/>
@@ -1698,7 +1698,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMv-WD-bhu">
-                                                <rect key="frame" x="0.0" y="116.00000000000006" width="353" height="50"/>
+                                                <rect key="frame" x="0.0" y="116" width="353" height="50"/>
                                                 <subviews>
                                                     <view tag="1" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="T8y-Pw-KYw" customClass="SwiftyStarRatingView" customModule="SwiftyStarRatingView">
                                                         <rect key="frame" x="101.66666666666669" y="8" width="150" height="34"/>
@@ -1748,13 +1748,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write a Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDE-bQ-OQZ" customClass="BatchLabelRegular16DarkGray" customModule="Batch" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="186.00000000000006" width="353" height="20.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="186" width="353" height="18.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="tNS-dM-bhc">
-                                                <rect key="frame" x="0.0" y="226.33333333333334" width="353" height="91.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="224.66666666666666" width="353" height="91.333333333333343"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnR-wT-CMK">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="91.333333333333329"/>
@@ -1795,7 +1795,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GjJ-N7-TgT" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="337.66666666666669" width="353" height="56"/>
+                                                <rect key="frame" x="0.0" y="336" width="353" height="56"/>
                                                 <color key="backgroundColor" name="AppThemeButtonColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="rje-Jq-t01"/>

@@ -50,7 +50,7 @@ class CustomNavigationBar: UIView {
             profileImage.cornerRadius = 12
             profileImage.clipsToBounds = true
         }else{
-            profileImage.image = UIImage(named: "Avatar")
+            profileImage.image = UIImage(named: "Avatar")  
             profileImage.cornerRadius = 0
         }
         return view
