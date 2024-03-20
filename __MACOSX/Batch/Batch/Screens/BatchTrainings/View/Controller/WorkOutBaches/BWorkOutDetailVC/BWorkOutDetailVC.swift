@@ -226,26 +226,6 @@ class BWorkOutDetailVC: UIViewController {
         vc.isCommingFrom = "BWorkOutDetailVC"
         vc.coachIdStr = "\(coachIdValue ?? 0)"
         self.present(vc, animated: true)
-
-        
-        
-//        let vc = BWorkOutMotivatorDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
-//        vc.modalPresentationStyle = .overFullScreen
-//        vc.modalTransitionStyle = .coverVertical
-// isCommingFrom
-//        if isCommingFrom == "MotivatorDetailVC"  {
-//            let info = woMotivatorInfo
-//            vc.woCoachDetailInfo = info?.coachDetail
-//        }
-//        else if isCommingFrom == "workoutbatches" {
-//            let info = woDetailInfo[0]
-//            vc.woCoachDetailInfo = info?.coachDetail
-//        }
-//        else if isCommingFrom == "dashboard" {
-//            let info = courseDetailsInfo
-//            vc.woCoachDetailInfo = info?.coachDetail
-//        }
-//        self.present(vc, animated: true)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -296,6 +276,8 @@ class BWorkOutDetailVC: UIViewController {
                 vc.courseDetail = self.courseDetailsInfo
                 vc.viemoVideoArr = self.vimoVideoURLList
                 vc.todayWorkoutsInfo = self.todayWorkoutsInfo
+                vc.dayName = self.todayWorkoutsInfo.dayName ?? ""
+                vc.dayDesc = self.todayWorkoutsInfo.description ?? ""
                 vc.dayNumberText = "\(self.durationLbl.text ?? "") / \(self.totalCourseDashboardArr.count)"
                 vc.titleText = self.woTitleLbl.text ?? ""
                 self.present(vc, animated: true)

@@ -147,6 +147,7 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if isCommingFrom == "dashboard" {
+           
             if self.totalCourseDashboardArr[indexPath.row].status == 0 {
                 return
             }
@@ -159,35 +160,40 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
             }
             showLoading()
             vimoVideoURLList.removeAll()
+            
+            
             DispatchQueue.main.async {
                 self.vimoVideoSetUp {
                     hideLoading()
-                    if self.vimoVideoURLList.count != 0 {
-                        let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
-                      
-//                        let vc = BStartWorkOutDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
-
+                    print("all video setup done")
+                    let vimeoVideoArr = self.videoIdArr.filter {$0 != ""}
+                    if vimeoVideoArr.count != 0 {
+                        
+                        let vc = BStartWorkOutDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
+                        vc.modalPresentationStyle = .overFullScreen
+                        vc.modalTransitionStyle = .coverVertical
+                        vc.isCommingFrom = "StartWorkout"
+                        vc.courseDurationExerciseArr = self.totalCourseDashboardArr[indexPath.row].courseDurationExercise!
                         vc.courseDetail = self.courseDetailsInfo
                         vc.viemoVideoArr = self.vimoVideoURLList
-                        
+                        vc.todayWorkoutsInfo = self.todayWorkoutsInfo
+                        vc.dayName = self.totalCourseDashboardArr[indexPath.row].dayName ?? ""
+                        vc.dayDesc = self.totalCourseDashboardArr[indexPath.row].description ?? ""
                         if self.isCommingFrom == "dashboard" {
                             vc.dayNumberText = "\(indexPath.row + 1) / \(self.totalCourseDashboardArr.count)"
                         } else {
                             vc.dayNumberText = "\(indexPath.row + 1) / \(self.totalCourseArr.count)"
                         }
                         vc.todayWorkoutsInfo = self.todayWorkoutsInfo
-                        vc.courseDurationExerciseArr = self.totalCourseDashboardArr[indexPath.row].courseDurationExercise!
-                        vc.titleText = self.self.totalCourseDashboardArr[indexPath.row].dayName ?? ""
-                        vc.modalPresentationStyle = .overFullScreen
-                        vc.modalTransitionStyle = .coverVertical
-                        vc.completion = {
-                            print(self.vimoVideoURLList)
-                            self.callApiServices()
-                        }
+                        vc.titleText = self.totalCourseDashboardArr[indexPath.row].dayName ?? ""
                         self.present(vc, animated: true)
+                    }
+                    else {
+                        self.showAlert(message: "No exercise video availble")
                     }
                 }
             }
+            
         }
     }
 }

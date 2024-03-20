@@ -38,10 +38,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     @IBOutlet weak var lblProgressBar1: UILabel!
     @IBOutlet weak var lblProgressBar2: UILabel!
     @IBOutlet weak var lblProgressBar3: UILabel!
-
-    @IBOutlet weak var logoHeader: UIImageView!
-    @IBOutlet weak var headerTitleLbl: UILabel!
-
+  
     //var courseList = [List]()
     var courseList = [DashboardWOList]()
     var subscribedMealListData : [SubscribedMeals] = []
@@ -216,17 +213,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     
     
     private func setupNavigationBar() {
-        customNavigationBar.titleFirstLbl.text = ""
-      
-        
-        logoHeader.image = logoHeader.image?.withRenderingMode(.alwaysTemplate)
-        logoHeader.tintColor = UIColor.black
-        
-        headerTitleLbl.text = "Batchboard".localized
-        if let userName = UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.USER_NAME) as? String {
-            headerTitleLbl.text = userName
-        }
-        
+        customNavigationBar.titleFirstLbl.text = CustomNavTitle.dashboardVCNavTitle.localized
         
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
         if getprofilePhoto != nil{

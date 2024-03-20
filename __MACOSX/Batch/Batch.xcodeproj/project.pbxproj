@@ -289,6 +289,7 @@
 		5797812A2B92278C00057943 /* VimoPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579781282B92278C00057943 /* VimoPlayerCell.xib */; };
 		5797812B2B92278C00057943 /* VimoPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579781292B92278C00057943 /* VimoPlayerCell.swift */; };
 		5797812D2B92476B00057943 /* BWorkOutVideoInfoPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797812C2B92476B00057943 /* BWorkOutVideoInfoPopUp.swift */; };
+		5799D3DD2BAB4BA7004FEFE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5799D3DC2BAB4BA7004FEFE4 /* GoogleService-Info.plist */; };
 		57A0AB152BA5F69A00C107BE /* BCoachDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A0AB142BA5F69A00C107BE /* BCoachDetailResponse.swift */; };
 		57BAABA62BA34C5800DE5F2A /* CheckOutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BAAB992BA34C5700DE5F2A /* CheckOutResponse.swift */; };
 		57BAABA72BA34C5800DE5F2A /* BWorkOutMotivatorDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BAAB9A2BA34C5700DE5F2A /* BWorkOutMotivatorDetailModel.swift */; };
@@ -629,6 +630,7 @@
 		579781282B92278C00057943 /* VimoPlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VimoPlayerCell.xib; sourceTree = "<group>"; };
 		579781292B92278C00057943 /* VimoPlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimoPlayerCell.swift; sourceTree = "<group>"; };
 		5797812C2B92476B00057943 /* BWorkOutVideoInfoPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutVideoInfoPopUp.swift; sourceTree = "<group>"; };
+		5799D3DC2BAB4BA7004FEFE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57A0AB142BA5F69A00C107BE /* BCoachDetailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCoachDetailResponse.swift; sourceTree = "<group>"; };
 		57BAAB992BA34C5700DE5F2A /* CheckOutResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckOutResponse.swift; sourceTree = "<group>"; };
 		57BAAB9A2BA34C5700DE5F2A /* BWorkOutMotivatorDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWorkOutMotivatorDetailModel.swift; sourceTree = "<group>"; };
@@ -852,6 +854,7 @@
 				3188B3F62B299CB400E19945 /* Storyboard */,
 				3188B3F72B299CDF00E19945 /* Resources */,
 				3188B4042B29A41F00E19945 /* ExtraCopyPaste */,
+				5799D3DC2BAB4BA7004FEFE4 /* GoogleService-Info.plist */,
 				AF8AD9932B81D92E00F9FB4D /* GoogleInfo.plist */,
 				3188B3CE2B299B6A00E19945 /* Info.plist */,
 			);
@@ -2308,6 +2311,7 @@
 				3176093A2B668545005D4395 /* BMealTblCell.xib in Resources */,
 				318C03E72B33682900C4281F /* Outfit-Medium.ttf in Resources */,
 				318C03E52B33682900C4281F /* Outfit-Regular.ttf in Resources */,
+				5799D3DD2BAB4BA7004FEFE4 /* GoogleService-Info.plist in Resources */,
 				3188B2622B2F894E000CD9C8 /* BatchLogInSignUp.storyboard in Resources */,
 				5759E7D02B9048AB00352B24 /* VideoThunbListTblCell.xib in Resources */,
 				AF8AD9942B81D92E00F9FB4D /* GoogleInfo.plist in Resources */,
@@ -3021,6 +3025,7 @@
 				DEVELOPMENT_TEAM = 47HD6SMK73;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Batch/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Please allow you health record";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app is asking for your health record";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -3060,6 +3065,7 @@
 				DEVELOPMENT_TEAM = 47HD6SMK73;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Batch/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Please allow you health record";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app is asking for your health record";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -18,7 +18,9 @@ class BatchBoardHomeVC: UIViewController {
     @IBOutlet weak var motivatorsCollView: UICollectionView!
     @IBOutlet weak var mealBatchCollView: UICollectionView!
     @IBOutlet weak var topRatedMealCollView: UICollectionView!
-    
+    @IBOutlet weak var logoHeader: UIImageView!
+    @IBOutlet weak var headerTitleLbl: UILabel!
+
     var courseListDataArr = [CourseDataList]()
     var coachListDataArr = [CoachListData]()
     var mealListData : [Meals] = []
@@ -60,7 +62,17 @@ class BatchBoardHomeVC: UIViewController {
     
     // MARK: - UI
     private func setupNavigationBar() {
-        customNavigationBar.titleFirstLbl.text = CustomNavTitle.batchBoardHomeVCNavTitle.localized
+     
+        
+        
+        logoHeader.image = logoHeader.image?.withRenderingMode(.alwaysTemplate)
+        logoHeader.tintColor = UIColor.black
+        
+        headerTitleLbl.text = "Batchboard".localized
+        if let userName = UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.USER_NAME) as? String {
+            headerTitleLbl.text = userName
+        }
+        customNavigationBar.titleFirstLbl.text = ""
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
         if getprofilePhoto != nil{
             customNavigationBar.profileImage.image = UIImage(data: getprofilePhoto ?? Data())
