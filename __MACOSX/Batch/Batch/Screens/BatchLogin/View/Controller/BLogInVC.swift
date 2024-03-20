@@ -10,10 +10,10 @@ class BLogInVC: UIViewController {
     @IBOutlet weak var btnAppleLogin: BatchButton!
     @IBOutlet weak var btnGoogleLogin: BatchButton!
     @IBOutlet weak var btnOutlookLogin: BatchButton!
-
+    
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-  
+    
     var promotionPriceValue = 0.0
     var selectedSubscriptionInfo = [CourseDataList]()
     
@@ -21,7 +21,7 @@ class BLogInVC: UIViewController {
     var mealData : Meals!
     
     var CallBackToUpdateProfile:(()->())?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -32,15 +32,9 @@ class BLogInVC: UIViewController {
     }
     
     @IBAction func onTapSignInBtn(_ sender: Any) {
-        //        //        GIDSignIn.sharedInstance.signOut()
-        //
-        //        let vc = BVerifyOTPVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
-        //        vc.modalPresentationStyle = .overFullScreen
-        //        vc.modalTransitionStyle = .crossDissolve
-        //        self.present(vc, animated: true)
         if internetConnection.isConnectedToNetwork() == true {
             self.logInApi()
-        } else{
+        } else {
             self.showAlert(message: "Please check your internet", title: "Network issue")
         }
     }
@@ -66,7 +60,7 @@ class BLogInVC: UIViewController {
                     self.getProfileData(profile: response.data?.profile_photo_path ?? "")
                     Batch_UserDefaults.setValue(response.data?.profile_photo_path, forKey:UserDefaultKey.profilePhoto )
                     UserDefaultUtility.saveUserId(userId: response.data?.id ?? 0)
-                
+                    
                     if self.isCommingFrom == "workoutbatches" {
                         let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
                         vc.modalPresentationStyle = .overFullScreen
@@ -127,19 +121,18 @@ class BLogInVC: UIViewController {
         if self.isCommingFrom == "MealBatchSubscribe" {
             vc.mealData = mealData
         }
-//        else if self.isCommingFrom == "MotivatorDetailVC" {
-//            vc.selectedSubscriptionInfo = [selectedSubscriptionInfo[0]]
-//        }
+        //        else if self.isCommingFrom == "MotivatorDetailVC" {
+        //            vc.selectedSubscriptionInfo = [selectedSubscriptionInfo[0]]
+        //        }
         vc.isCommingFrom = isCommingFrom
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         self.present(vc, animated: true)
     }
-        
+    
     @IBAction func onTapBackBtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
     
     @IBAction func appleLoginAction(_ sender: UIButton) {
         //handleAuthorizationAppleIDButtonPress()
@@ -151,6 +144,135 @@ class BLogInVC: UIViewController {
         vc.modalTransitionStyle = .crossDissolve
         self.present(vc, animated: true)
     }
+    
+   
+    
+    @IBAction func googleSignInBtn(_ sender: Any) {
+        self.googleLogin()
+    }
+}
+
+
+@available(iOS 13.0, *)
+extension BLogInVC: ASAuthorizationControllerPresentationContextProviding {
+    //For present window
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+        
+    } // END
+}
+
+
+extension BLogInVC {
+    func googleLogin() {
+        //GIDSignIn.sharedInstance.presentingViewController = self
+        //GIDSignIn.sharedInstance.delegate = self
+//        GIDSignIn.sharedInstance.configuration?.clientID = "1057729719059-l70t6igi9mhgb7ain7q2qibf4ufv5t34.apps.googleusercontent.com"
+        //GIDSignIn.sharedInstance.signIn()
+                
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: GOOGLE_CLIENT_ID)
+                
+        GIDSignIn.sharedInstance.configuration = config
+
+        
+        //        GIDSignIn.sharedInstance.signIn(withPresenting: self)
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
+            
+            guard error == nil else { return }
+            // If sign in succeeded, display the app's main content View.
+            guard let signInResult = signInResult else { return }
+            let user = signInResult.user
+            
+            let emailAddress = user.profile?.email
+            let fullName = user.profile?.name
+            let givenName = user.profile?.givenName
+            let familyName = user.profile?.familyName
+            let profilePicUrl = user.profile?.imageURL(withDimension: 320)
+            
+            //            if error != nil {
+            //                // If sign in succeeded, display the app's main content View.
+            //                guard let signInResult = signInResult else { return }
+            //
+            //                let user = signInResult.user
+            //
+            //                let emailAddress = user.profile?.email
+            //                let fullName = user.profile?.name
+            //                let familyName = user.profile?.familyName
+            //                let profilePicUrl = user.profile?.imageURL(withDimension: 320)
+            //
+            //            }
+            //            else{
+            //                self.showAlert(message: error?.localizedDescription ?? "")
+            //            }
+        }
+        
+    }
+}
+
+
+
+extension BLogInVC: ASAuthorizationControllerDelegate {
+    // ASAuthorizationControllerDelegate function for authorization failed
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    // ASAuthorizationControllerDelegate function for successful authorization
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        
+        if #available(iOS 12.0, *) {
+            if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+                // Create an account as per your requirement
+                let appleId = appleIDCredential.user
+                let appleUserFirstName = appleIDCredential.fullName?.givenName
+                let appleUserLastName = appleIDCredential.fullName?.familyName
+                let appleUserEmail = appleIDCredential.email
+                
+                
+                //                self.userSocialType = "Apple_id"
+                //                self.userSocialID = appleId
+                //                self.userName = appleUserFirstName!
+                //                //  self.last_name = appleUserLastName!
+                //                self.userEmail = appleUserEmail!
+                //
+                //                social_logonApi()
+                //Write your code
+            } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
+                let appleUsername = passwordCredential.user
+                let applePassword = passwordCredential.password
+                //Write your code
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        if #available(iOS 13.2, *)  {
+            if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+                // Create an account as per your requirement
+                let appleId = appleIDCredential.user
+                let appleUserFirstName = appleIDCredential.fullName?.givenName
+                let appleUserLastName = appleIDCredential.fullName?.familyName
+                let appleUserEmail = appleIDCredential.email
+                
+                //                self.userSocialType = "Apple_id"
+                //                self.userSocialID = appleId
+                //                self.userName = appleUserFirstName!
+                //                //  self.last_name = appleUserLastName!
+                //                self.userEmail = appleUserEmail!
+                //
+                //                social_logonApi()
+                
+            } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
+                let appleUsername = passwordCredential.user
+                let applePassword = passwordCredential.password
+                //Write your code
+            }
+        } else {
+            
+        }
+        
+    } // END apple btn delegates func
     
     //  MARK:-  Apple Login Delegate func
     
@@ -195,134 +317,4 @@ class BLogInVC: UIViewController {
     //        }
     //    }
     
-    
-    @IBAction func googleSignInBtn(_ sender: Any) {
-        //        GIDSignIn.sharedInstance.signIn(withPresenting: self)
-        googleSignIn()
-        
-    }
-    
-    func googleSignIn(){
-        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
-            
-            guard error == nil else { return }
-            
-            // If sign in succeeded, display the app's main content View.
-            guard let signInResult = signInResult else { return }
-            let user = signInResult.user
-            
-            let emailAddress = user.profile?.email
-            
-            let fullName = user.profile?.name
-            let givenName = user.profile?.givenName
-            let familyName = user.profile?.familyName
-            
-            let profilePicUrl = user.profile?.imageURL(withDimension: 320)
-            
-            //            if error != nil {
-            //                // If sign in succeeded, display the app's main content View.
-            //                guard let signInResult = signInResult else { return }
-            //
-            //                let user = signInResult.user
-            //
-            //                let emailAddress = user.profile?.email
-            //                let fullName = user.profile?.name
-            //                let familyName = user.profile?.familyName
-            //                let profilePicUrl = user.profile?.imageURL(withDimension: 320)
-            //
-            //            }
-            //            else{
-            //                self.showAlert(message: error?.localizedDescription ?? "")
-            //            }
-        }
-    }
-    
 }
-
-
-
-
-@available(iOS 13.0, *)
-
-extension BLogInVC: ASAuthorizationControllerDelegate {
-    
-    // ASAuthorizationControllerDelegate function for authorization failed
-    
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        print(error.localizedDescription)
-    }
-    
-    // ASAuthorizationControllerDelegate function for successful authorization
-    
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        
-        if #available(iOS 12.0, *) {
-            if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-                // Create an account as per your requirement
-                let appleId = appleIDCredential.user
-                let appleUserFirstName = appleIDCredential.fullName?.givenName
-                let appleUserLastName = appleIDCredential.fullName?.familyName
-                let appleUserEmail = appleIDCredential.email
-                
-                
-                //                self.userSocialType = "Apple_id"
-                //                self.userSocialID = appleId
-                //                self.userName = appleUserFirstName!
-                //                //  self.last_name = appleUserLastName!
-                //                self.userEmail = appleUserEmail!
-                //
-                //                social_logonApi()
-                //Write your code
-            } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
-                let appleUsername = passwordCredential.user
-                let applePassword = passwordCredential.password
-                //Write your code
-            }
-        } else {
-            // Fallback on earlier versions
-        }
-        
-        if #available(iOS 13.2, *)  {
-            if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-                // Create an account as per your requirement
-                let appleId = appleIDCredential.user
-                let appleUserFirstName = appleIDCredential.fullName?.givenName
-                let appleUserLastName = appleIDCredential.fullName?.familyName
-                let appleUserEmail = appleIDCredential.email
-                
-                
-                
-                //                self.userSocialType = "Apple_id"
-                //                self.userSocialID = appleId
-                //                self.userName = appleUserFirstName!
-                //                //  self.last_name = appleUserLastName!
-                //                self.userEmail = appleUserEmail!
-                //
-                //                social_logonApi()
-                
-            } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
-                let appleUsername = passwordCredential.user
-                let applePassword = passwordCredential.password
-                //Write your code
-            }
-        } else {
-            
-        }
-        
-    } // END apple btn delegates func
-    
-    
-}
-
-@available(iOS 13.0, *)
-extension BLogInVC: ASAuthorizationControllerPresentationContextProviding {
-    //For present window
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return self.view.window!
-        
-    } // END
-}
-
-
-
-

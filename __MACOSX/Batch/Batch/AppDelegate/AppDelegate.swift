@@ -9,6 +9,9 @@ import UIKit
 import IQKeyboardManagerSwift
 import GoogleSignIn
 import MFSDK
+import Firebase
+import FirebaseCore
+import FirebaseMessaging
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,7 +32,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enableAutoToolbar = true
         IQKeyboardManager.shared.toolbarConfiguration.tintColor = Colors.appThemeButtonColor
         
-        //=  "886054480403-idk62etmh41onnkv5jj79o7lrjvj7tr5.apps.googleusercontent.com"
+
+        FirebaseApp.configure()
+       
+        UNUserNotificationCenter.current().delegate = self
+        Messaging.messaging().delegate = self
+
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+          options: authOptions,
+          completionHandler: { _, _ in }
+        )
+
+        application.registerForRemoteNotifications()
+
+        
+        
         //*******Google Sign In Token
         GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
             if error != nil || user == nil {
@@ -52,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var handled: Bool
         
         //  handled = GIDSignIn.sharedInstance.handle(url)
-        handled = GIDSignIn.sharedInstance.handle(URL(string: "886054480403-idk62etmh41onnkv5jj79o7lrjvj7tr5.apps.googleusercontent.com")!)
+        handled = GIDSignIn.sharedInstance.handle(URL(string: GOOGLE_CLIENT_ID)!)
         if handled {
             return true
         }
@@ -88,3 +106,79 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+
+extension AppDelegate : UNUserNotificationCenterDelegate, MessagingDelegate {
+    // Receive displayed notifications for iOS 10 devices.
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        Messaging.messaging().appDidReceiveMessage(userInfo)
+        // Print message ID.
+        if let messageID = userInfo["gcm.message_id"] {
+            print("Message ID: \(messageID)")
+        }
+        // Print full message.
+        print(userInfo)
+        // Change this to your preferred presentation option
+        completionHandler([.list, .badge, .sound])
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        // Print message ID.
+        if let messageID = userInfo["gcm.message_id"] {
+            print("Message ID: \(messageID)")
+        }
+        // Print full message.
+        print(userInfo)
+        completionHandler()
+    }
+    
+    // [START refresh_token]
+    internal func messaging(_ messaging: Messaging, didReceiveRegistrationToken
+        fcmToken: String?) {
+        print("Firebase registration token: \(fcmToken!)")
+               UserDefaults.standard.setValue(fcmToken, forKey: USER_DEFAULTS_KEYS.FCM_KEY)
+               self.updateFCMAPI()
+    }
+    
+//
+//      func messaging(_ messaging: Messaging, didReceive remoteMessage:
+//       MessagingRemoteMessage) {
+//         print("Received data message: \(remoteMessage.appData)")
+//      }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+    }
+    // [END ios_10_data_message]o
+     
+    func updateFCMAPI() {
+//        if UserDefaults.standard.bool(forKey: USER_DEFAULTS_KEYS.IS_LOGIN) == true {
+//            if Reachability.isConnectedToNetwork() {
+//                let param1:[String:String] = [
+//                    "id" : UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.USER_ID) as? String ?? "",
+//                    "fcm_token" : UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.FCM_KEY) as? String ?? ""
+//                ]
+//                print(param1)
+//                ServerClass.sharedInstance.sendMultipartRequestToServer(urlString: BASE_URL + PROJECT_URL.UPDATE_FCM_API, sendJson: param1, successBlock: { (json) in
+//                    print(json)
+//                    let success = json["success"].stringValue
+//                    if success  == "SUCCESS"  {
+//                    }
+//                    else {
+//                    }
+//                }, errorBlock: { (NSError) in
+//                })
+//            }
+//            else{
+//                iToast.show("Please Check internet connection".localized)
+//            }
+//        }
+    }
+}
