@@ -28,6 +28,9 @@ class BStartWorkOutDetailVC: UIViewController {
     var viemoVideoArr = [String]()
     var titleText = "Lower-Body Burn"
     var dayNumberText : String!
+    var dayName : String = ""
+    var dayDesc : String = ""
+
     
     var newArray = [String]()
     var newImage = [UIImage]()
@@ -41,17 +44,14 @@ class BStartWorkOutDetailVC: UIViewController {
         trainingCollectionView.collectionViewLayout = leftLayout
         if isCommingFrom == "StartWorkout" {
             self.setUpDetailStartWOData()
-        }
-        else
-        {
+        } else {
             self.setUpDetailCellData()
         }
     }
     private func setUpDetailStartWOData() {
-        //woTitleLbl.text = titleText
-        //self.woDesLbl.text = courseDetail?.description ?? ""
-        woTitleLbl.text = todayWorkoutsInfo.dayName
-        self.woDesLbl.text = todayWorkoutsInfo.description ?? ""
+        woTitleLbl.text = dayName
+        self.woDesLbl.text = dayDesc
+        
         self.coachNameLbl.text = courseDetail?.coachDetail?.name ?? ""
         let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (courseDetail?.courseImage ?? ""))
         self.coachPicImgView.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
