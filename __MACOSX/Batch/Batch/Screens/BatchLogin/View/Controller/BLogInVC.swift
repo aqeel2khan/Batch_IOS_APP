@@ -166,52 +166,26 @@ extension BLogInVC: ASAuthorizationControllerPresentationContextProviding {
 
 extension BLogInVC {
     func googleLogin() {
-        //GIDSignIn.sharedInstance.presentingViewController = self
-        //GIDSignIn.sharedInstance.delegate = self
-//        GIDSignIn.sharedInstance.configuration?.clientID = "1057729719059-l70t6igi9mhgb7ain7q2qibf4ufv5t34.apps.googleusercontent.com"
-        //GIDSignIn.sharedInstance.signIn()
-                
-        // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: GOOGLE_CLIENT_ID)
-                
         GIDSignIn.sharedInstance.configuration = config
-
-        
-        //        GIDSignIn.sharedInstance.signIn(withPresenting: self)
         GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
             
             guard error == nil else { return }
             // If sign in succeeded, display the app's main content View.
             guard let signInResult = signInResult else { return }
             let user = signInResult.user
-            
+
             let emailAddress = user.profile?.email
             let fullName = user.profile?.name
             let givenName = user.profile?.givenName
             let familyName = user.profile?.familyName
             let profilePicUrl = user.profile?.imageURL(withDimension: 320)
             
-            //            if error != nil {
-            //                // If sign in succeeded, display the app's main content View.
-            //                guard let signInResult = signInResult else { return }
-            //
-            //                let user = signInResult.user
-            //
-            //                let emailAddress = user.profile?.email
-            //                let fullName = user.profile?.name
-            //                let familyName = user.profile?.familyName
-            //                let profilePicUrl = user.profile?.imageURL(withDimension: 320)
-            //
-            //            }
-            //            else{
-            //                self.showAlert(message: error?.localizedDescription ?? "")
-            //            }
+            self.showAlert(message: "You have successfully login : Hi, \((fullName) ?? "") \n \((user.accessToken.tokenString))")
         }
         
     }
 }
-
-
 
 extension BLogInVC: ASAuthorizationControllerDelegate {
     // ASAuthorizationControllerDelegate function for authorization failed
@@ -229,8 +203,6 @@ extension BLogInVC: ASAuthorizationControllerDelegate {
                 let appleUserFirstName = appleIDCredential.fullName?.givenName
                 let appleUserLastName = appleIDCredential.fullName?.familyName
                 let appleUserEmail = appleIDCredential.email
-                
-                
                 //                self.userSocialType = "Apple_id"
                 //                self.userSocialID = appleId
                 //                self.userName = appleUserFirstName!
@@ -276,9 +248,7 @@ extension BLogInVC: ASAuthorizationControllerDelegate {
     } // END apple btn delegates func
     
     //  MARK:-  Apple Login Delegate func
-    
     func handleAuthorizationAppleIDButtonPress() {
-        
         if #available(iOS 13.2, *)  {
             // Create the authorization request
             let request = ASAuthorizationAppleIDProvider().createRequest()
@@ -293,20 +263,14 @@ extension BLogInVC: ASAuthorizationControllerDelegate {
             controller.delegate = self
             controller.presentationContextProvider = self
             
-            
             // Action
             controller.performRequests()
-            
         }
         
         else {
-            
             print("ios12")
         }
-        
     } // END
-    
-    
     
     //    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
     //        if let appleIDCredential = authorization.credential as?  ASAuthorizationAppleIDCredential {
@@ -317,5 +281,4 @@ extension BLogInVC: ASAuthorizationControllerDelegate {
     //
     //        }
     //    }
-    
 }
