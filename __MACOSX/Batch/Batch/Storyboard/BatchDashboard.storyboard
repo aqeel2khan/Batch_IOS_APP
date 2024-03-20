@@ -413,6 +413,7 @@
                         <outlet property="loginBtn" destination="bhw-Ul-z4M" id="ZGi-bw-lqn"/>
                         <outlet property="loginBtnHeight" destination="7Xb-vb-Pvm" id="Tp2-uD-cD9"/>
                         <outlet property="logoHeader" destination="oBL-Ei-PdU" id="3nP-Lb-7ph"/>
+                        <outlet property="macroContainer" destination="sfE-3j-rll" id="zdK-Os-abG"/>
                         <outlet property="mealBatchCollView" destination="xf9-sh-jwf" id="b6Z-dq-bC5"/>
                         <outlet property="progressBar1" destination="fux-G8-zA2" id="XN6-c0-yGw"/>
                         <outlet property="progressBar2" destination="D8x-tS-TN3" id="z1m-3l-N88"/>

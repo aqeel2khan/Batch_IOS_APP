@@ -126,6 +126,12 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true)
         }
+        
+        if UserDefaultUtility.isUserLoggedIn() {
+            macroContainer.isHidden = false
+        } else {
+            macroContainer.isHidden = true
+        }
         let healthPermission = Batch_UserDefaults.value(forKey: UserDefaultKey.healthPermission) as? Bool
         if UserDefaultUtility.isUserLoggedIn() && healthPermission ?? false{
             healthKitConnectBtnHeight.constant = 0
@@ -432,19 +438,26 @@ extension BatchDashboardVC {
                 DispatchQueue.main.async {
                     hideLoading()
                     self.mealBatchCollView.reloadData()
-                    self.getMacrosDetail()
+                    if response.data?.recordsTotal ?? 0 > 0  {
+                        self.getMacrosDetail()
+                        self.macroContainer.isHidden = false
+                    } else {
+                        self.macroContainer.isHidden = true
+                    }
                 }
             } else {
                 DispatchQueue.main.async {
                     hideLoading()
                     self.mealBatchCollView.isHidden = response.data?.data?.count == 0 ? true : false
                     self.mealBatchCollView.reloadData()
+                    self.macroContainer.isHidden = true
                 }
             }
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
                 self.mealBatchCollView.reloadData()
+                self.macroContainer.isHidden = true
             }
         }
     }

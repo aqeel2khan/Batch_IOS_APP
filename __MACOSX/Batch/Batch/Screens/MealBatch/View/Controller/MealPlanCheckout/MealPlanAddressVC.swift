@@ -11,7 +11,8 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
     var completion: (() ->Void)? = nil
 
     @IBOutlet var mainView: UIView!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
+
     @IBOutlet weak var address1: UITextField!
     @IBOutlet weak var address2: UITextField!
     @IBOutlet weak var address3: UITextField!
@@ -50,6 +51,11 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
         address2.text = addressString2
         address3.text = addressString3
         address4.text = addressString4
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
     }
 
     // Action method for switch to handle state changes
