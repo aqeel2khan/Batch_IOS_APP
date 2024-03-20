@@ -43,7 +43,8 @@ class BLogInVC: UIViewController {
         let email = (userEmailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
         let password = (passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
         
-        let request = BatchLoginRequest(email: email, password: password, deviceToken: "ABCDE")
+        let token : String = UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.FCM_KEY) as? String ?? ""
+        let request = BatchLoginRequest(email: email, password: password, deviceToken: token)
         
         DispatchQueue.main.async {
             showLoading()

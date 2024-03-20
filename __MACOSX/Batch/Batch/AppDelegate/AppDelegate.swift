@@ -25,27 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         self.setUpLanguage()
-      
+        self.setUpPushNotification()
+        
+        application.registerForRemoteNotifications()
+
         //**********Key board manager setup
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.resignOnTouchOutside = true
         IQKeyboardManager.shared.enableAutoToolbar = true
         IQKeyboardManager.shared.toolbarConfiguration.tintColor = Colors.appThemeButtonColor
-        
-
-        FirebaseApp.configure()
-       
-        UNUserNotificationCenter.current().delegate = self
-        Messaging.messaging().delegate = self
-
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(
-          options: authOptions,
-          completionHandler: { _, _ in }
-        )
-
-        application.registerForRemoteNotifications()
-
         
         
         //*******Google Sign In Token
@@ -104,6 +92,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIView.appearance().semanticContentAttribute = (languageCode == ENGLISH_LANGUAGE_CODE ? .forceLeftToRight : .forceRightToLeft)
         }
     }
+    
+    func setUpPushNotification() {
+        FirebaseApp.configure()
+       
+        UNUserNotificationCenter.current().delegate = self
+        Messaging.messaging().delegate = self
+
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+          options: authOptions,
+          completionHandler: { _, _ in }
+        )
+    }
 }
 
 
@@ -134,31 +135,23 @@ extension AppDelegate : UNUserNotificationCenterDelegate, MessagingDelegate {
         if let messageID = userInfo["gcm.message_id"] {
             print("Message ID: \(messageID)")
         }
-        // Print full message.
         print(userInfo)
         completionHandler()
     }
     
-    // [START refresh_token]
     internal func messaging(_ messaging: Messaging, didReceiveRegistrationToken
         fcmToken: String?) {
         print("Firebase registration token: \(fcmToken!)")
                UserDefaults.standard.setValue(fcmToken, forKey: USER_DEFAULTS_KEYS.FCM_KEY)
-               self.updateFCMAPI()
+              // self.updateFCMAPI()
     }
-    
-//
-//      func messaging(_ messaging: Messaging, didReceive remoteMessage:
-//       MessagingRemoteMessage) {
-//         print("Received data message: \(remoteMessage.appData)")
-//      }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
     }
     // [END ios_10_data_message]o
      
-    func updateFCMAPI() {
+//    func updateFCMAPI() {
 //        if UserDefaults.standard.bool(forKey: USER_DEFAULTS_KEYS.IS_LOGIN) == true {
 //            if Reachability.isConnectedToNetwork() {
 //                let param1:[String:String] = [
@@ -180,5 +173,5 @@ extension AppDelegate : UNUserNotificationCenterDelegate, MessagingDelegate {
 //                iToast.show("Please Check internet connection".localized)
 //            }
 //        }
-    }
+//    }
 }
