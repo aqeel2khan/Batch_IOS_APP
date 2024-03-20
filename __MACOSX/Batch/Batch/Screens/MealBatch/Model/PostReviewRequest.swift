@@ -71,19 +71,21 @@ struct MacroResponse: Codable {
 
 // MARK: - DataClass
 struct MacroResponseData: Codable {
-    let data: [Macros]?
+    let data: Macros?
     let status: String
 }
 
 // MARK: - Datum
 struct Macros: Codable {
-    let nutritionID: Int
-    let totalValue, nutrientName: String
+    let calories: String
+    let fat, carbs, protein: Double
     
-    enum CodingKeys: String, CodingKey {
-        case nutritionID = "nutrition_id"
-        case totalValue = "total_value"
-        case nutrientName = "nutrient_name"
+    func normalizedValues() -> Macros {
+        // Normalize percentages to ratios between 0 and 1
+        let normalizedFat = fat / 100.0
+        let normalizedCarbs = carbs / 100.0
+        let normalizedProtein = protein / 100.0
+        
+        return Macros(calories: calories, fat: normalizedFat, carbs: normalizedCarbs, protein: normalizedProtein)
     }
 }
-

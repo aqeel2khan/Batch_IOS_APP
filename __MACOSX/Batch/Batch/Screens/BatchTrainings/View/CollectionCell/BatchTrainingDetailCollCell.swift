@@ -15,8 +15,8 @@ class BatchTrainingDetailCollCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        lblWorkoutName.font = FontSize.mediumSize12
-        lblWorkoutName.textColor = Colors.appLabelDarkGrayColor
+//        lblWorkoutName.font = FontSize.mediumSize12
+//        lblWorkoutName.textColor = Colors.appLabelDarkGrayColor
         backGroundUIView.cornerRadius = 14
         backGroundUIView.backgroundColor = Colors.appViewPinkBackgroundColor
     }

@@ -30,7 +30,7 @@ extension MealBatchPlanningVC: UICollectionViewDelegate,UICollectionViewDataSour
         if collectionView.tag == 601 {
             let cell = collectionView.dequeue(weekCalenderCollCell.self, indexPath)
             cell.isRenderingFromMealCalendarScreen = true
-            cell.weekDayNameLbl.text = self.weekDays[indexPath.item].dayName
+            cell.weekDayNameLbl.text = self.weekDays[indexPath.item].dayName.uppercased()
             cell.weekDateLbl.text = self.weekDays[indexPath.item].dayOfMonth
             cell.greenDotImgView.isHidden = !DateHelper.isOldDate(self.weekDays[indexPath.row].date)
             return cell

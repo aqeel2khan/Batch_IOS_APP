@@ -10,8 +10,8 @@ import UIKit
 class BMealTblCell: UITableViewCell {
 
     
-    @IBOutlet weak var sectionTitleLbl: BatchLabelSubTitleBlack!
-    @IBOutlet weak var dishName: BatchLabelSubTitleBlack!
+    @IBOutlet weak var sectionTitleLbl: UILabel!
+    @IBOutlet weak var dishName: UILabel!
     @IBOutlet weak var dishCalory: BatchMediumDarkGray!
 
     override func awakeFromNib() {

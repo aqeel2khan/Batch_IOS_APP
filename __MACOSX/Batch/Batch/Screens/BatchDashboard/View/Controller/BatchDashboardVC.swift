@@ -47,7 +47,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     var subscribedMealListData : [SubscribedMeals] = []
     weak var axisFormatDelegate: AxisValueFormatter?
    
-    var macroDetails : [Macros] = []
+    var macroDetails : Macros?
 
     var datesForSleep: [String] = []
     var datesForEnergyBurned: [String] = []
@@ -163,7 +163,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
         
         // Add a border
         kcalContainerView.layer.borderWidth = 2.0 // You can adjust the border width as needed
-        kcalContainerView.layer.borderColor = UIColor.black.cgColor // You can adjust the border color as needed
+        kcalContainerView.layer.borderColor = UIColor.hexStringToUIColor(hex: "#516634").cgColor // You can adjust the border color as needed
         
         if UserDefaultUtility.isUserLoggedIn() {
             if internetConnection.isConnectedToNetwork() == true {
@@ -474,23 +474,29 @@ extension BatchDashboardVC {
 
         let request = MacroRequest(userId: "\(UserDefaultUtility().getUserId())", mealId: "\(mealId)", subscribedId: "\(subscribedId)")
         bHomeViewModel.getMacroList(urlStr: urlStr, request: request) { (response) in
-            if response.status == true, response.data?.data?.count != 0 {
-                self.macroDetails = response.data?.data ?? []
+            if response.status == true, response.data?.data != nil {
+                self.macroDetails = response.data?.data
                 DispatchQueue.main.async {
                     hideLoading()
                     // macroContainer
-                    self.kcalLabelValueTitle.text = self.macroDetails[0].totalValue
+                    self.kcalLabelValueTitle.text = self.macroDetails?.calories
                     self.kcalStaticTitle.text = "kcal"
                     
-                    self.progressBar1.progress = 0.5
-                    self.lblProgressBar1.text = self.macroDetails[2].nutrientName
+                    if let _ = self.macroDetails?.protein {
+                        self.progressBar1.progress = Float(self.macroDetails?.normalizedValues().protein ?? 0.0)
+                        self.lblProgressBar1.text = "\(Float(self.macroDetails?.protein ?? 0.0))% Protein"
+                    }
                     
-                    self.progressBar2.progress = 0.7
-                    self.lblProgressBar2.text = self.macroDetails[3].nutrientName
-                    
-                    self.progressBar3.progress = 0.4
-                    self.lblProgressBar3.text = self.macroDetails[1].nutrientName
+                    if let _ = self.macroDetails?.carbs {
+                        self.progressBar2.progress = Float(self.macroDetails?.normalizedValues().carbs ?? 0.0)
+                        self.lblProgressBar2.text = "\(Float(self.macroDetails?.carbs ?? 0.0))% Carbs"
 
+                    }
+                    
+                    if let _ = self.macroDetails?.fat {
+                        self.progressBar3.progress = Float(self.macroDetails?.normalizedValues().fat ?? 0.0)
+                        self.lblProgressBar3.text = "\(Float(self.macroDetails?.fat ?? 0.0))% Fat"
+                    }
                 }
             } else {
                 DispatchQueue.main.async {

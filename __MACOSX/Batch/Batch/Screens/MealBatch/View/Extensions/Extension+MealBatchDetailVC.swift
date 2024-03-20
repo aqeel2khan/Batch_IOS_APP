@@ -76,7 +76,7 @@ extension MealBatchDetailVC: UICollectionViewDelegate,UICollectionViewDataSource
             return cell
         } else if collectionView.tag == 202 {
             let cell = collectionView.dequeue(weekCalenderCollCell.self, indexPath)
-            cell.weekDayNameLbl.text = self.weekDays[indexPath.row].dayName
+            cell.weekDayNameLbl.text = self.weekDays[indexPath.row].dayName.uppercased()
             cell.weekDateLbl.text = self.weekDays[indexPath.row].dayOfMonth
             cell.greenDotImgView.isHidden = !DateHelper.isOldDate(self.weekDays[indexPath.row].date)
             return cell
