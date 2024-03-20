@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nLa-3h-fgD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nLa-3h-fgD">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -394,6 +394,7 @@
                         <outlet property="lblProgressBar3" destination="lic-vB-cQd" id="Llx-oA-R6g"/>
                         <outlet property="loginBtn" destination="bhw-Ul-z4M" id="ZGi-bw-lqn"/>
                         <outlet property="loginBtnHeight" destination="7Xb-vb-Pvm" id="Tp2-uD-cD9"/>
+                        <outlet property="macroContainer" destination="sfE-3j-rll" id="B1S-7I-4tq"/>
                         <outlet property="mealBatchCollView" destination="xf9-sh-jwf" id="b6Z-dq-bC5"/>
                         <outlet property="progressBar1" destination="fux-G8-zA2" id="XN6-c0-yGw"/>
                         <outlet property="progressBar2" destination="D8x-tS-TN3" id="z1m-3l-N88"/>
@@ -409,10 +410,10 @@
     </scenes>
     <designables>
         <designable name="7JZ-Tc-LyG">
-            <size key="intrinsicContentSize" width="60" height="33"/>
+            <size key="intrinsicContentSize" width="63" height="32"/>
         </designable>
         <designable name="bhw-Ul-z4M">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="41" height="32"/>
         </designable>
     </designables>
     <resources>
