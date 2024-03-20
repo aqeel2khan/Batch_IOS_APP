@@ -127,6 +127,10 @@ struct API {
     static let logout = baseUrl + "/account/logout"// post
     static let updateNotifiationPrefrences = baseUrl + "/account/notification"// post
     static let updateProfilephoto = baseUrl + "/account/profileimage"// post
+    
+    static let updateFCM = baseUrl + "/account/fcm"// post
+    
+
 }
 
 struct USER_DEFAULTS_KEYS {
