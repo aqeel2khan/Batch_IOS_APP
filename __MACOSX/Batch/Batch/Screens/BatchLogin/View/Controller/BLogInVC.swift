@@ -145,11 +145,13 @@ class BLogInVC: UIViewController {
         vc.modalTransitionStyle = .crossDissolve
         self.present(vc, animated: true)
     }
-    
-   
-    
+        
     @IBAction func googleSignInBtn(_ sender: Any) {
         self.googleLogin()
+    }
+    
+    @IBAction func facebooknBtn(_ sender: Any) {
+        
     }
 }
 

@@ -28,7 +28,7 @@ class BatchBoardHomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.showImagesOnSrollView(array_Images: ["banner1","banner2","banner3"])
 
         // Do any additional setup after loading the view.
