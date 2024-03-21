@@ -140,7 +140,10 @@ extension AppDelegate : UNUserNotificationCenterDelegate, MessagingDelegate {
         fcmToken: String?) {
         print("Firebase registration token: \(fcmToken!)")
                UserDefaults.standard.setValue(fcmToken, forKey: USER_DEFAULTS_KEYS.FCM_KEY)
-              // self.updateFCMAPI()
+        
+        if UserDefaultUtility.isUserLoggedIn() {
+            self.updateFCMAPI()
+        }
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -148,27 +151,25 @@ extension AppDelegate : UNUserNotificationCenterDelegate, MessagingDelegate {
     }
     // [END ios_10_data_message]o
      
-//    func updateFCMAPI() {
-//        if UserDefaults.standard.bool(forKey: USER_DEFAULTS_KEYS.IS_LOGIN) == true {
-//            if Reachability.isConnectedToNetwork() {
-//                let param1:[String:String] = [
-//                    "id" : UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.USER_ID) as? String ?? "",
-//                    "fcm_token" : UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.FCM_KEY) as? String ?? ""
-//                ]
-//                print(param1)
-//                ServerClass.sharedInstance.sendMultipartRequestToServer(urlString: BASE_URL + PROJECT_URL.UPDATE_FCM_API, sendJson: param1, successBlock: { (json) in
-//                    print(json)
-//                    let success = json["success"].stringValue
-//                    if success  == "SUCCESS"  {
-//                    }
-//                    else {
-//                    }
-//                }, errorBlock: { (NSError) in
-//                })
-//            }
-//            else{
-//                iToast.show("Please Check internet connection".localized)
-//            }
-//        }
-//    }
+    func updateFCMAPI() {
+        let device_token = UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.FCM_KEY) as? String ?? ""
+        let request = BatchFCMRequest(deviceToken: device_token)
+        
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        
+        let bLogInViewModel = BLogInViewModel()
+        bLogInViewModel.fcmApi(request: request) { (response) in
+            if response.status == true {
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
+        }        
+    }
 }

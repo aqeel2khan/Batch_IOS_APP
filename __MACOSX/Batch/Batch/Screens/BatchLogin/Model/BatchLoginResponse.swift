@@ -29,3 +29,10 @@ struct BatchLoginData: Codable {
         case profile_photo_path
     }
 }
+
+
+// MARK: - Welcome
+struct BatchFCMResponse: Codable {
+    let status: Bool?
+    let message: String?
+}
