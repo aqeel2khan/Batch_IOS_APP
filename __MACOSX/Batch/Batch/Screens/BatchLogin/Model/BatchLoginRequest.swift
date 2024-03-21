@@ -16,3 +16,13 @@ struct BatchLoginRequest: Codable {
         case deviceToken = "device_token"
     }
 }
+
+
+// MARK: - Welcome
+struct BatchFCMRequest: Codable {
+    let deviceToken: String
+
+    enum CodingKeys: String, CodingKey {
+        case deviceToken = "device_token"
+    }
+}
