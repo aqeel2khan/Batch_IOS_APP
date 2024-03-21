@@ -17,13 +17,13 @@ target 'Batch' do
     pod 'DropDown'
     pod 'MyFatoorah'
     pod 'DGCharts'
-    #pod 'SVGKit'
     pod "ImageSlideshow/SDWebImage"
 
     #Pods for Firebase
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
-      
+    pod 'Firebase/Crashlytics'
+
     target 'BatchTests' do
     inherit! :search_paths
     # Pods for testing
