@@ -48,8 +48,7 @@ extension BWorkOutDetailVC: UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(TrainingListTableCell.self,for: indexPath)
-        if (isCommingFrom == "workoutbatches") || (isCommingFrom == "MotivatorDetailVC")
-        {
+        if (isCommingFrom == "workoutbatches") || (isCommingFrom == "MotivatorDetailVC") {
             let info = self.unsubscribeWorkoutsInfo[indexPath.row]
             if info.status == 0 {
                 cell.dayLbl.text = ""

@@ -788,34 +788,34 @@
     </scenes>
     <designables>
         <designable name="5Sp-H2-kGd">
-            <size key="intrinsicContentSize" width="68" height="32"/>
+            <size key="intrinsicContentSize" width="64" height="33"/>
         </designable>
         <designable name="7Di-QX-Hz3">
-            <size key="intrinsicContentSize" width="34.666666666666664" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="74.666666666666671" height="18.666666666666668"/>
         </designable>
         <designable name="8Ad-zg-q7B">
-            <size key="intrinsicContentSize" width="175.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="155.33333333333334" height="21"/>
         </designable>
         <designable name="FXb-5W-R8W">
-            <size key="intrinsicContentSize" width="180.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="160.33333333333334" height="21"/>
         </designable>
         <designable name="JQD-2q-6oe">
-            <size key="intrinsicContentSize" width="68" height="32"/>
+            <size key="intrinsicContentSize" width="64" height="33"/>
         </designable>
         <designable name="KQD-go-G9W">
-            <size key="intrinsicContentSize" width="195.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="173.33333333333334" height="21"/>
         </designable>
         <designable name="NXf-cc-L3X">
-            <size key="intrinsicContentSize" width="62.333333333333336" height="17"/>
+            <size key="intrinsicContentSize" width="132.33333333333334" height="17"/>
         </designable>
         <designable name="Qg1-9a-SxT">
-            <size key="intrinsicContentSize" width="161.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="142.33333333333334" height="21"/>
         </designable>
         <designable name="XdZ-cl-Dus">
-            <size key="intrinsicContentSize" width="51" height="32"/>
+            <size key="intrinsicContentSize" width="47" height="33"/>
         </designable>
         <designable name="iAZ-RS-kg8">
-            <size key="intrinsicContentSize" width="60" height="30"/>
+            <size key="intrinsicContentSize" width="61" height="33"/>
         </designable>
     </designables>
     <resources>

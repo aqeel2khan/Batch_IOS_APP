@@ -46,7 +46,7 @@ class QuestionAllergyVC: UIViewController {
         var selectedValue : [Int] = []
         
         for indexPath in allergyCollectionView.indexPathsForSelectedItems ?? [] {
-            selectedValue.append(self.algeryList[indexPath.row].id)
+            selectedValue.append(self.algeryList[indexPath.row].id!)
         }
         
         let commaSeperatedString = (selectedValue.map{String($0)}.joined(separator: ","))
@@ -72,8 +72,8 @@ class QuestionAllergyVC: UIViewController {
         let bMealViewModel = BMealViewModel()
         let urlStr = API.allergiesList
         bMealViewModel.allergiesList(requestUrl: urlStr)  { (response) in
-            if response.status == true, response.data.data.count != 0 {
-                self.algeryList = response.data.data
+            if response.status == true, response.data?.data?.count != 0 {
+                self.algeryList = response.data?.data ?? []
                 DispatchQueue.main.async {
                     hideLoading()
                     self.allergyCollectionView.reloadData()

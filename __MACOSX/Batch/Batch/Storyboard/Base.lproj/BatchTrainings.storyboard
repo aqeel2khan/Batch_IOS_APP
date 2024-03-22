@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -469,7 +469,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ee-lY-KxS">
-                                <rect key="frame" x="0.0" y="385" width="393" height="729"/>
+                                <rect key="frame" x="0.0" y="385" width="393" height="709"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJz-vV-bwZ" userLabel="ContainerView">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="547.66666666666663"/>
@@ -709,7 +709,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="qQj-FP-OHe"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlB-9G-XPW" userLabel="bottomView">
-                                <rect key="frame" x="0.0" y="1114" width="393" height="86"/>
+                                <rect key="frame" x="0.0" y="1094" width="393" height="106"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LmQ-R0-4fZ">
                                         <rect key="frame" x="20" y="10" width="353" height="56"/>
@@ -791,7 +791,7 @@
                                 <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="LmQ-R0-4fZ" firstAttribute="leading" secondItem="dlB-9G-XPW" secondAttribute="leading" constant="20" id="JWA-rE-fHP"/>
-                                    <constraint firstAttribute="bottom" secondItem="LmQ-R0-4fZ" secondAttribute="bottom" constant="20" id="SC3-rL-hW8"/>
+                                    <constraint firstAttribute="bottom" secondItem="LmQ-R0-4fZ" secondAttribute="bottom" constant="40" id="SC3-rL-hW8"/>
                                     <constraint firstItem="LmQ-R0-4fZ" firstAttribute="top" secondItem="dlB-9G-XPW" secondAttribute="top" constant="10" id="fVg-YQ-g0c"/>
                                     <constraint firstAttribute="trailing" secondItem="LmQ-R0-4fZ" secondAttribute="trailing" constant="20" id="n7S-ed-qia"/>
                                 </constraints>
@@ -885,7 +885,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y0l-it-ECt">
-                                <rect key="frame" x="0.0" y="263.33333333333326" width="393" height="508.66666666666674"/>
+                                <rect key="frame" x="0.0" y="263.33333333333326" width="393" height="453.66666666666674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGW-sF-3jH" userLabel="ContainerView">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="253.66666666666666"/>
@@ -1071,10 +1071,10 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="QpZ-CI-hdd"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8uJ-bM-U9o" userLabel="bottomView">
-                                <rect key="frame" x="0.0" y="772" width="393" height="80"/>
+                                <rect key="frame" x="0.0" y="717" width="393" height="135"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2jy-tA-x23">
-                                        <rect key="frame" x="20" y="10" width="353" height="56"/>
+                                        <rect key="frame" x="20" y="15" width="353" height="56"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bO6-Up-lR6" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
@@ -1104,10 +1104,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="2jy-tA-x23" firstAttribute="top" secondItem="8uJ-bM-U9o" secondAttribute="top" constant="10" id="7hP-Xg-wQD"/>
+                                    <constraint firstItem="2jy-tA-x23" firstAttribute="top" secondItem="8uJ-bM-U9o" secondAttribute="top" constant="15" id="7hP-Xg-wQD"/>
                                     <constraint firstItem="2jy-tA-x23" firstAttribute="leading" secondItem="8uJ-bM-U9o" secondAttribute="leading" constant="20" id="Z12-Km-XnC"/>
                                     <constraint firstAttribute="trailing" secondItem="2jy-tA-x23" secondAttribute="trailing" constant="20" id="pYC-Vf-Znn"/>
-                                    <constraint firstAttribute="height" constant="80" id="rWV-tz-Sve"/>
+                                    <constraint firstAttribute="height" constant="135" id="rWV-tz-Sve"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -3433,10 +3433,10 @@
         <image name="Star-fill" width="20" height="19"/>
         <image name="Tick" width="48.333332061767578" height="48"/>
         <image name="detail" width="375" height="308"/>
-        <image name="downArrow" width="11" height="5.3333334922790527"/>
+        <image name="downArrow" width="24" height="24"/>
         <image name="filter" width="36" height="36"/>
         <image name="info_icon" width="72" height="72"/>
-        <image name="logo_icon_white" width="124" height="171"/>
+        <image name="logo_icon_white" width="41.333332061767578" height="57"/>
         <image name="mdetailDummyImg" width="125" height="102.66666412353516"/>
         <image name="pause" width="17.666666030883789" height="17.666666030883789"/>
         <image name="play" width="17.666666030883789" height="17.666666030883789"/>

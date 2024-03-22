@@ -8,11 +8,13 @@
 import UIKit
 
 class ShoppingBatchVC: UIViewController {
+    @IBOutlet weak var customNavigationBar: CustomNavigationBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        customNavigationBar.titleFirstLbl.text = "Shopping"
+
     }
     
 

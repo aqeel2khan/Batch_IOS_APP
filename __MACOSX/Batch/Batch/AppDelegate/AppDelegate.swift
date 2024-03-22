@@ -119,6 +119,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate, MessagingDelegate {
         }
         // Print full message.
         print(userInfo)
+        
         // Change this to your preferred presentation option
         completionHandler([.list, .badge, .sound])
         

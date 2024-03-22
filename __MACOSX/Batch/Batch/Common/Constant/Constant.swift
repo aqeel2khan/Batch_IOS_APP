@@ -48,7 +48,7 @@ struct CustomNavTitle {
 
 struct BatchConstant {
     static var contentSize = "contentSize"
-    static var fromPrefix  = "from".localized
+    static var fromPrefix  = "".localized
     static var kcalSuffix  = "kcal".localized
     static var minsSuffix  = "mins".localized
     static var days  = "days".localized

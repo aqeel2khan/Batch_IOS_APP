@@ -48,7 +48,7 @@ class BWorkOutVideoInfoPopUp: UIViewController {
         var timeTextTitle = ""
         var timeText = ""
         if self.courseDurationExercise.exerciseSet != nil {
-            timeTextTitle = "Set/"
+            timeTextTitle = "Sets/"
             timeText = "\(self.courseDurationExercise.exerciseSet ?? "")/"
         }
         

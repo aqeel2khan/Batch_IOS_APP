@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -67,19 +67,19 @@
                                         <rect key="frame" x="0.0" y="41.666666666666629" width="393" height="1985.3333333333335"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwB-E6-bFm" userLabel="ContainerView">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1432"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1452"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HoG-lu-hP7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1422"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1442"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QE7-o4-Xo7">
-                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="250"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="270"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7NU-bi-3ey" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                                                        <rect key="frame" x="20" y="0.0" width="353" height="240"/>
+                                                                        <rect key="frame" x="20" y="0.0" width="353" height="260"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="240" id="Zh1-QL-app"/>
+                                                                            <constraint firstAttribute="height" constant="260" id="Zh1-QL-app"/>
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -97,7 +97,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccv-gC-23Z" userLabel="WOBatchBView">
-                                                                <rect key="frame" x="0.0" y="258" width="393" height="280"/>
+                                                                <rect key="frame" x="0.0" y="278" width="393" height="280"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ct2-IK-B7T">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="280"/>
@@ -178,7 +178,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0od-gK-99o" userLabel="MotivatorBView">
-                                                                <rect key="frame" x="0.0" y="546" width="393" height="260"/>
+                                                                <rect key="frame" x="0.0" y="566" width="393" height="260"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Sf-qI-qkX">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="260"/>
@@ -259,7 +259,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQV-qR-xmW" userLabel="MealBView">
-                                                                <rect key="frame" x="0.0" y="814" width="393" height="300"/>
+                                                                <rect key="frame" x="0.0" y="834" width="393" height="300"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lo5-dB-tAf">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
@@ -301,7 +301,7 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1504" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Lpc-RZ-m6t">
-                                                                                <rect key="frame" x="0.0" y="40" width="393" height="260"/>
+                                                                                <rect key="frame" x="0.0" y="40.000000000000114" width="393" height="260"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="260" id="V7w-7v-h8P"/>
@@ -340,7 +340,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0d-MT-42Q" userLabel="TopRBView">
-                                                                <rect key="frame" x="0.0" y="1122" width="393" height="300"/>
+                                                                <rect key="frame" x="0.0" y="1142" width="393" height="300"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SNL-33-kTK">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
@@ -502,22 +502,22 @@
     </scenes>
     <designables>
         <designable name="4FV-cO-ZpN">
-            <size key="intrinsicContentSize" width="66" height="32"/>
+            <size key="intrinsicContentSize" width="60" height="33"/>
         </designable>
         <designable name="8mC-lo-zqr">
-            <size key="intrinsicContentSize" width="66" height="32"/>
+            <size key="intrinsicContentSize" width="60" height="33"/>
         </designable>
         <designable name="D26-7e-1bi">
-            <size key="intrinsicContentSize" width="66" height="32"/>
+            <size key="intrinsicContentSize" width="60" height="33"/>
         </designable>
         <designable name="X7c-hy-iTA">
-            <size key="intrinsicContentSize" width="66" height="32"/>
+            <size key="intrinsicContentSize" width="60" height="33"/>
         </designable>
     </designables>
     <resources>
         <image name="home" width="42" height="42"/>
         <image name="homefill" width="42" height="42"/>
-        <image name="logo_icon_white" width="124" height="171"/>
+        <image name="logo_icon_white" width="41.333332061767578" height="57"/>
         <namedColor name="AppLabelBlackColor">
             <color red="0.062745098039215685" green="0.070588235294117646" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -525,7 +525,7 @@
             <color red="0.80000000000000004" green="0.87058823529411766" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -95,8 +95,8 @@ class BUserProfileVC: UIViewController {
     
     @IBAction func onTapChangeLanguageBtn(_ sender: UIButton) {
         let vc = BatchCountryLanguageVC.instantiate(fromAppStoryboard: .main)
-        vc.modalPresentationStyle = .pageSheet
-        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
         self.present(vc, animated: true)
     }
     

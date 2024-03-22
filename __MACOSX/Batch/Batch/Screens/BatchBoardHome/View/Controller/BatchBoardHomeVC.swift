@@ -97,8 +97,12 @@ class BatchBoardHomeVC: UIViewController {
     @IBAction func onTapShowAllBtn(_ sender: UIButton) {
         switch sender.tag {
         case 152:
+            let VC = self.tabBarController?.viewControllers?[1] as? BWorkOutVC //first view controller in the tabbar
+            VC?.selectedIndex = 0
             self.tabBarController?.selectedIndex = 1
         case 153:
+            let VC = self.tabBarController?.viewControllers?[1]  as? BWorkOutVC //first view controller in the tabbar
+            VC?.selectedIndex = 1
             self.tabBarController?.selectedIndex = 1
         case 154:
             self.tabBarController?.selectedIndex = 2
