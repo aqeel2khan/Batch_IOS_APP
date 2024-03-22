@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -788,34 +788,34 @@
     </scenes>
     <designables>
         <designable name="5Sp-H2-kGd">
-            <size key="intrinsicContentSize" width="64" height="33"/>
+            <size key="intrinsicContentSize" width="68" height="32"/>
         </designable>
         <designable name="7Di-QX-Hz3">
-            <size key="intrinsicContentSize" width="74.666666666666671" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="34.666666666666664" height="18.666666666666668"/>
         </designable>
         <designable name="8Ad-zg-q7B">
-            <size key="intrinsicContentSize" width="155.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="175.33333333333334" height="22"/>
         </designable>
         <designable name="FXb-5W-R8W">
-            <size key="intrinsicContentSize" width="160.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="180.33333333333334" height="22"/>
         </designable>
         <designable name="JQD-2q-6oe">
-            <size key="intrinsicContentSize" width="64" height="33"/>
+            <size key="intrinsicContentSize" width="68" height="32"/>
         </designable>
         <designable name="KQD-go-G9W">
-            <size key="intrinsicContentSize" width="173.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="195.33333333333334" height="22"/>
         </designable>
         <designable name="NXf-cc-L3X">
-            <size key="intrinsicContentSize" width="132.33333333333334" height="17"/>
+            <size key="intrinsicContentSize" width="62.333333333333336" height="17"/>
         </designable>
         <designable name="Qg1-9a-SxT">
-            <size key="intrinsicContentSize" width="142.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="161.33333333333334" height="22"/>
         </designable>
         <designable name="XdZ-cl-Dus">
-            <size key="intrinsicContentSize" width="47" height="33"/>
+            <size key="intrinsicContentSize" width="51" height="32"/>
         </designable>
         <designable name="iAZ-RS-kg8">
-            <size key="intrinsicContentSize" width="61" height="33"/>
+            <size key="intrinsicContentSize" width="60" height="30"/>
         </designable>
     </designables>
     <resources>
