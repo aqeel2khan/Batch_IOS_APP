@@ -184,10 +184,10 @@ class BWorkOutDetailVC: UIViewController {
             self.woTitleLbl.text = info?.courseName
 //            self.workOutPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + (info?.coursePrice?.removeDecimalValue() ?? "")
             
-            let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info?.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
-            self.workOutPriceLbl.attributedText = attributedPriceString
+//            let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info?.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+//            self.workOutPriceLbl.attributedText = attributedPriceString
 
-            
+            self.workOutPriceLbl.text = ""
             
             self.woDesLbl.text = info?.description ?? ""
             self.coachNameLbl.text = info?.coachDetail?.name ?? ""

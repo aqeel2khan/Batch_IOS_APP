@@ -16,7 +16,7 @@ extension QuestionAllergyVC:UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeue(QuestionAllergyCollectionCell.self, indexPath)
         cell.alergyName.text = algeryList[indexPath.row].name
-        cell.alergyImage.sd_setImage(with: URL(string: BaseUrl.imageBaseUrl + (algeryList[indexPath.row].icon)) , placeholderImage:nil)
+        cell.alergyImage.sd_setImage(with: URL(string: BaseUrl.imageBaseUrl + (algeryList[indexPath.row].icon ?? "")) , placeholderImage:nil)
         return cell
     }
     

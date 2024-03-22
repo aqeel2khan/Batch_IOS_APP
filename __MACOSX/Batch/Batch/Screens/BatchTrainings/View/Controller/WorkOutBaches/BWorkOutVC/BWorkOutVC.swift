@@ -77,8 +77,25 @@ class BWorkOutVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setupNavigationBar()
+        
+        segmentControl.selectedSegmentIndex = selectedIndex
+        
+        isWorkoutLoaded = false
+        isMotivatorLoaded = false
+  
+        if selectedIndex == 0 {
+            self.woBatchesBackView.isHidden = false
+            self.woMotivatorBackView.isHidden = true
+            self.getCourses()
+        }
+        else if selectedIndex == 1 {
+            self.woBatchesBackView.isHidden = true
+            self.woMotivatorBackView.isHidden = false
+            self.getMotivators()
+        }
+        
     }
-    
+      
     @objc func handleCustomNotification(_ notification: Notification) {
         if internetConnection.isConnectedToNetwork() == true {
             if selectedIndex == 1 {
@@ -124,24 +141,13 @@ class BWorkOutVC: UIViewController {
             selectedIndex = 0
             self.woBatchesBackView.isHidden = false
             self.woMotivatorBackView.isHidden = true
-            if internetConnection.isConnectedToNetwork() == true {
-                self.getCourses()
-            }
+            self.getCourses()
         }
         else {  
             selectedIndex = 1
             self.woBatchesBackView.isHidden = true
             self.woMotivatorBackView.isHidden = false
-            // Call Api Here
-            if internetConnection.isConnectedToNetwork() == true {
-                // Call Api here
-                self.getMotivators()
-                //self.getSearchedMotivators()
-            }
-            else
-            {
-                self.showAlert(message: "Please check your internet", title: "Network issue")
-            }
+            self.getMotivators()
         }
     }
     
@@ -192,6 +198,7 @@ class BWorkOutVC: UIViewController {
         let urlStr = API.courseList
         bWorkOutViewModel.courseList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data?.list?.count != 0 {
+                self.courseListDataArr.removeAll()
                 self.courseListDataArr = response.data?.list ?? []
                 DispatchQueue.main.async {
                     hideLoading()
@@ -224,6 +231,7 @@ class BWorkOutVC: UIViewController {
                 
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.coachListDataArr.removeAll()
                     self.coachListDataArr = response.data ?? []
                     self.batchesMotivatorCollView.reloadData()
                 }
