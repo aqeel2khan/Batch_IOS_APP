@@ -85,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="100" width="393" height="752"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1D2-Mv-P8D">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="665"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="533"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOZ-1O-kXX" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="10.000000000000002" width="353" height="28.666666666666671"/>
@@ -100,7 +100,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ps6-Ny-SES">
-                                                <rect key="frame" x="20" y="93" width="353" height="552"/>
+                                                <rect key="frame" x="20" y="93" width="353" height="420"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Di-QX-Hz3" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
@@ -288,61 +288,8 @@
                                                             <action selector="googleSignInBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="evU-dj-TOn"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXb-5W-R8W" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="364" width="353" height="56"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="56" id="tqF-03-TeS"/>
-                                                        </constraints>
-                                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Sign in with Outlook" image="Microsoft_Outlook-Logo">
-                                                            <color key="titleColor" name="AppLabelBlackColor"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="AppBorderLightColor"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQD-go-G9W" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="430" width="353" height="56"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="56" id="hiH-c7-oIy"/>
-                                                        </constraints>
-                                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Sign in with Facebook" image="Fb_logo_black ">
-                                                            <color key="titleColor" name="AppLabelBlackColor"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="AppBorderLightColor"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="facebooknBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="h0F-QA-sQj"/>
-                                                        </connections>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qg1-9a-SxT" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="496" width="353" height="56"/>
+                                                        <rect key="frame" x="0.0" y="364" width="353" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="U8e-si-Nvp"/>
                                                         </constraints>
@@ -416,9 +363,7 @@
                     <connections>
                         <outlet property="backBtn" destination="BM6-ea-Bq8" id="yMH-Tm-baA"/>
                         <outlet property="btnAppleLogin" destination="Qg1-9a-SxT" id="yTo-uE-aAt"/>
-                        <outlet property="btnFbLogin" destination="KQD-go-G9W" id="dbH-3V-bB5"/>
                         <outlet property="btnGoogleLogin" destination="8Ad-zg-q7B" id="Fr5-Ae-CX4"/>
-                        <outlet property="btnOutlookLogin" destination="FXb-5W-R8W" id="QTG-Nh-eU7"/>
                         <outlet property="btnSignIn" destination="XdZ-cl-Dus" id="T0C-3o-EpY"/>
                         <outlet property="passwordTextField" destination="NXf-cc-L3X" id="ldt-cx-Gnv"/>
                         <outlet property="userEmailTextField" destination="7Di-QX-Hz3" id="v85-IT-nSz"/>
@@ -791,38 +736,30 @@
             <size key="intrinsicContentSize" width="64" height="33"/>
         </designable>
         <designable name="7Di-QX-Hz3">
-            <size key="intrinsicContentSize" width="74.666666666666671" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="34.666666666666664" height="18.666666666666668"/>
         </designable>
         <designable name="8Ad-zg-q7B">
-            <size key="intrinsicContentSize" width="155.33333333333334" height="21"/>
-        </designable>
-        <designable name="FXb-5W-R8W">
-            <size key="intrinsicContentSize" width="160.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="175.33333333333334" height="22"/>
         </designable>
         <designable name="JQD-2q-6oe">
             <size key="intrinsicContentSize" width="64" height="33"/>
         </designable>
-        <designable name="KQD-go-G9W">
-            <size key="intrinsicContentSize" width="173.33333333333334" height="21"/>
-        </designable>
         <designable name="NXf-cc-L3X">
-            <size key="intrinsicContentSize" width="132.33333333333334" height="17"/>
+            <size key="intrinsicContentSize" width="62.333333333333336" height="17"/>
         </designable>
         <designable name="Qg1-9a-SxT">
-            <size key="intrinsicContentSize" width="142.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="161.33333333333334" height="22"/>
         </designable>
         <designable name="XdZ-cl-Dus">
-            <size key="intrinsicContentSize" width="47" height="33"/>
+            <size key="intrinsicContentSize" width="51" height="32"/>
         </designable>
         <designable name="iAZ-RS-kg8">
-            <size key="intrinsicContentSize" width="61" height="33"/>
+            <size key="intrinsicContentSize" width="60" height="30"/>
         </designable>
     </designables>
     <resources>
         <image name="Apple_logo_black " width="17.333333969116211" height="20"/>
-        <image name="Fb_logo_black " width="20.333333969116211" height="20"/>
         <image name="G_logo" width="20.333333969116211" height="20"/>
-        <image name="Microsoft_Outlook-Logo" width="20.333333969116211" height="20"/>
         <image name="back" width="32" height="32"/>
         <image name="eyeclose" width="16" height="16"/>
         <image name="eyeopen" width="16" height="16"/>

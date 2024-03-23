@@ -24,7 +24,14 @@ extension BatchCountryLanguageVC: UITableViewDelegate,UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueCell(QuestionLabelTVC.self, for: indexPath)
-            cell.titleLbl.text = self.languageList[indexPath.row]
+            cell.titleLbl.text = self.languageList[indexPath.row].name
+            
+            if self.selectedLanguageCode == self.languageList[indexPath.row].code {
+                cell.questionUIView.backgroundColor = Colors.appThemeBackgroundColor
+            } else {
+                cell.questionUIView.backgroundColor = Colors.appViewBackgroundColor
+            }
+              
             return cell
         }
     }
@@ -32,25 +39,24 @@ extension BatchCountryLanguageVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == countryTblView {
             self.selectedCountryName = dupList[indexPath.row].name ?? ""
+            UserDefaultUtility().saveCountryName(nameStr: self.selectedCountryName)
             countryTblView.reloadData()
         } else {
-            let cell : QuestionLabelTVC = languageTblView.cellForRow(at: indexPath) as! QuestionLabelTVC
-            cell.questionUIView.backgroundColor = Colors.appThemeBackgroundColor
-
             if indexPath.row == 0 {
                 selectedLanguageCode = ENGLISH_LANGUAGE_CODE
             } else {
-                selectedLanguageCode = ARABIC_LANGUAGE_CODE
+                selectedLanguageCode = ARABIC_LANGUAGE_CODE 
             }
+            self.languageTblView.reloadData()
         }
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        if tableView == languageTblView {
-            let cell : QuestionLabelTVC = languageTblView.cellForRow(at: indexPath) as! QuestionLabelTVC
-            cell.questionUIView.backgroundColor = Colors.appViewBackgroundColor
-        }
-    }
+//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//        if tableView == languageTblView {
+//            let cell : QuestionLabelTVC = languageTblView.cellForRow(at: indexPath) as! QuestionLabelTVC
+//            cell.questionUIView.backgroundColor = Colors.appViewBackgroundColor
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == countryTblView {
@@ -58,16 +64,5 @@ extension BatchCountryLanguageVC: UITableViewDelegate,UITableViewDataSource {
         } else {
             return 60
         }
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
-//        UIView.animate(
-//            withDuration: 0.5,
-//            delay: 0.05 * Double(indexPath.row),
-//            options: [.curveEaseInOut],
-//            animations: {
-//                cell.transform = CGAffineTransform(translationX: 0, y: 0)
-//            })
     }
 }
