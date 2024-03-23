@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Agy-lp-iAL">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="388" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6Og-47-qF1">
                                     <size key="itemSize" width="393" height="852"/>
@@ -30,7 +30,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NTh-SK-cye">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                        <rect key="frame" x="-2.6666666666666665" y="0.0" width="393" height="852"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JiC-Jr-clh">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -56,10 +56,10 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLu-cr-og9">
-                                <rect key="frame" x="-1" y="511.33333333333326" width="395" height="340.66666666666674"/>
+                                <rect key="frame" x="-1" y="511.33333333333326" width="390" height="340.66666666666674"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="P4a-KZ-9WB">
-                                        <rect key="frame" x="0.0" y="0.0" width="395" height="340.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="340.66666666666669"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Gog-ba-DVs">
                                         <rect key="frame" x="20" y="40.000000000000043" width="350" height="227.66666666666663"/>
@@ -450,16 +450,57 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oWE-Ue-UAA">
                                         <rect key="frame" x="20" y="170" width="353" height="482"/>
                                         <subviews>
-                                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="aUS-v7-zmA">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zK4-Fg-Man">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S71-te-rNF">
+                                                        <rect key="frame" x="5" y="13" width="30" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="hPc-Nb-6Od"/>
+                                                            <constraint firstAttribute="height" constant="30" id="yag-dL-Ktd"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="search"/>
+                                                    </button>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="24e-Yr-5G1" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
+                                                        <rect key="frame" x="45" y="5" width="57.666666666666657" height="46"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="ZHQ-8b-NNq" id="6Vs-Rm-V8c"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INI-Fi-vqP">
+                                                        <rect key="frame" x="313" y="13" width="30" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="5io-8g-jgA"/>
+                                                            <constraint firstAttribute="height" constant="30" id="6Zy-rm-srh"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="remove-circle"/>
+                                                        <connections>
+                                                            <action selector="onTapCrosskBtn:" destination="ZHQ-8b-NNq" eventType="touchUpInside" id="kK2-lk-Ozu"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="56" id="UDQ-m3-IYc"/>
+                                                    <constraint firstItem="24e-Yr-5G1" firstAttribute="top" secondItem="zK4-Fg-Man" secondAttribute="top" constant="5" id="65K-Gw-svI"/>
+                                                    <constraint firstItem="24e-Yr-5G1" firstAttribute="leading" secondItem="S71-te-rNF" secondAttribute="trailing" constant="10" id="TAZ-HF-Zbe"/>
+                                                    <constraint firstItem="INI-Fi-vqP" firstAttribute="centerY" secondItem="zK4-Fg-Man" secondAttribute="centerY" id="Wyt-vM-fiQ"/>
+                                                    <constraint firstItem="S71-te-rNF" firstAttribute="top" secondItem="zK4-Fg-Man" secondAttribute="top" constant="13" id="XYd-iM-dOd"/>
+                                                    <constraint firstAttribute="bottom" secondItem="S71-te-rNF" secondAttribute="bottom" constant="13" id="Yh1-br-WH1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="INI-Fi-vqP" secondAttribute="trailing" constant="10" id="aG5-IA-yc5"/>
+                                                    <constraint firstItem="S71-te-rNF" firstAttribute="leading" secondItem="zK4-Fg-Man" secondAttribute="leading" constant="5" id="ci1-iZ-H5f"/>
+                                                    <constraint firstAttribute="bottom" secondItem="24e-Yr-5G1" secondAttribute="bottom" constant="5" id="csm-Qg-FXZ"/>
+                                                    <constraint firstAttribute="height" constant="56" id="mZt-88-ETb"/>
                                                 </constraints>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="ZHQ-8b-NNq" id="W3I-0C-jlx"/>
-                                                </connections>
-                                            </searchBar>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Dqq-ro-2gG">
                                                 <rect key="frame" x="0.0" y="56" width="353" height="426"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -570,7 +611,7 @@
                         <outlet property="countryTblView" destination="Dqq-ro-2gG" id="Nem-S4-HjP"/>
                         <outlet property="languageBackView" destination="8Gf-SJ-fXm" id="nyK-S9-dgb"/>
                         <outlet property="languageTblView" destination="C2l-35-UuK" id="wW1-4p-Khb"/>
-                        <outlet property="searchBar" destination="aUS-v7-zmA" id="PBN-Te-Exc"/>
+                        <outlet property="searchTextField" destination="24e-Yr-5G1" id="Ydg-1j-vGf"/>
                         <outlet property="segmentControl" destination="7BJ-ZE-gtt" id="s1o-Vn-NW8"/>
                     </connections>
                 </viewController>
@@ -607,19 +648,19 @@
     </scenes>
     <designables>
         <designable name="8Kl-hq-j6A">
-            <size key="intrinsicContentSize" width="149" height="33"/>
+            <size key="intrinsicContentSize" width="152" height="32"/>
         </designable>
         <designable name="967-iC-wqE">
-            <size key="intrinsicContentSize" width="149" height="33"/>
+            <size key="intrinsicContentSize" width="156" height="32"/>
         </designable>
         <designable name="Ze0-HW-7a7">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="40" height="32"/>
         </designable>
         <designable name="jDR-yu-Zla">
-            <size key="intrinsicContentSize" width="34" height="33"/>
+            <size key="intrinsicContentSize" width="35" height="32"/>
         </designable>
         <designable name="tO2-sm-zmS">
-            <size key="intrinsicContentSize" width="44" height="33"/>
+            <size key="intrinsicContentSize" width="46" height="32"/>
         </designable>
     </designables>
     <resources>
@@ -627,6 +668,8 @@
         <image name="Rectangle" width="375" height="320"/>
         <image name="image1" width="375" height="812"/>
         <image name="kuwait" width="20" height="15"/>
+        <image name="remove-circle" width="24" height="24"/>
+        <image name="search" width="24" height="24"/>
         <image name="splash" width="375" height="812"/>
         <namedColor name="AppThemeButtonColor">
             <color red="0.31764705882352939" green="0.40000000000000002" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
