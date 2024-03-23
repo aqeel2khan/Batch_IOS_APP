@@ -14,12 +14,12 @@ class BatchCountryLanguageVC: UIViewController {
     @IBOutlet weak var CountryBackView: UIStackView!
     @IBOutlet weak var languageBackView: UIView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var countryTblView: UITableView!
     @IBOutlet weak var languageTblView: UITableView!
     @IBOutlet weak var bottomBackView: UIView!
-    
-    
+    var timer: Timer? = nil
+
     var languageList : [Language] = [Language(code: "en", name: "English"), Language(code: "ar", name: "Arabic (اَلْعَرَبِيَّةُ)")]
     var selectedCountryName = ""
     var selectedLanguageCode = ""
@@ -82,6 +82,15 @@ class BatchCountryLanguageVC: UIViewController {
         dismiss(animated: true)
     }
     
+    
+    @IBAction func onTapCrosskBtn(_ sender: Any) {
+        searchTextField.text =  ""
+        searchTextField.endEditing(true)
+        
+        self.dupList = self.list
+        self.countryTblView.reloadData()
+    }
+    
     func configuration() {
         for code in NSLocale.isoCountryCodes  {
             let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
@@ -109,20 +118,53 @@ class BatchCountryLanguageVC: UIViewController {
     }
 }
 
-extension BatchCountryLanguageVC : UISearchBarDelegate {
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text =  ""
-        searchBar.endEditing(true)
-        
-        self.dupList = self.list
-        self.countryTblView.reloadData()
+//extension BatchCountryLanguageVC : UISearchBarDelegate {
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.text =  ""
+//        searchBar.endEditing(true)
+//        
+//        self.dupList = self.list
+//        self.countryTblView.reloadData()
+//    }
+//    
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        print("search = \(searchText)" )
+//        self.dupList = searchText.isEmpty ? list : list.filter({ (model) -> Bool in
+//            return model.name!.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+//        })
+//        self.countryTblView.reloadData()
+//    }
+//}
+
+extension BatchCountryLanguageVC : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        if textField == searchTextField {
+            
+            let placeTextFieldStr = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
+            
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(
+                timeInterval: 0.5,
+                target: self,
+                selector: #selector(getHints),
+                userInfo: placeTextFieldStr,
+                repeats: false)
+        }
+          
+       
+        return true
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("search = \(searchText)" )
-        self.dupList = searchText.isEmpty ? list : list.filter({ (model) -> Bool in
-            return model.name!.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-        })
+    @objc func getHints(timer: Timer) {
+        let userInfo = timer.userInfo as! String
+        
+        if searchTextField.text == "" {
+            self.dupList = self.list
+        } else {
+            self.dupList = self.list.filter{ $0.name!.lowercased().contains(userInfo.lowercased()) }
+        }
+        
         self.countryTblView.reloadData()
     }
 }
