@@ -31,6 +31,11 @@ struct UserDefaultUtility
     func saveCountryName(nameStr: String) {
         UserDefaults.standard.set(nameStr, forKey: USER_DEFAULTS_KEYS.SELECTED_COUNTRY)
     }
+    
+    
+    func getCountryName() -> String {
+       return UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.SELECTED_COUNTRY) as? String ?? "Kuwait"
+    }
   
     func getUserId() -> Int {
         return UserDefaults.standard.value(forKey: "userId") as! Int

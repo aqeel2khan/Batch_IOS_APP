@@ -5,6 +5,11 @@ class Country {
     var flag: String?
 }
 
+struct Language {
+    var code : String?
+    var name : String?
+}
+
 class BatchCountryLanguageVC: UIViewController {
     @IBOutlet weak var CountryBackView: UIStackView!
     @IBOutlet weak var languageBackView: UIView!
@@ -14,7 +19,8 @@ class BatchCountryLanguageVC: UIViewController {
     @IBOutlet weak var languageTblView: UITableView!
     @IBOutlet weak var bottomBackView: UIView!
     
-    var languageList : [String] = ["English", "Arabic (اَلْعَرَبِيَّةُ)", "Dari Persian (دری)", "Arabic (اَلْعَرَبِيَّةُ)"]
+    
+    var languageList : [Language] = [Language(code: "en", name: "English"), Language(code: "ar", name: "Arabic (اَلْعَرَبِيَّةُ)")]
     var selectedCountryName = ""
     var selectedLanguageCode = ""
 
@@ -27,6 +33,9 @@ class BatchCountryLanguageVC: UIViewController {
         self.CountryBackView.isHidden = false
         self.languageBackView.isHidden = true
         
+        self.selectedCountryName = UserDefaultUtility().getCountryName()
+        self.selectedLanguageCode = UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String ?? ""
+
         countryTblView.register(UINib(nibName: "CountryListTableCell", bundle: .main), forCellReuseIdentifier: "CountryListTableCell")
         languageTblView.register(UINib(nibName: "QuestionLabelTVC", bundle: .main), forCellReuseIdentifier: "QuestionLabelTVC")
         configuration()
@@ -35,7 +44,7 @@ class BatchCountryLanguageVC: UIViewController {
     override func viewDidLayoutSubviews() {
         setupViews()
     }
-    
+   
     private func setupViews() {
         self.segmentControl.setTitle(SegmentControlTitle.countrySegmentTitle.localized, forSegmentAt: 0)
         self.segmentControl.setTitle(SegmentControlTitle.langaugeSegmentTitle.localized, forSegmentAt: 1)
@@ -53,13 +62,12 @@ class BatchCountryLanguageVC: UIViewController {
     }
     
     @IBAction func onTapNextBtn(_ sender: Any) {
-        if selectedCountryName == "" {
-            showAlert(message: "Please select country".localized)
-        } else if selectedLanguageCode == "" {
-            showAlert(message: "Please select langauge".localized)
-        } else {
-            UserDefaults.standard.setValue("true", forKey: USER_DEFAULTS_KEYS.INITIAL_SCREEN_APPEAR)
-
+        if segmentControl.selectedSegmentIndex == 0 {
+            segmentControl.selectedSegmentIndex = 1
+            self.CountryBackView.isHidden = true
+            self.languageBackView.isHidden = false
+        }
+        else {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: selectedLanguageCode)
             UserDefaults.standard.setValue(selectedLanguageCode, forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE)
             UIView.appearance().semanticContentAttribute = (selectedLanguageCode == ENGLISH_LANGUAGE_CODE) ? .forceLeftToRight : .forceRightToLeft
@@ -67,7 +75,7 @@ class BatchCountryLanguageVC: UIViewController {
             let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
             tabbarVC.modalPresentationStyle = .fullScreen
             AppDelegate.standard.window?.rootViewController = tabbarVC
-        }       
+        }
     }
     
     @IBAction func onTapBackBtn(_ sender: Any) {

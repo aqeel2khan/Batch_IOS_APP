@@ -6,10 +6,8 @@ import AuthenticationServices
 class BLogInVC: UIViewController {
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var btnSignIn: UIButton!
-    @IBOutlet weak var btnFbLogin: BatchButton!
     @IBOutlet weak var btnAppleLogin: BatchButton!
     @IBOutlet weak var btnGoogleLogin: BatchButton!
-    @IBOutlet weak var btnOutlookLogin: BatchButton!
     
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -148,10 +146,6 @@ class BLogInVC: UIViewController {
         
     @IBAction func googleSignInBtn(_ sender: Any) {
         self.googleLogin()
-    }
-    
-    @IBAction func facebooknBtn(_ sender: Any) {
-        
     }
 }
 

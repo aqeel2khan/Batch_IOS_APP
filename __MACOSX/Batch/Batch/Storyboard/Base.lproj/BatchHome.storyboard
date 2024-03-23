@@ -26,34 +26,13 @@
                                     <constraint firstAttribute="height" constant="200" id="6DS-tq-J21"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rp3-YR-QhM">
-                                <rect key="frame" x="20" y="60" width="220" height="30"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_icon_white" translatesAutoresizingMaskIntoConstraints="NO" id="6te-Nx-9bk">
-                                        <rect key="frame" x="5" y="0.0" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="SyA-99-BiU"/>
-                                            <constraint firstAttribute="height" constant="30" id="aeQ-Mk-L4Q"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZv-Ul-7BV" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="1" width="175" height="28"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                        <color key="textColor" name="AppLabelBlackColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_batch" translatesAutoresizingMaskIntoConstraints="NO" id="6te-Nx-9bk">
+                                <rect key="frame" x="10" y="45" width="140" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="30q-se-kRV"/>
-                                    <constraint firstAttribute="width" constant="220" id="3OX-vP-3cy"/>
-                                    <constraint firstItem="6te-Nx-9bk" firstAttribute="centerY" secondItem="rp3-YR-QhM" secondAttribute="centerY" id="4Gd-Kg-pN1"/>
-                                    <constraint firstItem="6te-Nx-9bk" firstAttribute="leading" secondItem="rp3-YR-QhM" secondAttribute="leading" constant="5" id="GnH-8f-Gcd"/>
-                                    <constraint firstItem="IZv-Ul-7BV" firstAttribute="centerY" secondItem="6te-Nx-9bk" secondAttribute="centerY" id="Qg0-C8-sW4"/>
-                                    <constraint firstItem="IZv-Ul-7BV" firstAttribute="leading" secondItem="6te-Nx-9bk" secondAttribute="trailing" constant="5" id="ZFt-2p-Q1O"/>
-                                    <constraint firstAttribute="trailing" secondItem="IZv-Ul-7BV" secondAttribute="trailing" constant="5" id="k2E-iW-l38"/>
+                                    <constraint firstAttribute="width" constant="140" id="SyA-99-BiU"/>
+                                    <constraint firstAttribute="height" constant="50" id="aeQ-Mk-L4Q"/>
                                 </constraints>
-                            </view>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzp-so-WM4">
                                 <rect key="frame" x="0.0" y="110" width="393" height="2027"/>
                                 <subviews>
@@ -472,12 +451,12 @@
                         <constraints>
                             <constraint firstItem="tzp-so-WM4" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="20" id="EZg-76-pvq"/>
                             <constraint firstItem="tzp-so-WM4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="GUs-6l-DGP"/>
+                            <constraint firstItem="6te-Nx-9bk" firstAttribute="leading" secondItem="qXf-7S-w5k" secondAttribute="leading" constant="10" id="PMM-8I-SM8"/>
                             <constraint firstItem="tzp-so-WM4" firstAttribute="top" secondItem="qXf-7S-w5k" secondAttribute="bottom" constant="-90" id="SvU-wc-jMZ"/>
                             <constraint firstItem="qXf-7S-w5k" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="Z0Z-iT-gNi"/>
-                            <constraint firstItem="rp3-YR-QhM" firstAttribute="leading" secondItem="qXf-7S-w5k" secondAttribute="leading" constant="20" id="fTJ-Ub-uGK"/>
+                            <constraint firstItem="tzp-so-WM4" firstAttribute="top" secondItem="6te-Nx-9bk" secondAttribute="bottom" constant="15" id="aeC-ua-wxZ"/>
                             <constraint firstAttribute="trailing" secondItem="qXf-7S-w5k" secondAttribute="trailing" id="nYT-MB-RlH"/>
                             <constraint firstItem="tzp-so-WM4" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="pNO-bu-6LC"/>
-                            <constraint firstItem="tzp-so-WM4" firstAttribute="top" secondItem="rp3-YR-QhM" secondAttribute="bottom" constant="20" id="riA-FB-lP6"/>
                             <constraint firstItem="qXf-7S-w5k" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="yws-c7-beL"/>
                         </constraints>
                     </view>
@@ -487,8 +466,6 @@
                     <connections>
                         <outlet property="bannerSliderShow" destination="7NU-bi-3ey" id="IHh-iC-cZr"/>
                         <outlet property="customNavigationBar" destination="qXf-7S-w5k" id="75O-oj-d7C"/>
-                        <outlet property="headerTitleLbl" destination="IZv-Ul-7BV" id="wV3-hA-VZf"/>
-                        <outlet property="logoHeader" destination="6te-Nx-9bk" id="eZI-Tv-ZHm"/>
                         <outlet property="mealBatchCollView" destination="Lpc-RZ-m6t" id="UMh-vz-LJL"/>
                         <outlet property="motivatorsCollView" destination="SQj-F0-SKm" id="7oK-TX-vWA"/>
                         <outlet property="topRatedMealCollView" destination="arM-5k-5DL" id="gg5-7u-4kM"/>
@@ -517,10 +494,7 @@
     <resources>
         <image name="home" width="42" height="42"/>
         <image name="homefill" width="42" height="42"/>
-        <image name="logo_icon_white" width="41.333332061767578" height="57"/>
-        <namedColor name="AppLabelBlackColor">
-            <color red="0.062745098039215685" green="0.070588235294117646" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="logo_batch" width="1774" height="600"/>
         <namedColor name="AppThemeBackgroundColor">
             <color red="0.80000000000000004" green="0.87058823529411766" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

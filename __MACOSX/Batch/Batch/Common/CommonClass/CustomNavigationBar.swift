@@ -27,7 +27,8 @@ class CustomNavigationBar: UIView {
     @IBOutlet weak var rightThirdBarBtnItem: UIButton!
     @IBOutlet weak var navFirstBackView: UIView!
     @IBOutlet weak var navSecondBackView: UIView!
-    
+    @IBOutlet weak var logoHeader: UIImageView!
+
     // MARK: - Properties
     var view : UIView?
     var leftBarButtonTappedDelegate : barButtonTappedDelegate?
@@ -53,6 +54,9 @@ class CustomNavigationBar: UIView {
             profileImage.image = UIImage(named: "Avatar")  
             profileImage.cornerRadius = 0
         }
+        
+        logoHeader.image = logoHeader.image?.withRenderingMode(.alwaysTemplate)
+        logoHeader.tintColor = UIColor.black
         return view
     }
     

@@ -857,7 +857,7 @@
                                 <rect key="frame" x="0.0" y="100" width="393" height="656"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPP-0j-vv1">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="741"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="609"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registration" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFJ-9f-3Mu" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="10.000000000000002" width="353" height="28.666666666666671"/>
@@ -872,7 +872,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MnA-GU-Vdu">
-                                                <rect key="frame" x="20" y="93" width="353" height="638"/>
+                                                <rect key="frame" x="20" y="93" width="353" height="506"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RDg-3A-Cm1" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
@@ -1106,64 +1106,8 @@
                                                             <action selector="onTapWithGoogleSignUpBtn:" destination="Xh1-s8-0em" eventType="touchUpInside" id="NJO-KG-Mxg"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ij2-zT-bAj" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="450" width="353" height="56"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="56" id="EbK-rI-v1x"/>
-                                                        </constraints>
-                                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Sign in with Outlook" image="Microsoft_Outlook-Logo">
-                                                            <color key="titleColor" name="AppLabelBlackColor"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="AppBorderLightColor"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="onTapWithOutLookSignUpBtn:" destination="Xh1-s8-0em" eventType="touchUpInside" id="FKy-2p-CcV"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUX-vX-ObF" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="516" width="353" height="56"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="56" id="T3b-bf-C8o"/>
-                                                        </constraints>
-                                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Sign in with Facebook" image="Fb_logo_black ">
-                                                            <color key="titleColor" name="AppLabelBlackColor"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="AppBorderLightColor"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="onTapWithFacebookSignUpBtn:" destination="Xh1-s8-0em" eventType="touchUpInside" id="N4z-1d-kxL"/>
-                                                        </connections>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2p-qS-raC" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="582" width="353" height="56"/>
+                                                        <rect key="frame" x="0.0" y="450" width="353" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="r93-bo-VTs"/>
                                                         </constraints>
@@ -2246,9 +2190,6 @@
         <designable name="Ewz-78-z3b">
             <size key="intrinsicContentSize" width="67" height="33"/>
         </designable>
-        <designable name="Ij2-zT-bAj">
-            <size key="intrinsicContentSize" width="160.33333333333334" height="21"/>
-        </designable>
         <designable name="Jix-Ik-UYZ">
             <size key="intrinsicContentSize" width="35" height="33"/>
         </designable>
@@ -2269,9 +2210,6 @@
         </designable>
         <designable name="TzP-7l-f81">
             <size key="intrinsicContentSize" width="122" height="33"/>
-        </designable>
-        <designable name="UUX-vX-ObF">
-            <size key="intrinsicContentSize" width="173.33333333333334" height="21"/>
         </designable>
         <designable name="YDr-Nf-cTp">
             <size key="intrinsicContentSize" width="47" height="33"/>
@@ -2299,10 +2237,8 @@
         <image name="Apple_logo_black " width="17.333333969116211" height="20"/>
         <image name="Avatar1" width="28" height="28"/>
         <image name="Confetti" width="375" height="197"/>
-        <image name="Fb_logo_black " width="20.333333969116211" height="20"/>
         <image name="G_logo" width="20.333333969116211" height="20"/>
         <image name="IconDown" width="36" height="36"/>
-        <image name="Microsoft_Outlook-Logo" width="20.333333969116211" height="20"/>
         <image name="ProCardcopy" width="335" height="152"/>
         <image name="Tick" width="48.333332061767578" height="48"/>
         <image name="accessibility" width="16" height="16"/>
@@ -2314,7 +2250,7 @@
         <image name="checkbox" width="21.666666030883789" height="21.666666030883789"/>
         <image name="checkbox_fill" width="20" height="20"/>
         <image name="direction-right" width="24" height="24"/>
-        <image name="downArrow" width="24" height="24"/>
+        <image name="downArrow" width="11" height="5.3333334922790527"/>
         <image name="dummyImg" width="371.33334350585938" height="457.66665649414062"/>
         <image name="eyeclose" width="16" height="16"/>
         <image name="eyeopen" width="16" height="16"/>

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import GoogleSignIn
+import AuthenticationServices
 
 class BRegistrationVC: UIViewController {
     
@@ -43,11 +45,9 @@ class BRegistrationVC: UIViewController {
     }
     
     @IBAction func onTapWithGoogleSignUpBtn(_ sender: UIButton) {
+        self.googleLogin()
     }
-    @IBAction func onTapWithOutLookSignUpBtn(_ sender: UIButton) {
-    }
-    @IBAction func onTapWithFacebookSignUpBtn(_ sender: UIButton) {
-    }
+   
     @IBAction func onTapWithAppleSignUpBtn(_ sender: UIButton) {
     }
     
@@ -135,5 +135,28 @@ class BRegistrationVC: UIViewController {
                 self.showAlert(message: "\(error.localizedDescription)")
             }
         }
+    }
+}
+
+extension BRegistrationVC {
+    func googleLogin() {
+        let config = GIDConfiguration(clientID: GOOGLE_CLIENT_ID)
+        GIDSignIn.sharedInstance.configuration = config
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
+            
+            guard error == nil else { return }
+            // If sign in succeeded, display the app's main content View.
+            guard let signInResult = signInResult else { return }
+            let user = signInResult.user
+
+            let emailAddress = user.profile?.email
+            let fullName = user.profile?.name
+            let givenName = user.profile?.givenName
+            let familyName = user.profile?.familyName
+            let profilePicUrl = user.profile?.imageURL(withDimension: 320)
+            
+            self.showAlert(message: "You have successfully login : Hi, \((fullName) ?? "") \n \((user.accessToken.tokenString))")
+        }
+        
     }
 }

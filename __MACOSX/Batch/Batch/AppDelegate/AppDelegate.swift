@@ -82,12 +82,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setUpLanguage() {
         // check selected language is english or arabic
-        if let languageCode = UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String {
-            LocalizationSystem.sharedInstance.setLanguage(languageCode: languageCode)
-            UserDefaults.standard.setValue(languageCode, forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE)
-
-            UIView.appearance().semanticContentAttribute = (languageCode == ENGLISH_LANGUAGE_CODE ? .forceLeftToRight : .forceRightToLeft)
-        }
+        let languageCode = UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String ?? DEFAULT_LANGUAGE_CODE
+        LocalizationSystem.sharedInstance.setLanguage(languageCode: languageCode)
+        UserDefaults.standard.setValue(languageCode, forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE)
+        
+        UIView.appearance().semanticContentAttribute = (languageCode == ENGLISH_LANGUAGE_CODE ? .forceLeftToRight : .forceRightToLeft)
     }
     
     func setUpPushNotification() {
