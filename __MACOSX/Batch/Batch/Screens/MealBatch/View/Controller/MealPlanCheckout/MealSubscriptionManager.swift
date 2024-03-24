@@ -35,6 +35,11 @@ class MealSubscriptionManager {
     var deliveryTimeId: Int?
     var deliveryArrivingId: Int?
     var deliveryDropoffId: Int?
+    var city: String?
+    var cityId: String?
+    var state: String?
+    var stateId: String?
+
     
     private init() {}
     
@@ -64,6 +69,10 @@ class MealSubscriptionManager {
         deliveryTimeId = nil
         deliveryArrivingId = nil
         deliveryDropoffId = nil
+        city = nil
+        cityId = nil
+        state = nil
+        stateId = nil
     }
     
     func createSubscriptionRequest() -> SubscriptionRequest? {
@@ -90,7 +99,11 @@ class MealSubscriptionManager {
               let deliveryDropoff = deliveryDropoff,
               let deliveryTimeId = deliveryTimeId,
               let deliveryArrivingId = deliveryArrivingId,
-              let deliveryDropoffId = deliveryDropoffId else {
+              let deliveryDropoffId = deliveryDropoffId,
+              let addressCity = city,
+              let addressCityId = cityId,
+              let addressState = state,
+              let addressStateId = stateId else {
             return nil
         }
         
@@ -117,7 +130,11 @@ class MealSubscriptionManager {
                                    deliveryDropoff: deliveryDropoff,
                                    deliveryTimeId: deliveryTimeId,
                                    deliveryArrivingId: deliveryArrivingId,
-                                   deliveryDropoffId: deliveryDropoffId)
+                                   deliveryDropoffId: deliveryDropoffId,
+                                   addressCity: addressCity,
+                                   addressCityId: addressCityId,
+                                   addressState: addressState,
+                                   addressStateId: addressStateId)
     }
 
 }

@@ -11,6 +11,8 @@ class MealPlanDeliveryTimeVC: UIViewController, UITableViewDelegate {
     @IBOutlet var mainView: UIView!
     @IBOutlet var tableDeliveryTime: UITableView!
     @IBOutlet var selectedTimeSlotLabel: UITextField!
+    @IBOutlet var selectedTimeLabelContainer: UIView!
+
     var deliveryTimeSlots: [DeliveryTimeSlots] = []
     var selectedTimeSlot: DeliveryTimeSlots?
     var selectedRowIndex: Int?
@@ -25,6 +27,8 @@ class MealPlanDeliveryTimeVC: UIViewController, UITableViewDelegate {
         tableDeliveryTime.dataSource = self
         tableDeliveryTime.register(UINib(nibName: "DeliveryTimeSlotCell", bundle: .main), forCellReuseIdentifier: "DeliveryTimeSlotCell")
         tableDeliveryTime.allowsSelection = true
+        tableDeliveryTime.addRoundedRect(cornerRadius: 10, borderWidth: 2, borderColor: UIColor.hexStringToUIColor(hex: "#516634"))
+        selectedTimeLabelContainer.addRoundedRect(cornerRadius: 10, borderWidth: 2, borderColor: UIColor.hexStringToUIColor(hex: "#516634"))
         getDeliveryTimeSlots()
     }
     
@@ -90,6 +94,7 @@ extension MealPlanDeliveryTimeVC: UITableViewDataSource {
         cell.selectionStyle = .default
         cell.lblTimeSlot.text = self.deliveryTimeSlots[indexPath.row].timeSlot
         if let selectedRowIndex = selectedRowIndex, selectedRowIndex == indexPath.row {
+            cell.tintColor = UIColor.hexStringToUIColor(hex: "#516634")
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
@@ -110,6 +115,8 @@ extension MealPlanDeliveryTimeVC: UITableViewDataSource {
         
         // Update the selection state of the current row
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        tableView.cellForRow(at: indexPath)?.tintColor = UIColor.hexStringToUIColor(hex: "#516634")
+
 
         selectedTimeSlotLabel.text = selectedTimeSlot?.timeSlot
     }

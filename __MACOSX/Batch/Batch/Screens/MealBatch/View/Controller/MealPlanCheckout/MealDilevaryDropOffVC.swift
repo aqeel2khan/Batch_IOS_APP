@@ -27,6 +27,10 @@ class MealDilevaryDropOffVC: UIViewController {
     
     // Function to configure the buttons
     func configureButtons() {
+        button1.centerTitle()
+        button2.centerTitle()
+        button3.centerTitle()
+        
         button1.layer.cornerRadius = 10
         button2.layer.cornerRadius = 10
         button3.layer.cornerRadius = 10
@@ -105,5 +109,12 @@ class MealDilevaryDropOffVC: UIViewController {
 
     @IBAction func btnApplyAction(_ sender: UIButton) {
         setupDataAndDismiss()
+    }
+}
+
+extension UIButton {
+    func centerTitle() {
+        self.contentHorizontalAlignment = .center
+        self.titleLabel?.textAlignment = .center
     }
 }

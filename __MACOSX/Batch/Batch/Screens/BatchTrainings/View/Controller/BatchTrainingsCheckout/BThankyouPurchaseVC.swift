@@ -17,8 +17,9 @@ class BThankyouPurchaseVC: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        if isCommingFrom == "MealPlanCheckout"
-        {
+        if isCommingFrom == "MealPlanCheckout" {
+            self.descriptionLbl.text = "A courier will contact you on the day of delivery."
+        } else if isCommingFrom == "MealBatchSubscribe" {
             self.descriptionLbl.text = "A courier will contact you on the day of delivery."
         }
     }

@@ -22,9 +22,8 @@ class MealPlanIngridentEditableView: UIViewController {
     
     @IBOutlet weak var ingridentLabelView: UILabel!
     @IBOutlet weak var reviewsCountLabel: UILabel!
-    
+    @IBOutlet weak var dishImageView: UIImageView!
     @IBOutlet weak var rateMealLabel: UILabel!
-
 
     var selectedMealData : Meals!
     var dishData : Dishes!
@@ -47,6 +46,12 @@ class MealPlanIngridentEditableView: UIViewController {
         rateMealLabel.addGestureRecognizer(tapGesture)
 
         rateMealLabel.textColor = Colors.appThemeButtonColor
+        
+        if dishData != nil {
+            let fileUrl = URL(string: BaseUrl.imageBaseUrl + (dishData.dishImage ?? ""))
+            self.dishImageView.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
+        }
+
         self.setupNavigationBar()
         self.getDishesDetailsApi()
     }

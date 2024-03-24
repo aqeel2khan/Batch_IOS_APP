@@ -32,22 +32,15 @@ class StartDatePlanVC: UIViewController {
         calenderStackView.layer.cornerRadius = 20
         planCalender.appearance.todayColor = .gray
         planCalender.appearance.titleTodayColor = .white
-
         planCalender.appearance.selectionColor = UIColor.hexStringToUIColor(hex: "#516634")
         planCalender.appearance.titleDefaultColor = UIColor.black
         planCalender.appearance.titlePlaceholderColor = UIColor.gray
-
         dateLabelContainer.addRoundedRect(cornerRadius: 10, borderWidth: 2, borderColor: UIColor.hexStringToUIColor(hex: "#516634"))
-
         planCalender.appearance.weekdayTextColor = .gray
         calenderStackView.layer.borderWidth = 0.5
         calenderStackView.layer.borderColor = Colors.appViewBackgroundColor.cgColor
-        
-        
         let timeStampCurrentDate = planCalender.currentPage.timeIntervalSince1970.description
-       
         let currentMonthName = timeStampCurrentDate.getCurrentDate(dateStyle: .dateWithWholeMonthOnly)
-       
         lblCurrentmonthName.text = currentMonthName
         lblCurrentSelectedDate.text = convertDate(date: Date())
     }
@@ -78,19 +71,33 @@ class StartDatePlanVC: UIViewController {
         let currentMonthName = timeStampCurrentDate.getCurrentDate(dateStyle: .dateWithWholeMonthOnly)
         lblCurrentmonthName.text = currentMonthName
     }
+    
+    func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+        // Get the current date
+        let currentDate = Date()
+        
+        // Get the date after 2 days from the current date
+        let twoDaysAfterCurrentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
+        
+        // Compare the provided date with the date after 1 days from the current date
+        if date >= twoDaysAfterCurrentDate {
+            // Allow selection if the provided date is equal to or after 1 days from the current date
+            return true
+        } else {
+            // Disallow selection if the provided date is before 1 days from the current date
+            return false
+        }
+    }
 
     func convertToString (dateString: String, formatIn : String, formatOut : String) -> String {
-
-       let dateFormater = DateFormatter()
+        let dateFormater = DateFormatter()
         dateFormater.timeZone = NSTimeZone(abbreviation: "UTC") as TimeZone?
-       dateFormater.dateFormat = formatIn
-       let date = dateFormater.date(from: dateString)
-
-       dateFormater.timeZone = NSTimeZone.system
-
-       dateFormater.dateFormat = formatOut
-       let timeStr = dateFormater.string(from: date!)
-       return timeStr
+        dateFormater.dateFormat = formatIn
+        let date = dateFormater.date(from: dateString)
+        dateFormater.timeZone = NSTimeZone.system
+        dateFormater.dateFormat = formatOut
+        let timeStr = dateFormater.string(from: date!)
+        return timeStr
     }
     
     @IBAction func btnApplyAction(_ sender: UIButton) {
@@ -98,9 +105,10 @@ class StartDatePlanVC: UIViewController {
     }
     
     func setupDataAndDismiss() {
+        let twoDaysAfterCurrentDate = Calendar.current.date(byAdding: .day, value: 2, to: Date())!
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-YYYY"
-        MealSubscriptionManager.shared.startDate = dateFormatter.string(from:planCalender.selectedDate ?? Date())
+        MealSubscriptionManager.shared.startDate = dateFormatter.string(from:planCalender.selectedDate ?? twoDaysAfterCurrentDate)
         self.dismiss(animated: true)
         completion?()
     }
