@@ -132,7 +132,7 @@ class MealPlanCheckout: UIViewController {
         if isValid {
             // Data is valid, proceed further
             let vc = BPaymentGatewayPopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
-            vc.modalPresentationStyle = .pageSheet
+            vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
             vc.totalOrderAmount = "\(self.grandTotal)"
             if isCommingFrom == "MealBatchSubscribe" {
