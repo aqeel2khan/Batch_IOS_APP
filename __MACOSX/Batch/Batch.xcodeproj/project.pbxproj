@@ -57,6 +57,7 @@
 		1A9B01562BA4C46F00F17C42 /* DeliveryTimeSlotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9B01542BA4C46F00F17C42 /* DeliveryTimeSlotCell.xib */; };
 		1A9B01582BA4C91B00F17C42 /* DeliveryDropOffOptionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01572BA4C91B00F17C42 /* DeliveryDropOffOptionsResponse.swift */; };
 		1A9B015A2BA56B4B00F17C42 /* MealSubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01592BA56B4B00F17C42 /* MealSubscriptionManager.swift */; };
+		1ABA48CF2BB0535100A74E52 /* CityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABA48CE2BB0535100A74E52 /* CityPickerViewController.swift */; };
 		311576BB2B8676FA00224EDE /* BLogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BA2B8676FA00224EDE /* BLogInViewModel.swift */; };
 		311576BD2B8678E400224EDE /* BLogInResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BC2B8678E400224EDE /* BLogInResource.swift */; };
 		311B1B612B2DE00C00E37E47 /* BatchTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311B1B602B2DE00C00E37E47 /* BatchTabBar.storyboard */; };
@@ -395,6 +396,7 @@
 		1A9B01542BA4C46F00F17C42 /* DeliveryTimeSlotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryTimeSlotCell.xib; sourceTree = "<group>"; };
 		1A9B01572BA4C91B00F17C42 /* DeliveryDropOffOptionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDropOffOptionsResponse.swift; sourceTree = "<group>"; };
 		1A9B01592BA56B4B00F17C42 /* MealSubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSubscriptionManager.swift; sourceTree = "<group>"; };
+		1ABA48CE2BB0535100A74E52 /* CityPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerViewController.swift; sourceTree = "<group>"; };
 		311576BA2B8676FA00224EDE /* BLogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInViewModel.swift; sourceTree = "<group>"; };
 		311576BC2B8678E400224EDE /* BLogInResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInResource.swift; sourceTree = "<group>"; };
 		311B1B602B2DE00C00E37E47 /* BatchTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BatchTabBar.storyboard; sourceTree = "<group>"; };
@@ -1544,6 +1546,7 @@
 				314B7ADC2B654BFB006012DB /* MealBatchPlanningVC.swift */,
 				3147145A2B68EB8F002EED87 /* MealplanRatingVC.swift */,
 				1A6346942BA745B800AB7B0C /* OptionPickerViewController.swift */,
+				1ABA48CE2BB0535100A74E52 /* CityPickerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2719,6 +2722,7 @@
 				5759E7D12B9048AB00352B24 /* BWOPackageTblCell.swift in Sources */,
 				570A7E262B9F5B3C000C7D9C /* BWorkOutVC.swift in Sources */,
 				5759E7E52B9048AB00352B24 /* BStartWorkOutDetailVC.swift in Sources */,
+				1ABA48CF2BB0535100A74E52 /* CityPickerViewController.swift in Sources */,
 				5759E7B32B9048AB00352B24 /* BWorkOutDetailViewModel.swift in Sources */,
 				1A9B01262B93ABD300F17C42 /* MealFilterRequest.swift in Sources */,
 				5711BE7A2B94D5A30069D0C7 /* BPaymentGatewayPopUpVC.swift in Sources */,

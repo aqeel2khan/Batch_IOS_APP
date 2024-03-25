@@ -262,11 +262,12 @@ extension MealBatchDetailVC {
         return datesArray
     }
     
-    func openMealIngredientView(dishId: String, dishName: String) {
+    func openMealIngredientView(dishId: String, dishName: String, dayDish: DaysDish) {
         let vc = MealPlanIngridentEditableView.instantiate(fromAppStoryboard: .batchMealPlans)
         vc.isCommingFrom = "MealBatchDetailVC"
         if let mealId = mealData.id, let goalId = mealData.goalID {
             vc.dishRequest = DishRequest(mealId: "\(mealId)", dishId: dishId, goalId: "\(goalId)", dishName: dishName)
+            vc.dishData = Dishes(categoryID: dayDish.dishCategory, name:dayDish.dishName, nameAr: dayDish.dishName, description: "", descriptionAr: "", price: "", mealID: mealId, dishID: dayDish.dishID, orderInMenu: nil, avgPreparationTime: "", dishImage: dayDish.dishImage)
         }
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical

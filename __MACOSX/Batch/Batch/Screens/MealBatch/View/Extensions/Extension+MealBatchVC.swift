@@ -46,6 +46,10 @@ extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
                         let keyword2 = BatchConstant.meals
                         let attributedString1 = NSAttributedString.attributedStringWithDifferentFonts(for: original2String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword2)
                         cell.mealsLbl.attributedText = attributedString1
+                        
+                        let fileUrl = URL(string: BaseUrl.imageBaseUrl + (self.mealListData[indexPath.row].image ?? ""))
+                        cell.backGroundImage.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
+
                         return cell
                     } else {
                         let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
@@ -61,6 +65,9 @@ extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
                         let keyword2 = BatchConstant.meals
                         let attributedString1 = NSAttributedString.attributedStringWithDifferentFonts(for: original2String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword2)
                         cell.mealsLbl.attributedText = attributedString1
+                        let fileUrl = URL(string: BaseUrl.imageBaseUrl + (self.mealListData[indexPath.row].image ?? ""))
+                        cell.backGroundImage.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
+
                         return cell
                     }
                 } else {
@@ -77,6 +84,9 @@ extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
                         let keyword2 = BatchConstant.meals
                         let attributedString1 = NSAttributedString.attributedStringWithDifferentFonts(for: original2String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword2)
                         cell.mealsLbl.attributedText = attributedString1
+                        let fileUrl = URL(string: BaseUrl.imageBaseUrl + (self.mealListData[indexPath.row].image ?? ""))
+                        cell.backGroundImage.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
+
                         return cell
                     } else {
                         let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
@@ -91,6 +101,9 @@ extension MealBatchVC: UITableViewDelegate,UITableViewDataSource {
                         let keyword2 = BatchConstant.meals
                         let attributedString1 = NSAttributedString.attributedStringWithDifferentFonts(for: original2String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword2)
                         cell.mealsLbl.attributedText = attributedString1
+                        let fileUrl = URL(string: BaseUrl.imageBaseUrl + (self.mealListData[indexPath.row].image ?? ""))
+                        cell.backGroundImage.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
+
                         return cell
                     }
                 }

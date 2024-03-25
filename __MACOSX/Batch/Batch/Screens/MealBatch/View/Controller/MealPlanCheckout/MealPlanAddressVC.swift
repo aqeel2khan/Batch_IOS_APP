@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import MapKit
 
 class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
     var completion: (() ->Void)? = nil
 
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var mapView: MKMapView!
 
     @IBOutlet weak var address1: UITextField!
     @IBOutlet weak var address2: UITextField!
@@ -23,7 +25,6 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
 
     var selectedButton: UIButton?
     var selectedDeliveryAddressType: String?
-
     var addressString1: String = ""
     var addressString2: String = ""
     var addressString3: String = ""
@@ -37,6 +38,7 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
         address3.delegate = self
         address4.delegate = self
 
+        mapView.roundCorners(radius: 10)
         configureButtons()
         configureTextfieldsWithSelectedValues()
     }
@@ -55,7 +57,6 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
     }
 
     // Action method for switch to handle state changes
@@ -94,10 +95,8 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
     func configureButtons() {
         buttonHome.layer.cornerRadius = 10
         buttonOffice.layer.cornerRadius = 10
-            
         buttonHome.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         buttonOffice.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-        
         buttonTapped(buttonHome)
     }
     
@@ -108,8 +107,8 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
         selectedButton?.backgroundColor = Colors.appViewBackgroundColor
         
         // Select the tapped button
-        sender.backgroundColor = Colors.appViewPinkBackgroundColor
         selectedButton = sender
+        sender.backgroundColor = Colors.appViewPinkBackgroundColor
         
         // Perform actions based on the selected button
         if sender == buttonHome {

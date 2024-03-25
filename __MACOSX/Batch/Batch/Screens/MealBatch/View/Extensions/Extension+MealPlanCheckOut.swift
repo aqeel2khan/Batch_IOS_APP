@@ -118,20 +118,8 @@ extension MealPlanCheckout :UITableViewDelegate,UITableViewDataSource{
             }
             self.present(vc, animated: true)
         }
+    }
         
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
-//        UIView.animate(
-//            withDuration: 0.5,
-//            delay: 0.05 * Double(indexPath.row),
-//            options: [.curveEaseInOut],
-//            animations: {
-//                cell.transform = CGAffineTransform(translationX: 0, y: 0)
-//            })
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 68
     }

@@ -48,6 +48,8 @@ extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionVie
             let keyword1 = BatchConstant.kcalSuffix
             let attributedString = NSAttributedString.attributedStringWithDifferentFonts(for: original1String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword1)
             cell.kclLbl.attributedText = attributedString
+            let fileUrl = URL(string: BaseUrl.imageBaseUrl + (self.dishesList[indexPath.item].dishImage ?? ""))
+            cell.imgView.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
             return cell
         }
         return UICollectionViewCell()

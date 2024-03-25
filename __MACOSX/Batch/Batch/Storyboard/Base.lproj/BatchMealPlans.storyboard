@@ -983,6 +983,7 @@
                         <outlet property="mealCategoryCollView" destination="8xe-eb-jke" id="jw0-gO-ymj"/>
                         <outlet property="mealCollView" destination="Jot-YA-amd" id="oXl-xu-K8m"/>
                         <outlet property="mealCollViewHeightConstraint" destination="yrN-gc-S9i" id="kaW-4s-cxp"/>
+                        <outlet property="subContainerView" destination="gNH-no-9Yq" id="hJ1-U9-8gY"/>
                         <outlet property="weekCalenderCollView" destination="ajU-Xm-b7p" id="k7a-W1-8XR"/>
                     </connections>
                 </viewController>
@@ -1008,7 +1009,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9l-Sh-PYh">
-                                <rect key="frame" x="0.0" y="385" width="393" height="597"/>
+                                <rect key="frame" x="0.0" y="385" width="393" height="607"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNd-N6-Z5G" userLabel="ContainerView">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="506.66666666666669"/>
@@ -1375,7 +1376,7 @@
                             <constraint firstItem="Ba3-or-4Ow" firstAttribute="top" secondItem="bVx-UR-8Yy" secondAttribute="top" id="UPk-Lj-0qQ"/>
                             <constraint firstItem="3U8-Cc-o4o" firstAttribute="height" secondItem="bVx-UR-8Yy" secondAttribute="height" multiplier="0.35" id="X6d-dg-hfl"/>
                             <constraint firstItem="bZ1-n4-CBw" firstAttribute="trailing" secondItem="tv9-LG-vjC" secondAttribute="trailing" id="YyU-3l-VRG"/>
-                            <constraint firstItem="tv9-LG-vjC" firstAttribute="top" secondItem="J9l-Sh-PYh" secondAttribute="bottom" constant="10" id="eg0-dz-zmZ"/>
+                            <constraint firstItem="tv9-LG-vjC" firstAttribute="top" secondItem="J9l-Sh-PYh" secondAttribute="bottom" id="eg0-dz-zmZ"/>
                             <constraint firstItem="3U8-Cc-o4o" firstAttribute="leading" secondItem="bVx-UR-8Yy" secondAttribute="leading" id="ezq-Ec-bjY"/>
                             <constraint firstItem="Ba3-or-4Ow" firstAttribute="leading" secondItem="bVx-UR-8Yy" secondAttribute="leading" id="gTk-qZ-RPh"/>
                             <constraint firstItem="J9l-Sh-PYh" firstAttribute="leading" secondItem="bVx-UR-8Yy" secondAttribute="leading" id="oGg-Fd-3a3"/>
@@ -1605,6 +1606,7 @@
                     </view>
                     <connections>
                         <outlet property="customSecondNavigationBar" destination="VUg-kK-ub0" id="LUu-cD-1Mw"/>
+                        <outlet property="dishImageView" destination="VS6-fo-NAO" id="ZRS-Va-Nlx"/>
                         <outlet property="ingridentLabelView" destination="1mY-1w-fg3" id="79q-KA-koW"/>
                         <outlet property="mealTblView" destination="b9B-Lz-8EO" id="e6K-ac-pgd"/>
                         <outlet property="mealTblViewHeightConstraint" destination="f3x-SO-Vc8" id="OeZ-Za-Goq"/>
@@ -2138,13 +2140,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
