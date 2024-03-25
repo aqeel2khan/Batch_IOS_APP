@@ -235,11 +235,11 @@ struct HttpUtility {
         
         var urlRequest = URLRequest(url: requestUrl)
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-       
-//        urlRequest.addValue("en", forHTTPHeaderField: "language")
-
         
-        // sending empty token for course details api success for now, later we will remove if condtion
+        let languageCode = UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String ?? DEFAULT_LANGUAGE_CODE
+        urlRequest.addValue(languageCode, forHTTPHeaderField: "Accept-Language")
+        
+    // sending empty token for course details api success for now, later we will remove if condtion
         if requestUrl.absoluteURL.absoluteString.contains("/course/detail/") {
             urlRequest.setValue("", forHTTPHeaderField: "Authorization")
         } else {

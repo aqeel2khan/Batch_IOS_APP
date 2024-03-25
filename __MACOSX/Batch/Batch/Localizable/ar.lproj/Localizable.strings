@@ -10,13 +10,9 @@
 "We have sent the code verification to your mobile number"  = "دفعة النص العربي";
 "Before we start, we need to know your gender"  = "دفعة النص العربي";
 "Welcome to Batch!"  = "دفعة النص العربي";
-"Lorem ipsum dolor sit"  = "دفعة النص العربي";
 "Lorem ipsum dolor sit amet consectetur."  = "دفعة النص العربي";
-"I want to look around"  = "دفعة النص العربي";
-"Log In"  = "دفعة النص العربي";
 "Don't have an account ?"  = "دفعة النص العربي";
 "SIGN UP" = "دفعة النص العربي";
-"Batcheboard"  = "دفعة النص العربي";
 "Workout Batches"  = "دفعة النص العربي";
 "Meal Batches" = "دفعة النص العربي";
 "Top Rated Meals" = "دفعة النص العربي";
@@ -87,6 +83,13 @@
 "Choose Photo" = "أهلاً مجدداً";
 "Please select country" = "أهلاً مجدداً";
 "Homepage" = "أهلاً مجدداً";
+
+
+
+
+
+
+
 
 
 
@@ -403,6 +406,7 @@
 "Country" = "الدولة";
 "Language" = "اللغة";
 "Workouts" = "تمارين غير";
+"Batcheboard"  = "باتش بورد";
 
 
 

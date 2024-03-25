@@ -109,7 +109,7 @@ class BCheckoutVC: UIViewController {
     @IBAction func onTapCheckOutBtn(_ sender: Any) {
         if getTotalPrice() != nil {
             let vc = BPaymentGatewayPopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
-            vc.modalPresentationStyle = .pageSheet
+            vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
             //vc.promotionPriceValue = 0
             vc.totalOrderAmount = getTotalPrice()
