@@ -49,15 +49,14 @@ class BRegistrationVC: UIViewController {
     }
    
     @IBAction func onTapWithAppleSignUpBtn(_ sender: UIButton) {
+        handleAuthorizationAppleIDButtonPress()
     }
     
     
-    @IBAction func onTapCheckBoxBtn(_ sender: UIButton)
-    {
+    @IBAction func onTapCheckBoxBtn(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         isCheckBoxSelected = sender.isSelected
     }
-    
     
     @IBAction func onTapGoToCheckOutBtn(_ sender: Any) {
 //        let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
@@ -159,4 +158,70 @@ extension BRegistrationVC {
         }
         
     }
+}
+
+extension BRegistrationVC: ASAuthorizationControllerDelegate {
+    func handleAuthorizationAppleIDButtonPress() {
+        if #available(iOS 13.2, *)  {
+            // Create the authorization request
+            let request = ASAuthorizationAppleIDProvider().createRequest()
+            
+            // Set Scopes
+            request.requestedScopes = [.email, .fullName]
+            
+            // Setup a controller to display the authorization flow
+            let controller = ASAuthorizationController(authorizationRequests: [request])
+            
+            // Set delegate to handle the flow response.
+            controller.delegate = self
+            controller.presentationContextProvider = self
+            
+            // Action
+            controller.performRequests()
+        }
+        
+        else {
+            print("ios12")
+        }
+    }
+    
+    // ASAuthorizationControllerDelegate function for authorization failed
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    // ASAuthorizationControllerDelegate function for successful authorization
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            // Create an account as per your requirement
+            let appleId = appleIDCredential.user
+            let appleUserFirstName = appleIDCredential.fullName?.givenName ?? ""
+            let appleUserLastName = appleIDCredential.fullName?.familyName ?? ""
+            let appleUserEmail = appleIDCredential.email ?? ""
+            //                self.userSocialType = "Apple_id"
+            //                self.userSocialID = appleId
+            //                self.userName = appleUserFirstName!
+            //                //  self.last_name = appleUserLastName!
+            //                self.userEmail = appleUserEmail!
+            //
+            //                social_logonApi()
+            
+            self.showAlert(message: "You have successfully login : Hi, \(appleUserFirstName) \(appleUserLastName) \n \(appleUserEmail)")
+            
+            
+        } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
+            let appleUsername = passwordCredential.user
+            let applePassword = passwordCredential.password
+            
+            self.showAlert(message: "You have successfully login : Hi, \(appleUsername)  \n \(applePassword)")
+        }
+    }
+}
+
+@available(iOS 13.0, *)
+extension BRegistrationVC: ASAuthorizationControllerPresentationContextProviding {
+    //For present window
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    } // END
 }

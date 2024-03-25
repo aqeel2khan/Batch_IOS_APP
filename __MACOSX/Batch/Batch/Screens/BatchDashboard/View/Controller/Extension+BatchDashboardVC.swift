@@ -78,8 +78,8 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
                 cell.bgImageView.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Image"))
                 cell.titleLbl.text = course?.courseName
                 cell.daysLbl.text = "\(self.courseList[indexPath.item].todayWorkouts?.row ?? 0)" + "/" + (course?.duration ?? "")
-                cell.kclLbl.text = (course?.perDayWorkout ?? "") + " kcl"
-                cell.minLbl.text = (course?.duration ?? "") + " min"
+                cell.kclLbl.text = (course?.perDayWorkout ?? "") + " \(BatchConstant.minsSuffix)"
+                cell.minLbl.text = (course?.duration ?? "") + " \(BatchConstant.days)"
                 
                 if let startDate = createCourseDate(from: self.courseList[indexPath.item].startDate ?? ""), let endDate = createCourseDate(from: self.courseList[indexPath.item].endDate ?? "") {
                     let percentage = calculatePercentage(startDate: startDate, endDate: endDate)

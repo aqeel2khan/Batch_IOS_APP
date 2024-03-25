@@ -23,7 +23,9 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     @IBOutlet weak var mealBatchCollView: UICollectionView!
+    @IBOutlet weak var mealCardImageView: UIImageView!
     @IBOutlet weak var workoutBatchCollView: UICollectionView!
+    @IBOutlet weak var workoutCardImageView: UIImageView!
     @IBOutlet weak var macroContainer: UIView!
 
     
@@ -168,12 +170,17 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
         kcalContainerView.layer.borderWidth = 2.0 // You can adjust the border width as needed
         kcalContainerView.layer.borderColor = UIColor.hexStringToUIColor(hex: "#516634").cgColor // You can adjust the border color as needed
         
-        // Call Api here
-        self.getSubscribedMealList()
-        self.getSubscribedCourseList()
-    }
-    
-  
+        if UserDefaultUtility.isUserLoggedIn() {
+            // Call Api here
+            self.getSubscribedMealList()
+            self.getSubscribedCourseList()
+        } else {
+            self.workoutCardImageView.isHidden = false
+            self.mealCardImageView.isHidden = false
+            self.workoutBatchCollView.isHidden = true
+            self.mealBatchCollView.isHidden = true
+        }
+    }  
     
     func updateLineChartForSleeping(){
 //        var lineChartEntry = [ChartDataEntry]()
@@ -243,11 +250,13 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
                 DispatchQueue.main.async {
                     hideLoading()
                     self.workoutBatchCollView.isHidden = false
+                    self.workoutCardImageView.isHidden = true
                     self.workoutBatchCollView.reloadData()
                 }
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.workoutCardImageView.isHidden = false
                     self.workoutBatchCollView.isHidden = true
                 }
             }
@@ -417,6 +426,7 @@ extension BatchDashboardVC {
                 DispatchQueue.main.async {
                     hideLoading()
                     self.mealBatchCollView.isHidden = false
+                    self.mealCardImageView.isHidden = true
                     self.mealBatchCollView.reloadData()
                     if response.data?.recordsTotal ?? 0 > 0  {
                         self.getMacrosDetail()
@@ -429,6 +439,7 @@ extension BatchDashboardVC {
                 DispatchQueue.main.async {
                     hideLoading()
                     self.mealBatchCollView.isHidden = true
+                    self.mealCardImageView.isHidden = false
                     self.macroContainer.isHidden = true
                 }
             }
