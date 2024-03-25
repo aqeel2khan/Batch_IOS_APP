@@ -22,10 +22,6 @@ class BWorkOutVC: UIViewController {
     @IBOutlet weak var filterBtnWorkout: UIButton!
     @IBOutlet weak var filterBtnMotivator: UIButton!
 
-    // MARK: - Properties
-    private let cornerRadius: CGFloat = 24
-    
-    //var httpUtility = HttpUtility1.shared
     var motivatorListData = [WorkOutMotivator]()
     var courseListData = [CourseDataList]()
     var selectedIndex = 0
@@ -45,6 +41,11 @@ class BWorkOutVC: UIViewController {
     var coachFilterArray : CoachDataList!
     
     var timer: Timer? = nil
+    
+    var selectedWorkOut : [Int] = []
+    var selectedLevel : [Int] = []
+    var selectedGoal : [Int] = []
+    var selectedExp : [Int] = []
 
     
     // MARK: - Lifecycle
@@ -158,14 +159,26 @@ class BWorkOutVC: UIViewController {
         vc.workOutArray = self.workOutFilterArray
         vc.levelArray = self.levelFilterArray
         vc.goalArray = self.goalFilterArray
-        vc.completion = { (wo,level,goal) in
-            print("Coming back Course Filter Id")
-            if wo == "" && level == "" && goal == "" {
+        vc.selectedWorkOut = self.selectedWorkOut
+        vc.selectedLevel = self.selectedLevel
+        vc.selectedGoal = self.selectedGoal
+        
+        vc.completion = { (woList,levelList,goalList) in
+            self.selectedWorkOut = woList
+            self.selectedLevel = levelList
+            self.selectedGoal = goalList
+            
+            if woList.count == 0 && levelList.count == 0 && goalList.count == 0 {
                 self.filterBtnWorkout.setImage(UIImage.init(named: "filter"), for: .normal)
             } else {
                 self.filterBtnWorkout.setImage(UIImage.init(named: "filter_selected"), for: .normal)
             }
-            self.applyCourseFilterApi(woFStr: wo, levelFStr: level, goalFStr: goal)
+            
+            let commaSeparatedWorkOutStr = woList.map{String($0)}.joined(separator: ",")
+            let commaSeparatedLevelStr = levelList.map{String($0)}.joined(separator: ",")
+            let commaSeparatedGoalStr = goalList.map{String($0)}.joined(separator: ",")
+         
+            self.applyCourseFilterApi(woFStr: commaSeparatedWorkOutStr, levelFStr: commaSeparatedLevelStr, goalFStr: commaSeparatedGoalStr)
         }
         self.present(vc, animated: true)
     }
@@ -176,14 +189,22 @@ class BWorkOutVC: UIViewController {
         vc.modalTransitionStyle = .coverVertical
         vc.workOutArray = self.coachFilterArray?.workouttypes ?? []
         vc.experienceArray = self.coachFilterArray.experiences
-        vc.completion = { (exp, workout) in
-            print("Coming back Motivator filter Id")
-            self.applyMotivatorFilterApi(keywordStr: "", experienceStr: exp, workoutStr: workout)
-            if exp == "" && workout == "" {
+        vc.selectedWorkOut = self.selectedWorkOut
+        vc.selectedExperience = self.selectedExp
+        vc.completion = { (expList, workoutList) in
+            self.selectedExp = expList
+            self.selectedWorkOut = workoutList
+            
+            if expList.count == 0 && workoutList.count == 0 {
                 self.filterBtnMotivator.setImage(UIImage.init(named: "filter"), for: .normal)
             } else {
                 self.filterBtnMotivator.setImage(UIImage.init(named: "filter_selected"), for: .normal)
             }
+            
+            let commaSeparatedExpStr = expList.map{String($0)}.joined(separator: ",")
+            let commaSeparatedWorkoutStr = workoutList.map{String($0)}.joined(separator: ",")
+         
+            self.applyMotivatorFilterApi(keywordStr: "", experienceStr: commaSeparatedExpStr, workoutStr: commaSeparatedWorkoutStr)
         }
         self.present(vc, animated: true)
     }
