@@ -59,8 +59,12 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p7f-qy-4DR">
-                                <rect key="frame" x="267" y="11.666666666666668" width="72" height="27.000000000000004"/>
+                                <rect key="frame" x="267" y="10" width="72" height="30"/>
                                 <color key="backgroundColor" name="AppThemeButtonColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="Cwm-P5-bZb"/>
+                                    <constraint firstAttribute="height" constant="30" id="lQ1-U9-y9g"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="15"/>
@@ -68,12 +72,8 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVU-QZ-5Ym" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                <rect key="frame" x="267" y="11.666666666666668" width="72" height="27.000000000000004"/>
+                                <rect key="frame" x="267" y="10" width="72" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="aRS-5n-3gm"/>
-                                    <constraint firstAttribute="width" constant="72" id="nMN-Oj-wpH"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="10.5"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Unfollow">
@@ -120,7 +120,7 @@
     </objects>
     <designables>
         <designable name="sVU-QZ-5Ym">
-            <size key="intrinsicContentSize" width="63" height="33"/>
+            <size key="intrinsicContentSize" width="42" height="26"/>
         </designable>
     </designables>
     <resources>

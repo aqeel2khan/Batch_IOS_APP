@@ -670,7 +670,7 @@ extension BatchDashboardVC: UITableViewDelegate, UITableViewDataSource{
     func updateBarChart(barChartView: BarChartView){
         var lineChartEntry = [ChartDataEntry]()
         for i in 0..<(self.sleepData.count ){
-            let lineChart = BarChartDataEntry(x: Double(i), y:Double(self.sleepData[i]))
+            let lineChart = BarChartDataEntry(x: Double(i), y:Double(self.sleepData[i]),data: datesSleep)
             lineChartEntry.append(lineChart)
         }
         let l1 = BarChartDataSet(entries: lineChartEntry)
@@ -763,7 +763,7 @@ extension BatchDashboardVC: UITableViewDelegate, UITableViewDataSource{
         if isSleep{
             return datesSleep[Int(value)]
         }else{
-            if datesEnergy.count > 0{
+            if datesEnergy.count > 0 && value > 0{
                 return datesEnergy[Int(value)]
             }
         }
