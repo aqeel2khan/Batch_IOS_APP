@@ -10,8 +10,19 @@ import UIKit
 class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
     var completion: (() ->Void)? = nil
 
+    var states: [States] = [] // Example states
+    var cities: [City] = [] // Example cities by state
+
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var mapView: MKMapView!
+    var pickerView: UIPickerView!
+
+    @IBOutlet weak var countryTextfield: UITextField!
+    @IBOutlet weak var stateTextfield: UITextField!
+    @IBOutlet weak var cityTextfield: UITextField!
+    var statePickerView: UIPickerView!
+    var cityPickerView: UIPickerView!
 
     @IBOutlet weak var address1: UITextField!
     @IBOutlet weak var address2: UITextField!
@@ -39,7 +50,33 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
 
         configureButtons()
         configureTextfieldsWithSelectedValues()
+        
+        getStatesList(countryId: "120")
     }
+    
+    func configureStateAndCityPickerView() {
+        stateTextfield.inputView = createStatePickerView()
+        stateTextfield.tag = 0 // Tag to identify state text field
+        cityTextfield.inputView = createCityPickerView() // Default to first state
+        cityTextfield.tag = 1 // Tag to identify city text field
+    }
+    
+    // Create the state picker view
+    func createStatePickerView() -> UIPickerView {
+        statePickerView = UIPickerView()
+        statePickerView.delegate = self
+        statePickerView.dataSource = self
+        return statePickerView
+    }
+    
+    // Create the city picker view for a given state
+    func createCityPickerView() -> UIPickerView {
+        cityPickerView = UIPickerView()
+        cityPickerView.delegate = self
+        cityPickerView.dataSource = self
+        return cityPickerView
+    }
+
     
     func configureTextfieldsWithSelectedValues() {
         addressString1 = MealSubscriptionManager.shared.area ?? ""
@@ -180,4 +217,119 @@ class MealPlanAddressVC: UIViewController, UITextFieldDelegate {
             showAlert(message: validation.errorMessage)
         }
     }
+}
+
+extension MealPlanAddressVC: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == statePickerView {
+            return states.count
+        } else {
+            return cities.count
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == statePickerView {
+            return states[row].name
+        } else {
+            return cities[row].name
+        }
+    }
+    
+    // MARK: - UIPickerViewDelegate methods
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == statePickerView {
+            let selectedState = states[row].name
+            stateTextfield.text = selectedState
+            self.updateTheSubscriptionManagerValue(city: nil, state: states[row])
+            self.getCityList(stateId: "\(states[row].id)")
+        } else {
+            let selectedCity = cities[row].name
+            cityTextfield.text = selectedCity
+            self.updateTheSubscriptionManagerValue(city: cities[row], state: nil)
+        }
+    }
+    
+    func updateTheSubscriptionManagerValue(city: City?, state: States?) {
+        if let city = city {
+            MealSubscriptionManager.shared.city = city.name
+            MealSubscriptionManager.shared.cityId = "\(city.id)"
+        }
+        
+        if let state = state {
+            MealSubscriptionManager.shared.state = state.name
+            MealSubscriptionManager.shared.stateId = "\(state.id)"
+        }
+    }
+}
+
+extension MealPlanAddressVC {
+    public func getStatesList(countryId: String) {
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealViewModel = BMealViewModel()
+        bMealViewModel.getStatesList(request: StateRequest(countryId: countryId)) { (response) in
+            if response.status == true, response.data?.data?.count != 0 {
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.states = response.data?.data ?? []
+                    self.stateTextfield.text = self.states.first?.name
+                    self.updateTheSubscriptionManagerValue(city: nil, state: self.states.first)
+                    self.configureStateAndCityPickerView()
+                    self.getCityList(stateId: "\(self.states.first?.id ?? 0)")
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.dismiss(animated: true)
+                    self.showAlert(message: "Something Went wrong")
+                }
+            }
+            
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.dismiss(animated: true)
+                self.showAlert(message: error.localizedDescription)
+            }
+        }
+    }
+    
+    public func getCityList(stateId: String) {
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bMealViewModel = BMealViewModel()
+        bMealViewModel.getCityList(request: CityRequest(stateId: stateId)) { (response) in
+            if response.status == true, response.data?.data?.count != 0 {
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.cities = response.data?.data ?? []
+                    self.cityTextfield.text = self.cities.first?.name
+                    self.updateTheSubscriptionManagerValue(city: self.cities.first, state: nil)
+                    self.cityPickerView.reloadAllComponents()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    hideLoading()
+                    self.dismiss(animated: true)
+                    self.showAlert(message: "Something Went wrong")
+                }
+            }
+            
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.dismiss(animated: true)
+                self.showAlert(message: error.localizedDescription)
+            }
+        }
+    }
+
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jTK-kI-kEl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jTK-kI-kEl">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwz-s3-wky">
-                                <rect key="frame" x="20" y="69.333333333333329" width="60" height="50"/>
+                                <rect key="frame" x="20" y="68" width="60" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3jM-9Y-922"/>
                                     <constraint firstAttribute="width" constant="60" id="Pem-gm-zmS"/>
@@ -39,19 +39,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORr-e3-u4L" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
-                                <rect key="frame" x="152.33333333333334" y="79" width="88.666666666666657" height="30.333333333333329"/>
+                                <rect key="frame" x="151.66666666666666" y="79" width="89.666666666666657" height="28"/>
                                 <fontDescription key="fontDescription" name="Outfit-SemiBold" family="Outfit" pointSize="24"/>
                                 <color key="textColor" name="AppLabelBlackColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZE-c3-EZO">
-                                <rect key="frame" x="0.0" y="164.33333333333331" width="393" height="687.66666666666674"/>
+                                <rect key="frame" x="0.0" y="163" width="393" height="689"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpU-LA-2gn">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="687.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="689"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nyu-3q-UEk">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="550.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="548.33333333333337"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar3" translatesAutoresizingMaskIntoConstraints="NO" id="gzI-nt-MC3">
                                                         <rect key="frame" x="146.66666666666666" y="20" width="100" height="100"/>
@@ -66,13 +66,13 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cameron Williamson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urg-EE-Cn0">
-                                                        <rect key="frame" x="102.33333333333333" y="129.99999999999997" width="188.33333333333337" height="25.333333333333343"/>
+                                                        <rect key="frame" x="104.33333333333333" y="130" width="184.33333333333337" height="23.333333333333343"/>
                                                         <fontDescription key="fontDescription" name="Outfit-SemiBold" family="Outfit" pointSize="20"/>
                                                         <color key="textColor" name="AppLabelBlackColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ke-5G-5Te" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="121.00000000000001" y="160.33333333333334" width="151.33333333333337" height="30"/>
+                                                        <rect key="frame" x="112.00000000000001" y="158.33333333333331" width="169.33333333333337" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="e6u-KY-aWM"/>
                                                         </constraints>
@@ -86,7 +86,7 @@
                                                         </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CVW-zg-Ucd">
-                                                        <rect key="frame" x="0.0" y="230.33333333333337" width="393" height="250"/>
+                                                        <rect key="frame" x="0.0" y="228.33333333333331" width="393" height="250"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wyg-dT-8ER">
                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
@@ -99,7 +99,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPM-e0-hNA" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
-                                                                        <rect key="frame" x="60" y="13.333333333333314" width="105" height="23"/>
+                                                                        <rect key="frame" x="60.000000000000007" y="14.666666666666686" width="105.66666666666669" height="21"/>
                                                                         <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="18"/>
                                                                         <color key="textColor" name="AppLabelBlackColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -150,7 +150,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Language" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n46-jr-aDr" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
-                                                                        <rect key="frame" x="60.000000000000014" y="13.333333333333314" width="146.33333333333337" height="23"/>
+                                                                        <rect key="frame" x="59.999999999999986" y="14.666666666666686" width="147.66666666666663" height="21"/>
                                                                         <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="18"/>
                                                                         <color key="textColor" name="AppLabelBlackColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -201,13 +201,13 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3W-TH-64K" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
-                                                                        <rect key="frame" x="59.999999999999993" y="13.333333333333314" width="76.333333333333314" height="23"/>
+                                                                        <rect key="frame" x="60" y="14.666666666666686" width="77" height="21"/>
                                                                         <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="18"/>
                                                                         <color key="textColor" name="AppLabelBlackColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZe-EV-abI">
-                                                                        <rect key="frame" x="20" y="48.999999999999943" width="353" height="1"/>
+                                                                        <rect key="frame" x="20" y="49.000000000000057" width="353" height="1"/>
                                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="kOf-3S-b6i"/>
@@ -242,7 +242,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VbN-eX-KgM">
-                                                                <rect key="frame" x="0.0" y="149.99999999999994" width="393" height="50"/>
+                                                                <rect key="frame" x="0.0" y="150.00000000000006" width="393" height="50"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location 3" translatesAutoresizingMaskIntoConstraints="NO" id="xHV-Vd-1CM">
                                                                         <rect key="frame" x="20" y="10" width="30" height="30"/>
@@ -252,7 +252,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucx-HI-dDz" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
-                                                                        <rect key="frame" x="60" y="13.333333333333371" width="126" height="23"/>
+                                                                        <rect key="frame" x="60.000000000000007" y="14.666666666666629" width="123.66666666666669" height="21"/>
                                                                         <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="18"/>
                                                                         <color key="textColor" name="AppLabelBlackColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -293,7 +293,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PR-fR-eDh">
-                                                                <rect key="frame" x="0.0" y="199.99999999999994" width="393" height="50"/>
+                                                                <rect key="frame" x="0.0" y="200.00000000000006" width="393" height="50"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Combo shape" translatesAutoresizingMaskIntoConstraints="NO" id="dh3-ax-sg7">
                                                                         <rect key="frame" x="20" y="10" width="30" height="30"/>
@@ -303,7 +303,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6V-UD-mbt" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
-                                                                        <rect key="frame" x="60" y="13.333333333333371" width="162" height="23"/>
+                                                                        <rect key="frame" x="59.999999999999986" y="14.666666666666629" width="162.66666666666663" height="21"/>
                                                                         <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="18"/>
                                                                         <color key="textColor" name="AppLabelBlackColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -346,7 +346,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xa-LD-eRp">
-                                                        <rect key="frame" x="0.0" y="500.33333333333326" width="393" height="50"/>
+                                                        <rect key="frame" x="0.0" y="498.33333333333337" width="393" height="50"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logout" translatesAutoresizingMaskIntoConstraints="NO" id="xWu-Tc-Ccl">
                                                                 <rect key="frame" x="20" y="10" width="30" height="30"/>
@@ -356,7 +356,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZ9-JZ-fJL" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
-                                                                <rect key="frame" x="60" y="13.333333333333371" width="60" height="23"/>
+                                                                <rect key="frame" x="60" y="14.666666666666629" width="62" height="21"/>
                                                                 <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="18"/>
                                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1420,46 +1420,46 @@
     </scenes>
     <designables>
         <designable name="16d-0B-aPE">
-            <size key="intrinsicContentSize" width="104.33333333333333" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="64.333333333333329" height="18.666666666666668"/>
         </designable>
         <designable name="3vc-0K-mxM">
-            <size key="intrinsicContentSize" width="35" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="32"/>
         </designable>
         <designable name="8Ke-5G-5Te">
-            <size key="intrinsicContentSize" width="151.33333333333334" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="169.33333333333334" height="35"/>
         </designable>
         <designable name="9hp-WX-OJj">
-            <size key="intrinsicContentSize" width="76" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="36" height="18.666666666666668"/>
         </designable>
         <designable name="GoE-z7-tKW">
-            <size key="intrinsicContentSize" width="81" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="41" height="18.666666666666668"/>
         </designable>
         <designable name="Mgz-Bv-v49">
-            <size key="intrinsicContentSize" width="120.33333333333333" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="80.333333333333329" height="18.666666666666668"/>
         </designable>
         <designable name="RNf-x5-xYY">
-            <size key="intrinsicContentSize" width="74.666666666666671" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="34.666666666666664" height="18.666666666666668"/>
         </designable>
         <designable name="ayV-nv-bvo">
-            <size key="intrinsicContentSize" width="87.333333333333329" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="47.333333333333336" height="18.666666666666668"/>
         </designable>
         <designable name="jiJ-zQ-5Sp">
-            <size key="intrinsicContentSize" width="30" height="33"/>
+            <size key="intrinsicContentSize" width="30" height="32"/>
         </designable>
         <designable name="jtP-jI-ZWl">
-            <size key="intrinsicContentSize" width="121" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="81" height="18.666666666666668"/>
         </designable>
         <designable name="sls-M2-WWM">
-            <size key="intrinsicContentSize" width="79.666666666666671" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="39.333333333333336" height="18.666666666666668"/>
         </designable>
         <designable name="vLL-uO-UXk">
-            <size key="intrinsicContentSize" width="35" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="32"/>
         </designable>
         <designable name="w6v-ip-4fU">
-            <size key="intrinsicContentSize" width="49" height="33"/>
+            <size key="intrinsicContentSize" width="52" height="32"/>
         </designable>
         <designable name="zBz-D3-bjh">
-            <size key="intrinsicContentSize" width="94" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="54" height="18.666666666666668"/>
         </designable>
     </designables>
     <resources>
@@ -1494,7 +1494,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
