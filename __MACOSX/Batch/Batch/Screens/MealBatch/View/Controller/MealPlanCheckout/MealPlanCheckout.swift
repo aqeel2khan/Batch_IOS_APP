@@ -25,10 +25,12 @@ class MealPlanCheckout: UIViewController {
     @IBOutlet weak var subtotal: UILabel!
     @IBOutlet weak var promotion: UILabel!
     @IBOutlet weak var total: UILabel!
-
+    @IBOutlet weak var durationLbl: UILabel!
+    
 
     var mealData : Meals!
     var isCommingFrom = ""
+    var grandTotal: Double = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +51,6 @@ class MealPlanCheckout: UIViewController {
     func checkoutSetup() {
         setupTableView()
         self.titleLbl.text = mealData.name
-        let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(mealData.price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
         let durationString = getDuration()
         guard let priceString = mealData.price, let price = Double(priceString), let duration = Double(durationString)  else {
             return
@@ -73,7 +74,7 @@ class MealPlanCheckout: UIViewController {
         self.total.attributedText = NSAttributedString.attributedStringForPrice(prefix: "", value: " \(CURRENCY) \(mealData.price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
         MealSubscriptionManager.shared.duration = self.getDuration()
         self.total.attributedText = NSAttributedString.attributedStringForPrice(prefix: "", value: " \(CURRENCY) \(grandTotal)", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
-        self.durationLbl.text = "\(MealSubscriptionManager.shared.duration ?? "1") weeks"
+        self.durationLbl.text = "\(getDuration()) weeks"
         
         self.fetchData()
     }
