@@ -42,15 +42,15 @@ class BRegistrationVC: UIViewController {
         let numberRange = (text as NSString).range(of: "Term of Service".localized)
         let emailRange = (text as NSString).range(of: "Privacy Policy".localized)
         if gesture.didTapAttributedTextInLabel(label: self.privcyLbl, inRange: numberRange) {
-            let vc = BPrivacyVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
-            vc.modalPresentationStyle = .overFullScreen
-            vc.modalTransitionStyle = .coverVertical
-            self.present(vc, animated: true)
-        } else if gesture.didTapAttributedTextInLabel(label: self.privcyLbl, inRange: emailRange) {
             let vc = BTermsAndCondition.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true)
+        } else if gesture.didTapAttributedTextInLabel(label: self.privcyLbl, inRange: emailRange) {
+            let vc = BPrivacyVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)  
         }
     }
     
