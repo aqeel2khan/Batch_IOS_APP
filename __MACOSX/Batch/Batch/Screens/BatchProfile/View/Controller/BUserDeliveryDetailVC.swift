@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import MapKit
 
 class BUserDeliveryDetailVC: UIViewController {
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var mainView: UIView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        mapView.delegate = self
         // Do any additional setup after loading the view.
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         mainView.addGestureRecognizer(tap)
@@ -42,4 +44,8 @@ class BUserDeliveryDetailVC: UIViewController {
     @IBAction func onTapSaveBtn(_ sender: UIButton) {
      
     }
+}
+
+
+extension BUserDeliveryDetailVC : MKMapViewDelegate {
 }
