@@ -4,11 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nLa-3h-fgD">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
-    <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -675,12 +670,10 @@
             <size key="intrinsicContentSize" width="38" height="32"/>
         </designable>
         <designable name="bhw-Ul-z4M">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="41" height="32"/>
         </designable>
     </designables>
     <resources>
-        <image name="Avatar3" width="130.33332824707031" height="130"/>
-        <image name="Graph1" width="130" height="7.6666665077209473"/>
         <image name="IconDown" width="36" height="36"/>
         <image name="icon_dselected" width="30" height="28"/>
         <image name="icon_dunselected" width="9.3333330154418945" height="10"/>
@@ -688,16 +681,14 @@
         <image name="icon_munselected" width="10" height="10"/>
         <image name="icon_wselected" width="30" height="28"/>
         <image name="icon_wunselected" width="13.333333015441895" height="10"/>
-        <image name="scanner" width="42" height="42"/>
-        <image name="scannerfill" width="42" height="42"/>
-        <image name="viewCenterRectangle" width="52" height="5"/>
-        <namedColor name="AppLabelBlackColor">
-            <color red="0.062745098039215685" green="0.070588235294117646" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <image name="meal_card" width="335" height="253"/>
         <image name="scanner" width="42" height="42"/>
         <image name="scannerfill" width="42" height="42"/>
+        <image name="viewCenterRectangle" width="52" height="5"/>
         <image name="workout_card" width="335" height="253"/>
+        <namedColor name="AppLabelBlackColor">
+            <color red="0.062745098039215685" green="0.070588235294117646" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="AppThemeBackgroundColor">
             <color red="0.80000000000000004" green="0.87058823529411766" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -52,7 +52,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
    
     var macroDetails : Macros?
 
-    var datesForSleep: [String] = []
+    var datesForSleep: [String] = ["Mon","Sun","Sat","Fri","Thu","Wed","Tue"]
     var datesForEnergyBurned: [String] = []
     
     var energyBurned: [Double] = []{
@@ -64,7 +64,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     }
     
     
-    var sleepData: [Double] = []{
+    var sleepData: [Double] = [2.3,5.4,1.2,7.8,9.5,4.2,8.8]{
         didSet{
             DispatchQueue.main.async{
                 self.healthKitTableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
@@ -360,28 +360,28 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
             }
         }
         
-        queue.async {
-            dispatchGroup.enter()
-            HealthManager.shared.retrieveSleepAnalysis { data in
-                self.sleepData.removeAll()
-                self.datesSleep.removeAll()
-                if data?.count ?? 0 > 0{
-                    for i in stride(from: 0, to: 3, by: 1){
-                        let difference = Calendar.current.dateComponents([.hour, .minute], from: data![i].endDate, to: data![i].startDate)
-                        if i == 0{
-                            let formattedString = String(format: "%02dh%02dm", difference.hour!, difference.minute!).replacingOccurrences(of: "-", with: "")
-                            self.currentSleepData = formattedString
-                        }
-                       
-                        let doubleData = Double(difference.hour! * 60 + (difference.minute ?? 0))
-                        self.sleepData.append(-doubleData)
-                        let finalDate = self.dateToString(date: data![i].startDate)
-                        self.datesSleep.append(finalDate)
-                    }
-                }
-                dispatchGroup.leave()
-            }
-        }
+//        queue.async {
+//            dispatchGroup.enter()
+//            HealthManager.shared.retrieveSleepAnalysis { data in
+//                self.sleepData.removeAll()
+//                self.datesSleep.removeAll()
+//                if data?.count ?? 0 > 0{
+//                    for i in stride(from: 0, to: 3, by: 1){
+//                        let difference = Calendar.current.dateComponents([.hour, .minute], from: data![i].endDate, to: data![i].startDate)
+//                        if i == 0{
+//                            let formattedString = String(format: "%02dh%02dm", difference.hour!, difference.minute!).replacingOccurrences(of: "-", with: "")
+//                            self.currentSleepData = formattedString
+//                        }
+//                       
+//                        let doubleData = Double(difference.hour! * 60 + (difference.minute ?? 0))
+//                        self.sleepData.append(-doubleData)
+//                        let finalDate = self.dateToString(date: data![i].startDate)
+//                        self.datesSleep.append(finalDate)
+//                    }
+//                }
+//                dispatchGroup.leave()
+//            }
+//        }
         queue.async {
             dispatchGroup.enter()
             HealthManager.shared.fetchLatestHeartRateSample { samples in
