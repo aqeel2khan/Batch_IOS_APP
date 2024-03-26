@@ -127,6 +127,9 @@ struct API {
     static let logout = baseUrl + "/account/logout"// post
     static let updateNotifiationPrefrences = baseUrl + "/account/notification"// post
     static let updateProfilephoto = baseUrl + "/account/profileimage"// post
+    static let addAddressDetails = baseUrl + "/account/address"// POST
+    static let updateAddressDetails = baseUrl + "/account/address"// PUT
+    static let getAddressDetails = baseUrl + "/account/address"// GET
     
     static let updateFCM = baseUrl + "/account/fcm"// post
     

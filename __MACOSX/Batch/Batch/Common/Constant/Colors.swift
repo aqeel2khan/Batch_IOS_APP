@@ -17,6 +17,4 @@ struct Colors{
     static let appBorderLightColor = UIColor(named: "AppBorderLightColor")!
     static let appViewBackgroundColor = UIColor(named: "AppViewBackgroundColor")!
     static let appViewPinkBackgroundColor = UIColor(named: "AppPinkLightColor")!
- 
-    //    static let darkGray = UIColor(named: "AppDarkGray")!
 }

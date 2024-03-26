@@ -170,3 +170,12 @@ class BatchLabelTitleWhite: UILabel {
         textColor = UIColor.white
     }
 }
+
+class BatchMedium18Red: UILabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        text = text?.localized
+        font = FontSize.mediumSize12
+        textColor = UIColor.red
+    }
+}
