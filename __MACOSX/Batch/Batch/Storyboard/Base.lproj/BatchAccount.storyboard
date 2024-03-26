@@ -51,7 +51,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="430" height="767.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nyu-3q-UEk">
-                                                <rect key="frame" x="0.0" y="0.0" width="430" height="607.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="430" height="604.66666666666663"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar3" translatesAutoresizingMaskIntoConstraints="NO" id="gzI-nt-MC3">
                                                         <rect key="frame" x="165" y="20" width="100" height="100"/>
@@ -72,7 +72,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ke-5G-5Te" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="160.33333333333334" width="390" height="37"/>
+                                                        <rect key="frame" x="20" y="160.33333333333334" width="390" height="34.333333333333343"/>
                                                         <color key="tintColor" name="AppLabelDarkGrayColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Change the photo">
@@ -83,7 +83,7 @@
                                                         </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CVW-zg-Ucd">
-                                                        <rect key="frame" x="0.0" y="237.33333333333337" width="430" height="300"/>
+                                                        <rect key="frame" x="0.0" y="234.66666666666663" width="430" height="300"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wyg-dT-8ER">
                                                                 <rect key="frame" x="0.0" y="0.0" width="430" height="50"/>
@@ -198,13 +198,13 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3W-TH-64K" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
-                                                                        <rect key="frame" x="59.999999999999993" y="13.333333333333314" width="76.333333333333314" height="23"/>
+                                                                        <rect key="frame" x="59.999999999999993" y="13.333333333333371" width="76.333333333333314" height="23"/>
                                                                         <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="18"/>
                                                                         <color key="textColor" name="AppLabelBlackColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZe-EV-abI">
-                                                                        <rect key="frame" x="20" y="48.999999999999943" width="390" height="1"/>
+                                                                        <rect key="frame" x="20" y="49" width="390" height="1"/>
                                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="kOf-3S-b6i"/>
@@ -239,7 +239,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VbN-eX-KgM">
-                                                                <rect key="frame" x="0.0" y="149.99999999999994" width="430" height="50"/>
+                                                                <rect key="frame" x="0.0" y="150" width="430" height="50"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location 3" translatesAutoresizingMaskIntoConstraints="NO" id="xHV-Vd-1CM">
                                                                         <rect key="frame" x="20" y="10" width="30" height="30"/>
@@ -290,7 +290,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PR-fR-eDh">
-                                                                <rect key="frame" x="0.0" y="199.99999999999994" width="430" height="50"/>
+                                                                <rect key="frame" x="0.0" y="200" width="430" height="50"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Combo shape" translatesAutoresizingMaskIntoConstraints="NO" id="dh3-ax-sg7">
                                                                         <rect key="frame" x="20" y="10" width="30" height="30"/>
@@ -341,7 +341,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3me-dS-wFt">
-                                                                <rect key="frame" x="0.0" y="249.99999999999994" width="430" height="50"/>
+                                                                <rect key="frame" x="0.0" y="250" width="430" height="50"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logout" translatesAutoresizingMaskIntoConstraints="NO" id="fPZ-wj-aqn">
                                                                         <rect key="frame" x="20" y="10" width="30" height="30"/>
@@ -394,7 +394,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xa-LD-eRp">
-                                                        <rect key="frame" x="0.0" y="557.33333333333326" width="430" height="50"/>
+                                                        <rect key="frame" x="0.0" y="554.66666666666663" width="430" height="50"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logout" translatesAutoresizingMaskIntoConstraints="NO" id="xWu-Tc-Ccl">
                                                                 <rect key="frame" x="20" y="10" width="30" height="30"/>
@@ -1555,7 +1555,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="fasdfasdasdf" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cEr-qk-chQ">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cEr-qk-chQ">
                                                                 <rect key="frame" x="0.0" y="154.66666666666663" width="390" height="128"/>
                                                                 <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                                 <constraints>
@@ -1696,55 +1696,55 @@
     </scenes>
     <designables>
         <designable name="16d-0B-aPE">
-            <size key="intrinsicContentSize" width="64.333333333333329" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="104.33333333333333" height="18.666666666666668"/>
         </designable>
         <designable name="2E3-dn-taF">
-            <size key="intrinsicContentSize" width="49" height="32"/>
+            <size key="intrinsicContentSize" width="47" height="33"/>
         </designable>
         <designable name="3vc-0K-mxM">
-            <size key="intrinsicContentSize" width="36" height="32"/>
+            <size key="intrinsicContentSize" width="35" height="33"/>
         </designable>
         <designable name="8Ke-5G-5Te">
-            <size key="intrinsicContentSize" width="169" height="37"/>
+            <size key="intrinsicContentSize" width="151.33333333333334" height="34.333333333333336"/>
         </designable>
         <designable name="9hp-WX-OJj">
-            <size key="intrinsicContentSize" width="36" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="76" height="18.666666666666668"/>
         </designable>
         <designable name="GNn-Ao-AkU">
-            <size key="intrinsicContentSize" width="52" height="32"/>
+            <size key="intrinsicContentSize" width="49" height="33"/>
         </designable>
         <designable name="GoE-z7-tKW">
-            <size key="intrinsicContentSize" width="41" height="18.666666666666668"/>
-        </designable>
-        <designable name="Mgz-Bv-v49">
-            <size key="intrinsicContentSize" width="80.333333333333329" height="18.666666666666668"/>
-        </designable>
-        <designable name="RNf-x5-xYY">
-            <size key="intrinsicContentSize" width="34.666666666666664" height="18.666666666666668"/>
-        </designable>
-        <designable name="ayV-nv-bvo">
-            <size key="intrinsicContentSize" width="47.333333333333336" height="18.666666666666668"/>
-        </designable>
-        <designable name="jiJ-zQ-5Sp">
-            <size key="intrinsicContentSize" width="30" height="32"/>
-        </designable>
-        <designable name="jtP-jI-ZWl">
             <size key="intrinsicContentSize" width="81" height="18.666666666666668"/>
         </designable>
+        <designable name="Mgz-Bv-v49">
+            <size key="intrinsicContentSize" width="120.33333333333333" height="18.666666666666668"/>
+        </designable>
+        <designable name="RNf-x5-xYY">
+            <size key="intrinsicContentSize" width="74.666666666666671" height="18.666666666666668"/>
+        </designable>
+        <designable name="ayV-nv-bvo">
+            <size key="intrinsicContentSize" width="87.333333333333329" height="18.666666666666668"/>
+        </designable>
+        <designable name="jiJ-zQ-5Sp">
+            <size key="intrinsicContentSize" width="30" height="33"/>
+        </designable>
+        <designable name="jtP-jI-ZWl">
+            <size key="intrinsicContentSize" width="121" height="18.666666666666668"/>
+        </designable>
         <designable name="pF9-nt-fHa">
-            <size key="intrinsicContentSize" width="41" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="81" height="18.666666666666668"/>
         </designable>
         <designable name="sls-M2-WWM">
-            <size key="intrinsicContentSize" width="39.333333333333336" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="79.666666666666671" height="18.666666666666668"/>
         </designable>
         <designable name="vLL-uO-UXk">
-            <size key="intrinsicContentSize" width="36" height="32"/>
+            <size key="intrinsicContentSize" width="35" height="33"/>
         </designable>
         <designable name="w6v-ip-4fU">
-            <size key="intrinsicContentSize" width="52" height="32"/>
+            <size key="intrinsicContentSize" width="49" height="33"/>
         </designable>
         <designable name="zBz-D3-bjh">
-            <size key="intrinsicContentSize" width="54" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="94" height="18.666666666666668"/>
         </designable>
     </designables>
     <resources>
