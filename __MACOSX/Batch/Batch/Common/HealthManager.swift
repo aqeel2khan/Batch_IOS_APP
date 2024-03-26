@@ -32,6 +32,7 @@ class HealthManager{
             HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
             HKObjectType.quantityType(forIdentifier: .stepCount)!,
             HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!,
+            HKObjectType.quantityType(forIdentifier: .dietaryWater)!
         ])
         
         healthStore.requestAuthorization(toShare: nil, read: sampleTypesToRead) { (success, error) in
@@ -47,15 +48,11 @@ class HealthManager{
     
     func fetchLatestHeartRateSample(
        completion: @escaping (_ samples: [HKQuantitySample]?) -> Void) {
-
-       /// Create sample type for the heart rate
        guard let sampleType = HKObjectType
          .quantityType(forIdentifier: .heartRate) else {
            completion(nil)
          return
        }
-
-       /// Predicate for specifiying start and end dates for the query
        let predicate = HKQuery
          .predicateForSamples(
            withStart: Date.distantPast,
@@ -83,6 +80,60 @@ class HealthManager{
        healthStore.execute(query)
      }
     
+    func getLastOneMonthHeartRate(completion: @escaping (HKStatisticsCollection?) -> Void) {
+        let calendar = Calendar.current
+        let interval = DateComponents(month: 1)
+        let components = DateComponents(calendar: calendar,
+                                        timeZone: calendar.timeZone,
+                                        hour: 0,
+                                        minute: 0,
+                                        second: 0,
+                                        weekday: 2)
+        guard let anchorDate = calendar.nextDate(after: Date(),
+                                                 matching: components,
+                                                 matchingPolicy: .nextTime,
+                                                 repeatedTimePolicy: .first,
+                                                 direction: .backward) else {
+            completion(nil)
+            fatalError("*** unable to find the previous Monday. ***")
+        }
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: .heartRate) else {
+            completion(nil)
+            fatalError("*** Unable to create a step count type ***")
+        }
+        let query = HKStatisticsCollectionQuery(quantityType: quantityType,
+                                                quantitySamplePredicate: nil,
+                                                options: .cumulativeSum,
+                                                anchorDate: anchorDate,
+                                                intervalComponents: interval)
+        query.initialResultsHandler = {
+            query, results, error in
+            
+            // Handle errors here.
+            if let error = error as? HKError {
+                completion(nil)
+                switch (error.code) {
+                case .errorDatabaseInaccessible:
+                    // HealthKit couldn't access the database because the device is locked.
+                    return
+                default:
+                    // Handle other HealthKit errors here.
+                    return
+                }
+            }
+            
+            guard let statsCollection = results else {
+                // You should only hit this case if you have an unhandled error. Check for bugs
+                // in your code that creates the query, or explicitly handle the error.
+               completion(nil)
+                return
+            }
+            completion(statsCollection)
+        }
+        
+        healthStore.execute(query)
+    }
+    
     
     func getTodaysSteps(completion: @escaping (Double) -> Void) {
         let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
@@ -105,6 +156,62 @@ class HealthManager{
                 return
             }
             completion(sum.doubleValue(for: HKUnit.count()))
+        }
+        
+        healthStore.execute(query)
+    }
+    
+    
+    
+    func getLastOneMonthSteps(completion: @escaping (HKStatisticsCollection?) -> Void) {
+        let calendar = Calendar.current
+        let interval = DateComponents(month: 1)
+        let components = DateComponents(calendar: calendar,
+                                        timeZone: calendar.timeZone,
+                                        hour: 0,
+                                        minute: 0,
+                                        second: 0,
+                                        weekday: 2)
+        guard let anchorDate = calendar.nextDate(after: Date(),
+                                                 matching: components,
+                                                 matchingPolicy: .nextTime,
+                                                 repeatedTimePolicy: .first,
+                                                 direction: .backward) else {
+            completion(nil)
+            fatalError("*** unable to find the previous Monday. ***")
+        }
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: .stepCount) else {
+            completion(nil)
+            fatalError("*** Unable to create a step count type ***")
+        }
+        let query = HKStatisticsCollectionQuery(quantityType: quantityType,
+                                                quantitySamplePredicate: nil,
+                                                options: .cumulativeSum,
+                                                anchorDate: anchorDate,
+                                                intervalComponents: interval)
+        query.initialResultsHandler = {
+            query, results, error in
+            
+            // Handle errors here.
+            if let error = error as? HKError {
+                completion(nil)
+                switch (error.code) {
+                case .errorDatabaseInaccessible:
+                    // HealthKit couldn't access the database because the device is locked.
+                    return
+                default:
+                    // Handle other HealthKit errors here.
+                    return
+                }
+            }
+            
+            guard let statsCollection = results else {
+                // You should only hit this case if you have an unhandled error. Check for bugs
+                // in your code that creates the query, or explicitly handle the error.
+               completion(nil)
+                return
+            }
+            completion(statsCollection)
         }
         
         healthStore.execute(query)
@@ -163,7 +270,6 @@ class HealthManager{
             }
             completion(statsCollection)
         }
-        
         healthStore.execute(query)
     }
     
@@ -174,9 +280,9 @@ class HealthManager{
             
             // Use a sortDescriptor to get the recent data first
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
-            
+            let lastOneMonth = Calendar.current.date(byAdding: .month, value: -1, to: Date())
             let predicate = HKQuery.predicateForSamples(
-                withStart: Date.distantPast,
+                withStart: lastOneMonth,
                 end: Date(),
                 options: .strictEndDate
             )
@@ -194,7 +300,6 @@ class HealthManager{
                     completion(result)
                 }
             }
-            
             // finally, we execute our query
             healthStore.execute(query)
         }else{

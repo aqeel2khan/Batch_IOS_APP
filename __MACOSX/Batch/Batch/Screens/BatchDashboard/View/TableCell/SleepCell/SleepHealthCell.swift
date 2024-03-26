@@ -10,6 +10,7 @@ import DGCharts
 
 class SleepHealthCell: UITableViewCell {
 
+    @IBOutlet weak var barChartView: BarChartView!
     @IBOutlet weak var sleepLabelHeight: NSLayoutConstraint!
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var lineChartView: LineChartView!
@@ -17,6 +18,8 @@ class SleepHealthCell: UITableViewCell {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var typeIcon: UIImageView!
 
+    @IBOutlet weak var pieChartView: PieChartView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

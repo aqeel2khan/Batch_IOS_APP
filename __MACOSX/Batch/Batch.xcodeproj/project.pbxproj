@@ -34,6 +34,7 @@
 		193AC77F2B9F575600DD6BCA /* SleepHealthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 193AC77D2B9F575600DD6BCA /* SleepHealthCell.xib */; };
 		194690622B9C098900086423 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194690612B9C098900086423 /* HealthManager.swift */; };
 		196290672B99CFAA009D7820 /* UpdateNotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196290662B99CFA9009D7820 /* UpdateNotificationResponse.swift */; };
+		19DEC46D2BAC0C3000A45C6A /* BatchHealthGraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DEC46C2BAC0C3000A45C6A /* BatchHealthGraphVC.swift */; };
 		1A9B01262B93ABD300F17C42 /* MealFilterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */; };
 		1A9B012E2B943BA200F17C42 /* SubscribedMealListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B012D2B943BA200F17C42 /* SubscribedMealListRequest.swift */; };
 		1A9B01302B943C5F00F17C42 /* SubscribedMealListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B012F2B943C5F00F17C42 /* SubscribedMealListResponse.swift */; };
@@ -363,6 +364,7 @@
 		193AC77D2B9F575600DD6BCA /* SleepHealthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SleepHealthCell.xib; sourceTree = "<group>"; };
 		194690612B9C098900086423 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		196290662B99CFA9009D7820 /* UpdateNotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNotificationResponse.swift; sourceTree = "<group>"; };
+		19DEC46C2BAC0C3000A45C6A /* BatchHealthGraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchHealthGraphVC.swift; sourceTree = "<group>"; };
 		1A9B01252B93ABD300F17C42 /* MealFilterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterRequest.swift; sourceTree = "<group>"; };
 		1A9B012D2B943BA200F17C42 /* SubscribedMealListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedMealListRequest.swift; sourceTree = "<group>"; };
 		1A9B012F2B943C5F00F17C42 /* SubscribedMealListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedMealListResponse.swift; sourceTree = "<group>"; };
@@ -1674,6 +1676,7 @@
 				570D8FD32B84B28300EB643A /* BatchDashboardVC.swift */,
 				570D8FD52B84B28300EB643A /* Extension+BatchDashboardVC.swift */,
 				193AC7732B9CA23700DD6BCA /* LineChart.swift */,
+				19DEC46C2BAC0C3000A45C6A /* BatchHealthGraphVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2517,6 +2520,7 @@
 				68C14B722B63BFE10085AAD4 /* Extension+StartPlanCheckoutVC.swift in Sources */,
 				31AE2DA62B36BD10000FEB41 /* Extension+ShoppingBatchVC.swift in Sources */,
 				1A9B01302B943C5F00F17C42 /* SubscribedMealListResponse.swift in Sources */,
+				19DEC46D2BAC0C3000A45C6A /* BatchHealthGraphVC.swift in Sources */,
 				319BAD662B2A31A00081A8F2 /* UITextField.swift in Sources */,
 				5759E7EF2B9048AB00352B24 /* MotivatorFilterVC.swift in Sources */,
 				57719F072B9C2F0400F7A599 /* Extension+QuestionGoalVC.swift in Sources */,
