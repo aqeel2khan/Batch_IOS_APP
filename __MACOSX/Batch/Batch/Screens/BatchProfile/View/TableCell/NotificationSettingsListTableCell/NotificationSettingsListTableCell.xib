@@ -27,18 +27,14 @@
                         <rect key="frame" x="5" y="5" width="340" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lower-Body burn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERb-KS-iCy" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
-                                <rect key="frame" x="10" y="43" width="278.66666666666669" height="14"/>
+                                <rect key="frame" x="10" y="43" width="261" height="14"/>
                                 <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4Vx-7m-0wU">
-                                <rect key="frame" x="298.66666666666669" y="41" width="33.333333333333314" height="18"/>
+                                <rect key="frame" x="281" y="34.666666666666664" width="51" height="30.999999999999993"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="31.5" id="1BX-HG-gjm"/>
-                                    <constraint firstAttribute="height" constant="18" id="1en-gc-Cqy"/>
-                                </constraints>
                                 <color key="onTintColor" name="AppThemeButtonColor"/>
                                 <connections>
                                     <action selector="selectionBtnTapped:" destination="KGk-i7-Jjw" eventType="valueChanged" id="kKp-zh-PWD"/>

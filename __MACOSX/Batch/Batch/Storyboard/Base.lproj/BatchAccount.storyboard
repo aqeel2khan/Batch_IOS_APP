@@ -72,7 +72,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ke-5G-5Te" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="140.66666666666666" y="109.33333333333334" width="111.66666666666666" height="30"/>
+                                                        <rect key="frame" x="121.00000000000001" y="109.33333333333334" width="151.33333333333337" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="e6u-KY-aWM"/>
                                                         </constraints>
@@ -662,7 +662,7 @@
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="20"/>
+                                                                        <integer key="value" value="21"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
@@ -984,10 +984,10 @@
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
-                                                        <real key="value" value="20"/>
+                                                        <integer key="value" value="21"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="20"/>
+                                                        <integer key="value" value="21"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -1232,12 +1232,8 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rXw-7y-1wj">
-                                                                        <rect key="frame" x="321" y="16" width="34" height="18"/>
+                                                                        <rect key="frame" x="304" y="9.6666666666667425" width="51" height="31"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="32" id="Jc6-aU-74W"/>
-                                                                            <constraint firstAttribute="height" constant="18" id="iO1-9s-02q"/>
-                                                                        </constraints>
                                                                         <color key="onTintColor" name="AppThemeButtonColor"/>
                                                                     </switch>
                                                                 </subviews>
@@ -1352,7 +1348,7 @@
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="20"/>
+                                                                        <integer key="value" value="21"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
@@ -1440,7 +1436,7 @@
             <size key="intrinsicContentSize" width="30" height="28"/>
         </designable>
         <designable name="8Ke-5G-5Te">
-            <size key="intrinsicContentSize" width="111.66666666666667" height="28"/>
+            <size key="intrinsicContentSize" width="151.33333333333334" height="34.333333333333336"/>
         </designable>
         <designable name="9hp-WX-OJj">
             <size key="intrinsicContentSize" width="29" height="17"/>
