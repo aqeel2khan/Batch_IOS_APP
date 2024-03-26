@@ -23,7 +23,9 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     @IBOutlet weak var mealBatchCollView: UICollectionView!
+    @IBOutlet weak var mealCardImageView: UIImageView!
     @IBOutlet weak var workoutBatchCollView: UICollectionView!
+    @IBOutlet weak var workoutCardImageView: UIImageView!
     @IBOutlet weak var macroContainer: UIView!
 
     
@@ -169,24 +171,16 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
         kcalContainerView.layer.borderColor = UIColor.hexStringToUIColor(hex: "#516634").cgColor // You can adjust the border color as needed
         
         if UserDefaultUtility.isUserLoggedIn() {
-            if internetConnection.isConnectedToNetwork() == true {
-                //self.workoutBatchCollView.isHidden = false
-                // Call Api here
-                self.getSubscribedMealList()
-                self.getSubscribedCourseList()
-            }
-            else
-            {
-                self.showAlert(message: "Please check your internet", title: "Network issue")
-            }
-        }
-        else
-        {
+            // Call Api here
+            self.getSubscribedMealList()
+            self.getSubscribedCourseList()
+        } else {
+            self.workoutCardImageView.isHidden = false
+            self.mealCardImageView.isHidden = false
             self.workoutBatchCollView.isHidden = true
+            self.mealBatchCollView.isHidden = true
         }
-    }
-    
-  
+    }  
     
     func updateLineChartForSleeping(){
 //        var lineChartEntry = [ChartDataEntry]()
@@ -250,17 +244,20 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
         let urlStr = API.courseSubscribeList
         
         dashboardViewModel.allCourseSubscribeList(requestUrl: urlStr)  { (response) in
-            if response.status == true, response.data?.list?.count != 0 {
-                self.courseList.removeAll(
-                )
+            if response.status == true, response.data?.list?.count ?? 0 >= 0 {
+                self.courseList.removeAll()
                 self.courseList = response.data?.list ?? []
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.workoutBatchCollView.isHidden = false
+                    self.workoutCardImageView.isHidden = true
                     self.workoutBatchCollView.reloadData()
                 }
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.workoutCardImageView.isHidden = false
+                    self.workoutBatchCollView.isHidden = true
                 }
             }
         } onError: { (error) in
@@ -269,7 +266,6 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
             }
         }
     }
-    
     
     @IBAction func loginBtnTapped(_ sender: UIButton) {
         let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
@@ -424,10 +420,13 @@ extension BatchDashboardVC {
         let urlStr = API.subscriptionMealList
         let request = SubscribedMealListRequest(userId: "\(UserDefaultUtility().getUserId())")
         bHomeViewModel.getSubscribedMealList(urlStr: urlStr, request: request) { (response) in
-            if response.status == true, response.data?.data?.count != 0 {
+            if response.status == true, response.data?.data?.count ?? 0 >= 0 {
+                self.subscribedMealListData.removeAll()
                 self.subscribedMealListData = response.data?.data ?? []
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.mealBatchCollView.isHidden = false
+                    self.mealCardImageView.isHidden = true
                     self.mealBatchCollView.reloadData()
                     if response.data?.recordsTotal ?? 0 > 0  {
                         self.getMacrosDetail()
@@ -439,8 +438,8 @@ extension BatchDashboardVC {
             } else {
                 DispatchQueue.main.async {
                     hideLoading()
-                    self.mealBatchCollView.isHidden = response.data?.data?.count == 0 ? true : false
-                    self.mealBatchCollView.reloadData()
+                    self.mealBatchCollView.isHidden = true
+                    self.mealCardImageView.isHidden = false
                     self.macroContainer.isHidden = true
                 }
             }

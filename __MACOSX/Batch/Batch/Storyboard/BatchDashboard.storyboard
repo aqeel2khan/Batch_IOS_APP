@@ -23,7 +23,7 @@
             <objects>
                 <viewController storyboardIdentifier="BatchDashboardVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nLa-3h-fgD" customClass="BatchDashboardVC" customModule="Batch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qn0-lQ-nVa">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGy-fx-VsA" customClass="CustomNavigationBar" customModule="Batch" customModuleProvider="target">
@@ -34,16 +34,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GxY-Fb-jN5">
-                                <rect key="frame" x="0.0" y="110" width="393" height="1007"/>
+                                <rect key="frame" x="0.0" y="110" width="393" height="1607"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u7l-3p-7vE">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1007"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1607"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fC3-qV-guh" userLabel="ContainerView">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1383"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="2023"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8Lq-qp-Rrg">
-                                                        <rect key="frame" x="20" y="10" width="353" height="1370"/>
+                                                        <rect key="frame" x="20" y="10" width="353" height="2010"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" bounces="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xf9-sh-jwf">
                                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="240"/>
@@ -63,8 +63,14 @@
                                                                     <outlet property="delegate" destination="nLa-3h-fgD" id="C4B-dX-CFU"/>
                                                                 </connections>
                                                             </collectionView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfE-3j-rll">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal_card" translatesAutoresizingMaskIntoConstraints="NO" id="WJO-U1-5oO">
                                                                 <rect key="frame" x="0.0" y="260" width="353" height="300"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="WJO-U1-5oO" secondAttribute="height" multiplier="10:8.5" id="ztu-Jp-xEh"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfE-3j-rll">
+                                                                <rect key="frame" x="0.0" y="580" width="353" height="300"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Macros of the day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieX-ur-oTZ" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
                                                                         <rect key="frame" x="10" y="10" width="343" height="150"/>
@@ -216,7 +222,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" bounces="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FvL-nB-mss">
-                                                                <rect key="frame" x="0.0" y="580" width="353" height="300"/>
+                                                                <rect key="frame" x="0.0" y="900" width="353" height="300"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="300" id="AuV-tT-PkG"/>
@@ -233,8 +239,14 @@
                                                                     <outlet property="delegate" destination="nLa-3h-fgD" id="wox-jL-pWa"/>
                                                                 </connections>
                                                             </collectionView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workout_card" translatesAutoresizingMaskIntoConstraints="NO" id="r42-lI-Tid">
+                                                                <rect key="frame" x="0.0" y="1220" width="353" height="300"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="r42-lI-Tid" secondAttribute="height" multiplier="10:8.5" id="6tn-Vg-4ex"/>
+                                                                </constraints>
+                                                            </imageView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KoI-hb-6HV">
-                                                                <rect key="frame" x="0.0" y="900" width="353" height="470"/>
+                                                                <rect key="frame" x="0.0" y="1540" width="353" height="470"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Health" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a87-jB-eRT" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
                                                                         <rect key="frame" x="10" y="10" width="343" height="28"/>
@@ -326,6 +338,12 @@
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="r42-lI-Tid" firstAttribute="leading" secondItem="8Lq-qp-Rrg" secondAttribute="leading" id="DHq-5H-Aph"/>
+                                                            <constraint firstItem="WJO-U1-5oO" firstAttribute="leading" secondItem="8Lq-qp-Rrg" secondAttribute="leading" id="E3j-Ae-B2V"/>
+                                                            <constraint firstAttribute="trailing" secondItem="WJO-U1-5oO" secondAttribute="trailing" id="JNb-TG-ViQ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="r42-lI-Tid" secondAttribute="trailing" id="WuX-eK-gvc"/>
+                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -377,7 +395,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="scanner" selectedImage="scannerfill" id="5x4-CT-yZF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <size key="freeformSize" width="393" height="1200"/>
+                    <size key="freeformSize" width="393" height="1800"/>
                     <connections>
                         <outlet property="customNavigationBar" destination="pGy-fx-VsA" id="GZO-pD-Y6T"/>
                         <outlet property="healthConnectView" destination="KoI-hb-6HV" id="HHN-MF-71v"/>
@@ -396,11 +414,13 @@
                         <outlet property="loginBtnHeight" destination="7Xb-vb-Pvm" id="Tp2-uD-cD9"/>
                         <outlet property="macroContainer" destination="sfE-3j-rll" id="B1S-7I-4tq"/>
                         <outlet property="mealBatchCollView" destination="xf9-sh-jwf" id="b6Z-dq-bC5"/>
+                        <outlet property="mealCardImageView" destination="WJO-U1-5oO" id="FWw-hS-Us8"/>
                         <outlet property="progressBar1" destination="fux-G8-zA2" id="XN6-c0-yGw"/>
                         <outlet property="progressBar2" destination="D8x-tS-TN3" id="z1m-3l-N88"/>
                         <outlet property="progressBar3" destination="sSM-r0-ec6" id="JQG-1Y-9ic"/>
                         <outlet property="tableViewHeight" destination="Qdf-52-vLG" id="AL0-C0-Cyw"/>
                         <outlet property="workoutBatchCollView" destination="FvL-nB-mss" id="0Ed-PM-Bh5"/>
+                        <outlet property="workoutCardImageView" destination="r42-lI-Tid" id="FiP-HS-bGr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcW-DF-xm5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -417,8 +437,10 @@
         </designable>
     </designables>
     <resources>
+        <image name="meal_card" width="335" height="253"/>
         <image name="scanner" width="42" height="42"/>
         <image name="scannerfill" width="42" height="42"/>
+        <image name="workout_card" width="335" height="253"/>
         <namedColor name="AppThemeBackgroundColor">
             <color red="0.80000000000000004" green="0.87058823529411766" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

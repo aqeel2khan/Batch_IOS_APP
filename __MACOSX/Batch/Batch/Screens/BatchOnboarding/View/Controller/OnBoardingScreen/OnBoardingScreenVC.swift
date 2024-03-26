@@ -41,9 +41,9 @@ class OnBoardingScreenVC: UIViewController {
 
 //         selectLang.append(SelectLang(languageName:LTYText.english))
    
-        lblTitle.text = "Lorem ipsum dolor sit".localized
+        lblTitle.text = "Welcome to Batch!".localized
         lblSubTitle.text = "Lorem ipsum dolor sit amet consectetur.".localized
-        btnLookAround.setTitle("I want to look around".localized, for: .normal)
+        btnLookAround.setTitle("Guests".localized, for: .normal)
         btnLogin.setTitle("Log In".localized, for: .normal)
   
     }

@@ -14,7 +14,7 @@ import UIKit
 
 class TrainingFilterVC: UIViewController {
     var isAlreadyAnimated : Bool = false
-    var completion: ((String, String, String) ->Void)? = nil
+    var completion: (([Int], [Int], [Int]) ->Void)? = nil
     
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var lblTitleGoal: UILabel!
@@ -29,7 +29,6 @@ class TrainingFilterVC: UIViewController {
     @IBOutlet weak var rightTagCollView: UICollectionView!
     @IBOutlet weak var rightTagCollHeight: NSLayoutConstraint!
     
-    
     var workOutArray = [AllWorkoutTypeList]()
     var levelArray   = [AllBatchLevelList]()
     var goalArray    = [AllBatchGoalList]()
@@ -37,7 +36,6 @@ class TrainingFilterVC: UIViewController {
     var selectedWorkOut : [Int] = []
     var selectedLevel : [Int] = []
     var selectedGoal : [Int] = []
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +56,6 @@ class TrainingFilterVC: UIViewController {
         
         //        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         //        mainView.addGestureRecognizer(tap)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -127,13 +122,8 @@ class TrainingFilterVC: UIViewController {
 //        let commaSeparatedLevelStr = levelStrArray.joined(separator: ",")
 //        let goalStrArray = selectedGoal.map{String($0)}
 //        let commaSeparatedGoalStr = goalStrArray.joined(separator: ",")
-        
-        let commaSeparatedWorkOutStr = selectedWorkOut.map{String($0)}.joined(separator: ",")
-        let commaSeparatedLevelStr = selectedLevel.map{String($0)}.joined(separator: ",")
-        let commaSeparatedGoalStr = selectedGoal.map{String($0)}.joined(separator: ",")
-        
         self.dismiss(animated: true)
-        completion?(commaSeparatedWorkOutStr, commaSeparatedLevelStr, commaSeparatedGoalStr)
+        completion?(selectedWorkOut, selectedLevel, selectedGoal)
     }
     
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -29,17 +29,17 @@
                                     <constraint firstAttribute="height" constant="40" id="xoX-Vj-Oof"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="n4W-Wh-fdp">
-                                <rect key="frame" x="50" y="9" width="270" height="41.333333333333336"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="n4W-Wh-fdp">
+                                <rect key="frame" x="50" y="5" width="270" height="49"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit card" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhZ-6T-hTM" customClass="BatchMediumBlack" customModule="Batch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="270" height="19.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="24.666666666666668"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•••• 2930" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUR-ax-C8f" customClass="BatchLabelSubTitleBlack">
-                                        <rect key="frame" x="0.0" y="24.333333333333336" width="270" height="17"/>
+                                        <rect key="frame" x="0.0" y="24.666666666666664" width="270" height="24.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="AppLabelDarkGrayColor"/>
                                         <nil key="highlightedColor"/>
@@ -68,14 +68,14 @@
                             <constraint firstItem="V5T-dj-Xs6" firstAttribute="centerX" secondItem="Qn7-Gd-A4B" secondAttribute="centerX" id="5Wx-id-qCX"/>
                             <constraint firstItem="k5y-Pj-ytO" firstAttribute="centerY" secondItem="Qn7-Gd-A4B" secondAttribute="centerY" id="Dpb-oF-cfK"/>
                             <constraint firstItem="V5T-dj-Xs6" firstAttribute="width" secondItem="Qn7-Gd-A4B" secondAttribute="width" id="Gpp-Be-cov"/>
-                            <constraint firstItem="BKH-KY-ki6" firstAttribute="top" secondItem="n4W-Wh-fdp" secondAttribute="bottom" constant="10" id="Gyp-jA-Arm"/>
+                            <constraint firstItem="BKH-KY-ki6" firstAttribute="top" secondItem="n4W-Wh-fdp" secondAttribute="bottom" constant="5" id="Gyp-jA-Arm"/>
                             <constraint firstItem="n4W-Wh-fdp" firstAttribute="leading" secondItem="k5y-Pj-ytO" secondAttribute="trailing" constant="10" id="Hgs-pl-yRp"/>
                             <constraint firstAttribute="bottom" secondItem="BKH-KY-ki6" secondAttribute="bottom" id="Jcy-8Z-diZ"/>
                             <constraint firstItem="V5T-dj-Xs6" firstAttribute="centerY" secondItem="Qn7-Gd-A4B" secondAttribute="centerY" id="RHH-eI-fJR"/>
                             <constraint firstAttribute="trailing" secondItem="n4W-Wh-fdp" secondAttribute="trailing" constant="10" id="TcR-9u-cVK"/>
                             <constraint firstItem="k5y-Pj-ytO" firstAttribute="leading" secondItem="Qn7-Gd-A4B" secondAttribute="leading" id="UMJ-D9-dao"/>
                             <constraint firstAttribute="height" constant="60" id="eol-r4-q7O"/>
-                            <constraint firstItem="n4W-Wh-fdp" firstAttribute="top" secondItem="Qn7-Gd-A4B" secondAttribute="top" constant="9" id="hfG-Fs-T5g"/>
+                            <constraint firstItem="n4W-Wh-fdp" firstAttribute="top" secondItem="Qn7-Gd-A4B" secondAttribute="top" constant="5" id="hfG-Fs-T5g"/>
                             <constraint firstAttribute="trailing" secondItem="BKH-KY-ki6" secondAttribute="trailing" id="xtK-5a-Pij"/>
                             <constraint firstItem="BKH-KY-ki6" firstAttribute="leading" secondItem="Qn7-Gd-A4B" secondAttribute="leading" id="zsU-4F-tgX"/>
                         </constraints>

@@ -51,6 +51,11 @@ struct SubscriptionRequest: Encodable {
     let deliveryTimeId: Int
     let deliveryArrivingId: Int
     let deliveryDropoffId: Int
+    let addressCity: String
+    let addressCityId: String
+    let addressState: String
+    let addressStateId: String
+
     
     enum CodingKeys: String, CodingKey {
         case userId = "user_id"
@@ -68,5 +73,9 @@ struct SubscriptionRequest: Encodable {
         case deliveryTimeId = "delivery_time_id"
         case deliveryArrivingId = "delivery_arriving_id"
         case deliveryDropoffId = "delivery_dropoff_id"
+        case addressCity = "city"
+        case addressCityId = "city_id"
+        case addressState = "state"
+        case addressStateId = "state_id"
     }
 }

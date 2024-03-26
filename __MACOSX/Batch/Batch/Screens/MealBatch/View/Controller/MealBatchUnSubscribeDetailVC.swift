@@ -47,13 +47,20 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
         priceLbl.attributedText = attributedPriceString
         descLbl.text = mealData.description
         descLbl.font = FontSize.regularSize14
-        
-        let arrayofOptions = mealData.duration?.components(separatedBy: ",").map { String($0) } ?? []
-        durationLbl.text = (arrayofOptions.first ?? "") + " weeks"
-        MealSubscriptionManager.shared.duration = arrayofOptions.first ?? "1"
-
+        durationLbl.text = (getDuration()) + " weeks"
+        let fileUrl = URL(string: BaseUrl.imageBaseUrl + (mealData.image ?? ""))
+        self.imgView.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
         self.setUpTagCollView()
         self.getMealDetails()
+    }
+    
+    func getDuration() -> String {
+        let arrayofOptions = mealData.duration?.components(separatedBy: ",").map { String($0) } ?? []
+        if arrayofOptions.count > 0 {
+            return arrayofOptions.first ?? "1"
+        } else {
+            return mealData.duration ?? "1"
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -158,7 +165,6 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
                 self.tagTitleArray.append((response.data?.data?.avgCalPerDay ?? "") + " " + BatchConstant.kcalSuffix)
                 self.tagTitleArray.append(("\(response.data?.data?.mealCount ?? 0)") + " " + BatchConstant.meals)
                 self.tagTitleArray.append((response.data?.data?.mealType ?? ""))
-                
                 self.mealCategoryArr = response.data?.data?.categoryList ?? []
 
               
@@ -212,14 +218,10 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
 
                 DispatchQueue.main.async {
                     hideLoading()
-                    
                     let cell : BMealCategoryCollCell = self.mealCategoryCollView.cellForItem(at: IndexPath(item: 0, section: 0)) as! BMealCategoryCollCell
                     cell.bgView.backgroundColor = Colors.appViewPinkBackgroundColor
-
                     self.mealCategoryCollView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredVertically)
-                    
                     self.dishesCollView.reloadData()
-
                 }
             }else{
                 DispatchQueue.main.async {
@@ -252,6 +254,7 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
                         self.showAlert(message: "Already Subscribed")
                     } else {
                         // Proceed to purchase
+                        MealSubscriptionManager.shared.duration = self.getDuration()
                         self.goToCheckoutScreen()
                     }
                 }
@@ -283,6 +286,7 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
                 DispatchQueue.main.async {
                     hideLoading()
                     if totalRecords == 0 {
+                        MealSubscriptionManager.shared.duration = self.getDuration()
                         self.goToCheckoutScreen()
                     } else {
                         self.showAlert(message: "User can not subscribed more than 1 Meal Plan.")

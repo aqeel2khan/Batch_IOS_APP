@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Agy-lp-iAL">
-                                <rect key="frame" x="0.0" y="0.0" width="388" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6Og-47-qF1">
                                     <size key="itemSize" width="393" height="852"/>
@@ -30,7 +30,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NTh-SK-cye">
-                                        <rect key="frame" x="-2.6666666666666665" y="0.0" width="393" height="852"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JiC-Jr-clh">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -56,10 +56,10 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLu-cr-og9">
-                                <rect key="frame" x="-1" y="511.33333333333326" width="390" height="340.66666666666674"/>
+                                <rect key="frame" x="-1" y="511.33333333333326" width="395" height="340.66666666666674"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="P4a-KZ-9WB">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="340.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="395" height="340.66666666666669"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Gog-ba-DVs">
                                         <rect key="frame" x="20" y="40.000000000000043" width="350" height="227.66666666666663"/>
@@ -251,7 +251,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ibe-yz-Uo2">
                                         <rect key="frame" x="20" y="29.999999999999986" width="350" height="253.66666666666663"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xh4-St-YaX" customClass="BatchLabelTitleWhite" customModule="Batch" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Batch!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xh4-St-YaX" customClass="BatchLabelTitleWhite" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="38.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -283,7 +283,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Log In">
+                                                        <state key="normal" title="Sign In">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -317,7 +317,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="I want to look around">
+                                                <state key="normal" title="Guests">
                                                     <color key="titleColor" name="AppThemeButtonColor"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -647,20 +647,23 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="24e-Yr-5G1">
+            <size key="intrinsicContentSize" width="57.666666666666664" height="23.333333333333332"/>
+        </designable>
         <designable name="8Kl-hq-j6A">
-            <size key="intrinsicContentSize" width="152" height="32"/>
+            <size key="intrinsicContentSize" width="149" height="33"/>
         </designable>
         <designable name="967-iC-wqE">
-            <size key="intrinsicContentSize" width="156" height="32"/>
+            <size key="intrinsicContentSize" width="49" height="33"/>
         </designable>
         <designable name="Ze0-HW-7a7">
-            <size key="intrinsicContentSize" width="40" height="32"/>
+            <size key="intrinsicContentSize" width="40" height="33"/>
         </designable>
         <designable name="jDR-yu-Zla">
-            <size key="intrinsicContentSize" width="35" height="32"/>
+            <size key="intrinsicContentSize" width="34" height="33"/>
         </designable>
         <designable name="tO2-sm-zmS">
-            <size key="intrinsicContentSize" width="46" height="32"/>
+            <size key="intrinsicContentSize" width="47" height="33"/>
         </designable>
     </designables>
     <resources>

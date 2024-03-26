@@ -134,7 +134,7 @@ class BLogInVC: UIViewController {
     }
     
     @IBAction func appleLoginAction(_ sender: UIButton) {
-        //handleAuthorizationAppleIDButtonPress()
+        handleAuthorizationAppleIDButtonPress()
     }
     
     @IBAction func languageSelectionBtnTap(_ sender: UIButton) {
@@ -148,17 +148,6 @@ class BLogInVC: UIViewController {
         self.googleLogin()
     }
 }
-
-
-@available(iOS 13.0, *)
-extension BLogInVC: ASAuthorizationControllerPresentationContextProviding {
-    //For present window
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return self.view.window!
-        
-    } // END
-}
-
 
 extension BLogInVC {
     func googleLogin() {
@@ -184,66 +173,6 @@ extension BLogInVC {
 }
 
 extension BLogInVC: ASAuthorizationControllerDelegate {
-    // ASAuthorizationControllerDelegate function for authorization failed
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        print(error.localizedDescription)
-    }
-    
-    // ASAuthorizationControllerDelegate function for successful authorization
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        
-        if #available(iOS 12.0, *) {
-            if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-                // Create an account as per your requirement
-                let appleId = appleIDCredential.user
-                let appleUserFirstName = appleIDCredential.fullName?.givenName
-                let appleUserLastName = appleIDCredential.fullName?.familyName
-                let appleUserEmail = appleIDCredential.email
-                //                self.userSocialType = "Apple_id"
-                //                self.userSocialID = appleId
-                //                self.userName = appleUserFirstName!
-                //                //  self.last_name = appleUserLastName!
-                //                self.userEmail = appleUserEmail!
-                //
-                //                social_logonApi()
-                //Write your code
-            } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
-                let appleUsername = passwordCredential.user
-                let applePassword = passwordCredential.password
-                //Write your code
-            }
-        } else {
-            // Fallback on earlier versions
-        }
-        
-        if #available(iOS 13.2, *)  {
-            if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-                // Create an account as per your requirement
-                let appleId = appleIDCredential.user
-                let appleUserFirstName = appleIDCredential.fullName?.givenName
-                let appleUserLastName = appleIDCredential.fullName?.familyName
-                let appleUserEmail = appleIDCredential.email
-                
-                //                self.userSocialType = "Apple_id"
-                //                self.userSocialID = appleId
-                //                self.userName = appleUserFirstName!
-                //                //  self.last_name = appleUserLastName!
-                //                self.userEmail = appleUserEmail!
-                //
-                //                social_logonApi()
-                
-            } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
-                let appleUsername = passwordCredential.user
-                let applePassword = passwordCredential.password
-                //Write your code
-            }
-        } else {
-            
-        }
-        
-    } // END apple btn delegates func
-    
-    //  MARK:-  Apple Login Delegate func
     func handleAuthorizationAppleIDButtonPress() {
         if #available(iOS 13.2, *)  {
             // Create the authorization request
@@ -266,15 +195,45 @@ extension BLogInVC: ASAuthorizationControllerDelegate {
         else {
             print("ios12")
         }
-    } // END
+    }
     
-    //    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-    //        if let appleIDCredential = authorization.credential as?  ASAuthorizationAppleIDCredential {
-    //            let userIdentifier = appleIDCredential.user
-    //            let fullName = appleIDCredential.fullName
-    //            let email = appleIDCredential.email
-    //            print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))")
-    //
-    //        }
-    //    }
+    // ASAuthorizationControllerDelegate function for authorization failed
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    // ASAuthorizationControllerDelegate function for successful authorization
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            // Create an account as per your requirement
+            let appleId = appleIDCredential.user
+            let appleUserFirstName = appleIDCredential.fullName?.givenName ?? ""
+            let appleUserLastName = appleIDCredential.fullName?.familyName ?? ""
+            let appleUserEmail = appleIDCredential.email ?? ""
+            //                self.userSocialType = "Apple_id"
+            //                self.userSocialID = appleId
+            //                self.userName = appleUserFirstName!
+            //                //  self.last_name = appleUserLastName!
+            //                self.userEmail = appleUserEmail!
+            //
+            //                social_logonApi()
+            
+            self.showAlert(message: "You have successfully login : Hi, \(appleUserFirstName) \(appleUserLastName) \n \(appleUserEmail)")
+            
+            
+        } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
+            let appleUsername = passwordCredential.user
+            let applePassword = passwordCredential.password
+            
+            self.showAlert(message: "You have successfully login : Hi, \(appleUsername)  \n \(applePassword)")
+        }
+    }
+}
+
+@available(iOS 13.0, *)
+extension BLogInVC: ASAuthorizationControllerPresentationContextProviding {
+    //For present window
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    } // END
 }

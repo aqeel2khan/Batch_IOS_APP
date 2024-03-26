@@ -10,7 +10,7 @@ import UIKit
 class MealPlanCheckout: UIViewController {
 
     var deliverImages = [#imageLiteral(resourceName: "calendar-green"), #imageLiteral(resourceName: "location 3"), #imageLiteral(resourceName: "clock"), #imageLiteral(resourceName: "Combo shape"), #imageLiteral(resourceName: "open box 1")]
-    var deliverTitles = ["Start date of plan","Add address","Delivery time","Delivery arriving","Drop off"]
+    var deliverTitles = ["Select Start date of plan","Add address","Delivery time","Delivery arriving","Drop off"]
     
     @IBOutlet weak var tableViewHeightContant: NSLayoutConstraint!
     @IBOutlet weak var delivertTableView: UITableView!
@@ -21,11 +21,11 @@ class MealPlanCheckout: UIViewController {
     @IBOutlet weak var priceLbl: BatchLabelRegularWhite!
     @IBOutlet weak var kclLbl: UILabel!
     @IBOutlet weak var mealsLbl: UILabel!
+    @IBOutlet weak var durationLbl: UILabel!
 
     @IBOutlet weak var subtotal: UILabel!
     @IBOutlet weak var promotion: UILabel!
     @IBOutlet weak var total: UILabel!
-    @IBOutlet weak var durationLbl: UILabel!
     
 
     var mealData : Meals!
@@ -69,13 +69,14 @@ class MealPlanCheckout: UIViewController {
         let attributedString1 = NSAttributedString.attributedStringWithDifferentFonts(for: original2String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword2)
         self.mealsLbl.attributedText = attributedString1
         
-        self.subtotal.attributedText = NSAttributedString.attributedStringForPrice(prefix: "", value: " \(CURRENCY) \(mealData.price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+        self.subtotal.attributedText = NSAttributedString.attributedStringForPrice(prefix: "", value: " \(CURRENCY) \(grandTotal)", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
         self.promotion.text = "0.0"
-        self.total.attributedText = NSAttributedString.attributedStringForPrice(prefix: "", value: " \(CURRENCY) \(mealData.price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
-        MealSubscriptionManager.shared.duration = self.getDuration()
         self.total.attributedText = NSAttributedString.attributedStringForPrice(prefix: "", value: " \(CURRENCY) \(grandTotal)", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
-        self.durationLbl.text = "\(getDuration()) weeks"
+        self.durationLbl.text = "\(MealSubscriptionManager.shared.duration ?? "1") weeks"
         
+        let keyword3 = "Weeks"
+        let attributedString3 = NSAttributedString.attributedStringWithDifferentFonts(for: "\(MealSubscriptionManager.shared.duration ?? "1") Weeks", prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword3)
+        self.durationLbl.attributedText = attributedString3
         self.fetchData()
     }
     
@@ -158,16 +159,14 @@ class MealPlanCheckout: UIViewController {
         if isValid {
             // Data is valid, proceed further
             let vc = BPaymentGatewayPopUpVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
-            vc.modalPresentationStyle = .pageSheet
+            vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
-            vc.totalOrderAmount = mealData.price ?? "0"
+            vc.totalOrderAmount = "\(self.grandTotal)"
             if isCommingFrom == "MealBatchSubscribe" {
                 vc.mealData = mealData
             }
             vc.completion = { (transactionID) in
-                if let price = self.mealData.price {
-                    self.createMealSubscriptionApi(mealId: self.mealData.id ?? 0, subtotal: price, discount: 0, total: price, paymentType: "card", transactionID: transactionID, paymentStatus: "true")
-                }
+                self.createMealSubscriptionApi(mealId: self.mealData.id ?? 0, subtotal: "\(self.grandTotal)", discount: 0, total: "\(self.grandTotal)", paymentType: "card", transactionID: transactionID, paymentStatus: "true")
             }
             self.present(vc, animated: true )
         } else {
@@ -189,7 +188,10 @@ class MealPlanCheckout: UIViewController {
         MealSubscriptionManager.shared.paymentType = paymentType
         MealSubscriptionManager.shared.transactionId = transactionID
         MealSubscriptionManager.shared.paymentStatus = paymentStatus
-        MealSubscriptionManager.shared.startDate = dateFormatter.string(from:Date())
+        MealSubscriptionManager.shared.city = "Siwani"
+        MealSubscriptionManager.shared.cityId = "2"
+        MealSubscriptionManager.shared.state = "Haryan"
+        MealSubscriptionManager.shared.stateId = "5"
 
         guard let req = MealSubscriptionManager.shared.createSubscriptionRequest() else {
             return
