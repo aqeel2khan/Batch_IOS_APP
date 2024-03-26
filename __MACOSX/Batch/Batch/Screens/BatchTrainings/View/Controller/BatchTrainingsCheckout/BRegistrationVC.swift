@@ -27,21 +27,14 @@ class BRegistrationVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        setUpLocalization()
+
     }
     
-    //MARK:- SetUp Localization
-    
-    func setUpLocalization() {
-        /*
-        self.lblTermCondition.text = "I agree to the company Terms & Conditions".localized()
-        self.btnSignIn.setTitle("Sign In".localized(), for: .normal)
-        self.btnFbLogin.setTitle("Sign in with Facebook".localized(), for: .normal)
-        self.btnAppleLogin.setTitle("Sign in with Apple".localized(), for: .normal)
-        self.btnGoogleLogin.setTitle("Sign in with Google".localized(), for: .normal)
-        self.btnOutlookLogin.setTitle("Sign in with Outlook".localized(), for: .normal)
-         */
+    @IBAction func onTapTermsAndConditionBtn(_ sender: UIButton) {
+        let vc = BPrivacyVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true)
     }
     
     @IBAction func onTapWithGoogleSignUpBtn(_ sender: UIButton) {
@@ -88,8 +81,9 @@ class BRegistrationVC: UIViewController {
         let password = (passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
         let name = (fullNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
         let mobile = (phoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
-        
-        let request = BRegistrationRequest(email: "\(email)", password: "\(password)", mobile: "\(mobile)", name: "\(name)")
+        let fcm_token : String = UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.FCM_KEY) as? String ?? ""
+
+        let request = BRegistrationRequest(email: "\(email)", password: "\(password)", mobile: "\(mobile)", name: "\(name)", device_token: "\(fcm_token)")
         DispatchQueue.main.async {
             showLoading()
         }
@@ -113,14 +107,18 @@ class BRegistrationVC: UIViewController {
                         vc.isCommingFrom = self.isCommingFrom
                         self.present(vc, animated: true)
                     }
-                    if self.isCommingFrom == "MealBatchSubscribe" {
+                    else if self.isCommingFrom == "MealBatchSubscribe" {
                         let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
                         vc.isCommingFrom = "MealBatchSubscribe"
                         vc.mealData = self.mealData
                         vc.modalPresentationStyle = .overFullScreen
                         vc.modalTransitionStyle = .coverVertical
                         self.present(vc, animated: true)
-                    }
+                    } else {
+                        let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
+                        tabbarVC.modalPresentationStyle = .fullScreen
+                        self.present(tabbarVC, animated: true, completion: nil)
+                    }  
                 }
             }else{
                 DispatchQueue.main.async {

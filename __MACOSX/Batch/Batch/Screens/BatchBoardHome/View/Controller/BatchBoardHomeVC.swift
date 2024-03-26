@@ -13,7 +13,7 @@ class BatchBoardHomeVC: UIViewController {
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     
     @IBOutlet weak var bannerSliderShow: ImageSlideshow!
-    
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var woBatchCollView: UICollectionView!
     @IBOutlet weak var motivatorsCollView: UICollectionView!
     @IBOutlet weak var mealBatchCollView: UICollectionView!
@@ -26,7 +26,10 @@ class BatchBoardHomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        logoImageView.image = logoImageView.image?.withRenderingMode(.alwaysTemplate)
+        logoImageView.tintColor = UIColor.black
+        
         self.showImagesOnSrollView(array_Images: ["banner1","banner2","banner3"])
 
         // Do any additional setup after loading the view.
