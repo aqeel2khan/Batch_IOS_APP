@@ -12,7 +12,6 @@ class BUserProfileVC: UIViewController {
     
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var lblTitle: UILabel!
     
     var imagePicker = UIImagePickerController()
     var callBackToUpdateNavigation: (()->())?
@@ -116,6 +115,13 @@ class BUserProfileVC: UIViewController {
     
     @IBAction func onTapNotificationBtn(_ sender: UIButton) {
         let vc = BUserNotificationVC.instantiate(fromAppStoryboard: .batchAccount)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true)
+    }
+    
+    @IBAction func onTapDeleteAccountBtn(_ sender: UIButton) {
+        let vc = BUserDeleteAccountVC.instantiate(fromAppStoryboard: .batchAccount)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical
         self.present(vc, animated: true)

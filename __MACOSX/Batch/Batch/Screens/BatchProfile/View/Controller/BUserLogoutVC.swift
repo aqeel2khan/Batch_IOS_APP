@@ -45,6 +45,7 @@ class BUserLogoutVC: UIViewController {
             DispatchQueue.main.async {
                 hideLoading()
                 self.dismiss(animated: true) {
+                    Batch_UserDefaults.removeObject(forKey: USER_DEFAULTS_KEYS.USER_NAME)
                     Batch_UserDefaults.removeObject(forKey: UserDefaultKey.TOKEN)
                     Batch_UserDefaults.setValue(nil, forKey: UserDefaultKey.profilePhoto)
                     Batch_UserDefaults.setValue(false, forKey: UserDefaultKey.healthPermission)

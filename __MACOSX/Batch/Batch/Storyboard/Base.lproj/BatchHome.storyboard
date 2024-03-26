@@ -466,6 +466,7 @@
                     <connections>
                         <outlet property="bannerSliderShow" destination="7NU-bi-3ey" id="IHh-iC-cZr"/>
                         <outlet property="customNavigationBar" destination="qXf-7S-w5k" id="75O-oj-d7C"/>
+                        <outlet property="logoImageView" destination="6te-Nx-9bk" id="LdC-5R-MFJ"/>
                         <outlet property="mealBatchCollView" destination="Lpc-RZ-m6t" id="UMh-vz-LJL"/>
                         <outlet property="motivatorsCollView" destination="SQj-F0-SKm" id="7oK-TX-vWA"/>
                         <outlet property="topRatedMealCollView" destination="arM-5k-5DL" id="gg5-7u-4kM"/>
@@ -479,16 +480,16 @@
     </scenes>
     <designables>
         <designable name="4FV-cO-ZpN">
-            <size key="intrinsicContentSize" width="60" height="33"/>
+            <size key="intrinsicContentSize" width="66" height="32"/>
         </designable>
         <designable name="8mC-lo-zqr">
-            <size key="intrinsicContentSize" width="60" height="33"/>
+            <size key="intrinsicContentSize" width="66" height="32"/>
         </designable>
         <designable name="D26-7e-1bi">
-            <size key="intrinsicContentSize" width="60" height="33"/>
+            <size key="intrinsicContentSize" width="66" height="32"/>
         </designable>
         <designable name="X7c-hy-iTA">
-            <size key="intrinsicContentSize" width="60" height="33"/>
+            <size key="intrinsicContentSize" width="66" height="32"/>
         </designable>
     </designables>
     <resources>
