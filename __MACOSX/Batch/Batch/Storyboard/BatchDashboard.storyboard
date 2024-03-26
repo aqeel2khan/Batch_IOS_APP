@@ -284,6 +284,7 @@
                                                                     <constraint firstAttribute="bottom" secondItem="QI6-MB-dCw" secondAttribute="bottom" id="Xcl-Mt-TOY"/>
                                                                     <constraint firstAttribute="trailing" secondItem="QI6-MB-dCw" secondAttribute="trailing" id="YGu-2L-may"/>
                                                                     <constraint firstAttribute="bottom" secondItem="csW-UC-Vik" secondAttribute="bottom" id="gqO-hq-Nk6"/>
+                                                                    <constraint firstAttribute="width" secondItem="DJc-Ng-hti" secondAttribute="height" multiplier="10:8.2" id="hmT-eu-xqF"/>
                                                                     <constraint firstItem="QI6-MB-dCw" firstAttribute="top" secondItem="DJc-Ng-hti" secondAttribute="top" id="vF3-Es-pCD"/>
                                                                 </constraints>
                                                             </view>
@@ -381,7 +382,6 @@
                                                             </view>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="DJc-Ng-hti" firstAttribute="width" secondItem="DJc-Ng-hti" secondAttribute="height" multiplier="10:8.2" id="hmT-eu-xqF"/>
                                                             <constraint firstItem="vSq-Ix-c5G" firstAttribute="leading" secondItem="8Lq-qp-Rrg" secondAttribute="leading" id="vRM-7r-aoQ"/>
                                                             <constraint firstAttribute="trailing" secondItem="vSq-Ix-c5G" secondAttribute="trailing" id="wmv-96-LgC"/>
                                                         </constraints>
@@ -471,10 +471,10 @@
     </scenes>
     <designables>
         <designable name="7JZ-Tc-LyG">
-            <size key="intrinsicContentSize" width="63" height="32"/>
+            <size key="intrinsicContentSize" width="60" height="33"/>
         </designable>
         <designable name="bhw-Ul-z4M">
-            <size key="intrinsicContentSize" width="41" height="32"/>
+            <size key="intrinsicContentSize" width="40" height="33"/>
         </designable>
     </designables>
     <resources>

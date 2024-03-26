@@ -12,10 +12,12 @@ class BUserDeleteAccountVC: UIViewController {
     
     @IBOutlet weak var mobileNumberTextField: UITextField!
     @IBOutlet weak var descTextView: UITextView!
- 
+    var mobileStr: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad() 
         
+        mobileNumberTextField.text = mobileStr
         descTextView.textContainerInset = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
     }
     
