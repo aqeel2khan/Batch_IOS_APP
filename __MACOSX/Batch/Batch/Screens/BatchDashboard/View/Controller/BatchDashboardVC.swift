@@ -23,9 +23,9 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     @IBOutlet weak var mealBatchCollView: UICollectionView!
-    @IBOutlet weak var mealCardImageView: UIImageView!
+    @IBOutlet weak var mealCardView: UIView!
     @IBOutlet weak var workoutBatchCollView: UICollectionView!
-    @IBOutlet weak var workoutCardImageView: UIImageView!
+    @IBOutlet weak var workoutCardView: UIView!
     @IBOutlet weak var macroContainer: UIView!
 
     
@@ -178,8 +178,8 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
             self.getSubscribedMealList()
             self.getSubscribedCourseList()
         } else {
-            self.workoutCardImageView.isHidden = false
-            self.mealCardImageView.isHidden = false
+            self.workoutCardView.isHidden = false
+            self.mealCardView.isHidden = false
             self.workoutBatchCollView.isHidden = true
             self.mealBatchCollView.isHidden = true
         }
@@ -253,13 +253,13 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
                 DispatchQueue.main.async {
                     hideLoading()
                     self.workoutBatchCollView.isHidden = false
-                    self.workoutCardImageView.isHidden = true
+                    self.workoutCardView.isHidden = true
                     self.workoutBatchCollView.reloadData()
                 }
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
-                    self.workoutCardImageView.isHidden = false
+                    self.workoutCardView.isHidden = false
                     self.workoutBatchCollView.isHidden = true
                 }
             }
@@ -283,6 +283,27 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
         self.present(vc, animated: true)
     }
     
+    @IBAction func mealCardViewButtonTapped(_ sender: UIButton) {
+        let vc = BatchTabBarController.instantiate(fromAppStoryboard: .batchTabBar)
+        vc.selectedIndex = 2
+        if #available(iOS 13.0, *) {
+            UIApplication.shared.windows.first?.rootViewController = vc
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        } else {
+            Batch_AppDelegate.window?.rootViewController = vc
+        }
+    }
+    
+    @IBAction func workoutCardViewButtonBtnTapped(_ sender: UIButton) {
+        let vc = BatchTabBarController.instantiate(fromAppStoryboard: .batchTabBar)
+        vc.selectedIndex = 1
+        if #available(iOS 13.0, *) {
+            UIApplication.shared.windows.first?.rootViewController = vc
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        } else {
+            Batch_AppDelegate.window?.rootViewController = vc
+        }
+    }
     
     @IBAction func connectToHealthKit(_ sender: UIButton) {
         if UserDefaultUtility.isUserLoggedIn() {
@@ -434,7 +455,7 @@ extension BatchDashboardVC {
                 DispatchQueue.main.async {
                     hideLoading()
                     self.mealBatchCollView.isHidden = false
-                    self.mealCardImageView.isHidden = true
+                    self.mealCardView.isHidden = true
                     self.mealBatchCollView.reloadData()
                     if response.data?.recordsTotal ?? 0 > 0  {
                         self.getMacrosDetail()
@@ -447,7 +468,7 @@ extension BatchDashboardVC {
                 DispatchQueue.main.async {
                     hideLoading()
                     self.mealBatchCollView.isHidden = true
-                    self.mealCardImageView.isHidden = false
+                    self.mealCardView.isHidden = false
                     self.macroContainer.isHidden = true
                 }
             }
