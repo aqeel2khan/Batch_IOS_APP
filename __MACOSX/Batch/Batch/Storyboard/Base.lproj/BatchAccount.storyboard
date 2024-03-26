@@ -51,9 +51,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="692.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nyu-3q-UEk">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="499.33333333333331"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="502.33333333333331"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="gzI-nt-MC3">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="gzI-nt-MC3">
                                                         <rect key="frame" x="169.66666666666666" y="20" width="54" height="54"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="54" id="Dds-O3-Gc2"/>
@@ -71,23 +71,22 @@
                                                         <color key="textColor" red="0.062745098039215685" green="0.070588235294117646" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change the photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYg-Ie-IIC">
+                                                        <rect key="frame" x="154.66666666666666" y="109.33333333333334" width="83.666666666666657" height="33"/>
+                                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="10.5"/>
+                                                        <color key="textColor" red="0.31764705882352939" green="0.40000000000000002" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ke-5G-5Te" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="121.00000000000001" y="109.33333333333334" width="151.33333333333337" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="e6u-KY-aWM"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="154.66666666666666" y="109.33333333333334" width="83.666666666666657" height="33"/>
                                                         <color key="tintColor" name="AppLabelDarkGrayColor"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Change the photo">
-                                                            <fontDescription key="titleFontDescription" name="Outfit-Medium" family="Outfit" pointSize="11"/>
-                                                            <color key="baseForegroundColor" red="0.31764705882352939" green="0.40000000000000002" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </buttonConfiguration>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <connections>
                                                             <action selector="uploadPhotoBtnTapped:" destination="jTK-kI-kEl" eventType="touchUpInside" id="Cfu-HI-RDg"/>
                                                         </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CVW-zg-Ucd">
-                                                        <rect key="frame" x="0.0" y="179.33333333333337" width="393" height="250"/>
+                                                        <rect key="frame" x="0.0" y="182.33333333333337" width="393" height="250"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wyg-dT-8ER">
                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
@@ -347,7 +346,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xa-LD-eRp">
-                                                        <rect key="frame" x="0.0" y="449.33333333333326" width="393" height="50"/>
+                                                        <rect key="frame" x="0.0" y="452.33333333333326" width="393" height="50"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logout" translatesAutoresizingMaskIntoConstraints="NO" id="xWu-Tc-Ccl">
                                                                 <rect key="frame" x="20" y="13" width="24" height="24"/>
@@ -386,19 +385,23 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="8Ke-5G-5Te" firstAttribute="leading" secondItem="IYg-Ie-IIC" secondAttribute="leading" id="0yx-wz-cav"/>
+                                                    <constraint firstItem="CVW-zg-Ucd" firstAttribute="top" secondItem="IYg-Ie-IIC" secondAttribute="bottom" constant="40" id="1wZ-5o-dOg"/>
                                                     <constraint firstAttribute="bottom" secondItem="8xa-LD-eRp" secondAttribute="bottom" id="5YX-VG-ahV"/>
                                                     <constraint firstAttribute="trailing" secondItem="CVW-zg-Ucd" secondAttribute="trailing" id="7Tf-W0-kqA"/>
                                                     <constraint firstItem="urg-EE-Cn0" firstAttribute="top" secondItem="gzI-nt-MC3" secondAttribute="bottom" constant="10" id="Ii9-Ae-PTk"/>
                                                     <constraint firstAttribute="trailing" secondItem="8xa-LD-eRp" secondAttribute="trailing" id="Lrg-LF-nj7"/>
+                                                    <constraint firstItem="IYg-Ie-IIC" firstAttribute="centerX" secondItem="urg-EE-Cn0" secondAttribute="centerX" id="OUE-ZL-VAD"/>
                                                     <constraint firstItem="urg-EE-Cn0" firstAttribute="centerX" secondItem="gzI-nt-MC3" secondAttribute="centerX" id="OfI-ut-A4F"/>
-                                                    <constraint firstItem="8Ke-5G-5Te" firstAttribute="centerX" secondItem="Nyu-3q-UEk" secondAttribute="centerX" id="eDO-uN-ndf"/>
+                                                    <constraint firstItem="IYg-Ie-IIC" firstAttribute="top" secondItem="urg-EE-Cn0" secondAttribute="bottom" constant="5" id="Qzd-6m-fHW"/>
+                                                    <constraint firstItem="8Ke-5G-5Te" firstAttribute="bottom" secondItem="IYg-Ie-IIC" secondAttribute="bottom" id="WUn-uJ-mNa"/>
                                                     <constraint firstItem="gzI-nt-MC3" firstAttribute="top" secondItem="Nyu-3q-UEk" secondAttribute="top" constant="20" id="f0O-JJ-rce"/>
                                                     <constraint firstItem="CVW-zg-Ucd" firstAttribute="leading" secondItem="Nyu-3q-UEk" secondAttribute="leading" id="hre-LN-8di"/>
                                                     <constraint firstItem="8xa-LD-eRp" firstAttribute="leading" secondItem="Nyu-3q-UEk" secondAttribute="leading" id="nXx-BK-sAq"/>
-                                                    <constraint firstItem="8Ke-5G-5Te" firstAttribute="top" secondItem="urg-EE-Cn0" secondAttribute="bottom" constant="5" id="ngs-w8-DBD"/>
                                                     <constraint firstItem="gzI-nt-MC3" firstAttribute="centerX" secondItem="Nyu-3q-UEk" secondAttribute="centerX" id="ptT-wl-FN4"/>
                                                     <constraint firstItem="8xa-LD-eRp" firstAttribute="top" secondItem="CVW-zg-Ucd" secondAttribute="bottom" constant="20" id="qDy-Xn-jFI"/>
-                                                    <constraint firstItem="CVW-zg-Ucd" firstAttribute="top" secondItem="8Ke-5G-5Te" secondAttribute="bottom" constant="40" id="zmk-Tc-6uC"/>
+                                                    <constraint firstItem="8Ke-5G-5Te" firstAttribute="top" secondItem="IYg-Ie-IIC" secondAttribute="top" id="vYA-EV-t3k"/>
+                                                    <constraint firstItem="8Ke-5G-5Te" firstAttribute="trailing" secondItem="IYg-Ie-IIC" secondAttribute="trailing" id="wL1-hh-yaW"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1430,46 +1433,46 @@
     </scenes>
     <designables>
         <designable name="16d-0B-aPE">
-            <size key="intrinsicContentSize" width="53.333333333333336" height="17"/>
+            <size key="intrinsicContentSize" width="93.333333333333329" height="17"/>
         </designable>
         <designable name="3vc-0K-mxM">
-            <size key="intrinsicContentSize" width="30" height="28"/>
+            <size key="intrinsicContentSize" width="35" height="33"/>
         </designable>
         <designable name="8Ke-5G-5Te">
-            <size key="intrinsicContentSize" width="151.33333333333334" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="30" height="33"/>
         </designable>
         <designable name="9hp-WX-OJj">
-            <size key="intrinsicContentSize" width="29" height="17"/>
-        </designable>
-        <designable name="GoE-z7-tKW">
-            <size key="intrinsicContentSize" width="33.666666666666664" height="17"/>
-        </designable>
-        <designable name="Mgz-Bv-v49">
             <size key="intrinsicContentSize" width="69" height="17"/>
         </designable>
+        <designable name="GoE-z7-tKW">
+            <size key="intrinsicContentSize" width="73.666666666666671" height="17"/>
+        </designable>
+        <designable name="Mgz-Bv-v49">
+            <size key="intrinsicContentSize" width="109" height="17"/>
+        </designable>
         <designable name="RNf-x5-xYY">
-            <size key="intrinsicContentSize" width="30" height="17"/>
+            <size key="intrinsicContentSize" width="70" height="17"/>
         </designable>
         <designable name="ayV-nv-bvo">
-            <size key="intrinsicContentSize" width="39.333333333333336" height="17"/>
+            <size key="intrinsicContentSize" width="79.666666666666671" height="17"/>
         </designable>
         <designable name="jiJ-zQ-5Sp">
-            <size key="intrinsicContentSize" width="30" height="28"/>
+            <size key="intrinsicContentSize" width="30" height="33"/>
         </designable>
         <designable name="jtP-jI-ZWl">
-            <size key="intrinsicContentSize" width="68.666666666666671" height="17"/>
+            <size key="intrinsicContentSize" width="108.66666666666667" height="17"/>
         </designable>
         <designable name="sls-M2-WWM">
-            <size key="intrinsicContentSize" width="33.333333333333336" height="17"/>
+            <size key="intrinsicContentSize" width="73.666666666666671" height="17"/>
         </designable>
         <designable name="vLL-uO-UXk">
-            <size key="intrinsicContentSize" width="32" height="28"/>
+            <size key="intrinsicContentSize" width="42" height="33"/>
         </designable>
         <designable name="w6v-ip-4fU">
-            <size key="intrinsicContentSize" width="37" height="28"/>
+            <size key="intrinsicContentSize" width="49" height="33"/>
         </designable>
         <designable name="zBz-D3-bjh">
-            <size key="intrinsicContentSize" width="43.333333333333336" height="17"/>
+            <size key="intrinsicContentSize" width="83.666666666666671" height="17"/>
         </designable>
     </designables>
     <resources>

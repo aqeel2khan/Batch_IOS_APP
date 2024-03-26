@@ -52,7 +52,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
    
     var macroDetails : Macros?
 
-    var datesForSleep: [String] = ["Mon","Sun","Sat","Fri","Thu","Wed","Tue"]
+    var datesForSleep: [String] = []
     var datesForEnergyBurned: [String] = []
     
     var energyBurned: [Double] = []{
@@ -88,7 +88,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
         }
     }
     
-    var datesSleep: [String] = []{
+    var datesSleep: [String] = ["Mon","Sun","Sat","Fri","Thu","Wed","Tue"]{
         didSet{
             DispatchQueue.main.async{
                 self.healthKitTableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
