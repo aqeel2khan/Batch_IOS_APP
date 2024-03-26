@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Outfit-Regular.ttf">
+            <string>Outfit-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Payment Gateway Pop UpVC-->
         <scene sceneID="qsO-2L-B8R">
@@ -19,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bq-Xl-qdK">
-                                <rect key="frame" x="0.0" y="69" width="393" height="783"/>
+                                <rect key="frame" x="0.0" y="426" width="393" height="426"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viewCenterRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="7gU-Hb-d68">
                                         <rect key="frame" x="171.66666666666666" y="5" width="50" height="5"/>
@@ -29,7 +34,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="q9P-oG-bpo">
-                                        <rect key="frame" x="20" y="20" width="353" height="743"/>
+                                        <rect key="frame" x="20" y="20" width="353" height="386"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JEt-tD-h3R">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
@@ -66,15 +71,18 @@
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lX8-Eu-iSO">
-                                                <rect key="frame" x="0.0" y="70" width="353" height="597"/>
+                                                <rect key="frame" x="0.0" y="70" width="353" height="240"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="240" id="LRF-5q-fpW"/>
+                                                </constraints>
                                                 <connections>
                                                     <outlet property="dataSource" destination="J9M-s9-9Wk" id="kO5-Ot-EHE"/>
                                                     <outlet property="delegate" destination="J9M-s9-9Wk" id="oeV-kj-5Zd"/>
                                                 </connections>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jix-Ik-UYZ" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="687" width="353" height="56"/>
+                                                <rect key="frame" x="0.0" y="330" width="353" height="56"/>
                                                 <color key="backgroundColor" name="AppThemeButtonColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="A1s-Gl-5D5"/>
@@ -117,9 +125,9 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rd5-0w-2DT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="9bq-Xl-qdK" firstAttribute="top" secondItem="rd5-0w-2DT" secondAttribute="top" constant="10" id="Mjd-ti-ncw"/>
+                            <constraint firstItem="9bq-Xl-qdK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="rd5-0w-2DT" secondAttribute="top" constant="10" id="Mjd-ti-ncw"/>
                             <constraint firstAttribute="trailing" secondItem="9bq-Xl-qdK" secondAttribute="trailing" id="RsD-o4-7k7"/>
                             <constraint firstItem="9bq-Xl-qdK" firstAttribute="leading" secondItem="rd5-0w-2DT" secondAttribute="leading" id="ekf-1e-vur"/>
                             <constraint firstAttribute="bottom" secondItem="9bq-Xl-qdK" secondAttribute="bottom" id="q4R-vC-9f6"/>
@@ -231,13 +239,13 @@
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJT-om-HF8">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="25"/>
                                                                                                 <subviews>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Batch" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1Y-kd-BCV">
+                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Batch" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1Y-kd-BCV" customClass="BatchMedium18White" customModule="Batch" customModuleProvider="target">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="122" height="25"/>
                                                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from KD 40" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNc-qx-QJZ">
+                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from KD 40" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNc-qx-QJZ" customClass="BatchMedium18White" customModule="Batch" customModuleProvider="target">
                                                                                                         <rect key="frame" x="193" y="0.0" width="120" height="25"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" constant="120" id="qjV-Dz-KfP"/>
@@ -265,7 +273,7 @@
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hys-bh-aBh">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                         <subviews>
-                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09q-w1-oXc">
+                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09q-w1-oXc" customClass="BatchButtonMedium12White" customModule="Batch" customModuleProvider="target">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -286,7 +294,7 @@
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7sY-1b-6QL">
                                                                                                         <rect key="frame" x="107.66666666666666" y="0.0" width="97.666666666666657" height="30"/>
                                                                                                         <subviews>
-                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xou-Mh-YF9">
+                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xou-Mh-YF9" customClass="BatchButtonMedium12White" customModule="Batch" customModuleProvider="target">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -307,7 +315,7 @@
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXk-9G-djw">
                                                                                                         <rect key="frame" x="215.33333333333334" y="0.0" width="97.666666666666657" height="30"/>
                                                                                                         <subviews>
-                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZW-Lu-jgI">
+                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZW-Lu-jgI" customClass="BatchButtonMedium12White" customModule="Batch" customModuleProvider="target">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -345,7 +353,7 @@
                                                                                                             </userDefinedRuntimeAttribute>
                                                                                                         </userDefinedRuntimeAttributes>
                                                                                                     </imageView>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bessie Cooper" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vA-d0-9KJ">
+                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bessie Cooper" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vA-d0-9KJ" customClass="BatchLabelMedium14White" customModule="Batch" customModuleProvider="target">
                                                                                                         <rect key="frame" x="40" y="0.0" width="273" height="30"/>
                                                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -727,7 +735,7 @@
                                                 <subviews>
                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="01a-TF-ygh">
                                                         <rect key="frame" x="10" y="10" width="333" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku4-EE-2XA">
@@ -852,7 +860,7 @@
                                 <rect key="frame" x="0.0" y="100" width="393" height="656"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPP-0j-vv1">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="741"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="609"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registration" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFJ-9f-3Mu" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="10.000000000000002" width="353" height="28.666666666666671"/>
@@ -867,9 +875,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MnA-GU-Vdu">
-                                                <rect key="frame" x="20" y="93" width="353" height="638"/>
+                                                <rect key="frame" x="20" y="93" width="353" height="506"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RDg-3A-Cm1">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RDg-3A-Cm1" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
                                                         <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                         <constraints>
@@ -889,14 +897,14 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7vT-Qm-aD3">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7vT-Qm-aD3" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="66" width="353" height="56"/>
                                                         <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="c4u-Pi-Dde"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="20"/>
@@ -909,7 +917,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pwP-VA-WOy">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pwP-VA-WOy" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="132" width="353" height="56"/>
                                                         <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                         <constraints>
@@ -932,7 +940,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgf-XB-d2S">
                                                         <rect key="frame" x="0.0" y="198" width="353" height="56"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6QH-d3-hcB">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6QH-d3-hcB" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
                                                                 <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                                 <constraints>
@@ -1101,64 +1109,8 @@
                                                             <action selector="onTapWithGoogleSignUpBtn:" destination="Xh1-s8-0em" eventType="touchUpInside" id="NJO-KG-Mxg"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ij2-zT-bAj" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="450" width="353" height="56"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="56" id="EbK-rI-v1x"/>
-                                                        </constraints>
-                                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Sign in with Outlook" image="Microsoft_Outlook-Logo">
-                                                            <color key="titleColor" name="AppLabelBlackColor"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="AppBorderLightColor"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="onTapWithOutLookSignUpBtn:" destination="Xh1-s8-0em" eventType="touchUpInside" id="FKy-2p-CcV"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUX-vX-ObF" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="516" width="353" height="56"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="56" id="T3b-bf-C8o"/>
-                                                        </constraints>
-                                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Sign in with Facebook" image="Fb_logo_black ">
-                                                            <color key="titleColor" name="AppLabelBlackColor"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="AppBorderLightColor"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="onTapWithFacebookSignUpBtn:" destination="Xh1-s8-0em" eventType="touchUpInside" id="N4z-1d-kxL"/>
-                                                        </connections>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2p-qS-raC" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="582" width="353" height="56"/>
+                                                        <rect key="frame" x="0.0" y="450" width="353" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="r93-bo-VTs"/>
                                                         </constraints>
@@ -1335,16 +1287,16 @@
                                         <rect key="frame" x="0.0" y="20" width="393" height="625"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YnT-b8-wub">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="470"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="450"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L3s-wb-Lkd">
-                                                        <rect key="frame" x="20" y="10" width="353" height="450"/>
+                                                        <rect key="frame" x="20" y="0.0" width="353" height="440"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chE-kF-vbI">
-                                                                <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your order" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QK4-e9-RKY" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1354,13 +1306,13 @@
                                                                 <constraints>
                                                                     <constraint firstItem="QK4-e9-RKY" firstAttribute="top" secondItem="chE-kF-vbI" secondAttribute="top" id="KPl-Eq-dze"/>
                                                                     <constraint firstItem="QK4-e9-RKY" firstAttribute="leading" secondItem="chE-kF-vbI" secondAttribute="leading" id="agV-au-9pg"/>
-                                                                    <constraint firstAttribute="height" constant="50" id="dbO-6w-HGP"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="dbO-6w-HGP"/>
                                                                     <constraint firstAttribute="bottom" secondItem="QK4-e9-RKY" secondAttribute="bottom" id="dqP-4z-wAo"/>
                                                                     <constraint firstAttribute="trailing" secondItem="QK4-e9-RKY" secondAttribute="trailing" id="kL2-cY-98t"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKq-cK-RVI">
-                                                                <rect key="frame" x="0.0" y="60" width="353" height="220"/>
+                                                                <rect key="frame" x="0.0" y="50" width="353" height="220"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z8H-ge-4Av">
                                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="220"/>
@@ -1390,13 +1342,13 @@
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klF-V6-Iou">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="25"/>
                                                                                                 <subviews>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Batch" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ws-yv-NjI">
+                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Batch" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ws-yv-NjI" customClass="BatchMedium18White" customModule="Batch" customModuleProvider="target">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="122" height="25"/>
                                                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/14 days" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekj-jP-vrC">
+                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/14 days" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekj-jP-vrC" customClass="BatchMedium18White" customModule="Batch" customModuleProvider="target">
                                                                                                         <rect key="frame" x="193" y="0.0" width="120" height="25"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" constant="120" id="bLa-A1-Goc"/>
@@ -1424,7 +1376,7 @@
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xop-2T-SME">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                         <subviews>
-                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dn-0f-x0N">
+                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dn-0f-x0N" customClass="BatchButtonMedium12White" customModule="Batch" customModuleProvider="target">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1445,7 +1397,7 @@
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FND-x1-38d">
                                                                                                         <rect key="frame" x="107.66666666666666" y="0.0" width="97.666666666666657" height="30"/>
                                                                                                         <subviews>
-                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVd-Wg-X65">
+                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVd-Wg-X65" customClass="BatchButtonMedium12White" customModule="Batch" customModuleProvider="target">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1466,7 +1418,7 @@
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsf-C9-QM1">
                                                                                                         <rect key="frame" x="215.33333333333334" y="0.0" width="97.666666666666657" height="30"/>
                                                                                                         <subviews>
-                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVh-wh-udg">
+                                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVh-wh-udg" customClass="BatchButtonMedium12White" customModule="Batch" customModuleProvider="target">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="30"/>
                                                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1504,7 +1456,7 @@
                                                                                                             </userDefinedRuntimeAttribute>
                                                                                                         </userDefinedRuntimeAttributes>
                                                                                                     </imageView>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bessie Cooper" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExP-02-Gh1">
+                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bessie Cooper" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExP-02-Gh1" customClass="BatchLabelMedium14White" customModule="Batch" customModuleProvider="target">
                                                                                                         <rect key="frame" x="40" y="0.0" width="273" height="30"/>
                                                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1565,7 +1517,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLy-Pw-aTo">
-                                                                <rect key="frame" x="0.0" y="285" width="353" height="50"/>
+                                                                <rect key="frame" x="0.0" y="275" width="353" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payment method" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sks-YX-v5a" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="14.999999999999886" width="353" height="19.333333333333329"/>
@@ -1581,7 +1533,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xre-Ph-fiD">
-                                                                <rect key="frame" x="0.0" y="285" width="353" height="60"/>
+                                                                <rect key="frame" x="0.0" y="275" width="353" height="60"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="G0P-W4-EdP">
                                                                         <rect key="frame" x="0.0" y="10" width="40" height="40"/>
@@ -1644,7 +1596,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCN-bi-uzY">
-                                                                <rect key="frame" x="0.0" y="290" width="353" height="160"/>
+                                                                <rect key="frame" x="0.0" y="280" width="353" height="160"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cbF-Kf-5Br">
                                                                         <rect key="frame" x="20" y="20" width="313" height="120"/>
@@ -1749,7 +1701,7 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="L3s-wb-Lkd" secondAttribute="bottom" constant="10" id="OPA-JB-hGY"/>
-                                                    <constraint firstItem="L3s-wb-Lkd" firstAttribute="top" secondItem="YnT-b8-wub" secondAttribute="top" constant="10" id="TPr-BU-UTd"/>
+                                                    <constraint firstItem="L3s-wb-Lkd" firstAttribute="top" secondItem="YnT-b8-wub" secondAttribute="top" id="TPr-BU-UTd"/>
                                                     <constraint firstAttribute="trailing" secondItem="L3s-wb-Lkd" secondAttribute="trailing" constant="20" id="YO5-mQ-tKS"/>
                                                     <constraint firstItem="L3s-wb-Lkd" firstAttribute="leading" secondItem="YnT-b8-wub" secondAttribute="leading" constant="20" id="rKz-5f-2dK"/>
                                                 </constraints>
@@ -1852,7 +1804,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bS6-7s-SNb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988.5496183206105" y="-25.35211267605634"/>
+            <point key="canvasLocation" x="2024" y="-25"/>
         </scene>
         <!--Thankyou PurchaseVC-->
         <scene sceneID="gtE-JC-lu1">
@@ -1885,7 +1837,7 @@
                                                 <color key="textColor" name="AppLabelBlackColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your course is already available in the Training section" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvA-BV-UKb" customClass="BatchLabelSubTitleBlack">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your course is already available in the Training section" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvA-BV-UKb" customClass="BatchLabelSubTitleBlack" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="96.666666666666629" width="353" height="38.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" name="AppLabelDarkGrayColor"/>
@@ -2135,7 +2087,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLw-hc-fgw">
                                                 <rect key="frame" x="0.0" y="70" width="353" height="56"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add promo code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Swn-ff-Fbe">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add promo code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Swn-ff-Fbe" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="10" width="333" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -2232,11 +2184,14 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="6QH-d3-hcB">
+            <size key="intrinsicContentSize" width="132.33333333333334" height="17"/>
+        </designable>
+        <designable name="7vT-Qm-aD3">
+            <size key="intrinsicContentSize" width="81" height="18.666666666666668"/>
+        </designable>
         <designable name="Ewz-78-z3b">
             <size key="intrinsicContentSize" width="67" height="33"/>
-        </designable>
-        <designable name="Ij2-zT-bAj">
-            <size key="intrinsicContentSize" width="160.33333333333334" height="21"/>
         </designable>
         <designable name="Jix-Ik-UYZ">
             <size key="intrinsicContentSize" width="35" height="33"/>
@@ -2247,14 +2202,17 @@
         <designable name="MpW-pI-3Vg">
             <size key="intrinsicContentSize" width="67" height="33"/>
         </designable>
+        <designable name="RDg-3A-Cm1">
+            <size key="intrinsicContentSize" width="104.33333333333333" height="18.666666666666668"/>
+        </designable>
         <designable name="SRS-5M-TWR">
             <size key="intrinsicContentSize" width="155.33333333333334" height="21"/>
         </designable>
+        <designable name="Swn-ff-Fbe">
+            <size key="intrinsicContentSize" width="107.33333333333333" height="18.666666666666668"/>
+        </designable>
         <designable name="TzP-7l-f81">
             <size key="intrinsicContentSize" width="122" height="33"/>
-        </designable>
-        <designable name="UUX-vX-ObF">
-            <size key="intrinsicContentSize" width="173.33333333333334" height="21"/>
         </designable>
         <designable name="YDr-Nf-cTp">
             <size key="intrinsicContentSize" width="47" height="33"/>
@@ -2271,6 +2229,9 @@
         <designable name="oYr-lq-7tO">
             <size key="intrinsicContentSize" width="35" height="33"/>
         </designable>
+        <designable name="pwP-VA-WOy">
+            <size key="intrinsicContentSize" width="74.666666666666671" height="18.666666666666668"/>
+        </designable>
         <designable name="w2p-qS-raC">
             <size key="intrinsicContentSize" width="142.33333333333334" height="21"/>
         </designable>
@@ -2279,10 +2240,8 @@
         <image name="Apple_logo_black " width="17.333333969116211" height="20"/>
         <image name="Avatar1" width="28" height="28"/>
         <image name="Confetti" width="375" height="197"/>
-        <image name="Fb_logo_black " width="20.333333969116211" height="20"/>
         <image name="G_logo" width="20.333333969116211" height="20"/>
         <image name="IconDown" width="36" height="36"/>
-        <image name="Microsoft_Outlook-Logo" width="20.333333969116211" height="20"/>
         <image name="ProCardcopy" width="335" height="152"/>
         <image name="Tick" width="48.333332061767578" height="48"/>
         <image name="accessibility" width="16" height="16"/>
@@ -2294,7 +2253,7 @@
         <image name="checkbox" width="21.666666030883789" height="21.666666030883789"/>
         <image name="checkbox_fill" width="20" height="20"/>
         <image name="direction-right" width="24" height="24"/>
-        <image name="downArrow" width="11" height="5.3333334922790527"/>
+        <image name="downArrow" width="24" height="24"/>
         <image name="dummyImg" width="371.33334350585938" height="457.66665649414062"/>
         <image name="eyeclose" width="16" height="16"/>
         <image name="eyeopen" width="16" height="16"/>

@@ -9,7 +9,7 @@ import UIKit
 
 class BatchSegmentedControl: UISegmentedControl {
     
-    private(set) lazy var radius:CGFloat = 16.0//bounds.height / 2
+    private(set) lazy var radius:CGFloat = bounds.height / 2
     
     /// Configure selected segment inset, can't be zero or size will error when click segment
     private var segmentInset: CGFloat = 5.0{
@@ -36,10 +36,10 @@ class BatchSegmentedControl: UISegmentedControl {
         self.backgroundColor = Colors.appViewBackgroundColor
         
         /// Set the title for the first segment (index 0)
-        self.setTitle(SetConstantTitle.segmentFirstTitle, forSegmentAt: 0)
+        self.setTitle(self.titleForSegment(at: 0)?.localized, forSegmentAt: 0)
         
         // Set the title for the second segment (index 1)
-        self.setTitle(SetConstantTitle.segmentSecondTitle, forSegmentAt: 1)
+        self.setTitle(self.titleForSegment(at: 1)?.localized, forSegmentAt: 1)
         
         /// Set font size and font color
         self.setTitleTextAttributes([.foregroundColor: UIColor.darkGray, .font: FontSize.mediumSize16!], for: .normal)

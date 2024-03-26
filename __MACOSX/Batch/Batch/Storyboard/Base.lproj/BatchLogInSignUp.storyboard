@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -41,11 +41,51 @@
                                     <constraint firstItem="BM6-ea-Bq8" firstAttribute="leading" secondItem="SPY-mG-Zbg" secondAttribute="leading" constant="5" id="fnI-9B-rYI"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umG-ts-9oZ">
+                                <rect key="frame" x="313" y="55" width="60" height="40"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kuwait" translatesAutoresizingMaskIntoConstraints="NO" id="8eL-BC-VEe">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="SzK-tN-S0w"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HE6-Z5-9D6" customClass="BatchLabelMedium12Black" customModule="Batch" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="0.0" width="20" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaC-wq-bTA">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="languageSelectionBtnTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="MWb-NG-Jex"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="xaC-wq-bTA" secondAttribute="trailing" id="CeB-Te-f2j"/>
+                                    <constraint firstAttribute="width" constant="60" id="Q0m-Sc-4TB"/>
+                                    <constraint firstItem="8eL-BC-VEe" firstAttribute="top" secondItem="umG-ts-9oZ" secondAttribute="top" id="QZW-Wl-kVY"/>
+                                    <constraint firstItem="xaC-wq-bTA" firstAttribute="leading" secondItem="umG-ts-9oZ" secondAttribute="leading" id="RXg-48-j7X"/>
+                                    <constraint firstAttribute="height" constant="40" id="UFg-aJ-0bz"/>
+                                    <constraint firstAttribute="bottom" secondItem="HE6-Z5-9D6" secondAttribute="bottom" id="USu-sr-Exp"/>
+                                    <constraint firstAttribute="bottom" secondItem="xaC-wq-bTA" secondAttribute="bottom" id="WQF-vv-9g2"/>
+                                    <constraint firstItem="HE6-Z5-9D6" firstAttribute="top" secondItem="umG-ts-9oZ" secondAttribute="top" id="ceF-4f-JPf"/>
+                                    <constraint firstItem="8eL-BC-VEe" firstAttribute="leading" secondItem="umG-ts-9oZ" secondAttribute="leading" id="lQV-fP-Qei"/>
+                                    <constraint firstAttribute="bottom" secondItem="8eL-BC-VEe" secondAttribute="bottom" id="ocG-vL-Rli"/>
+                                    <constraint firstItem="HE6-Z5-9D6" firstAttribute="leading" secondItem="8eL-BC-VEe" secondAttribute="trailing" constant="10" id="qrk-dq-FAd"/>
+                                    <constraint firstAttribute="trailing" secondItem="HE6-Z5-9D6" secondAttribute="trailing" constant="10" id="tD4-HQ-Jo1"/>
+                                    <constraint firstItem="xaC-wq-bTA" firstAttribute="top" secondItem="umG-ts-9oZ" secondAttribute="top" id="x4C-k0-K4B"/>
+                                </constraints>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kdl-Io-xEg">
                                 <rect key="frame" x="0.0" y="100" width="393" height="752"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1D2-Mv-P8D">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="665"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="533"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOZ-1O-kXX" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="10.000000000000002" width="353" height="28.666666666666671"/>
@@ -53,16 +93,16 @@
                                                 <color key="textColor" name="AppLabelBlackColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In to your account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIo-LJ-Sjw" customClass="BatchLabelSubTitleBlack">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In to your account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIo-LJ-Sjw" customClass="BatchLabelSubTitleBlack" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="43.666666666666657" width="353" height="19.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" name="AppLabelDarkGrayColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ps6-Ny-SES">
-                                                <rect key="frame" x="20" y="93" width="353" height="552"/>
+                                                <rect key="frame" x="20" y="93" width="353" height="420"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Di-QX-Hz3">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Di-QX-Hz3" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
                                                         <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                         <constraints>
@@ -85,7 +125,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WD9-qa-qOx">
                                                         <rect key="frame" x="0.0" y="66" width="353" height="56"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXf-cc-L3X">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXf-cc-L3X" customClass="BatchTextField" customModule="Batch" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
                                                                 <color key="backgroundColor" name="AppViewBackgroundColor"/>
                                                                 <constraints>
@@ -157,14 +197,14 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7X-OQ-2OD">
                                                                 <rect key="frame" x="54" y="5" width="245" height="35"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twy-9S-Ogb" customClass="BatchLabelSubTitleBlack">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twy-9S-Ogb" customClass="BatchLabelSubTitleBlack" customModule="Batch" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="165" height="35"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                         <color key="textColor" name="AppLabelDarkGrayColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAZ-RS-kg8">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAZ-RS-kg8" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
                                                                         <rect key="frame" x="165" y="0.0" width="80" height="35"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="80" id="9fV-Tm-wbU"/>
@@ -202,7 +242,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or continue with" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YD2-8c-8X1" customClass="BatchLabelSubTitleBlack">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or continue with" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YD2-8c-8X1" customClass="BatchLabelSubTitleBlack" customModule="Batch" customModuleProvider="target">
                                                                 <rect key="frame" x="115.33333333333334" y="10.333333333333313" width="122.66666666666666" height="19.333333333333329"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
@@ -248,58 +288,8 @@
                                                             <action selector="googleSignInBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="evU-dj-TOn"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXb-5W-R8W" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="364" width="353" height="56"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="56" id="tqF-03-TeS"/>
-                                                        </constraints>
-                                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Sign in with Outlook" image="Microsoft_Outlook-Logo">
-                                                            <color key="titleColor" name="AppLabelBlackColor"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="AppBorderLightColor"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQD-go-G9W" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="430" width="353" height="56"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="56" id="hiH-c7-oIy"/>
-                                                        </constraints>
-                                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Sign in with Facebook" image="Fb_logo_black ">
-                                                            <color key="titleColor" name="AppLabelBlackColor"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="AppBorderLightColor"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qg1-9a-SxT" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="496" width="353" height="56"/>
+                                                        <rect key="frame" x="0.0" y="364" width="353" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="U8e-si-Nvp"/>
                                                         </constraints>
@@ -358,12 +348,14 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="umG-ts-9oZ" secondAttribute="trailing" constant="20" id="8C5-A8-NCp"/>
                             <constraint firstItem="SPY-mG-Zbg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="HTN-u5-T7h"/>
                             <constraint firstItem="Kdl-Io-xEg" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="RNx-L2-E9U"/>
                             <constraint firstItem="SPY-mG-Zbg" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="V4J-2Y-uHJ"/>
                             <constraint firstItem="Kdl-Io-xEg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Vfb-00-xc5"/>
                             <constraint firstItem="Kdl-Io-xEg" firstAttribute="top" secondItem="SPY-mG-Zbg" secondAttribute="bottom" id="goQ-Kg-N2J"/>
                             <constraint firstItem="SPY-mG-Zbg" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="hbN-0M-hgd"/>
+                            <constraint firstItem="umG-ts-9oZ" firstAttribute="centerY" secondItem="BM6-ea-Bq8" secondAttribute="centerY" id="oCQ-0l-XOn"/>
                             <constraint firstAttribute="bottom" secondItem="Kdl-Io-xEg" secondAttribute="bottom" id="tcU-Cy-4Re"/>
                             <constraint firstItem="SPY-mG-Zbg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="wMt-8R-zld"/>
                         </constraints>
@@ -371,9 +363,7 @@
                     <connections>
                         <outlet property="backBtn" destination="BM6-ea-Bq8" id="yMH-Tm-baA"/>
                         <outlet property="btnAppleLogin" destination="Qg1-9a-SxT" id="yTo-uE-aAt"/>
-                        <outlet property="btnFbLogin" destination="KQD-go-G9W" id="dbH-3V-bB5"/>
                         <outlet property="btnGoogleLogin" destination="8Ad-zg-q7B" id="Fr5-Ae-CX4"/>
-                        <outlet property="btnOutlookLogin" destination="FXb-5W-R8W" id="QTG-Nh-eU7"/>
                         <outlet property="btnSignIn" destination="XdZ-cl-Dus" id="T0C-3o-EpY"/>
                         <outlet property="passwordTextField" destination="NXf-cc-L3X" id="ldt-cx-Gnv"/>
                         <outlet property="userEmailTextField" destination="7Di-QX-Hz3" id="v85-IT-nSz"/>
@@ -397,7 +387,7 @@
                                 <color key="textColor" name="AppLabelBlackColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We have sent the code verification to your mobile number " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rI-Z8-q3c" customClass="BatchLabelSubTitleBlack">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We have sent the code verification to your mobile number " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rI-Z8-q3c" customClass="BatchLabelSubTitleBlack" customModule="Batch" customModuleProvider="target">
                                 <rect key="frame" x="20" y="289.66666666666669" width="353" height="38.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" name="AppLabelDarkGrayColor"/>
@@ -554,7 +544,7 @@
                                 <color key="textColor" name="AppLabelBlackColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before we start, we need to know your gender" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNQ-oH-bvA" customClass="BatchLabelSubTitleBlack">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before we start, we need to know your gender" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNQ-oH-bvA" customClass="BatchLabelSubTitleBlack" customModule="Batch" customModuleProvider="target">
                                 <rect key="frame" x="30" y="143.66666666666666" width="333" height="38.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <color key="textColor" name="AppLabelDarkGrayColor"/>
@@ -573,7 +563,7 @@
                                                     <constraint firstAttribute="width" constant="40" id="Z4n-fh-K4W"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Male" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Yi-r2-fGU" customClass="BatchRegularBlack">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Male" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Yi-r2-fGU" customClass="BatchRegularBlack" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="20.000000000000007" y="70" width="126.66666666666669" height="19.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                 <color key="textColor" name="AppLabelBlackColor"/>
@@ -616,7 +606,7 @@
                                                     <constraint firstAttribute="width" constant="40" id="DbT-0D-aK9"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AF9-T9-PrX" customClass="BatchRegularBlack">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AF9-T9-PrX" customClass="BatchRegularBlack" customModule="Batch" customModuleProvider="target">
                                                 <rect key="frame" x="19.999999999999993" y="70" width="126.33333333333331" height="19.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                 <color key="textColor" name="AppLabelBlackColor"/>
@@ -745,17 +735,17 @@
         <designable name="5Sp-H2-kGd">
             <size key="intrinsicContentSize" width="68" height="32"/>
         </designable>
+        <designable name="7Di-QX-Hz3">
+            <size key="intrinsicContentSize" width="34.666666666666664" height="18.666666666666668"/>
+        </designable>
         <designable name="8Ad-zg-q7B">
             <size key="intrinsicContentSize" width="175.33333333333334" height="22"/>
-        </designable>
-        <designable name="FXb-5W-R8W">
-            <size key="intrinsicContentSize" width="180.33333333333334" height="22"/>
         </designable>
         <designable name="JQD-2q-6oe">
             <size key="intrinsicContentSize" width="68" height="32"/>
         </designable>
-        <designable name="KQD-go-G9W">
-            <size key="intrinsicContentSize" width="195.33333333333334" height="22"/>
+        <designable name="NXf-cc-L3X">
+            <size key="intrinsicContentSize" width="62.333333333333336" height="17"/>
         </designable>
         <designable name="Qg1-9a-SxT">
             <size key="intrinsicContentSize" width="161.33333333333334" height="22"/>
@@ -763,16 +753,18 @@
         <designable name="XdZ-cl-Dus">
             <size key="intrinsicContentSize" width="51" height="32"/>
         </designable>
+        <designable name="iAZ-RS-kg8">
+            <size key="intrinsicContentSize" width="60" height="30"/>
+        </designable>
     </designables>
     <resources>
         <image name="Apple_logo_black " width="17.333333969116211" height="20"/>
-        <image name="Fb_logo_black " width="20.333333969116211" height="20"/>
         <image name="G_logo" width="20.333333969116211" height="20"/>
-        <image name="Microsoft_Outlook-Logo" width="20.333333969116211" height="20"/>
         <image name="back" width="32" height="32"/>
         <image name="eyeclose" width="16" height="16"/>
         <image name="eyeopen" width="16" height="16"/>
         <image name="female" width="40.333332061767578" height="40"/>
+        <image name="kuwait" width="20" height="15"/>
         <image name="male" width="40.333332061767578" height="40"/>
         <namedColor name="AppBorderLightColor">
             <color red="0.94117647058823528" green="0.93725490196078431" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

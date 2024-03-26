@@ -11,7 +11,7 @@ import UIKit
 class BUserNotificationVC: UIViewController {
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var notificationListTableView: UITableView!
-    let notificationList = ["All notifications","Training notifications","Live stream notifications", "Meal plan notificatins", "Delivery notifications"]
+    let notificationList = ["All notifications","Training notifications","Live stream notifications", "Meal plan notifications", "Delivery notifications"]
     
     var notificaionPrefrenceList: [String : Int] = [:]
     var isChanged = false

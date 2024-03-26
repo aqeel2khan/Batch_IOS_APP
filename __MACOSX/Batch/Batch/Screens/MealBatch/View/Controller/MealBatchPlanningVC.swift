@@ -18,6 +18,9 @@ class MealBatchPlanningVC: UIViewController {
     @IBOutlet weak var mealCollViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var lblCountOfSelectedDishes: UILabel!
     @IBOutlet weak var lblSelectedCategoryDishesCount: UILabel!
+    
+    @IBOutlet weak var subContainerView: UIView! //603
+
     // MARK: - Properties
     var isCommingFrom = ""
     var mealData : SubscribedMeals!
@@ -50,10 +53,24 @@ class MealBatchPlanningVC: UIViewController {
         }
         updateTheWeekCalendarCollectionView()
         updateSelectedDishCount()
+        animateTheContainerView()
     }
     
     func updateTheCategorySelectionInCollectionView() {
         self.mealCategoryCollView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+    }
+    
+    func animateTheContainerView() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.subContainerView.transform = CGAffineTransform(translationX: self.subContainerView.frame.width, y: 0)
+            UIView.animate(
+                withDuration: 0.5,
+                delay: 0.05,
+                options: [.curveEaseInOut],
+                animations: {
+                    self.subContainerView.transform = CGAffineTransform(translationX: 0, y: 0)
+                })
+        }
     }
     
     func updateTheWeekCalendarCollectionView() {
@@ -94,6 +111,10 @@ class MealBatchPlanningVC: UIViewController {
         super.viewDidLayoutSubviews()
         // Update height constraint
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == BatchConstant.contentSize {
             if let newValue = change?[.newKey] {
@@ -108,6 +129,7 @@ class MealBatchPlanningVC: UIViewController {
         self.customSecondNavigationBar.titleLbl.isHidden = false
         self.customSecondNavigationBar.titleLbl.text = "Meal Planning"
         self.customSecondNavigationBar.rightBarBtnItem2.isHidden = false
+        self.customSecondNavigationBar.leftBarBtnItem.setImage(UIImage(named: "back"), for: .normal)
         self.registerCollTblView()
     }
     

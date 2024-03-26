@@ -67,17 +67,20 @@ extension TrainingFilterVC: UICollectionViewDelegate,UICollectionViewDataSource 
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
-        UIView.animate(
-            withDuration: 0.5,
-            delay: 0.05 * Double(indexPath.row),
-            options: [.curveEaseInOut],
-            animations: {
-                cell.transform = CGAffineTransform(translationX: 0, y: 0)
-            })
+        if !isAlreadyAnimated {
+            cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
+            UIView.animate(
+                withDuration: 0.5,
+                delay: 0.05 * Double(indexPath.row),
+                options: [.curveEaseInOut],
+                animations: {
+                    cell.transform = CGAffineTransform(translationX: 0, y: 0)
+                })
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        isAlreadyAnimated = true  
         if collectionView == self.collectionView {
 //            self.selectedWorkOut.append(self.workOutArray[indexPath.item].id ?? 0)
 //            self.collectionView.reloadData()

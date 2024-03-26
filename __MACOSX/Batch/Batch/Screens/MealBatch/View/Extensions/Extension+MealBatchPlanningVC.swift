@@ -30,7 +30,7 @@ extension MealBatchPlanningVC: UICollectionViewDelegate,UICollectionViewDataSour
         if collectionView.tag == 601 {
             let cell = collectionView.dequeue(weekCalenderCollCell.self, indexPath)
             cell.isRenderingFromMealCalendarScreen = true
-            cell.weekDayNameLbl.text = self.weekDays[indexPath.item].dayName
+            cell.weekDayNameLbl.text = self.weekDays[indexPath.item].dayName.uppercased()
             cell.weekDateLbl.text = self.weekDays[indexPath.item].dayOfMonth
             cell.greenDotImgView.isHidden = !DateHelper.isOldDate(self.weekDays[indexPath.row].date)
             return cell
@@ -41,7 +41,7 @@ extension MealBatchPlanningVC: UICollectionViewDelegate,UICollectionViewDataSour
         } else if collectionView.tag == 603 {
             let cell = collectionView.dequeue(BMealDishCollCell.self, indexPath)
             cell.nameLbl.text = self.dishesList[indexPath.item].dishName
-            cell.kclLbl.text = "\(self.dishesList[indexPath.item].dishCalorie) kcal" 
+            cell.kclLbl.text = "\(self.dishesList[indexPath.item].dishCalorie) " + BatchConstant.kcalSuffix
             if let selectedDayDishes = selectedWeekDay?.dishes {
                 // Check if the dish is selected for the current day
                 let dishID = self.dishesList[indexPath.item].dishID
@@ -55,17 +55,6 @@ extension MealBatchPlanningVC: UICollectionViewDelegate,UICollectionViewDataSour
         } else {
             return UICollectionViewCell()
         }
-    }
-        
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
-        UIView.animate(
-            withDuration: 0.5,
-            delay: 0.05 * Double(indexPath.row),
-            options: [.curveEaseInOut],
-            animations: {
-                cell.transform = CGAffineTransform(translationX: 0, y: 0)
-            })
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

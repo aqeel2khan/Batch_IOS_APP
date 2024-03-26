@@ -8,7 +8,8 @@
 import UIKit
 
 class BWorkOutVC: UIViewController {
-    public var lastContentOffset: CGFloat = 0
+    var isWorkoutLoaded = false
+    var isMotivatorLoaded = false 
 
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
@@ -21,17 +22,14 @@ class BWorkOutVC: UIViewController {
     @IBOutlet weak var filterBtnWorkout: UIButton!
     @IBOutlet weak var filterBtnMotivator: UIButton!
 
-    // MARK: - Properties
-    private let cornerRadius: CGFloat = 24
-    
-    //var httpUtility = HttpUtility1.shared
     var motivatorListData = [WorkOutMotivator]()
     var courseListData = [CourseDataList]()
     var selectedIndex = 0
     
     var courseListDataArr = [CourseDataList]()
     var coachListDataArr = [CoachListData]()
-    
+    var searchedCoachListDataArr = [CoachListData]()
+
     var workItemReference : DispatchWorkItem? = nil
     
     var levelArray      = [AllBatchLevelList]()
@@ -42,6 +40,13 @@ class BWorkOutVC: UIViewController {
     
     var coachFilterArray : CoachDataList!
     
+    var timer: Timer? = nil
+    
+    var selectedWorkOut : [Int] = []
+    var selectedLevel : [Int] = []
+    var selectedGoal : [Int] = []
+    var selectedExp : [Int] = []
+
     
     // MARK: - Lifecycle
     
@@ -49,7 +54,6 @@ class BWorkOutVC: UIViewController {
         super.viewDidLoad()
         // Set the delegate of the custom search text field to self
         self.woSearchTextField.delegate = self
-        setupViews()
         
         if internetConnection.isConnectedToNetwork() == true {
             // Call Api here
@@ -60,8 +64,7 @@ class BWorkOutVC: UIViewController {
             self.getAllBatchGoals()
             self.getAllCoachFilterList()
         }
-        else
-        {
+        else {
             self.showAlert(message: "Please check your internet", title: "Network issue")
         }
         
@@ -69,9 +72,31 @@ class BWorkOutVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handleCustomNotification(_:)), name: .myCustomNotification, object: nil)
     }
     
+    override func viewDidLayoutSubviews() {
+        setupViews()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         setupNavigationBar()
+        
+        segmentControl.selectedSegmentIndex = selectedIndex
+        
+        isWorkoutLoaded = false
+        isMotivatorLoaded = false
+  
+        if selectedIndex == 0 {
+            self.woBatchesBackView.isHidden = false
+            self.woMotivatorBackView.isHidden = true
+            self.getCourses()
+        }
+        else if selectedIndex == 1 {
+            self.woBatchesBackView.isHidden = true
+            self.woMotivatorBackView.isHidden = false
+            self.getMotivators()
+        }
+        
     }
+      
     @objc func handleCustomNotification(_ notification: Notification) {
         if internetConnection.isConnectedToNetwork() == true {
             if selectedIndex == 1 {
@@ -89,13 +114,13 @@ class BWorkOutVC: UIViewController {
     // MARK: - UI
     
     private func setupNavigationBar() {
-        customNavigationBar.titleFirstLbl.text = CustomNavTitle.bWorkOutVCNavTitle
+        customNavigationBar.titleFirstLbl.text = CustomNavTitle.bWorkOutVCNavTitle.localized
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
         if getprofilePhoto != nil{
             customNavigationBar.profileImage.image = UIImage(data: getprofilePhoto ?? Data())
         }else{
             customNavigationBar.profileImage.image = UIImage(named: "Avatar")
-        }//CustomNavTitle.batchWorkOutVC
+        }
         registerCollectionView()
     }
     private func registerCollectionView(){
@@ -104,48 +129,27 @@ class BWorkOutVC: UIViewController {
     }
     
     private func setupViews() {
-        
-        self.bHeaderLbl.text = SetConstantTitle.bWorkOutHeaderLblText
         self.bHeaderLbl.font = FontSize.mediumSize18
         self.bHeaderLbl.textColor = Colors.appLabelBlackColor
     }
     
-    private func setupCornerRadius() {
-        //        containerView.roundCorners([MaskedCorners.topLeft, MaskedCorners.topRight], radius: cornerRadius)
-    }
-    
     // MARK: - IBActions
-    
     @IBAction func segmentControlValueChanged(_ sender: BatchSegmentedControl) {
-        if sender.selectedSegmentIndex == 0
-        {
+        isWorkoutLoaded = false
+        isMotivatorLoaded = false
+  
+        if sender.selectedSegmentIndex == 0 {
             selectedIndex = 0
             self.woBatchesBackView.isHidden = false
             self.woMotivatorBackView.isHidden = true
-            if internetConnection.isConnectedToNetwork() == true {
-                self.getCourses()
-            }
+            self.getCourses()
         }
-        else
-        {
+        else {  
             selectedIndex = 1
             self.woBatchesBackView.isHidden = true
             self.woMotivatorBackView.isHidden = false
-            // Call Api Here
-            if internetConnection.isConnectedToNetwork() == true {
-                // Call Api here
-                self.getMotivators()
-                //self.getSearchedMotivators()
-            }
-            else
-            {
-                self.showAlert(message: "Please check your internet", title: "Network issue")
-            }
+            self.getMotivators()
         }
-        //        DispatchQueue.main.async {
-        //            // self.checkNetwork()
-        //            //self.batchesMotivatorCollView.reloadData()
-        //        }
     }
     
     @IBAction func onTapFilterBtn(_ sender: Any) {
@@ -155,14 +159,26 @@ class BWorkOutVC: UIViewController {
         vc.workOutArray = self.workOutFilterArray
         vc.levelArray = self.levelFilterArray
         vc.goalArray = self.goalFilterArray
-        vc.completion = { (wo,level,goal) in
-            print("Coming back Course Filter Id")
-            if wo == "" && level == "" && goal == "" {
+        vc.selectedWorkOut = self.selectedWorkOut
+        vc.selectedLevel = self.selectedLevel
+        vc.selectedGoal = self.selectedGoal
+        
+        vc.completion = { (woList,levelList,goalList) in
+            self.selectedWorkOut = woList
+            self.selectedLevel = levelList
+            self.selectedGoal = goalList
+            
+            if woList.count == 0 && levelList.count == 0 && goalList.count == 0 {
                 self.filterBtnWorkout.setImage(UIImage.init(named: "filter"), for: .normal)
             } else {
                 self.filterBtnWorkout.setImage(UIImage.init(named: "filter_selected"), for: .normal)
             }
-            self.applyCourseFilterApi(woFStr: wo, levelFStr: level, goalFStr: goal)
+            
+            let commaSeparatedWorkOutStr = woList.map{String($0)}.joined(separator: ",")
+            let commaSeparatedLevelStr = levelList.map{String($0)}.joined(separator: ",")
+            let commaSeparatedGoalStr = goalList.map{String($0)}.joined(separator: ",")
+         
+            self.applyCourseFilterApi(woFStr: commaSeparatedWorkOutStr, levelFStr: commaSeparatedLevelStr, goalFStr: commaSeparatedGoalStr)
         }
         self.present(vc, animated: true)
     }
@@ -173,14 +189,22 @@ class BWorkOutVC: UIViewController {
         vc.modalTransitionStyle = .coverVertical
         vc.workOutArray = self.coachFilterArray?.workouttypes ?? []
         vc.experienceArray = self.coachFilterArray.experiences
-        vc.completion = { (exp, workout) in
-            print("Coming back Motivator filter Id")
-            self.applyMotivatorFilterApi(keywordStr: "", experienceStr: exp, workoutStr: workout)
-            if exp == "" && workout == "" {
+        vc.selectedWorkOut = self.selectedWorkOut
+        vc.selectedExperience = self.selectedExp
+        vc.completion = { (expList, workoutList) in
+            self.selectedExp = expList
+            self.selectedWorkOut = workoutList
+            
+            if expList.count == 0 && workoutList.count == 0 {
                 self.filterBtnMotivator.setImage(UIImage.init(named: "filter"), for: .normal)
             } else {
                 self.filterBtnMotivator.setImage(UIImage.init(named: "filter_selected"), for: .normal)
             }
+            
+            let commaSeparatedExpStr = expList.map{String($0)}.joined(separator: ",")
+            let commaSeparatedWorkoutStr = workoutList.map{String($0)}.joined(separator: ",")
+         
+            self.applyMotivatorFilterApi(keywordStr: "", experienceStr: commaSeparatedExpStr, workoutStr: commaSeparatedWorkoutStr)
         }
         self.present(vc, animated: true)
     }
@@ -195,8 +219,7 @@ class BWorkOutVC: UIViewController {
         let urlStr = API.courseList
         bWorkOutViewModel.courseList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data?.list?.count != 0 {
-                // print(response.data)
-                // self.blogsArray = response.data!
+                self.courseListDataArr.removeAll()
                 self.courseListDataArr = response.data?.list ?? []
                 DispatchQueue.main.async {
                     hideLoading()
@@ -226,12 +249,11 @@ class BWorkOutVC: UIViewController {
         let urlStr = API.coachList
         bWorkOutViewModel.coachList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data != nil{
-                print(response.data)
-                
-                self.coachListDataArr = response.data ?? []
                 
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.coachListDataArr.removeAll()
+                    self.coachListDataArr = response.data ?? []
                     self.batchesMotivatorCollView.reloadData()
                 }
             }else{
@@ -267,9 +289,9 @@ class BWorkOutVC: UIViewController {
         bWorkOutViewModel.coachList(requestUrl: urlStr)  { (response) in
             if response.status == true, response.data != nil{
                 print(response.data as Any)
-                self.coachListDataArr = response.data ?? []
                 DispatchQueue.main.async {
                     // hideLoading()
+                    self.coachListDataArr = response.data ?? []
                     self.batchesMotivatorCollView.reloadData()
                 }
             }else{
@@ -435,9 +457,9 @@ extension BWorkOutVC
             
             if response.status == true, response.data?.list?.count != 0
             {
-                self.courseListDataArr = response.data?.list ?? []
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.courseListDataArr = response.data?.list ?? []
                     self.batchesMotivatorCollView.reloadData()
                 }
             }else{
@@ -473,10 +495,10 @@ extension BWorkOutVC
             {
                 print(response.data)
                 
-                self.coachListDataArr = response.data ?? []
                 
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.coachListDataArr = response.data ?? []
                     self.batchesMotivatorCollView.reloadData()
                 }
             }else{

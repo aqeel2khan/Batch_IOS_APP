@@ -12,41 +12,34 @@ import DropDown
 class BWOPlanDurationPopUpVC: UIViewController {
     
     @IBOutlet var mainView: UIView!
-    
     @IBOutlet weak var popUpTitleLbl: BatchLabelTitleBlack!
     @IBOutlet weak var popUpDDTextField: UITextField!
     @IBOutlet weak var popUpSaveBtn: BatchButton!
-    
     @IBOutlet weak var dropDownBtn: UIButton!
     
     var isCommingFrom = ""
     //Drop Down
     lazy var planDurationDropDown = DropDown()
-    var planDurationArray = ["30 days"]
-    
+    var planDurationArray = ["30 \("days".localized)"] 
     var selectedPlanDurationStr = ""
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.popUpDDTextField.font = FontSize.regularSize14
-        self.popUpDDTextField.text = "30 days"
-        
+        self.popUpDDTextField.text = "30 days".localized
         // Do any additional setup after loading the view.
-        
-        
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-        mainView.addGestureRecognizer(tap)
+        /*
+         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+         mainView.addGestureRecognizer(tap)
+         */
         
         if isCommingFrom == "MealPlanAddressVC"
         {
-            self.popUpTitleLbl.text      = "Delivery Time"
-            self.popUpDDTextField.text   = "12:00 PM - 1:00 PM"
-            self.popUpSaveBtn.setTitle("Applye", for: .normal)
+            self.popUpTitleLbl.text      = "Delivery Time".localized
+            self.popUpDDTextField.text   = "12:00 PM - 1:00 PM".localized
+            self.popUpSaveBtn.setTitle("Applye".localized, for: .normal)
         }
-        
         
         //        //DropDown
         //        planDurationDropDown.anchorView = dropDownBtn
@@ -79,10 +72,6 @@ class BWOPlanDurationPopUpVC: UIViewController {
             self.popUpDDTextField.text = item
         }
     }
-    
-    
-    
-    
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         self.dismiss(animated: true)

@@ -24,10 +24,12 @@ extension MealBatchDetailVC: UITableViewDelegate,UITableViewDataSource {
                 cell.sectionTitleLbl.text = ""
             }
             cell.dishName.text = dish.dishName
-            let original1String = "\(dish.calories) kcal"
-            let keyword1 = "kcal"
+            let original1String = "\(dish.calories) " + BatchConstant.kcalSuffix
+            let keyword1 = BatchConstant.kcalSuffix
             let attributedString = NSAttributedString.attributedStringWithDifferentFonts(for: original1String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword1)
             cell.dishCalory.attributedText = attributedString
+            let profileUrl = URL(string: BaseUrl.imageBaseUrl + (dish.dishImage ?? ""))
+            cell.dishImage.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Meal"))
         }
         return cell
     }
@@ -35,7 +37,7 @@ extension MealBatchDetailVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Tap On Collection")
         if let dish = self.selectedWeekDay?.dishes?[indexPath.row] {
-            openMealIngredientView(dishId: "\(dish.dishID)", dishName: dish.dishName ?? "")
+            openMealIngredientView(dishId: "\(dish.dishID)", dishName: dish.dishName ?? "", dayDish: dish)
         }
     }
     
@@ -76,7 +78,7 @@ extension MealBatchDetailVC: UICollectionViewDelegate,UICollectionViewDataSource
             return cell
         } else if collectionView.tag == 202 {
             let cell = collectionView.dequeue(weekCalenderCollCell.self, indexPath)
-            cell.weekDayNameLbl.text = self.weekDays[indexPath.row].dayName
+            cell.weekDayNameLbl.text = self.weekDays[indexPath.row].dayName.uppercased()
             cell.weekDateLbl.text = self.weekDays[indexPath.row].dayOfMonth
             cell.greenDotImgView.isHidden = !DateHelper.isOldDate(self.weekDays[indexPath.row].date)
             return cell
@@ -84,18 +86,7 @@ extension MealBatchDetailVC: UICollectionViewDelegate,UICollectionViewDataSource
             return UICollectionViewCell()
         }
     }
-        
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
-        UIView.animate(
-            withDuration: 0.5,
-            delay: 0.05 * Double(indexPath.row),
-            options: [.curveEaseInOut],
-            animations: {
-                cell.transform = CGAffineTransform(translationX: 0, y: 0)
-            })
-    }
-    
+            
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 202 {
             let weekday = self.weekDays[indexPath.item]

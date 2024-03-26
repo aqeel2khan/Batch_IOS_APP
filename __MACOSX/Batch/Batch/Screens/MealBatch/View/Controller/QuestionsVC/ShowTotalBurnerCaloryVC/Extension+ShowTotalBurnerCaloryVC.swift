@@ -12,9 +12,9 @@ extension ShowTotalBurnerCaloryVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(MealPlanTVC.self, for: indexPath)
         cell.titleLbl.text = self.mealListData[indexPath.row].name
-        cell.priceLbl.text = "from \(CURRENCY) " + "\(self.mealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
-        cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") kcal"
-        cell.mealsLbl.text = "\(self.mealListData[indexPath.row].mealCount ?? 0) meals"
+        cell.priceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + "\(self.mealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
+        cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") " + BatchConstant.kcalSuffix
+        cell.mealsLbl.text = "\(self.mealListData[indexPath.row].mealCount ?? 0) " + BatchConstant.meals
         return cell
     }
     

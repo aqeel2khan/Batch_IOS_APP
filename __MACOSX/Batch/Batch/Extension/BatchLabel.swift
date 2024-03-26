@@ -1,39 +1,13 @@
 //
-//  BatchLabel.swift
+//  BWorkOutMotivatorDetailVC.swift
 //  Batch
 //
-//  Created by shashivendra sengar on 26/12/23.
+//  Created by CTS-Jay Gupta on 18/01/24.
 //
 
 import Foundation
 import UIKit
 
-class BatchLabelRegularWhite: UILabel {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        text = text?.localized
-        font = FontSize.mediumSize18
-        textColor = .white
-    }
-}
-
-class BatchLabelTitleBlack: UILabel {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        text = text?.localized
-        font = FontSize.mediumSize24
-        textColor = Colors.appLabelBlackColor
-    }
-}
-
-class BatchLabelTitleWhite: UILabel {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        text = text?.localized
-        font = FontSize.mediumSize24
-        textColor = UIColor.white
-    }
-}
 //MARK: - SubTitle
 
 class BatchLabelSubTitleWhite: UILabel {
@@ -44,7 +18,6 @@ class BatchLabelSubTitleWhite: UILabel {
         textColor = UIColor.white
     }
 }
-
 class BatchLabelSubTitleBlack: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,7 +26,6 @@ class BatchLabelSubTitleBlack: UILabel {
         textColor = Colors.appLabelDarkGrayColor
     }
 }
-
 class BatchLabelRegular16DarkGray: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -62,7 +34,6 @@ class BatchLabelRegular16DarkGray: UILabel {
         textColor = Colors.appLabelDarkGrayColor
     }
 }
-
 //MARK: - regular Size label
 class BatchRegularBlack: UILabel {
     override func awakeFromNib() {
@@ -72,7 +43,6 @@ class BatchRegularBlack: UILabel {
         textColor = Colors.appLabelBlackColor
     }
 }
-
 //MARK: - Semibold Size label
 class BatchSemiboldBlack: UILabel {
     override func awakeFromNib() {
@@ -82,7 +52,6 @@ class BatchSemiboldBlack: UILabel {
         textColor = Colors.appLabelBlackColor
     }
 }
-
 //MARK: - Medium Size label
 class BatchMediumBlack: UILabel {
     override func awakeFromNib() {
@@ -100,7 +69,6 @@ class BatchMediumDarkGray: UILabel {
         textColor = Colors.appLabelDarkGrayColor
     }
 }
-
 //MARK: - Medium Size label
 class BatchMedium18Black: UILabel {
     override func awakeFromNib() {
@@ -119,7 +87,6 @@ class BatchMedium20Black: UILabel {
         textColor = Colors.appLabelBlackColor
     }
 }
-
 //MARK: - Medium Size label
 class BatchMedium32Black: UILabel {
     override func awakeFromNib() {
@@ -129,8 +96,6 @@ class BatchMedium32Black: UILabel {
         textColor = Colors.appLabelBlackColor
     }
 }
-
-
 class BatchLabelMedium12Black: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -139,7 +104,6 @@ class BatchLabelMedium12Black: UILabel {
         textColor = Colors.appLabelBlackColor
     }
 }
-
 class BatchLabelMedium14DarkGray: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -148,7 +112,6 @@ class BatchLabelMedium14DarkGray: UILabel {
         textColor = Colors.appLabelDarkGrayColor
     }
 }
-
 class BatchLabelMedium18DarkGray: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -157,7 +120,6 @@ class BatchLabelMedium18DarkGray: UILabel {
         textColor = Colors.appLabelDarkGrayColor
     }
 }
-
 //MARK: - Medium Size label
 class BatchMedium18White: UILabel {
     override func awakeFromNib() {
@@ -167,7 +129,6 @@ class BatchMedium18White: UILabel {
         textColor = .white
     }
 }
-
 class BatchLabelMedium14White: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -176,12 +137,36 @@ class BatchLabelMedium14White: UILabel {
         textColor = .white
     }
 }
-
 class BatchLabelMedium12White: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
         text = text?.localized
         font = FontSize.mediumSize12
         textColor = .white
+    }
+}
+
+class BatchLabelRegularWhite: UILabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        text = text?.localized
+        font = FontSize.mediumSize18
+        textColor = .white
+    }
+}
+class BatchLabelTitleBlack: UILabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        text = text?.localized
+        font = FontSize.mediumSize24
+        textColor = Colors.appLabelBlackColor
+    }
+}
+class BatchLabelTitleWhite: UILabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        text = text?.localized
+        font = FontSize.mediumSize24
+        textColor = UIColor.white
     }
 }

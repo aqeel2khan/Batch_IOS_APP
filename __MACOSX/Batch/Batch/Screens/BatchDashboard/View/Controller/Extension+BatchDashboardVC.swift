@@ -29,15 +29,46 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
             if self.subscribedMealListData.count > 0 {
                 cell.titleLbl.text = self.subscribedMealListData[indexPath.item].name
                 cell.descLbl.text = self.subscribedMealListData[indexPath.item].description
-                cell.daysLbl.text = self.subscribedMealListData[indexPath.item].duration
-                
+                if let startDate = createDate(from: self.subscribedMealListData[indexPath.item].startDate), let endDate = createDate(from: self.subscribedMealListData[indexPath.item].endDate) {
+                    let (remainingDays, totalDays) = remainingDays(startDate: startDate, endDate: endDate)
+                    let formattedString = "\(remainingDays)/\(totalDays) days"
+                    cell.daysLbl.text = formattedString
+                }
                 if let startDate = createDate(from: self.subscribedMealListData[indexPath.item].startDate), let endDate = createDate(from: self.subscribedMealListData[indexPath.item].endDate) {
                     let percentage = calculatePercentage(startDate: startDate, endDate: endDate)
                     cell.progressView.progress = percentage
                 }
             }
             return cell
-        } else {
+        }
+
+//        if collectionView == mealBatchCollView {
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealBatchDashboardCollectionCell", for: indexPath)  as! MealBatchDashboardCollectionCell
+//            if self.subscribedMealListData.count > 0 {
+//
+//                cell.titleLbl.text = self.subscribedMealListData[indexPath.row].name
+//                let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(self.subscribedMealListData[indexPath.row].price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+//                cell.priceLbl.attributedText = attributedPriceString
+//
+//                let original1String = "\(self.subscribedMealListData[indexPath.row].avgCalPerDay ?? "") \(BatchConstant.kcalSuffix)"
+//                let keyword1 = BatchConstant.kcalSuffix
+//                let attributedString = NSAttributedString.attributedStringWithDifferentFonts(for: original1String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword1)
+//                cell.kclLbl.attributedText = attributedString
+//                cell.mealsLbl.text = "\(self.subscribedMealListData[indexPath.row].mealCount ?? 0) \(BatchConstant.meals)"
+//
+//                let original2String = "\(self.subscribedMealListData[indexPath.row].mealCount ?? 0) \(BatchConstant.meals)"
+//                let keyword2 = BatchConstant.meals
+//                let attributedString1 = NSAttributedString.attributedStringWithDifferentFonts(for: original2String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword2)
+//                cell.mealsLbl.attributedText = attributedString1
+//
+//                if let startDate = createDate(from: self.subscribedMealListData[indexPath.item].startDate), let endDate = createDate(from: self.subscribedMealListData[indexPath.item].endDate) {
+//                    let percentage = calculatePercentage(startDate: startDate, endDate: endDate)
+//                    cell.progressView.progress = percentage
+//                }
+//                return cell
+//            }
+//        }
+        else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WorkoutBatchDashboardCollectionCell", for: indexPath)  as! WorkoutBatchDashboardCollectionCell
             
             if self.courseList.count > 0 {
@@ -47,8 +78,8 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
                 cell.bgImageView.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Image"))
                 cell.titleLbl.text = course?.courseName
                 cell.daysLbl.text = "\(self.courseList[indexPath.item].todayWorkouts?.row ?? 0)" + "/" + (course?.duration ?? "")
-                cell.kclLbl.text = (course?.perDayWorkout ?? "") + " kcl"
-                cell.minLbl.text = (course?.duration ?? "") + " min"
+                cell.kclLbl.text = (course?.perDayWorkout ?? "") + " \(BatchConstant.minsSuffix)"
+                cell.minLbl.text = (course?.duration ?? "") + " \(BatchConstant.days)"
                 
                 if let startDate = createCourseDate(from: self.courseList[indexPath.item].startDate ?? ""), let endDate = createCourseDate(from: self.courseList[indexPath.item].endDate ?? "") {
                     let percentage = calculatePercentage(startDate: startDate, endDate: endDate)
@@ -60,8 +91,21 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenWidth = mealBatchCollView.frame.width - 10
-        return CGSize(width: screenWidth, height: 220)
+        var screenWidth : CGFloat!
+        if collectionView == mealBatchCollView {
+            if subscribedMealListData.count == 1 {
+                screenWidth = mealBatchCollView.frame.width
+            } else {
+                screenWidth = mealBatchCollView.frame.width - 20
+            }
+        } else {
+            if courseList.count == 1 {
+                screenWidth = workoutBatchCollView.frame.width
+            } else {
+                screenWidth = workoutBatchCollView.frame.width - 20
+            }
+        }
+        return CGSize(width: screenWidth, height: 244)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -129,5 +173,27 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.date(from: dateString)
+    }
+    
+    func remainingDays(startDate: Date, endDate: Date) -> (Int, Int) {
+        let currentDate = Date()
+        
+        // If start date is greater than current date, return (0, 0)
+        if startDate > currentDate {
+            return (0, 0)
+        }
+        
+        let totalTimeInterval = endDate.timeIntervalSince(startDate)
+        let remainingTimeInterval = endDate.timeIntervalSince(currentDate)
+        
+        // If the remaining time interval is negative, return (0, 0)
+        if remainingTimeInterval < 0 {
+            return (0, 0)
+        }
+        
+        let totalDays = Int(totalTimeInterval / (24 * 60 * 60)) // Total days between start date and end date
+        let remainingDays = Int(remainingTimeInterval / (24 * 60 * 60)) // Remaining days between current date and end date
+        
+        return (remainingDays, totalDays)
     }
 }

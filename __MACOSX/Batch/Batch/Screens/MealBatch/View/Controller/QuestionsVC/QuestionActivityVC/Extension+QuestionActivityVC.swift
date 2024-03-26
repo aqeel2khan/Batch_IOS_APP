@@ -14,7 +14,7 @@ extension QuestionActivityVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(QuestionLabelTVC.self, for: indexPath)
-        cell.titleLbl.text = self.activityList[indexPath.row]
+        cell.titleLbl.text = self.activityList[indexPath.row].localized
         return cell
     }
     

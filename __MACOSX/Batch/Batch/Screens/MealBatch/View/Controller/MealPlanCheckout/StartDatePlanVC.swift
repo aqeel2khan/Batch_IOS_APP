@@ -9,9 +9,12 @@ import UIKit
 import FSCalendar
 
 class StartDatePlanVC: UIViewController {
+    var completion: (() ->Void)? = nil
 
     var planStartDate = ""
-    
+    @IBOutlet weak var dateLabelContainer: UIView!
+    @IBOutlet weak var lblCurrentSelectedDate: UILabel!
+
     @IBOutlet weak var calenderStackView: UIStackView!
     @IBOutlet var mainView: UIView!
     
@@ -27,104 +30,110 @@ class StartDatePlanVC: UIViewController {
         planCalender.delegate = self
         planCalender.dataSource = self
         calenderStackView.layer.cornerRadius = 20
-        
-        
+        planCalender.appearance.todayColor = .gray
+        planCalender.appearance.titleTodayColor = .white
+        planCalender.appearance.selectionColor = UIColor.hexStringToUIColor(hex: "#516634")
+        planCalender.appearance.titleDefaultColor = UIColor.black
+        planCalender.appearance.titlePlaceholderColor = UIColor.gray
+        dateLabelContainer.addRoundedRect(cornerRadius: 10, borderWidth: 2, borderColor: UIColor.hexStringToUIColor(hex: "#516634"))
+        planCalender.appearance.weekdayTextColor = .gray
         calenderStackView.layer.borderWidth = 0.5
         calenderStackView.layer.borderColor = Colors.appViewBackgroundColor.cgColor
-        
-        
         let timeStampCurrentDate = planCalender.currentPage.timeIntervalSince1970.description
-       
         let currentMonthName = timeStampCurrentDate.getCurrentDate(dateStyle: .dateWithWholeMonthOnly)
-       
         lblCurrentmonthName.text = currentMonthName
-  
-        
-         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-         mainView.addGestureRecognizer(tap)
-     }
-     
-     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-     //    self.dismiss(animated: true)
-     }
-    
+        lblCurrentSelectedDate.text = convertDate(date: Date())
+    }
     
     //MARK: Next Calendar Month
     func getNextMonth(date:Date)->Date {
-        return  Calendar.current.date(byAdding: .month, value: 1, to:date)!
+        return Calendar.current.date(byAdding: .month, value: 1, to:date)!
     }
     
     //MARK: Previous Calendar Month
     func getPreviousMonth(date:Date)->Date {
-        return  Calendar.current.date(byAdding: .month, value: -1, to:date)!
+        return Calendar.current.date(byAdding: .month, value: -1, to:date)!
     }
-    
 
     @IBAction func leftArrowActionBtn(_ sender: UIButton) {
         planCalender.setCurrentPage(getPreviousMonth(date: planCalender.currentPage), animated: true)
-        
-              updateDateAndMonth(planCalender)
+        updateDateAndMonth(planCalender)
     }
-    
     
     @IBAction func rightArrowActionBtn(_ sender: UIButton) {
         planCalender.setCurrentPage(getNextMonth(date: planCalender.currentPage), animated: true)
-            updateDateAndMonth(planCalender)
-
+        updateDateAndMonth(planCalender)
     }
-    
 
     //MARK: Upadte Month & Year in Calendar header
     func updateDateAndMonth(_ calendar: FSCalendar) {
-
         let timeStampCurrentDate = calendar.currentPage.timeIntervalSince1970.description
-       
-        
         let currentMonthName = timeStampCurrentDate.getCurrentDate(dateStyle: .dateWithWholeMonthOnly)
-       
-      
         lblCurrentmonthName.text = currentMonthName
-
+    }
+    
+    func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+        // Get the current date
+        let currentDate = Date()
+        
+        // Get the date after 2 days from the current date
+        let twoDaysAfterCurrentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
+        
+        // Compare the provided date with the date after 1 days from the current date
+        if date >= twoDaysAfterCurrentDate {
+            // Allow selection if the provided date is equal to or after 1 days from the current date
+            return true
+        } else {
+            // Disallow selection if the provided date is before 1 days from the current date
+            return false
+        }
     }
 
-
-
     func convertToString (dateString: String, formatIn : String, formatOut : String) -> String {
-
-       let dateFormater = DateFormatter()
+        let dateFormater = DateFormatter()
         dateFormater.timeZone = NSTimeZone(abbreviation: "UTC") as TimeZone?
-       dateFormater.dateFormat = formatIn
-       let date = dateFormater.date(from: dateString)
-
-       dateFormater.timeZone = NSTimeZone.system
-
-       dateFormater.dateFormat = formatOut
-       let timeStr = dateFormater.string(from: date!)
-       return timeStr
+        dateFormater.dateFormat = formatIn
+        let date = dateFormater.date(from: dateString)
+        dateFormater.timeZone = NSTimeZone.system
+        dateFormater.dateFormat = formatOut
+        let timeStr = dateFormater.string(from: date!)
+        return timeStr
     }
     
     @IBAction func btnApplyAction(_ sender: UIButton) {
-        let vc = MealPlanAddressVC.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        setupDataAndDismiss()
+    }
+    
+    func setupDataAndDismiss() {
+        let twoDaysAfterCurrentDate = Calendar.current.date(byAdding: .day, value: 2, to: Date())!
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-YYYY"
+        MealSubscriptionManager.shared.startDate = dateFormatter.string(from:planCalender.selectedDate ?? twoDaysAfterCurrentDate)
+        self.dismiss(animated: true)
+        completion?()
     }
     
     @IBAction func backActionBtn(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        setupDataAndDismiss()
     }
 }
 
-
-
 extension String {
-        func getCurrentDate(dateStyle:CustomDateStylesTypes) -> String {
-    
-            let epochTime = (Double(self) ?? 0.0)
-            let exactDate = Date.init(timeIntervalSince1970: epochTime)
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            dateFormatter.dateFormat = dateStyle.rawValue
-            return dateFormatter.string(from: exactDate)
-        }
+    func getCurrentDate(dateStyle:CustomDateStylesTypes) -> String {
+        let epochTime = (Double(self) ?? 0.0)
+        let exactDate = Date.init(timeIntervalSince1970: epochTime)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = dateStyle.rawValue
+        return dateFormatter.string(from: exactDate)
+    }
+}
+
+extension UIView {
+    func addRoundedRect(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) {
+        layer.cornerRadius = cornerRadius
+        layer.borderWidth = borderWidth
+        layer.borderColor = borderColor.cgColor
+        layer.masksToBounds = true
+    }
 }

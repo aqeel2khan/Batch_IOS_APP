@@ -18,7 +18,7 @@ class BatchBoardHomeVC: UIViewController {
     @IBOutlet weak var motivatorsCollView: UICollectionView!
     @IBOutlet weak var mealBatchCollView: UICollectionView!
     @IBOutlet weak var topRatedMealCollView: UICollectionView!
-    
+   
     var courseListDataArr = [CourseDataList]()
     var coachListDataArr = [CoachListData]()
     var mealListData : [Meals] = []
@@ -26,10 +26,9 @@ class BatchBoardHomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
         self.showImagesOnSrollView(array_Images: ["banner1","banner2","banner3"])
-        
+
         // Do any additional setup after loading the view.
         self.registerCollView()
         
@@ -60,7 +59,8 @@ class BatchBoardHomeVC: UIViewController {
     
     // MARK: - UI
     private func setupNavigationBar() {
-        customNavigationBar.titleFirstLbl.text = CustomNavTitle.batchBoardHomeVCNavTitle
+        customNavigationBar.logoHeader.isHidden = true
+        customNavigationBar.titleFirstLbl.text = ""
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
         if getprofilePhoto != nil{
             customNavigationBar.profileImage.image = UIImage(data: getprofilePhoto ?? Data())
@@ -86,13 +86,17 @@ class BatchBoardHomeVC: UIViewController {
     @IBAction func onTapShowAllBtn(_ sender: UIButton) {
         switch sender.tag {
         case 152:
+            let VC = self.tabBarController?.viewControllers?[1] as? BWorkOutVC //first view controller in the tabbar
+            VC?.selectedIndex = 0
             self.tabBarController?.selectedIndex = 1
         case 153:
+            let VC = self.tabBarController?.viewControllers?[1]  as? BWorkOutVC //first view controller in the tabbar
+            VC?.selectedIndex = 1
             self.tabBarController?.selectedIndex = 1
         case 154:
-            self.tabBarController?.selectedIndex = 1
+            self.tabBarController?.selectedIndex = 2
         case 155:
-            self.tabBarController?.selectedIndex = 1
+            self.tabBarController?.selectedIndex = 2
         default: break
         }
     }
@@ -216,39 +220,64 @@ extension BatchBoardHomeVC {
 extension BatchBoardHomeVC {
     func showImagesOnSrollView(array_Images : [String]){
         bannerSliderShow.slideshowInterval = 0
-        bannerSliderShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .bottom)
+        bannerSliderShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
 
         bannerSliderShow.contentScaleMode = .scaleAspectFill
         bannerSliderShow.scrollView.isPagingEnabled = true
         bannerSliderShow.circular = true
         bannerSliderShow.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
-        bannerSliderShow.scrollView.backgroundColor = UIColor(red: 225 / 255.0,green: 225 / 255.0,blue: 225 / 255.0,alpha: CGFloat(1.0))
+        bannerSliderShow.scrollView.backgroundColor = .clear
         bannerSliderShow.activityIndicator = DefaultActivityIndicator()
+        bannerSliderShow.cornerRadius = 20
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
-        bannerSliderShow.addGestureRecognizer(gestureRecognizer)
+//        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+//        bannerSliderShow.addGestureRecognizer(gestureRecognizer)
         
-//        let pageControl = UIPageControl()
-//        pageControl.currentPageIndicatorTintColor = UIColor.black
-//        pageControl.pageIndicatorTintColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.6)
-//        pageControl.isEnabled = true
-//        bannerSliderShow.pageIndicator = pageControl
-        //        bannerSliderShow.pageIndicator = LabelPageIndicator()  ////it will show like 1/8,2/8,....
+        let pageControl = UIPageControl()
+        pageControl.currentPageIndicatorTintColor = UIColor.black
+        pageControl.pageIndicatorTintColor = UIColor.gray
+        pageControl.isEnabled = true
+        bannerSliderShow.pageIndicator = pageControl
+//        bannerSliderShow.currentSlideshowItem?.imageView.cornerRadius = 20
+//        bannerSliderShow.currentSlideshowItem?.imageView.clipsToBounds = true
+
+//                bannerSliderShow.pageIndicator = LabelPageIndicator()  ////it will show like 1/8,2/8,....
         
-        //        var arr = [KingfisherSource]()
-        //        for indx in 0 ..< array_Images.count {
-        //            arr.append(KingfisherSource(urlString: array_Images[indx])!)
-        //        }
-        //        self.bannerSliderShow.setImageInputs(arr)
+//                var arr = [KingfisherSource]()
+//                for indx in 0 ..< array_Images.count {
+//                    arr.append(KingfisherSource(urlString: array_Images[indx])!)
+//                }
+//                self.bannerSliderShow.setImageInputs(arr)
+
+        let image1: ImageSource = ImageSource(image: UIImage(named: array_Images[0])?.withRoundedCorners(radius: 20) ?? UIImage())
+        let image2: ImageSource = ImageSource(image: UIImage(named: array_Images[1])?.withRoundedCorners(radius: 20) ?? UIImage())
+        let image3: ImageSource = ImageSource(image: UIImage(named: array_Images[2])?.withRoundedCorners(radius: 20) ?? UIImage())
         
-        bannerSliderShow.setImageInputs([
-            ImageSource(image: UIImage(named: array_Images[0]) ?? UIImage()),
-            ImageSource(image: UIImage(named: array_Images[1]) ?? UIImage()),
-            ImageSource(image: UIImage(named: array_Images[2]) ?? UIImage()),
-        ])
+        bannerSliderShow.setImageInputs([image1, image2, image3])
     }
     
-    @objc func didTap() {
-        bannerSliderShow.presentFullScreenController(from: self)
+//    @objc func didTap() {
+//        bannerSliderShow.presentFullScreenController(from: self)
+//    }
+}
+
+
+extension UIImage {
+    // image with rounded corners
+    public func withRoundedCorners(radius: CGFloat? = nil) -> UIImage? {
+        let maxRadius = min(size.width, size.height) / 2
+        let cornerRadius: CGFloat
+        if let radius = radius, radius > 0 && radius <= maxRadius {
+            cornerRadius = radius
+        } else {
+            cornerRadius = maxRadius
+        }
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        let rect = CGRect(origin: .zero, size: size)
+        UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).addClip()
+        draw(in: rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
 }

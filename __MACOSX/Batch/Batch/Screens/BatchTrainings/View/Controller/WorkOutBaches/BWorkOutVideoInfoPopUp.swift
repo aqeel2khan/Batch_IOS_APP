@@ -17,6 +17,8 @@ class BWorkOutVideoInfoPopUp: UIViewController {
     @IBOutlet var videoTitleLbl: UILabel!
     @IBOutlet var videoDescriptionLbl: UILabel!
     @IBOutlet var videoInstructionLbl: UILabel!
+    @IBOutlet var setRepsTimeTitleLbl: UILabel!
+    @IBOutlet var setRepsTimeDataLbl: UILabel!
     var dayNumberText : String!
 
     override func viewDidLoad() {
@@ -29,6 +31,8 @@ class BWorkOutVideoInfoPopUp: UIViewController {
         videoTitleLbl.text = courseDurationExercise.title
         videoDescriptionLbl.text = courseDurationExercise.description
         videoInstructionLbl.text = courseDurationExercise.instruction
+        
+        setUpTimeValue()
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
@@ -37,6 +41,29 @@ class BWorkOutVideoInfoPopUp: UIViewController {
     
     @IBAction func dismissNotificationView(_ sender: UIButton) {
         self.dismiss(animated: true)
+    }
+    
+    
+    func setUpTimeValue() {
+        var timeTextTitle = ""
+        var timeText = ""
+        if self.courseDurationExercise.exerciseSet != nil {
+            timeTextTitle = "Sets/"
+            timeText = "\(self.courseDurationExercise.exerciseSet ?? "")/"
+        }
+        
+        if self.courseDurationExercise.exerciseWraps != nil {
+            timeTextTitle = timeTextTitle + "Reps/"
+            timeText = timeText + "\(self.courseDurationExercise.exerciseWraps ?? "")/"
+        }
+        
+        if self.courseDurationExercise.exerciseTime != nil {
+            timeTextTitle = timeTextTitle + "Time/"
+            timeText = timeText + "\(self.courseDurationExercise.exerciseTime ?? "")/"
+        }
+        
+        setRepsTimeTitleLbl.text = String(timeTextTitle.dropLast())
+        setRepsTimeDataLbl.text =  String(timeText.dropLast())
     }
     
 }

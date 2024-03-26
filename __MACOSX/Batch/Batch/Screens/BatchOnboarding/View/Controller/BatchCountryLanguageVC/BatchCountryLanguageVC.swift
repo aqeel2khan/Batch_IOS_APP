@@ -1,10 +1,3 @@
-//
-//  BatchCountryLanguageVC.swift
-//  Batch
-//
-//  Created by CTS-Jay Gupta on 21/02/24.
-//
-
 import UIKit
 
 class Country {
@@ -12,63 +5,50 @@ class Country {
     var flag: String?
 }
 
+struct Language {
+    var code : String?
+    var name : String?
+}
+
 class BatchCountryLanguageVC: UIViewController {
     @IBOutlet weak var CountryBackView: UIStackView!
     @IBOutlet weak var languageBackView: UIView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var countryTblView: UITableView!
-    
-    @IBOutlet weak var englishL: BatchButton!
-    @IBOutlet weak var arabicL: BatchButton!
-    @IBOutlet weak var dariL: BatchButton!
-    
+    @IBOutlet weak var languageTblView: UITableView!
     @IBOutlet weak var bottomBackView: UIView!
-    
-//    var selectedCountry : [String] = []
+    var timer: Timer? = nil
+
+    var languageList : [Language] = [Language(code: "en", name: "English"), Language(code: "ar", name: "Arabic (اَلْعَرَبِيَّةُ)")]
     var selectedCountryName = ""
-    
-    var list = [Country]()
-    var dupList = [Country]()
-    
+    var selectedLanguageCode = ""
+
+    var list : [Country] = []
+    var dupList : [Country] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.CountryBackView.isHidden = false
         self.languageBackView.isHidden = true
         
+        self.selectedCountryName = UserDefaultUtility().getCountryName()
+        self.selectedLanguageCode = UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String ?? ""
+
         countryTblView.register(UINib(nibName: "CountryListTableCell", bundle: .main), forCellReuseIdentifier: "CountryListTableCell")
-        
+        languageTblView.register(UINib(nibName: "QuestionLabelTVC", bundle: .main), forCellReuseIdentifier: "QuestionLabelTVC")
         configuration()
     }
- 
-    //MARK:-  check internet Connection
     
-    //    func checkNetwork () {
-    //
-    //        Task{
-    //            do{
-    //                let response = try await self.callApiService.getOperation(requestUrl:"https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/by-code.json", response: Country.self)
-    //
-    //                countryListData = response
-    //                //                    print(countryListData.count)
-    //                //                    print(countryListData)
-    //
-    //                for (key,value) in countryListData{
-    //                    countryName.append(value.name)
-    //                    countryImage.append(value.image)
-    //                }
-    //
-    //                DispatchQueue.main.asyncAfter(deadline: .now() + 0.010) {
-    //                    self.countryTblView.reloadData()
-    //                }
-    //            }
-    //            catch{
-    //                //                        self.ShowAlert(message: error.localizedDescription)
-    //            }
-    //        }
-    //
-    //    }
+    override func viewDidLayoutSubviews() {
+        setupViews()
+    }
+   
+    private func setupViews() {
+        self.segmentControl.setTitle(SegmentControlTitle.countrySegmentTitle.localized, forSegmentAt: 0)
+        self.segmentControl.setTitle(SegmentControlTitle.langaugeSegmentTitle.localized, forSegmentAt: 1)
+    }
     
     @IBAction func segmentControlValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
@@ -82,36 +62,33 @@ class BatchCountryLanguageVC: UIViewController {
     }
     
     @IBAction func onTapNextBtn(_ sender: Any) {
-        change(selectedLanguage: selectedCountryName)
-        
-        let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
-        tabbarVC.modalPresentationStyle = .fullScreen
-        present(tabbarVC, animated: true, completion: nil)
+        if segmentControl.selectedSegmentIndex == 0 {
+            segmentControl.selectedSegmentIndex = 1
+            self.CountryBackView.isHidden = true
+            self.languageBackView.isHidden = false
+        }
+        else {
+            LocalizationSystem.sharedInstance.setLanguage(languageCode: selectedLanguageCode)
+            UserDefaults.standard.setValue(selectedLanguageCode, forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE)
+            UIView.appearance().semanticContentAttribute = (selectedLanguageCode == ENGLISH_LANGUAGE_CODE) ? .forceLeftToRight : .forceRightToLeft
+            
+            let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
+            tabbarVC.modalPresentationStyle = .fullScreen
+            AppDelegate.standard.window?.rootViewController = tabbarVC
+        }
     }
-    
-    func change(selectedLanguage: String){
-        L102Language.setAppleLAnguageTo(lang: selectedLanguage)
-        //        if L102Language.currentAppleLanguage() == "en" {
-        //            UIView.appearance().semanticContentAttribute = .forceLeftToRight
-        //        } else {
-        //            UIView.appearance().semanticContentAttribute = .forceRightToLeft
-        //        }
-        Bundle.setLanguage(selectedLanguage)
-    }
-    
     
     @IBAction func onTapBackBtn(_ sender: Any) {
         dismiss(animated: true)
     }
     
-    @IBAction func onTapEnglishLBtn(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-        if sender.isSelected {
-            self.englishL.backgroundColor = Colors.appViewPinkBackgroundColor
-        }
-        else {
-            self.englishL.backgroundColor = Colors.appViewBackgroundColor
-        }
+    
+    @IBAction func onTapCrosskBtn(_ sender: Any) {
+        searchTextField.text =  ""
+        searchTextField.endEditing(true)
+        
+        self.dupList = self.list
+        self.countryTblView.reloadData()
     }
     
     func configuration() {
@@ -141,46 +118,53 @@ class BatchCountryLanguageVC: UIViewController {
     }
 }
 
-extension BatchCountryLanguageVC : UISearchBarDelegate {
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text =  ""
-        searchBar.endEditing(true)
-        
-        self.dupList = self.list
-        self.countryTblView.reloadData()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("search = \(searchText)" )
-        self.dupList = searchText.isEmpty ? list : list.filter({ (model) -> Bool in
-            return model.name!.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-        })
-        self.countryTblView.reloadData()
-    }
-}
+//extension BatchCountryLanguageVC : UISearchBarDelegate {
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.text =  ""
+//        searchBar.endEditing(true)
+//        
+//        self.dupList = self.list
+//        self.countryTblView.reloadData()
+//    }
+//    
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        print("search = \(searchText)" )
+//        self.dupList = searchText.isEmpty ? list : list.filter({ (model) -> Bool in
+//            return model.name!.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+//        })
+//        self.countryTblView.reloadData()
+//    }
+//}
 
-extension BatchCountryLanguageVC : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dupList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CountryListTableCell", for: indexPath) as! CountryListTableCell
-        cell.configure(selected: selectedCountryName == dupList[indexPath.row].name )
-
-        let info = dupList[indexPath.row]
-        if info.name != "Israel" {
-            cell.lblCountryName.text = "\(info.flag!) \(info.name!)"
+extension BatchCountryLanguageVC : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        if textField == searchTextField {
+            
+            let placeTextFieldStr = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
+            
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(
+                timeInterval: 0.5,
+                target: self,
+                selector: #selector(getHints),
+                userInfo: placeTextFieldStr,
+                repeats: false)
         }
-        return cell
+          
+       
+        return true
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedCountryName = dupList[indexPath.row].name ?? ""
-        countryTblView.reloadData()
+    @objc func getHints(timer: Timer) {
+        let userInfo = timer.userInfo as! String
+        
+        if searchTextField.text == "" {
+            self.dupList = self.list
+        } else {
+            self.dupList = self.list.filter{ $0.name!.lowercased().contains(userInfo.lowercased()) }
+        }
+        
+        self.countryTblView.reloadData()
     }
 }

@@ -36,7 +36,7 @@ class QuestionWeightVC: UIViewController {
     // MARK: - UI
     private func setupNavigationBar() {
         customNavigationBar.titleLbl.isHidden = false
-        customNavigationBar.titleLbl.text = CustomNavTitle.qustionVCTitle
+        customNavigationBar.titleLbl.text = CustomNavTitle.qustionVCTitle.localized
     }
     
     @IBAction func nextActionBtn(_ sender: BatchButton) {
@@ -44,9 +44,9 @@ class QuestionWeightVC: UIViewController {
         AnswerStruct.target_weight = rulerPicker(currentWeightPicker, highlightTitleForIndex: targetWeightPicker.highlightedIndex) ?? "0"
         
         if AnswerStruct.current_weight == "0" || AnswerStruct.current_weight == "0.0" {
-            showAlert(message: "Please select Current Weight")
+            showAlert(message: "Please select Current Weight".localized)
         } else if AnswerStruct.target_weight == "0" || AnswerStruct.target_weight == "0.0" {
-            showAlert(message: "Please select Target Weight")
+            showAlert(message: "Please select Target Weight".localized)
         } else {
             let vc = QuestionActivityVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
             vc.modalPresentationStyle = .overFullScreen

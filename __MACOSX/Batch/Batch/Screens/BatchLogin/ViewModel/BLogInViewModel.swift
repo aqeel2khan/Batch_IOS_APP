@@ -30,4 +30,13 @@ struct BLogInViewModel {
         
     }
     
+    func fcmApi(request: BatchFCMRequest, onSuccess:@escaping(BatchFCMResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        let bWOResource = BLogInResource()
+        bWOResource.fcmApi(request: request) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
+    
 }

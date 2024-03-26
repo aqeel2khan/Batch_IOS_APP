@@ -41,9 +41,9 @@ class OnBoardingScreenVC: UIViewController {
 
 //         selectLang.append(SelectLang(languageName:LTYText.english))
    
-        lblTitle.text = "Lorem ipsum dolor sit".localized
+        lblTitle.text = "Welcome to Batch!".localized
         lblSubTitle.text = "Lorem ipsum dolor sit amet consectetur.".localized
-        btnLookAround.setTitle("I want to look around".localized, for: .normal)
+        btnLookAround.setTitle("Guests".localized, for: .normal)
         btnLogin.setTitle("Log In".localized, for: .normal)
   
     }
@@ -56,6 +56,8 @@ class OnBoardingScreenVC: UIViewController {
     
     //MARK: - login Action Btn
     @IBAction func loginActionBtn(_ sender: UIButton) {
+        UserDefaults.standard.setValue("true", forKey: USER_DEFAULTS_KEYS.INITIAL_SCREEN_APPEAR)
+
         let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
@@ -64,6 +66,8 @@ class OnBoardingScreenVC: UIViewController {
     }
     
     @IBAction func workAroundActionBtn(_ sender: UIButton) {
+        UserDefaults.standard.setValue("true", forKey: USER_DEFAULTS_KEYS.INITIAL_SCREEN_APPEAR)
+
         let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
         tabbarVC.modalPresentationStyle = .fullScreen
         present(tabbarVC, animated: true, completion: nil)
@@ -71,9 +75,8 @@ class OnBoardingScreenVC: UIViewController {
     
     @IBAction func languageSelectionBtnTap(_ sender: UIButton) {
         let vc = BatchCountryLanguageVC.instantiate(fromAppStoryboard: .main)
-        vc.modalPresentationStyle = .pageSheet
-        vc.modalTransitionStyle = .crossDissolve
-        vc.selectedCountryName = "Kuwait"
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
         self.present(vc, animated: true)
     }
 }

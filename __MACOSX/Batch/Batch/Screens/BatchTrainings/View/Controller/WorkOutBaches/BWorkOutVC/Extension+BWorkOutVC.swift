@@ -12,22 +12,27 @@ import SDWebImage
 extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if (self.segmentControl.selectedSegmentIndex == 0)
-        {
+        if (self.segmentControl.selectedSegmentIndex == 0) {
             return self.courseListDataArr.count
         }
-        else
-        {
-            return self.coachListDataArr.count
+        else {
+            if woSearchTextField.text == "" {
+                if self.coachListDataArr.count > 0 {
+                    return self.coachListDataArr.count
+                }
+            } else {
+                if self.searchedCoachListDataArr.count > 0 {
+                    return self.searchedCoachListDataArr.count
+                }
+            }
         }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if (self.segmentControl.selectedSegmentIndex == 0)
-        {
+        if (self.segmentControl.selectedSegmentIndex == 0) {
             let cell = collectionView.dequeue(BWOBatchesListCollCell.self, indexPath)
-            
             let info = courseListDataArr[indexPath.item]
             
             let fileUrl = URL(string: BaseUrl.imageBaseUrl + (info.courseImage ?? ""))
@@ -38,7 +43,9 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             
             cell.lblTitle.text = info.courseName
             
-            cell.woDayCountLbl.text = "from \(CURRENCY) \(info.coursePrice?.removeDecimalValue() ?? "")"
+            let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+            cell.woDayCountLbl.attributedText = attributedPriceString
+            
             cell.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
             let workType = info.workoutType?[0].workoutdetail?.workoutType
             cell.workOutTypeBtn.setTitle("\(workType ?? "")", for: .normal)
@@ -46,11 +53,16 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             
             return cell
         }
-        else
-        {
+        else  {
             let cell = collectionView.dequeue(BWOMotivatorsListCollCell.self, indexPath)
-            let data = coachListDataArr[indexPath.item]
-            
+            var data : CoachListData!
+
+            if woSearchTextField.text == "" && coachListDataArr.count > 0 {
+                data = coachListDataArr[indexPath.item]
+            } else if woSearchTextField.text != "" && searchedCoachListDataArr.count > 0  {
+                data = searchedCoachListDataArr[indexPath.item]
+            }
+
             cell.typeLbl.text = ""
             var workOutType: [String] = []
             for i in 0..<(data.workoutType?.count ?? 0) {
@@ -85,35 +97,38 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             vc.newImage.append(UIImage(named: "barchart-black")!)
             
             if info.workoutType?.count != 0 {
-                let workOutType = info.workoutType?.count
-                
                 for i in 0..<info.workoutType!.count {
-                    print(info.workoutType?[i].workoutdetail?.workoutType)
-                    
                     vc.newArray.append("\(info.workoutType?[i].workoutdetail?.workoutType ?? "" )")
                     vc.newImage.append(UIImage(named: "accessibility_Black")!)
-                    
                 }
             }
-            
             self.present(vc, animated: true)
         }
         else {
             let vc = BWorkOutMotivatorDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
+            if woSearchTextField.text == "" {
+                vc.woCoachDetailInfo = [self.coachListDataArr[indexPath.item]]
+            } else {
+                vc.woCoachDetailInfo = [self.searchedCoachListDataArr[indexPath.item]]
+            }
             vc.woCoachDetailInfo = [self.coachListDataArr[indexPath.item]]
             self.present(vc, animated: true)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-        if (self.lastContentOffset > collectionView.contentOffset.y) {
-            // move up
-        }
-        else if (self.lastContentOffset < collectionView.contentOffset.y) {
-            // move down
+        if segmentControl.selectedSegmentIndex == 0 && !isWorkoutLoaded {
+            cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
+            UIView.animate(
+                withDuration: 0.5,
+                delay: 0.05 * Double(indexPath.row),
+                options: [.curveEaseInOut],
+                animations: {
+                    cell.transform = CGAffineTransform(translationX: 0, y: 0)
+                })
+        } else if segmentControl.selectedSegmentIndex == 1 && !isMotivatorLoaded {
             cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
             UIView.animate(
                 withDuration: 0.5,
@@ -123,9 +138,14 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
                     cell.transform = CGAffineTransform(translationX: 0, y: 0)
                 })
         }
-        
-        // update the new position acquired
-        self.lastContentOffset = collectionView.contentOffset.y
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if segmentControl.selectedSegmentIndex == 0 {
+            isWorkoutLoaded = true
+        } else {
+            isMotivatorLoaded = true
+        }
     }
 }
 
@@ -173,29 +193,66 @@ extension BWorkOutVC : UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension BWorkOutVC:  UITextFieldDelegate
-{
-    // MARK: - UITextFieldDelegate
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        // This method will be called whenever the text in the text field changes
-        // You can use the updated text to perform your custom search
-        
-        // Combine the existing text with the replacement string
-        let newText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
-        let query = newText.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        workItemReference?.cancel()
-        let querySearchWorkItem = DispatchWorkItem
-        {
-            // Example: Call your API function to perform a search
-            self.performSearch(query: query)
+//extension BWorkOutVC:  UITextFieldDelegate
+//{
+//    // MARK: - UITextFieldDelegate
+//
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        // This method will be called whenever the text in the text field changes
+//        // You can use the updated text to perform your custom search
+//
+//        // Combine the existing text with the replacement string
+//        let newText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
+//        let query = newText.trimmingCharacters(in: .whitespacesAndNewlines)
+//
+//        workItemReference?.cancel()
+//        let querySearchWorkItem = DispatchWorkItem
+//        {
+//            // Example: Call your API function to perform a search
+//            self.performSearch(query: query)
+//        }
+//        workItemReference = querySearchWorkItem
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: querySearchWorkItem)
+//
+//        return true
+//    }
+//
+//}
+
+
+extension BWorkOutVC : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        if textField == woSearchTextField {
+            
+            let placeTextFieldStr = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
+            
+            if placeTextFieldStr != "" {
+                woMotivatorBackView.layer.borderWidth = 1
+                woMotivatorBackView.layer.borderColor = Colors.appThemeButtonColor.cgColor
+                woMotivatorBackView.backgroundColor = .clear
+            } else {
+                woMotivatorBackView.layer.borderWidth = 0
+                woMotivatorBackView.layer.borderColor = UIColor.clear.cgColor
+                woMotivatorBackView.backgroundColor = Colors.appViewBackgroundColor
+            }
+            
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(
+                timeInterval: 0.5,
+                target: self,
+                selector: #selector(getHints),
+                userInfo: placeTextFieldStr,
+                repeats: false)
         }
-        workItemReference = querySearchWorkItem
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: querySearchWorkItem)
-        
         return true
     }
     
+    @objc func getHints(timer: Timer) {
+            let userInfo = timer.userInfo as! String
+        self.searchedCoachListDataArr = self.coachListDataArr.filter{ $0.name!.lowercased().contains(userInfo.lowercased()) }
+
+            self.batchesMotivatorCollView.reloadData()
+    }
 }

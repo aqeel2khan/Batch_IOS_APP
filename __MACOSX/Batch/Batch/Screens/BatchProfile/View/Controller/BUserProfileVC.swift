@@ -43,49 +43,41 @@ class BUserProfileVC: UIViewController {
     //    }
     
     func getProfileData(){
-        if internetConnection.isConnectedToNetwork() == true {
-            let bUserProfileVM = BUserProfileVM()
-            DispatchQueue.main.async {
-                showLoading()
-            }
-            bUserProfileVM.getProfileDetails { response in
-                DispatchQueue.main.async {
-                    hideLoading()
-                    self.updateUI(response: response)
-                }
-                
-            } onError: { error in
-                DispatchQueue.main.async {
-                    hideLoading()
-                    self.showAlert(message: error.localizedDescription)
-                }
-            }
-        }else{
-            self.showAlert(message: "Please check your internet", title: "Network issue")
+        DispatchQueue.main.async {
+            showLoading()
         }
-
+        let bUserProfileVM = BUserProfileVM()
+        bUserProfileVM.getProfileDetails { response in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.updateUI(response: response)
+            }
+            
+        } onError: { error in
+            DispatchQueue.main.async {
+                hideLoading()
+                self.showAlert(message: error.localizedDescription)
+            }
+        }
     }
     
     func updateUI(response: GetProfileResponse){
-            self.userImageView.contentMode = .scaleAspectFit
-            self.userImageView.clipsToBounds = true
             self.userImageView.sd_setImage(with:  URL(string: BaseUrl.imageBaseUrl + (response.data?.profile_photo_path ?? ""))!, placeholderImage: UIImage(named: "Avatar"))
+            UserDefaults.standard.set(response.data?.name ?? "", forKey: USER_DEFAULTS_KEYS.USER_NAME)
             userNameLbl.text = response.data?.name ?? ""
     }
     
-    
-    
     @IBAction func uploadPhotoBtnTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Take Photo".localized, style: .default, handler: { _ in
                 self.openCamera()
             }))
             
-            alert.addAction(UIAlertAction(title: "Choose Photo", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Choose Photo".localized, style: .default, handler: { _ in
                 self.openGallary()
             }))
             
-            alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction.init(title: "Cancel".localized, style: .cancel, handler: nil))
             
             self.present(alert, animated: true, completion: nil)
     }
@@ -96,6 +88,13 @@ class BUserProfileVC: UIViewController {
     
     @IBAction func onTapPersonalInfoBtn(_ sender: UIButton) {
         let vc = BUserPersonalInfoVC.instantiate(fromAppStoryboard: .batchAccount)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true)
+    }
+    
+    @IBAction func onTapChangeLanguageBtn(_ sender: UIButton) {
+        let vc = BatchCountryLanguageVC.instantiate(fromAppStoryboard: .main)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical
         self.present(vc, animated: true)
@@ -137,7 +136,6 @@ class BUserProfileVC: UIViewController {
 
 extension BUserProfileVC : barButtonTappedDelegate {
     func rightThirdBarBtnItem() {
-        let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN)
         if (UserDefaultUtility.isUserLoggedIn()) {
             let vc = BUserProfileVC.instantiate(fromAppStoryboard: .batchAccount)
             vc.modalPresentationStyle = .overFullScreen
@@ -149,9 +147,7 @@ extension BUserProfileVC : barButtonTappedDelegate {
     }
 }
 
-
 extension BUserProfileVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     /// Open the camera
     func openCamera() {
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)){
@@ -237,11 +233,11 @@ extension BUserProfileVC : UIImagePickerControllerDelegate, UINavigationControll
                     DispatchQueue.main.async {
                             hideLoading()
                         if getprofilePhoto != nil{
-                            self.userImageView.contentMode = .scaleAspectFit
+                            self.userImageView.contentMode = .scaleAspectFill
                             self.userImageView.clipsToBounds = true
                             self.userImageView.image = UIImage(data: getprofilePhoto ?? Data())
                         }else{
-                            self.userImageView.contentMode = .scaleAspectFit
+                            self.userImageView.contentMode = .scaleAspectFill
                             self.userImageView.clipsToBounds = true
                             self.userImageView.image = UIImage(named: "Avatar")
                         }

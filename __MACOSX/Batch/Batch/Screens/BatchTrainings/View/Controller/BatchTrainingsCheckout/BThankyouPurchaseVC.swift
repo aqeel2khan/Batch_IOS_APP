@@ -17,8 +17,9 @@ class BThankyouPurchaseVC: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        if isCommingFrom == "MealPlanCheckout"
-        {
+        if isCommingFrom == "MealPlanCheckout" {
+            self.descriptionLbl.text = "A courier will contact you on the day of delivery."
+        } else if isCommingFrom == "MealBatchSubscribe" {
             self.descriptionLbl.text = "A courier will contact you on the day of delivery."
         }
     }
@@ -41,12 +42,11 @@ class BThankyouPurchaseVC: UIViewController {
 
         } else {
             let vc = BatchTabBarController.instantiate(fromAppStoryboard: .batchTabBar)
-            tabBarController?.selectedIndex = 0
+            vc.selectedIndex = 4
             if #available(iOS 13.0, *) {
                 UIApplication.shared.windows.first?.rootViewController = vc
-                UIApplication.shared.windows.first?.makeKeyAndVisible()
+                UIApplication.shared.windows.first?.makeKeyAndVisible()  
             } else {
-                
                 Batch_AppDelegate.window?.rootViewController = vc
             }
         }

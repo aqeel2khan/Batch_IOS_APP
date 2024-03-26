@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -26,44 +26,57 @@
                                     <constraint firstAttribute="height" constant="200" id="6DS-tq-J21"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_batch" translatesAutoresizingMaskIntoConstraints="NO" id="6te-Nx-9bk">
+                                <rect key="frame" x="10" y="45" width="140" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="SyA-99-BiU"/>
+                                    <constraint firstAttribute="height" constant="50" id="aeQ-Mk-L4Q"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzp-so-WM4">
                                 <rect key="frame" x="0.0" y="110" width="393" height="2027"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vj9-dY-w3o" customClass="BatchLabelMedium18DarkGray" customModule="Batch" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="10.000000000000002" width="353" height="21.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hs5-AD-4l6">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="2027"/>
+                                        <rect key="frame" x="0.0" y="41.666666666666629" width="393" height="1985.3333333333335"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwB-E6-bFm" userLabel="ContainerView">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1442"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1452"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HoG-lu-hP7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1432"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1442"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QE7-o4-Xo7">
-                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="260"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="270"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7NU-bi-3ey" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                                                        <rect key="frame" x="20" y="10" width="353" height="240"/>
+                                                                        <rect key="frame" x="20" y="0.0" width="353" height="260"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="240" id="Zh1-QL-app"/>
+                                                                            <constraint firstAttribute="height" constant="260" id="Zh1-QL-app"/>
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                <real key="value" value="20"/>
+                                                                                <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="7NU-bi-3ey" firstAttribute="top" secondItem="QE7-o4-Xo7" secondAttribute="top" constant="10" id="4bW-T7-bon"/>
+                                                                    <constraint firstItem="7NU-bi-3ey" firstAttribute="top" secondItem="QE7-o4-Xo7" secondAttribute="top" id="4bW-T7-bon"/>
                                                                     <constraint firstAttribute="trailing" secondItem="7NU-bi-3ey" secondAttribute="trailing" constant="20" id="Hsu-MU-C6i"/>
                                                                     <constraint firstItem="7NU-bi-3ey" firstAttribute="leading" secondItem="QE7-o4-Xo7" secondAttribute="leading" constant="20" id="d4H-T2-fb3"/>
                                                                     <constraint firstAttribute="bottom" secondItem="7NU-bi-3ey" secondAttribute="bottom" constant="10" id="elD-sf-i0L"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccv-gC-23Z" userLabel="WOBatchBView">
-                                                                <rect key="frame" x="0.0" y="268" width="393" height="280"/>
+                                                                <rect key="frame" x="0.0" y="278" width="393" height="280"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ct2-IK-B7T">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="280"/>
@@ -71,13 +84,13 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uh0-nA-Hln">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="30"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Batches" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaH-wC-KDh">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Batches" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaH-wC-KDh" customClass="BatchLabelMedium18DarkGray" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="20" y="0.0" width="268" height="30"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <button opaque="NO" tag="152" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mC-lo-zqr">
+                                                                                    <button opaque="NO" tag="152" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mC-lo-zqr" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="293" y="-5" width="80" height="40"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="80" id="SAa-uO-fsh"/>
@@ -144,7 +157,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0od-gK-99o" userLabel="MotivatorBView">
-                                                                <rect key="frame" x="0.0" y="556" width="393" height="260"/>
+                                                                <rect key="frame" x="0.0" y="566" width="393" height="260"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Sf-qI-qkX">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="260"/>
@@ -152,13 +165,13 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bf0-he-sh0">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="30"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motivators" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnc-dL-pKc" userLabel="Motivators">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motivators" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnc-dL-pKc" userLabel="Motivators" customClass="BatchLabelMedium18DarkGray" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="20" y="0.0" width="268" height="30"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <button opaque="NO" tag="153" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D26-7e-1bi">
+                                                                                    <button opaque="NO" tag="153" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D26-7e-1bi" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="293" y="-5" width="80" height="40"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="40" id="G9l-kV-fh5"/>
@@ -225,7 +238,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQV-qR-xmW" userLabel="MealBView">
-                                                                <rect key="frame" x="0.0" y="824" width="393" height="300"/>
+                                                                <rect key="frame" x="0.0" y="834" width="393" height="300"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lo5-dB-tAf">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
@@ -233,13 +246,13 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSf-ER-ZrF">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="30"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Batches" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIR-Wc-gEd">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Batches" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIR-Wc-gEd" customClass="BatchLabelMedium18DarkGray" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="20" y="0.0" width="268" height="30"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <button opaque="NO" tag="154" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7c-hy-iTA">
+                                                                                    <button opaque="NO" tag="154" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7c-hy-iTA" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="293" y="-5" width="80" height="40"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="80" id="Dnb-21-utA"/>
@@ -267,7 +280,7 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1504" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Lpc-RZ-m6t">
-                                                                                <rect key="frame" x="0.0" y="40" width="393" height="260"/>
+                                                                                <rect key="frame" x="0.0" y="40.000000000000114" width="393" height="260"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="260" id="V7w-7v-h8P"/>
@@ -306,7 +319,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0d-MT-42Q" userLabel="TopRBView">
-                                                                <rect key="frame" x="0.0" y="1132" width="393" height="300"/>
+                                                                <rect key="frame" x="0.0" y="1142" width="393" height="300"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SNL-33-kTK">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
@@ -314,13 +327,13 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JJ-oM-mNz">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="30"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Rated Meals" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hse-8k-7Ep">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Rated Meals" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hse-8k-7Ep" customClass="BatchLabelMedium18DarkGray" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="20" y="0.0" width="268" height="30"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <button opaque="NO" tag="155" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FV-cO-ZpN">
+                                                                                    <button opaque="NO" tag="155" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FV-cO-ZpN" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
                                                                                         <rect key="frame" x="293" y="-5" width="80" height="40"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="80" id="GZe-Za-PlF"/>
@@ -409,13 +422,21 @@
                                             <constraint firstItem="bwB-E6-bFm" firstAttribute="leading" secondItem="Hs5-AD-4l6" secondAttribute="leading" id="FMd-Uw-ZI8"/>
                                             <constraint firstItem="bwB-E6-bFm" firstAttribute="width" secondItem="Hs5-AD-4l6" secondAttribute="width" id="qhg-7C-uu0"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="Hs5-AD-4l6" firstAttribute="leading" secondItem="tzp-so-WM4" secondAttribute="leading" id="3RK-ll-E5P"/>
-                                    <constraint firstItem="Hs5-AD-4l6" firstAttribute="top" secondItem="tzp-so-WM4" secondAttribute="top" id="FC3-dH-DNS"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vj9-dY-w3o" secondAttribute="trailing" constant="20" id="CqC-Ss-Izi"/>
+                                    <constraint firstItem="Vj9-dY-w3o" firstAttribute="top" secondItem="tzp-so-WM4" secondAttribute="top" constant="10" id="Edv-pC-z5n"/>
                                     <constraint firstAttribute="trailing" secondItem="Hs5-AD-4l6" secondAttribute="trailing" id="ZJn-tY-Men"/>
+                                    <constraint firstItem="Vj9-dY-w3o" firstAttribute="leading" secondItem="tzp-so-WM4" secondAttribute="leading" constant="20" id="feH-c0-J8U"/>
+                                    <constraint firstItem="Hs5-AD-4l6" firstAttribute="top" secondItem="Vj9-dY-w3o" secondAttribute="bottom" constant="10" id="iAe-Zg-ZbM"/>
                                     <constraint firstAttribute="bottom" secondItem="Hs5-AD-4l6" secondAttribute="bottom" id="r2y-fI-d91"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -430,8 +451,10 @@
                         <constraints>
                             <constraint firstItem="tzp-so-WM4" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="20" id="EZg-76-pvq"/>
                             <constraint firstItem="tzp-so-WM4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="GUs-6l-DGP"/>
+                            <constraint firstItem="6te-Nx-9bk" firstAttribute="leading" secondItem="qXf-7S-w5k" secondAttribute="leading" constant="10" id="PMM-8I-SM8"/>
                             <constraint firstItem="tzp-so-WM4" firstAttribute="top" secondItem="qXf-7S-w5k" secondAttribute="bottom" constant="-90" id="SvU-wc-jMZ"/>
                             <constraint firstItem="qXf-7S-w5k" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="Z0Z-iT-gNi"/>
+                            <constraint firstItem="tzp-so-WM4" firstAttribute="top" secondItem="6te-Nx-9bk" secondAttribute="bottom" constant="15" id="aeC-ua-wxZ"/>
                             <constraint firstAttribute="trailing" secondItem="qXf-7S-w5k" secondAttribute="trailing" id="nYT-MB-RlH"/>
                             <constraint firstItem="tzp-so-WM4" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="pNO-bu-6LC"/>
                             <constraint firstItem="qXf-7S-w5k" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="yws-c7-beL"/>
@@ -454,14 +477,29 @@
             <point key="canvasLocation" x="-710.68702290076328" y="-13.380281690140846"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="4FV-cO-ZpN">
+            <size key="intrinsicContentSize" width="60" height="33"/>
+        </designable>
+        <designable name="8mC-lo-zqr">
+            <size key="intrinsicContentSize" width="60" height="33"/>
+        </designable>
+        <designable name="D26-7e-1bi">
+            <size key="intrinsicContentSize" width="60" height="33"/>
+        </designable>
+        <designable name="X7c-hy-iTA">
+            <size key="intrinsicContentSize" width="60" height="33"/>
+        </designable>
+    </designables>
     <resources>
         <image name="home" width="42" height="42"/>
         <image name="homefill" width="42" height="42"/>
+        <image name="logo_batch" width="1774" height="600"/>
         <namedColor name="AppThemeBackgroundColor">
             <color red="0.80000000000000004" green="0.87058823529411766" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -14,29 +14,32 @@ class VimoPlayerVC: UIViewController {
     @IBOutlet weak var dayCountLbl: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var selectedVideoViewTbl: UITableView!
+    @IBOutlet weak var timeTitleLbl: UILabel!
+    @IBOutlet weak var timeLbl: UILabel!
     var courseDurationExerciseArr = [CourseDurationExercise]()
     var courseDetail: CourseDetail!
     var todayWorkoutsInfo : TodayWorkoutsElement!
-
+    
     var refreshControl: UIRefreshControl!
     var completion: (()->Void)? = nil
     var viemoVideoArr = [String]()
     var titleText = "Lower-Body Burn"
     var dayNumberText : String!
-
+    
     var selectedIndex = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLbl.text = courseDetail.courseName
-        if dayNumberText.contains("Day") {
+        setUpTimeValue()
+        
+        if dayNumberText.contains("Day".localized) {
             dayCountLbl.text = dayNumberText.substring(fromIndex: 4)
         } else {
-            dayCountLbl.text = "Day : " + dayNumberText
+            dayCountLbl.text = "Day".localized + " : " + dayNumberText
         }
-                
+        
         print("OUR FINAL VIDEO URL")
         print(viemoVideoArr)
         
@@ -47,11 +50,39 @@ class VimoPlayerVC: UIViewController {
         self.selectedVideoViewTbl.register(UINib(nibName: "VideoThunbListTblCell", bundle: .main), forCellReuseIdentifier: "VideoThunbListTblCell")
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.appEnteredFromBackground), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        
     }
+    
+    func setUpTimeValue() {
+        titleLbl.text = self.courseDurationExerciseArr[selectedIndex].title
+        
+        var timeTextTitle = ""
+        var timeText = ""
+        if self.courseDurationExerciseArr[selectedIndex].exerciseSet != nil {
+            timeTextTitle = "S/"
+            timeText = "\(self.courseDurationExerciseArr[selectedIndex].exerciseSet ?? "")/"
+        }
+        
+        if self.courseDurationExerciseArr[selectedIndex].exerciseWraps != nil {
+            timeTextTitle = timeTextTitle + "R/"
+            timeText = timeText + "\(self.courseDurationExerciseArr[selectedIndex].exerciseWraps ?? "")/"
+        }
+        
+        if self.courseDurationExerciseArr[selectedIndex].exerciseTime != nil {
+            timeTextTitle = timeTextTitle + "T/"
+            timeText = timeText + "\(self.courseDurationExerciseArr[selectedIndex].exerciseTime ?? "")/"
+        }
+        
+        timeTitleLbl.text = String(timeTextTitle.dropLast())
+        timeLbl.text =  String(timeText.dropLast())
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //        vimoVideoSetUp(stingUrl:vimoBaseUrl + vimoVideoID[0])
         pausePlayeVideos()
+        
+        changeSecondTableViewCellColor(index:selectedIndex)
     }
     
     
@@ -120,13 +151,10 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
         else  {
             let cell = tableView.dequeueReusableCell(withIdentifier: "VimoPlayerCell", for: indexPath) as! VimoPlayerCell
             cell.configureCell(videoUrl: self.viemoVideoArr[indexPath.row])
-           
-            cell.timeLbl.text = "test"
             
             cell.dragUpUIView.isHidden = indexPath.row == 0 ? false : true
             cell.bottomView.isHidden = indexPath.row == (self.viemoVideoArr.count - 1) ? false : true
-          
-            cell.timeLbl.layer.zPosition = 1
+            
             cell.bottomView.layer.zPosition = 1
             cell.dragUpUIView.layer.zPosition = 1
             
@@ -141,7 +169,13 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     @objc func finishWorkOutBtnAction(_ sender:UIButton) {
-        dismiss(animated: true)
+        ASVideoPlayerController.sharedVideoPlayer.currentLayer?.player?.pause()
+        ASVideoPlayerController.sharedVideoPlayer.videoLayers.layers.removeAll()
+        
+        let vc = BWorkOutCompleteVC.instantiate(fromAppStoryboard: .batchTrainings)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -163,6 +197,7 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         changeSecondTableViewCellColor(index:selectedIndex)
+        setUpTimeValue()
         
         pausePlayeVideos()
     }
@@ -184,13 +219,15 @@ extension VimoPlayerVC: UITableViewDelegate,UITableViewDataSource {
     //2
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
+        
+        setUpTimeValue()
+        
         print("play video \(indexPath.row)")
         
         if tableView == selectedVideoViewTbl
         {
             print("play video \(indexPath.row)")
             
-            //changeSecondTableViewCellColor(index:indexPath.row)
             if self.viemoVideoArr.count != 0
             {
                 let cell2 = selectedVideoViewTbl.cellForRow(at: indexPath) as? VideoThunbListTblCell

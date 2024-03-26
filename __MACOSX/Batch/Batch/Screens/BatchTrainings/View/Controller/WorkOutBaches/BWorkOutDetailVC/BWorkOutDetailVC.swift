@@ -15,11 +15,11 @@ class BWorkOutDetailVC: UIViewController {
     @IBOutlet weak var videoPlayBtn: UIButton!
     @IBOutlet weak var woTitleLbl: UILabel!
     @IBOutlet weak var workOutPriceLbl: UILabel!
-    @IBOutlet weak var woDesLbl: UILabel!
+    @IBOutlet weak var woDesLbl: BatchLabelRegular16DarkGray!
     @IBOutlet weak var coachPicImgView: UIImageView!
-    @IBOutlet weak var coachNameLbl: UILabel!
-    @IBOutlet weak var durationLbl: UILabel!
-    @IBOutlet weak var durationTitleLbl: UILabel!
+    @IBOutlet weak var coachNameLbl: BatchLabelMedium14DarkGray!
+    @IBOutlet weak var durationLbl: BatchLabelRegular16DarkGray!
+    @IBOutlet weak var durationTitleLbl: BatchMedium18Black!
     @IBOutlet weak var videoListTableHeight: NSLayoutConstraint!
     @IBOutlet weak var videoListTableView: UITableView!
     @IBOutlet weak var trainingCollectionView: UICollectionView!
@@ -55,6 +55,8 @@ class BWorkOutDetailVC: UIViewController {
     var unsubscribeWorkoutsInfo = [TodayWorkoutsElement]()
     var totalCourseDashboardArr = [CourseDuration]()
     var videoIdArr = [String]()
+    
+    var coachIdValue:Int?
     
     // MARK: - Lifecycle
     
@@ -104,36 +106,32 @@ class BWorkOutDetailVC: UIViewController {
             self.videoListTableView.reloadData()
         }
         else if isCommingFrom == "MotivatorDetailVC"  {
-            if woDetailInfo.count != 0 {
-                let info = woDetailInfo[0]
-                guard info.courseID != nil else { return }
-                
-                if internetConnection.isConnectedToNetwork() == true {
-                    // Call Api here
-                    self.getCourseDetails(courseId:"\(info.courseID ?? 0)")
-                }
-                else {
-                    self.showAlert(message: "Please check your internet", title: "Network issue")
-                }
+            let info = woMotivatorInfo
+            guard info?.courseID != nil else { return }
+            if internetConnection.isConnectedToNetwork() == true {
+                // Call Api here
+                self.getCourseDetails(courseId:"\(info?.courseID ?? 0)")
+            }
+            else {
+                self.showAlert(message: "Please check your internet", title: "Network issue")
             }
         }
     }
-    
     // MARK: - UI
-    
     private func setUpViewData()  {
         if isCommingFrom == "MotivatorDetailVC"  {
             self.grandTotalPriceBackView.isHidden = false
             self.subscribeCourseBtn.isHidden = false
             self.startWorkOutBtn.isHidden = true
-            //self.changeCourseBtn.isHidden = true
-            
             let info = woMotivatorInfo
             self.woTitleLbl.text = info?.courseName
-            self.workOutPriceLbl.text = "from \(CURRENCY) " + (info?.coursePrice?.removeDecimalValue() ?? "")
+            coachIdValue = info?.coachDetail?.id ?? 0
+            let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info?.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+            self.workOutPriceLbl.attributedText = attributedPriceString
             self.woDesLbl.text = info?.description ?? ""
             self.coachNameLbl.text = info?.coachDetail?.name ?? ""
-            self.durationLbl.text = info?.duration ?? ""
+            self.durationLbl.text = "\(info?.duration ?? "") \(BatchConstant.days)"
+            
             let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (info?.courseImage ?? ""))
             self.courseImgView.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info?.coachDetail?.profilePhotoPath ?? ""))
@@ -149,19 +147,23 @@ class BWorkOutDetailVC: UIViewController {
                     newImage.append(UIImage(named: "accessibility_Black")!)
                 }
             }
-            durationTitleLbl.text = "Duration"
+            durationTitleLbl.text = "Duration".localized
+            self.videoPlayBtn.isHidden = false
+            self.coursePromotionVideoId = info?.coursePromoVideo ?? ""
         }
         else if isCommingFrom == "workoutbatches" { // without subscription
             self.grandTotalPriceBackView.isHidden = false
             self.subscribeCourseBtn.isHidden = false
             self.startWorkOutBtn.isHidden = true
-           // self.changeCourseBtn.isHidden = true
+            // self.changeCourseBtn.isHidden = true
             let info = woDetailInfo[0]
             self.woTitleLbl.text = info.courseName
-            self.workOutPriceLbl.text = "from \(CURRENCY) " + (info.coursePrice?.removeDecimalValue() ?? "")
+            coachIdValue = info.coachDetail?.id ?? 0
+            let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+            self.workOutPriceLbl.attributedText = attributedPriceString
             self.woDesLbl.text = info.description ?? ""
             self.coachNameLbl.text = info.coachDetail?.name ?? ""
-            self.durationLbl.text = info.duration ?? ""
+            self.durationLbl.text = "\(info.duration ?? "") \(BatchConstant.days)"
             let woImgUrl = URL(string: BaseUrl.imageBaseUrl + (info.courseImage ?? ""))
             self.courseImgView.sd_setImage(with: woImgUrl, placeholderImage:UIImage(named: "Image"))
             let profileUrl = URL(string: BaseUrl.imageBaseUrl + (info.coachDetail?.profilePhotoPath ?? ""))
@@ -169,17 +171,24 @@ class BWorkOutDetailVC: UIViewController {
             self.grandTotalPriceLbl.text = "\(CURRENCY) \(info.coursePrice?.removeDecimalValue() ?? "")"
             self.coursePromotionVideoId = info.coursePromoVideo ?? ""
             self.videoPlayBtn.isHidden = false
-            durationTitleLbl.text = "Duration"
+            durationTitleLbl.text = "Duration".localized
         }
         else if isCommingFrom == "dashboard" {
             self.grandTotalPriceBackView.isHidden = true
             self.subscribeCourseBtn.isHidden = true
             self.startWorkOutBtn.isHidden = false
-           // self.changeCourseBtn.isHidden = false
+            // self.changeCourseBtn.isHidden = false
             let info = courseDetailsInfo
             self.coursePromotionVideoId = info?.coursePromoVideo ?? ""
+            coachIdValue = info?.coachDetail?.id ?? 0
             self.woTitleLbl.text = info?.courseName
-            self.workOutPriceLbl.text = "from \(CURRENCY) " + (info?.coursePrice?.removeDecimalValue() ?? "")
+//            self.workOutPriceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + (info?.coursePrice?.removeDecimalValue() ?? "")
+            
+//            let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(info?.coursePrice?.removeDecimalValue() ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:12)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+//            self.workOutPriceLbl.attributedText = attributedPriceString
+
+            self.workOutPriceLbl.text = ""
+            
             self.woDesLbl.text = info?.description ?? ""
             self.coachNameLbl.text = info?.coachDetail?.name ?? ""
             self.durationLbl.text = "Day \(todayWorkoutsInfo.row ?? 0)"
@@ -189,26 +198,36 @@ class BWorkOutDetailVC: UIViewController {
             self.coachPicImgView.sd_setImage(with: profileUrl , placeholderImage:UIImage(named: "Avatar1" ) )
             self.grandTotalPriceLbl.text = "\(CURRENCY) \(info?.coursePrice?.removeDecimalValue() ?? "")"
             self.videoPlayBtn.isHidden = false
-            durationTitleLbl.text = "Todays Exercise"
+            durationTitleLbl.text = "Todays Exercise".localized
         }
     }
     
     // MARK: - IBActions
     
     @IBAction func onTapVideoPlayBtn(_ sender: Any) {
-        if coursePromotionVideoId != ""
-        {
+        if coursePromotionVideoId != "" {
             let vc = VideoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
             vc.courseVideoId = coursePromotionVideoId
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true)
         }
-        else
-        {
+        else {
             showAlert(message: "Promo video not available")
         }
     }
+    
+    
+    @IBAction func coachBtnTap(_ sender: Any) {
+        
+        let vc = BWorkOutMotivatorDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        vc.isCommingFrom = "BWorkOutDetailVC"
+        vc.coachIdStr = "\(coachIdValue ?? 0)"
+        self.present(vc, animated: true)
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         self.videoListTableView.removeObserver(self, forKeyPath: "contentSize")
     }
@@ -248,19 +267,19 @@ class BWorkOutDetailVC: UIViewController {
             print("all video setup done")
             let vimeoVideoArr = self.videoIdArr.filter {$0 != ""}
             if vimeoVideoArr.count != 0 {
-                let vc = VimoPlayerVC.instantiate(fromAppStoryboard: .batchTrainings)
+                
+                let vc = BStartWorkOutDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .coverVertical
+                vc.isCommingFrom = "StartWorkout"
                 vc.courseDurationExerciseArr = self.courseDurationExerciseArr
                 vc.courseDetail = self.courseDetailsInfo
                 vc.viemoVideoArr = self.vimoVideoURLList
                 vc.todayWorkoutsInfo = self.todayWorkoutsInfo
+                vc.dayName = self.todayWorkoutsInfo.dayName ?? ""
+                vc.dayDesc = self.todayWorkoutsInfo.description ?? ""
                 vc.dayNumberText = "\(self.durationLbl.text ?? "") / \(self.totalCourseDashboardArr.count)"
                 vc.titleText = self.woTitleLbl.text ?? ""
-                vc.modalPresentationStyle = .overFullScreen
-                vc.modalTransitionStyle = .coverVertical
-                vc.completion = {
-                    print(self.vimoVideoURLList)
-                    self.callApiServices()
-                }
                 self.present(vc, animated: true)
             }
             else {

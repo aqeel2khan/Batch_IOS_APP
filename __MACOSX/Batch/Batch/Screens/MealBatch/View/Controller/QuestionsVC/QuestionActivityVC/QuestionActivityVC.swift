@@ -10,8 +10,8 @@ import UIKit
 class QuestionActivityVC: UIViewController {
     @IBOutlet weak var customNavigationBar: CustomSecondNavigationBar!
     @IBOutlet weak var tblView: UITableView!
-    var activityList : [String] = ["Low Mobility", "1-2 workouts per week", "3-5 workouts per week", "5-7 workouts per week"]
-
+    var activityList : [String] = ["Low Mobility", " 1-2" + "workouts per week".localized, " 3-5" + "workouts per week".localized, " 5-7" + "workouts per week".localized]
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +28,7 @@ class QuestionActivityVC: UIViewController {
     // MARK: - UI
     private func setupNavigationBar() {
         customNavigationBar.titleLbl.isHidden = false
-        customNavigationBar.titleLbl.text = CustomNavTitle.qustionVCTitle
+        customNavigationBar.titleLbl.text = CustomNavTitle.qustionVCTitle.localized
     }
     
     @IBAction func nextActionBtn(_ sender: BatchButton) {
@@ -37,7 +37,7 @@ class QuestionActivityVC: UIViewController {
         }
         
         if AnswerStruct.workout_per_week == nil {
-            showAlert(message: "Please select at least one active option")
+            showAlert(message: "Please select at least one active option".localized)
         }  else {
             let vc = QuestionDietVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
             vc.modalPresentationStyle = .overFullScreen

@@ -7,7 +7,25 @@
 		<key>Batch.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>24</integer>
+			<integer>49</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3188B3BC2B299B6600E19945</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3188B3D22B299B6B00E19945</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3188B3DC2B299B6B00E19945</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

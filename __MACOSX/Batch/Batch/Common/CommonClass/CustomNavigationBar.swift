@@ -27,7 +27,8 @@ class CustomNavigationBar: UIView {
     @IBOutlet weak var rightThirdBarBtnItem: UIButton!
     @IBOutlet weak var navFirstBackView: UIView!
     @IBOutlet weak var navSecondBackView: UIView!
-    
+    @IBOutlet weak var logoHeader: UIImageView!
+
     // MARK: - Properties
     var view : UIView?
     var leftBarButtonTappedDelegate : barButtonTappedDelegate?
@@ -45,11 +46,17 @@ class CustomNavigationBar: UIView {
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         titleFirstLbl.font = FontSize.mediumSize24
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
-        if getprofilePhoto != nil{
+        if getprofilePhoto != nil {
             profileImage.image = UIImage(data: getprofilePhoto ?? Data())
+            profileImage.cornerRadius = 12
+            profileImage.clipsToBounds = true
         }else{
-            profileImage.image = UIImage(named: "Avatar")
+            profileImage.image = UIImage(named: "Avatar")  
+            profileImage.cornerRadius = 0
         }
+        
+        logoHeader.image = logoHeader.image?.withRenderingMode(.alwaysTemplate)
+        logoHeader.tintColor = UIColor.black
         return view
     }
     

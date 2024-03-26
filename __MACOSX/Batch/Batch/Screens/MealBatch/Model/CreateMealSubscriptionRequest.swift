@@ -24,3 +24,58 @@ struct CreateMealSubscriptionRequest: Codable {
         case startDate = "start_date"
     }
 }
+
+
+struct SubscriptionRequest: Encodable {
+    let userId: Int
+    let mealId: Int
+    let subtotal: String
+    let discount: String
+    let tax: Int
+    let total: String
+    let paymentType: String
+    let transactionId: String
+    let paymentStatus: String
+    let startDate: String
+    let duration: String
+    let latitude: String
+    let longitude: String
+    let area: String
+    let block: String
+    let house: String
+    let street: String
+    let addressType: String
+    let deliveryTime: String
+    let deliveryArriving: String
+    let deliveryDropoff: String
+    let deliveryTimeId: Int
+    let deliveryArrivingId: Int
+    let deliveryDropoffId: Int
+    let addressCity: String
+    let addressCityId: String
+    let addressState: String
+    let addressStateId: String
+
+    
+    enum CodingKeys: String, CodingKey {
+        case userId = "user_id"
+        case mealId = "meal_id"
+        case subtotal, discount, tax, total
+        case paymentType = "payment_type"
+        case transactionId = "transaction_id"
+        case paymentStatus = "payment_status"
+        case startDate = "start_date"
+        case duration, latitude, longitude, area, block, house, street
+        case addressType = "address_type"
+        case deliveryTime = "delivery_time"
+        case deliveryArriving = "delivery_arriving"
+        case deliveryDropoff = "delivery_dropoff"
+        case deliveryTimeId = "delivery_time_id"
+        case deliveryArrivingId = "delivery_arriving_id"
+        case deliveryDropoffId = "delivery_dropoff_id"
+        case addressCity = "city"
+        case addressCityId = "city_id"
+        case addressState = "state"
+        case addressStateId = "state_id"
+    }
+}

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,19 +23,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNg-SS-odA">
-                    <rect key="frame" x="0.0" y="55" width="60" height="40"/>
+                    <rect key="frame" x="0.0" y="21" width="60" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Npp-kc-LgE"/>
                         <constraint firstAttribute="width" constant="60" id="usO-mj-HuI"/>
                     </constraints>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="back"/>
+                    <state key="normal" image="Back_White"/>
                     <connections>
                         <action selector="leftBarBtnTapped:" destination="-1" eventType="touchUpInside" id="agH-ws-WMr"/>
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6zp-Ab-frX">
-                    <rect key="frame" x="50" y="50" width="333" height="50"/>
+                    <rect key="frame" x="50" y="16" width="333" height="50"/>
                     <subviews>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hc-ba-tq0" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="0.0" height="50"/>
@@ -81,7 +81,7 @@
         </view>
     </objects>
     <resources>
-        <image name="back" width="32" height="32"/>
+        <image name="Back_White" width="32" height="32"/>
         <image name="calendar-delete" width="24" height="24"/>
         <image name="calendarblack" width="24" height="24"/>
         <namedColor name="AppLabelBlackColor">

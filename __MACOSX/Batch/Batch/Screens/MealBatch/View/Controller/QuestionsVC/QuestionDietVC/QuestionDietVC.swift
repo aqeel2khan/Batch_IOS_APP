@@ -30,7 +30,7 @@ class QuestionDietVC: UIViewController {
     
     private func setupNavigationBar() {
         customNavigationBar.titleLbl.isHidden = false
-        customNavigationBar.titleLbl.text = CustomNavTitle.qustionVCTitle
+        customNavigationBar.titleLbl.text = CustomNavTitle.qustionVCTitle.localized
     }
     
     @IBAction func nextActionBtn(_ sender: BatchButton) {
@@ -43,7 +43,7 @@ class QuestionDietVC: UIViewController {
         let commaSeperatedString = (selectedValue.map{String($0)}.joined(separator: ","))
         
         if commaSeperatedString == "" {
-            showAlert(message: "Please select at least one diet")
+            showAlert(message: "Please select at least one diet".localized)
         } else {
             AnswerStruct.tag_id = commaSeperatedString
             let vc = QuestionAllergyVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)

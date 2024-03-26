@@ -16,6 +16,7 @@ class MealBatchDetailVC: UIViewController {
     @IBOutlet weak var mealTitleLbl: UILabel!
     @IBOutlet weak var mealDescriptionLbl: UILabel!
     @IBOutlet weak var durationLbl: UILabel!
+    @IBOutlet weak var endDateLabel: UILabel!
 
     @IBOutlet weak var weekCalenderCollView: UICollectionView!// 202
     @IBOutlet weak var mealTblView: UITableView!
@@ -27,6 +28,9 @@ class MealBatchDetailVC: UIViewController {
     var subscribedMealDetails : SubscribedMealDetails?
     @IBOutlet weak var mealMsgBackView: UIView!
     
+    let dateFormatter = DateFormatter()
+    
+
     // MARK: - Properties
     var isCommingFrom = ""
     
@@ -40,10 +44,10 @@ class MealBatchDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         self.mealTitleLbl.text = mealData.name
         self.mealTitleLbl.font = FontSize.mediumSize20
-        let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: "from", value: " \(CURRENCY) \(mealData.price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
+        let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(mealData.price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
         self.mealPriceLbl.attributedText = attributedPriceString
 
         self.mealDescriptionLbl.text = mealData.description
@@ -154,8 +158,8 @@ extension MealBatchDetailVC {
         bHomeViewModel.getSubscribedMealDetail(urlStr: urlStr, request: request) { (response) in
             if response.status == true, response.data?.data != nil {
                 DispatchQueue.main.async {
-                    self.tagTitleArray.append((response.data?.data?.mealDetails.avgCalPerDay ?? "") + " kcal")
-                    self.tagTitleArray.append(("\(response.data?.data?.mealDetails.mealCount ?? 0)") + " meals")
+                    self.tagTitleArray.append((response.data?.data?.mealDetails.avgCalPerDay ?? "") + " " + BatchConstant.kcalSuffix)
+                    self.tagTitleArray.append(("\(response.data?.data?.mealDetails.mealCount ?? 0)") + " " + BatchConstant.meals)
                     self.tagTitleArray.append((response.data?.data?.mealDetails.mealType ?? ""))
                     hideLoading()
                     let dateFormatter = DateFormatter()
@@ -171,6 +175,10 @@ extension MealBatchDetailVC {
                            let endDate = dateFormatter.date(from: response.data?.data?.subscribeDetail.endDate ?? "") {
                             let weekDays = self.datesBetween(startDate: startDate, endDate: endDate)
                             self.weekDays = weekDays
+                            dateFormatter.dateFormat = "MMMM dd"
+                            let formattedEndDate = dateFormatter.string(from: endDate)
+                            let finalString = "On \(formattedEndDate), the plan will be suspended"
+                            self.endDateLabel.text = finalString
                         }
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -254,11 +262,12 @@ extension MealBatchDetailVC {
         return datesArray
     }
     
-    func openMealIngredientView(dishId: String, dishName: String) {
+    func openMealIngredientView(dishId: String, dishName: String, dayDish: DaysDish) {
         let vc = MealPlanIngridentEditableView.instantiate(fromAppStoryboard: .batchMealPlans)
         vc.isCommingFrom = "MealBatchDetailVC"
         if let mealId = mealData.id, let goalId = mealData.goalID {
             vc.dishRequest = DishRequest(mealId: "\(mealId)", dishId: dishId, goalId: "\(goalId)", dishName: dishName)
+            vc.dishData = Dishes(categoryID: dayDish.dishCategory, name:dayDish.dishName, nameAr: dayDish.dishName, description: "", descriptionAr: "", price: "", mealID: mealId, dishID: dayDish.dishID, orderInMenu: nil, avgPreparationTime: "", dishImage: dayDish.dishImage)
         }
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical

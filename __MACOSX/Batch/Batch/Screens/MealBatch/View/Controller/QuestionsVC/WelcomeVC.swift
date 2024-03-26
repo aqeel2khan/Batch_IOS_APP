@@ -17,7 +17,7 @@ class WelcomeVC: UIViewController {
         circleOnSceneView.setProgressColor = Colors.appThemeButtonColor
         circleOnSceneView.setTrackColor = Colors.appBorderLightColor
         
-        circleOnSceneView.setProgressWithAnimation(duration: 2.0, value: 0.25)
+        circleOnSceneView.setProgressWithAnimation(duration: 2.0, value: 0.0)  
         
         showActivityIndicator()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {

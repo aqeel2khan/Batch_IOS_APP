@@ -8,6 +8,7 @@
 import UIKit
 
 @IBDesignable
+
 class BatchButton: UIButton {
     
     @IBInspectable var borderWidth: CGFloat = 0{
@@ -32,6 +33,11 @@ class BatchButton: UIButton {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setTitle(titleLabel?.text?.localized, for: .normal)
     }
     
     override func prepareForInterfaceBuilder() {
@@ -72,6 +78,11 @@ class BatchButtonMedium12White: UIButton {
         super.init(coder: aDecoder)
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        titleLabel?.text = titleLabel?.text?.localized
+    }
+    
     override func prepareForInterfaceBuilder() {
         setUpView()
     }
@@ -82,7 +93,6 @@ class BatchButtonMedium12White: UIButton {
     }
     
     func setUpView() {
-        //self.titleLabel?.text = text?.localized()
         self.titleLabel?.font = FontSize.mediumSize12
         self.titleLabel?.textColor = .white
         
@@ -110,7 +120,6 @@ class BatchButtonMedium14White: UIButton {
     }
     
     func setUpView() {
-        //self.titleLabel?.text = text?.localized()
         self.titleLabel?.font = FontSize.mediumSize14
         self.titleLabel?.textColor = .white
         

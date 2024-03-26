@@ -11,8 +11,6 @@ import HealthKit
 
 
 class BatchDashboardVC: UIViewController, AxisValueFormatter {
-    
-    
     @IBOutlet weak var loginBtnHeight: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var healthKitTableView: UITableView!
@@ -25,9 +23,24 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     @IBOutlet weak var mealBatchCollView: UICollectionView!
+    @IBOutlet weak var mealCardImageView: UIImageView!
     @IBOutlet weak var workoutBatchCollView: UICollectionView!
+    @IBOutlet weak var workoutCardImageView: UIImageView!
     @IBOutlet weak var macroContainer: UIView!
 
+    
+    @IBOutlet weak var kcalContainerView: UIView!
+    @IBOutlet weak var kcalLabelValueTitle: UILabel!
+    @IBOutlet weak var kcalStaticTitle: UILabel!
+    
+    @IBOutlet weak var progressBar1: UIProgressView!
+    @IBOutlet weak var progressBar2: UIProgressView!
+    @IBOutlet weak var progressBar3: UIProgressView!
+
+    @IBOutlet weak var lblProgressBar1: UILabel!
+    @IBOutlet weak var lblProgressBar2: UILabel!
+    @IBOutlet weak var lblProgressBar3: UILabel!
+  
     //var courseList = [List]()
     var courseList = [DashboardWOList]()
     var pieValue: [Double] = [7.25, 7]
@@ -36,6 +49,9 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     var isSleep = true
     var currentSleepData = ""
     
+   
+    var macroDetails : Macros?
+
     var datesForSleep: [String] = []
     var datesForEnergyBurned: [String] = []
     
@@ -98,6 +114,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setupNavigationBar()
+        
         loginBtn.isHidden = true
         if !UserDefaultUtility.isUserLoggedIn() {
             loginBtn.isHidden = false
@@ -111,6 +128,12 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
             vc.isCommingFrom = "BatchBoard"
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true)
+        }
+        
+        if UserDefaultUtility.isUserLoggedIn() {
+            macroContainer.isHidden = false
+        } else {
+            macroContainer.isHidden = true
         }
         let healthPermission = Batch_UserDefaults.value(forKey: UserDefaultKey.healthPermission) as? Bool
         if UserDefaultUtility.isUserLoggedIn() && healthPermission ?? false{
@@ -143,25 +166,24 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
             loginBtnHeight.constant = 56
         }
         
+        kcalContainerView.layer.cornerRadius = kcalContainerView.bounds.width / 2
+        kcalContainerView.layer.masksToBounds = true
+        
+        // Add a border
+        kcalContainerView.layer.borderWidth = 2.0 // You can adjust the border width as needed
+        kcalContainerView.layer.borderColor = UIColor.hexStringToUIColor(hex: "#516634").cgColor // You can adjust the border color as needed
+        
         if UserDefaultUtility.isUserLoggedIn() {
-            if internetConnection.isConnectedToNetwork() == true {
-                //self.workoutBatchCollView.isHidden = false
-                // Call Api here
-                self.getSubscribedMealList()
-                self.getSubscribedCourseList()
-            }
-            else
-            {
-                self.showAlert(message: "Please check your internet", title: "Network issue")
-            }
-        }
-        else
-        {
+            // Call Api here
+            self.getSubscribedMealList()
+            self.getSubscribedCourseList()
+        } else {
+            self.workoutCardImageView.isHidden = false
+            self.mealCardImageView.isHidden = false
             self.workoutBatchCollView.isHidden = true
+            self.mealBatchCollView.isHidden = true
         }
-    }
-    
-  
+    }  
     
     func updateLineChartForSleeping(){
 //        var lineChartEntry = [ChartDataEntry]()
@@ -194,7 +216,12 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     
     
     private func setupNavigationBar() {
-        customNavigationBar.titleFirstLbl.text = CustomNavTitle.dashboardVCNavTitle
+                
+        customNavigationBar.titleFirstLbl.text = CustomNavTitle.dashboardVCNavTitle.localized
+        if let userName = UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.USER_NAME) as? String {
+            customNavigationBar.titleFirstLbl.text = userName
+        }  
+                
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
         if getprofilePhoto != nil{
             customNavigationBar.profileImage.image = UIImage(data: getprofilePhoto ?? Data())
@@ -220,28 +247,28 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
         let urlStr = API.courseSubscribeList
         
         dashboardViewModel.allCourseSubscribeList(requestUrl: urlStr)  { (response) in
-            if response.status == true, response.data?.list?.count != 0 {
-                self.courseList.removeAll(
-                )
+            if response.status == true, response.data?.list?.count ?? 0 >= 0 {
+                self.courseList.removeAll()
                 self.courseList = response.data?.list ?? []
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.workoutBatchCollView.isHidden = false
+                    self.workoutCardImageView.isHidden = true
                     self.workoutBatchCollView.reloadData()
                 }
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
-                    //makeToast(response.message!)
+                    self.workoutCardImageView.isHidden = false
+                    self.workoutBatchCollView.isHidden = true
                 }
             }
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
-                // makeToast(error.localizedDescription)
             }
         }
     }
-    
     
     @IBAction func loginBtnTapped(_ sender: UIButton) {
         let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
@@ -323,7 +350,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
                 let data = dat?.statistics()
                 if data?.count ?? 0 > 0{
                     for i in stride(from: (data?.count ?? 0) - 1, to: (data?.count ?? 0) - 7, by: -1){
-                        self.energyBurned.append(data?[i].sumQuantity()?.doubleValue(for: HKUnit(from: "kcal")) ?? 0)
+                        self.energyBurned.append(data?[i].sumQuantity()?.doubleValue(for: HKUnit(from: "" + BatchConstant.kcalSuffix)) ?? 0)
                         let date = data?[i].startDate
                         let finalDate = self.dateToString(date: date ?? Date())
                         self.datesEnergy.append(finalDate)
@@ -401,23 +428,34 @@ extension BatchDashboardVC {
         let urlStr = API.subscriptionMealList
         let request = SubscribedMealListRequest(userId: "\(UserDefaultUtility().getUserId())")
         bHomeViewModel.getSubscribedMealList(urlStr: urlStr, request: request) { (response) in
-            if response.status == true, response.data?.data?.count != 0 {
+            if response.status == true, response.data?.data?.count ?? 0 >= 0 {
+                self.subscribedMealListData.removeAll()
                 self.subscribedMealListData = response.data?.data ?? []
                 DispatchQueue.main.async {
                     hideLoading()
+                    self.mealBatchCollView.isHidden = false
+                    self.mealCardImageView.isHidden = true
                     self.mealBatchCollView.reloadData()
+                    if response.data?.recordsTotal ?? 0 > 0  {
+                        self.getMacrosDetail()
+                        self.macroContainer.isHidden = false
+                    } else {
+                        self.macroContainer.isHidden = true
+                    }
                 }
             } else {
                 DispatchQueue.main.async {
                     hideLoading()
-                    self.mealBatchCollView.isHidden = response.data?.data?.count == 0 ? true : false
-                    self.mealBatchCollView.reloadData()
+                    self.mealBatchCollView.isHidden = true
+                    self.mealCardImageView.isHidden = false
+                    self.macroContainer.isHidden = true
                 }
             }
         } onError: { (error) in
             DispatchQueue.main.async {
                 hideLoading()
                 self.mealBatchCollView.reloadData()
+                self.macroContainer.isHidden = true
             }
         }
     }
@@ -427,10 +465,63 @@ extension BatchDashboardVC {
             showLoading()
         }
     }
+    
+    //Get Macros Detail
+    private func getMacrosDetail(){
+        
+        DispatchQueue.main.async {
+            showLoading()
+        }
+        let bHomeViewModel = DashboardViewModel()
+        let urlStr = API.macroDetail
+        
+        guard let subscribedId = self.subscribedMealListData[0].subscribedId else {
+            return
+        }
+        
+        guard let mealId = self.subscribedMealListData[0].id else {
+            return
+        }
+
+        let request = MacroRequest(userId: "\(UserDefaultUtility().getUserId())", mealId: "\(mealId)", subscribedId: "\(subscribedId)")
+        bHomeViewModel.getMacroList(urlStr: urlStr, request: request) { (response) in
+            if response.status == true, response.data?.data != nil {
+                self.macroDetails = response.data?.data
+                DispatchQueue.main.async {
+                    hideLoading()
+                    // macroContainer
+                    self.kcalLabelValueTitle.text = self.macroDetails?.calories
+                    self.kcalStaticTitle.text = "kcal"
+                    
+                    if let _ = self.macroDetails?.protein {
+                        self.progressBar1.progress = Float(self.macroDetails?.normalizedValues().protein ?? 0.0)
+                        self.lblProgressBar1.text = "\(Float(self.macroDetails?.protein ?? 0.0))% Protein"
+                    }
+                    
+                    if let _ = self.macroDetails?.carbs {
+                        self.progressBar2.progress = Float(self.macroDetails?.normalizedValues().carbs ?? 0.0)
+                        self.lblProgressBar2.text = "\(Float(self.macroDetails?.carbs ?? 0.0))% Carbs"
+
+                    }
+                    
+                    if let _ = self.macroDetails?.fat {
+                        self.progressBar3.progress = Float(self.macroDetails?.normalizedValues().fat ?? 0.0)
+                        self.lblProgressBar3.text = "\(Float(self.macroDetails?.fat ?? 0.0))% Fat"
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    hideLoading()
+                }
+            }
+        } onError: { (error) in
+            DispatchQueue.main.async {
+                hideLoading()
+            }
+        }
+    }
+
 }
-
-
-
 
 extension BatchDashboardVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -495,8 +586,6 @@ extension BatchDashboardVC: UITableViewDelegate, UITableViewDataSource{
         }
         return UITableViewCell()
     }
-    
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row ==  0{

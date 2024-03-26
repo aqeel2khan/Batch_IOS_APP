@@ -40,12 +40,12 @@ class QuestionGoalVC: UIViewController {
     // MARK: - UI
     private func setupNavigationBar() {
         customNavigationBar.titleLbl.isHidden = false
-        customNavigationBar.titleLbl.text = CustomNavTitle.qustionVCTitle
+        customNavigationBar.titleLbl.text = CustomNavTitle.qustionVCTitle.localized
     }
     
     @IBAction func nextActionBtn(_ sender: BatchButton) {
         if AnswerStruct.goal_id == nil {
-            showAlert(message: "Please select at least one goal")
+            showAlert(message: "Please select at least one goal".localized)
         } else {
             let vc = QuestionAgeVC.instantiate(fromAppStoryboard: .batchMealPlanQuestionnaire)
             vc.modalPresentationStyle = .overFullScreen
