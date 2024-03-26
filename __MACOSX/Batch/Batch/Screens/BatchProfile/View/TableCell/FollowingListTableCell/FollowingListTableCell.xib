@@ -42,16 +42,16 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SDI-nN-5xw">
-                                <rect key="frame" x="50" y="9" width="197" height="32"/>
+                                <rect key="frame" x="50" y="10.333333333333334" width="197" height="29.666666666666664"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lower-Body burn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERb-KS-iCy">
-                                        <rect key="frame" x="0.0" y="0.0" width="93" height="15.333333333333334"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="14"/>
                                         <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="12"/>
                                         <color key="textColor" red="0.062745098040000002" green="0.070588235289999995" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="193 kcal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOu-9X-aAg">
-                                        <rect key="frame" x="0.0" y="20.333333333333336" width="30.666666666666668" height="11.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="19" width="34" height="10.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="9"/>
                                         <color key="textColor" red="0.35686274509803922" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -120,7 +120,7 @@
     </objects>
     <designables>
         <designable name="sVU-QZ-5Ym">
-            <size key="intrinsicContentSize" width="42" height="26"/>
+            <size key="intrinsicContentSize" width="67" height="33"/>
         </designable>
     </designables>
     <resources>

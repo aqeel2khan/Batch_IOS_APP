@@ -57,7 +57,7 @@ class BLogInVC: UIViewController {
                     Batch_UserDefaults.set(response.token ?? "" , forKey: UserDefaultKey.TOKEN)
                     UserDefaultUtility.setUserLoggedIn(true)
                     self.getProfileData(profile: response.data?.profile_photo_path ?? "")
-                    Batch_UserDefaults.setValue(response.data?.profile_photo_path, forKey:UserDefaultKey.profilePhoto )
+                    Batch_UserDefaults.setValue(response.data?.profile_photo_path, forKey:UserDefaultKey.profilePhotoPath )
                     UserDefaultUtility.saveUserId(userId: response.data?.id ?? 0)
                     
                     if self.isCommingFrom == "workoutbatches" {
@@ -165,7 +165,6 @@ extension BLogInVC {
             let givenName = user.profile?.givenName
             let familyName = user.profile?.familyName
             let profilePicUrl = user.profile?.imageURL(withDimension: 320)
-            
             self.showAlert(message: "You have successfully login : Hi, \((fullName) ?? "") \n \((user.accessToken.tokenString))")
         }
         

@@ -330,7 +330,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
                         self.healthKitConnectBtn.isHidden = true
                         self.healthKitLabelHeight.constant = 0
                         self.healthKitLabel.isHidden = true
-                        self.tableViewHeight.constant = 700
+                        self.tableViewHeight.constant = 960
                         self.healthKitTableView.isHidden = false
                     }
                 }
