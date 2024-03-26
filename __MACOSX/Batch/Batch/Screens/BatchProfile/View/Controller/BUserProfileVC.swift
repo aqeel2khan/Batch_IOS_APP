@@ -19,6 +19,7 @@ class BUserProfileVC: UIViewController {
     let dGroup = DispatchGroup()
     let operationQueue = OperationQueue()
     let que = DispatchQueue(label: "so")
+    var mobileStr: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad() 
@@ -64,6 +65,7 @@ class BUserProfileVC: UIViewController {
             self.userImageView.sd_setImage(with:  URL(string: BaseUrl.imageBaseUrl + (response.data?.profile_photo_path ?? ""))!, placeholderImage: UIImage(named: "Avatar"))
             UserDefaults.standard.set(response.data?.name ?? "", forKey: USER_DEFAULTS_KEYS.USER_NAME)
             userNameLbl.text = response.data?.name ?? ""
+        mobileStr = response.data?.phone ?? ""
     }
     
     @IBAction func uploadPhotoBtnTapped(_ sender: UIButton) {
@@ -124,6 +126,7 @@ class BUserProfileVC: UIViewController {
         let vc = BUserDeleteAccountVC.instantiate(fromAppStoryboard: .batchAccount)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical
+        vc.mobileStr = mobileStr
         self.present(vc, animated: true)
     }
     

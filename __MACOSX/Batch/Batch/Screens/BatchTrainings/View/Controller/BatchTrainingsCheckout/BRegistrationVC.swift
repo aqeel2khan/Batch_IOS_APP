@@ -10,12 +10,13 @@ import GoogleSignIn
 import AuthenticationServices
 
 class BRegistrationVC: UIViewController {
-    
+
     @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var privcyLbl: UILabel!
+
     @IBOutlet weak var checkBoxBtn: UIButton!
     
     var promotionPriceValue = 0.0
@@ -28,10 +29,37 @@ class BRegistrationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        privcyLbl.text = "I agree to the company Term of Service and Privacy Policy".localized
+        privcyLbl.isUserInteractionEnabled = true
+        privcyLbl.lineBreakMode = .byWordWrapping
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(tappedOnLabel(_:)))
+        tapGesture.numberOfTouchesRequired = 1
+        privcyLbl.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func tappedOnLabel(_ gesture: UITapGestureRecognizer) {
+        guard let text = privcyLbl.text else { return }
+        let numberRange = (text as NSString).range(of: "Term of Service".localized)
+        let emailRange = (text as NSString).range(of: "Privacy Policy".localized)
+        if gesture.didTapAttributedTextInLabel(label: self.privcyLbl, inRange: numberRange) {
+            let vc = BTermsAndCondition.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)
+        } else if gesture.didTapAttributedTextInLabel(label: self.privcyLbl, inRange: emailRange) {
+            let vc = BPrivacyVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)  
+        }
+    }
+    
+    @IBAction func onTapBackBtn(_ sender: UIButton) {
+        self.dismiss(animated: true)
     }
     
     @IBAction func onTapTermsAndConditionBtn(_ sender: UIButton) {
-        let vc = BPrivacyVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+        let vc = BTermsAndCondition.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical
         self.present(vc, animated: true)
@@ -118,7 +146,7 @@ class BRegistrationVC: UIViewController {
                         let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
                         tabbarVC.modalPresentationStyle = .fullScreen
                         self.present(tabbarVC, animated: true, completion: nil)
-                    }  
+                    }
                 }
             }else{
                 DispatchQueue.main.async {
@@ -222,4 +250,46 @@ extension BRegistrationVC: ASAuthorizationControllerPresentationContextProviding
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
     } // END
+}
+
+extension UITapGestureRecognizer {
+   
+   func didTapAttributedTextInLabel(label: UILabel, inRange targetRange: NSRange) -> Bool {
+       guard let attributedText = label.attributedText else { return false }
+
+       let mutableStr = NSMutableAttributedString.init(attributedString: attributedText)
+       mutableStr.addAttributes([NSAttributedString.Key.font : label.font!], range: NSRange.init(location: 0, length: attributedText.length))
+       
+       // If the label have text alignment. Delete this code if label have a default (left) aligment. Possible to add the attribute in previous adding.
+       let paragraphStyle = NSMutableParagraphStyle()
+       paragraphStyle.alignment = label.textAlignment
+       mutableStr.addAttributes([NSAttributedString.Key.paragraphStyle : paragraphStyle], range: NSRange(location: 0, length: attributedText.length))
+
+       // Create instances of NSLayoutManager, NSTextContainer and NSTextStorage
+       let layoutManager = NSLayoutManager()
+       let textContainer = NSTextContainer(size: CGSize.zero)
+       let textStorage = NSTextStorage(attributedString: mutableStr)
+       
+       // Configure layoutManager and textStorage
+       layoutManager.addTextContainer(textContainer)
+       textStorage.addLayoutManager(layoutManager)
+       
+       // Configure textContainer
+       textContainer.lineFragmentPadding = 0.0
+       textContainer.lineBreakMode = label.lineBreakMode
+       textContainer.maximumNumberOfLines = label.numberOfLines
+       let labelSize = label.bounds.size
+       textContainer.size = labelSize
+       
+       // Find the tapped character location and compare it to the specified range
+       let locationOfTouchInLabel = self.location(in: label)
+       let textBoundingBox = layoutManager.usedRect(for: textContainer)
+       let textContainerOffset = CGPoint(x: (labelSize.width - textBoundingBox.size.width) * 0.5 - textBoundingBox.origin.x,
+                                         y: (labelSize.height - textBoundingBox.size.height) * 0.5 - textBoundingBox.origin.y);
+       let locationOfTouchInTextContainer = CGPoint(x: locationOfTouchInLabel.x - textContainerOffset.x,
+                                                    y: locationOfTouchInLabel.y - textContainerOffset.y);
+       let indexOfCharacter = layoutManager.characterIndex(for: locationOfTouchInTextContainer, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
+       return NSLocationInRange(indexOfCharacter, targetRange)
+   }
+   
 }
