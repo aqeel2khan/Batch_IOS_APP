@@ -9,5 +9,5 @@ import Foundation
 
 // MARK: - Welcome
 struct BRegistrationRequest: Codable {
-    let email, password, mobile, name: String
+    let email, password, mobile, name, device_token: String
 }

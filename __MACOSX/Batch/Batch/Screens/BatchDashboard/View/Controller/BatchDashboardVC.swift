@@ -23,9 +23,9 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     // MARK: - IBOutlets
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     @IBOutlet weak var mealBatchCollView: UICollectionView!
-    @IBOutlet weak var mealCardImageView: UIImageView!
+    @IBOutlet weak var mealCardView: UIView!
     @IBOutlet weak var workoutBatchCollView: UICollectionView!
-    @IBOutlet weak var workoutCardImageView: UIImageView!
+    @IBOutlet weak var workoutCardView: UIView!
     @IBOutlet weak var macroContainer: UIView!
 
     
@@ -43,8 +43,12 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
   
     //var courseList = [List]()
     var courseList = [DashboardWOList]()
+    var pieValue: [Double] = [7.25, 7]
     var subscribedMealListData : [SubscribedMeals] = []
     weak var axisFormatDelegate: AxisValueFormatter?
+    var isSleep = true
+    var currentSleepData = ""
+    
    
     var macroDetails : Macros?
 
@@ -60,7 +64,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     }
     
     
-    var sleepData: [String] = []{
+    var sleepData: [Double] = [2.3,5.4,1.2,7.8,9.5,4.2,8.8]{
         didSet{
             DispatchQueue.main.async{
                 self.healthKitTableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
@@ -84,7 +88,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
         }
     }
     
-    var datesSleep: [String]?{
+    var datesSleep: [String] = ["Mon","Sun","Sat","Fri","Thu","Wed","Tue"]{
         didSet{
             DispatchQueue.main.async{
                 self.healthKitTableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
@@ -92,7 +96,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
         }
     }
     
-    var datesEnergy: [String]?{
+    var datesEnergy: [String] = []{
         didSet{
             DispatchQueue.main.async{
                 self.healthKitTableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
@@ -137,11 +141,10 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
             healthKitConnectBtn.isHidden = true
             healthKitLabelHeight.constant = 0
             healthKitLabel.isHidden = true
-            tableViewHeight.constant = 700
+            tableViewHeight.constant = 960
             healthKitTableView.isHidden = false
             loginBtn.isHidden = true
             loginBtnHeight.constant = 0
-            self.axisFormatDelegate = self
             self.fetchHealthKitData()
         }else if  UserDefaultUtility.isUserLoggedIn() && !(healthPermission ?? false){
             healthKitConnectBtnHeight.constant = 56
@@ -175,8 +178,8 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
             self.getSubscribedMealList()
             self.getSubscribedCourseList()
         } else {
-            self.workoutCardImageView.isHidden = false
-            self.mealCardImageView.isHidden = false
+            self.workoutCardView.isHidden = false
+            self.mealCardView.isHidden = false
             self.workoutBatchCollView.isHidden = true
             self.mealBatchCollView.isHidden = true
         }
@@ -250,13 +253,13 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
                 DispatchQueue.main.async {
                     hideLoading()
                     self.workoutBatchCollView.isHidden = false
-                    self.workoutCardImageView.isHidden = true
+                    self.workoutCardView.isHidden = true
                     self.workoutBatchCollView.reloadData()
                 }
             }else{
                 DispatchQueue.main.async {
                     hideLoading()
-                    self.workoutCardImageView.isHidden = false
+                    self.workoutCardView.isHidden = false
                     self.workoutBatchCollView.isHidden = true
                 }
             }
@@ -280,6 +283,27 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
         self.present(vc, animated: true)
     }
     
+    @IBAction func mealCardViewButtonTapped(_ sender: UIButton) {
+        let vc = BatchTabBarController.instantiate(fromAppStoryboard: .batchTabBar)
+        vc.selectedIndex = 2
+        if #available(iOS 13.0, *) {
+            UIApplication.shared.windows.first?.rootViewController = vc
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        } else {
+            Batch_AppDelegate.window?.rootViewController = vc
+        }
+    }
+    
+    @IBAction func workoutCardViewButtonBtnTapped(_ sender: UIButton) {
+        let vc = BatchTabBarController.instantiate(fromAppStoryboard: .batchTabBar)
+        vc.selectedIndex = 1
+        if #available(iOS 13.0, *) {
+            UIApplication.shared.windows.first?.rootViewController = vc
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        } else {
+            Batch_AppDelegate.window?.rootViewController = vc
+        }
+    }
     
     @IBAction func connectToHealthKit(_ sender: UIButton) {
         if UserDefaultUtility.isUserLoggedIn() {
@@ -306,7 +330,7 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
                         self.healthKitConnectBtn.isHidden = true
                         self.healthKitLabelHeight.constant = 0
                         self.healthKitLabel.isHidden = true
-                        self.tableViewHeight.constant = 700
+                        self.tableViewHeight.constant = 960
                         self.healthKitTableView.isHidden = false
                     }
                 }
@@ -343,37 +367,42 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
             dispatchGroup.enter()
             HealthManager.shared.getWeeklyEnergyBurned { dat in
                 self.energyBurned.removeAll()
-                self.datesEnergy?.removeAll()
+                self.datesEnergy.removeAll()
                 let data = dat?.statistics()
                 if data?.count ?? 0 > 0{
                     for i in stride(from: (data?.count ?? 0) - 1, to: (data?.count ?? 0) - 7, by: -1){
                         self.energyBurned.append(data?[i].sumQuantity()?.doubleValue(for: HKUnit(from: "" + BatchConstant.kcalSuffix)) ?? 0)
                         let date = data?[i].startDate
                         let finalDate = self.dateToString(date: date ?? Date())
-                        self.datesEnergy?.append(finalDate)
+                        self.datesEnergy.append(finalDate)
                     }
                 }
                 dispatchGroup.leave()
             }
         }
         
-        queue.async {
-            dispatchGroup.enter()
-            HealthManager.shared.retrieveSleepAnalysis { data in
-                self.sleepData.removeAll()
-                self.datesSleep?.removeAll()
-                if data?.count ?? 0 > 0{
-                    for i in stride(from: 0, to: 5, by: 1){
-                        let difference = Calendar.current.dateComponents([.hour, .minute], from: data![i].endDate, to: data![i].startDate)
-                        let formattedString = String(format: "%02dh%02dm", difference.hour!, difference.minute!).replacingOccurrences(of: "-", with: "")
-                        self.sleepData.append(formattedString)
-                        let finalDate = self.dateToString(date: data![i].startDate)
-                        self.datesSleep?.append(finalDate)
-                    }
-                }
-                dispatchGroup.leave()
-            }
-        }
+//        queue.async {
+//            dispatchGroup.enter()
+//            HealthManager.shared.retrieveSleepAnalysis { data in
+//                self.sleepData.removeAll()
+//                self.datesSleep.removeAll()
+//                if data?.count ?? 0 > 0{
+//                    for i in stride(from: 0, to: 3, by: 1){
+//                        let difference = Calendar.current.dateComponents([.hour, .minute], from: data![i].endDate, to: data![i].startDate)
+//                        if i == 0{
+//                            let formattedString = String(format: "%02dh%02dm", difference.hour!, difference.minute!).replacingOccurrences(of: "-", with: "")
+//                            self.currentSleepData = formattedString
+//                        }
+//                       
+//                        let doubleData = Double(difference.hour! * 60 + (difference.minute ?? 0))
+//                        self.sleepData.append(-doubleData)
+//                        let finalDate = self.dateToString(date: data![i].startDate)
+//                        self.datesSleep.append(finalDate)
+//                    }
+//                }
+//                dispatchGroup.leave()
+//            }
+//        }
         queue.async {
             dispatchGroup.enter()
             HealthManager.shared.fetchLatestHeartRateSample { samples in
@@ -404,7 +433,7 @@ extension BatchDashboardVC {
         // Create Date Formatter
         let dateFormatter = DateFormatter()
         // Set Date Format
-        dateFormatter.dateFormat = "dd MMM yy"
+        dateFormatter.dateFormat = "EE"
         debugPrint(dateFormatter.string(from: date))
         // Convert Date to String
         return dateFormatter.string(from: date)
@@ -426,7 +455,7 @@ extension BatchDashboardVC {
                 DispatchQueue.main.async {
                     hideLoading()
                     self.mealBatchCollView.isHidden = false
-                    self.mealCardImageView.isHidden = true
+                    self.mealCardView.isHidden = true
                     self.mealBatchCollView.reloadData()
                     if response.data?.recordsTotal ?? 0 > 0  {
                         self.getMacrosDetail()
@@ -439,7 +468,7 @@ extension BatchDashboardVC {
                 DispatchQueue.main.async {
                     hideLoading()
                     self.mealBatchCollView.isHidden = true
-                    self.mealCardImageView.isHidden = false
+                    self.mealCardView.isHidden = false
                     self.macroContainer.isHidden = true
                 }
             }
@@ -517,7 +546,7 @@ extension BatchDashboardVC {
 
 extension BatchDashboardVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -529,21 +558,48 @@ extension BatchDashboardVC: UITableViewDelegate, UITableViewDataSource{
             }
         }else{
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SleepHealthCell", for: indexPath) as? SleepHealthCell{
+                self.axisFormatDelegate = self
+                cell.cellView.isUserInteractionEnabled = false
                 if indexPath.row == 1{
+                    isSleep = true
                     cell.sleepLabel.isHidden = false
+                    cell.typeLabel.textColor = .black
+                    cell.typeIcon.tintColor = .black
                     cell.typeLabel.text = "Sleep"
                     cell.typeIcon.image = UIImage(systemName: "moon.fill")
-                    cell.sleepLabel.text = self.sleepData.first ?? ""
-                    cell.cellView.backgroundColor = .gray
+                    cell.sleepLabel.text = self.currentSleepData
                     cell.sleepLabelHeight.constant = 34
+                    cell.lineChartView.isHidden = true
+                    cell.barChartView.isHidden = false
+                    cell.pieChartView.isHidden = true
+                    updateBarChart(barChartView: cell.barChartView)
                     
-                }else{
+                }else if indexPath.row == 2{
+                    isSleep = false
                     cell.sleepLabel.isHidden = true
+                    cell.lineChartView.isHidden = false
+                    cell.barChartView.isHidden = true
+                    cell.pieChartView.isHidden = true
+                    cell.typeLabel.textColor = .white
+                    cell.typeIcon.tintColor = .white
                     cell.typeLabel.text = "Callories"
                     cell.typeIcon.image = UIImage(systemName: "bolt.fill")
-                    cell.cellView.backgroundColor = UIColor(named: "AppThemeButtonColor")
                     cell.sleepLabelHeight.constant = 0
+                    cell.cellView.backgroundColor = UIColor(named: "AppThemeButtonColor")
                     updateLineChartForCallories(lineChartView: cell.lineChartView)
+                }else{
+                    isSleep = false
+                    cell.sleepLabel.isHidden = true
+                    cell.lineChartView.isHidden = true
+                    cell.barChartView.isHidden = true
+                    cell.pieChartView.isHidden = false
+                    cell.typeLabel.textColor = .black
+                    cell.typeIcon.tintColor = .black
+                    cell.typeLabel.text = "Water"
+                    cell.typeIcon.image = UIImage(systemName: "drop.fill")
+                    cell.sleepLabelHeight.constant = 0
+                    cell.cellView.backgroundColor = UIColor(named: "AppThemeBackgroundColor")
+                    updatePieChart(pieChartView: cell.pieChartView)
                 }
                
                 return cell
@@ -560,42 +616,158 @@ extension BatchDashboardVC: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = BatchHealthGraphVC.instantiate(fromAppStoryboard: .batchDashboard)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true)
+    }
+    
     func updateLineChartForCallories(lineChartView: LineChartView){
         var lineChartEntry = [ChartDataEntry]()
-        for i in 0..<(self.energyBurned.count ?? 0){
-            let lineChart = ChartDataEntry(x: Double(i), y:Double(self.energyBurned[i] ?? 0), data: datesEnergy)
+        for i in 0..<(self.energyBurned.count ){
+            let lineChart = ChartDataEntry(x: Double(i), y:Double(self.energyBurned[i]), data: datesEnergy)
             lineChartEntry.append(lineChart)
         }
         let l1 = LineChartDataSet(entries: lineChartEntry)
-        l1.colors = [UIColor.white]
-
+        l1.colors = [.white]
+        l1.drawCirclesEnabled = true
+        l1.lineWidth = 2
+        l1.lineCapType = .round
+        l1.circleColors = [.white]
+        l1.circleRadius = 3
+        
+        
         let chartData = LineChartData(dataSet: l1)
+        chartData.setDrawValues(false)
+        
         lineChartView.data = chartData
+    
         lineChartView.legend.enabled = false
+    
         lineChartView.rightAxis.enabled = false
         lineChartView.leftAxis.enabled = false
         lineChartView.drawBordersEnabled = false
-        lineChartView.setDragOffsetX(22.0)
-
+        lineChartView.drawGridBackgroundEnabled = false
+        lineChartView.xAxis.drawAxisLineEnabled = false
+        lineChartView.xAxis.drawGridLinesEnabled = true
+        lineChartView.xAxis.gridLineDashLengths = [10]
+        lineChartView.xAxis.gridColor = .white
+        lineChartView.extraRightOffset = 10
+        lineChartView.extraLeftOffset = 10
+        lineChartView.xAxis.avoidFirstLastClippingEnabled = true
         lineChartView.xAxis.labelPosition = .bottom
+        lineChartView.xAxis.labelTextColor = .white
+        lineChartView.xAxis.labelFont = UIFont(name: "Outfit-regular", size: 12) ?? UIFont.systemFont(ofSize: 12)
         lineChartView.xAxis.drawAxisLineEnabled = false
         lineChartView.xAxis.granularityEnabled = true
         lineChartView.xAxis.granularity = 1
         lineChartView.xAxis.forceLabelsEnabled = true
         let xAxisValue = lineChartView.xAxis
-        let formatter = NumberFormatter()
-        formatter.minimumFractionDigits = 2
-        chartData.setValueFormatter(DefaultValueFormatter(formatter:formatter))
         xAxisValue.valueFormatter = axisFormatDelegate
     }
     
-    func stringForValue(_ value: Double, axis: DGCharts.AxisBase?) -> String {
-        if datesEnergy?.count ?? 0 > 0{
-            return datesEnergy![Int(value)]
-        }else{
-            return ""
+    func updateBarChart(barChartView: BarChartView){
+        var lineChartEntry = [ChartDataEntry]()
+        for i in 0..<(self.sleepData.count ){
+            let lineChart = BarChartDataEntry(x: Double(i), y:Double(self.sleepData[i]),data: datesSleep)
+            lineChartEntry.append(lineChart)
         }
+        let l1 = BarChartDataSet(entries: lineChartEntry)
+        let col = UIColor.init(named: "AppThemeButtonColor") ?? UIColor.black
+        l1.colors = [col]
+        
+        /**
+         to make bar-chart bar rounded need to make changes in pod of Charts
+         Find BarChartRenderer.swift
+                and then find method open func drawDataSet
+                    
+                replace this code:-
+                    context.fill(barRect)
+                with the code :-
+                    let bezierPath = UIBezierPath(roundedRect: barRect, cornerRadius: %YOUR_CORNER_RADIUS%)
+                    context.addPath(bezierPath.cgPath)
+                    context.drawPath(using: .fill)
+         
+            on the line 382
+         **/
+        
+        
+        let chartData = BarChartData(dataSet: l1)
+        chartData.setDrawValues(false)
+        chartData.barWidth = 0.2
+        
+        barChartView.data = chartData
+    
+        barChartView.legend.enabled = false
+        barChartView.rightAxis.enabled = false
+        barChartView.rightAxis.axisLineWidth = 0
+        barChartView.rightAxis.gridLineWidth = 0
+        barChartView.rightAxis.labelAlignment = .center
+        barChartView.leftAxis.enabled = false
+        barChartView.drawBordersEnabled = false
+        barChartView.drawGridBackgroundEnabled = false
+        barChartView.xAxis.drawAxisLineEnabled = false
+        barChartView.xAxis.drawGridLinesEnabled = false
+        barChartView.xAxis.forceLabelsEnabled = false
+        barChartView.xAxis.labelPosition = .bottom
+        let xAxisValue = barChartView.xAxis
+        xAxisValue.valueFormatter = axisFormatDelegate
+        barChartView.fitScreen()
+    }
+    
+    func updatePieChart(pieChartView: PieChartView){
+        var lineChartEntry = [ChartDataEntry]()
+        for i in 0..<(self.pieValue.count ){
+            let lineChart = ChartDataEntry(x: Double(i), y:Double(self.pieValue[i] ))
+            lineChartEntry.append(lineChart)
+        }
+        let l1 = PieChartDataSet(entries: lineChartEntry)
+    
+        let col = UIColor.init(named: "AppThemeButtonColor") ?? UIColor.black
+        let col1 = UIColor.init(named: "AppThemeSelectionColor") ?? UIColor.black
+        l1.colors = [col, col1]
+        let chartData = PieChartData(dataSet: l1)
+        chartData.setDrawValues(false)
+        pieChartView.data = chartData
+        pieChartView.maxAngle = 180
+        pieChartView.rotationAngle = 180
+        pieChartView.drawCenterTextEnabled = true
        
+        let centerString = "1.25"
+        let unitString = "\n Litres"
+        let finalAttriString = NSMutableAttributedString(string: "")
+        let myAttribute = [NSAttributedString.Key.font: UIFont(name: "Outfit-Medium", size: 24.0)!, NSAttributedString.Key.foregroundColor: col]
+        let myAttrString = NSAttributedString(string: centerString, attributes: myAttribute)
+        finalAttriString.append(myAttrString)
+
+        let unitAttribute = [NSAttributedString.Key.font: UIFont(name: "Outfit-Regular", size: 14.0)!, NSAttributedString.Key.foregroundColor: col1]
+        let unitAttrString = NSAttributedString(string: unitString, attributes: unitAttribute)
+        finalAttriString.append(unitAttrString)
+        
+        pieChartView.centerAttributedText = finalAttriString
+        pieChartView.centerTextOffset = CGPoint(x: 0, y: -60)
+        pieChartView.holeRadiusPercent = 0.95
+        pieChartView.holeColor = .clear
+        pieChartView.transparentCircleRadiusPercent = 0
+        pieChartView.legend.enabled = false
+        pieChartView.chartDescription.enabled = false
+        pieChartView.minOffset = 0
+    
+        pieChartView.legend.enabled = false
+    }
+
+    
+    
+    func stringForValue(_ value: Double, axis: DGCharts.AxisBase?) -> String {
+        if isSleep{
+            return datesSleep[Int(value)]
+        }else{
+            if datesEnergy.count > 0 && value > 0{
+                return datesEnergy[Int(value)]
+            }
+        }
+        return ""
     }
 }
 

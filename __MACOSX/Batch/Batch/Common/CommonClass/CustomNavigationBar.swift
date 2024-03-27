@@ -46,13 +46,15 @@ class CustomNavigationBar: UIView {
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         titleFirstLbl.font = FontSize.mediumSize24
         let getprofilePhoto = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhoto) as? Data
+        let getprofilePhotoPath = Batch_UserDefaults.value(forKey: UserDefaultKey.profilePhotoPath) as? String ?? ""
         if getprofilePhoto != nil {
             profileImage.image = UIImage(data: getprofilePhoto ?? Data())
             profileImage.cornerRadius = 12
             profileImage.clipsToBounds = true
         }else{
-            profileImage.image = UIImage(named: "Avatar")  
-            profileImage.cornerRadius = 0
+            self.profileImage.sd_setImage(with:  URL(string: BaseUrl.imageBaseUrl + getprofilePhotoPath)!, placeholderImage: UIImage(named: "Avatar"))
+            profileImage.cornerRadius = 12
+            profileImage.clipsToBounds = true
         }
         
         logoHeader.image = logoHeader.image?.withRenderingMode(.alwaysTemplate)

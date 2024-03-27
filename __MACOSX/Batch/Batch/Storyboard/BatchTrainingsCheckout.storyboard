@@ -838,24 +838,23 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s9s-lQ-8JB" customClass="CustomSecondNavigationBar" customModule="Batch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
-                                <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vo-7g-cVi">
-                                        <rect key="frame" x="5" y="50" width="60" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Vq7-x0-3sU"/>
-                                            <constraint firstAttribute="width" constant="60" id="hXy-q8-sdO"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="back"/>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="2Vo-7g-cVi" firstAttribute="leading" secondItem="s9s-lQ-8JB" secondAttribute="leading" constant="5" id="Av7-Lq-GTg"/>
-                                    <constraint firstAttribute="bottom" secondItem="2Vo-7g-cVi" secondAttribute="bottom" id="M7a-iF-qzW"/>
                                     <constraint firstAttribute="height" constant="100" id="Oze-1Z-52k"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vo-7g-cVi">
+                                <rect key="frame" x="20" y="50" width="60" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Vq7-x0-3sU"/>
+                                    <constraint firstAttribute="width" constant="60" id="hXy-q8-sdO"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="onTapBackBtn:" destination="Xh1-s8-0em" eventType="touchUpInside" id="c0q-a5-i6U"/>
+                                </connections>
+                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Su-4e-EOr">
                                 <rect key="frame" x="0.0" y="100" width="393" height="656"/>
                                 <subviews>
@@ -1002,35 +1001,48 @@
                                                                     <action selector="onTapCheckBoxBtn:" destination="Xh1-s8-0em" eventType="touchUpInside" id="q1w-2W-0wz"/>
                                                                 </connections>
                                                             </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AB-Nt-Nvk">
-                                                                <rect key="frame" x="35" y="11.666666666666686" width="308" height="17"/>
-                                                                <attributedString key="attributedText">
-                                                                    <fragment content="I agree to the company ">
-                                                                        <attributes>
-                                                                            <color key="NSColor" name="AppLabelLightGrayColor"/>
-                                                                            <font key="NSFont" metaFont="system" size="14"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                    <fragment content="Terms &amp; Conditions">
-                                                                        <attributes>
-                                                                            <color key="NSColor" red="0.31764705882352939" green="0.40000000000000002" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <font key="NSFont" metaFont="system" size="14"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsw-se-luS">
+                                                                <rect key="frame" x="35" y="0.0" width="318" height="40"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AB-Nt-Nvk">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="318" height="40"/>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="I agree to the company ">
+                                                                                <attributes>
+                                                                                    <color key="NSColor" name="AppLabelLightGrayColor"/>
+                                                                                    <font key="NSFont" metaFont="system" size="14"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="Terms &amp; Conditions">
+                                                                                <attributes>
+                                                                                    <color key="NSColor" red="0.31764705882352939" green="0.40000000000000002" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    <font key="NSFont" metaFont="system" size="14"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="2AB-Nt-Nvk" firstAttribute="top" secondItem="vsw-se-luS" secondAttribute="top" id="EiX-8f-gwy"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="2AB-Nt-Nvk" secondAttribute="bottom" id="Phq-r1-hfJ"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="2AB-Nt-Nvk" secondAttribute="trailing" id="i9v-Uv-AvW"/>
+                                                                    <constraint firstItem="2AB-Nt-Nvk" firstAttribute="leading" secondItem="vsw-se-luS" secondAttribute="leading" id="rb0-lk-1LO"/>
+                                                                </constraints>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="0X7-Yb-ggi"/>
+                                                            <constraint firstAttribute="trailing" secondItem="vsw-se-luS" secondAttribute="trailing" id="1Kq-Cg-Gfy"/>
                                                             <constraint firstItem="1s7-Qr-mhq" firstAttribute="centerY" secondItem="Tg3-uS-mSE" secondAttribute="centerY" id="5NE-HL-whg"/>
+                                                            <constraint firstAttribute="bottom" secondItem="vsw-se-luS" secondAttribute="bottom" id="Acy-vo-aau"/>
                                                             <constraint firstItem="1s7-Qr-mhq" firstAttribute="leading" secondItem="Tg3-uS-mSE" secondAttribute="leading" id="DiV-Dy-KMy"/>
-                                                            <constraint firstAttribute="trailing" secondItem="2AB-Nt-Nvk" secondAttribute="trailing" constant="10" id="Pix-x8-dWP"/>
-                                                            <constraint firstItem="2AB-Nt-Nvk" firstAttribute="centerY" secondItem="1s7-Qr-mhq" secondAttribute="centerY" id="fhB-cf-8Uq"/>
-                                                            <constraint firstItem="2AB-Nt-Nvk" firstAttribute="leading" secondItem="1s7-Qr-mhq" secondAttribute="trailing" constant="10" id="nwu-xw-asS"/>
+                                                            <constraint firstItem="vsw-se-luS" firstAttribute="top" secondItem="Tg3-uS-mSE" secondAttribute="top" id="b42-T3-Tot"/>
+                                                            <constraint firstItem="vsw-se-luS" firstAttribute="leading" secondItem="1s7-Qr-mhq" secondAttribute="trailing" constant="10" id="bh7-On-DpR"/>
                                                         </constraints>
                                                     </view>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDr-Nf-cTp" customClass="BatchButton" customModule="Batch" customModuleProvider="target">
@@ -1203,6 +1215,7 @@
                         <constraints>
                             <constraint firstItem="s9s-lQ-8JB" firstAttribute="leading" secondItem="vRS-pJ-jyo" secondAttribute="leading" id="AFn-j0-d4K"/>
                             <constraint firstItem="2Su-4e-EOr" firstAttribute="leading" secondItem="vRS-pJ-jyo" secondAttribute="leading" id="DN8-nS-Ain"/>
+                            <constraint firstItem="2Vo-7g-cVi" firstAttribute="bottom" secondItem="s9s-lQ-8JB" secondAttribute="bottom" id="ERp-47-uuh"/>
                             <constraint firstItem="s9s-lQ-8JB" firstAttribute="top" secondItem="sv6-A4-Q62" secondAttribute="top" id="Haz-jZ-yZE"/>
                             <constraint firstItem="ru7-Il-woO" firstAttribute="trailing" secondItem="vRS-pJ-jyo" secondAttribute="trailing" id="OrQ-mv-gQi"/>
                             <constraint firstItem="s9s-lQ-8JB" firstAttribute="trailing" secondItem="vRS-pJ-jyo" secondAttribute="trailing" id="PEM-A1-ffI"/>
@@ -1211,6 +1224,7 @@
                             <constraint firstItem="ru7-Il-woO" firstAttribute="leading" secondItem="vRS-pJ-jyo" secondAttribute="leading" id="iTN-Cv-caF"/>
                             <constraint firstAttribute="bottom" secondItem="ru7-Il-woO" secondAttribute="bottom" id="jm2-bB-2Wh"/>
                             <constraint firstItem="s9s-lQ-8JB" firstAttribute="centerX" secondItem="sv6-A4-Q62" secondAttribute="centerX" id="lOC-gG-XC8"/>
+                            <constraint firstItem="2Vo-7g-cVi" firstAttribute="leading" secondItem="vRS-pJ-jyo" secondAttribute="leading" constant="20" id="xSp-OA-Z5Q"/>
                             <constraint firstItem="2Su-4e-EOr" firstAttribute="trailing" secondItem="vRS-pJ-jyo" secondAttribute="trailing" id="xmP-rV-2Gc"/>
                         </constraints>
                     </view>
@@ -1220,11 +1234,12 @@
                         <outlet property="fullNameTextField" destination="RDg-3A-Cm1" id="xMr-qe-52s"/>
                         <outlet property="passwordTextField" destination="6QH-d3-hcB" id="rST-yX-mhw"/>
                         <outlet property="phoneTextField" destination="7vT-Qm-aD3" id="gj8-t8-Ygm"/>
+                        <outlet property="privcyLbl" destination="2AB-Nt-Nvk" id="xjh-an-aP2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ilS-Ro-51I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1334" y="-25"/>
+            <point key="canvasLocation" x="1333.5877862595419" y="-25.35211267605634"/>
         </scene>
         <!--CheckoutVC-->
         <scene sceneID="NqQ-JG-540">
@@ -1804,7 +1819,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bS6-7s-SNb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2024" y="-25"/>
+            <point key="canvasLocation" x="3552" y="-25"/>
         </scene>
         <!--Thankyou PurchaseVC-->
         <scene sceneID="gtE-JC-lu1">
@@ -1932,7 +1947,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ojW-76-gPX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2716.7938931297708" y="-25.35211267605634"/>
+            <point key="canvasLocation" x="4247" y="-25"/>
         </scene>
         <!--Promo Code Sucessful Pop UpVC-->
         <scene sceneID="SRF-P4-lXp">
@@ -2026,7 +2041,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4AQ-b1-ykD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4181" y="-25"/>
+            <point key="canvasLocation" x="5711" y="-25"/>
         </scene>
         <!--Promo Code Pop UpVC-->
         <scene sceneID="cwd-8D-mLX">
@@ -2180,7 +2195,325 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgu-gO-huY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3515" y="-25"/>
+            <point key="canvasLocation" x="5044" y="-25"/>
+        </scene>
+        <!--PrivacyVC-->
+        <scene sceneID="Ofc-o6-lpG">
+            <objects>
+                <viewController storyboardIdentifier="BPrivacyVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EGR-Yy-eU4" customClass="BPrivacyVC" customModule="Batch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qwj-NF-Cr2">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsI-MX-m2P">
+                                <rect key="frame" x="0.0" y="1" width="393" height="817"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0k5-1z-F7r">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcc-Jd-s9S">
+                                                <rect key="frame" x="5" y="50" width="60" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="X6F-LA-isA"/>
+                                                    <constraint firstAttribute="width" constant="60" id="hxZ-gk-9K8"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="back"/>
+                                                <connections>
+                                                    <action selector="onTapBackBtn:" destination="EGR-Yy-eU4" eventType="touchUpInside" id="irX-te-xSh"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سياسة الخصوصية والأمان" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbq-NU-MWA" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
+                                                <rect key="frame" x="70" y="50" width="253" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="qQh-H9-Tuc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                                <color key="textColor" name="AppLabelBlackColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="tbq-NU-MWA" secondAttribute="trailing" constant="70" id="2CC-s1-o8f"/>
+                                            <constraint firstItem="tbq-NU-MWA" firstAttribute="centerY" secondItem="qcc-Jd-s9S" secondAttribute="centerY" id="3Uf-HM-OR2"/>
+                                            <constraint firstItem="qcc-Jd-s9S" firstAttribute="leading" secondItem="0k5-1z-F7r" secondAttribute="leading" constant="5" id="3sy-5p-2vZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="qcc-Jd-s9S" secondAttribute="bottom" id="QSp-XC-lCf"/>
+                                            <constraint firstItem="tbq-NU-MWA" firstAttribute="leading" secondItem="qcc-Jd-s9S" secondAttribute="trailing" constant="5" id="j4s-Fk-JWX"/>
+                                            <constraint firstAttribute="height" constant="100" id="xnX-Jm-fKe"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="AppThemeBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="0k5-1z-F7r" firstAttribute="leading" secondItem="hsI-MX-m2P" secondAttribute="leading" id="8hY-MF-mpg"/>
+                                    <constraint firstAttribute="trailing" secondItem="0k5-1z-F7r" secondAttribute="trailing" id="im9-L4-000"/>
+                                    <constraint firstItem="0k5-1z-F7r" firstAttribute="top" secondItem="hsI-MX-m2P" secondAttribute="top" id="sQH-Ak-Xi6"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYa-oC-hNj">
+                                <rect key="frame" x="0.0" y="111" width="393" height="741"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TDm-xY-Zzx">
+                                        <rect key="frame" x="10" y="10" width="373" height="721"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <mutableString key="text">يعمل تطبيق ______ على احترام خصوصية عملائه ومستخدميه، ويقدر مخاوفهم بشأن طريقة التعامل مع المعلومات الشخصية الخاصة بهم ومشاركتها. ونحن في تطبيق ______ نقدر ثقتكم بنا ونعمل دائمًا على حماية خصوصية البيانات الخاصة بكم مع استخدام الوسائل معتمدة لحماية البيانات المرسلة.
+باستخدامك لتطبيق " فإنك تقوم بتزويدنا بمعلومات معينة والتي قد نقوم بجمعها وتخزينها لتوفير الخدمات المطلوبة وأداء التزاماتنا التعاقدية و لذلك نوضح في بنود سياسة الخصوصية هذه، المعلومات التي نقوم بجمعها وفيما تستخدم، وحالات الإفصاح عن بعض البيانات الخاصة بكم، لذا يجب العلم أنه بموجب هذا السياسة فإن العميل والمستخدم يوافق على احتفاظنا بمعلومات التسجيل الخاصة به ولا يمانع في استخدام هذه البيانات بغرض تحسين الخدمة وتسيير المعاملات التي قد تتطلب الإفصاح عن المعلومات الخاصة به لأطراف ثالثة قد تقوم بمعالجة هذه المعلومات بالنيابة عنا، إلى جانب الحالات الأخرى.
+أولاً: المعلومات المتعلقة بالأفراد:
+يتم جمع معلومات وسائل التواصل المتاحة التي من شأنها تسهيل التواصل وإنشاء وتأكيد عضوية الاشتراك، على سبيل المثال وليس الحصر، وقد تشتمل تلك المعلومات على ما يلي:
+بيانات الاتصال والبيانات الشخصية مثل: الاسم، العنوان، رقم الهاتف، عنوان البريد الإلكتروني٬ معلومات الفواتير والدفع، تاريخ الميلاد، بيانات المستلم، وتفضيلات التسوق الشخصي
+معلومات المعاملات ومنها الطلبات التي قدمتموها، المنتجات التي اشتريتموها، تواريخ تلك الطلبات وأوقاتها، بالإضافة إلى الطلبات التي لم تستكملوها، المنتجات التي أضفتموها إلى السلة ثم قمتم بحذفها فيما بعد، التفضيلات التي أعلمتمونا بها.
+المعلومات المستمدة من الأطراف الخارجيين، مثل: شركات التوصيل٬ مقدمي خدمة الدفع الإلكتروني.
+المعلومات التي قدمتموها لنا من خلال الاستطلاعات سواء التي يتم إجراؤها عبر الإنترنت أو دون اتصال بالإنترنت.
+العمليات الخاصة التي يتم اجرائها داخل التطبيق مثل عدد العمليات التي أجريتها، عدد التقييمات لمقدمي الخدمات، وكذلك العروض التي قمت بالإعجاب بها أو تقييمها بهدف تحسين تجربة المستخدم .
+يُرجى العلم بأنه سيتم جمع بيانات بطاقة الدفع خاصتكم فقط لأغراض إتمام إجراءات المعاملات ولا نقوم بتخزينها. لا تكون التفاصيل الكاملة لبطاقات الدفع خاصة بكم متاحة لموظفينا. تُدار جميع معاملات الدفع الإلكتروني من قبل مزودي خدمات عمليات الدفع الموثوق بهم والمرخص لهم قانوناً بالقيام بهذه العمليات.
+ثانياً: كيفية استخدام البيانات:
+إجراء أبحاث السوق، بما في ذلك القيام بتحليل إحصائي لفهم سلوك المستخدم، بما في ذلك عرضه على أطراف ثالثة لتنفيذ بعض الخدمات نيابةً عنّا.
+تمكيننا من الإيفاء بالتزاماتنا التعاقدية.
+تطوير وتحسين المنتجات والخدمات التي نقدمها.
+تلبية احتياجات العملاء والمستخدمين وفقًا لاهتماماتهم وإخبارهم بكل ما قد يهتمون به من خدمات والوصول لاستراتيجية التواصل الأفضل بالنسبة لهم، بما في ذلك رسائل البريد الإلكتروني.
+ لذا من المهم بالنسبة للعملاء أن يقوموا بتسجيل الخروج بمجرد الانتهاء من استخدام الموقع/التطبيق، وإغلاق نافذة المتصفح إذا كانوا يجرون معاملاتهم باستخدام جهاز كمبيوتر عام أو مشترك للتأكد من أمان جميع المعلومات الشخصية الخاصة بهم، لأنهم المسؤولين عن جميع المعاملات التي تتم من خلال الحساب الخاص بهم ما لم يقوموا بالإبلاغ عن إنتهاك أو سرقة أو عدم القدرة على الوصول لحسابهم أو ما شابه لاتخاذ الإجراءات اللازمة.
+ 
+ثالثاً: الإفصاح عن المعلومات
+نتعهد بعدم الإفصاح عن أي بيانات لأي أطراف ثالثة، إلا بغرض تسهيل المعاملات وفي الحالات التي نعتقد فيها بضرورة الإفصاح بالحد الذي يسمح به القانون أو يتطلبه القانون.
+وفيما يلي الحالات التي قد نفصح فيها عن البيانات الخاصة بك:
+تمكين الأطراف الثالثة التي تتولى معالجة البيانات من إرسال الخطابات الدورية للعملاء حول المواصفات، والخدمات، والعروض الخاصة.
+الإفصاح عن المعلومات اللازمة للأطراف الثالثة المسؤولة عن إتمام المعاملات الخاصة بالعملاء عند إجراء معاملات الاشتراك.
+الإفصاح عن المعلومات اللازمة لفض أي نزاع قد ينشب بين الأطراف، أو حل أي مشكلات أو أخطاء قد تحدث وكذلك لتسهيل مهمة تحصيل المبالغ المدفوعة والمعاملات المالية.
+إبقاء العملاء والمستخدمين على علم بتفاصيل وتحديثات خدماتنا وخدمات مزودي الخدمة المرتبطين بنا، والوصول لآلية التسويق الأفضل بالنسبة لهم إعتماداً على اتصالاتهم وتواصلهم معنا.
+الإفصاح عن المعلومات الخاصة بالعملاء والمستخدمين في الحالات التي يلزمنا أو يطالبنا القانون بالإفصاح عنها، وذلك تطبيقا القوانين المعمول بها.
+الإفصاح عن المعلومات اللازمة لضمان سلامتنا وحماية مصالحنا والحفاظ على حقوق الملكية والفكرية الخاصة بنا وكافة حقوقنا.
+الإفصاح عن المعلومات لأغراض توصيل الطلبات وإتمام عمليات الدفع. 
+ دون ما سبق نحن نتعهد بعدم الإفصاح عن أي معلومات خاصة بالعملاء والمستخدمين، تأكيدًا منا على حماية خصوصيتهم، إلا في الحالات التي نعتقد فيها بضرورة الإفصاح عن المعلومات، على سبيل المثال وليس الحصر الإبلاغ عن نشاط مشبوه ومنع حدوث مشكلة أو خسارة ومنع ووقف أي أذى معنوي أو مادي.
+رابعاً: الإلغاء والقبول
+عندما تقومون بالتسجيل على التطبيق لأول مرة معنا، ستتمكنون من اختيار إما قبول أو رفض استلام المراسلات التسويقية من جانبنا أو من جانب الأطراف الخارجيين ممن نتعامل معها والذين تم انتقاؤهم بعناية. ستُتاح لكم الفرصة لإلغاء الاشتراك في كل مرة تتسلمون فيها مراسلات تسويقية أو نشرة إخبارية من جانبنا (والتي من المحتمل أن يتم إرسالها عبر البريد الإلكتروني٬ الرسائل النصية القصيرة أو عبر الهاتف). علاوة على ذلك، يُمكنكم تغيير تفضيلات التسوق الخاصة بكم في أي وقت من خلال الاتصال بنا على النحو المبيَّن في هذه السياسة.
+كما يجوز لكم المطالبة بتصحيح أي من البيانات غير الصحيحة المعروضة في حسابكم على التطبيق الإلكتروني من خلال الاتصال بنا. ويجوز لكم، في حالات معينة، تعديل معلومات معينة عبر التطبيق.
+خامساً: إخلاء طرف وبراءة ذمة والحد من المسؤولية
+لا يتحمل تطبيق ______أي مسؤولية عن أي محتوى يظهر أو يتم الدخول إليه من خلال التطبيق، ولا نقدم أي ضمانات صريحة أو ضمنية، بما في ذلك على سبيل المثال لا الحصر، أي محتوىً ينشأ عن طريق مزودي الخدمات أو دقة المحتوى وموثوقيته، بما في ذلك المحتوى الذي ينشأ عن طريق المستخدمين سواء كان ذلك للعروض أو الخدمات، كما يجب التنويه أن المحتوى لا يعكس بالضرورة آراء أو سياسات التطبيق.
+قد تحتوي العروض على بيانات وتطبيقات لجهات اتصال خارجية لروابط مواقع ويب أخرى. لذا لزم التنويه إلى أن التطبيق غير مسؤول عن المحتوى أو الدقة أو الآراء المعبر عنها في مثل هذه المواقع، ولا يوجد ما يضمن تحري الدقة الكاملة عن صحة أو اكتمال هذا المحتوى من قبلنا.
+فيما تبذل إدارة  تطبيق ______ قصارى جهدها لتحسين واستمرار الخدمات دون تحمل أي ضرر في حال عدم قدرة المستخدم من الوصول إلى التطبيق حيث لا يتحمل تطبيق ______ أية مسؤولية عن أي خطأ أو إغفال أو انقطاع أو حذف أو عيب أو تأخير في التشغيل أو الإرسال أو أي عطل فني أو فشل في خط الاتصالات لخطوط الهاتف، وأنظمة الكمبيوتر على الإنترنت، والخوادم أو مقدمي الخدمة ومعدات الكمبيوتر والبرمجيات أو السرقة أو التدمير أو الدخول غير المصرح به أو فشل أي بريد إلكتروني في الاستفادة من خدمات التطبيق، مع إخلاء المسؤولية عن التطبيق جزئيًا وكليًا عن أي خسارة أو ضرر يلحق بالمستخدم، تحت أي ظرف من الظروف نتيجة لاستخدام التطبيق أو أي من خدماته سواء في وضع الاتصال أو غير الاتصال.
+سادساً: الملكية الفكرية والعلامات التجارية
+تعود الملكية الفكرية والعلامة التجارية تطبيق ______ الى شركة ______.  وفي حال نشوب نزاع بين الأطراف تختص محاكم دولة الكويت في الفصل بين الأطراف المتنازعة. 
+سابعاً: ال كوكيز 
+يستخدم تطبيق ______ تكنولوجيا "الكوكيز" التي تتيح التعرف على أنشطة المستخدم واهتماماته والتي تساعدنا على توفير تجربة خاصة عند التسوق من خلال التطبيق وتساعدنا على تتبع معلوماتك الشخصية لغرض تتبع النشاط الخاص بك عند استخدام تطبيق ______ واعداد التقارير وتقييم التوجهات ومراقبة الطريقة التي يتم فيها استخدام التطبيق. بموجب ذلك فإنك توافق على استخدام تطبيق _____" لهذه التكنولوجيا من خلال قبولكم لهذه الشروط. 
+ثامناً: الأمن
+نحن نتخذ الاجراءات اللازمة بشكل كاف لمنع دخول التطبيق لغير المصرح لهم أو الاستخدام أو التعديل أو افشاء او إتلاف المعلومات الشخصية أي من المعلومات التي يتم تجميعها وتخزينها وحمايتها باستخدام كافة الوسائل المتاحة. تطبيق _____غير مسئولة عن أى دخول غير مصرح له من قبل طرف ثالث ما لم يكن هذا الدخول قد حدث بسبب اهمالنا او سوء الاستعمال المتعمد. ان حماية بياناتك الشخصية شيء مهم بالنسبة لنا، ولذلك فأننا نأخذ الاحتياطات التالية لحماية معلوماتك الشخصية بشكل أفضل: 
+____
+____
+____
+تاسعاً: التعديل والتحديث
+يرجى العلم أننا نقوم بشكل مستمر بتحديث وتطوير وإجراء التغييرات على بنود سياسة الخصوصية وشروط وأحكام الاستخدام وفقًا لما يستجد دون إلتزامنا بإرسال أشعار أو إخطار بأي تغييرات، لذا يتعين على العملاء والمستخدمين المراجعة الدورية للتطبيق، وإن قبولهم لاستخدام التطبيق الخاص بنا يعد قبولاً كاملاً للسياسات والبنود المطبقة والمعمول بها.
+عاشراً: الاتصال بنا
+إذا كان لديك أي تعليق / استفسار او طلب بخصوص سياسة وشروط الخصوصية، بأمكانك التواصل معنا من خلال ارسال البريد إلكتروني على
+</mutableString>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="TDm-xY-Zzx" firstAttribute="leading" secondItem="XYa-oC-hNj" secondAttribute="leading" constant="10" id="G98-Ys-Rfx"/>
+                                    <constraint firstAttribute="bottom" secondItem="TDm-xY-Zzx" secondAttribute="bottom" constant="10" id="IcH-oO-Ie9"/>
+                                    <constraint firstAttribute="trailing" secondItem="TDm-xY-Zzx" secondAttribute="trailing" constant="10" id="j1d-Rd-Q5k"/>
+                                    <constraint firstItem="TDm-xY-Zzx" firstAttribute="top" secondItem="XYa-oC-hNj" secondAttribute="top" constant="10" id="z9p-u1-CAK"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rin-05-QDa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hsI-MX-m2P" firstAttribute="top" secondItem="qwj-NF-Cr2" secondAttribute="top" constant="1" id="Bzo-ap-Myf"/>
+                            <constraint firstItem="XYa-oC-hNj" firstAttribute="trailing" secondItem="Rin-05-QDa" secondAttribute="trailing" id="FuE-mp-Q9F"/>
+                            <constraint firstAttribute="bottom" secondItem="XYa-oC-hNj" secondAttribute="bottom" id="JGF-i2-2Da"/>
+                            <constraint firstItem="hsI-MX-m2P" firstAttribute="trailing" secondItem="Rin-05-QDa" secondAttribute="trailing" id="JgR-97-gS9"/>
+                            <constraint firstItem="XYa-oC-hNj" firstAttribute="top" secondItem="0k5-1z-F7r" secondAttribute="bottom" constant="10" id="SgW-Wc-f8f"/>
+                            <constraint firstItem="XYa-oC-hNj" firstAttribute="leading" secondItem="Rin-05-QDa" secondAttribute="leading" id="gp0-EC-oTw"/>
+                            <constraint firstItem="hsI-MX-m2P" firstAttribute="leading" secondItem="Rin-05-QDa" secondAttribute="leading" id="sYE-To-O43"/>
+                            <constraint firstItem="Rin-05-QDa" firstAttribute="bottom" secondItem="hsI-MX-m2P" secondAttribute="bottom" id="vyI-nH-DQB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dgG-Jw-BaE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028" y="-25"/>
+        </scene>
+        <!--Terms And Condition-->
+        <scene sceneID="jkW-Qn-oH2">
+            <objects>
+                <viewController storyboardIdentifier="BTermsAndCondition" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wpT-BC-7yI" customClass="BTermsAndCondition" customModule="Batch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ODD-rR-7LP">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSx-EI-RNA">
+                                <rect key="frame" x="0.0" y="1" width="393" height="817"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHi-nu-uks">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNL-Vf-MUM">
+                                                <rect key="frame" x="5" y="50" width="60" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="MiB-82-OxE"/>
+                                                    <constraint firstAttribute="height" constant="50" id="V4W-i2-Sct"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="back"/>
+                                                <connections>
+                                                    <action selector="onTapBackBtn:" destination="wpT-BC-7yI" eventType="touchUpInside" id="7CK-DF-pCP"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="شروط وأحكام تطبيق ______" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4UV-dv-o8z" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
+                                                <rect key="frame" x="70" y="50" width="253" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="xRr-CV-x3g"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                                <color key="textColor" name="AppLabelBlackColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="4UV-dv-o8z" firstAttribute="centerY" secondItem="lNL-Vf-MUM" secondAttribute="centerY" id="G6C-ut-JHy"/>
+                                            <constraint firstAttribute="height" constant="100" id="MaE-V8-G7w"/>
+                                            <constraint firstAttribute="trailing" secondItem="4UV-dv-o8z" secondAttribute="trailing" constant="70" id="Van-jG-ESH"/>
+                                            <constraint firstItem="4UV-dv-o8z" firstAttribute="leading" secondItem="lNL-Vf-MUM" secondAttribute="trailing" constant="5" id="c3V-Vl-Yq7"/>
+                                            <constraint firstItem="lNL-Vf-MUM" firstAttribute="leading" secondItem="LHi-nu-uks" secondAttribute="leading" constant="5" id="kgc-3c-64f"/>
+                                            <constraint firstAttribute="bottom" secondItem="lNL-Vf-MUM" secondAttribute="bottom" id="qan-Iq-WPS"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="AppThemeBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="LHi-nu-uks" firstAttribute="top" secondItem="BSx-EI-RNA" secondAttribute="top" id="hwZ-If-whj"/>
+                                    <constraint firstItem="LHi-nu-uks" firstAttribute="leading" secondItem="BSx-EI-RNA" secondAttribute="leading" id="xjt-Rk-gxv"/>
+                                    <constraint firstAttribute="trailing" secondItem="LHi-nu-uks" secondAttribute="trailing" id="yLR-p0-lcM"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RHA-HP-N4K">
+                                <rect key="frame" x="0.0" y="111" width="393" height="741"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xXY-sm-UnN">
+                                        <rect key="frame" x="10" y="10" width="373" height="721"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <mutableString key="text">مرحباً بك في تطبيق ______، ان هذه شروط وأحكام تعتبر هي سياسة لدخولك واستخدامك لتطبيق_____ وكل متعلقاته وخدماته. وضعت هذه الشروط والأحكام حفاظا لحقوق كل من مقدمي الخدمات، الموردين، العملاء وتطبيق______. حيث تحكم هذه الشروط والأحكام استخدامكم لهذا التطبيق الإلكتروني كالتالي:
+العملاء\العميل: مستخدمي التطبيق الإلكتروني الخاص بشركة ______.
+الشركة المختصة: هي الشركة المقدمة للخدمة أو المنتج والتي تعرض خدماتها على تطبيق______.
+
+وصف الخدمات:
+شركة ______ هي شركة تلبي احتياجات عملائها من خلال توفير عدد من المتاجر ومقدمي السلع والمعدات والمنتجات الرياضية والمكملات الغذائية وخلافه من المنتجات بحيث تقوم كل شركة مختصة بعرض خدماتها ومنتجاتها وأسعارها ونبذة عنها على التطبيق الإلكتروني.
+الغرض من التطبيق الإلكتروني هو توفير وسيلة سهلة للعملاء بحيث يتم ربطهم بالشركات المختصة في مجال المعدات والمنتجات الرياضية والمكملات الغذائية مع توصيل المنتجات المباعة إلى العنوان الذي يحدده العميل مقابل رسوم توصيل.
+
+المنتجات:
+كافة الخدمات المعروضة على التطبيق الإلكتروني تكون قابلة للتنفيذ بشكل فوري (أون لاين).
+بعض المنتجات الموجودة على التطبيق قد تكون غير متوفرة للتوصيل في نفس اليوم ما لم يتم تحديد خلاف ذلك.
+تطبيق ______ هو مجرد وسيط بين العميل وبين الشركة المختصة ولا يتحمل تطبيق ______ أية مسئولية في حال تأخر التنفيذ أو تغير الشروط أو البضائع ومواصفاتها التي تم الاتفاق عليها بين العميل والشركة المختصة. 
+المنتجات المعروضة متوفرة للتوصيل للعنوان الذي يحدده العميل عن طريق شركة متخصصة حسب شروطها وأحكامها.  
+ عند الانتهاء من تنفيذ العملية عن طريق التطبيق، سوف يتم التواصل عن طريق شركة التوصيل او تطبيق ______ لمتابعة العملية والتأكيد على الطلب بشكل نهائي.
+في حالة إذا كانت الشركة المختصة والمختارة غير قادرة على تأكيد عملية البيع أو تلبية كافة أو جزء من طلبكم سوف يتم التواصل معكم مباشرة وتقديم بدائل تناسب احتياجاتكم في حال الرغبة بذلك.
+
+
+الأسعار:
+الأسعار المعروضة للمنتج أو الخدمة على التطبيق الإلكتروني هي خاصة بالشركة المختصة ومحددة بالدينار الكويتي أو ما يقابله من العملات الأخرى.
+لا تتضمن أسعار المنتجات رسوم التوصيل المحلي أو الخارجي ويتم إضافتها على الفاتورة النهائية عند تنفيذ عملية الطلب عن طريق التطبيق.
+تعتمد مصاريف التوصيل المحلي على شركة التوصيل أو الشركة المختصة وحسب المنطقة حيث تحدد هذه المصاريف في نهاية عملية تنفيذ الكلب.
+بعض الشركات المختصة تقدم خصم خاص عن طريق كوبون أو كود خصم أو  أية طريقة أخدى تحدد من قبل الشركة المختصة أو شركة ______ لعملاء التطبيق الإلكتروني والسعر المذكور هو السعر المعروض قبل الخصم ويتم تقديم الخصم بعد التأكيد النهائي الطلب مالم يتم تحديد خلاف ذلك.
+في حال وجود خصم على المنتج من قبل الشركة المختصة سوف يتم توضيح السعر قبل الخصم وبعده.
+
+الطلب/الدفع:
+قبل عملية إتمام طلبك يرجى مراجعة الشروط والأحكام. بالنقر على زر "تأكيد او تنفيذ " في نهاية عملية الطلب، فإن العميل يقر بموافقته على أن يلتزم بالشروط والأحكام المنصوص عليها هنا والتي تظهر في أي موضع آخر على التطبيق الإلكتروني.
+إن لم يجز مصدر بطاقتك الائتمانيّة إتمام الصفقة الماليّة لأي سبب كان، فلن نتمكن من إعداد طلبك وتجهيزه للتوصيل، ولن نتحمل مسؤوليّة أي تأخيرات ناجمة عن ذلك. 
+أثناء عملية الطلب، يجب على العميل تزويد شركة ______بالبيانات الشخصية كاملة بما في ذلك الاسم، الهاتف، عنوان التوصيل والمقصود به عنوان المستلم مع كتابة أي بيانات أو ملاحظات أخرى إن وجدت.
+الدفع يكون عن طريق الدفع الإلكتروني بحيث يسدد الثمن عن طريق الكي نت أو البطاقات الائتمانية.
+يعتبر الطلب مؤكداً من قبل التطبيق بمجرد إتمام عملية الشراء مالم يخطر العميل بغير ذلك خلال فترة (7) أيام عمل برسالة عبر بريده الالكتروني أو رقم الهاتف. 
+سيتم سحب المبلغ الماليّ المطلوب بقيمة مشترياتك من حسابك فور إتمام عملية الشراء.
+تعتبر عملية البيع قد تمت بمجرد استلام العميل للمنتج الذي اشتراه.
+
+تنفيذ العمليات والتوصيل:
+يتم توصيل البضائع والمنتجات المشتراة من قبل العميل إلى العنوان المحدد منه خلال مدة ______.
+يتم توصيل البضائع والمنتجات إلى العناوين المحددة من العملاء عن طريق شركة توصيل تحددها وتتعاقد معها شركة المختصة ويكون التوصيل مقابل رسوم تدرج ضمن السعر النهائي للمنتج. 
+فيما عدا ما هو منصوص عليه، فإن نظام التوصيل يكون خاضعاً للإجراءات والشروط والأحكام المتبعة في شركة المختصة أو التوصيل أو الشحن اللتان تكونان هما المسئولتان الوحيدتان عن أي تأخير أو أضرار قد تلحق بالمنتج دون أدنى مسئولية على تطبيق ______ يتعلق بذلك ذلك.
+تعتمد مصاريف التوصيل المحلي على شركة التوصيل وحسب المنطقة. حيث إن مصاريف التوصيل توضح في نهاية عملية التنفيذ مبينة لكل شركة مختصة على حده. 
+بعض المنتجات المختارة قد لا تكون متوفرة للتوصيل إلى مناطق معينة وذلك حسب شروط شركة التوصيل، وبقدر الإمكان سوف نقوم بإبلاغك بهذه القيود قبل تحديد طلبك أو بعد الطلب بفترة قصيرة.
+سوف يتم التأكيد على تاريخ التوصيل المحدد لطلبك في رسالة بريد إلكتروني لتأكيد الطلب.
+لتجنب أية عوائق أو تأخير في التسليم، يرجى التأكد من أنك قد وفرت بيانات كاملة ودقيقة للعنوان الخاص بالمستلم المقصود ورقم هاتف الاتصال الخاص بك، حتي يتسنى لشركة التوصيل إخطارك في حال مواجهة أي مشكلات في التوصيل.
+في حال مواجهة أي صعوبات في توصيل طلبك إلى المستلم المقصود، نحتفظ بالحق في الاتصال بالمستلم باستخدام بيانات الاتصال التي تقدمها في وقت تحديد طلبك.
+شركة ______ غير مسؤولة في حال حدوث اي مشاكل في التوصيل من قبل شركة التوصيل، حيث اننا جهة ثالثة تقوم بتسهيل وتيسير عملية الطلب بين العميل والشركة المختصة.
+الاستبدال والاسترجاع والإلغاء:
+تخضع سياسة الاستبدال والاسترجاع للقانون رقم 2014/39 بشأن حماية المستهلك ولائحته التنفيذية ضمن الشروط والأحكام التالية: أن تكون السلع المراد استبدالها او إرجاعها بحالة جيدة وقابلة للعرض بغلافها وبطاقاتها ومرفقة بإيصال الشراء الأصلي وأن تكون السلع المراد استبدالها أو إرجاعها غير مطابقة للمواصفات القياسية أو بها خلل أو عيب لا يكون ظاهرا عند الشراء.
+
+بيانات الاتصال الخاصة بـتطبيق______:
+في حال وجود شكوى يتم توجيهها هاتفيا أو عن طريق ارسالها إلى البريد الإلكتروني المحدد لتطبيق ______ ولن تقبل الشكوى في حال تم تقديمها بعد فترة زمنية مقدرة بـ(14) يوم تبدأ من تاريخ استلام المنتج.
+لكي تساعدنا في حل أية شكاوى بسرعة وحسب ما يحقق لكم الرضا، ننصحك بأن تقدم الشكوى في نفس اليوم المحدد حدوث المشكلة
+
+معلوماتك:
+نقوم باستخدام البيانات المستلمة منك لغرض إنجاز التزاماتنا بموجب هذه الشروط والأحكام حسب ما هو منصوص عليه في سياسة سرية المعلومات الخاصة بنا.
+بموجب استخدامك للتطبيق فأنك تعطى الحق لنا باستخدام البيانات المستلمة منك التي تمنحنا إيها عند التسجيل أو عند إتمام عملية الشراء وذلك من أجل تحسين وإدارة التطبيق.
+
+براءة ذمة:
+ بموجب هذه الشروط والأحكام يلتزم تطبيق______ بذل كافة المساعي المعقولة لضمان أن التطبيق الإلكتروني يعمل بشكل كامل وخال من الأخطاء، لا يمكننا أن نضمن ذلك، ولذلك، فإننا لا نقبل أية مسئولية عن أية عيوب و/أو تعطيل في التطبيق الإلكتروني وعليه يتم إبراء ذمتنا من التزاماتنا بموجب هذه الشروط والأحكام في حالة حدوث اية عرض خارج عن إرادتنا مما يعيق العمل او يجعل توفير التطبيق الإلكتروني مستحيلاً أو غير عملي.
+
+استخدام التطبيق:
+بموافقتك على الشروط والأحكام فإنك تؤكد صحة المعلومات والتفاصيل المقدمة من قبلك (بالإضافة لمعلومات التسجيل).
+يلتزم العميل عند استخدام التطبيق على عدم:
+استخدام التطبيق بأي شكل يسبب أو ممكن أن يسبب إعاقة الى التطبيق أو الدخول إليه أو الإضرار به أو تعطيله.
+استخدام التطبيق في أي نشاط غير مشروع أو أي نشاط من شأنه أن يضر بأي طرف ثالث.
+لدينا الحق في تعليق أو تقييد، أو حجب استخدامك للتطبيق في أي وقت وبدون أي إشعار وذلك في حالة كانت لدينا دلائل منطقية عن خرقك لأي من هذه الشروط والأحكام أو في حالة اشتباهنا في أن حسابك يمارس نشاطات غير مشروعة.
+بإكمال عضويتك فإنك توافق على أننا يمكننا تواصل معك عبر البريد الإلكتروني أو عن طريق ارسال اشعارات على التطبيق. سيطلب التطبيق الحصول على موافقتك خلال عملية التسجيل لإرسال رسائل ترويجية تسمح لك بمعرفة أي تغير جديد أو خاصية أو أي منتجات أو خدمات جديدة تضاف إلى التطبيق. إذا رغبت في أي وقت ايقاف الرسائل الترويجية التي تصلك عن طريق____.
+حقوق الملكية:
+إن محتوى التطبيق كاملا سواء من نصوص وتصاميم و شعارات و أيقونات الأزرار و الصور و مقاطع الصوت و المحتويات الرقمية ومجموعة البيانات و البرمجيات هي حقوق ملكية لـ _____ أو مستخدميه أو موردي المحتوى أو المرخصين حيث أنها محمية بموجب قوانين الملكية الفكرية أو العلامات التجارية المعمول بها في دولة الكويت
+بنود عامة:
+نحتفظ بالحق في تعديل الشروط والأحكام التي يصرح لك بالاطلاع عليها على تطبيق_____ من حين لآخر. وسوف نعرض أية تغيرات على التطبيق الإلكتروني، وتتحمل المسئولية كعميل على مراجعة الشروط والأحكام في كل مرة تقوم بزيارة التطبيق. وسوف يتم سريان التغيرات على الفور بعد عرض أي تغيير وستتم كافة التعاملات اللاحقة بينك وبيننا بناء على الشروط والأحكام الجديدة.
+نحتفظ بالحق في إيقاف أو تقييد أو إنهاء دخولك إلى التطبيق الإلكتروني في أي وقت.
+لتطبيق_____ الحق في المطالبة بالتعويض في حال كان استخدامك للتطبيق مسيئاً لمهام التطبيق أو عمليّاته التشغيليّة، أو سمعته التجاريّة، أو مضرّاً بعملائنا وبياناتهم الشخصيّة الخاصّة، سواءاً كانت الإساءة نتيجة فعل مقصود أو غير مقصود.
+تقع مسؤولية تحديث/تعديل أي بيانات خاصة بالعميل على طائلة العميل نفسه، وبناءاً على هذا فإننا نخلي مسؤوليّتها عن أي أخطاء أو خسارة ماليّة قد تترتّب على العميل نتيجةً لاستخدامنا بياناته القديمة أو الخاطئة.
+تخضع الطلبيّات إلى شرطي قبولنا لعملية البيع وتوفر السلعة، كما تخضع لموافقتكم على كافة الشروط والأحكام الواردة هنا فيما يتعلق بشروط استخدام التطبيق وخدماته.
+تشكّل الشروط والأحكام المذكورة أعلاه في مجموعها جزءاً واحداً لا يتجزّأ، ولا يمكن الأخذ بأي جزء منها بصورة منفصلة. وفي حال الإخلال بأي بند، تحتفظ شركة _____ بحقّها في اتّخاذ الإجراءات القانونيّة اللازمة لحماية مصالحها في الوقت الذي تراه مناسباً. ولا يشكل أي تأخير في اتّخاذ الإجراءات القانونيّة اللازمة من قبل شركة_____ موافقتنا على انتهاككم لهذه الشروط.
+تخضع هذه الشروط والأحكام لقوانين دولة الكويت، ويتفق الأطراف على الخضوع الكامل للاختصاص القضائي لمحاكم دولة الكويت.
+</mutableString>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="xXY-sm-UnN" firstAttribute="leading" secondItem="RHA-HP-N4K" secondAttribute="leading" constant="10" id="7OQ-2J-hxx"/>
+                                    <constraint firstAttribute="trailing" secondItem="xXY-sm-UnN" secondAttribute="trailing" constant="10" id="Zgq-Xw-8Yo"/>
+                                    <constraint firstAttribute="bottom" secondItem="xXY-sm-UnN" secondAttribute="bottom" constant="10" id="Zhm-YB-KDM"/>
+                                    <constraint firstItem="xXY-sm-UnN" firstAttribute="top" secondItem="RHA-HP-N4K" secondAttribute="top" constant="10" id="e1F-kX-AUP"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wxX-iD-SOv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RHA-HP-N4K" firstAttribute="top" secondItem="LHi-nu-uks" secondAttribute="bottom" constant="10" id="3iH-vP-P2R"/>
+                            <constraint firstItem="wxX-iD-SOv" firstAttribute="bottom" secondItem="BSx-EI-RNA" secondAttribute="bottom" id="9yc-4y-yhN"/>
+                            <constraint firstItem="BSx-EI-RNA" firstAttribute="trailing" secondItem="wxX-iD-SOv" secondAttribute="trailing" id="Fjg-Z4-GMh"/>
+                            <constraint firstItem="RHA-HP-N4K" firstAttribute="leading" secondItem="wxX-iD-SOv" secondAttribute="leading" id="bWW-2O-iaE"/>
+                            <constraint firstAttribute="bottom" secondItem="RHA-HP-N4K" secondAttribute="bottom" id="f3U-qy-wKT"/>
+                            <constraint firstItem="RHA-HP-N4K" firstAttribute="trailing" secondItem="wxX-iD-SOv" secondAttribute="trailing" id="mHj-9K-wU0"/>
+                            <constraint firstItem="BSx-EI-RNA" firstAttribute="leading" secondItem="wxX-iD-SOv" secondAttribute="leading" id="t2w-j3-KKh"/>
+                            <constraint firstItem="BSx-EI-RNA" firstAttribute="top" secondItem="ODD-rR-7LP" secondAttribute="top" constant="1" id="tMS-XH-N3Q"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Oi-WQ-3fJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2801" y="-25"/>
         </scene>
     </scenes>
     <designables>
@@ -2283,6 +2616,9 @@
         <namedColor name="AppViewBackgroundColor">
             <color red="0.96078431372549022" green="0.96470588235294119" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

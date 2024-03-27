@@ -21,6 +21,7 @@ enum AppStoryboard : String {
     case batchBarcodeScanner = "BatchBarcodeScanner"
     case batchAccount = "BatchAccount"
     case batchMealPlanCheckout = "BatchMealPlanCheckout"
+    case batchDashboard = "BatchDashboard"
     
     var instance : UIStoryboard {
         return UIStoryboard(name: self.rawValue, bundle: Bundle.main)

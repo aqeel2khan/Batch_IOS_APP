@@ -13,6 +13,7 @@ struct UserDefaultKey {
     static let USER_ID = "userId"
     static let TOKEN = "token"
     static let profilePhoto = "profile_pic"
+    static let profilePhotoPath = "profile_pic_path"
     static let healthPermission = "helth_permission"
     
 //    static let tokenValue = "Bearer Bearer 33|eMN7Fd0Z4oBOSC7GjSCxGsYMha54iYtG8YuhL4qfdf5d10e4"
