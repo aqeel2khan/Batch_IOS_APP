@@ -49,6 +49,7 @@ class BUserLogoutVC: UIViewController {
                     Batch_UserDefaults.removeObject(forKey: UserDefaultKey.TOKEN)
                     Batch_UserDefaults.setValue(nil, forKey: UserDefaultKey.profilePhoto)
                     Batch_UserDefaults.setValue(false, forKey: UserDefaultKey.healthPermission)
+                    Batch_UserDefaults.setValue(nil, forKey:UserDefaultKey.profilePhotoPath)
                     UserDefaultUtility.setUserLoggedIn(false)
                     SDImageCache.shared.clearMemory()
                     SDImageCache.shared.clearDisk()
