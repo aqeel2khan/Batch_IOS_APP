@@ -62,7 +62,7 @@ struct API {
     
     static let coachList = baseUrl + "/coach/list"// post
     static let coachDetail = baseUrl + "/coach/detail/"// get
-    static let motivatorCourseList = baseUrl + "/course/list"// post
+//    static let motivatorCourseList = baseUrl + "/course/list"// post
         
     static let courseList  = baseUrl + "/course/list"// post
     static let courseDetail    = baseUrl + "/course/detail/" // get
