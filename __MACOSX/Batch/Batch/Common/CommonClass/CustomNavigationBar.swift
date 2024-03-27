@@ -88,6 +88,15 @@ class CustomNavigationBar: UIView {
         }
     }
     
+    @IBAction func notificationBtnTapped(_ sender: Any) {
+        let vc = BNotificationListVC.instantiate(fromAppStoryboard: .batchAccount)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        let controller = (self.superview)?.next as! UIViewController
+        controller.present(vc, animated: true)
+    }
+    
+    
     @IBAction func rightBarBtnItem(_ sender: UIButton) {
         if sender == rightThirdBarBtnItem {
             if (UserDefaultUtility.isUserLoggedIn()) {

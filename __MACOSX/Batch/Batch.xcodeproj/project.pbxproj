@@ -219,6 +219,9 @@
 		570EA52B2B89FDED00D801AE /* MealsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570EA52A2B89FDED00D801AE /* MealsModel.swift */; };
 		5711BE7A2B94D5A30069D0C7 /* BPaymentGatewayPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711BE782B94D5A30069D0C7 /* BPaymentGatewayPopUpVC.swift */; };
 		5711BE7B2B94D5A30069D0C7 /* Extesnion+BPaymentGatewayPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711BE792B94D5A30069D0C7 /* Extesnion+BPaymentGatewayPopUpVC.swift */; };
+		5723DDEC2BB4941500F31D9F /* BNotificationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723DDEB2BB4941500F31D9F /* BNotificationListVC.swift */; };
+		5723DDF02BB4948400F31D9F /* NotificationListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723DDED2BB4948400F31D9F /* NotificationListTableCell.swift */; };
+		5723DDF12BB4948400F31D9F /* NotificationListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5723DDEE2BB4948400F31D9F /* NotificationListTableCell.xib */; };
 		574050C42B98CDE000875E88 /* LKRulerPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574050C32B98CDE000875E88 /* LKRulerPicker.swift */; };
 		574FA5AF2B8E51B900F6D3BA /* DishesDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FA5AE2B8E51B900F6D3BA /* DishesDetailModel.swift */; };
 		574FA5B12B8E56DC00F6D3BA /* MealFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574FA5B02B8E56DC00F6D3BA /* MealFilterVC.swift */; };
@@ -567,6 +570,9 @@
 		570EA52A2B89FDED00D801AE /* MealsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsModel.swift; sourceTree = "<group>"; };
 		5711BE782B94D5A30069D0C7 /* BPaymentGatewayPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BPaymentGatewayPopUpVC.swift; sourceTree = "<group>"; };
 		5711BE792B94D5A30069D0C7 /* Extesnion+BPaymentGatewayPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extesnion+BPaymentGatewayPopUpVC.swift"; sourceTree = "<group>"; };
+		5723DDEB2BB4941500F31D9F /* BNotificationListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNotificationListVC.swift; sourceTree = "<group>"; };
+		5723DDED2BB4948400F31D9F /* NotificationListTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationListTableCell.swift; sourceTree = "<group>"; };
+		5723DDEE2BB4948400F31D9F /* NotificationListTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationListTableCell.xib; sourceTree = "<group>"; };
 		574050C32B98CDE000875E88 /* LKRulerPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKRulerPicker.swift; sourceTree = "<group>"; };
 		574FA5AE2B8E51B900F6D3BA /* DishesDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesDetailModel.swift; sourceTree = "<group>"; };
 		574FA5B02B8E56DC00F6D3BA /* MealFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealFilterVC.swift; sourceTree = "<group>"; };
@@ -1786,6 +1792,7 @@
 		570D8FDA2B84B28300EB643A /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				5723DDEF2BB4948400F31D9F /* NotificationListTableCell */,
 				570D8FDB2B84B28300EB643A /* NotificationSettingsListTableCell */,
 				570D8FDE2B84B28300EB643A /* FollowingListTableCell */,
 			);
@@ -1819,6 +1826,7 @@
 				570D8FE42B84B28300EB643A /* BUserNotificationVC.swift */,
 				570D8FE52B84B28300EB643A /* BUserPersonalInfoVC.swift */,
 				570D8FE62B84B28300EB643A /* BUserDeliveryDetailVC.swift */,
+				5723DDEB2BB4941500F31D9F /* BNotificationListVC.swift */,
 				570D8FE72B84B28300EB643A /* BUserLogoutVC.swift */,
 			);
 			path = Controller;
@@ -1888,6 +1896,15 @@
 				5759E78B2B9048AB00352B24 /* Extension+BPaymentGatewayPopUpVC.swift */,
 			);
 			path = PaymentGateway;
+			sourceTree = "<group>";
+		};
+		5723DDEF2BB4948400F31D9F /* NotificationListTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				5723DDED2BB4948400F31D9F /* NotificationListTableCell.swift */,
+				5723DDEE2BB4948400F31D9F /* NotificationListTableCell.xib */,
+			);
+			path = NotificationListTableCell;
 			sourceTree = "<group>";
 		};
 		574050C12B98CDE000875E88 /* ThirdParty */ = {
@@ -2347,6 +2364,7 @@
 				5759E7C82B9048AB00352B24 /* BWOMotivatorsListCollCell.xib in Resources */,
 				5759E7CF2B9048AB00352B24 /* TrainingListTableCell.xib in Resources */,
 				570D8FF72B84B28300EB643A /* FollowingListTableCell.xib in Resources */,
+				5723DDF12BB4948400F31D9F /* NotificationListTableCell.xib in Resources */,
 				68C14B6C2B6396A20085AAD4 /* MealPlanCheckoutCell.xib in Resources */,
 				193AC77F2B9F575600DD6BCA /* SleepHealthCell.xib in Resources */,
 				3188B3CD2B299B6A00E19945 /* LaunchScreen.storyboard in Resources */,
@@ -2752,6 +2770,7 @@
 				57BAABA82BA34C5800DE5F2A /* BStartWorkOutDetailViewModel.swift in Sources */,
 				5759E7F12B9048AB00352B24 /* BWorkOutAllowNotificationVC.swift in Sources */,
 				319BAD6C2B2A31A00081A8F2 /* String.swift in Sources */,
+				5723DDF02BB4948400F31D9F /* NotificationListTableCell.swift in Sources */,
 				57C874CC2BA01C980094ABC6 /* OnBoardingScreenVC.swift in Sources */,
 				1A9B01482BA4BB6400F17C42 /* BMealPlanCheckoutResource.swift in Sources */,
 				1A9B01552BA4C46F00F17C42 /* DeliveryTimeSlotCell.swift in Sources */,
@@ -2811,6 +2830,7 @@
 				317609352B6683D0005D4395 /* weekCalenderCollCell.swift in Sources */,
 				570443C02B9A2C7500F630F6 /* DietModel.swift in Sources */,
 				575A20092B8B466900FFCD56 /* MealsDetailModel.swift in Sources */,
+				5723DDEC2BB4941500F31D9F /* BNotificationListVC.swift in Sources */,
 				3188B4182B29CBB400E19945 /* HUNetworkError.swift in Sources */,
 				1ABA48D32BB3083A00A74E52 /* CityRequestResponse.swift in Sources */,
 				191184802B97182100343F4B /* BUserNotificationVM.swift in Sources */,
