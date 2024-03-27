@@ -99,6 +99,10 @@ struct API {
     static let dishesReviewList  = baseUrl + "/dish/reviews/list/" //get
     static let postDishReview  = baseUrl + "/dish/reviews/save" //post
 
+    static let countryList  = baseUrl + "/common/countries"
+    static let stateList  = baseUrl + "/common/states"
+    static let cityList  = baseUrl + "/common/cities"
+    
     //Questin Module
     static let goalList  = baseUrl + "/meal/goals"// get
     static let typeOfDiegtList  = baseUrl + "/meal/tags"// get

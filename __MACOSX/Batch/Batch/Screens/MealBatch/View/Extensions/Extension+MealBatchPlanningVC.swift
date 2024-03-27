@@ -65,6 +65,7 @@ extension MealBatchPlanningVC: UICollectionViewDelegate,UICollectionViewDataSour
         } else if collectionView.tag == 602 {
             let tappedCategoryId = self.allCategories[indexPath.item].categoryID
             self.selectedMealCategory = self.allCategories[indexPath.item]
+            self.updateSelectedDishBottomNumbering(index: indexPath.item)
             self.reloadTheDishCollectionViewAsPerCategoryId(categoryId: tappedCategoryId)
         } else if collectionView.tag == 603 {
             let tappedDish = self.dishesList[indexPath.item]

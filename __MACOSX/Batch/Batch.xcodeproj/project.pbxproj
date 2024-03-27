@@ -59,6 +59,8 @@
 		1A9B01582BA4C91B00F17C42 /* DeliveryDropOffOptionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01572BA4C91B00F17C42 /* DeliveryDropOffOptionsResponse.swift */; };
 		1A9B015A2BA56B4B00F17C42 /* MealSubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B01592BA56B4B00F17C42 /* MealSubscriptionManager.swift */; };
 		1ABA48CF2BB0535100A74E52 /* CityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABA48CE2BB0535100A74E52 /* CityPickerViewController.swift */; };
+		1ABA48D12BB3082D00A74E52 /* StateRequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABA48D02BB3082D00A74E52 /* StateRequestResponse.swift */; };
+		1ABA48D32BB3083A00A74E52 /* CityRequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABA48D22BB3083A00A74E52 /* CityRequestResponse.swift */; };
 		311576BB2B8676FA00224EDE /* BLogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BA2B8676FA00224EDE /* BLogInViewModel.swift */; };
 		311576BD2B8678E400224EDE /* BLogInResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311576BC2B8678E400224EDE /* BLogInResource.swift */; };
 		311B1B612B2DE00C00E37E47 /* BatchTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311B1B602B2DE00C00E37E47 /* BatchTabBar.storyboard */; };
@@ -402,6 +404,8 @@
 		1A9B01572BA4C91B00F17C42 /* DeliveryDropOffOptionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDropOffOptionsResponse.swift; sourceTree = "<group>"; };
 		1A9B01592BA56B4B00F17C42 /* MealSubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSubscriptionManager.swift; sourceTree = "<group>"; };
 		1ABA48CE2BB0535100A74E52 /* CityPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerViewController.swift; sourceTree = "<group>"; };
+		1ABA48D02BB3082D00A74E52 /* StateRequestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRequestResponse.swift; sourceTree = "<group>"; };
+		1ABA48D22BB3083A00A74E52 /* CityRequestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRequestResponse.swift; sourceTree = "<group>"; };
 		311576BA2B8676FA00224EDE /* BLogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInViewModel.swift; sourceTree = "<group>"; };
 		311576BC2B8678E400224EDE /* BLogInResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLogInResource.swift; sourceTree = "<group>"; };
 		311B1B602B2DE00C00E37E47 /* BatchTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BatchTabBar.storyboard; sourceTree = "<group>"; };
@@ -2178,6 +2182,8 @@
 				313894152B683F8300F687B1 /* MealDilevaryDropOffVC.swift */,
 				1A9B014E2BA4C11100F17C42 /* MealPlanDeliveryTimeVC.swift */,
 				1A9B01592BA56B4B00F17C42 /* MealSubscriptionManager.swift */,
+				1ABA48D02BB3082D00A74E52 /* StateRequestResponse.swift */,
+				1ABA48D22BB3083A00A74E52 /* CityRequestResponse.swift */,
 			);
 			path = MealPlanCheckout;
 			sourceTree = "<group>";
@@ -2593,6 +2599,7 @@
 				3147145C2B68EB8F002EED87 /* MealplanRatingVC.swift in Sources */,
 				193AC7742B9CA23700DD6BCA /* LineChart.swift in Sources */,
 				319BAD762B2A37820081A8F2 /* Colors.swift in Sources */,
+				1ABA48D12BB3082D00A74E52 /* StateRequestResponse.swift in Sources */,
 				5759E7EA2B9048AB00352B24 /* ASVideoPlayerController.swift in Sources */,
 				5759E7F52B9048AB00352B24 /* Extension+TrainingFilterVC.swift in Sources */,
 				3186CBA72B55B8FF007213C3 /* MealPlanTVC.swift in Sources */,
@@ -2805,6 +2812,7 @@
 				570443C02B9A2C7500F630F6 /* DietModel.swift in Sources */,
 				575A20092B8B466900FFCD56 /* MealsDetailModel.swift in Sources */,
 				3188B4182B29CBB400E19945 /* HUNetworkError.swift in Sources */,
+				1ABA48D32BB3083A00A74E52 /* CityRequestResponse.swift in Sources */,
 				191184802B97182100343F4B /* BUserNotificationVM.swift in Sources */,
 				57719F0A2B9C2F8A00F7A599 /* GoalModel.swift in Sources */,
 				319BAD602B2A31A00081A8F2 /* UIViewController.swift in Sources */,

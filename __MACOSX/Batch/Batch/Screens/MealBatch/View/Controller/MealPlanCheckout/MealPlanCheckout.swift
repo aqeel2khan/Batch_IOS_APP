@@ -26,24 +26,37 @@ class MealPlanCheckout: UIViewController {
     @IBOutlet weak var subtotal: UILabel!
     @IBOutlet weak var promotion: UILabel!
     @IBOutlet weak var total: UILabel!
-
     
+
     var mealData : Meals!
     var isCommingFrom = ""
-    var grandTotal = 0.0
+    var grandTotal: Double = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-            
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.checkoutSetup()
+        }
+    }
+    
+    func getDuration() -> String {
+        let arrayofOptions = mealData.duration?.components(separatedBy: ",").map { String($0) } ?? []
+        if arrayofOptions.count > 0 {
+            return arrayofOptions.first ?? "1"
+        } else {
+            return mealData.duration ?? "1"
+        }
+    }
+    
+    func checkoutSetup() {
         setupTableView()
-        
         self.titleLbl.text = mealData.name
-        
-        guard let durationString = MealSubscriptionManager.shared.duration, let priceString = mealData.price, let price = Double(priceString), let duration = Double(durationString)  else {
+        let durationString = getDuration()
+        guard let priceString = mealData.price, let price = Double(priceString), let duration = Double(durationString)  else {
             return
         }
         grandTotal = Double(duration) * Double(price)
-
+        
         let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(grandTotal)", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
         self.priceLbl.attributedText = attributedPriceString
         
@@ -76,7 +89,6 @@ class MealPlanCheckout: UIViewController {
     }
 
     @IBAction func backActionBtn(_ sender: UIButton) {
-        MealSubscriptionManager.shared.reset()
         self.dismiss(animated: true)
     }
     
@@ -121,8 +133,23 @@ class MealPlanCheckout: UIViewController {
             return (false, "Delivery dropoff is required.".localized)
         }
         
-        // Add validation for other properties here if needed
+        // Add validation for state, stateid, city, and cityid
+        if MealSubscriptionManager.shared.state == nil || MealSubscriptionManager.shared.state?.isEmpty == true {
+            return (false, "State is required.".localized)
+        }
         
+        if MealSubscriptionManager.shared.stateId == nil || MealSubscriptionManager.shared.stateId?.isEmpty == true {
+            return (false, "State ID is required.".localized)
+        }
+        
+        if MealSubscriptionManager.shared.city == nil || MealSubscriptionManager.shared.city?.isEmpty == true {
+            return (false, "City is required.".localized)
+        }
+        
+        if MealSubscriptionManager.shared.cityId == nil || MealSubscriptionManager.shared.cityId?.isEmpty == true {
+            return (false, "City ID is required.".localized)
+        }
+
         return (true, "")
     }
 

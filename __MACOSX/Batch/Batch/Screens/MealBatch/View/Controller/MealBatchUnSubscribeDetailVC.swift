@@ -65,6 +65,7 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        MealSubscriptionManager.shared.reset()
         self.setupNavigationBar()
         self.dishesCollView.addObserver(self, forKeyPath: BatchConstant.contentSize, options: .new, context: nil)
     }
@@ -124,6 +125,7 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
             let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
             // let vc = BRegistrationVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
             vc.isCommingFrom = "MealBatchSubscribe"
+            MealSubscriptionManager.shared.duration = self.getDuration()
             vc.mealData = mealData
             vc.CallBackToUpdateProfile = {
                 self.viewWillAppear(true)

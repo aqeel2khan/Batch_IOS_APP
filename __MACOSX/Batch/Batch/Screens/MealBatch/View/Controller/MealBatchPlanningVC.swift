@@ -49,6 +49,7 @@ class MealBatchPlanningVC: UIViewController {
                     self.reloadTheDishCollectionViewAsPerCategoryId(categoryId: categoryId)
                 }
                 self.updateTheCategorySelectionInCollectionView()
+                self.updateSelectedDishBottomNumbering(index: 0)
             }
         }
         updateTheWeekCalendarCollectionView()
@@ -85,8 +86,11 @@ class MealBatchPlanningVC: UIViewController {
         }
     }
     
+    func updateSelectedDishBottomNumbering(index: Int) {
+        self.lblCountOfSelectedDishes.text = "\(index+1)/\(allCategories.count)"
+    }
+    
     func updateSelectedDishCount() {
-        self.lblCountOfSelectedDishes.text = "\(self.selectedWeekDay?.dishes?.count ?? 0)/\(allCategories.count)"
         if let selectedCategoryID = selectedMealCategory?.categoryID, let dishes = selectedWeekDay?.dishes {
             let selectedCategoryDishesCount = dishes.filter { $0.dishCategory == selectedCategoryID }.count
             print("Count of dishes for selected category: \(selectedCategoryDishesCount)")
