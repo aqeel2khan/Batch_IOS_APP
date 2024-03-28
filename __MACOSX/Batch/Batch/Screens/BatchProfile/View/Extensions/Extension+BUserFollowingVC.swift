@@ -18,7 +18,8 @@ extension BUserFollowingVC: UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueCell(FollowingListTableCell.self,for: indexPath)
         cell.unfollowBtn.tag = indexPath.row
         cell.lblName.text = followingData?.data?[indexPath.row].motivator_detail?.name ?? ""
-        cell.lblDetails.text = followingData?.data?[indexPath.row].motivator_detail?.email ?? ""
+        cell.lblDetails.isHidden = true
+//        cell.lblDetails.text = followingData?.data?[indexPath.row].motivator_detail. ?? ""
         if followingData?.data?[indexPath.row].motivator_detail?.profile_photo_path != nil{
             cell.followingprofileImage.sd_setImage(with: URL(string: BaseUrl.imageBaseUrl + (followingData?.data?[indexPath.row].motivator_detail?.profile_photo_path ?? ""))!, placeholderImage: UIImage(named: "image2"))
         }else{

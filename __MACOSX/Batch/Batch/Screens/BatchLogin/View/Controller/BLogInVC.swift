@@ -59,30 +59,32 @@ class BLogInVC: UIViewController {
                     self.getProfileData(profile: response.data?.profile_photo_path ?? "")
                     Batch_UserDefaults.setValue(response.data?.profile_photo_path, forKey:UserDefaultKey.profilePhotoPath )
                     UserDefaultUtility.saveUserId(userId: response.data?.id ?? 0)
-                    
-                    if self.isCommingFrom == "workoutbatches" {
-                        let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
-                        vc.modalPresentationStyle = .overFullScreen
-                        vc.modalTransitionStyle = .coverVertical
-                        vc.promotionPriceValue = 0
-                        vc.selectedSubscriptionInfo = [self.selectedSubscriptionInfo[0]]
-                        vc.isCommingFrom = self.isCommingFrom
-                        self.present(vc, animated: true)
-                    } else if self.isCommingFrom == "MealBatchSubscribe" {
-                        let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
-                        vc.isCommingFrom = "MealBatchSubscribe"
-                        vc.mealData = self.mealData
-                        vc.modalPresentationStyle = .overFullScreen
-                        vc.modalTransitionStyle = .coverVertical
-                        self.present(vc, animated: true)
-                    } else if self.isCommingFrom == "OnBoarding" {
+                   
+                    if self.isCommingFrom == "OnBoarding" {
                         let tabbarVC = UIStoryboard(name: "BatchTabBar", bundle: nil).instantiateViewController(withIdentifier: "BatchTabBarNavigation")
                         tabbarVC.modalPresentationStyle = .fullScreen
                         self.present(tabbarVC, animated: true, completion: nil)
-                    } else {
-                        self.dismiss(animated: true)
+                    }else{
+                        self.dismiss(animated: true) {
+                            self.CallBackToUpdateProfile?()
+                            if self.isCommingFrom == "workoutbatches" {
+                                let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
+                                vc.modalPresentationStyle = .overFullScreen
+                                vc.modalTransitionStyle = .coverVertical
+                                vc.promotionPriceValue = 0
+                                vc.selectedSubscriptionInfo = [self.selectedSubscriptionInfo[0]]
+                                vc.isCommingFrom = self.isCommingFrom
+                                self.present(vc, animated: true)
+                            } else if self.isCommingFrom == "MealBatchSubscribe" {
+                                let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
+                                vc.isCommingFrom = "MealBatchSubscribe"
+                                vc.mealData = self.mealData
+                                vc.modalPresentationStyle = .overFullScreen
+                                vc.modalTransitionStyle = .coverVertical
+                                self.present(vc, animated: true)
+                            }
+                        }
                     }
-                    self.CallBackToUpdateProfile?()
                 }
             }else{
                 DispatchQueue.main.async {
@@ -106,6 +108,7 @@ class BLogInVC: UIViewController {
         let dataTask = URLSession.shared.dataTask(with: url){ data,repo,err in
             if err == nil{
                 Batch_UserDefaults.setValue(data ?? Data(), forKey: UserDefaultKey.profilePhoto)
+                Batch_UserDefaults.setValue(profile, forKey: UserDefaultKey.profilePhotoPath)
             }
         }
         dataTask.resume()

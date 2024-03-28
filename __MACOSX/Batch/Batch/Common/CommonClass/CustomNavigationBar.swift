@@ -103,6 +103,11 @@ class CustomNavigationBar: UIView {
                 let vc = BUserProfileVC.instantiate(fromAppStoryboard: .batchAccount)
                 vc.modalPresentationStyle = .overFullScreen
                 vc.modalTransitionStyle = .coverVertical
+                vc.callBackToUpdateNavigation = {
+                    DispatchQueue.main.async{
+                        self.xibSetup()
+                    }
+                }
                 let controller = (self.superview)?.next as! UIViewController
                 controller.present(vc, animated: true)
             }else{
