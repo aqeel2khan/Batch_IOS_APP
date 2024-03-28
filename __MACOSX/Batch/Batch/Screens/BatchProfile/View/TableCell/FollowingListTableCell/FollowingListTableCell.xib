@@ -42,17 +42,17 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SDI-nN-5xw">
-                                <rect key="frame" x="50" y="10.333333333333334" width="197" height="29.666666666666664"/>
+                                <rect key="frame" x="50" y="8" width="197" height="34.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lower-Body burn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERb-KS-iCy">
-                                        <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="14"/>
-                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="12"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="109" height="16.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="14"/>
                                         <color key="textColor" red="0.062745098040000002" green="0.070588235289999995" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="193 kcal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOu-9X-aAg">
-                                        <rect key="frame" x="0.0" y="19" width="34" height="10.666666666666664"/>
-                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="9"/>
+                                        <rect key="frame" x="0.0" y="21.333333333333336" width="41.666666666666664" height="13"/>
+                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="11"/>
                                         <color key="textColor" red="0.35686274509803922" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -83,8 +83,17 @@
                                     <action selector="unfollowBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ewu-IK-Pop"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kW3-qL-3na">
+                                <rect key="frame" x="0.0" y="0.0" width="267" height="50"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="navigateTOMotivatorDetail:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Op6-xI-B7U"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="kW3-qL-3na" secondAttribute="bottom" id="6Qn-CC-spI"/>
+                            <constraint firstItem="kW3-qL-3na" firstAttribute="top" secondItem="Fby-aa-OmF" secondAttribute="top" id="7wW-ih-Iv6"/>
                             <constraint firstItem="lbf-jZ-Z5v" firstAttribute="centerY" secondItem="Fby-aa-OmF" secondAttribute="centerY" id="AfN-Gg-Mol"/>
                             <constraint firstItem="SDI-nN-5xw" firstAttribute="leading" secondItem="lbf-jZ-Z5v" secondAttribute="trailing" constant="10" id="BsW-RV-mpE"/>
                             <constraint firstItem="sVU-QZ-5Ym" firstAttribute="centerY" secondItem="lbf-jZ-Z5v" secondAttribute="centerY" id="CRQ-rl-qfA"/>
@@ -98,6 +107,8 @@
                             <constraint firstItem="lbf-jZ-Z5v" firstAttribute="leading" secondItem="Fby-aa-OmF" secondAttribute="leading" constant="10" id="j9B-jD-zSH"/>
                             <constraint firstItem="p7f-qy-4DR" firstAttribute="leading" secondItem="SDI-nN-5xw" secondAttribute="trailing" constant="20" id="sBs-wX-Sdr"/>
                             <constraint firstItem="p7f-qy-4DR" firstAttribute="trailing" secondItem="sVU-QZ-5Ym" secondAttribute="trailing" id="sZl-14-qJZ"/>
+                            <constraint firstItem="kW3-qL-3na" firstAttribute="leading" secondItem="Fby-aa-OmF" secondAttribute="leading" id="vZZ-8N-9Bb"/>
+                            <constraint firstItem="kW3-qL-3na" firstAttribute="trailing" secondItem="sVU-QZ-5Ym" secondAttribute="leading" id="wvX-ML-3uU"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -120,7 +131,7 @@
     </objects>
     <designables>
         <designable name="sVU-QZ-5Ym">
-            <size key="intrinsicContentSize" width="67" height="33"/>
+            <size key="intrinsicContentSize" width="42" height="25"/>
         </designable>
     </designables>
     <resources>

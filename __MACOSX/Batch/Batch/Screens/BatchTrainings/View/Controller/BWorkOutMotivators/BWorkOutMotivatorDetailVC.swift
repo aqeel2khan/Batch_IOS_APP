@@ -50,7 +50,7 @@ class BWorkOutMotivatorDetailVC: UIViewController {
         self.registerCollectionTblView()
         self.addTags()
         
-        if isCommingFrom == "BWorkOutDetailVC" {
+        if isCommingFrom == "BWorkOutDetailVC" || isCommingFrom == "following"{
             self.callCoachDetailApi()
         }
         else {

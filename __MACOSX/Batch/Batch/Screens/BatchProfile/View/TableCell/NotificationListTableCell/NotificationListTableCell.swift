@@ -12,6 +12,6 @@ class NotificationListTableCell: UITableViewCell {
        
     override func awakeFromNib() {
         super.awakeFromNib()
-        lblTitle.font = FontSize.mediumSize18
+        lblTitle.font = FontSize.mediumSize14
     }
 }

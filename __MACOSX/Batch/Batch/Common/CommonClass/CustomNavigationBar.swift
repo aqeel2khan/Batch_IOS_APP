@@ -103,12 +103,22 @@ class CustomNavigationBar: UIView {
                 let vc = BUserProfileVC.instantiate(fromAppStoryboard: .batchAccount)
                 vc.modalPresentationStyle = .overFullScreen
                 vc.modalTransitionStyle = .coverVertical
+                vc.callBackToUpdateNavigation = {
+                    DispatchQueue.main.async{
+                        self.xibSetup()
+                    }
+                }
                 let controller = (self.superview)?.next as! UIViewController
                 controller.present(vc, animated: true)
             }else{
                 let vc = BLogInVC.instantiate(fromAppStoryboard: .batchLogInSignUp)
                 vc.modalPresentationStyle = .overFullScreen
                 vc.modalTransitionStyle = .coverVertical
+                vc.CallBackToUpdateProfile = {
+                    DispatchQueue.main.async{
+                        self.xibSetup()
+                    }
+                }
                 let controller = (self.superview)?.next as! UIViewController
                 controller.present(vc, animated: true)
             }

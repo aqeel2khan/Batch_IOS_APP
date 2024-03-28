@@ -26,7 +26,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fby-aa-OmF">
                         <rect key="frame" x="5" y="5" width="340" height="100"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lower-Body burn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERb-KS-iCy" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lower-Body burn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERb-KS-iCy" customClass="BatchLabelMedium14Black" customModule="Batch" customModuleProvider="target">
                                 <rect key="frame" x="10" y="43" width="261" height="14"/>
                                 <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="11"/>
                                 <nil key="textColor"/>

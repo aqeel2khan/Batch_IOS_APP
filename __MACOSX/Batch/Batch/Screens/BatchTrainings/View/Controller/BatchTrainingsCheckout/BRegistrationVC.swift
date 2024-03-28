@@ -125,6 +125,7 @@ class BRegistrationVC: UIViewController {
                     let getToken = Batch_UserDefaults.value(forKey: UserDefaultKey.TOKEN)
                     print(getToken)
                     UserDefaultUtility.setUserLoggedIn(true)
+                    UserDefaultUtility.saveUserId(userId: response.data?.id ?? 0)
 
                     if self.isCommingFrom == "workoutbatches" {
                         let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
