@@ -84,7 +84,9 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             cell.priceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + "\(self.mealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
             cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay?.removeDecimalValue() ?? "0") " + BatchConstant.kcalSuffix
             cell.mealsLbl.text = "\(self.mealListData[indexPath.row].mealCount ?? 0) " + BatchConstant.meals
-            
+            let fileUrl = URL(string: BaseUrl.imageBaseUrl + (self.mealListData[indexPath.row].image ?? ""))
+            cell.backGroundImage.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
+
             if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
                 cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
             }
@@ -96,7 +98,9 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             cell.priceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + "\(self.topRatedMealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
             cell.kclLbl.text = "\(self.topRatedMealListData[indexPath.row].avgCalPerDay?.removeDecimalValue() ?? "0") " + BatchConstant.kcalSuffix
             cell.mealsLbl.text = "\(self.topRatedMealListData[indexPath.row].mealCount ?? 0) " + BatchConstant.meals
-            
+            let fileUrl = URL(string: BaseUrl.imageBaseUrl + (self.topRatedMealListData[indexPath.row].image ?? ""))
+            cell.backGroundImage.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
+
             if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
                 cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
             }
