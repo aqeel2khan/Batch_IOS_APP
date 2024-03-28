@@ -45,6 +45,10 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             cell.courseLevelTypeLbl.setTitle("\(info.courseLevel?.levelName ?? "")", for: .normal)
             cell.workOutTypeBtn.setTitle("\(info.workoutType?[0].workoutdetail?.workoutType ?? "")", for: .normal)
             cell.coachNameLbl.text = info.coachDetail?.name ?? ""
+            
+            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+            }
             return cell
         }
         else if collectionView == motivatorsCollView {
@@ -68,6 +72,10 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             let fileUrl = URL(string: BaseUrl.imageBaseUrl + (data.profilePhotoPath ?? ""))
             cell.imageMotivatorUser.cornerRadius = 75
             cell.imageMotivatorUser.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Avatar2" ) )
+            
+            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+            }
             return cell
         }
         else if collectionView == mealBatchCollView {
@@ -76,6 +84,10 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             cell.priceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + "\(self.mealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
             cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay?.removeDecimalValue() ?? "0") " + BatchConstant.kcalSuffix
             cell.mealsLbl.text = "\(self.mealListData[indexPath.row].mealCount ?? 0) " + BatchConstant.meals
+            
+            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+            }
             return cell
         }
         else if collectionView == topRatedMealCollView {
@@ -84,6 +96,10 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             cell.priceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + "\(self.topRatedMealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
             cell.kclLbl.text = "\(self.topRatedMealListData[indexPath.row].avgCalPerDay?.removeDecimalValue() ?? "0") " + BatchConstant.kcalSuffix
             cell.mealsLbl.text = "\(self.topRatedMealListData[indexPath.row].mealCount ?? 0) " + BatchConstant.meals
+            
+            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+            }
             return cell
         }
         return UICollectionViewCell()

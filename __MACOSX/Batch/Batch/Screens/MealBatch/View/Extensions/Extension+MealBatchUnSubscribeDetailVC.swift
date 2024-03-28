@@ -33,11 +33,19 @@ extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionVie
             let cell = collectionView.dequeue(BatchTrainingDetailCollCell.self, indexPath)
             cell.imgWorkOut.image = tagIconArray[indexPath.row]
             cell.lblWorkoutName.text = tagTitleArray[indexPath.row]
+            
+            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+            }
             return cell
         }
         else if collectionView.tag == 702 {
             let cell = collectionView.dequeue(BMealCategoryCollCell.self, indexPath)
             cell.categoryTitleLbl.text = mealCategoryArr[indexPath.item].categoryName
+            
+            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+            }
             return cell
         }
         else if collectionView.tag == 703 {
@@ -50,6 +58,10 @@ extension MealBatchUnSubscribeDetailVC: UICollectionViewDelegate,UICollectionVie
             cell.kclLbl.attributedText = attributedString
             let fileUrl = URL(string: BaseUrl.imageBaseUrl + (self.dishesList[indexPath.item].dishImage ?? ""))
             cell.imgView.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
+            
+            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+            }
             return cell
         }
         return UICollectionViewCell()

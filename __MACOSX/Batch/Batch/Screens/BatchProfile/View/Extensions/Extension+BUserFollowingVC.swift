@@ -45,5 +45,13 @@ extension BUserFollowingVC: UITableViewDelegate,UITableViewDataSource {
 //            })
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = BWorkOutMotivatorDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        vc.isCommingFrom = "FreshCall"
+        vc.coachIdStr = "\(followingData?.data?[indexPath.row].motivator_detail?.id ?? 0)"
+        self.present(vc, animated: true)
+    }
     
 }

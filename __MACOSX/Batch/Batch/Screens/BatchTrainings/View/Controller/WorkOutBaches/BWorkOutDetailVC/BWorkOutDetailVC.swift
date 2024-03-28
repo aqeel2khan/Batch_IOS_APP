@@ -223,7 +223,7 @@ class BWorkOutDetailVC: UIViewController {
         let vc = BWorkOutMotivatorDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .coverVertical
-        vc.isCommingFrom = "BWorkOutDetailVC"
+        vc.isCommingFrom = "FreshCall"
         vc.coachIdStr = "\(coachIdValue ?? 0)"
         self.present(vc, animated: true)
     }
