@@ -479,16 +479,16 @@
     </scenes>
     <designables>
         <designable name="4FV-cO-ZpN">
-            <size key="intrinsicContentSize" width="66" height="33"/>
+            <size key="intrinsicContentSize" width="66" height="32"/>
         </designable>
         <designable name="8mC-lo-zqr">
-            <size key="intrinsicContentSize" width="66" height="33"/>
+            <size key="intrinsicContentSize" width="66" height="32"/>
         </designable>
         <designable name="D26-7e-1bi">
-            <size key="intrinsicContentSize" width="66" height="33"/>
+            <size key="intrinsicContentSize" width="66" height="32"/>
         </designable>
         <designable name="X7c-hy-iTA">
-            <size key="intrinsicContentSize" width="66" height="33"/>
+            <size key="intrinsicContentSize" width="66" height="32"/>
         </designable>
     </designables>
     <resources>
