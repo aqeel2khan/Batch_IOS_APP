@@ -26,6 +26,17 @@ extension BUserFollowingVC: UITableViewDelegate,UITableViewDataSource {
             cell.followingprofileImage.image = UIImage(named: "image2")
         }
         
+        cell.callBackToMotivatorDetail = {
+            DispatchQueue.main.async{
+                    let vc = BWorkOutMotivatorDetailVC.instantiate(fromAppStoryboard: .batchTrainings)
+                    vc.modalPresentationStyle = .overFullScreen
+                    vc.modalTransitionStyle = .coverVertical
+                    vc.isCommingFrom = "following"
+                    vc.coachIdStr = "\(self.followingData?.data?[indexPath.row].motivator_detail?.id ?? 0)"
+                    self.present(vc, animated: true)
+            }
+        }
+        
         cell.callBackTOUnfollow = { tag in
             self.unfollowCoach(coachId: self.followingData?.data?[indexPath.row].coach_id ?? 0)
         }

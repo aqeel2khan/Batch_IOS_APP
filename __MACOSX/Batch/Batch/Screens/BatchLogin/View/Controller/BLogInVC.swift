@@ -66,7 +66,6 @@ class BLogInVC: UIViewController {
                         self.present(tabbarVC, animated: true, completion: nil)
                     }else{
                         self.dismiss(animated: true) {
-                            self.CallBackToUpdateProfile?()
                             if self.isCommingFrom == "workoutbatches" {
                                 let vc = BCheckoutVC.instantiate(fromAppStoryboard: .batchTrainingsCheckout)
                                 vc.modalPresentationStyle = .overFullScreen
@@ -74,11 +73,13 @@ class BLogInVC: UIViewController {
                                 vc.promotionPriceValue = 0
                                 vc.selectedSubscriptionInfo = [self.selectedSubscriptionInfo[0]]
                                 vc.isCommingFrom = self.isCommingFrom
+                                self.CallBackToUpdateProfile?()
                                 self.present(vc, animated: true)
                             } else if self.isCommingFrom == "MealBatchSubscribe" {
                                 let vc = MealPlanCheckout.instantiate(fromAppStoryboard: .batchMealPlanCheckout)
                                 vc.isCommingFrom = "MealBatchSubscribe"
                                 vc.mealData = self.mealData
+                                self.CallBackToUpdateProfile?()
                                 vc.modalPresentationStyle = .overFullScreen
                                 vc.modalTransitionStyle = .coverVertical
                                 self.present(vc, animated: true)

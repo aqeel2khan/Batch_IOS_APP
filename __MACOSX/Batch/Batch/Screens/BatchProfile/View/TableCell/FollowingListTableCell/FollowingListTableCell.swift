@@ -15,7 +15,7 @@ class FollowingListTableCell: UITableViewCell {
     @IBOutlet weak var lblDetails: UILabel!
     
     var callBackTOUnfollow:((Int)->())?
-   
+    var callBackToMotivatorDetail:(()->())?
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -25,6 +25,9 @@ class FollowingListTableCell: UITableViewCell {
     
     @IBAction func unfollowBtnTapped(_ sender: UIButton) {
         callBackTOUnfollow?(sender.tag)
+    }
+    @IBAction func navigateTOMotivatorDetail(_ sender: UIButton) {
+        callBackToMotivatorDetail?() 
     }
     
 }
