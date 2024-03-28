@@ -38,36 +38,15 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
                     let percentage = calculatePercentage(startDate: startDate, endDate: endDate)
                     cell.progressView.progress = percentage
                 }
+                
+                let fileUrl = URL(string: BaseUrl.imageBaseUrl + (self.subscribedMealListData[indexPath.row].image ?? ""))
+                cell.imageBackGrd.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
+                if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+                   // cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+                }
             }
             return cell
         }
-
-//        if collectionView == mealBatchCollView {
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealBatchDashboardCollectionCell", for: indexPath)  as! MealBatchDashboardCollectionCell
-//            if self.subscribedMealListData.count > 0 {
-//
-//                cell.titleLbl.text = self.subscribedMealListData[indexPath.row].name
-//                let attributedPriceString = NSAttributedString.attributedStringForPrice(prefix: BatchConstant.fromPrefix, value: " \(CURRENCY) \(self.subscribedMealListData[indexPath.row].price ?? "")", prefixFont: UIFont(name:"Outfit-Medium",size:10)!, valueFont: UIFont(name:"Outfit-Medium",size:18)!)
-//                cell.priceLbl.attributedText = attributedPriceString
-//
-//                let original1String = "\(self.subscribedMealListData[indexPath.row].avgCalPerDay ?? "") \(BatchConstant.kcalSuffix)"
-//                let keyword1 = BatchConstant.kcalSuffix
-//                let attributedString = NSAttributedString.attributedStringWithDifferentFonts(for: original1String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword1)
-//                cell.kclLbl.attributedText = attributedString
-//                cell.mealsLbl.text = "\(self.subscribedMealListData[indexPath.row].mealCount ?? 0) \(BatchConstant.meals)"
-//
-//                let original2String = "\(self.subscribedMealListData[indexPath.row].mealCount ?? 0) \(BatchConstant.meals)"
-//                let keyword2 = BatchConstant.meals
-//                let attributedString1 = NSAttributedString.attributedStringWithDifferentFonts(for: original2String, prefixFont: UIFont(name:"Outfit-Medium",size:16)!, suffixFont: UIFont(name:"Outfit-Medium",size:12)!, keyword: keyword2)
-//                cell.mealsLbl.attributedText = attributedString1
-//
-//                if let startDate = createDate(from: self.subscribedMealListData[indexPath.item].startDate), let endDate = createDate(from: self.subscribedMealListData[indexPath.item].endDate) {
-//                    let percentage = calculatePercentage(startDate: startDate, endDate: endDate)
-//                    cell.progressView.progress = percentage
-//                }
-//                return cell
-//            }
-//        }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WorkoutBatchDashboardCollectionCell", for: indexPath)  as! WorkoutBatchDashboardCollectionCell
             
@@ -84,6 +63,10 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
                 if let startDate = createCourseDate(from: self.courseList[indexPath.item].startDate ?? ""), let endDate = createCourseDate(from: self.courseList[indexPath.item].endDate ?? "") {
                     let percentage = calculatePercentage(startDate: startDate, endDate: endDate)
                     cell.progressView.progress = percentage
+                }
+                
+                if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+                  //  cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
                 }
             }
             return cell

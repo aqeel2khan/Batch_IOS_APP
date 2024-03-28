@@ -107,8 +107,14 @@ class BatchDashboardVC: UIViewController, AxisValueFormatter {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
        
+
+        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+           
+            //            mealBatchCollView.semanticContentAttribute = .forceRightToLeft
+//            workoutBatchCollView.semanticContentAttribute = .forceRightToLeft
+        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -778,3 +784,9 @@ extension BatchDashboardVC: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
+extension UICollectionViewFlowLayout {
+
+    open override var flipsHorizontallyInOppositeLayoutDirection: Bool {
+        return true
+    }
+}

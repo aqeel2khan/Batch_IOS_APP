@@ -80,6 +80,7 @@ extension BWorkOutVC : UICollectionViewDelegate,UICollectionViewDataSource {
             let fileUrl = URL(string: BaseUrl.imageBaseUrl + (data.profilePhotoPath ?? ""))
             cell.imageMotivatorUser.cornerRadius = 75
             cell.imageMotivatorUser.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Avatar2" ) )
+            
             return cell
         }
     }

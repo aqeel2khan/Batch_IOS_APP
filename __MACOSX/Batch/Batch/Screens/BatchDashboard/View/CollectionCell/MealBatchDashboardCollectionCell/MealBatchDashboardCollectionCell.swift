@@ -15,6 +15,7 @@ class MealBatchDashboardCollectionCell: UICollectionViewCell {
     @IBOutlet weak var daysLbl: UILabel!
     @IBOutlet weak var descLbl: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         /*

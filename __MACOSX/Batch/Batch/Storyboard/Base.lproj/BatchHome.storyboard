@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="110" width="393" height="2027"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vj9-dY-w3o" customClass="BatchLabelMedium18DarkGray" customModule="Batch" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="10.000000000000002" width="353" height="21.666666666666671"/>
+                                        <rect key="frame" x="20" y="10.000000000000002" width="77.666666666666671" height="21.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -432,7 +432,6 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="Hs5-AD-4l6" firstAttribute="leading" secondItem="tzp-so-WM4" secondAttribute="leading" id="3RK-ll-E5P"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vj9-dY-w3o" secondAttribute="trailing" constant="20" id="CqC-Ss-Izi"/>
                                     <constraint firstItem="Vj9-dY-w3o" firstAttribute="top" secondItem="tzp-so-WM4" secondAttribute="top" constant="10" id="Edv-pC-z5n"/>
                                     <constraint firstAttribute="trailing" secondItem="Hs5-AD-4l6" secondAttribute="trailing" id="ZJn-tY-Men"/>
                                     <constraint firstItem="Vj9-dY-w3o" firstAttribute="leading" secondItem="tzp-so-WM4" secondAttribute="leading" constant="20" id="feH-c0-J8U"/>
@@ -480,16 +479,16 @@
     </scenes>
     <designables>
         <designable name="4FV-cO-ZpN">
-            <size key="intrinsicContentSize" width="66" height="32"/>
+            <size key="intrinsicContentSize" width="66" height="33"/>
         </designable>
         <designable name="8mC-lo-zqr">
-            <size key="intrinsicContentSize" width="66" height="32"/>
+            <size key="intrinsicContentSize" width="66" height="33"/>
         </designable>
         <designable name="D26-7e-1bi">
-            <size key="intrinsicContentSize" width="66" height="32"/>
+            <size key="intrinsicContentSize" width="66" height="33"/>
         </designable>
         <designable name="X7c-hy-iTA">
-            <size key="intrinsicContentSize" width="66" height="32"/>
+            <size key="intrinsicContentSize" width="66" height="33"/>
         </designable>
     </designables>
     <resources>

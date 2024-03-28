@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,13 +33,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="298" height="25"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Batch Meal Plan" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEB-Wy-7cu" customClass="BatchLabelTitleWhite" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="208.66666666666666" height="25"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="131.66666666666666" height="25"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oq-a1-e4z" customClass="BatchLabelRegularWhite" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="168.66666666666663" y="0.0" width="129.33333333333337" height="25"/>
+                                                        <rect key="frame" x="213" y="0.0" width="85" height="25"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="85" id="5Fd-TM-Dq2"/>
+                                                        </constraints>
                                                         <attributedString key="attributedText">
                                                             <fragment content="from">
                                                                 <attributes>
@@ -66,10 +69,9 @@
                                                     <constraint firstItem="qEB-Wy-7cu" firstAttribute="top" secondItem="0yo-HO-mWE" secondAttribute="top" id="Gss-KQ-j10"/>
                                                     <constraint firstAttribute="height" constant="25" id="Sfs-WG-efT"/>
                                                     <constraint firstAttribute="bottom" secondItem="2Oq-a1-e4z" secondAttribute="bottom" id="Upz-aq-eHE"/>
-                                                    <constraint firstItem="2Oq-a1-e4z" firstAttribute="width" secondItem="0yo-HO-mWE" secondAttribute="width" multiplier="0.3" constant="40" id="WnA-WO-FJv"/>
                                                     <constraint firstItem="2Oq-a1-e4z" firstAttribute="top" secondItem="0yo-HO-mWE" secondAttribute="top" id="iwv-fO-Zhn"/>
-                                                    <constraint firstItem="qEB-Wy-7cu" firstAttribute="width" secondItem="0yo-HO-mWE" secondAttribute="width" multiplier="0.7" id="slp-YM-G0V"/>
                                                     <constraint firstAttribute="trailing" secondItem="2Oq-a1-e4z" secondAttribute="trailing" id="xhf-i8-pgq"/>
+                                                    <constraint firstItem="2Oq-a1-e4z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qEB-Wy-7cu" secondAttribute="trailing" constant="10" id="xpu-xP-SAI"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="p3g-Ra-bXM">
@@ -180,6 +182,7 @@
             </constraints>
             <size key="customSize" width="328" height="254"/>
             <connections>
+                <outlet property="backGroundImage" destination="Sou-cl-SQl" id="3t6-dd-PPq"/>
                 <outlet property="kclLbl" destination="IP3-94-G1N" id="lt8-Ov-RPk"/>
                 <outlet property="mealsLbl" destination="qEB-Wy-7cu" id="s3H-D3-aMB"/>
                 <outlet property="priceLbl" destination="2Oq-a1-e4z" id="4G1-pg-Wqe"/>
