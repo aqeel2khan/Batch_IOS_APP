@@ -64,9 +64,9 @@ extension TrainingFilterVC: UICollectionViewDelegate,UICollectionViewDataSource 
             
         }
         
-        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
-            cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        }
+//        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+//            cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+//        }
         return cell
     }
     

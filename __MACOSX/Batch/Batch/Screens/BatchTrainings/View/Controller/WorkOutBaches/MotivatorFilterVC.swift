@@ -42,13 +42,13 @@ class MotivatorFilterVC: UIViewController {
         centerLayout.estimatedItemSize = CGSize(width: 140, height: 40)
         collectionView2.collectionViewLayout = centerLayout
         
-        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
-            workOutCollectionView.semanticContentAttribute = .forceLeftToRight
-            workOutCollectionView.transform = CGAffineTransform(scaleX: -1, y: 1)
-            
-            collectionView2.semanticContentAttribute = .forceLeftToRight
-            collectionView2.transform = CGAffineTransform(scaleX: -1, y: 1)
-        }
+//        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+//            workOutCollectionView.semanticContentAttribute = .forceLeftToRight
+//            workOutCollectionView.transform = CGAffineTransform(scaleX: -1, y: 1)
+//            
+//            collectionView2.semanticContentAttribute = .forceLeftToRight
+//            collectionView2.transform = CGAffineTransform(scaleX: -1, y: 1)
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
