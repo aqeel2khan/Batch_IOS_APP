@@ -182,6 +182,7 @@
             </constraints>
             <size key="customSize" width="328" height="254"/>
             <connections>
+                <outlet property="backGroundImage" destination="Sou-cl-SQl" id="3t6-dd-PPq"/>
                 <outlet property="kclLbl" destination="IP3-94-G1N" id="lt8-Ov-RPk"/>
                 <outlet property="mealsLbl" destination="qEB-Wy-7cu" id="s3H-D3-aMB"/>
                 <outlet property="priceLbl" destination="2Oq-a1-e4z" id="4G1-pg-Wqe"/>

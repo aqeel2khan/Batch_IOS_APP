@@ -12,6 +12,7 @@ class MealBatchDetailVC: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var customSecondNavigationBar: CustomSecondNavigationBar!
+    @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var mealPriceLbl: UILabel!
     @IBOutlet weak var mealTitleLbl: UILabel!
     @IBOutlet weak var mealDescriptionLbl: UILabel!
@@ -54,6 +55,9 @@ class MealBatchDetailVC: UIViewController {
         self.mealDescriptionLbl.font = FontSize.regularSize14
         self.durationLbl.text = (mealData.duration ?? "") + " weeks"
         self.durationLbl.font = FontSize.mediumSize12
+        let fileUrl = URL(string: BaseUrl.imageBaseUrl + (mealData.image ?? ""))
+        self.imgView.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
+     
         self.mealMsgBackView.isHidden = true
         self.mealTblView.addObserver(self, forKeyPath: BatchConstant.contentSize, options: .new, context: nil)
         self.setUpTagCollView()

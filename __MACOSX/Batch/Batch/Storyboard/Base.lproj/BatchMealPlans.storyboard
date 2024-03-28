@@ -564,6 +564,7 @@
                         <outlet property="customSecondNavigationBar" destination="g6f-Ts-kcP" id="zHK-tG-Yii"/>
                         <outlet property="durationLbl" destination="I27-62-dnS" id="zVz-Ej-pdr"/>
                         <outlet property="endDateLabel" destination="1mB-s2-zOf" id="lYT-MC-9Nu"/>
+                        <outlet property="imgView" destination="yjT-Zt-plp" id="etC-h9-KJy"/>
                         <outlet property="mealDescriptionLbl" destination="FM9-UH-Jzt" id="45c-8i-JN0"/>
                         <outlet property="mealMsgBackView" destination="eVt-Y3-y8e" id="oP0-er-7Ih"/>
                         <outlet property="mealPriceLbl" destination="fvA-BJ-ele" id="58N-ta-Ooo"/>
@@ -854,7 +855,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected meals" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqJ-v8-3OO" customClass="BatchSemiboldBlack" customModule="Batch" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="18" width="106.33333333333333" height="20.333333333333329"/>
+                                                                <rect key="frame" x="0.0" y="18.666666666666629" width="109.66666666666667" height="18.666666666666671"/>
                                                                 <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1093,16 +1094,16 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3CF-0u-zLp">
-                                                                        <rect key="frame" x="10" y="10" width="71.333333333333329" height="30"/>
+                                                                        <rect key="frame" x="10" y="10" width="68.666666666666671" height="30"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hs3-wp-GyK" customClass="BatchMedium18Black" customModule="Batch" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="71.333333333333329" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="30"/>
                                                                                 <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="18"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•••• 2930" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbo-bz-Skb" customClass="BatchLabelSubTitleBlack">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="71.333333333333329" height="0.0"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="0.0"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <color key="textColor" name="AppLabelDarkGrayColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1304,13 +1305,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grand total" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSq-aC-i3W" customClass="BatchSemiboldBlack" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="18" width="82.666666666666671" height="20.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="18.666666666666629" width="80.333333333333329" height="18.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$35" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erm-0e-AaA" customClass="BatchLabelTitleBlack" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="312.66666666666669" y="12.999999999999998" width="40.333333333333314" height="30.333333333333329"/>
+                                                        <rect key="frame" x="312.66666666666669" y="14" width="40.333333333333314" height="28"/>
                                                         <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2104,28 +2105,28 @@
     </scenes>
     <designables>
         <designable name="1gZ-JN-vjf">
-            <size key="intrinsicContentSize" width="149" height="32"/>
+            <size key="intrinsicContentSize" width="153" height="33"/>
         </designable>
         <designable name="4fi-Q0-aNy">
-            <size key="intrinsicContentSize" width="142" height="33"/>
+            <size key="intrinsicContentSize" width="152" height="33"/>
         </designable>
         <designable name="79b-xc-eJc">
-            <size key="intrinsicContentSize" width="122" height="33"/>
+            <size key="intrinsicContentSize" width="130" height="33"/>
         </designable>
         <designable name="Efb-WV-FSH">
-            <size key="intrinsicContentSize" width="170" height="32"/>
+            <size key="intrinsicContentSize" width="175" height="33"/>
         </designable>
         <designable name="GjJ-N7-TgT">
-            <size key="intrinsicContentSize" width="51" height="31"/>
+            <size key="intrinsicContentSize" width="54" height="33"/>
         </designable>
         <designable name="T8y-Pw-KYw">
             <size key="intrinsicContentSize" width="224" height="44"/>
         </designable>
         <designable name="pNO-ro-W95">
-            <size key="intrinsicContentSize" width="43" height="32"/>
+            <size key="intrinsicContentSize" width="44" height="33"/>
         </designable>
         <designable name="zHO-SI-P4f">
-            <size key="intrinsicContentSize" width="35" height="32"/>
+            <size key="intrinsicContentSize" width="36" height="33"/>
         </designable>
     </designables>
     <resources>

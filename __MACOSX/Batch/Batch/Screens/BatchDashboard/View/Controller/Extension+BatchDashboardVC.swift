@@ -38,6 +38,9 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
                     let percentage = calculatePercentage(startDate: startDate, endDate: endDate)
                     cell.progressView.progress = percentage
                 }
+                
+                let fileUrl = URL(string: BaseUrl.imageBaseUrl + (self.subscribedMealListData[indexPath.row].image ?? ""))
+                cell.imageBackGrd.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
             }
             return cell
         }
