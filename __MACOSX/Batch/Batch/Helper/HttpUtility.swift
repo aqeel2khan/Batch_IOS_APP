@@ -240,7 +240,7 @@ struct HttpUtility {
         urlRequest.addValue(languageCode, forHTTPHeaderField: "Accept-Language")
         
     // sending empty token for course details api success for now, later we will remove if condtion
-        if requestUrl.absoluteURL.absoluteString.contains("/course/detail/") {
+        if requestUrl.absoluteURL.absoluteString.contains("/course/detail/") || requestUrl.absoluteURL.absoluteString.contains("/course/list") {
             urlRequest.setValue("", forHTTPHeaderField: "Authorization")
         } else {
             if appToken != "" {

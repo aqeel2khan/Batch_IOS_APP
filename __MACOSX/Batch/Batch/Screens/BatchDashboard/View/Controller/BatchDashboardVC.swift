@@ -452,10 +452,17 @@ extension BatchDashboardVC {
             if response.status == true, response.data?.data?.count ?? 0 >= 0 {
                 self.subscribedMealListData.removeAll()
                 self.subscribedMealListData = response.data?.data ?? []
+                
                 DispatchQueue.main.async {
                     hideLoading()
-                    self.mealBatchCollView.isHidden = false
-                    self.mealCardView.isHidden = true
+                    if self.subscribedMealListData.count > 0 {
+                        self.mealCardView.isHidden = true
+                        self.mealBatchCollView.isHidden = false
+                    } else {
+                        self.mealCardView.isHidden = false
+                        self.mealBatchCollView.isHidden = true
+                    }
+                                        
                     self.mealBatchCollView.reloadData()
                     if response.data?.recordsTotal ?? 0 > 0  {
                         self.getMacrosDetail()

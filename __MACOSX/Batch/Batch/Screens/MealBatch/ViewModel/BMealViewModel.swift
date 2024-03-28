@@ -145,4 +145,22 @@ struct BMealViewModel {
             onError(error)
         }
     }
+    
+    func getStatesList(request: StateRequest, onSuccess:@escaping(StateResponse) -> Void, onError:@escaping(BatchError) -> Void) {
+        let bMealResource = BMealResource()
+        bMealResource.getStateList(request: request) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
+    
+    func getCityList(request: CityRequest, onSuccess:@escaping(CityResponse) -> Void, onError:@escaping(BatchError) -> Void) {
+        let bMealResource = BMealResource()
+        bMealResource.getCityList(request: request) { (response) in
+            onSuccess(response)
+        } onError: { (error) in
+            onError(error)
+        }
+    }
 }

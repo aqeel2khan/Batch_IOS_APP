@@ -98,6 +98,7 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
             } else {
                 screenWidth = mealBatchCollView.frame.width - 20
             }
+            return CGSize(width: screenWidth, height: 248)
         } else {
             if courseList.count == 1 {
                 screenWidth = workoutBatchCollView.frame.width
@@ -105,7 +106,7 @@ extension BatchDashboardVC: UICollectionViewDelegate,UICollectionViewDataSource 
                 screenWidth = workoutBatchCollView.frame.width - 20
             }
         }
-        return CGSize(width: screenWidth, height: 244)
+        return CGSize(width: screenWidth, height: 250)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

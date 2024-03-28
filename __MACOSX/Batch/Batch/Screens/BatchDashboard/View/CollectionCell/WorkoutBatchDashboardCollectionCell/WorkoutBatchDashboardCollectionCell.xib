@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,13 +38,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="298" height="25"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight Loss" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEB-Wy-7cu" customClass="BatchLabelTitleWhite" customModule="Batch" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="208.66666666666666" height="25"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="100.66666666666667" height="25"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oq-a1-e4z" customClass="BatchLabelRegularWhite">
-                                                        <rect key="frame" x="168.66666666666663" y="0.0" width="129.33333333333337" height="25"/>
+                                                        <rect key="frame" x="232.66666666666666" y="0.0" width="65.333333333333343" height="25"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="4/14 ">
                                                                 <attributes>
@@ -71,17 +71,16 @@
                                                     <constraint firstItem="qEB-Wy-7cu" firstAttribute="top" secondItem="0yo-HO-mWE" secondAttribute="top" id="Gss-KQ-j10"/>
                                                     <constraint firstAttribute="height" constant="25" id="Sfs-WG-efT"/>
                                                     <constraint firstAttribute="bottom" secondItem="2Oq-a1-e4z" secondAttribute="bottom" id="Upz-aq-eHE"/>
-                                                    <constraint firstItem="2Oq-a1-e4z" firstAttribute="width" secondItem="0yo-HO-mWE" secondAttribute="width" multiplier="0.3" constant="40" id="WnA-WO-FJv"/>
                                                     <constraint firstItem="2Oq-a1-e4z" firstAttribute="top" secondItem="0yo-HO-mWE" secondAttribute="top" id="iwv-fO-Zhn"/>
-                                                    <constraint firstItem="qEB-Wy-7cu" firstAttribute="width" secondItem="0yo-HO-mWE" secondAttribute="width" multiplier="0.7" id="slp-YM-G0V"/>
+                                                    <constraint firstItem="2Oq-a1-e4z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qEB-Wy-7cu" secondAttribute="trailing" constant="5" id="sOX-ny-RdM"/>
                                                     <constraint firstAttribute="trailing" secondItem="2Oq-a1-e4z" secondAttribute="trailing" id="xhf-i8-pgq"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cE5-oi-06q">
-                                                <rect key="frame" x="0.0" y="35" width="298" height="30"/>
+                                                <rect key="frame" x="0.0" y="35" width="210" height="30"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJP-sn-pUh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="144" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flash" translatesAutoresizingMaskIntoConstraints="NO" id="LfF-hy-MAU">
                                                                 <rect key="frame" x="5" y="5" width="20" height="20"/>
@@ -99,7 +98,7 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="120" id="UAK-5d-wPh"/>
+                                                            <constraint firstAttribute="width" constant="100" id="UAK-5d-wPh"/>
                                                             <constraint firstItem="LfF-hy-MAU" firstAttribute="leading" secondItem="JJP-sn-pUh" secondAttribute="leading" constant="5" id="YUz-cd-G69"/>
                                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="n3d-8E-V45" secondAttribute="trailing" constant="10" id="cZJ-tS-03i"/>
                                                             <constraint firstItem="n3d-8E-V45" firstAttribute="leading" secondItem="LfF-hy-MAU" secondAttribute="trailing" constant="4" id="duv-tN-1LK"/>
@@ -108,7 +107,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bn-2p-wsb">
-                                                        <rect key="frame" x="154" y="0.0" width="144" height="30"/>
+                                                        <rect key="frame" x="110" y="0.0" width="100" height="30"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock-white" translatesAutoresizingMaskIntoConstraints="NO" id="JtR-wD-Ddl">
                                                                 <rect key="frame" x="5" y="5" width="20" height="20"/>
@@ -152,7 +151,6 @@
                                             <constraint firstItem="cE5-oi-06q" firstAttribute="leading" secondItem="OW3-pX-Qza" secondAttribute="leading" id="Da9-Vn-U3L"/>
                                             <constraint firstAttribute="trailing" secondItem="0yo-HO-mWE" secondAttribute="trailing" id="Oef-YG-Jm7"/>
                                             <constraint firstItem="fB7-eQ-7Cn" firstAttribute="leading" secondItem="OW3-pX-Qza" secondAttribute="leading" id="fEE-UE-MoU"/>
-                                            <constraint firstAttribute="trailing" secondItem="cE5-oi-06q" secondAttribute="trailing" id="jJO-gB-8gx"/>
                                             <constraint firstAttribute="trailing" secondItem="fB7-eQ-7Cn" secondAttribute="trailing" id="l2G-Qk-4wx"/>
                                         </constraints>
                                     </stackView>

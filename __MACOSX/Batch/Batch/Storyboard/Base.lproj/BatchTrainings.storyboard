@@ -582,17 +582,17 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AkM-V2-USo">
-                                                                        <rect key="frame" x="233" y="10" width="120" height="40"/>
+                                                                        <rect key="frame" x="253" y="10" width="100" height="40"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendarblack" translatesAutoresizingMaskIntoConstraints="NO" id="mK6-kO-NUD">
-                                                                                <rect key="frame" x="10" y="10" width="20" height="20"/>
+                                                                                <rect key="frame" x="5" y="10" width="20" height="20"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="20" id="HFi-kv-dbM"/>
                                                                                     <constraint firstAttribute="width" constant="20" id="vcg-pu-XE2"/>
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 weeks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGI-bm-PE9" customClass="BatchLabelRegular16DarkGray" customModule="Batch" customModuleProvider="target">
-                                                                                <rect key="frame" x="30" y="0.0" width="90" height="40"/>
+                                                                                <rect key="frame" x="25" y="0.0" width="75" height="40"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -604,9 +604,9 @@
                                                                             <constraint firstItem="mK6-kO-NUD" firstAttribute="centerY" secondItem="AkM-V2-USo" secondAttribute="centerY" id="5Da-ij-Jih"/>
                                                                             <constraint firstItem="jGI-bm-PE9" firstAttribute="leading" secondItem="mK6-kO-NUD" secondAttribute="trailing" id="8dq-39-Ef6"/>
                                                                             <constraint firstAttribute="trailing" secondItem="jGI-bm-PE9" secondAttribute="trailing" id="Adq-Zk-EgJ"/>
-                                                                            <constraint firstItem="mK6-kO-NUD" firstAttribute="leading" secondItem="AkM-V2-USo" secondAttribute="leading" constant="10" id="Ij3-Zz-e25"/>
+                                                                            <constraint firstItem="mK6-kO-NUD" firstAttribute="leading" secondItem="AkM-V2-USo" secondAttribute="leading" constant="5" id="Ij3-Zz-e25"/>
                                                                             <constraint firstItem="jGI-bm-PE9" firstAttribute="top" secondItem="AkM-V2-USo" secondAttribute="top" id="Kaq-aH-YWo"/>
-                                                                            <constraint firstAttribute="width" constant="120" id="RQl-n7-d1K"/>
+                                                                            <constraint firstAttribute="width" constant="100" id="RQl-n7-d1K"/>
                                                                             <constraint firstAttribute="height" constant="40" id="uaO-6r-Tr8"/>
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
@@ -1657,7 +1657,7 @@
                                                         <color key="textColor" name="AppLabelBlackColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations on completing the Lower-Body Burn exercise! Keep up the great work and see you at your next workout!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIi-YK-qDc" customClass="BatchLabelSubTitleBlack">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations on completing the exercise! Keep up the great work and see you at your next workout!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIi-YK-qDc" customClass="BatchLabelSubTitleBlack">
                                                         <rect key="frame" x="0.0" y="58.333333333333371" width="353" height="57.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" name="AppLabelDarkGrayColor"/>
@@ -3377,46 +3377,46 @@
     </scenes>
     <designables>
         <designable name="DJA-bJ-AFD">
-            <size key="intrinsicContentSize" width="129" height="33"/>
+            <size key="intrinsicContentSize" width="128" height="29"/>
         </designable>
         <designable name="GFe-hQ-Sad">
-            <size key="intrinsicContentSize" width="124" height="33"/>
+            <size key="intrinsicContentSize" width="130" height="32"/>
         </designable>
         <designable name="LTw-wC-I7b">
-            <size key="intrinsicContentSize" width="92" height="33"/>
+            <size key="intrinsicContentSize" width="100" height="32"/>
         </designable>
         <designable name="Pwf-aV-rtb">
-            <size key="intrinsicContentSize" width="161" height="33"/>
+            <size key="intrinsicContentSize" width="171" height="32"/>
         </designable>
         <designable name="SgW-pb-ZK2">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="41" height="32"/>
         </designable>
         <designable name="Uf5-jF-pLk">
-            <size key="intrinsicContentSize" width="64" height="33"/>
+            <size key="intrinsicContentSize" width="68" height="32"/>
         </designable>
         <designable name="bO6-Up-lR6">
-            <size key="intrinsicContentSize" width="124" height="33"/>
+            <size key="intrinsicContentSize" width="130" height="32"/>
         </designable>
         <designable name="hLT-G8-eqH">
-            <size key="intrinsicContentSize" width="160" height="33"/>
+            <size key="intrinsicContentSize" width="170" height="32"/>
         </designable>
         <designable name="rDA-Xe-ypL">
-            <size key="intrinsicContentSize" width="68" height="33"/>
+            <size key="intrinsicContentSize" width="71" height="32"/>
         </designable>
         <designable name="rRC-Vk-tFJ">
-            <size key="intrinsicContentSize" width="92" height="33"/>
+            <size key="intrinsicContentSize" width="100" height="32"/>
         </designable>
         <designable name="ttp-kr-zeh">
-            <size key="intrinsicContentSize" width="64" height="33"/>
+            <size key="intrinsicContentSize" width="68" height="32"/>
         </designable>
         <designable name="uA6-xl-yIK">
-            <size key="intrinsicContentSize" width="49" height="33"/>
+            <size key="intrinsicContentSize" width="52" height="32"/>
         </designable>
         <designable name="wXf-0l-VvT">
-            <size key="intrinsicContentSize" width="46" height="33"/>
+            <size key="intrinsicContentSize" width="48" height="32"/>
         </designable>
         <designable name="zPv-oy-eFN">
-            <size key="intrinsicContentSize" width="40" height="33"/>
+            <size key="intrinsicContentSize" width="41" height="32"/>
         </designable>
     </designables>
     <resources>
@@ -3432,7 +3432,7 @@
         <image name="Tick" width="48.333332061767578" height="48"/>
         <image name="calendarblack" width="24" height="24"/>
         <image name="detail" width="375" height="308"/>
-        <image name="downArrow" width="24" height="24"/>
+        <image name="downArrow" width="11" height="5.3333334922790527"/>
         <image name="filter" width="36" height="36"/>
         <image name="info_icon" width="72" height="72"/>
         <image name="logo_icon_white" width="41.333332061767578" height="57"/>
@@ -3481,7 +3481,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

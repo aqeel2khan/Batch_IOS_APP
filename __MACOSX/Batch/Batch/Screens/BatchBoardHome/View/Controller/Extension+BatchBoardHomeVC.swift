@@ -74,7 +74,7 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealPlanCollectionCell", for: indexPath)  as! MealPlanCollectionCell
             cell.titleLbl.text = self.mealListData[indexPath.row].name
             cell.priceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + "\(self.mealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
-            cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay ?? "") " + BatchConstant.kcalSuffix
+            cell.kclLbl.text = "\(self.mealListData[indexPath.row].avgCalPerDay?.removeDecimalValue() ?? "0") " + BatchConstant.kcalSuffix
             cell.mealsLbl.text = "\(self.mealListData[indexPath.row].mealCount ?? 0) " + BatchConstant.meals
             return cell
         }
@@ -82,7 +82,7 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealPlanCollectionCell", for: indexPath)  as! MealPlanCollectionCell
             cell.titleLbl.text = self.topRatedMealListData[indexPath.row].name
             cell.priceLbl.text = BatchConstant.fromPrefix + " \(CURRENCY) " + "\(self.topRatedMealListData[indexPath.row].price?.removeDecimalValue() ?? "")"
-            cell.kclLbl.text = "\(self.topRatedMealListData[indexPath.row].avgCalPerDay ?? "") " + BatchConstant.kcalSuffix
+            cell.kclLbl.text = "\(self.topRatedMealListData[indexPath.row].avgCalPerDay?.removeDecimalValue() ?? "0") " + BatchConstant.kcalSuffix
             cell.mealsLbl.text = "\(self.topRatedMealListData[indexPath.row].mealCount ?? 0) " + BatchConstant.meals
             return cell
         }

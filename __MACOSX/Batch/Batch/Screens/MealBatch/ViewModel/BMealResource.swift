@@ -302,5 +302,41 @@ struct BMealResource {
             onError(error as! BatchError)
         }
     }
+    
+    // MARK: - Get  state and city list
+    func getStateList(request: StateRequest, onSuccess:@escaping(StateResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        do {
+            let requestBody = try JSONEncoder().encode(request)
+            let huRequest = HURequest(url: URL(string: API.stateList)!, method: .post, requestBody: requestBody)
+            HttpUtility.shared.request(huRequest: huRequest, isAuthorization: true, resultType: StateResponse.self) { (result) in
+                switch result{
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+        } catch let error {
+            onError(error as! BatchError)
+        }
+    }
+    
+    func getCityList(request: CityRequest, onSuccess:@escaping(CityResponse) -> Void, onError:@escaping(BatchError) -> Void){
+        do {
+            let requestBody = try JSONEncoder().encode(request)
+            let huRequest = HURequest(url: URL(string: API.cityList)!, method: .post, requestBody: requestBody)
+            HttpUtility.shared.request(huRequest: huRequest, isAuthorization: true, resultType: CityResponse.self) { (result) in
+                switch result{
+                case .success(let response):
+                    onSuccess(response!)
+                case .failure(let error):
+                    onError(error)
+                }
+            }
+        } catch let error {
+            onError(error as! BatchError)
+        }
+    }
+
 }
 

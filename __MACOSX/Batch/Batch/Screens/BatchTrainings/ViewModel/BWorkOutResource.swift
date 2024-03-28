@@ -266,7 +266,7 @@ struct BWorkOutResource {
         
         do {
             let requestBody = try JSONEncoder().encode(request)
-            let huRequest = HURequest(url: URL(string: API.motivatorCourseList)!, method: .post, requestBody: requestBody)
+            let huRequest = HURequest(url: URL(string: API.courseList)!, method: .post, requestBody: requestBody)
             
             HttpUtility.shared.request(huRequest: huRequest, isAuthorization: false, resultType: CourseResponse.self) { (result) in
                 switch result{
