@@ -49,19 +49,19 @@ class BatchBoardHomeVC: UIViewController {
             }
         }
         
-        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
-            woBatchCollView.semanticContentAttribute = .forceLeftToRight
-            woBatchCollView.transform = CGAffineTransform(scaleX: -1, y: 1)
-            
-            motivatorsCollView.semanticContentAttribute = .forceLeftToRight
-            motivatorsCollView.transform = CGAffineTransform(scaleX: -1, y: 1)
-            
-            mealBatchCollView.semanticContentAttribute = .forceLeftToRight
-            mealBatchCollView.transform = CGAffineTransform(scaleX: -1, y: 1)
-            
-            topRatedMealCollView.semanticContentAttribute = .forceLeftToRight
-            topRatedMealCollView.transform = CGAffineTransform(scaleX: -1, y: 1)
-        }
+//        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+//            woBatchCollView.semanticContentAttribute = .forceLeftToRight
+//            woBatchCollView.transform = CGAffineTransform(scaleX: -1, y: 1)
+//            
+//            motivatorsCollView.semanticContentAttribute = .forceLeftToRight
+//            motivatorsCollView.transform = CGAffineTransform(scaleX: -1, y: 1)
+//            
+//            mealBatchCollView.semanticContentAttribute = .forceLeftToRight
+//            mealBatchCollView.transform = CGAffineTransform(scaleX: -1, y: 1)
+//            
+//            topRatedMealCollView.semanticContentAttribute = .forceLeftToRight
+//            topRatedMealCollView.transform = CGAffineTransform(scaleX: -1, y: 1)
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

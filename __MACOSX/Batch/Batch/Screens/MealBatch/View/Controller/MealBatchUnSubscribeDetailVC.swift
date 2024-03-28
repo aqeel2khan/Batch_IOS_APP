@@ -53,13 +53,13 @@ class MealBatchUnSubscribeDetailVC: UIViewController {
         self.setUpTagCollView()
         self.getMealDetails()
         
-        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
-            tagCollView.semanticContentAttribute = .forceLeftToRight
-            tagCollView.transform = CGAffineTransform(scaleX: -1, y: 1)
-            
-            dishesCollView.semanticContentAttribute = .forceLeftToRight
-            dishesCollView.transform = CGAffineTransform(scaleX: -1, y: 1)
-        }
+//        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+//            tagCollView.semanticContentAttribute = .forceLeftToRight
+//            tagCollView.transform = CGAffineTransform(scaleX: -1, y: 1)
+//            
+//            dishesCollView.semanticContentAttribute = .forceLeftToRight
+//            dishesCollView.transform = CGAffineTransform(scaleX: -1, y: 1)
+//        }
     }
     
     func getDuration() -> String {

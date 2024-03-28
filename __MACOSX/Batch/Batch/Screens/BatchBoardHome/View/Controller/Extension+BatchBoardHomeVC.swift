@@ -46,9 +46,9 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             cell.workOutTypeBtn.setTitle("\(info.workoutType?[0].workoutdetail?.workoutType ?? "")", for: .normal)
             cell.coachNameLbl.text = info.coachDetail?.name ?? ""
             
-            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
-                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-            }
+//            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+//                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+//            }
             return cell
         }
         else if collectionView == motivatorsCollView {
@@ -73,9 +73,9 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             cell.imageMotivatorUser.cornerRadius = 75
             cell.imageMotivatorUser.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Avatar2" ) )
             
-            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
-                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-            }
+//            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+//                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+//            }
             return cell
         }
         else if collectionView == mealBatchCollView {
@@ -87,9 +87,9 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             let fileUrl = URL(string: BaseUrl.imageBaseUrl + (self.mealListData[indexPath.row].image ?? ""))
             cell.backGroundImage.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
 
-            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
-                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-            }
+//            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+//                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+//            }
             return cell
         }
         else if collectionView == topRatedMealCollView {
@@ -101,9 +101,9 @@ extension BatchBoardHomeVC : UICollectionViewDelegate,UICollectionViewDataSource
             let fileUrl = URL(string: BaseUrl.imageBaseUrl + (self.topRatedMealListData[indexPath.row].image ?? ""))
             cell.backGroundImage.sd_setImage(with: fileUrl , placeholderImage:UIImage(named: "Meal"))
 
-            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
-                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-            }
+//            if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+//                cell.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+//            }
             return cell
         }
         return UICollectionViewCell()
