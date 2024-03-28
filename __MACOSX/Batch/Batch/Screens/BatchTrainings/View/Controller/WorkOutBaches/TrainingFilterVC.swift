@@ -56,6 +56,17 @@ class TrainingFilterVC: UIViewController {
         
         //        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         //        mainView.addGestureRecognizer(tap)
+        
+        if UserDefaults.standard.value(forKey: USER_DEFAULTS_KEYS.APP_LANGUAGE_CODE) as? String  == ARABIC_LANGUAGE_CODE {
+            collectionView.semanticContentAttribute = .forceLeftToRight
+            collectionView.transform = CGAffineTransform(scaleX: -1, y: 1)
+            
+            collectionView2.semanticContentAttribute = .forceLeftToRight
+            collectionView2.transform = CGAffineTransform(scaleX: -1, y: 1)
+            
+            rightTagCollView.semanticContentAttribute = .forceLeftToRight
+            rightTagCollView.transform = CGAffineTransform(scaleX: -1, y: 1)
+        }
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
